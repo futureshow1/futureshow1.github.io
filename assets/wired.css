@@ -480,3 +480,12 @@ button.dl-btn,button.dl-ghost{width:100%;font-family:var(--mono)}
 .ntf__msg.err{display:block;color:#a34700;border-color:#a34700}
 .ntf[data-mode="notify"] .ntf--gate,.ntf[data-mode="notify"] .ntf--ask,.ntf[data-mode="gate"] .ntf--notify,.ntf[data-mode="gate"] .ntf--ask,.ntf[data-mode="ask"] .ntf--notify,.ntf[data-mode="ask"] .ntf--gate{display:none}
 @media(max-width:900px){.dl-wrap{padding:40px 20px 60px}.dl-card{grid-template-columns:1fr;padding:28px}.dl-shot{margin:-28px -28px 6px}.dl-aside{border-left:0;padding-left:0;border-top:1px solid var(--ink);padding-top:22px}.dl-row{grid-template-columns:1fr}}
+
+/* Stream jest teraz serwisem głównym — wyróżniamy go w pasku */
+.nav__links a.nav__stream{color:var(--red);font-weight:700}
+.nav__links a.nav__stream::after{background:var(--red)}
+
+/* numeracja kart jak w piśmie — na telefonie tylko zabiera miejsce */
+@media(max-width:900px){
+  .feat__num,.mini-card__num{display:none}
+}

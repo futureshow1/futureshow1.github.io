@@ -286,7 +286,7 @@ footer a{color:var(--dim)} footer a:hover{color:var(--ink)}
 <body>
 
 <nav id="nav">
-  <a class="logo" href="studio/">FUTURE<span>SHOW</span></a>
+  <a class="logo" href="./">FUTURE<span>SHOW</span></a>
   <div class="navlinks">
     <a href="studio/" data-i="nav_home"></a>
     <a href="#r-new" data-i="nav_new"></a>
@@ -975,6 +975,18 @@ function posterHTML(key){
   <div class="p-year" style="color:${p.pal.ink}">${p.year}</div>`;
 }
 
+
+/* tekst do wyszukiwarki: bez ogonków, żeby „pokepedia" i „pokemon" trafiały w POKÉPEDIĘ */
+function bezOgonkow(t){
+ return String(t||"").toLowerCase().replace(/ł/g,"l")
+   .normalize("NFD").replace(/[\u0300-\u036f]/g,"");
+}
+function szukajka(k){
+ const p=P[k]; if(!p) return "";
+ const czesci=[p.t, p.kick&&p.kick.pl, p.kick&&p.kick.en, p.tag&&p.tag.pl, p.tag&&p.tag.en,
+   p.d&&p.d.pl, p.d&&p.d.en, (p.stats||[]).join(" "), p.year];
+ return bezOgonkow(czesci.filter(Boolean).join(" ")).replace(/"/g,"");
+}
 function renderRails(){
  document.getElementById("rails").innerHTML = ROWS.map(r=>`
   <section class="rail" id="${r.id}">
@@ -988,7 +1000,7 @@ function renderRails(){
    </div>
    <div class="row" id="row-${r.id}">
     ${r.items.map(k=>`
-     <button class="card" data-k="${k}" data-title="${P[k].t.toLowerCase()}">
+     <button class="card" data-k="${k}" data-hay="${szukajka(k)}">
       <div class="poster">${posterHTML(k)}
        <div class="c-over"><div class="c-desc">${P[k].d[LANG]}</div>
         <div class="c-open">${UI[LANG].open}</div></div>
@@ -1200,9 +1212,9 @@ document.querySelectorAll('#nav .navlinks a').forEach(a=>a.addEventListener('cli
 document.getElementById("langbtn").onclick=()=>{
  LANG=LANG==="pl"?"en":"pl";store.set("fs-lang",LANG);store.set("lang",LANG);renderAll();};
 document.getElementById("q").addEventListener("input",e=>{
- const q=e.target.value.trim().toLowerCase();
+ const q=bezOgonkow(e.target.value.trim());
  document.querySelectorAll(".card").forEach(c=>
-  c.classList.toggle("hidden",q&&!c.dataset.title.includes(q)));
+  c.classList.toggle("hidden",q&&!(c.dataset.hay||"").includes(q)));
  document.querySelectorAll(".rail").forEach(r=>{
   const any=[...r.querySelectorAll(".card")].some(c=>!c.classList.contains("hidden"));
   r.classList.toggle("hidden",!any)});
