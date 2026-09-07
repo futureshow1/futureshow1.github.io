@@ -234,6 +234,14 @@ footer a{color:var(--dim)} footer a:hover{color:var(--ink)}
  #nav.open .navlinks{display:flex;flex-direction:column;position:fixed;top:56px;left:0;right:0;background:#0b0d17;border-bottom:1px solid var(--line);padding:10px 18px 14px;gap:0;z-index:60}
  #nav.open .navlinks a{padding:12px 0;font-size:15px}}
 .hidden{display:none!important}
+
+.v-frame{position:relative;aspect-ratio:16/9;background:#000;border-radius:12px 12px 0 0;overflow:hidden}
+.v-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.v-locked{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:14px;text-align:center;padding:0 28px;
+  background:radial-gradient(ellipse 70% 60% at 50% 40%,rgba(197,140,255,.10),transparent 65%),#0d0b14}
+.v-lock-ico{font-size:34px;color:#c58cff;opacity:.85}
+.v-locked p{color:#cbd2de;font-size:15px;line-height:1.5;max-width:420px;margin:0}
 </style>
 </head>
 <body>
@@ -631,9 +639,106 @@ kind:"site", t:"EMFAZY — archiwum", kick:{pl:"Film · research",en:"Film · re
   link:"https://futureshow.pl/emfazy-archiwum/archiwum.html"}
 };
 
+
+/* ═══ FILMY — Vimeo i YouTube, odtwarzane na miejscu ═══ */
+const VID = {
+ // ── filmy AI ──
+ v_gniew:{t:"Gniew (Iliada)",src:"vimeo",id:"1155023846",y:"2026",dur:"2:10",cat:"ai",tool:"LTX / Runway / DaVinci",
+  d:{pl:"Czysty eksperyment: całość — scenariusz, postacie, muzyka, obraz i montaż — zrobiła AI. Człowiek podał tylko pierwsze wersy „Iliady”, które maszyna zamieniła w hiphopowy teledysk.",
+     en:"A pure experiment: script, characters, music, image and edit all made by AI. The only human input was the opening lines of the Iliad, which the machine turned into a hip-hop video."}},
+ v_heret:{t:"Heret. The Story",src:"vimeo",id:"1175558144",y:"2026",dur:"4:32",cat:"ai",tool:"LTX / Runway / DaVinci",
+  d:{pl:"Krótki metraż zbudowany w całości z materiału generowanego, o mieście, które pamięta więcej niż jego mieszkańcy.",
+     en:"A short built entirely from generated footage, about a city that remembers more than its inhabitants."}},
+ v_onion:{t:"World is like an onion…",src:"vimeo",id:"1175558401",y:"2026",dur:"3:26",cat:"ai",tool:"LTX / Runway / DaVinci",
+  d:{pl:"Film o warstwach — rzeczywistości, pamięci i obrazu — w którym każde ujęcie zdejmuje jedną z nich.",
+     en:"A film about layers — of reality, memory and image — where every shot peels one away."}},
+ v_witness:{t:"Witness",src:"vimeo",id:"1175558320",y:"2026",dur:"—",cat:"ai",tool:"LTX / Runway / DaVinci",lock:1,
+  d:{pl:"Zgłoszenie festiwalowe. Dostęp na życzenie — napisz, a prześlemy link.",
+     en:"Festival submission. Access on request — write and we will send a link."}},
+ v_occult:{t:"Occult PRL",src:"vimeo",id:"1155024443",y:"2026",dur:"1:04",cat:"ai",tool:"LTX / Runway / DaVinci",
+  d:{pl:"Miniatura o ezoterycznym podziemiu Polski Ludowej: runy, seanse i aparat bezpieczeństwa w jednym kadrze.",
+     en:"A miniature on the esoteric underground of communist Poland: runes, seances and the security apparatus in one frame."}},
+ v_ccm:{t:"Cross-Culture Mediation",src:"vimeo",id:"1175558057",y:"2026",dur:"2:38",cat:"ai",tool:"LTX / Runway / DaVinci",
+  d:{pl:"Sztuka znajdowania pokoju — film towarzyszący cyklowi o mediacji międzykulturowej.",
+     en:"The art of finding peace — a film accompanying the series on cross-cultural mediation."}},
+ v_emfazy:{t:"Emfazy i psychotronika",src:"vimeo",id:"994981682",y:"2024",dur:"2:23",cat:"ai",tool:"Runway",
+  d:{pl:"Impresja o Lechu Emfazym Stefańskim i psychotronice za żelazną kurtyną — szkic do filmu dokumentalnego.",
+     en:"An impression on Lech Emfazy Stefański and psychotronics behind the Iron Curtain — a sketch towards a documentary."}},
+ v_creative:{t:"Creative Use of AI Video",src:"vimeo",id:"1030326189",y:"2024",dur:"5:10",cat:"ai",tool:"Kompilacja",
+  d:{pl:"Przegląd własnych prób z generowaniem wideo i tego, jak narzędzia zmieniały się z miesiąca na miesiąc.",
+     en:"A reel of my own experiments with video generation, and how the tools shifted from month to month."}},
+ v_dolls:{t:"The Dolls",src:"vimeo",id:"1029420078",y:"2024",dur:"3:44",cat:"ai",tool:"Stable Diffusion",
+  d:{pl:"Lalki, które patrzą. Film zbudowany na modelu obrazu, zanim generatory nauczyły się ruchu.",
+     en:"Dolls that look back. Built on an image model, before the generators learned motion."}},
+ v_dzik:{t:"Legenda Czarnego Dzika",src:"vimeo",id:"902923528",y:"2023",dur:"1:15",cat:"ai",tool:"Runway Gen-2",
+  d:{pl:"Podanie z lasów pod miastem Dobre, opowiedziane jednym z pierwszych generatorów wideo.",
+     en:"A folk tale from the woods near Dobre, told with one of the first video generators."}},
+ v_onemany:{t:"One Over Many_",src:"vimeo",id:"1029420139",y:"2024",dur:"0:53",cat:"ai",tool:"Runway",
+  d:{pl:"Etiuda o jednym, które rozpada się na wielu.",
+     en:"An étude about the one that falls apart into many."}},
+
+ // ── dokument i archiwum ──
+ v_differences:{t:"Różnice",src:"yt",id:"SXVSJfbVupg",y:"2007",dur:"51:38",cat:"doc",tool:"reż. Przyłuski",
+  d:{pl:"Pełnometrażowy dokument z festiwalu „W kontekście sztuki / Różnice” — pierwszej imprezy w całości poświęconej sztuce kontekstualnej Jana Świdzińskiego.",
+     en:"A feature documentary from the “In the Context of Art / Differences” festival — the first event devoted entirely to Jan Świdziński's contextual art."}},
+ v_interakcje:{t:"Interakcje",src:"yt",id:"dufoGtqm_6U",y:"2010",dur:"—",cat:"doc",tool:"dokument",
+  d:{pl:"Dokument z festiwalu performansu Interakcje w Piotrkowie Trybunalskim — jednego z najważniejszych miejsc polskiej sztuki akcji.",
+     en:"A documentary from the Interakcje performance festival in Piotrków Trybunalski — one of the key sites of Polish action art."}},
+ v_patria:{t:"Patrz Patria",src:"vimeo",id:"499941258",y:"2021",dur:"14:36",cat:"doc",tool:"reż. Przyłuski",
+  d:{pl:"Film dla Narodowego Instytutu Architektury i Urbanistyki o tym, jak patrzymy na własne miasta.",
+     en:"A film for the National Institute of Architecture and Urban Planning about how we look at our own cities."}},
+ v_golgota:{t:"Champion of Golgotha",src:"vimeo",id:"528347421",y:"2021",dur:"14:46",cat:"doc",tool:"Warpechowski",
+  d:{pl:"Zapis performansu Zbigniewa Warpechowskiego — jednej z centralnych postaci polskiej sztuki akcji.",
+     en:"A record of Zbigniew Warpechowski's performance — one of the central figures of Polish action art."}},
+ v_barona:{t:"Adina Bar-On o Warpechowskim",src:"vimeo",id:"528341644",y:"2021",dur:"3:10",cat:"doc",tool:"rozmowa",
+  d:{pl:"Izraelska performerka o tym, co w pracy Warpechowskiego dało się zobaczyć tylko z zewnątrz.",
+     en:"The Israeli performance artist on what could only be seen in Warpechowski's work from the outside."}},
+ v_nieslony:{t:"Boris Nieslony o Warpechowskim",src:"vimeo",id:"528345566",y:"2021",dur:"4:30",cat:"doc",tool:"rozmowa",
+  d:{pl:"Niemiecki artysta i archiwista performansu o wspólnym polu, które budowali przez dekady.",
+     en:"The German artist and performance archivist on the shared field they built over decades."}},
+ v_maclennan:{t:"Alastair MacLennan o Warpechowskim",src:"vimeo",id:"528343897",y:"2021",dur:"3:56",cat:"doc",tool:"rozmowa",
+  d:{pl:"Szkocki performer o czasie, wytrzymałości i o tym, czego nie da się powtórzyć.",
+     en:"The Scottish performance artist on time, endurance and what cannot be repeated."}},
+ v_blackmarket:{t:"Black Market International",src:"vimeo",id:"528343104",y:"2021",dur:"1:48",cat:"doc",tool:"rozmowa",
+  d:{pl:"Alastair MacLennan o międzynarodowej grupie, która przez lata pracowała bez scenariusza i bez lidera.",
+     en:"Alastair MacLennan on the international group that worked for years without a script and without a leader."}},
+ v_emfazyrozmowa:{t:"Lech Emfazy Stefański",src:"yt",id:"RTHgm4Ecs9A",y:"2013",dur:"70:37",cat:"doc",tool:"rozmowa",
+  d:{pl:"Godzina i dziesięć minut opowieści o sobie: teatr, psychotronika, radiestezja i PRL widziany od podszewki.",
+     en:"Seventy minutes of a man telling his own story: theatre, psychotronics, dowsing and communist Poland from the inside."}},
+ v_gutt:{t:"Wiktor Gutt — Dzikość dziecka",src:"yt",id:"E_j-owF4aDc",y:"2012",dur:"10:01",cat:"doc",tool:"dokument",
+  d:{pl:"Portret artysty, dla którego rysunek dziecka był poważniejszy niż większość sztuki dorosłych.",
+     en:"A portrait of the artist for whom a child's drawing was more serious than most adult art."}},
+ v_instytut:{t:"Instytut Przemiany Czasu",src:"yt",id:"X8SsATZi4l0",y:"2012",dur:"13:20",cat:"doc",tool:"dokument",
+  d:{pl:"Dokument o przekładaniu czasu na przestrzeń — i o ludziach, którzy potraktowali to dosłownie.",
+     en:"A documentary on turning time into space — and the people who took that literally."}},
+ v_biennale:{t:"Biennale Sektor Sztuki",src:"yt",id:"Zfh292xkwMQ",y:"2011",dur:"14:27",cat:"doc",tool:"dokument",
+  d:{pl:"Zapis biennale, na którym sztuka wyszła z galerii w miasto i musiała się przed nim wytłumaczyć.",
+     en:"A record of the biennial where art left the gallery for the city and had to justify itself there."}},
+ v_rabbit:{t:"Follow The White Rabbit 2",src:"yt",id:"99WeIf6PDuQ",y:"2013",dur:"3:40",cat:"doc",tool:"performans",
+  d:{pl:"Zapis performansu — druga część cyklu.",
+     en:"A performance record — the second part of the cycle."}}
+};
+(function(){
+ const PAL={ai:{bg:"#0d0b14",ink:"#efe9f5",acc:"#c58cff"},doc:{bg:"#0f0e0c",ink:"#f2ede4",acc:"#e0a44b"}};
+ Object.keys(VID).forEach(k=>{
+  const v=VID[k];
+  P[k]={kind:"video", t:v.t, year:v.y, font:"sans", motif:null,
+    kick:v.cat==="ai"?{pl:"Film · AI",en:"Film · AI"}:{pl:"Film · dokument",en:"Film · documentary"},
+    tag:v.lock?{pl:"zgłoszenie festiwalowe",en:"festival submission"}
+              :{pl:v.src==="vimeo"?"Vimeo":"YouTube",en:v.src==="vimeo"?"Vimeo":"YouTube"},
+    pal:PAL[v.cat], stats:[v.dur,v.tool,v.y].filter(x=>x&&x!=="—"),
+    d:v.d, link:null, video:v};
+  GALLERY[k]=["vid-"+k];
+ });
+})();
+
 const ROWS = [
  {id:"r-new", t:{pl:"Nowości i aktualizacje",en:"New & updated"},
   items:["klimat","futuretalk","futureform","psychedelic","polskijazz","pokedex","cardiosim","matryca"]},
+ {id:"r-vid-ai", t:{pl:"Filmy AI",en:"AI films"},
+  items:["v_gniew","v_heret","v_onion","v_occult","v_ccm","v_dolls","v_creative","v_emfazy","v_dzik","v_onemany","v_witness"]},
+ {id:"r-vid-doc", t:{pl:"Dokument i archiwum",en:"Documentary & archive"},
+  items:["v_differences","v_interakcje","v_patria","v_golgota","v_barona","v_nieslony","v_maclennan","v_blackmarket","v_emfazyrozmowa","v_gutt","v_instytut","v_biennale","v_rabbit"]},
  {id:"r-data", t:{pl:"Śledztwa i dane",en:"Investigations & data"},
   items:["matryca","afery","panama","cambridge","sejm","klimat","oilgas","digilife"]},
  {id:"r-learn", t:{pl:"Nauka przez działanie",en:"Learning by doing"},
@@ -932,8 +1037,39 @@ function renderChrome(){
 
 /* ================= modal (banner-slideshow) ================= */
 let modalTimer=null;
+function openPlayer(k){
+ const p=P[k], v=p.video, m=document.getElementById("modal");
+ const url = v.src==="vimeo"
+   ? `https://player.vimeo.com/video/${v.id}?title=0&byline=0&portrait=0&dnt=1`
+   : `https://www.youtube-nocookie.com/embed/${v.id}?rel=0&modestbranding=1`;
+ const ext = v.src==="vimeo" ? `https://vimeo.com/${v.id}` : `https://www.youtube.com/watch?v=${v.id}`;
+ const extLabel = v.src==="vimeo" ? "Vimeo" : "YouTube";
+ const locked = !!v.lock;
+ const frame = locked
+  ? `<div class="v-locked"><div class="v-lock-ico">◍</div>
+     <p>${LANG==="pl"?"Film jest zgłoszony na festiwale, więc na razie nie gramy go publicznie."
+                     :"The film is under festival submission, so it is not played publicly yet."}</p>
+     <a class="btn btn-play" href="mailto:futureshow@proton.me?subject=${encodeURIComponent("Dostęp do filmu: "+p.t)}">
+      ${LANG==="pl"?"✉ Poproś o dostęp":"✉ Request access"}</a></div>`
+  : `<iframe src="${url}" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
+      referrerpolicy="strict-origin-when-cross-origin" title="${p.t}"></iframe>`;
+ m.innerHTML=`
+  <div class="v-frame">${frame}<button class="m-close" id="mclose">✕</button></div>
+  <div class="m-body">
+   <div class="p-kick" style="color:${p.pal.acc};position:static;margin-bottom:6px">${p.kick[LANG]}</div>
+   <div class="p-title" style="position:static;color:#fff;font-size:1.5rem;margin-bottom:10px">${p.t}</div>
+   <div class="m-stats">${p.stats.map(x=>`<span class="m-stat">${x}</span>`).join("")}</div>
+   <p class="m-desc">${p.d[LANG]}</p>
+   ${locked?"":`<div class="m-ctas">
+     <a class="btn btn-info" href="${ext}" target="_blank" rel="noopener">${LANG==="pl"?"Otwórz na":"Open on"} ${extLabel} ↗</a>
+   </div>`}
+  </div>`;
+ document.getElementById("mback").classList.add("open");
+ document.body.style.overflow="hidden";
+}
 function openModal(k){
  const p=P[k], m=document.getElementById("modal"), g=gal(k);
+ if(p.video){ return openPlayer(k); }
  const banner = g.length
   ? g.map((u,j)=>`<img src="${u}" class="${j===0?"cur":""}" alt="">`).join("")
     +`<div class="m-shade"></div>`
