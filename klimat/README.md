@@ -18,3 +18,5 @@ GISTEMP) i zatwierdza świeży `climate-data.json`. Można też uruchomić ręcz
 
 ## Wdrożenie na futureshow.pl
 
+Katalog `klimat/` jest zamiennikiem 1:1 dla `klimat/` w repo `futureshow1.github.io`.
+Po podmianie warto zaktualizować kartę na stronie głównej (`stats`): `239 krajów`, `1880–2026`, `NASA GISTEMP v4`.

@@ -18,10 +18,12 @@ jobs:
           python-version: "3.12"
       - run: pip install numpy shapely netCDF4
       - run: python klimat/pipeline/build_climate_data.py
+      - run: python klimat/pipeline/build_indicators.py
+      - run: python klimat/pipeline/build_emissions.py
       - name: Zatwierdź odświeżone dane
         run: |
           git config user.name "climate-data-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add klimat/data/climate-data.json
-          git commit -m "klimat: odświeżenie danych NASA GISTEMP ($(date -u +%Y-%m-%d))" || echo "bez zmian"
+          git add klimat/data/climate-data.json klimat/data/indicators.json klimat/data/emissions.json
+          git commit -m "klimat: odświeżenie danych NASA/NOAA/NSIDC/OWID ($(date -u +%Y-%m-%d))" || echo "bez zmian"
           git push
