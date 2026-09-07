@@ -981,10 +981,52 @@ function bezOgonkow(t){
  return String(t||"").toLowerCase().replace(/ł/g,"l")
    .normalize("NFD").replace(/[\u0300-\u036f]/g,"");
 }
+
+/* Słowa, których ludzie realnie szukają, a które nie padają w tytule ani w opisie. */
+const KEYS = {
+ matryca:"big tech inwigilacja prywatność dane osobowe korporacje skandale surveillance privacy scandals",
+ sejm:"parlament posłowie głosowania polityka lobbing ustawy parliament politics voting",
+ cardiosim:"serce kardiologia ekg krążenie hemodynamika tętno ciśnienie leki medycyna anatomia heart cardiology circulation pulse blood",
+ oilgas:"ropa gaz rurociągi energetyka surowce tankowce geopolityka oil gas pipelines energy",
+ mnemo:"pamięć mnemotechnika pałac pamięci ars memoriae memory mnemonics",
+ hinton:"sztuczna inteligencja ai sieci neuronowe uczenie maszynowe neuron machine learning neural networks",
+ sheldrake:"rezonans morficzny biologia pola morfogenetyczne heterodoksja morphic resonance biology",
+ awangarda:"film eksperymentalny dadaizm surrealizm kino awangarda experimental cinema avant-garde",
+ historia:"animacja kreskówki film animowany disney anime pixar animation cartoons",
+ dobranocki:"bajki kreskówki prl dzieciństwo bolek lolek miś uszatek krecik cartoons childhood",
+ mondrian:"malarstwo abstrakcja de stijl malewicz suprematyzm sztuka painting abstraction",
+ cambridge:"facebook wybory dane manipulacja psychometria elections data",
+ digilife:"internet media społecznościowe cyfrowe życie social media",
+ afery:"korupcja skandale polityka polska corruption scandals",
+ panama:"offshore raje podatkowe przecieki dokumenty tax havens leaks",
+ habermas:"filozofia sfera publiczna demokracja dyskurs philosophy democracy",
+ nbody:"grawitacja symulacja astronomia fizyka gwiazdy gravity physics astronomy",
+ schizogra:"deleuze guattari filozofia kłącze schizoanaliza philosophy rhizome",
+ schizoraport:"deleuze guattari filozofia raport schizoanaliza",
+ sectio:"złota liczba złoty podział phi fibonacci geometria proporcja golden ratio geometry",
+ ghykakomp:"złota liczba phi ghyka kompendium geometria golden ratio",
+ swidzinski:"sztuka kontekstualna performans konceptualizm kontekstualizm contextual art performance",
+ przyluski:"poezja literatura emigracja wiersze poetry literature",
+ switkowski:"psychotronika parapsychologia ezoteryka spirytyzm parapsychology",
+ klimat:"ocieplenie co2 emisje nasa temperatura lodowce klimat climate warming emissions",
+ psychedelic:"lsd psylocybina dmt mdma ketamina mózg neuronauka brain neuroscience",
+ pokedex:"pokemon pokémon karty tcg gry anime cards games",
+ polskijazz:"jazz płyty muzyka komeda stańko winyl trąbka records music vinyl",
+ futureform:"kalistenika trening mon sprawność wojsko ćwiczenia fitness training army",
+ futuretalk:"retoryka charyzma wystąpienia mowa perswazja rozmowa rhetoric speaking persuasion",
+ anonimizator:"rodo dane osobowe pdf prywatność anonimizacja gdpr privacy",
+ chamczyk:"sztuka malarstwo portfolio artystka art painting",
+ zem:"przemysł katalog usługi industry catalogue",
+ emfazy:"stefański psychotronika dokument film teatr",
+ janweb:"portfolio strona osobista website",
+ aferymock:"korupcja skandale makieta",
+ matrycamock:"big tech makieta okładki"
+};
+
 function szukajka(k){
  const p=P[k]; if(!p) return "";
  const czesci=[p.t, p.kick&&p.kick.pl, p.kick&&p.kick.en, p.tag&&p.tag.pl, p.tag&&p.tag.en,
-   p.d&&p.d.pl, p.d&&p.d.en, (p.stats||[]).join(" "), p.year];
+   p.d&&p.d.pl, p.d&&p.d.en, (p.stats||[]).join(" "), p.year, KEYS[k]];
  return bezOgonkow(czesci.filter(Boolean).join(" ")).replace(/"/g,"");
 }
 function renderRails(){
@@ -1213,8 +1255,15 @@ document.getElementById("langbtn").onclick=()=>{
  LANG=LANG==="pl"?"en":"pl";store.set("fs-lang",LANG);store.set("lang",LANG);renderAll();};
 document.getElementById("q").addEventListener("input",e=>{
  const q=bezOgonkow(e.target.value.trim());
+ /* krótkie hasła szukamy po całych słowach — inaczej „rodo" trafia w „międzynarodowej" */
+ const scisle=q.length>0&&q.length<=4;
+ const pasuje=hay=>{
+  if(!q) return true;
+  if(!scisle) return hay.includes(q);
+  return (" "+hay+" ").includes(" "+q+" ") || hay.split(" ").some(w=>w.startsWith(q));
+ };
  document.querySelectorAll(".card").forEach(c=>
-  c.classList.toggle("hidden",q&&!(c.dataset.hay||"").includes(q)));
+  c.classList.toggle("hidden",!pasuje(c.dataset.hay||"")));
  document.querySelectorAll(".rail").forEach(r=>{
   const any=[...r.querySelectorAll(".card")].some(c=>!c.classList.contains("hidden"));
   r.classList.toggle("hidden",!any)});
