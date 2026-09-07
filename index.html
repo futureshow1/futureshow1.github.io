@@ -247,6 +247,40 @@ footer a{color:var(--dim)} footer a:hover{color:var(--ink)}
   background:radial-gradient(ellipse 70% 60% at 50% 40%,rgba(197,140,255,.10),transparent 65%),#0d0b14}
 .v-lock-ico{font-size:34px;color:#c58cff;opacity:.85}
 .v-locked p{color:#cbd2de;font-size:15px;line-height:1.5;max-width:420px;margin:0}
+
+/* ═══ zaproszenie do darmowych aplikacji ═══ */
+.appnudge{position:fixed;inset:0;z-index:300;display:none;align-items:center;justify-content:center;
+  padding:20px;background:rgba(3,4,8,.72);backdrop-filter:blur(5px)}
+.appnudge.on{display:flex}
+.an-box{position:relative;width:min(560px,100%);max-height:88vh;overflow-y:auto;
+  background:linear-gradient(160deg,#0d1220 0%,#080b12 70%);
+  border:1px solid var(--line);border-radius:16px;padding:30px 28px 26px;
+  box-shadow:0 30px 90px rgba(0,0,5,.7)}
+.an-kick{font-family:var(--mono);font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--green);margin-bottom:10px}
+.an-box h3{font-size:26px;line-height:1.12;margin:0 0 8px;color:var(--ink);font-weight:800;letter-spacing:-.01em}
+.an-lede{color:var(--dim);font-size:14.5px;line-height:1.55;margin:0 0 20px}
+.an-list{display:grid;gap:9px;margin-bottom:20px}
+.an-item{display:flex;gap:13px;align-items:center;text-decoration:none;
+  border:1px solid var(--line);border-radius:11px;padding:11px 13px;transition:.2s;background:rgba(233,237,245,.02)}
+.an-item:hover{border-color:rgba(233,237,245,.24);background:rgba(233,237,245,.06);transform:translateY(-1px)}
+.an-dot{width:9px;height:9px;border-radius:50%;flex:0 0 9px}
+.an-txt{min-width:0}
+.an-txt b{display:block;color:var(--ink);font-size:14.5px;font-weight:700}
+.an-txt span{display:block;color:var(--faint);font-size:12px;font-family:var(--mono);margin-top:2px}
+.an-go{margin-left:auto;color:var(--faint);font-size:15px;flex:0 0 auto}
+.an-item:hover .an-go{color:var(--ink)}
+.an-foot{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.an-all{color:var(--cyan);text-decoration:none;font-size:13.5px;font-weight:600}
+.an-all:hover{text-decoration:underline}
+.an-later{margin-left:auto;background:none;border:none;color:var(--faint);font-size:13px;cursor:pointer;padding:6px 2px}
+.an-later:hover{color:var(--dim)}
+.an-x{position:absolute;top:12px;right:12px;width:34px;height:34px;border-radius:9px;
+  background:rgba(233,237,245,.06);border:1px solid var(--line);color:var(--dim);
+  font-size:15px;cursor:pointer;line-height:1}
+.an-x:hover{color:var(--ink);background:rgba(233,237,245,.12)}
+@media(max-width:560px){.an-box{padding:26px 20px 22px}.an-box h3{font-size:22px}}
+@media(prefers-reduced-motion:reduce){.an-item{transition:none}}
 </style>
 </head>
 <body>
@@ -288,6 +322,20 @@ footer a{color:var(--dim)} footer a:hover{color:var(--ink)}
   <span data-i="f_priv"></span>
 </footer>
 
+
+<div class="appnudge" id="appNudge" role="dialog" aria-modal="true" aria-labelledby="anTitle">
+  <div class="an-box">
+    <button class="an-x" id="anClose" aria-label="Zamknij">✕</button>
+    <div class="an-kick" id="anKick"></div>
+    <h3 id="anTitle"></h3>
+    <p class="an-lede" id="anLede"></p>
+    <div class="an-list" id="anList"></div>
+    <div class="an-foot">
+      <a class="an-all" id="anAll" href="downloads.html"></a>
+      <button class="an-later" id="anLater"></button>
+    </div>
+  </div>
+</div>
 <div class="mback" id="mback"><div class="modal" id="modal"></div></div>
 
 <script>
@@ -1170,6 +1218,83 @@ document.addEventListener("keydown",e=>{
 addEventListener("scroll",()=>document.getElementById("nav")
  .classList.toggle("solid",scrollY>40),{passive:true});
 if(location.hash.startsWith("#m=")){const k=location.hash.slice(3);if(P[k])openModal(k)}
+/* ═══ zaproszenie do darmowych aplikacji ═══
+   Pokazuje się raz na 45 dni i dopiero, gdy ktoś naprawdę przegląda stronę:
+   po przewinięciu za pierwszy rząd albo po 25 s. Nigdy nad otwartym oknem. */
+(function(){
+ const KEY="fs.appnudge.v1", DNI=45;
+ const box=document.getElementById("appNudge"); if(!box) return;
+ let pokazane=false;
+
+ function widzianoNiedawno(){
+   try{
+     const t=+localStorage.getItem(KEY)||0;
+     return t && (Date.now()-t) < DNI*864e5;
+   }catch(e){ return false; }
+ }
+ function zapamietaj(){ try{ localStorage.setItem(KEY,String(Date.now())); }catch(e){} }
+
+ const TXT={
+  pl:{kick:"Za darmo · bez konta",
+      tytul:"Trzy rzeczy, które możesz mieć od ręki",
+      lede:"Nie sprzedajemy ich i nie prosimy o dane. Działają w przeglądarce albo na Twoim komputerze.",
+      all:"Zobacz wszystkie do pobrania →", later:"Nie teraz"},
+  en:{kick:"Free · no account",
+      tytul:"Three things you can have right now",
+      lede:"We do not sell them and we do not ask for your details. They run in the browser or on your own machine.",
+      all:"See everything to download →", later:"Not now"}
+ };
+ const APPS=["futuretalk","futureform","anonimizator"];
+
+ function wypelnij(){
+   const t=TXT[LANG]||TXT.pl;
+   document.getElementById("anKick").textContent=t.kick;
+   document.getElementById("anTitle").textContent=t.tytul;
+   document.getElementById("anLede").textContent=t.lede;
+   const all=document.getElementById("anAll");
+   all.textContent=t.all; all.href="downloads.html";
+   document.getElementById("anLater").textContent=t.later;
+   document.getElementById("anList").innerHTML=APPS.map(k=>{
+     const p=P[k]; if(!p) return "";
+     const opis=(p.stats||[]).slice(0,2).join(" · ");
+     return `<a class="an-item" href="${p.link}" target="_blank" rel="noopener" data-app="${k}">
+       <span class="an-dot" style="background:${p.pal.acc}"></span>
+       <span class="an-txt"><b>${p.t}</b><span>${opis}</span></span>
+       <span class="an-go">→</span></a>`;
+   }).join("");
+ }
+
+ function pokaz(){
+   if(pokazane||widzianoNiedawno()) return;
+   if(document.getElementById("mback").classList.contains("open")) return;  // nie nad otwartym oknem
+   pokazane=true; wypelnij(); box.classList.add("on");
+   document.body.style.overflow="hidden";
+   zapamietaj();
+ }
+ function ukryj(){
+   box.classList.remove("on");
+   if(!document.getElementById("mback").classList.contains("open")) document.body.style.overflow="";
+ }
+
+ document.getElementById("anClose").addEventListener("click",ukryj);
+ document.getElementById("anLater").addEventListener("click",ukryj);
+ box.addEventListener("click",e=>{ if(e.target===box) ukryj(); });
+ document.addEventListener("keydown",e=>{ if(e.key==="Escape"&&box.classList.contains("on")) ukryj(); });
+ document.getElementById("anList").addEventListener("click",e=>{
+   if(e.target.closest("[data-app]")) ukryj();
+ });
+
+ if(widzianoNiedawno()) return;
+ const t=setTimeout(pokaz,25000);
+ const naScroll=()=>{
+   const r=document.getElementById("rails");
+   if(r && window.pageYOffset > r.offsetTop + 200){
+     clearTimeout(t); window.removeEventListener("scroll",naScroll); pokaz();
+   }
+ };
+ window.addEventListener("scroll",naScroll,{passive:true});
+})();
+
 </script>
 <script data-goatcounter="https://futureshow.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
