@@ -728,7 +728,7 @@ const VID = {
  Object.keys(VID).forEach(k=>{
   const v=VID[k];
   P[k]={kind:"video", t:v.t, year:v.y, font:"sans", motif:null,
-    kick:v.cat==="ai"?{pl:"Film · AI",en:"Film · AI"}:{pl:"Film · dokument",en:"Film · documentary"},
+    kick:v.cat==="ai"?{pl:"Short · AI",en:"Short · AI"}:{pl:"Film · dokument",en:"Film · documentary"},
     tag:v.lock?{pl:"zgłoszenie festiwalowe",en:"festival submission"}
               :{pl:v.src==="vimeo"?"Vimeo":"YouTube",en:v.src==="vimeo"?"Vimeo":"YouTube"},
     pal:PAL[v.cat], stats:[v.dur,v.tool,v.y].filter(x=>x&&x!=="—"),
@@ -754,7 +754,7 @@ const ROWS = [
   items:["mondrian","sectio","ghykakomp","swidzinski","przyluski","switkowski"]},
  {id:"r-hidden", t:{pl:"Projekty niepubliczne",en:"Non-public projects"},
   items:["schizoraport","digilife","aferymock","matrycamock","janweb","chamczyk","zem","emfazy"]},
- {id:"r-vid-ai", t:{pl:"Filmy AI",en:"AI films"},
+ {id:"r-vid-ai", t:{pl:"Shorty AI",en:"AI shorts"},
   items:["v_gniew","v_heret","v_onion","v_occult","v_ccm","v_dolls","v_creative","v_emfazy","v_dzik","v_onemany","v_witness"]},
  {id:"r-vid-doc", t:{pl:"Dokument i archiwum",en:"Documentary & archive"},
   items:["v_differences","v_interakcje","v_patria","v_golgota","v_barona","v_nieslony","v_maclennan","v_blackmarket","v_emfazyrozmowa","v_gutt","v_instytut","v_biennale","v_rabbit"]}
