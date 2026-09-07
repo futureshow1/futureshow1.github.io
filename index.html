@@ -1073,6 +1073,7 @@ function openPlayer(k){
   </div>`;
  document.getElementById("mback").classList.add("open");
  document.body.style.overflow="hidden";
+ document.getElementById("mclose").onclick=closeModal;
 }
 function openModal(k){
  const p=P[k], m=document.getElementById("modal"), g=gal(k);
@@ -1122,6 +1123,10 @@ function openModal(k){
 }
 function closeModal(){document.getElementById("mback").classList.remove("open");
  clearInterval(modalTimer);
+ document.body.style.overflow="";
+ const m=document.getElementById("modal");
+ if(m && m.querySelector("iframe")) m.innerHTML="";   // zatrzymaj odtwarzanie
+
  try{history.replaceState(null,"",location.pathname+location.search)}catch(e){}}
 
 /* ================= wire up ================= */
