@@ -135,6 +135,7 @@ main{position:relative;z-index:2;padding:10px 0 30px}
   box-shadow:0 18px 44px rgba(0,0,5,.65)}
 .poster svg{position:absolute;inset:0;width:100%;height:100%}
 .c-photo{position:absolute;inset:0;opacity:0;transition:opacity .35s}
+.c-photo.always{opacity:1}
 .c-photo img{width:100%;height:100%;object-fit:cover}
 .c-photo.band{inset:0 0 auto 0;aspect-ratio:16/9;border-bottom:1px solid rgba(233,237,245,.12);box-shadow:0 10px 30px rgba(0,0,5,.5)}
 .c-photo.band img{object-fit:cover}
@@ -146,6 +147,10 @@ main{position:relative;z-index:2;padding:10px 0 30px}
 .p-title{position:absolute;left:14px;right:14px;bottom:34px;line-height:1.04;
   font-size:22px;z-index:2}
 .card:hover .p-title,.card:hover .p-kick{text-shadow:0 1px 10px rgba(0,0,5,.9)}
+/* zdjęcie na całą kartę bywa jasne — przyciemnienie pod tytułem, żeby dało się go czytać */
+.c-photo:not(.band)::after{content:"";position:absolute;inset:auto 0 0 0;height:56%;
+  background:linear-gradient(to top,rgba(3,4,8,.92) 6%,rgba(3,4,8,.55) 42%,transparent);
+  pointer-events:none}
 .card:hover .p-title{color:#fff!important}
 .p-year{position:absolute;left:14px;bottom:12px;font-family:var(--mono);
   font-size:10px;letter-spacing:.06em;opacity:.65;z-index:2}
@@ -905,6 +910,7 @@ const gal = k => (GALLERY[k]||[]).map(f=>ASSET+f+".jpg");
 const POSTER = {klimat:1,psychedelic:1,pokedex:1,polskijazz:1,chamczyk:1,zem:1,emfazy:1,matryca:1,oilgas:1,habermas:1,cardiosim:1,afery:1,panama:1,historia:1,cambridge:1,sectio:1,ghykakomp:1,swidzinski:1,schizogra:1};
 /* zdjecia pionowe / kadry filmowe, ktore dobrze znosza przyciecie do 2:3 — reszta pokazuje sie jako pasek 16:9 */
 const FULL = {mnemo:1,mondrian:1,schizogra:1,przyluski:1,hinton:1,switkowski:1,sejm:1,nbody:1,awangarda:1,dobranocki:1};
+Object.keys(VID).forEach(k=>{ FULL[k]=1; });   // filmy: miniatura na całą kartę
 const posterImg = k => POSTER[k] ? ASSET+k+"-p.jpg" : (gal(k)[0]||null);
 
 function posterHTML(key){
@@ -913,7 +919,8 @@ function posterHTML(key){
    (p.font==="disp"?"text-transform:uppercase;letter-spacing:-.01em;":"");
  const g=gal(key); const pi=posterImg(key);
  const fit=(POSTER[key]||FULL[key])?"":" band";
- const photo=pi?`<div class="c-photo${fit}"><img src="${pi}" loading="lazy" alt=""></div>`:"";
+ const always=p.video?" always":"";   // przy filmie kadr jest treścią, nie dodatkiem
+ const photo=pi?`<div class="c-photo${fit}${always}"><img src="${pi}" loading="lazy" alt=""></div>`:"";
  return `${motif(p.motif,p.pal)}${photo}
   <div class="p-kick" style="color:${p.pal.acc}">${p.kick[LANG]}</div>
   <div class="p-title" style="${tStyle}">${p.t}</div>
