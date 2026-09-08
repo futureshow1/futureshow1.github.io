@@ -725,11 +725,20 @@ function switchRoom(id){
     setHover(null);
     document.getElementById('bWalls').style.opacity = next.id === 'pokoj' ? '1' : '.35';
     document.querySelectorAll('.roomBtn').forEach(b => b.classList.toggle('act', b.dataset.room === id));
+    try{history.replaceState(null,'','#pokoj='+id)}catch(e){}
     setTimeout(() => { fadeEl.style.opacity = '0'; fading = false; }, 60);
   }, 430);
 }
 document.querySelectorAll('.roomBtn').forEach(b =>
   b.addEventListener('click', () => switchRoom(b.dataset.room)));
+
+/* ---- udostępnianie: #pokoj=pokoj|miasto|biel ---- */
+function openFromHash(){
+  const m = location.hash.match(/^#pokoj=(\w+)$/);
+  if(m && ROOMS[m[1]] && ROOMS[m[1]] !== currentRoom) switchRoom(m[1]);
+}
+addEventListener('hashchange', openFromHash);
+setTimeout(openFromHash, 300);
 
 /* ---------------- sound: one pentatonic pluck per form ---------------- */
 const NOTES = [261.63, 293.66, 329.63, 392.00, 440.00, 523.25, 587.33, 659.25, 783.99, 880.00];

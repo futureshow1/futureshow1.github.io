@@ -1225,6 +1225,10 @@ document.addEventListener('DOMContentLoaded', () => {
   initDarkMode();
   const initial = location.hash.replace('#', '') || 'overview';
   show(SECTIONS.find(s => s.id === initial) ? initial : 'overview');
+  addEventListener('hashchange', () => {
+    const h = location.hash.replace('#', '');
+    if (h && SECTIONS.find(s => s.id === h)) show(h);
+  });
 });
 </script>
 

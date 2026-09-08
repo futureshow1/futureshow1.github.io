@@ -1632,6 +1632,7 @@ function showView(id) {
   // scroll na górę przy zmianie sekcji
   window.scrollTo({ top: 0, behavior: 'instant' in window ? 'instant' : 'auto' });
   state.currentView = id;
+  if (id !== 'chapterDetail') setHash('#widok=' + id);
   if (id === 'map') setTimeout(initMap, 50);
   if (id === 'title') initTitleBg();
   if (id === 'game') { initGameCanvas(); renderStep(); }
@@ -2081,6 +2082,7 @@ function initMap() {
 }
 
 function showMapPanel(node) {
+  setHash('#postac=' + node.id);
   const panel = document.getElementById('mapPanel');
   panel.innerHTML = `
     <button class="close-btn" onclick="this.parentElement.classList.remove('show')">&times;</button>
@@ -2089,8 +2091,11 @@ function showMapPanel(node) {
     <div class="mp-desc">${node.desc}</div>
     <div class="mp-quote">${node.quote}</div>
     <div class="mp-concepts">${node.concepts.map(c => `<span class="tag">${c}</span>`).join('')}</div>
+    <button class="enc-btn" id="mpShare" style="margin-top:14px;padding:7px 14px;font-size:11px">🔗 Kopiuj link do tej postaci</button>
   `;
   panel.classList.add('show');
+  const sb = document.getElementById('mpShare');
+  if (sb) sb.onclick = () => shareLink('#postac=' + node.id, sb, '🔗 Kopiuj link do tej postaci');
 }
 
 // ═══════════════════════════════════════════════
@@ -2591,10 +2596,21 @@ function buildChaptersList() {
 }
 
 // -- CHAPTER DETAIL --
+function setHash(h) {
+  try { history.replaceState(null, '', h || location.pathname + location.search); } catch (e) {}
+}
+function shareLink(cel, btn, etykieta) {
+  const url = location.origin + location.pathname + cel;
+  const ok = () => { btn.textContent = '✓ Skopiowano'; setTimeout(() => { btn.textContent = etykieta; }, 2000); };
+  if (navigator.clipboard) navigator.clipboard.writeText(url).then(ok, () => prompt('Kopiuj link', url));
+  else prompt('Kopiuj link', url);
+}
+
 function showChapter(id) {
   const ch = chaptersData.find(c => c.id === id);
   if (!ch) return;
   showView('chapterDetail');
+  setHash('#rozdzial=' + id);
   const container = document.getElementById('chapterDetail');
   container.innerHTML = `
     <button class="enc-btn" onclick="showView('chapters')" style="margin-bottom:20px;padding:8px 16px;font-size:11px">&#8592; Powrót do rozdziałów</button>
@@ -2665,6 +2681,22 @@ function switchChTab(btn, panel) {
 // ═══════════════════════════════════════════════
 updateHUD();
 initTitleBg();
+
+/* ---- udostępnianie: #widok=, #rozdzial=, #postac= ---- */
+function openFromHash() {
+  const h = location.hash;
+  let m;
+  if ((m = h.match(/^#rozdzial=([\w-]+)$/))) { showChapter(m[1]); }
+  else if ((m = h.match(/^#postac=([\w-]+)$/))) {
+    const n = philosophers.find(x => x.id === m[1]);
+    if (n) { showView('map'); setTimeout(() => showMapPanel(n), 300); }
+  }
+  else if ((m = h.match(/^#widok=([\w-]+)$/))) {
+    if (document.getElementById(m[1] + 'View')) showView(m[1]);
+  }
+}
+addEventListener('hashchange', openFromHash);
+setTimeout(openFromHash, 100);
 </script>
 </body>
 </html>

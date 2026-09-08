@@ -71,6 +71,8 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--
 .card-desc{font-size:.87rem;color:var(--text2);line-height:1.5;margin-bottom:12px;flex:1;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
 .card-people{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:12px}
 .card-ptag{background:rgba(255,255,255,.05);color:var(--text3);padding:2px 7px;border-radius:5px;font-size:.73rem}
+.m-share{background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.25);border-radius:7px;color:#fbbf24;font-size:.83rem;font-weight:600;cursor:pointer;padding:9px 16px;font-family:inherit}
+.m-share:hover{background:rgba(245,158,11,.16)}
 .btn-read{width:100%;padding:9px;background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.2);border-radius:7px;color:#fbbf24;font-size:.82rem;font-weight:600;cursor:pointer;transition:all .2s;font-family:inherit}
 .btn-read:hover{background:rgba(245,158,11,.15);border-color:var(--amber)}
 
@@ -2433,9 +2435,33 @@ function openM(d){
     d.sources.forEach(s=>{h+='<li><a href="'+esc(s.url)+'" target="_blank" rel="noopener">'+esc(s.title)+'</a></li>'});
     h+='</ol></div>';
   }
+  h+='<div class="m-section" style="border:none;padding-top:4px"><button id="mShare" class="m-share">🔗 Kopiuj link do tej afery</button></div>';
   mC.innerHTML=h;mO.classList.add('open');document.body.style.overflow='hidden';
+  try{history.replaceState(null,'','#afera='+d.id)}catch(e){}
+  const sb=document.getElementById('mShare');
+  sb.onclick=()=>{
+    const url=location.origin+location.pathname+'#afera='+d.id;
+    const ok=()=>{sb.textContent='✓ Skopiowano';setTimeout(()=>{sb.textContent='🔗 Kopiuj link do tej afery'},2000)};
+    if(navigator.clipboard) navigator.clipboard.writeText(url).then(ok,()=>prompt('Kopiuj link',url));
+    else prompt('Kopiuj link',url);
+  };
 }
-function closeM(){mO.classList.remove('open');document.body.style.overflow=''}
+function closeM(){
+  mO.classList.remove('open');document.body.style.overflow='';
+  if(location.hash.indexOf('#afera=')===0){
+    try{history.replaceState(null,'',location.pathname+location.search)}catch(e){}
+  }
+}
+
+/* ---- udostępnianie: #afera=<numer> ---- */
+function openFromHash(){
+  const m=location.hash.match(/^#afera=(\d+)$/);
+  if(!m)return;
+  const it=DATA.find(x=>x.id===+m[1]);
+  if(it)openM(it);
+}
+addEventListener('hashchange',openFromHash);
+setTimeout(openFromHash,150);
 document.getElementById('mClose').onclick=closeM;
 mO.addEventListener('click',e=>{if(e.target===mO)closeM()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeM()});

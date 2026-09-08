@@ -1024,6 +1024,7 @@ function go(id){
   const v=document.getElementById(id);if(!v)return;
   document.querySelectorAll('.view').forEach(x=>x.classList.remove('on'));
   v.classList.add('on');window.scrollTo({top:0});
+  try{history.replaceState(null,'','#'+id)}catch(e){}
   visit(id);if(READ.includes(id))markRead(id);
   if(id==='lab-staring')Staring.enter();if(id==='lab-telepatia')Tele.enter();
   if(id==='lab-labirynt')Maze.enter();if(id==='lab-jaytee')Jaytee.enter();
@@ -1310,6 +1311,7 @@ document.querySelectorAll('.plate[data-art]').forEach(f=>f.insertAdjacentHTML('a
 Reveal.init();
 addEventListener('keydown',e=>{if(e.key==='Escape')NB.close();});
 (function(){const h=location.hash.replace('#','');if(h&&document.getElementById(h))go(h);else visit('home');})();
+addEventListener('hashchange',()=>{const h=location.hash.replace('#','');if(h&&document.getElementById(h))go(h);});
 </script>
 <script data-goatcounter="https://futureshow.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>

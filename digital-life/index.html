@@ -1377,12 +1377,29 @@
     el.classList.add('selected');
   }
 
-  function switchScreen(name) {
+  function switchScreen(name, ev) {
+    const el = document.getElementById('screen-' + name);
+    if (!el) return;
     document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
     document.querySelectorAll('.screen-tab').forEach(t => t.classList.remove('active'));
-    document.getElementById('screen-' + name).classList.add('active');
-    event.target.classList.add('active');
+    el.classList.add('active');
+    const tab = (ev || window.event) && (ev || window.event).target;
+    if (tab && tab.classList.contains('screen-tab')) tab.classList.add('active');
+    else {
+      const t = [...document.querySelectorAll('.screen-tab')]
+        .find(x => (x.getAttribute('onclick') || '').indexOf("'" + name + "'") >= 0);
+      if (t) t.classList.add('active');
+    }
+    try { history.replaceState(null, '', '#ekran=' + name); } catch (e) {}
   }
+
+  /* ---- udostępnianie: #ekran=<nazwa> ---- */
+  function openFromHash() {
+    const m = location.hash.match(/^#ekran=([\w-]+)$/);
+    if (m && document.getElementById('screen-' + m[1])) switchScreen(m[1]);
+  }
+  addEventListener('hashchange', openFromHash);
+  setTimeout(openFromHash, 80);
 </script>
 
 <script src="../cookie-consent.js"></script>

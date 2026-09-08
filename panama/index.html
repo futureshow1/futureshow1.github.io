@@ -1533,7 +1533,14 @@
 
   function scrollToSection(id) {
     document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    try { history.replaceState(null, '', '#' + id); } catch (e) {}
   }
+
+  /* ---- udostępnianie: #<sekcja> ---- */
+  addEventListener('hashchange', () => {
+    const id = location.hash.slice(1);
+    if (id && document.getElementById(id)) document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
 
   // Animate bars on scroll
   const animateOnScroll = () => {
