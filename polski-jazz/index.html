@@ -151,6 +151,12 @@ section.film-era h2{font-size:clamp(1.2rem,3vw,1.7rem);color:var(--cream)}
 .modal-title{margin-top:1rem;font-size:1rem;color:var(--cream)}
 .modal-close{position:absolute;top:-2.6rem;right:0;background:none;border:1px solid var(--line);color:var(--cream);font-family:var(--mono);font-size:.8rem;padding:.3rem .9rem;border-radius:99px;cursor:pointer}
 .modal-close:hover{border-color:var(--red);color:var(--red)}
+.modal-share{position:absolute;top:-2.6rem;right:6.6rem;background:none;border:1px solid var(--line);color:var(--cream-dim);font-family:var(--mono);font-size:.8rem;padding:.3rem .9rem;border-radius:99px;cursor:pointer}
+.modal-share:hover{color:var(--gold);border-color:var(--gold)}
+@media(max-width:640px){
+  .modal-yt,.modal-share,.modal-close{top:-2.4rem;font-size:.7rem;padding:.25rem .6rem}
+  .modal-share{right:5.2rem}
+}
 .modal-yt{position:absolute;top:-2.6rem;left:0;font-family:var(--mono);font-size:.8rem;color:var(--cream-dim);text-decoration:none;border:1px solid var(--line);padding:.3rem .9rem;border-radius:99px}
 .modal-yt:hover{color:var(--gold);border-color:var(--gold)}
 
@@ -435,6 +441,7 @@ nav.open .nav-burger span:nth-child(3){transform:translateY(-6px) rotate(-45deg)
 <div class="modal" id="modal">
   <div class="modal-box">
     <a class="modal-yt" id="modal-yt" href="#" target="_blank" rel="noopener" data-i18n="modal.yt">otwórz na YouTube ↗</a>
+    <button class="modal-share" id="modal-share" data-i18n="modal.share">🔗 kopiuj link</button>
     <button class="modal-close" id="modal-close" data-i18n="modal.close">zamknij ✕</button>
     <div class="modal-frame" id="modal-frame"></div>
     <div class="modal-title" id="modal-title"></div>
@@ -505,7 +512,7 @@ const T={
   'lib.desc':'Najlepsze i najpełniejsze opracowania historii polskiego jazzu — monografie, biografie, przewodniki płytowe i serie naukowe.',
   'lib.more':'więcej o książce ↗',
   'modal.yt':'otwórz na YouTube ↗','modal.close':'zamknij ✕',
-  'card.listen':'▶ SŁUCHAJ','card.search':'SZUKAJ NA YOUTUBE ↗','card.pillar':'★ FILAR KANONU','card.must':'★ MUST-SEE','card.plink':'Kopiuj link do płyty',
+  'card.listen':'▶ SŁUCHAJ','card.search':'SZUKAJ NA YOUTUBE ↗','card.pillar':'★ FILAR KANONU','card.must':'★ MUST-SEE','card.plink':'Kopiuj link do płyty','modal.share':'🔗 kopiuj link',
   'typ.dokument':'dokument','typ.koncert':'koncert','typ.archiwum':'archiwum','typ.wyklad':'wykład/rozmowa','typ.album':'album',
   'pl.kicker':'Słuchasz ciągiem','pl.prev':'◀ POPRZEDNIA','pl.next':'NASTĘPNA ▶','pl.shuffle':'LOSOWO',
   'toast.copied':'Link skopiowany: ','toast.prompt':'Skopiuj link:','pl.empty':'Brak płyt z nagraniem w tym filtrze.',
@@ -544,7 +551,7 @@ const T={
   'lib.desc':'The best and most complete works on the history of Polish jazz — monographs, biographies, record guides and academic series.',
   'lib.more':'more about the book ↗',
   'modal.yt':'open on YouTube ↗','modal.close':'close ✕',
-  'card.listen':'▶ LISTEN','card.search':'SEARCH ON YOUTUBE ↗','card.pillar':'★ PILLAR OF THE CANON','card.must':'★ MUST-SEE','card.plink':'Copy link to this record',
+  'card.listen':'▶ LISTEN','card.search':'SEARCH ON YOUTUBE ↗','card.pillar':'★ PILLAR OF THE CANON','card.must':'★ MUST-SEE','card.plink':'Copy link to this record','modal.share':'🔗 copy link',
   'typ.dokument':'documentary','typ.koncert':'concert','typ.archiwum':'archival','typ.wyklad':'lecture/interview','typ.album':'album',
   'pl.kicker':'Playing all','pl.prev':'◀ PREVIOUS','pl.next':'NEXT ▶','pl.shuffle':'SHUFFLE',
   'toast.copied':'Link copied: ','toast.prompt':'Copy this link:','pl.empty':'No records with a recording in this filter.',
@@ -702,6 +709,7 @@ document.querySelectorAll('.filters-inner .chip[data-f]').forEach(ch=>ch.addEven
 }));
 
 /* ============ MODAL ============ */
+let curVideo=null;
 const modal=document.getElementById('modal');
 const frame=document.getElementById('modal-frame');
 const mtitle=document.getElementById('modal-title');
@@ -712,8 +720,23 @@ function openVideo(id,title){
   myt.href=`https://www.youtube.com/watch?v=${id}`;
   modal.classList.add('open');
   document.body.style.overflow='hidden';
+  curVideo=id;
+  try{history.replaceState(null,'','#film='+id)}catch(e){}
 }
-function closeModal(){modal.classList.remove('open');frame.innerHTML='';document.body.style.overflow='';}
+function closeModal(){
+  modal.classList.remove('open');frame.innerHTML='';document.body.style.overflow='';
+  curVideo=null;
+  if(location.hash.indexOf('#film=')===0){
+    try{history.replaceState(null,'',location.pathname+location.search)}catch(e){}
+  }
+}
+document.getElementById('modal-share').addEventListener('click',()=>{
+  if(!curVideo)return;
+  const url=location.origin+location.pathname+'#film='+curVideo;
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(url).then(()=>toast(t('toast.copied')+'#film='+curVideo),()=>toast(url));
+  }else{ prompt(t('toast.prompt'),url); }
+});
 document.getElementById('modal-close').addEventListener('click',closeModal);
 modal.addEventListener('click',e=>{if(e.target===modal)closeModal();});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
@@ -884,7 +907,13 @@ document.querySelectorAll('.langbtn').forEach(b=>b.addEventListener('click',()=>
   applyLang(lang,true);
   if(v==='wall')setView('wall');
 
-  const m=location.hash.match(/^#a-([a-z0-9]+)$/i);
+  const mf=location.hash.match(/^#film=([\w-]+)$/);
+  if(mf){
+    const v=VIDEOS.find(x=>x.id===mf[1]);
+    if(v)setTimeout(()=>openVideo(v.id,(LANG==='en'&&v.t_en)?v.t_en:v.t),200);
+  }
+
+  const m=location.hash.match(/^#(?:a-)([a-z0-9]+)$/i);
   if(m){
     const el=document.getElementById('a-'+m[1]);
     if(el)setTimeout(()=>{

@@ -298,3 +298,10 @@ footer{border-top:0;background:var(--red);padding:24px 22px;text-align:center;
   .mimg{flex-basis:100%}
   .rung{flex-wrap:wrap}
 }
+
+/* przycisk kopiowania linku w oknie (udostępnianie #pokemon= / #karta=) */
+.mshare{position:absolute;top:14px;right:66px;background:var(--navy,#1d2a4a);border:2.5px solid var(--outline);
+  color:#fff;border-radius:999px;height:40px;padding:0 16px;font-family:inherit;font-size:13.5px;font-weight:700;
+  cursor:pointer;box-shadow:0 3px 16px rgba(122,127,201,.35)}
+.mshare:hover{filter:brightness(1.15)}
+@media(max-width:640px){.mshare{position:static;display:block;margin:14px auto 0;width:calc(100% - 20px)}}

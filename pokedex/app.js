@@ -4,6 +4,24 @@ const $=id=>document.getElementById(id);
 const C=window.CONTENT, MON=window.POKEMON, BASE=window.BASECARDS, REC=window.RECENTCARDS, FILL=window.FILLCARDS||[];
 let lang=localStorage.getItem('pp-lang')||'pl';
 let cardTab='base', modernSet='all';
+const startHash=location.hash;
+
+/* ---------- udostępnianie: #pokemon=<numer>, #karta=<id>, #dzial=<sekcja> ---------- */
+const SHARE={pl:{btn:'🔗 Kopiuj link',ok:'✓ Skopiowano'},en:{btn:'🔗 Copy link',ok:'✓ Copied'}};
+function setHash(h){try{history.replaceState(null,'',h||location.pathname+location.search)}catch(e){}}
+function shareBtn(cel){
+ const box=$('modal-box'); if(!box) return;
+ const b=document.createElement('button');
+ b.className='mshare';
+ b.textContent=SHARE[lang].btn;
+ b.onclick=()=>{
+  const link=location.origin+location.pathname+cel;
+  const ok=()=>{b.textContent=SHARE[lang].ok;setTimeout(()=>{b.textContent=SHARE[lang].btn},2000)};
+  if(navigator.clipboard) navigator.clipboard.writeText(link).then(ok,()=>prompt(SHARE[lang].btn,link));
+  else prompt(SHARE[lang].btn,link);
+ };
+ box.appendChild(b);
+}
 
 /* ---------- słownik UI ---------- */
 const UI={
@@ -126,7 +144,10 @@ function cardsWord(n){
 const rIdx=r=>{const i=RARITY_ORDER.indexOf(r);return i<0?RARITY_ORDER.length:i};
 
 /* ---------- nawigacja ---------- */
+let curSec='start';
 window.go=function(sec){
+ curSec=sec;
+ setHash('#dzial='+sec);
  document.querySelectorAll('.sec').forEach(s=>s.classList.remove('on'));
  $('sec-'+sec).classList.add('on');
  document.querySelectorAll('#mainnav button').forEach(b=>b.classList.toggle('on',b.dataset.sec===sec));
@@ -230,6 +251,8 @@ window.openMon=function(id){
     ${evoH}${cardsH}
    </div></div>`;
  $('modal').classList.add('on');
+ setHash('#pokemon='+m.id);
+ shareBtn('#pokemon='+m.id);
 };
 
 /* ---------- karty ---------- */
@@ -308,6 +331,8 @@ window.openCard=function(id){
     ${c.artist?`<p style="margin-top:10px;color:var(--dim);font-size:13.5px">🖌 ${T(UI.cards.artist)}: <b>${c.artist}</b></p>`:''}
    </div></div>`;
  $('modal').classList.add('on');
+ setHash('#karta='+c.id);
+ shareBtn('#karta='+c.id);
  // hires tylko gdy CDN naprawdę ją ma (404 zwraca rewers karty, który <img> i tak by wyświetlił)
  fetch(hires,{method:'HEAD'}).then(r=>{
   if(r.ok){const i=$('cardbig');if(i)i.src=hires;}
@@ -385,7 +410,10 @@ function renderPlay(){
 }
 
 /* ---------- modal ---------- */
-window.closeModal=function(){$('modal').classList.remove('on');};
+window.closeModal=function(){
+ $('modal').classList.remove('on');
+ if(/^#(pokemon|karta)=/.test(location.hash)) setHash(curSec?'#dzial='+curSec:'');
+};
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
 
 /* ---------- render all ---------- */
@@ -399,4 +427,14 @@ function renderAll(){
 }
 renderAll();
 go('start');
+
+function openFromHash(h){
+ h=h||location.hash;
+ let m;
+ if((m=h.match(/^#pokemon=(\d+)$/))){ go('dex'); openMon(+m[1]); }
+ else if((m=h.match(/^#karta=(.+)$/))){ go('cards'); openCard(decodeURIComponent(m[1])); }
+ else if((m=h.match(/^#dzial=([a-z]+)$/))){ if($('sec-'+m[1])) go(m[1]); }
+}
+addEventListener('hashchange',()=>openFromHash());
+openFromHash(startHash);
 })();
