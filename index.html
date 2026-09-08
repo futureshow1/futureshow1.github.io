@@ -221,7 +221,12 @@ footer a{color:var(--dim)} footer a:hover{color:var(--ink)}
 /* ============ responsive ============ */
 @media(max-width:760px){
   .navlinks,.rail-nav{display:none}
-  .search input{width:92px}
+  nav{gap:10px}
+  .logo{font-size:16px}
+  .search{flex:1 1 auto;min-width:0;padding:7px 10px}
+  .search input{width:100%;min-width:0}
+  .langbtn,.sburger{padding:8px 10px;flex:none}
+  .logo{flex:none}
   .card{width:150px}
   .p-title{font-size:17px;bottom:30px}
   .hero{min-height:74vh;padding-bottom:56px}
@@ -1194,7 +1199,7 @@ function heroAuto(){
  },3200);}
 function renderChrome(){
  document.querySelectorAll("[data-i]").forEach(el=>{el.textContent=UI[LANG][el.dataset.i]||""});
- document.getElementById("q").placeholder=UI[LANG].search;
+ document.getElementById("q").placeholder=(innerWidth<=760?(LANG==="pl"?"szukaj…":"search…"):UI[LANG].search);
  document.getElementById("langbtn").textContent=LANG==="pl"?"EN":"PL";
  document.getElementById("trust").innerHTML=UI[LANG].trust.map(t=>`<span class="s-chip">${t}</span>`).join("");
  document.documentElement.lang=LANG;
