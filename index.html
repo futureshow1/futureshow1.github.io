@@ -821,6 +821,7 @@ const UI = {
   nav_studio:"Zamówienia",nav_contact:"Kontakt",search:"szukaj projektu…",
   open:"▶ Otwórz",more:"ⓘ Szczegóły",openFull:{portal:"▶ Otwórz portal",site:"▶ Otwórz stronę",app:"▶ Otwórz aplikację"},
   demo:"✉ Demo na życzenie",close:"Zamknij",
+  share:"🔗 Kopiuj link",shared:"✓ Skopiowano",
   s_kick:"Zamówienia",s_title:"Złożone idee, interaktywnie.",
   s_lede:"FutureShow buduje interaktywne śledztwa, portale wiedzy, symulacje i gry edukacyjne — dla muzeów, mediów, edukacji i NGO. Wszystko statyczne, bez trackingu, dwujęzyczne, budowane AI-natywnie.",
   s_cta1:"✉ Napisz do nas",s_cta2:"Zacznij projekt →",
@@ -830,6 +831,7 @@ const UI = {
   nav_studio:"Commissions",nav_contact:"Contact",search:"search projects…",
   open:"▶ Open",more:"ⓘ Details",openFull:{portal:"▶ Open portal",site:"▶ Open site",app:"▶ Open app"},
   demo:"✉ Request a demo",close:"Close",
+  share:"🔗 Copy link",shared:"✓ Copied",
   s_kick:"Commissions",s_title:"Complex ideas, made interactive.",
   s_lede:"FutureShow builds interactive investigations, knowledge portals, simulations and educational games — for museums, media, education and NGOs. All static, no tracking, bilingual, built AI-natively.",
   s_cta1:"✉ Get in touch",s_cta2:"Start a project →",
@@ -1207,6 +1209,23 @@ function renderChrome(){
 
 /* ================= modal (banner-slideshow) ================= */
 let modalTimer=null;
+/* przycisk „kopiuj link" — adres z #m=<klucz> otwiera dokładnie ten materiał */
+function shareBtn(k){
+ const body=document.querySelector("#modal .m-body"); if(!body) return;
+ let box=body.querySelector(".m-ctas");
+ if(!box){box=document.createElement("div");box.className="m-ctas";body.appendChild(box);}
+ const b=document.createElement("button");
+ b.className="btn btn-info";
+ b.style.cssText="backdrop-filter:none;background:rgba(233,237,245,.08)";
+ b.textContent=UI[LANG].share;
+ b.onclick=()=>{
+  const link=location.origin+location.pathname+location.search+"#m="+k;
+  const ok=()=>{b.textContent=UI[LANG].shared;setTimeout(()=>{b.textContent=UI[LANG].share},2000)};
+  if(navigator.clipboard) navigator.clipboard.writeText(link).then(ok,()=>prompt(UI[LANG].share,link));
+  else prompt(UI[LANG].share,link);
+ };
+ box.appendChild(b);
+}
 function openPlayer(k){
  const p=P[k], v=p.video, m=document.getElementById("modal");
  const url = v.src==="vimeo"
@@ -1236,7 +1255,9 @@ function openPlayer(k){
   </div>`;
  document.getElementById("mback").classList.add("open");
  document.body.style.overflow="hidden";
+ try{history.replaceState(null,"","#m="+k)}catch(e){}
  document.getElementById("mclose").onclick=closeModal;
+ shareBtn(k);
 }
 function openModal(k){
  const p=P[k], m=document.getElementById("modal"), g=gal(k);
@@ -1272,6 +1293,7 @@ function openModal(k){
  try{history.replaceState(null,"","#m="+k)}catch(e){}
  document.getElementById("mclose").onclick=closeModal;
  document.getElementById("mclose2").onclick=closeModal;
+ shareBtn(k);
  clearInterval(modalTimer);
  if(g.length>1 && !matchMedia("(prefers-reduced-motion: reduce)").matches){
   modalTimer=setInterval(()=>{
@@ -1339,7 +1361,13 @@ document.addEventListener("keydown",e=>{
 });
 addEventListener("scroll",()=>document.getElementById("nav")
  .classList.toggle("solid",scrollY>40),{passive:true});
-if(location.hash.startsWith("#m=")){const k=location.hash.slice(3);if(P[k])openModal(k)}
+function openFromHash(){
+ const h=location.hash;
+ if(h.startsWith("#m=")){const k=decodeURIComponent(h.slice(3));if(P[k])openModal(k);}
+ else if(document.getElementById("mback").classList.contains("open")) closeModal();
+}
+addEventListener("hashchange",openFromHash);
+openFromHash();
 /* ═══ zaproszenie do darmowych aplikacji ═══
    Pokazuje się raz na 45 dni i dopiero, gdy ktoś naprawdę przegląda stronę:
    po przewinięciu za pierwszy rząd albo po 25 s. Nigdy nad otwartym oknem. */

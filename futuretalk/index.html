@@ -407,6 +407,9 @@
       <button id="againbtn">Powtórz</button>
       <button class="know" id="knowbtn">Umiem</button>
     </div>
+    <p class="hint" style="text-align:center;margin-top:14px">
+      <button id="cardshare" style="font:inherit;color:inherit;background:none;border:none;border-bottom:1px solid currentColor;padding:0;cursor:pointer">🔗 Kopiuj link do tej fiszki</button>
+    </p>
   </div>
 
   <!-- DZIENNIK -->
@@ -816,8 +819,13 @@ var player = document.getElementById('player');
 var stepbox = document.getElementById('stepbox');
 var footbox = document.getElementById('footbox');
 
+function setHash(h) {
+  try { history.replaceState(null, '', h || location.pathname + location.search); } catch (e) {}
+}
+
 function openLesson(i) {
   cur = i;
+  setHash('#lekcja=' + LESSONS[i].id);
   var s = lstate(LESSONS[i].id);
   stepIdx = (s.done || !s.step) ? 0 : Math.min(s.step, LESSONS[i].steps.length - 1);
   quizOK = 0; quizAll = 0;
@@ -831,6 +839,7 @@ function closePlayer() {
   if (!s.done) { s.step = stepIdx < l.steps.length ? stepIdx : 0; state.lessons[l.id] = s; save(); }
   player.hidden = true;
   document.body.style.overflow = '';
+  setHash('');
   renderPath();
   show('path');
 }
@@ -986,8 +995,10 @@ function renderDone() {
 var deck = [], deckPos = 0, flipped = false;
 function buildDeck() {
   deck = LESSONS.map(function (l) {
-    return { l: l.n + ' · ' + l.t, q: 'Złota zasada tej lekcji?', a: l.rule };
-  }).concat(EXTRA_CARDS);
+    return { fid: l.id, l: l.n + ' · ' + l.t, q: 'Złota zasada tej lekcji?', a: l.rule };
+  }).concat(EXTRA_CARDS.map(function (c, i) {
+    return { fid: 't' + (i + 1), l: c.l, q: c.q, a: c.a };
+  }));
   for (var i = deck.length - 1; i > 0; i--) {
     var j = Math.floor(Math.random() * (i + 1));
     var tmp = deck[i]; deck[i] = deck[j]; deck[j] = tmp;
@@ -1011,6 +1022,7 @@ function renderCard() {
   document.getElementById('cf-label').textContent = c.l;
   document.getElementById('cf-front').textContent = c.q;
   document.getElementById('cf-back').textContent = c.a;
+  setHash('#fiszka=' + c.fid);
 }
 document.getElementById('fcard').addEventListener('click', function () {
   if (deckPos >= deck.length) { buildDeck(); renderCard(); return; }
@@ -1105,8 +1117,47 @@ document.querySelectorAll('nav.tabs button').forEach(function (b) {
   });
 });
 
+/* ---- udostępnianie: #fiszka=<id> albo #lekcja=<id> ---- */
+document.getElementById('cardshare').addEventListener('click', function () {
+  var c = deck[deckPos];
+  if (!c) return;
+  var link = location.origin + location.pathname + '#fiszka=' + c.fid;
+  var btn = this;
+  var ok = function () {
+    btn.textContent = '✓ Skopiowano';
+    setTimeout(function () { btn.textContent = '🔗 Kopiuj link do tej fiszki'; }, 2000);
+  };
+  if (navigator.clipboard) navigator.clipboard.writeText(link).then(ok, function () { prompt('Link do fiszki', link); });
+  else prompt('Link do fiszki', link);
+});
+
+function openFromHash() {
+  var h = location.hash, i;
+  if (h.indexOf('#fiszka=') === 0) {
+    var fid = decodeURIComponent(h.slice(8));
+    if (!deck.length) buildDeck();
+    for (i = 0; i < deck.length; i++) {
+      if (deck[i].fid === fid) {
+        var c = deck.splice(i, 1)[0];
+        deck.unshift(c);
+        deckPos = 0;
+        renderCard();
+        show('cards');
+        return;
+      }
+    }
+  } else if (h.indexOf('#lekcja=') === 0) {
+    var lid = decodeURIComponent(h.slice(8));
+    for (i = 0; i < LESSONS.length; i++) {
+      if (LESSONS[i].id === lid) { openLesson(i); return; }
+    }
+  }
+}
+addEventListener('hashchange', openFromHash);
+
 save();
 renderPath();
+openFromHash();
 </script>
 
 </body>
