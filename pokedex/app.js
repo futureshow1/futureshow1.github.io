@@ -357,12 +357,28 @@ function renderAnime(){
   <tr><td class="n">${m.n}</td><td class="y">${m.year}</td><td class="t">${titleOf(m)}</td><td class="d">${T(m)}</td></tr>`).join('')}</table>`;
 }
 
+
+/* blok „Jak wyjaśnić dziecku" — prosta wersja zasad dla dorosłego, który uczy dziecko */
+function kidBox(g){
+ if(!g.kid) return '';
+ const k=g.kid, tips=k.tips?(k.tips[lang]||k.tips.pl):[];
+ const pairs=[];
+ for(let i=0;i<tips.length;i+=2) pairs.push([tips[i],tips[i+1]]);
+ return `<div class="kidbox">
+   <h4>👶 ${T(k.title)}</h4>
+   <p class="kidintro">${T(k.intro)}</p>
+   <ol class="kidsteps">${k.steps.map(st=>{const t=st[lang]||st.pl;
+     return `<li><b>${t[0]}</b><span>${t[1]}</span></li>`;}).join('')}</ol>
+   ${pairs.length?`<div class="kidtips">${pairs.map(([h,t])=>`<div><b>${h}</b><p>${t}</p></div>`).join('')}</div>`:''}
+  </div>`;
+}
+
 /* ---------- gry ---------- */
 function renderPlay(){
  $('play-title').textContent=T(UI.play.title);
  $('play-desc').textContent=T(UI.play.desc);
  $('play-list').innerHTML=C.realGames.map(g=>`
-  <div class="playc"><h3><span class="em">${g.icon}</span>${T(g.title)}</h3><p>${T(g)}</p></div>`).join('');
+  <div class="playc"><h3><span class="em">${g.icon}</span>${T(g.title)}</h3><p>${T(g)}</p>${kidBox(g)}</div>`).join('');
  $('catch-title').textContent=T(UI.play.catch);
  $('catch-list').innerHTML=C.catching[lang].map(c=>`
   <div class="catchc"><h4>${c[0]}</h4><p>${c[1]}</p></div>`).join('');
