@@ -952,6 +952,82 @@
     .trait-label { width: 90px; }
     .perm-dialog { margin: 10px; }
   }
+
+  /* ===== WARSTWA OBJAŚNIEŃ (kliknij, żeby zobaczyć, co działo się naprawdę) ===== */
+  [data-info] { cursor: pointer; position: relative; transition: box-shadow .15s, background .15s; }
+  [data-info]:hover { box-shadow: 0 0 0 2px #f472b6; }
+  [data-info]::after {
+    content: "?"; position: absolute; top: 6px; right: 6px;
+    width: 17px; height: 17px; border-radius: 50%;
+    background: #f472b6; color: #fff;
+    font: 700 11px/17px 'Roboto', Arial, sans-serif; text-align: center;
+    opacity: .55; transition: opacity .15s; pointer-events: none; z-index: 3;
+  }
+  [data-info]:hover::after { opacity: 1; }
+  .perm-list [data-info]::after { top: 2px; right: 0; }
+
+  .info-hint {
+    width: 100%; max-width: 900px; margin: 18px auto 0;
+    background: #fdf2f8; border: 1px solid #fbcfe8; border-left: 4px solid #f472b6;
+    border-radius: 4px; padding: 11px 16px; font-size: .8rem; color: #831843; line-height: 1.5;
+  }
+  .info-langbtn {
+    float: right; background: #831843; color: #fff; border: 0; border-radius: 3px;
+    font: 600 .72rem 'Roboto', Arial, sans-serif; padding: 4px 10px; cursor: pointer; margin-left: 12px;
+  }
+  .info-langbtn:hover { background: #9d174d; }
+
+  .info-overlay {
+    display: none; position: fixed; inset: 0; z-index: 999;
+    background: rgba(10,10,20,.72); padding: 24px; overflow-y: auto;
+  }
+  .info-overlay.open { display: block; }
+  .info-box {
+    max-width: 660px; margin: 40px auto; background: #fff; border-radius: 6px;
+    box-shadow: 0 24px 70px rgba(0,0,0,.5); overflow: hidden;
+  }
+  .info-head {
+    background: #1a1a2e; color: #fff; padding: 16px 22px;
+    display: flex; align-items: flex-start; justify-content: space-between; gap: 14px;
+  }
+  .info-head h3 { font-size: 1.02rem; font-weight: 600; line-height: 1.35; }
+  .info-kicker {
+    display: block; font-size: .66rem; letter-spacing: .12em; text-transform: uppercase;
+    color: #f472b6; margin-bottom: 5px;
+  }
+  .info-close {
+    background: none; border: 0; color: #9ca3af; font-size: 1.5rem; line-height: 1;
+    cursor: pointer; flex-shrink: 0;
+  }
+  .info-close:hover { color: #fff; }
+  .info-body { padding: 20px 22px 8px; color: #1c1e21; font-size: .87rem; line-height: 1.62; }
+  .info-body p { margin-bottom: 13px; }
+  .info-body strong { color: #831843; }
+  .info-body ul { margin: 0 0 13px 18px; }
+  .info-body li { margin-bottom: 6px; }
+  .info-body .info-quote {
+    border-left: 3px solid #f472b6; padding: 2px 0 2px 13px;
+    color: #4b5563; font-style: italic; margin-bottom: 13px;
+  }
+  .info-body .info-caveat {
+    background: #fffbeb; border: 1px solid #fde68a; border-radius: 4px;
+    padding: 10px 13px; font-size: .8rem; color: #78350f; margin-bottom: 13px;
+  }
+  .info-src {
+    padding: 12px 22px 18px; font-size: .72rem; color: #6b7280;
+    border-top: 1px solid #e5e7eb; line-height: 1.5;
+  }
+  .info-foot { padding: 0 22px 18px; }
+  .info-share {
+    background: none; border: 1px solid #d1d5db; border-radius: 3px; color: #4b5563;
+    font: 600 .72rem 'Roboto', Arial, sans-serif; padding: 6px 12px; cursor: pointer;
+  }
+  .info-share:hover { border-color: #f472b6; color: #831843; }
+  @media (max-width: 600px) {
+    .info-overlay { padding: 0; }
+    .info-box { margin: 0; border-radius: 0; min-height: 100vh; }
+  }
+
 </style>
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png"><link rel="apple-touch-icon" href="../apple-touch-icon.png"><script data-goatcounter="https://futureshow.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
@@ -961,6 +1037,11 @@
   <strong>MOCKUP RECONSTRUCTION</strong> of the Facebook app used by Cambridge Analytica to harvest data from 87 million users.
   <span class="warning">Not a real app</span>
   <br>Based on evidence from Christopher Wylie's <em>Mindf*ck</em> (2019)
+</div>
+
+<div class="info-hint">
+  <button class="info-langbtn" id="infoLangBtn">English</button>
+  <span id="infoHint"></span>
 </div>
 
 <!-- Facebook 2013-era navbar -->
@@ -990,27 +1071,27 @@
       </div>
       <div class="perm-wants">This app would like to:</div>
       <ul class="perm-list">
-        <li>
+        <li data-info="perm-profile">
           <span class="perm-icon">&#128100;</span>
           <span>Access your <strong>public profile</strong> (name, profile picture, age range, gender, language, country)</span>
         </li>
-        <li>
+        <li data-info="perm-email">
           <span class="perm-icon">&#128231;</span>
           <span>Access your <strong>email address</strong></span>
         </li>
-        <li>
+        <li data-info="perm-likes">
           <span class="perm-icon">&#128206;</span>
           <span>Access your <strong>likes, interests, and pages</strong></span>
         </li>
-        <li>
+        <li data-info="perm-location">
           <span class="perm-icon">&#127968;</span>
           <span>Access your <strong>location, hometown, and current city</strong></span>
         </li>
-        <li>
+        <li data-info="perm-friends">
           <span class="perm-icon">&#128101;</span>
           <span class="highlight">Access your <strong>friends list</strong> and their public profiles, likes, birthdays, and locations</span>
         </li>
-        <li>
+        <li data-info="perm-posts">
           <span class="perm-icon">&#128196;</span>
           <span>Access your <strong>status updates, photos, and posts</strong></span>
         </li>
@@ -1074,7 +1155,7 @@
 
   <!-- SCREEN: Quiz -->
   <div class="screen active" id="screen-quiz">
-    <div class="quiz-card">
+    <div class="quiz-card" data-info="quiz-bigfive">
       <div class="quiz-card-header">
         <h3>Personality Assessment</h3>
         <span class="quiz-step">Question 7 of 120</span>
@@ -1123,7 +1204,7 @@
       </div>
     </div>
 
-    <div class="quiz-card">
+    <div class="quiz-card" data-info="quiz-swls">
       <div class="quiz-card-header">
         <h3>Life Satisfaction Survey</h3>
         <span class="quiz-step">Part 2 of 3</span>
@@ -1175,9 +1256,10 @@
       <div class="results-header">
         <h3>Your OCEAN Personality Profile</h3>
       </div>
+      <div style="padding:14px 22px 0"><button class="info-share" id="infoRecordBtn" data-info="profil-rekord" style="width:100%;padding:10px;font-size:.8rem;border-color:#f472b6;color:#831843"></button></div>
       <div class="results-body">
         <div class="ocean-chart">
-          <div class="ocean-trait trait-o">
+          <div class="ocean-trait trait-o" data-info="ocean-o">
             <div class="trait-label">
               <div class="trait-name">Openness</div>
               <div class="trait-sub">to experience</div>
@@ -1187,7 +1269,7 @@
             </div>
             <div class="trait-value">82</div>
           </div>
-          <div class="ocean-trait trait-c">
+          <div class="ocean-trait trait-c" data-info="ocean-c">
             <div class="trait-label">
               <div class="trait-name">Conscientiousness</div>
               <div class="trait-sub">organized & dependable</div>
@@ -1197,7 +1279,7 @@
             </div>
             <div class="trait-value">65</div>
           </div>
-          <div class="ocean-trait trait-e">
+          <div class="ocean-trait trait-e" data-info="ocean-e">
             <div class="trait-label">
               <div class="trait-name">Extraversion</div>
               <div class="trait-sub">outgoing & energetic</div>
@@ -1207,7 +1289,7 @@
             </div>
             <div class="trait-value">73</div>
           </div>
-          <div class="ocean-trait trait-a">
+          <div class="ocean-trait trait-a" data-info="ocean-a">
             <div class="trait-label">
               <div class="trait-name">Agreeableness</div>
               <div class="trait-sub">friendly & compassionate</div>
@@ -1217,7 +1299,7 @@
             </div>
             <div class="trait-value">58</div>
           </div>
-          <div class="ocean-trait trait-n">
+          <div class="ocean-trait trait-n" data-info="ocean-n">
             <div class="trait-label">
               <div class="trait-name">Neuroticism</div>
               <div class="trait-sub">sensitive & nervous</div>
@@ -1279,7 +1361,7 @@
         </p>
 
         <div class="data-flow">
-          <div class="data-flow-step step-user">
+          <div class="data-flow-step step-user" data-info="step-1">
             <div class="flow-connector">
               <div class="flow-dot"></div>
               <div class="flow-line"></div>
@@ -1290,7 +1372,7 @@
             </div>
           </div>
 
-          <div class="data-flow-step step-friends">
+          <div class="data-flow-step step-friends" data-info="step-2">
             <div class="flow-connector">
               <div class="flow-dot"></div>
               <div class="flow-line"></div>
@@ -1301,7 +1383,7 @@
             </div>
           </div>
 
-          <div class="data-flow-step step-harvest">
+          <div class="data-flow-step step-harvest" data-info="step-3">
             <div class="flow-connector">
               <div class="flow-dot"></div>
               <div class="flow-line"></div>
@@ -1312,7 +1394,7 @@
             </div>
           </div>
 
-          <div class="data-flow-step step-profile">
+          <div class="data-flow-step step-profile" data-info="step-4">
             <div class="flow-connector">
               <div class="flow-dot"></div>
               <div class="flow-line"></div>
@@ -1323,7 +1405,7 @@
             </div>
           </div>
 
-          <div class="data-flow-step step-weapon">
+          <div class="data-flow-step step-weapon" data-info="step-5">
             <div class="flow-connector">
               <div class="flow-dot"></div>
               <div class="flow-line"></div>
@@ -1336,15 +1418,15 @@
         </div>
 
         <div class="data-numbers">
-          <div class="data-num-card">
+          <div class="data-num-card" data-info="num-270k">
             <div class="num">~270K</div>
             <div class="lbl">Direct app users</div>
           </div>
-          <div class="data-num-card">
+          <div class="data-num-card" data-info="num-87m">
             <div class="num">87M</div>
             <div class="lbl">Profiles harvested</div>
           </div>
-          <div class="data-num-card">
+          <div class="data-num-card" data-info="num-320x">
             <div class="num">~320x</div>
             <div class="lbl">Data amplification</div>
           </div>
@@ -1403,5 +1485,354 @@
 </script>
 
 <script src="../cookie-consent.js"></script>
+
+<!-- ===== OKNO OBJAŚNIEŃ ===== -->
+<div class="info-overlay" id="infoOverlay">
+  <div class="info-box">
+    <div class="info-head">
+      <div>
+        <span class="info-kicker" id="infoKicker"></span>
+        <h3 id="infoTitle"></h3>
+      </div>
+      <button class="info-close" onclick="closeInfo()" aria-label="Zamknij">&times;</button>
+    </div>
+    <div class="info-body" id="infoBody"></div>
+    <div class="info-foot"><button class="info-share" id="infoShare"></button></div>
+    <div class="info-src" id="infoSrc"></div>
+  </div>
+</div>
+<script>
+/* ============================================================
+   WARSTWA OBJAŚNIEŃ — co naprawdę działo się za tym interfejsem
+   Klik w element makiety otwiera okno z wyjaśnieniem.
+   ============================================================ */
+var INFO_LANG = (localStorage.getItem('dl-info-lang') || 'pl');
+
+var INFO = {
+
+'perm-profile': {
+  pl: { k:'Zgoda 1 z 6', t:'Profil publiczny — klucz, który zamieniał wynik testu w konkretnego wyborcę',
+    b:`<p>Imię i nazwisko, zdjęcie, przedział wieku, płeć, język, kraj. Brzmi niegroźnie i to właśnie ta nieszkodliwość była tu najważniejsza.</p>
+       <p>Sam wynik testu osobowości jest dla kampanii bezużyteczny, dopóki nie wiadomo, <strong>kim jest badany i gdzie głosuje</strong>. Te cztery pola — nazwisko, wiek, płeć, miasto — wystarczały, żeby dopasować rekord do amerykańskiego rejestru wyborców, który w wielu stanach jest jawny i można go kupić.</p>
+       <p>Dopiero po tym sklejeniu profil psychologiczny stawał się narzędziem: nie „ktoś neurotyczny", tylko „ten człowiek, z tego okręgu, zarejestrowany jako niezdecydowany".</p>` },
+  en: { k:'Permission 1 of 6', t:'Public profile — the key that turned a test score into a named voter',
+    b:`<p>Name, photo, age range, gender, language, country. It sounds harmless, and that harmlessness was the point.</p>
+       <p>A personality score is useless to a campaign until you know <strong>who took the test and where they vote</strong>. These four fields were enough to match a record against US voter files, which are public and purchasable in many states.</p>
+       <p>Only after that match did the psychological profile become a tool: not "someone neurotic", but "this person, in this district, registered as undecided".</p>` } },
+
+'perm-email': {
+  pl: { k:'Zgoda 2 z 6', t:'Adres e-mail — spinacz między kontem, bazami komercyjnymi i reklamą',
+    b:`<p>E-mail jest identyfikatorem, który ta sama osoba zostawia w dziesiątkach miejsc: w sklepach, newsletterach, programach lojalnościowych.</p>
+       <p>Pozwalał więc dokleić do profilu dane kupione od brokerów danych — dochód, historię zakupów, posiadanie broni, wyznanie — i uzupełnić obraz o rzeczy, których na Facebooku nie widać.</p>
+       <p>Był też wprost przepustką do reklamy: adresy wgrywa się do systemu reklamowego jako „custom audience" i wyświetla przekaz dokładnie tym osobom.</p>` },
+  en: { k:'Permission 2 of 6', t:'Email address — the joint between the account, commercial databases and ad targeting',
+    b:`<p>An email address is the identifier the same person leaves in dozens of places: shops, newsletters, loyalty schemes.</p>
+       <p>It let purchased data-broker records — income, purchase history, gun ownership, religion — be attached to the profile, filling in what Facebook itself could not see.</p>
+       <p>It was also a direct route to advertising: upload the addresses as a "custom audience" and serve a message to exactly those people.</p>` } },
+
+'perm-likes': {
+  pl: { k:'Zgoda 3 z 6', t:'Polubienia — najcenniejsza rzecz w całym zestawie',
+    b:`<p>To nie odpowiedzi w teście były głównym paliwem, tylko lajki. Test służył do <em>wytrenowania</em> modelu: 270 tysięcy osób wypełniło rzetelny kwestionariusz i jednocześnie oddało listę polubionych stron. Mając jedno i drugie, można nauczyć maszynę przewidywać wynik testu <strong>u kogoś, kto go nigdy nie wypełniał</strong>.</p>
+       <p>Badanie Kosinskiego, Stillwella i Graepela (PNAS, 2013) pokazało, że same polubienia pozwalają trafnie przewidzieć orientację seksualną, poglądy polityczne, pochodzenie, wyznanie, używki i to, czy rodzice badanego się rozwiedli.</p>
+       <p>Youyou, Kosinski i Stillwell (2015) porównali trafność maszyny z trafnością ludzi, którzy badanego znają:</p>
+       <ul><li>10 polubień — model trafia lepiej niż kolega z pracy</li>
+           <li>70 — lepiej niż przyjaciel</li>
+           <li>150 — lepiej niż członek rodziny</li>
+           <li>300 — lepiej niż mąż lub żona</li></ul>
+       <p>Przeciętny użytkownik Facebooka z tamtych lat miał ich kilkaset.</p>` },
+  en: { k:'Permission 3 of 6', t:'Likes — the most valuable item in the whole set',
+    b:`<p>The quiz answers were not the main fuel; the likes were. The test <em>trained</em> the model: 270,000 people filled in a genuine questionnaire and handed over their page likes at the same time. With both, a machine can learn to predict the test result <strong>for someone who never took it</strong>.</p>
+       <p>Kosinski, Stillwell and Graepel (PNAS, 2013) showed that likes alone accurately predict sexual orientation, political views, ethnicity, religion, substance use and whether a person's parents separated.</p>
+       <p>Youyou, Kosinski and Stillwell (2015) compared the machine against people who actually knew the subject:</p>
+       <ul><li>10 likes — the model beats a work colleague</li>
+           <li>70 — beats a friend</li>
+           <li>150 — beats a family member</li>
+           <li>300 — beats a spouse</li></ul>
+       <p>A typical Facebook user of that era had several hundred.</p>` } },
+
+'perm-location': {
+  pl: { k:'Zgoda 4 z 6', t:'Lokalizacja — bez niej cały profil jest kampanii niepotrzebny',
+    b:`<p>Miasto obecne i rodzinne przekładają się na okręg wyborczy, a w wyborach prezydenckich w USA liczy się nie liczba głosów, tylko to, <strong>w którym stanie</strong> padły.</p>
+       <p>Budżet kampanii szedł więc do kilku stanów wahających się — Michigan, Wisconsin, Pensylwania, Floryda. Profil psychologiczny wyborcy z Kalifornii był wart znacznie mniej niż ten sam profil z Michigan.</p>
+       <p>Lokalizacja decydowała też o treści: ten sam lęk ubiera się w co innego w mieście przemysłowym, a w co innego na przedmieściach.</p>` },
+  en: { k:'Permission 4 of 6', t:'Location — without it the whole profile is useless to a campaign',
+    b:`<p>Current and home city map onto an electoral district, and in a US presidential race what matters is not the number of votes but <strong>which state</strong> they fall in.</p>
+       <p>So the budget went to a handful of swing states — Michigan, Wisconsin, Pennsylvania, Florida. A psychological profile of a Californian was worth far less than the same profile from Michigan.</p>
+       <p>Location also shaped content: the same fear is dressed differently in a factory town than in the suburbs.</p>` } },
+
+'perm-friends': {
+  pl: { k:'Zgoda 5 z 6 — ta decydująca', t:'Lista znajomych: jedno kliknięcie oddawało dane trzystu osób, które o niczym nie wiedziały',
+    b:`<p>To jest cała afera w jednym punkcie. Pozostałe zgody dotyczyły osoby, która je klikała. Ta dotyczyła <strong>wszystkich jej znajomych</strong> — ich nazwisk, polubień, miast, dat urodzin, części wpisów.</p>
+       <p>Znajomi nie instalowali aplikacji, nie widzieli tego okna, nie zostali o niczym powiadomieni i nie mieli jak odmówić. Ustawienie prywatności „widoczne dla znajomych" ich nie chroniło, bo z punktu widzenia systemu żądanie przychodziło od znajomego.</p>
+       <p>Umożliwiała to wersja 1.0 interfejsu Facebooka dla programistów, z polami takimi jak <code>friends_likes</code> czy <code>friends_hometown</code>. Facebook ogłosił ich wycofanie w kwietniu 2014, ale aplikacje zarejestrowane wcześniej dostały rok przejściowy — do maja 2015. Aplikacja Kogana zdążyła.</p>
+       <p>Stąd bierze się nieproporcjonalność całej sprawy: <strong>270 tysięcy zgód, 87 milionów profili</strong>. Przeciętny użytkownik miał wtedy około 300 znajomych.</p>` },
+  en: { k:'Permission 5 of 6 — the decisive one', t:'Friends list: one click handed over the data of three hundred people who never knew',
+    b:`<p>This is the whole scandal in a single line. The other permissions concerned the person clicking. This one concerned <strong>all of their friends</strong> — names, likes, cities, birthdays, some posts.</p>
+       <p>Those friends never installed the app, never saw this dialog, were never notified and had no way to refuse. A "friends only" privacy setting did not protect them, because as far as the system was concerned the request came from a friend.</p>
+       <p>Version 1.0 of Facebook's developer interface allowed this, with fields such as <code>friends_likes</code> and <code>friends_hometown</code>. Facebook announced their removal in April 2014, but apps registered earlier got a year's grace — until May 2015. Kogan's app made it inside that window.</p>
+       <p>Hence the disproportion at the heart of the case: <strong>270,000 consents, 87 million profiles</strong>. The average user then had around 300 friends.</p>` } },
+
+'perm-posts': {
+  pl: { k:'Zgoda 6 z 6', t:'Wpisy i zdjęcia — surowy materiał na analizę języka',
+    b:`<p>Statusy dawały to, czego nie da się wyczytać z samych lajków: <strong>jakim językiem ktoś mówi</strong>. Analiza słów pozwala szacować nastrój, poziom lęku, stosunek do przyszłości, a nawet ryzyko depresji.</p>
+       <p>Znaczniki czasu przy wpisach mówiły, o jakich porach ktoś jest aktywny — czyli kiedy warto mu wyświetlić reklamę.</p>
+       <p>Zdjęcia dodawały kontekst: rodzina, praca, hobby, przynależność.</p>` },
+  en: { k:'Permission 6 of 6', t:'Posts and photos — raw material for language analysis',
+    b:`<p>Status updates gave what likes cannot: <strong>the language a person uses</strong>. Word analysis estimates mood, anxiety, orientation towards the future, even depression risk.</p>
+       <p>Timestamps revealed when someone is awake and active — that is, when it is worth showing them an ad.</p>
+       <p>Photos added context: family, work, hobbies, belonging.</p>` } }
+};
+
+INFO['ocean-o'] = {
+  pl:{k:'Cecha O — otwartość', t:'Otwartość na doświadczenie: kto kupi nowe, a kto broni starego',
+   b:`<p>Wysoka otwartość to ciekawość, chęć próbowania nowego, tolerancja dla niejednoznaczności. Niska — przywiązanie do tego, co znane, sprawdzone, swoje.</p>
+      <p>Dla kampanii to była informacja o <strong>formie</strong>, nie o treści: czy do kogoś trafi przekaz o zmianie i przyszłości, czy raczej o powrocie i obronie tego, co było.</p>
+      <p>Wylie opisuje, że najbardziej podatną kombinacją była <strong>niska otwartość razem z wysoką neurotycznością</strong>: człowiek, który boi się zmiany i łatwo się niepokoi. Taki profil dostawał przekazy o zagrożeniu porządku.</p>`},
+  en:{k:'Trait O — openness', t:'Openness to experience: who buys the new, and who defends the old',
+   b:`<p>High openness means curiosity, willingness to try things, tolerance of ambiguity. Low openness means attachment to the familiar and proven.</p>
+      <p>For a campaign this was information about <strong>form</strong>, not content: whether a person responds to a message about change and the future, or about return and defence of what was.</p>
+      <p>Wylie describes the most exploitable combination as <strong>low openness with high neuroticism</strong>: someone who fears change and worries easily. That profile received messages about threats to order.</p>`}};
+
+INFO['ocean-c'] = {
+  pl:{k:'Cecha C — sumienność', t:'Sumienność: kto naprawdę pójdzie zagłosować',
+   b:`<p>Sumienność to skłonność do planowania, dotrzymywania zobowiązań, trzymania się zasad. Osobowościowo najmniej efektowna z piątki, a dla kampanii bardzo praktyczna.</p>
+      <p>Wysoka sumienność dobrze przewiduje <strong>faktyczne pójście do urn</strong> — a to jest w kampanii pytanie ważniejsze niż sympatie. Przekonany wyborca, który zostanie w domu, nie ma żadnej wartości.</p>
+      <p>Osobom o wysokiej sumienności wysyłano przekazy o obowiązku, odpowiedzialności i bezpieczeństwie finansowym. Osobom o niskiej — przypomnienia praktyczne: gdzie i do której czynny jest lokal.</p>`},
+  en:{k:'Trait C — conscientiousness', t:'Conscientiousness: who will actually turn up to vote',
+   b:`<p>Conscientiousness is the tendency to plan, keep commitments and follow rules. The least glamorous of the five, and the most practical for a campaign.</p>
+      <p>High conscientiousness predicts <strong>actually casting a ballot</strong> — which matters more to a campaign than sympathies. A convinced voter who stays home is worth nothing.</p>
+      <p>High scorers were sent messages about duty, responsibility and financial security. Low scorers got practical reminders: where the polling station is and when it closes.</p>`}};
+
+INFO['ocean-e'] = {
+  pl:{k:'Cecha E — ekstrawersja', t:'Ekstrawersja: czy przekaz ma być wspólnotowy, czy prywatny',
+   b:`<p>Ekstrawersja mówi, skąd człowiek czerpie energię — z ludzi czy z bycia samemu.</p>
+      <p>To decydowało o <strong>kształcie wezwania</strong>. Ekstrawertykom pokazywano tłum, wiec, „dołącz do sąsiadów", „udostępnij znajomym" — bo dla nich siła przekazu bierze się ze wspólnoty. Introwertykom ten sam przekaz podawano prywatnie: jedna osoba, jedno zdanie, żadnego wezwania do dzielenia się.</p>
+      <p>Ekstrawertycy byli też cenni jako roznosiciele — to od nich zaczynało się dalsze udostępnianie.</p>`},
+  en:{k:'Trait E — extraversion', t:'Extraversion: whether the message should be communal or private',
+   b:`<p>Extraversion says where a person draws energy from — other people, or being alone.</p>
+      <p>This decided the <strong>shape of the appeal</strong>. Extraverts were shown crowds, rallies, "join your neighbours", "share with friends" — for them force comes from the group. Introverts got the same message privately: one person, one sentence, no call to share.</p>
+      <p>Extraverts were also valuable as carriers — onward sharing started with them.</p>`}};
+
+INFO['ocean-a'] = {
+  pl:{k:'Cecha A — ugodowość', t:'Ugodowość: komu pokazać konflikt, a komu porozumienie',
+   b:`<p>Ugodowość to skłonność do zaufania, współpracy i unikania konfliktu.</p>
+      <p>Osoby o <strong>niskiej ugodowości</strong> reagują na przekaz konfrontacyjny — wskazanie winnego, oskarżenie, „oni kontra my". Osoby o wysokiej odwracają się od takiego tonu i reagują na język wspólnoty i troski.</p>
+      <p>Ten sam postulat polityczny dostawał więc dwie wersje, sprzeczne w tonie, kierowane do dwóch grup, które nigdy nie widziały wersji drugiej. Na tym polega istota mikrotargetowania: <strong>nie ma jednego przekazu kampanii, który dałoby się publicznie sprawdzić</strong>.</p>`},
+  en:{k:'Trait A — agreeableness', t:'Agreeableness: who is shown conflict, and who is shown consensus',
+   b:`<p>Agreeableness is the tendency to trust, cooperate and avoid conflict.</p>
+      <p><strong>Low scorers</strong> respond to confrontation — naming a culprit, accusation, "them against us". High scorers turn away from that tone and respond to language of community and care.</p>
+      <p>So one policy got two versions, contradictory in tone, aimed at two groups neither of which ever saw the other's. That is the essence of micro-targeting: <strong>there is no single campaign message that can be publicly checked</strong>.</p>`}};
+
+INFO['ocean-n'] = {
+  pl:{k:'Cecha N — neurotyczność', t:'Neurotyczność: cecha, na której cała operacja stała',
+   b:`<p>Neurotyczność to skłonność do niepokoju, napięcia i wrażliwości na zagrożenie. Z całej piątki była dla Cambridge Analytica najważniejsza — bo <strong>lęk jest emocją, która najpewniej przekłada się na działanie</strong>.</p>
+      <p>Wylie opisuje mechanizm wprost: znaleźć osoby o wysokiej neurotyczności, pokazać im zagrożenie, a potem podsunąć rozwiązanie. Przykład, który podawał, dotyczył reklam broni: nie kierowano ich do miłośników strzelectwa, tylko do <strong>osób niespokojnych i nieufnych</strong>, w formie sceny włamania do domu i pytania, czy zdążysz obronić rodzinę.</p>
+      <div class="info-caveat">Warto zachować ostrożność co do skuteczności. To, że dane zebrano i że tak je stosowano, jest udokumentowane zeznaniami i dokumentami sądowymi. To, czy mikrotargetowanie psychograficzne realnie zmieniło wynik wyborów, pozostaje sporne — część badaczy uważa jego wpływ za znacznie mniejszy, niż twierdziła sama firma, sprzedająca przecież własną skuteczność.</div>`},
+  en:{k:'Trait N — neuroticism', t:'Neuroticism: the trait the whole operation rested on',
+   b:`<p>Neuroticism is the tendency towards anxiety, tension and sensitivity to threat. Of the five it mattered most to Cambridge Analytica, because <strong>fear is the emotion most reliably converted into action</strong>.</p>
+      <p>Wylie describes the mechanism plainly: find high scorers, show them a threat, then offer a resolution. His example concerned gun advertising: it was aimed not at shooting enthusiasts but at <strong>anxious, distrustful people</strong>, in the form of a home break-in and the question of whether you would reach your family in time.</p>
+      <div class="info-caveat">Effectiveness deserves caution. That the data was gathered and used this way is documented in testimony and court filings. Whether psychographic micro-targeting actually changed an election outcome remains contested — a number of researchers judge its effect far smaller than the company claimed, and the company was selling its own effectiveness.</div>`}};
+
+INFO['profil-rekord'] = {
+  pl:{k:'Odpowiedź na pytanie „co o mnie zapisano"', t:'Jak wyglądał jeden rekord: profil psychologiczny pojedynczej osoby',
+   b:`<p>Baza nie przechowywała „wyników testu". Przechowywała <strong>jeden wiersz na człowieka</strong>, sklejony z kilku źródeł. Zrekonstruowany z zeznań Christophera Wylie'ego, dokumentów brytyjskiego urzędu ochrony danych (ICO) i pozwów zbiorowych, wyglądał mniej więcej tak:</p>
+      <ul>
+        <li><strong>Tożsamość</strong> — identyfikator Facebooka, imię i nazwisko, adres e-mail, wiek, płeć, miasto obecne i rodzinne</li>
+        <li><strong>Sklejenie z rejestrem wyborców</strong> — adres, okręg, partia rejestracji, historia udziału w poprzednich wyborach</li>
+        <li><strong>Dane kupione od brokerów</strong> — szacowany dochód, historia zakupów, posiadanie nieruchomości, wyznanie, czasem posiadanie broni</li>
+        <li><strong>Ślad z Facebooka</strong> — pełna lista polubionych stron, sieć znajomych, pory aktywności, próbki wpisów</li>
+        <li><strong>Pięć wyników OCEAN</strong> — po jednej liczbie na cechę, w skali setnej; <em>przewidzianych przez model</em>, nie zmierzonych, u tych 87 milionów osób, które testu nigdy nie widziały</li>
+        <li><strong>Wskaźniki wyprowadzone</strong> — przewidywane poglądy polityczne, „persuadability" czyli szacowana podatność na zmianę zdania, oraz przypisanie do segmentu odbiorców, do którego kierowano konkretną wersję przekazu</li>
+      </ul>
+      <p>Dwie rzeczy warto z tego wyciągnąć. Po pierwsze: najważniejsze pola <strong>nie pochodziły od użytkownika</strong> — zostały wywnioskowane. Po drugie: wartością nie były pojedyncze dane, tylko ich <strong>zestawienie</strong>. Sam adres jest jawny. Sama lista lajków jest błaha. Razem, z doklejoną przewidywaną osobowością, dają narzędzie do wpływania na człowieka, o którego istnieniu ten człowiek nie wie.</p>
+      <div class="info-caveat">To rekonstrukcja struktury, nie zrzut prawdziwej bazy. Dokładny układ pól nigdy nie został ujawniony publicznie w całości; opis opiera się na zeznaniach przed komisjami parlamentarnymi w Wielkiej Brytanii i USA oraz na materiałach postępowań.</div>`},
+  en:{k:'Answering "what was stored about me"', t:'What one record looked like: a single person’s psychological profile',
+   b:`<p>The database did not store "test results". It stored <strong>one row per human being</strong>, assembled from several sources. Reconstructed from Christopher Wylie’s testimony, UK Information Commissioner’s Office documents and class actions, it looked roughly like this:</p>
+      <ul>
+        <li><strong>Identity</strong> — Facebook ID, name, email, age, gender, current and home city</li>
+        <li><strong>Voter-file match</strong> — address, district, party registration, turnout history</li>
+        <li><strong>Purchased broker data</strong> — estimated income, purchase history, property, religion, sometimes gun ownership</li>
+        <li><strong>Facebook trace</strong> — full list of page likes, friend network, activity hours, samples of posts</li>
+        <li><strong>Five OCEAN scores</strong> — one number per trait, on a 0–100 scale; <em>predicted by a model</em>, not measured, for the 87 million who never saw the quiz</li>
+        <li><strong>Derived indicators</strong> — predicted political views, "persuadability" (estimated openness to changing one’s mind), and assignment to an audience segment that determined which version of a message was served</li>
+      </ul>
+      <p>Two things follow. First, the most important fields <strong>did not come from the user</strong> — they were inferred. Second, the value lay not in any single item but in the <strong>combination</strong>. An address alone is public. A like list alone is trivial. Together, with a predicted personality attached, they make a tool for influencing a person who does not know the tool exists.</p>
+      <div class="info-caveat">This is a reconstruction of the structure, not a dump of the real database. The exact field layout was never published in full; the description rests on testimony before UK and US parliamentary committees and on litigation material.</div>`}};
+
+INFO['step-1'] = {
+  pl:{k:'Krok 1', t:'270 tysięcy osób i płatność w wysokości jednego dolara',
+   b:`<p>Aplikacja nie rozeszła się wirusowo. Ludzi <strong>wynajęto</strong> — przez Amazon Mechanical Turk i panele badawcze Qualtrics, za 1 do 2 dolarów za wypełnienie.</p>
+      <p>Ma to znaczenie dla oceny sprawy: to nie byli ludzie zwabieni zabawnym quizem, tylko odpłatni uczestnicy badania, przekonani, że biorą udział w projekcie naukowym Uniwersytetu Cambridge. Część regulaminów mówiła o badaniu akademickim, choć dane trafiały do spółki komercyjnej.</p>
+      <p>Za tę cenę kupiono nie 270 tysięcy rekordów, ale dostęp do 87 milionów.</p>`},
+  en:{k:'Step 1', t:'270,000 people and a one-dollar payment',
+   b:`<p>The app did not spread virally. People were <strong>hired</strong> — through Amazon Mechanical Turk and Qualtrics research panels, for $1 to $2 per completion.</p>
+      <p>This matters for judging the case: these were not people lured by a fun quiz but paid research participants who believed they were joining a University of Cambridge project. Some consent texts spoke of academic research while the data went to a commercial company.</p>
+      <p>At that price the purchase was not 270,000 records but access to 87 million.</p>`}};
+
+INFO['step-2'] = {
+  pl:{k:'Krok 2', t:'Zbiór danych znajomych: mechanizm, który zadziałał sam',
+   b:`<p>Po kliknięciu „Okay" aplikacja nie musiała robić nic podstępnego. Odpytywała interfejs Facebooka w sposób <strong>całkowicie zgodny z ówczesnym regulaminem technicznym</strong> i dostawała dane znajomych.</p>
+      <p>Naruszenie regulaminu nastąpiło gdzie indziej: nie w zbieraniu, tylko w <strong>przekazaniu</strong> danych spółce SCL/Cambridge Analytica. Facebook zażądał ich usunięcia w 2015 roku i przyjął pisemne zapewnienie, że je usunięto. Nie sprawdził tego. Dane zostały.</p>
+      <p>Dlatego spór o to, czy było to „włamanie", jest jałowy. Nie było. To działało tak, jak zaprojektowano — i na tym polega problem.</p>`},
+  en:{k:'Step 2', t:'Harvesting friends: a mechanism that worked by itself',
+   b:`<p>After the user clicked "Okay" the app had to do nothing devious. It queried Facebook’s interface in a way that was <strong>entirely within the platform rules of the time</strong> and received friends’ data.</p>
+      <p>The breach happened elsewhere: not in the collection but in <strong>passing</strong> the data to SCL/Cambridge Analytica. Facebook demanded deletion in 2015 and accepted a written assurance that it had been done. It did not verify. The data stayed.</p>
+      <p>So arguing about whether this was a "hack" is beside the point. It was not. It worked as designed — and that is the problem.</p>`}};
+
+INFO['step-3'] = {
+  pl:{k:'Krok 3', t:'Skąd wzięła się liczba 87 milionów',
+   b:`<p>Pierwsze doniesienia Observera, Guardiana i New York Timesa z marca 2018 mówiły o <strong>50 milionach</strong>. Miesiąc później sam Facebook podał własne oszacowanie — <strong>do 87 milionów</strong> osób, w tym około 2,7 miliona w Unii Europejskiej.</p>
+      <p>Rozbieżność bierze się stąd, że dziennikarze liczyli profile potwierdzone dokumentami, a Facebook — górną granicę wszystkich kont, których dane mogły zostać pobrane.</p>
+      <p>Z tej masy tylko część nadawała się do użytku wyborczego. Wylie mówił o około <strong>30 milionach</strong> rekordów na tyle kompletnych, by sparować je z amerykańskim rejestrem wyborców. Reszta to były profile bez dopasowania — zebrane, ale nieprzydatne.</p>`},
+  en:{k:'Step 3', t:'Where the figure of 87 million comes from',
+   b:`<p>The first Observer, Guardian and New York Times reports of March 2018 spoke of <strong>50 million</strong>. A month later Facebook published its own estimate — <strong>up to 87 million</strong> people, including about 2.7 million in the EU.</p>
+      <p>The gap exists because journalists counted profiles evidenced by documents, while Facebook gave an upper bound on every account whose data could have been pulled.</p>
+      <p>Only part of that mass was usable electorally. Wylie spoke of roughly <strong>30 million</strong> records complete enough to match against US voter files. The rest were collected but unmatched, and so of no use.</p>`}};
+
+INFO['step-4'] = {
+  pl:{k:'Krok 4', t:'Budowa profilu: jak z lajków robi się osobowość',
+   b:`<p>Model uczył się na 270 tysiącach osób, o których wiedziano <strong>i</strong> jak wypełniły test, <strong>i</strong> co lubią. Szukał regularności: jakie polubienia idą w parze z jakim wynikiem.</p>
+      <p>Potem tę regularność stosowano do pozostałych. Człowiek, który nigdy nie widział żadnego kwestionariusza, dostawał pięć liczb opisujących jego osobowość — wyliczonych z tego, co polubił.</p>
+      <p>Trzeba to nazwać wprost: <strong>to były przewidywania, nie pomiary</strong>. Model mylił się w indywidualnych przypadkach. Ale kampania nie potrzebuje trafności co do jednej osoby — wystarczy jej trafność przeciętna na dużej grupie, żeby przesunąć rozkład głosów.</p>`},
+  en:{k:'Step 4', t:'Building the profile: turning likes into a personality',
+   b:`<p>The model learned from 270,000 people for whom both the test answers <strong>and</strong> the likes were known. It looked for regularities: which likes go with which score.</p>
+      <p>That regularity was then applied to everyone else. A person who had never seen a questionnaire was assigned five numbers describing their personality, computed from what they had liked.</p>
+      <p>This needs saying plainly: <strong>these were predictions, not measurements</strong>. The model was wrong about individuals. But a campaign does not need accuracy about one person — average accuracy across a large group is enough to shift a distribution of votes.</p>`}};
+
+INFO['step-5'] = {
+  pl:{k:'Krok 5', t:'Zastosowanie: gdzie tych profili faktycznie użyto',
+   b:`<p>Cambridge Analytica pracowała najpierw dla kampanii prawyborczej <strong>Teda Cruza</strong> (2015–2016), a po jej zakończeniu dla kampanii <strong>Donalda Trumpa</strong>. Firma chwaliła się też udziałem w kampanii przed referendum brexitowym oraz w wyborach w Kenii, Nigerii i Trynidadzie — część tych deklaracji była marketingiem i nie została potwierdzona.</p>
+      <p>Skutki prawne: Federalna Komisja Handlu nałożyła na Facebooka karę <strong>5 miliardów dolarów</strong> (lipiec 2019) — najwyższą w historii amerykańskiego nadzoru nad prywatnością. Brytyjski ICO ukarał Facebooka kwotą <strong>500 tysięcy funtów</strong>, czyli maksimum przewidzianym przez prawo sprzed RODO. Cambridge Analytica ogłosiła niewypłacalność w maju 2018.</p>
+      <div class="info-caveat">Najostrożniej trzeba obchodzić się z pytaniem o wpływ na wyniki wyborów. Zebranie danych i sposób ich użycia są udokumentowane. Realna skuteczność mikrotargetowania psychograficznego pozostaje przedmiotem sporu naukowego i nie należy jej traktować jako faktu ustalonego.</div>`},
+  en:{k:'Step 5', t:'Deployment: where the profiles were actually used',
+   b:`<p>Cambridge Analytica worked first for the <strong>Ted Cruz</strong> primary campaign (2015–16) and afterwards for the <strong>Donald Trump</strong> campaign. The firm also claimed involvement in the Brexit referendum and in elections in Kenya, Nigeria and Trinidad — some of these claims were marketing and were never substantiated.</p>
+      <p>Legal consequences: the Federal Trade Commission fined Facebook <strong>$5 billion</strong> (July 2019), the largest privacy penalty in US history. The UK ICO fined Facebook <strong>£500,000</strong>, the maximum available under pre-GDPR law. Cambridge Analytica filed for insolvency in May 2018.</p>
+      <div class="info-caveat">The question of electoral impact demands the most caution. The collection and the intended use are documented. The real effectiveness of psychographic micro-targeting remains scientifically contested and should not be treated as settled fact.</div>`}};
+
+INFO['num-270k'] = {
+  pl:{k:'Liczba', t:'~270 000 — tylu ludzi faktycznie kliknęło „Okay"',
+   b:`<p>To jedyna liczba w całej sprawie, która opisuje <strong>świadomą zgodę</strong>. Tyle osób zainstalowało aplikację i wypełniło kwestionariusz, za drobną opłatą.</p>
+      <p>Wszystkie pozostałe liczby opisują ludzi, którzy nie zrobili nic.</p>`},
+  en:{k:'Figure', t:'~270,000 — the number of people who actually clicked "Okay"',
+   b:`<p>This is the only figure in the case describing <strong>informed consent</strong>. That many people installed the app and completed the questionnaire, for a small fee.</p>
+      <p>Every other figure describes people who did nothing at all.</p>`}};
+
+INFO['num-87m'] = {
+  pl:{k:'Liczba', t:'87 000 000 — oszacowanie samego Facebooka',
+   b:`<p>Podane przez Facebooka w kwietniu 2018 jako <strong>górna granica</strong> liczby kont, których dane mogły zostać pobrane. Wcześniejsze doniesienia prasowe mówiły o 50 milionach.</p>
+      <p>W tej liczbie mieści się około 2,7 miliona osób z Unii Europejskiej i około miliona z Wielkiej Brytanii. Polska nie była osobno raportowana.</p>
+      <p>Około 30 milionów rekordów było na tyle kompletnych, żeby dało się je połączyć z rejestrem wyborców — i dopiero te miały wartość operacyjną.</p>`},
+  en:{k:'Figure', t:'87,000,000 — Facebook’s own estimate',
+   b:`<p>Given by Facebook in April 2018 as an <strong>upper bound</strong> on accounts whose data could have been pulled. Earlier press reporting said 50 million.</p>
+      <p>The figure includes about 2.7 million people in the EU and roughly a million in the UK. Poland was not reported separately.</p>
+      <p>About 30 million records were complete enough to be joined to voter files — and only those had operational value.</p>`}};
+
+INFO['num-320x'] = {
+  pl:{k:'Liczba', t:'~320× — mnożnik, który jest właściwą lekcją z tej sprawy',
+   b:`<p>Jedna zgoda dawała średnio ponad trzysta profili, bo tylu znajomych miał przeciętny użytkownik.</p>
+      <p>To jest sedno: <strong>prywatność przestała być sprawą indywidualną</strong>. Można było nie mieć konta na Facebooku, nie klikać żadnych zgód, nie wypełniać żadnych testów — i i tak znaleźć się w bazie, bo ktoś znajomy zarobił dolara.</p>
+      <p>Ta sama logika działa dziś przy listach kontaktów w telefonie, testach genetycznych krewnych i zdjęciach, na których ktoś nas oznacza. Zgoda jednej osoby wciąż rozporządza danymi wielu.</p>`},
+  en:{k:'Figure', t:'~320× — the multiplier that is the real lesson here',
+   b:`<p>One consent yielded over three hundred profiles on average, because that is how many friends a typical user had.</p>
+      <p>This is the heart of it: <strong>privacy stopped being an individual matter</strong>. You could have no Facebook account, click no consents and take no quizzes, and still end up in the database because an acquaintance earned a dollar.</p>
+      <p>The same logic operates today in phone contact lists, relatives’ genetic tests and photos other people tag. One person’s consent still disposes of many people’s data.</p>`}};
+
+INFO['quiz-bigfive'] = {
+  pl:{k:'Kwestionariusz', t:'Test był prawdziwy — i to jest w tym najbardziej niepokojące',
+   b:`<p>Pytanie „I see myself as someone who is talkative" nie zostało zmyślone na potrzeby oszustwa. To autentyczna pozycja z inwentarzy Wielkiej Piątki (IPIP, BFI), używana w psychologii od dziesięcioleci i mierząca ekstrawersję.</p>
+      <p>Nie było więc tak, że ludziom podsunięto fałszywy test. Dostali <strong>rzetelne narzędzie psychometryczne</strong>, wypełniane w dobrej wierze, i otrzymywali sensowny wynik.</p>
+      <p>Oszustwo działo się obok: w tym, co zbierano przy okazji, i w tym, komu przekazano wynik. To dlatego cała sprawa jest trudniejsza, niż się wydaje — nie było w niej fałszywki, którą dałoby się rozpoznać.</p>`},
+  en:{k:'Questionnaire', t:'The test was genuine — and that is the most unsettling part',
+   b:`<p>"I see myself as someone who is talkative" was not invented for the deception. It is a real item from Big Five inventories (IPIP, BFI), used in psychology for decades to measure extraversion.</p>
+      <p>People were not handed a fake test. They were given a <strong>sound psychometric instrument</strong>, completed it in good faith, and got a meaningful result.</p>
+      <p>The deception ran alongside: in what was collected in passing, and in who received the result. That is what makes the case harder than it looks — there was no forgery to spot.</p>`}};
+
+INFO['quiz-swls'] = {
+  pl:{k:'Kwestionariusz', t:'Skala Satysfakcji z Życia (Diener i in., 1985)',
+   b:`<p>Pięciopozycyjne narzędzie mierzące ogólne zadowolenie z życia, jedno z najczęściej używanych w psychologii.</p>
+      <p>Dla budowanego profilu dawało coś, czego Wielka Piątka nie mierzy: <strong>bieżący stan, a nie trwałą cechę</strong>. Nie „jaki jesteś", tylko „jak ci teraz jest".</p>
+      <p>Dla kampanii to informacja o podatności. Człowiek niezadowolony ze swojego życia inaczej reaguje na obietnicę zmiany niż człowiek zadowolony — i to niezależnie od jego poglądów.</p>`},
+  en:{k:'Questionnaire', t:'Satisfaction With Life Scale (Diener et al., 1985)',
+   b:`<p>A five-item instrument measuring general life satisfaction, among the most widely used in psychology.</p>
+      <p>For the profile it supplied what the Big Five does not: <strong>a current state rather than a stable trait</strong>. Not "what you are like" but "how you are doing".</p>
+      <p>To a campaign that is information about susceptibility. Someone dissatisfied with their life responds differently to a promise of change than someone content — independently of their politics.</p>`}};
+
+var INFO_UI = {
+  pl:{ hint:'<strong>Kliknij dowolny element z różowym znakiem zapytania</strong> — zgodę, cechę osobowości, liczbę, krok procesu — a zobaczysz, co naprawdę się za nim kryło: jakie dane zbierano, po co i co dokładnie zapisano o jednej osobie.',
+       lang:'English', close:'Zamknij', share:'🔗 Kopiuj link do tego objaśnienia', shared:'✓ Skopiowano',
+       record:'⚑ Co dokładnie zapisano o jednej osobie?',
+       src:'Źródła: Christopher Wylie, <em>Mindf*ck</em> (2019) · zeznania przed Kongresem USA i komisją DCMS brytyjskiego parlamentu (2018) · dokumenty ICO · Kosinski, Stillwell &amp; Graepel, <em>PNAS</em> (2013) · Youyou, Kosinski &amp; Stillwell, <em>PNAS</em> (2015) · śledztwa The Guardian/The Observer i The New York Times (2018) · komunikaty FTC (2019).' },
+  en:{ hint:'<strong>Click any element with a pink question mark</strong> — a permission, a personality trait, a figure, a step — to see what was really behind it: what data was collected, what for, and what exactly was stored about one person.',
+       lang:'Polski', close:'Close', share:'🔗 Copy link to this explanation', shared:'✓ Copied',
+       record:'⚑ What exactly was stored about one person?',
+       src:'Sources: Christopher Wylie, <em>Mindf*ck</em> (2019) · testimony before the US Congress and the UK Parliament DCMS committee (2018) · ICO documents · Kosinski, Stillwell &amp; Graepel, <em>PNAS</em> (2013) · Youyou, Kosinski &amp; Stillwell, <em>PNAS</em> (2015) · The Guardian/The Observer and The New York Times investigations (2018) · FTC releases (2019).' }
+};
+
+function infoT(){ return INFO_UI[INFO_LANG]; }
+
+function infoRefreshChrome(){
+  var h=document.getElementById('infoHint'); if(h) h.innerHTML=infoT().hint;
+  var b=document.getElementById('infoLangBtn'); if(b) b.textContent=infoT().lang;
+  var r=document.getElementById('infoRecordBtn'); if(r) r.textContent=infoT().record;
+  var sr=document.getElementById('infoSrc'); if(sr) sr.innerHTML=infoT().src;
+}
+
+function openInfo(key){
+  var e=INFO[key]; if(!e) return;
+  var d=e[INFO_LANG] || e.pl;
+  document.getElementById('infoKicker').textContent=d.k;
+  document.getElementById('infoTitle').textContent=d.t;
+  document.getElementById('infoBody').innerHTML=d.b;
+  var sb=document.getElementById('infoShare');
+  sb.textContent=infoT().share;
+  sb.onclick=function(){
+    var url=location.origin+location.pathname+'#temat='+key;
+    var ok=function(){ sb.textContent=infoT().shared; setTimeout(function(){sb.textContent=infoT().share;},2000); };
+    if(navigator.clipboard) navigator.clipboard.writeText(url).then(ok,function(){prompt(infoT().share,url);});
+    else prompt(infoT().share,url);
+  };
+  document.getElementById('infoOverlay').classList.add('open');
+  document.body.style.overflow='hidden';
+  try{ history.replaceState(null,'','#temat='+key); }catch(e2){}
+}
+
+function closeInfo(){
+  document.getElementById('infoOverlay').classList.remove('open');
+  document.body.style.overflow='';
+  if(location.hash.indexOf('#temat=')===0){
+    try{ history.replaceState(null,'',location.pathname+location.search); }catch(e){}
+  }
+}
+
+document.addEventListener('click', function(e){
+  var t=e.target.closest('[data-info]');
+  if(t){ e.stopPropagation(); openInfo(t.dataset.info); }
+});
+document.getElementById('infoOverlay').addEventListener('click', function(e){
+  if(e.target===this) closeInfo();
+});
+document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeInfo(); });
+
+document.getElementById('infoLangBtn').addEventListener('click', function(){
+  INFO_LANG = (INFO_LANG==='pl' ? 'en' : 'pl');
+  try{ localStorage.setItem('dl-info-lang', INFO_LANG); }catch(e){}
+  infoRefreshChrome();
+  var open=document.getElementById('infoOverlay').classList.contains('open');
+  if(open){
+    var m=location.hash.match(/^#temat=([\w-]+)$/);
+    if(m) openInfo(m[1]);
+  }
+});
+
+/* wejście z adresu: #temat=<klucz> otwiera konkretne objaśnienie */
+function infoFromHash(){
+  var m=location.hash.match(/^#temat=([\w-]+)$/);
+  if(m && INFO[m[1]]) openInfo(m[1]);
+}
+addEventListener('hashchange', infoFromHash);
+infoRefreshChrome();
+setTimeout(infoFromHash, 60);
+</script>
+
 </body>
 </html>
