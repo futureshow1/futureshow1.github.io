@@ -1028,12 +1028,54 @@
     .info-box { margin: 0; border-radius: 0; min-height: 100vh; }
   }
 
+
+  .ocean-note {
+    margin: 16px 22px 0; background: #f0f4ff; border: 1px solid #c7d7fe;
+    border-left: 4px solid #4267b2; border-radius: 4px;
+    padding: 11px 14px; font-size: .8rem; line-height: 1.55; color: #1c1e21;
+  }
+  .ocean-note strong { color: #1d3f8f; }
+  .quiz-nav-btn:disabled { opacity: .35; cursor: default; }
+
+  /* ===== KALENDARIUM ===== */
+  .tl-card {
+    width: 100%; max-width: 900px; margin: 22px auto 0;
+    background: #242526; border-radius: 8px; padding: 24px 26px 28px;
+  }
+  .tl-card h3 { color: #e4e6eb; font-size: 1.05rem; font-weight: 600; margin-bottom: 4px; }
+  .tl-card .tl-sub { color: #9ca3af; font-size: .82rem; line-height: 1.5; margin-bottom: 22px; }
+  .tl-item { display: flex; gap: 18px; padding-bottom: 20px; position: relative; }
+  .tl-item::before {
+    content: ""; position: absolute; left: 103px; top: 7px; bottom: -3px;
+    width: 2px; background: linear-gradient(180deg, #f472b6, rgba(244,114,182,.18));
+  }
+  .tl-item:last-child::before { display: none; }
+  .tl-item::after {
+    content: ""; position: absolute; left: 98px; top: 5px;
+    width: 12px; height: 12px; border-radius: 50%;
+    background: #f472b6; box-shadow: 0 0 9px rgba(244,114,182,.55);
+  }
+  .tl-date {
+    width: 92px; flex-shrink: 0; text-align: right;
+    font-size: .74rem; font-weight: 700; letter-spacing: .04em;
+    color: #f472b6; text-transform: uppercase; padding-top: 3px;
+  }
+  .tl-body { flex: 1; padding-left: 22px; }
+  .tl-body h4 { color: #e4e6eb; font-size: .88rem; font-weight: 600; margin-bottom: 5px; }
+  .tl-body p { color: #b0b3b8; font-size: .81rem; line-height: 1.6; }
+  .tl-body strong { color: #f9a8d4; }
+  @media (max-width: 640px) {
+    .tl-item { flex-direction: column; gap: 3px; }
+    .tl-item::before, .tl-item::after { display: none; }
+    .tl-date { width: auto; text-align: left; }
+    .tl-body { padding-left: 0; border-left: 2px solid rgba(244,114,182,.35); padding-left: 12px; }
+  }
 </style>
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png"><link rel="apple-touch-icon" href="../apple-touch-icon.png"><script data-goatcounter="https://futureshow.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
 
-<div class="context-banner">
+<div class="context-banner" data-tr="banner">
   <strong>MOCKUP RECONSTRUCTION</strong> of the Facebook app used by Cambridge Analytica to harvest data from 87 million users.
   <span class="warning">Not a real app</span>
   <br>Based on evidence from Christopher Wylie's <em>Mindf*ck</em> (2019)
@@ -1147,10 +1189,10 @@
 
   <!-- Screen Navigation -->
   <div class="screen-nav">
-    <button class="screen-tab active" onclick="switchScreen('quiz')">Quiz Interface</button>
-    <button class="screen-tab" onclick="switchScreen('results')">Results</button>
-    <button class="screen-tab" onclick="switchScreen('fine-print')">Fine Print</button>
-    <button class="screen-tab" onclick="switchScreen('reality')">What Really Happened</button>
+    <button class="screen-tab active" onclick="switchScreen('quiz')" data-tr="tab-quiz">Quiz Interface</button>
+    <button class="screen-tab" onclick="switchScreen('results')" data-tr="tab-results">Results</button>
+    <button class="screen-tab" onclick="switchScreen('fine-print')" data-tr="tab-fine-print">Fine Print</button>
+    <button class="screen-tab" onclick="switchScreen('reality')" data-tr="tab-reality">What Really Happened</button>
   </div>
 
   <!-- SCREEN: Quiz -->
@@ -1158,94 +1200,33 @@
     <div class="quiz-card">
       <div class="quiz-card-header" data-info="quiz-bigfive">
         <h3>Personality Assessment</h3>
-        <span class="quiz-step">Question 7 of 120</span>
+        <span class="quiz-step" id="bfStep">Question 1 of 15</span>
       </div>
       <div class="quiz-body">
-        <div class="quiz-progress">
-          <div class="bar filled"></div>
-          <div class="bar filled"></div>
-          <div class="bar current"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-        </div>
-        <div class="quiz-question">I see myself as someone who is talkative.</div>
-        <div class="quiz-desc">Rate how strongly you agree or disagree with this statement about yourself.</div>
-        <div class="likert-scale">
-          <div class="likert-option" onclick="selectOption(this)">
-            <div class="likert-radio"></div>
-            <span class="likert-label">Strongly Disagree</span>
-          </div>
-          <div class="likert-option" onclick="selectOption(this)">
-            <div class="likert-radio"></div>
-            <span class="likert-label">Disagree</span>
-          </div>
-          <div class="likert-option" onclick="selectOption(this)">
-            <div class="likert-radio"></div>
-            <span class="likert-label">Neither Agree nor Disagree</span>
-          </div>
-          <div class="likert-option selected" onclick="selectOption(this)">
-            <div class="likert-radio"></div>
-            <span class="likert-label">Agree</span>
-          </div>
-          <div class="likert-option" onclick="selectOption(this)">
-            <div class="likert-radio"></div>
-            <span class="likert-label">Strongly Agree</span>
-          </div>
-        </div>
+        <div class="quiz-progress" id="bfProgress"></div>
+        <div class="quiz-question" id="bfQuestion"></div>
+        <div class="quiz-desc" id="bfDesc"></div>
+        <div class="likert-scale" id="bfScale"></div>
       </div>
       <div class="quiz-footer">
-        <button class="quiz-nav-btn back">&#8592; Back</button>
-        <button class="quiz-nav-btn next">Next &#8594;</button>
+        <button class="quiz-nav-btn back" id="bfBack">&#8592; Back</button>
+        <button class="quiz-nav-btn next" id="bfNext">Next &#8594;</button>
       </div>
     </div>
 
     <div class="quiz-card">
       <div class="quiz-card-header" data-info="quiz-swls">
         <h3>Life Satisfaction Survey</h3>
-        <span class="quiz-step">Part 2 of 3</span>
+        <span class="quiz-step" id="swStep">Statement 1 of 5</span>
       </div>
       <div class="quiz-body">
-        <div class="quiz-question">In most ways my life is close to ideal.</div>
-        <div class="quiz-desc">Part of the Satisfaction With Life Scale (Diener et al., 1985)</div>
-        <div class="likert-scale">
-          <div class="likert-option" onclick="selectOption(this)">
-            <div class="likert-radio"></div>
-            <span class="likert-label">Strongly Disagree</span>
-          </div>
-          <div class="likert-option" onclick="selectOption(this)">
-            <div class="likert-radio"></div>
-            <span class="likert-label">Disagree</span>
-          </div>
-          <div class="likert-option" onclick="selectOption(this)">
-            <div class="likert-radio"></div>
-            <span class="likert-label">Slightly Disagree</span>
-          </div>
-          <div class="likert-option" onclick="selectOption(this)">
-            <div class="likert-radio"></div>
-            <span class="likert-label">Neutral</span>
-          </div>
-          <div class="likert-option selected" onclick="selectOption(this)">
-            <div class="likert-radio"></div>
-            <span class="likert-label">Slightly Agree</span>
-          </div>
-          <div class="likert-option" onclick="selectOption(this)">
-            <div class="likert-radio"></div>
-            <span class="likert-label">Agree</span>
-          </div>
-          <div class="likert-option" onclick="selectOption(this)">
-            <div class="likert-radio"></div>
-            <span class="likert-label">Strongly Agree</span>
-          </div>
-        </div>
+        <div class="quiz-question" id="swQuestion"></div>
+        <div class="quiz-desc" id="swDesc"></div>
+        <div class="likert-scale" id="swScale"></div>
       </div>
       <div class="quiz-footer">
-        <button class="quiz-nav-btn back">&#8592; Back</button>
-        <button class="quiz-nav-btn next">Next &#8594;</button>
+        <button class="quiz-nav-btn back" id="swBack">&#8592; Back</button>
+        <button class="quiz-nav-btn next" id="swNext">Next &#8594;</button>
       </div>
     </div>
   </div>
@@ -1256,6 +1237,7 @@
       <div class="results-header">
         <h3>Your OCEAN Personality Profile</h3>
       </div>
+      <div class="ocean-note" id="oceanNote"></div>
       <div style="padding:14px 22px 0"><button class="info-share" id="infoRecordBtn" data-info="profil-rekord" style="width:100%;padding:10px;font-size:.8rem;border-color:#f472b6;color:#831843"></button></div>
       <div class="results-body">
         <div class="ocean-chart">
@@ -1320,7 +1302,7 @@
 
   <!-- SCREEN: Fine Print -->
   <div class="screen" id="screen-fine-print">
-    <div class="fine-print-card">
+    <div class="fine-print-card" data-tr="fineprint">
       <h4>Terms of Service & Data Use Policy</h4>
       <p>
         By using this application, you consent to the collection and processing of your Facebook profile data, including but not limited to: your public profile, email address, friend list, likes, locations, status updates, and photos. This data will be used for
@@ -1349,12 +1331,12 @@
   <!-- SCREEN: What Really Happened -->
   <div class="screen" id="screen-reality">
     <div class="data-reveal">
-      <div class="data-reveal-header">
+      <div class="data-reveal-header" data-tr="realityhead">
         <span class="skull">&#9888;</span>
         <h3>What This App Actually Did</h3>
       </div>
       <div class="data-reveal-body">
-        <p>
+        <p data-tr="realityintro">
           While users thought they were taking an innocent personality quiz for academic research, the app was executing
           one of the largest unauthorized data harvesting operations in history. Here's what happened behind the
           friendly interface:
@@ -1366,7 +1348,7 @@
               <div class="flow-dot"></div>
               <div class="flow-line"></div>
             </div>
-            <div class="flow-content">
+            <div class="flow-content" data-tr="flow-1">
               <h4>Step 1: User Takes Quiz</h4>
               <p>~270,000 users were paid $1&ndash;$2 via Amazon Mechanical Turk to install the app and complete the personality questionnaire. They clicked "Okay" on the permissions dialog.</p>
             </div>
@@ -1377,7 +1359,7 @@
               <div class="flow-dot"></div>
               <div class="flow-line"></div>
             </div>
-            <div class="flow-content">
+            <div class="flow-content" data-tr="flow-2">
               <h4>Step 2: Friends' Data Harvested</h4>
               <p>For each user, the app silently accessed the profiles of all their Facebook friends &mdash; an average of ~300 friends each. These friends never installed the app and never gave consent.</p>
             </div>
@@ -1388,7 +1370,7 @@
               <div class="flow-dot"></div>
               <div class="flow-line"></div>
             </div>
-            <div class="flow-content">
+            <div class="flow-content" data-tr="flow-3">
               <h4>Step 3: 87 Million Profiles Collected</h4>
               <p>Names, locations, likes, friend networks, birthdays, photos, status updates &mdash; all funneled to Global Science Research's servers. The dataset was then sold to Cambridge Analytica, violating Facebook's terms.</p>
             </div>
@@ -1399,7 +1381,7 @@
               <div class="flow-dot"></div>
               <div class="flow-line"></div>
             </div>
-            <div class="flow-content">
+            <div class="flow-content" data-tr="flow-4">
               <h4>Step 4: Psychographic Profiles Built</h4>
               <p>Using the OCEAN personality model, CA built detailed psychological profiles predicting political views, fears, persuadability, and emotional triggers for each of the 87 million people.</p>
             </div>
@@ -1410,7 +1392,7 @@
               <div class="flow-dot"></div>
               <div class="flow-line"></div>
             </div>
-            <div class="flow-content">
+            <div class="flow-content" data-tr="flow-5">
               <h4>Step 5: Weaponized for Elections</h4>
               <p>The profiles were used to micro-target voters with personalized political ads designed to exploit their psychological vulnerabilities &mdash; deployed in the 2016 Trump campaign, Brexit referendum, and elections across Africa.</p>
             </div>
@@ -1420,15 +1402,15 @@
         <div class="data-numbers">
           <div class="data-num-card" data-info="num-270k">
             <div class="num">~270K</div>
-            <div class="lbl">Direct app users</div>
+            <div class="lbl" data-tr="lbl-270k">Direct app users</div>
           </div>
           <div class="data-num-card" data-info="num-87m">
             <div class="num">87M</div>
-            <div class="lbl">Profiles harvested</div>
+            <div class="lbl" data-tr="lbl-87m">Profiles harvested</div>
           </div>
           <div class="data-num-card" data-info="num-320x">
             <div class="num">~320x</div>
-            <div class="lbl">Data amplification</div>
+            <div class="lbl" data-tr="lbl-320x">Data amplification</div>
           </div>
         </div>
       </div>
@@ -1437,7 +1419,7 @@
 
 </div>
 
-<div class="page-footer">
+<div class="page-footer" data-tr="footer">
   This is a historical reconstruction/mockup of the "This Is Your Digital Life" Facebook application
   created by Dr. Aleksandr Kogan's Global Science Research in 2013. This is not a functional app.
   Created based on evidence documented in Christopher Wylie's <em>Mindf*ck</em> (2019),
@@ -1485,6 +1467,12 @@
 </script>
 
 <script src="../cookie-consent.js"></script>
+
+  <div class="tl-card" id="tlCard">
+    <h3 id="tlHead"></h3>
+    <div class="tl-sub" id="tlSub"></div>
+    <div id="tlBox"></div>
+  </div>
 
 <!-- ===== OKNO OBJAŚNIEŃ ===== -->
 <div class="info-overlay" id="infoOverlay">
@@ -1821,6 +1809,9 @@ document.getElementById('infoLangBtn').addEventListener('click', function(){
   INFO_LANG = (INFO_LANG==='pl' ? 'en' : 'pl');
   try{ localStorage.setItem('dl-info-lang', INFO_LANG); }catch(e){}
   infoRefreshChrome();
+  if (typeof applyTextLang === 'function') applyTextLang();
+  if (typeof renderTimeline === 'function') renderTimeline();
+  if (typeof bfRender === 'function') { bfRender(); swRender(); applyScores(); }
   var open=document.getElementById('infoOverlay').classList.contains('open');
   if(open){
     var m=location.hash.match(/^#temat=([\w-]+)$/);
@@ -1836,6 +1827,382 @@ function infoFromHash(){
 addEventListener('hashchange', infoFromHash);
 infoRefreshChrome();
 setTimeout(infoFromHash, 60);
+
+/* ============================================================
+   DZIAŁAJĄCY KWESTIONARIUSZ
+   Pozycje z Mini-IPIP (Donnellan i in., 2006) — domena publiczna —
+   oraz ze Skali Satysfakcji z Życia (Diener i in., 1985).
+   Oryginalna aplikacja miała 120 pozycji; tu jest próbka 15.
+   ============================================================ */
+var BF_ITEMS = [
+  { t:'Am the life of the party.',                          c:'E', r:false },
+  { t:'Sympathize with others’ feelings.',             c:'A', r:false },
+  { t:'Get chores done right away.',                        c:'C', r:false },
+  { t:'Have frequent mood swings.',                         c:'N', r:false },
+  { t:'Have a vivid imagination.',                          c:'O', r:false },
+  { t:'Don’t talk a lot.',                             c:'E', r:true  },
+  { t:'Am not interested in other people’s problems.', c:'A', r:true  },
+  { t:'Often forget to put things back in their proper place.', c:'C', r:true },
+  { t:'Am relaxed most of the time.',                       c:'N', r:true  },
+  { t:'Am not interested in abstract ideas.',               c:'O', r:true  },
+  { t:'Talk to a lot of different people at parties.',      c:'E', r:false },
+  { t:'Feel others’ emotions.',                        c:'A', r:false },
+  { t:'Like order.',                                        c:'C', r:false },
+  { t:'Get upset easily.',                                  c:'N', r:false },
+  { t:'Have difficulty understanding abstract ideas.',      c:'O', r:true  }
+];
+var BF_SCALE = ['Strongly Disagree','Disagree','Neither Agree nor Disagree','Agree','Strongly Agree'];
+
+var SW_ITEMS = [
+  'In most ways my life is close to ideal.',
+  'The conditions of my life are excellent.',
+  'I am satisfied with my life.',
+  'So far I have gotten the important things I want in life.',
+  'If I could live my life over, I would change almost nothing.'
+];
+var SW_SCALE = ['Strongly Disagree','Disagree','Slightly Disagree','Neutral','Slightly Agree','Agree','Strongly Agree'];
+
+var QUIZ_UI = {
+  pl:{ bfDesc:'Zaznacz, na ile zgadzasz się z tym stwierdzeniem o sobie.',
+       swDesc:'Skala Satysfakcji z Życia (Diener i in., 1985) — narzędzie autentyczne, pięć pozycji.',
+       q:function(i,n){return 'Pytanie '+i+' z '+n;},
+       st:function(i,n){return 'Stwierdzenie '+i+' z '+n;},
+       origin:'oryginał miał 120',
+       doneT:'To wszystko. Aplikacja dziękowała i wyświetlała wynik.',
+       doneB:'W tym momencie dane były już pobrane — twoje i twoich znajomych. Test nie był przykrywką: był <strong>narzędziem uczącym model</strong>, który potem przypisał te same pięć liczb osobom, które nigdy go nie widziały.',
+       doneBtn:'Zobacz swój profil OCEAN →',
+       again:'↻ Jeszcze raz',
+       swDone:function(sc,lab){return 'Twój wynik: <strong>'+sc+' z 35</strong> — '+lab+'. Dla profilu budowanego obok liczyło się nie to, jaki jesteś, tylko <strong>jak ci teraz jest</strong>: niezadowolenie z życia dobrze przewiduje podatność na obietnicę zmiany.';},
+       swBands:['skrajnie niezadowolony','niezadowolony','lekko niezadowolony','przeciętnie','lekko zadowolony','zadowolony','bardzo zadowolony'],
+       yours:'twój wynik z 15 odpowiedzi',
+       note:'To <strong>twój</strong> profil — z piętnastu odpowiedzi, które właśnie zaznaczyłeś. Cambridge Analytica wyliczyła te same pięć liczb dla 87 milionów osób, <strong>które nie odpowiedziały na nic</strong>. Kliknij dowolną cechę, żeby zobaczyć, do czego jej używano.',
+       demo:'Wartości przykładowe. Wypełnij kwestionariusz w zakładce „Quiz Interface", żeby zobaczyć tu własny wynik.' },
+  en:{ bfDesc:'Rate how strongly you agree or disagree with this statement about yourself.',
+       swDesc:'Satisfaction With Life Scale (Diener et al., 1985) — a genuine five-item instrument.',
+       q:function(i,n){return 'Question '+i+' of '+n;},
+       st:function(i,n){return 'Statement '+i+' of '+n;},
+       origin:'the original had 120',
+       doneT:'That is all. The app thanked you and showed a result.',
+       doneB:'By this point the data was already taken — yours and your friends’. The quiz was not a cover story: it was the <strong>instrument that trained the model</strong>, which then assigned the same five numbers to people who never saw it.',
+       doneBtn:'See your OCEAN profile →',
+       again:'↻ Start again',
+       swDone:function(sc,lab){return 'Your score: <strong>'+sc+' of 35</strong> — '+lab+'. For the profile being built alongside, what mattered was not what you are like but <strong>how you are doing</strong>: dissatisfaction predicts susceptibility to a promise of change.';},
+       swBands:['extremely dissatisfied','dissatisfied','slightly dissatisfied','neutral','slightly satisfied','satisfied','highly satisfied'],
+       yours:'your score from 15 answers',
+       note:'This is <strong>your</strong> profile, from the fifteen answers you just gave. Cambridge Analytica computed the same five numbers for 87 million people <strong>who answered nothing at all</strong>. Click any trait to see what it was used for.',
+       demo:'Illustrative values. Complete the questionnaire under "Quiz Interface" to see your own score here.' }
+};
+function quizT(){ return QUIZ_UI[typeof INFO_LANG !== 'undefined' ? INFO_LANG : 'pl']; }
+
+var bfIdx = 0, bfAns = new Array(BF_ITEMS.length).fill(null);
+var swIdx = 0, swAns = new Array(SW_ITEMS.length).fill(null);
+
+function renderScale(box, etykiety, wybrane, onPick){
+  box.innerHTML = '';
+  etykiety.forEach(function(lab, n){
+    var d = document.createElement('div');
+    d.className = 'likert-option' + (wybrane === n ? ' selected' : '');
+    d.innerHTML = '<div class="likert-radio"></div><span class="likert-label">' + lab + '</span>';
+    d.addEventListener('click', function(){ onPick(n); });
+    box.appendChild(d);
+  });
+}
+
+function renderProgress(box, n, ile, odp){
+  box.innerHTML = '';
+  for (var i = 0; i < ile; i++){
+    var b = document.createElement('div');
+    b.className = 'bar' + (i === n ? ' current' : (odp[i] !== null ? ' filled' : ''));
+    box.appendChild(b);
+  }
+}
+
+function bfRender(){
+  var t = quizT();
+  if (bfIdx >= BF_ITEMS.length){ bfDone(); return; }
+  document.getElementById('bfStep').textContent = t.q(bfIdx + 1, BF_ITEMS.length) + ' · ' + t.origin;
+  document.getElementById('bfQuestion').textContent = BF_ITEMS[bfIdx].t;
+  document.getElementById('bfDesc').textContent = t.bfDesc;
+  renderProgress(document.getElementById('bfProgress'), bfIdx, BF_ITEMS.length, bfAns);
+  renderScale(document.getElementById('bfScale'), BF_SCALE, bfAns[bfIdx], function(n){
+    bfAns[bfIdx] = n;
+    bfRender();
+    setTimeout(function(){ bfIdx++; bfRender(); }, 220);
+  });
+  document.getElementById('bfBack').disabled = (bfIdx === 0);
+  document.getElementById('bfNext').textContent = (bfIdx === BF_ITEMS.length - 1) ? 'Finish →' : 'Next →';
+}
+
+function bfScores(){
+  var sum = {O:0,C:0,E:0,A:0,N:0}, cnt = {O:0,C:0,E:0,A:0,N:0};
+  BF_ITEMS.forEach(function(it, i){
+    if (bfAns[i] === null) return;
+    var v = bfAns[i] + 1;                 // 1..5
+    if (it.r) v = 6 - v;                  // pozycje odwrócone
+    sum[it.c] += v; cnt[it.c]++;
+  });
+  var out = {};
+  ['O','C','E','A','N'].forEach(function(k){
+    out[k] = cnt[k] ? Math.round(((sum[k] / cnt[k]) - 1) / 4 * 100) : null;
+  });
+  return out;
+}
+
+function bfDone(){
+  var t = quizT();
+  document.getElementById('bfStep').textContent = t.q(BF_ITEMS.length, BF_ITEMS.length);
+  document.getElementById('bfQuestion').textContent = t.doneT;
+  document.getElementById('bfDesc').innerHTML = t.doneB;
+  renderProgress(document.getElementById('bfProgress'), -1, BF_ITEMS.length, bfAns);
+  document.getElementById('bfScale').innerHTML =
+    '<button class="use-app-btn" id="bfSeeResults" style="width:100%">' + t.doneBtn + '</button>' +
+    '<button class="info-share" id="bfRestart" style="width:100%;margin-top:10px">' + t.again + '</button>';
+  document.getElementById('bfSeeResults').addEventListener('click', function(){
+    applyScores(); switchScreen('results');
+    var r = document.getElementById('screen-results');
+    if (r) r.scrollIntoView({ block:'start' });
+  });
+  document.getElementById('bfRestart').addEventListener('click', function(){
+    bfIdx = 0; bfAns = new Array(BF_ITEMS.length).fill(null); bfRender();
+  });
+  document.getElementById('bfBack').disabled = false;
+  document.getElementById('bfNext').disabled = true;
+  applyScores();
+}
+
+function swRender(){
+  var t = quizT();
+  if (swIdx >= SW_ITEMS.length){ swDone(); return; }
+  document.getElementById('swStep').textContent = t.st(swIdx + 1, SW_ITEMS.length);
+  document.getElementById('swQuestion').textContent = SW_ITEMS[swIdx];
+  document.getElementById('swDesc').textContent = t.swDesc;
+  renderScale(document.getElementById('swScale'), SW_SCALE, swAns[swIdx], function(n){
+    swAns[swIdx] = n;
+    swRender();
+    setTimeout(function(){ swIdx++; swRender(); }, 220);
+  });
+  document.getElementById('swBack').disabled = (swIdx === 0);
+  document.getElementById('swNext').disabled = false;
+  document.getElementById('swNext').textContent = (swIdx === SW_ITEMS.length - 1) ? 'Finish →' : 'Next →';
+}
+
+function swDone(){
+  var t = quizT();
+  var sc = swAns.reduce(function(a, b){ return a + (b === null ? 0 : b + 1); }, 0);
+  var pas = sc <= 9 ? 0 : sc <= 14 ? 1 : sc <= 19 ? 2 : sc === 20 ? 3 : sc <= 25 ? 4 : sc <= 30 ? 5 : 6;
+  document.getElementById('swStep').textContent = t.st(SW_ITEMS.length, SW_ITEMS.length);
+  document.getElementById('swQuestion').textContent = '';
+  document.getElementById('swDesc').innerHTML = t.swDone(sc, t.swBands[pas]);
+  document.getElementById('swScale').innerHTML =
+    '<button class="info-share" id="swRestart" style="width:100%">' + t.again + '</button>';
+  document.getElementById('swRestart').addEventListener('click', function(){
+    swIdx = 0; swAns = new Array(SW_ITEMS.length).fill(null); swRender();
+  });
+  document.getElementById('swNext').disabled = true;
+}
+
+/* wyniki trafiają na ekran „Results" — te same paski, ale twoje liczby */
+function applyScores(){
+  var sc = bfScores(), t = quizT();
+  var mapa = { 'trait-o':'O', 'trait-c':'C', 'trait-e':'E', 'trait-a':'A', 'trait-n':'N' };
+  var jest = false;
+  Object.keys(mapa).forEach(function(cls){
+    var el = document.querySelector('.ocean-trait.' + cls);
+    if (!el) return;
+    var v = sc[mapa[cls]];
+    if (v === null) return;
+    jest = true;
+    el.querySelector('.trait-bar').style.width = v + '%';
+    el.querySelector('.trait-value').textContent = v;
+  });
+  var n = document.getElementById('oceanNote');
+  if (n) n.innerHTML = jest ? t.note : t.demo;
+}
+
+document.getElementById('bfNext').addEventListener('click', function(){
+  if (bfIdx < BF_ITEMS.length){ bfIdx++; bfRender(); }
+});
+document.getElementById('bfBack').addEventListener('click', function(){
+  if (bfIdx > 0){ bfIdx--; document.getElementById('bfNext').disabled = false; bfRender(); }
+});
+document.getElementById('swNext').addEventListener('click', function(){
+  if (swIdx < SW_ITEMS.length){ swIdx++; swRender(); }
+});
+document.getElementById('swBack').addEventListener('click', function(){
+  if (swIdx > 0){ swIdx--; document.getElementById('swNext').disabled = false; swRender(); }
+});
+
+bfRender();
+swRender();
+applyScores();
+
+
+/* ============================================================
+   POLSKA WERSJA WARSTWY KOMENTARZA
+   Makieta Facebooka i pozycje kwestionariuszy zostają po angielsku —
+   to rekonstrukcja, tłumaczenie by ją zafałszowało.
+   ============================================================ */
+var PL_TEXT = {
+ 'banner':
+   '<strong>REKONSTRUKCJA</strong> aplikacji facebookowej, przez którą Cambridge Analytica pobrała dane 87 milionów osób. '
+ + '<span class="warning">To nie jest działająca aplikacja</span>'
+ + '<br>Na podstawie ustaleń z książki Christophera Wylie’ego <em>Mindf*ck</em> (2019)',
+
+ 'tab-quiz':'Kwestionariusz',
+ 'tab-results':'Wyniki',
+ 'tab-fine-print':'Drobny druk',
+ 'tab-reality':'Co się wydarzyło naprawdę',
+
+ 'realityhead':'<span class="skull">&#9888;</span><h3>Co ta aplikacja robiła naprawdę</h3>',
+
+ 'realityintro':
+   'Użytkownicy sądzili, że wypełniają niewinny test osobowości na potrzeby badań naukowych. '
+ + 'W tym samym czasie aplikacja prowadziła jedną z największych nieautoryzowanych operacji pobierania danych w historii. '
+ + 'Oto co działo się za przyjaznym interfejsem:',
+
+ 'flow-1':'<h4>Krok 1: Użytkownik wypełnia test</h4>'
+ + '<p>Około 270 tysięcy osób dostało 1–2 dolary przez Amazon Mechanical Turk za zainstalowanie aplikacji i wypełnienie kwestionariusza. Kliknęły „Okay" w oknie zgód.</p>',
+
+ 'flow-2':'<h4>Krok 2: Pobranie danych znajomych</h4>'
+ + '<p>Przy każdym użytkowniku aplikacja sięgała po profile wszystkich jego znajomych — średnio około trzystu osób. Ci znajomi nie zostali o niczym powiadomieni i nie mieli jak odmówić.</p>',
+
+ 'flow-3':'<h4>Krok 3: 87 milionów profili</h4>'
+ + '<p>Nazwiska, miejsca, polubienia, sieci znajomych, daty urodzin, zdjęcia, wpisy — wszystko trafiało na serwery Global Science Research, a stamtąd do Cambridge Analytica, wbrew regulaminowi Facebooka.</p>',
+
+ 'flow-4':'<h4>Krok 4: Budowa profili psychograficznych</h4>'
+ + '<p>Na modelu OCEAN budowano szczegółowe profile psychologiczne, przewidujące poglądy polityczne, lęki, podatność na perswazję i punkty zaczepienia emocjonalnego.</p>',
+
+ 'flow-5':'<h4>Krok 5: Użycie w kampaniach wyborczych</h4>'
+ + '<p>Profile posłużyły do kierowania spersonalizowanych reklam politycznych, obliczonych na słabe punkty odbiorcy — w prawyborach Teda Cruza, a potem w kampanii Donalda Trumpa.</p>',
+
+ 'lbl-270k':'Bezpośrednich użytkowników',
+ 'lbl-87m':'Pobranych profili',
+ 'lbl-320x':'Zwielokrotnienie danych',
+
+ 'footer':
+   'To rekonstrukcja aplikacji facebookowej „This Is Your Digital Life", stworzonej przez Global Science Research '
+ + 'dr. Aleksandra Kogana w 2013 roku. Nie jest to działająca aplikacja. Powstała na podstawie ustaleń z książki '
+ + 'Christophera Wylie’ego <em>Mindf*ck</em> (2019), zeznań przed Kongresem USA oraz śledztw dziennikarskich '
+ + '„The Guardian" i „The New York Times".',
+
+ 'fineprint':
+   '<h4>Regulamin i zasady wykorzystania danych</h4>'
+ + '<p>Korzystając z aplikacji, wyrażasz zgodę na zbieranie i przetwarzanie danych z twojego profilu na Facebooku, w tym między innymi: profilu publicznego, adresu e-mail, listy znajomych, polubień, lokalizacji, wpisów i zdjęć. Dane zostaną wykorzystane do '
+ + '<span class="redacted" onclick="this.classList.toggle(\'revealed\')">badań naukowych na Uniwersytecie Cambridge</span>'
+ + ' i mogą zostać <span class="redacted" onclick="this.classList.toggle(\'revealed\')">przekazane podmiotom powiązanym, w tym SCL Group i Cambridge Analytica, do celów komercyjnych i politycznych</span>.</p>'
+ + '<p style="margin-top:12px">Wyrażasz również zgodę na zbieranie danych z profili twoich znajomych, w tym ich '
+ + '<span class="redacted" onclick="this.classList.toggle(\'revealed\')">nazwisk, polubień, lokalizacji, dat urodzin i innych danych osobowych, bez potrzeby uzyskania ich indywidualnej zgody</span>. '
+ + 'Okres przechowywania danych: <span class="redacted" onclick="this.classList.toggle(\'revealed\')">bezterminowo — dane nie zostaną usunięte nawet na żądanie Facebooka lub użytkowników</span>.</p>'
+ + '<p style="margin-top:12px">Dane z badania mogą posłużyć do '
+ + '<span class="redacted" onclick="this.classList.toggle(\'revealed\')">budowy psychograficznych profili wyborców na potrzeby kampanii reklamowych w wyborach w USA, referendach w Wielkiej Brytanii i wyborach w krajach rozwijających się</span>. '
+ + 'Global Science Research działa pod kierunkiem <span class="redacted" onclick="this.classList.toggle(\'revealed\')">dr. Aleksandra Kogana, który równolegle pracuje na Uniwersytecie Państwowym w Petersburgu</span>.</p>'
+ + '<p style="margin-top:16px;font-style:italic;color:#b0b3b8">Kliknij zaczernione fragmenty, żeby zobaczyć, co działo się naprawdę.</p>'
+};
+
+/* zapamiętujemy wersję angielską przy pierwszym uruchomieniu */
+var EN_TEXT = {};
+document.querySelectorAll('[data-tr]').forEach(function(el){
+  EN_TEXT[el.dataset.tr] = el.innerHTML;
+});
+
+function applyTextLang(){
+  var pl = (typeof INFO_LANG !== 'undefined' ? INFO_LANG : 'pl') === 'pl';
+  document.querySelectorAll('[data-tr]').forEach(function(el){
+    var k = el.dataset.tr;
+    var v = pl ? PL_TEXT[k] : EN_TEXT[k];
+    if (v != null) el.innerHTML = v;
+  });
+}
+
+/* ============================================================
+   KALENDARIUM SPRAWY 2013–2019
+   ============================================================ */
+var TIMELINE = [
+ { d:{pl:'2013',              en:'2013'},
+   t:{pl:'Badanie, które pokazało, że to możliwe',
+      en:'The study that showed it was possible'},
+   b:{pl:'Kosinski, Stillwell i Graepel publikują w <em>PNAS</em> pracę dowodzącą, że same polubienia na Facebooku pozwalają trafnie przewidzieć cechy osobowości, poglądy, wyznanie i orientację. Praca była naukowa i jawna — i stała się instrukcją.',
+      en:'Kosinski, Stillwell and Graepel publish in <em>PNAS</em> a paper showing that Facebook likes alone accurately predict personality traits, politics, religion and orientation. The work was academic and open — and became a blueprint.'} },
+
+ { d:{pl:'listopad 2013',     en:'November 2013'},
+   t:{pl:'Powstaje aplikacja',
+      en:'The app goes live'},
+   b:{pl:'Dr Aleksandr Kogan zakłada spółkę Global Science Research i uruchamia „thisisyourdigitallife". Rejestracja aplikacji przed kwietniem 2014 okaże się kluczowa: da jej roczny okres przejściowy po zmianie zasad.',
+      en:'Dr Aleksandr Kogan founds Global Science Research and launches "thisisyourdigitallife". Registering before April 2014 proves decisive: it earns the app a year of grace after the rules change.'} },
+
+ { d:{pl:'2014',              en:'2014'},
+   t:{pl:'Zbieranie danych',
+      en:'The harvest'},
+   b:{pl:'Około 270 tysięcy osób wypełnia test za 1–2 dolary. Przez ich zgody aplikacja sięga po dane nawet 87 milionów kont. Dane trafiają do SCL Group i Cambridge Analytica — wbrew regulaminowi Facebooka.',
+      en:'Some 270,000 people take the quiz for $1–$2. Through their consents the app reaches the data of up to 87 million accounts. It passes to SCL Group and Cambridge Analytica, against Facebook’s platform rules.'} },
+
+ { d:{pl:'kwiecień 2014',     en:'April 2014'},
+   t:{pl:'Facebook zamyka furtkę — z rocznym opóźnieniem',
+      en:'Facebook closes the door — with a year’s delay'},
+   b:{pl:'Zapowiedziano wycofanie dostępu do danych znajomych. Aplikacje zarejestrowane wcześniej dostają jednak czas do maja 2015. Aplikacja Kogana mieści się w tym oknie.',
+      en:'Access to friends’ data is announced for removal. Apps registered earlier get until May 2015. Kogan’s app sits inside that window.'} },
+
+ { d:{pl:'grudzień 2015',     en:'December 2015'},
+   t:{pl:'Pierwszy sygnał — i zaufanie zamiast kontroli',
+      en:'The first alarm — and trust instead of verification'},
+   b:{pl:'„The Guardian" opisuje, że kampania Teda Cruza korzysta z danych psychologicznych milionów użytkowników. Facebook żąda usunięcia danych i przyjmuje pisemne zapewnienie, że to zrobiono. <strong>Nie sprawdza tego.</strong> Dane zostają.',
+      en:'The Guardian reports that Ted Cruz’s campaign is using psychological data on millions of users. Facebook demands deletion and accepts a written assurance that it happened. <strong>It does not verify.</strong> The data stays.'} },
+
+ { d:{pl:'2016',              en:'2016'},
+   t:{pl:'Kampanie',
+      en:'The campaigns'},
+   b:{pl:'Cambridge Analytica pracuje dla kampanii Donalda Trumpa. Firma przypisuje sobie też udział w kampanii przed referendum brexitowym — część tych deklaracji nigdy nie została potwierdzona i była marketingiem.',
+      en:'Cambridge Analytica works for the Donald Trump campaign. The firm also claims a role in the Brexit referendum campaign — claims that were never substantiated and functioned as marketing.'} },
+
+ { d:{pl:'marzec 2018',       en:'March 2018'},
+   t:{pl:'Sygnalista i ujawnienie sprawy',
+      en:'The whistleblower breaks the story'},
+   b:{pl:'Christopher Wylie ujawnia sprawę w „The Observer", „The Guardian" i „The New York Times". Pierwsze doniesienia mówią o 50 milionach osób. Akcje Facebooka tracą w kilka dni dziesiątki miliardów dolarów wartości.',
+      en:'Christopher Wylie goes public in The Observer, The Guardian and The New York Times. The first reports say 50 million people. Facebook’s market value falls by tens of billions within days.'} },
+
+ { d:{pl:'kwiecień 2018',     en:'April 2018'},
+   t:{pl:'87 milionów i przesłuchanie w Kongresie',
+      en:'87 million, and testimony before Congress'},
+   b:{pl:'Facebook podaje własne oszacowanie: do 87 milionów kont, w tym około 2,7 miliona w Unii Europejskiej. Mark Zuckerberg zeznaje przed Kongresem USA.',
+      en:'Facebook publishes its own estimate: up to 87 million accounts, including about 2.7 million in the EU. Mark Zuckerberg testifies before the US Congress.'} },
+
+ { d:{pl:'maj 2018',          en:'May 2018'},
+   t:{pl:'Koniec firmy',
+      en:'The company folds'},
+   b:{pl:'Cambridge Analytica i SCL Elections ogłaszają niewypłacalność i kończą działalność. W tym samym miesiącu zaczyna obowiązywać RODO — za późno, by objąć tę sprawę.',
+      en:'Cambridge Analytica and SCL Elections declare insolvency and shut down. The GDPR takes effect the same month — too late to cover this case.'} },
+
+ { d:{pl:'październik 2018',  en:'October 2018'},
+   t:{pl:'Kara brytyjska: maksymalna i symboliczna',
+      en:'The UK penalty: maximum, and symbolic'},
+   b:{pl:'Brytyjski urząd ochrony danych nakłada na Facebooka <strong>500 tysięcy funtów</strong> — najwyższą karę możliwą w prawie sprzed RODO. To około 0,001 procent rocznego przychodu spółki.',
+      en:'The UK Information Commissioner fines Facebook <strong>£500,000</strong> — the maximum available under pre-GDPR law. That is roughly 0.001 per cent of the company’s annual revenue.'} },
+
+ { d:{pl:'lipiec 2019',       en:'July 2019'},
+   t:{pl:'5 miliardów dolarów',
+      en:'Five billion dollars'},
+   b:{pl:'Federalna Komisja Handlu nakłada na Facebooka karę <strong>5 miliardów dolarów</strong> — najwyższą w historii amerykańskiego nadzoru nad prywatnością. W dniu ogłoszenia kurs akcji spółki wzrósł.',
+      en:'The Federal Trade Commission fines Facebook <strong>$5 billion</strong>, the largest privacy penalty in US history. On the day it was announced, the company’s share price rose.'} }
+];
+
+var TL_UI = {
+  pl:{ h:'Kalendarium sprawy', s:'Od pracy naukowej do najwyższej kary w historii amerykańskiego nadzoru nad prywatnością — sześć lat.' },
+  en:{ h:'Timeline', s:'From an academic paper to the largest privacy penalty in US history — six years.' }
+};
+
+function renderTimeline(){
+  var box = document.getElementById('tlBox'); if (!box) return;
+  var L = (typeof INFO_LANG !== 'undefined' ? INFO_LANG : 'pl');
+  document.getElementById('tlHead').textContent = TL_UI[L].h;
+  document.getElementById('tlSub').textContent = TL_UI[L].s;
+  box.innerHTML = TIMELINE.map(function(e){
+    return '<div class="tl-item"><div class="tl-date">' + e.d[L] + '</div>'
+         + '<div class="tl-body"><h4>' + e.t[L] + '</h4><p>' + e.b[L] + '</p></div></div>';
+  }).join('');
+}
+
+applyTextLang();
+renderTimeline();
 </script>
 
 </body>
