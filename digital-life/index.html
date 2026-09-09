@@ -1155,8 +1155,8 @@
 
   <!-- SCREEN: Quiz -->
   <div class="screen active" id="screen-quiz">
-    <div class="quiz-card" data-info="quiz-bigfive">
-      <div class="quiz-card-header">
+    <div class="quiz-card">
+      <div class="quiz-card-header" data-info="quiz-bigfive">
         <h3>Personality Assessment</h3>
         <span class="quiz-step">Question 7 of 120</span>
       </div>
@@ -1204,8 +1204,8 @@
       </div>
     </div>
 
-    <div class="quiz-card" data-info="quiz-swls">
-      <div class="quiz-card-header">
+    <div class="quiz-card">
+      <div class="quiz-card-header" data-info="quiz-swls">
         <h3>Life Satisfaction Survey</h3>
         <span class="quiz-step">Part 2 of 3</span>
       </div>
@@ -1805,8 +1805,12 @@ function closeInfo(){
 }
 
 document.addEventListener('click', function(e){
-  var t=e.target.closest('[data-info]');
-  if(t){ e.stopPropagation(); openInfo(t.dataset.info); }
+  /* nie odbieramy kliknięć elementom, które same coś robią —
+     przyciskom, polom i opcjom skali w quizie */
+  var ster = e.target.closest('button, input, select, textarea, a, .likert-option');
+  if (ster && !ster.hasAttribute('data-info')) return;
+  var t = e.target.closest('[data-info]');
+  if (t) { e.stopPropagation(); openInfo(t.dataset.info); }
 });
 document.getElementById('infoOverlay').addEventListener('click', function(e){
   if(e.target===this) closeInfo();
