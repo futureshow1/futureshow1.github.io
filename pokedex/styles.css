@@ -305,3 +305,53 @@ footer{border-top:0;background:var(--red);padding:24px 22px;text-align:center;
   cursor:pointer;box-shadow:0 3px 16px rgba(122,127,201,.35)}
 .mshare:hover{filter:brightness(1.15)}
 @media(max-width:640px){.mshare{position:static;display:block;margin:14px auto 0;width:calc(100% - 20px)}}
+
+/* ---------- anatomia karty: mapa objaśnień ---------- */
+.anat-hint{display:inline-block;margin-top:6px;color:var(--navy);font-weight:700;font-size:14px}
+.anat-grid{display:grid;grid-template-columns:minmax(300px,500px) 1fr;gap:30px;align-items:start;margin-top:8px}
+.anat-cardcol{position:sticky;top:calc(var(--hdr,64px) + 14px)}
+.anat-svg{width:100%;height:auto;display:block;overflow:visible;user-select:none}
+.anat-cap{text-align:center;color:var(--dim);font-size:13px;font-weight:600;margin-top:4px}
+.anat-cap a{color:var(--navy)}
+.anat-dim{fill:rgba(38,34,78,.64);opacity:0;transition:opacity .2s;pointer-events:none}
+.anat.active .anat-dim{opacity:1}
+.anat-rect{fill:transparent;stroke:transparent;stroke-width:5;pointer-events:all;cursor:pointer;transition:stroke .15s}
+.anat-rect.on{stroke:var(--gc)}
+.anat-line{stroke:var(--gc);stroke-width:2;opacity:.38;vector-effect:non-scaling-stroke;transition:opacity .15s,stroke-width .15s;pointer-events:none}
+.anat-dot{fill:var(--gc);opacity:.45;pointer-events:none;transition:opacity .15s}
+.anat.active .anat-line,.anat.active .anat-dot{opacity:.1}
+.anat .anat-line.on{opacity:1;stroke-width:3.5}
+.anat .anat-dot.on{opacity:1}
+.anat-pin{cursor:pointer;transition:opacity .15s}
+.anat-pin circle{fill:#fff;stroke:var(--gc);stroke-width:5;transition:fill .15s}
+.anat-pin text{font:700 26px 'Fredoka',sans-serif;fill:var(--gc);text-anchor:middle;dominant-baseline:central;pointer-events:none}
+.anat-pin:hover circle,.anat-pin.on circle{fill:var(--gc)}
+.anat-pin:hover text,.anat-pin.on text{fill:#fff}
+.anat.active .anat-pin:not(.on){opacity:.4}
+.anat-pin:focus{outline:none}
+.anat-pin:focus-visible circle{stroke-width:9}
+.anat-gh{font-size:17px;color:var(--gc);margin:4px 0 10px;display:flex;align-items:center;gap:8px}
+.anat-gh:not(:first-child){margin-top:22px}
+.anat-gh::before{content:"";width:12px;height:12px;border-radius:50%;background:var(--gc);flex:none}
+.anat-list ol{list-style:none;display:flex;flex-direction:column;gap:8px}
+.anat-item{display:flex;gap:12px;align-items:flex-start;background:#fff;border:2px solid transparent;border-radius:16px;
+  padding:10px 14px;cursor:pointer;box-shadow:0 3px 12px rgba(122,127,201,.14);transition:border-color .15s,transform .15s,box-shadow .15s}
+.anat-item:hover,.anat-item.on{border-color:var(--gc);transform:translateX(3px)}
+.anat-item.on{box-shadow:0 6px 22px rgba(122,127,201,.32)}
+.anat-item:focus{outline:none}
+.anat-item:focus-visible{border-color:var(--gc)}
+.anat-num{flex:none;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  background:var(--gc);color:#fff;font:700 15px 'Fredoka',sans-serif;margin-top:1px}
+.anat-item b{display:block;color:var(--navy);font-size:15.5px;line-height:1.3}
+.anat-item p{color:var(--dim);font-size:14px;font-weight:500;margin-top:2px}
+.anat-notes{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:28px}
+.anat-note{background:#fff;border:2.5px solid var(--outline);border-radius:18px;padding:14px 18px;box-shadow:var(--shadow)}
+.anat-note b{color:var(--red2);display:block;margin-bottom:4px;font-size:15.5px}
+.anat-note p{color:var(--dim);font-size:14px;font-weight:500}
+@media(max-width:860px){
+  .anat-grid{grid-template-columns:1fr;gap:14px}
+  .anat-cardcol{top:var(--hdr,118px);z-index:3;padding:6px 0 8px;margin:0 -22px;
+    background:rgba(236,244,255,.97);box-shadow:0 8px 14px -8px rgba(122,127,201,.45)}
+  .anat-svg{width:min(100%,calc(38vh * .848));margin:0 auto}
+  .anat-cap{display:none}
+}

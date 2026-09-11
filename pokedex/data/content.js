@@ -197,6 +197,484 @@ rarityGuide: {
  }
 },
 
+// ---------- ANATOMIA KARTY (mapa objaśnień) ----------
+cardAnatomy: {
+ "img": "images/anatomy/me2-47.webp",
+ "w": 733,
+ "h": 1024,
+ "caption": {
+  "pl": "Brambleghast · Phantasmal Flames (2025) · karta 047/094",
+  "en": "Brambleghast · Phantasmal Flames (2025) · card 047/094"
+ },
+ "full": {
+  "pl": "pełna rozdzielczość",
+  "en": "full resolution"
+ },
+ "intro": {
+  "pl": "Karta z boostera wygląda jak gąszcz napisów i symboli, ale każdy element ma swoje stałe miejsce i znaczenie. Rozbieramy ją na przykładzie zwykłej karty z najnowszej ery — <b>Brambleghast</b> z setu Phantasmal Flames (2025) ma naraz zdolność, atak, słabość, odporność i koszt odwrotu, więc widać na niej prawie wszystko.",
+  "en": "A booster card looks like a thicket of text and symbols, but every element has a fixed place and meaning. We take apart an ordinary card from the current era — <b>Brambleghast</b> from Phantasmal Flames (2025) has an Ability, an attack, a Weakness, a Resistance and a Retreat Cost all at once, so almost everything is on show."
+ },
+ "hint": {
+  "pl": "Najedź albo kliknij numer, fragment karty lub opis — podświetli się właściwe miejsce.",
+  "en": "Hover or tap a number, a part of the card or a description — the matching spot lights up."
+ },
+ "groups": [
+  {
+   "id": "who",
+   "color": "#f04f96",
+   "title": {
+    "pl": "Kim jest ten Pokémon",
+    "en": "Who this Pokémon is"
+   }
+  },
+  {
+   "id": "play",
+   "color": "#3f7fd6",
+   "title": {
+    "pl": "Co robi w grze",
+    "en": "What it does in the game"
+   }
+  },
+  {
+   "id": "meta",
+   "color": "#d49400",
+   "title": {
+    "pl": "Metryczka karty",
+    "en": "The card's fine print"
+   }
+  }
+ ],
+ "spots": [
+  {
+   "n": 1,
+   "g": "who",
+   "side": "L",
+   "rects": [
+    [
+     18,
+     32,
+     112,
+     60
+    ]
+   ],
+   "title": {
+    "pl": "Etap ewolucji",
+    "en": "Evolution stage"
+   },
+   "text": {
+    "pl": "STAGE 1 znaczy, że to Pokémon po pierwszej ewolucji. Karty BASIC (Podstawowe) wystawia się od razu; kartę Etapu 1 kładzie się na Podstawowego, a Etapu 2 — na Etap 1. Brambleghasta nie wystawisz, jeśli w grze nie ma jego poprzedniej formy.",
+    "en": "STAGE 1 means this Pokémon has evolved once. BASIC cards go straight into play; a Stage 1 card goes on top of its Basic form, a Stage 2 on top of the Stage 1. You can't play Brambleghast unless its earlier form is already in play."
+   }
+  },
+  {
+   "n": 2,
+   "g": "who",
+   "side": "L",
+   "rects": [
+    [
+     8,
+     62,
+     132,
+     178
+    ],
+    [
+     140,
+     93,
+     395,
+     118
+    ]
+   ],
+   "title": {
+    "pl": "Z czego ewoluuje",
+    "en": "What it evolves from"
+   },
+   "text": {
+    "pl": "Obrazek w kółku i napis „Evolves from Bramblin” pokazują poprzednią formę: na stole musi już leżeć Bramblin i dopiero na niego kładziesz tę kartę. Obrażenia i Energie przechodzą na nową formę. Nie można ewoluować w swojej pierwszej turze ani Pokémona wystawionego w tej samej turze.",
+    "en": "The picture in the circle and the line “Evolves from Bramblin” show the earlier form: Bramblin must already be in play, and this card goes on top of it. Damage and Energy carry over. You can't evolve on your first turn, or evolve a Pokémon played that same turn."
+   }
+  },
+  {
+   "n": 3,
+   "g": "who",
+   "side": "L",
+   "rects": [
+    [
+     140,
+     40,
+     435,
+     90
+    ]
+   ],
+   "title": {
+    "pl": "Nazwa",
+    "en": "Name"
+   },
+   "text": {
+    "pl": "Nazwa Pokémona. W talii możesz mieć najwyżej 4 karty o tej samej nazwie — wyjątkiem są podstawowe Energie, których wolno mieć dowolnie wiele.",
+    "en": "The Pokémon's name. A deck may contain at most 4 cards with the same name — basic Energy is the exception, you can have as many as you like."
+   }
+  },
+  {
+   "n": 4,
+   "g": "who",
+   "side": "R",
+   "rects": [
+    [
+     518,
+     35,
+     640,
+     95
+    ]
+   ],
+   "title": {
+    "pl": "HP — punkty życia",
+    "en": "HP — hit points"
+   },
+   "text": {
+    "pl": "Brambleghast ma 100 HP. Obrażenia zaznacza się licznikami (jeden licznik = 10 obrażeń). Gdy suma dojdzie do 100, Pokémon jest pokonany, trafia na stos odrzuconych, a przeciwnik bierze kartę Nagrody.",
+    "en": "Brambleghast has 100 HP. Damage is tracked with counters (one counter = 10 damage). When the total reaches 100, the Pokémon is Knocked Out, goes to the discard pile, and your opponent takes a Prize card."
+   }
+  },
+  {
+   "n": 5,
+   "g": "who",
+   "side": "R",
+   "rects": [
+    [
+     640,
+     38,
+     702,
+     92
+    ]
+   ],
+   "title": {
+    "pl": "Typ",
+    "en": "Type"
+   },
+   "text": {
+    "pl": "Fioletowy symbol oka to typ Psychiczny. Typ mówi, jakiej Energii Pokémon zwykle potrzebuje i komu zada podwójne obrażenia przez Słabość. Ciekawostka: w grach wideo Brambleghast jest typu Trawa/Duch, ale karcianka ma mniej typów — duchy lądują tu wśród Psychicznych.",
+    "en": "The purple eye symbol is the Psychic type. Type tells you what Energy the Pokémon usually needs and who takes double damage from it through Weakness. Fun fact: in the video games Brambleghast is Grass/Ghost, but the card game has fewer types — ghosts end up as Psychic."
+   }
+  },
+  {
+   "n": 6,
+   "g": "who",
+   "side": "R",
+   "rects": [
+    [
+     55,
+     120,
+     682,
+     485
+    ]
+   ],
+   "title": {
+    "pl": "Ilustracja",
+    "en": "Illustration"
+   },
+   "text": {
+    "pl": "Grafika nie wpływa na grę, ale decyduje o wartości kolekcjonerskiej: ten sam Pokémon wychodzi też w wersjach z ilustracją na całą kartę (Illustration Rare), które są znacznie rzadsze i droższe.",
+    "en": "The artwork doesn't affect play, but it drives collector value: the same Pokémon also appears in full-card artwork versions (Illustration Rare), which are far rarer and pricier."
+   }
+  },
+  {
+   "n": 7,
+   "g": "who",
+   "side": "R",
+   "rects": [
+    [
+     38,
+     484,
+     698,
+     515
+    ]
+   ],
+   "title": {
+    "pl": "Pasek z Pokédexu",
+    "en": "Pokédex strip"
+   },
+   "text": {
+    "pl": "NO. 0947 to numer w Pokédexie, „Tumbleweed Pokémon” to kategoria gatunku, a dalej wzrost i waga w jednostkach amerykańskich: 3′11″ to ok. 1,2 m, 13.2 lbs to ok. 6 kg. Czysta ciekawostka — w grze bez znaczenia.",
+    "en": "NO. 0947 is the Pokédex number, “Tumbleweed Pokémon” the species category, then height and weight in US units: 3′11″ is about 1.2 m, 13.2 lbs about 6 kg. Pure trivia — it doesn't matter in play."
+   }
+  },
+  {
+   "n": 8,
+   "g": "play",
+   "side": "L",
+   "rects": [
+    [
+     50,
+     552,
+     685,
+     688
+    ]
+   ],
+   "title": {
+    "pl": "Zdolność",
+    "en": "Ability"
+   },
+   "text": {
+    "pl": "Czerwona etykieta Ability to Zdolność: działa bez Energii i nie jest atakiem, więc nie kończy tury. Prison Panic (Więzienna Panika) można użyć w chwili, gdy z ręki ewoluujesz w Brambleghasta — wtedy Aktywny Pokémon przeciwnika staje się Zdezorientowany (przed atakiem rzuca monetą; przy reszce atak przepada, a on sam dostaje 3 liczniki obrażeń).",
+    "en": "The red Ability label means it works without Energy and isn't an attack, so it doesn't end your turn. Prison Panic can be used the moment you evolve into Brambleghast from your hand — your opponent's Active Pokémon becomes Confused (before attacking it flips a coin; on tails the attack fails and it takes 3 damage counters)."
+   }
+  },
+  {
+   "n": 9,
+   "g": "play",
+   "side": "L",
+   "rects": [
+    [
+     50,
+     732,
+     182,
+     778
+    ]
+   ],
+   "title": {
+    "pl": "Koszt ataku",
+    "en": "Attack cost"
+   },
+   "text": {
+    "pl": "Symbole przed nazwą ataku to Energia, którą Pokémon musi mieć dołączoną: jedna Psychiczna (fioletowe oko) i dwie Bezbarwne (białe gwiazdki). Bezbarwną opłaci Energia dowolnego typu — razem potrzeba 3 Energii, w tym co najmniej 1 Psychicznej. Po ataku Energie zostają na karcie.",
+    "en": "The symbols before the attack name are the Energy the Pokémon must have attached: one Psychic (purple eye) and two Colorless (white stars). Any type of Energy pays for Colorless — 3 Energy in total, at least 1 of them Psychic. The Energy stays attached after attacking."
+   }
+  },
+  {
+   "n": 10,
+   "g": "play",
+   "side": "R",
+   "rects": [
+    [
+     230,
+     732,
+     684,
+     778
+    ]
+   ],
+   "title": {
+    "pl": "Atak i obrażenia",
+    "en": "Attack and damage"
+   },
+   "text": {
+    "pl": "Psychic Sphere (Psychiczna Kula) zadaje 80 obrażeń Aktywnemu Pokémonowi przeciwnika. Sama liczba to stała wartość; gdy obok stoi „+”, „×” albo „−”, opis ataku zmienia obrażenia. Atak kończy twoją turę.",
+    "en": "Psychic Sphere deals 80 damage to your opponent's Active Pokémon. A bare number is fixed; a “+”, “×” or “−” next to it means the attack text changes the damage. Attacking ends your turn."
+   }
+  },
+  {
+   "n": 11,
+   "g": "play",
+   "side": "L",
+   "rects": [
+    [
+     36,
+     880,
+     196,
+     912
+    ]
+   ],
+   "title": {
+    "pl": "Słabość",
+    "en": "Weakness"
+   },
+   "text": {
+    "pl": "Mroczna ×2: gdy atakuje go Pokémon typu Mrocznego, obrażenia są podwojone. Atak za 60 zada więc 120 i pokona Brambleghasta jednym ciosem.",
+    "en": "Darkness ×2: when a Darkness Pokémon attacks it, the damage is doubled. A 60-damage attack deals 120 and knocks Brambleghast out in one hit."
+   }
+  },
+  {
+   "n": 12,
+   "g": "play",
+   "side": "L",
+   "rects": [
+    [
+     222,
+     880,
+     388,
+     912
+    ]
+   ],
+   "title": {
+    "pl": "Odporność",
+    "en": "Resistance"
+   },
+   "text": {
+    "pl": "Walcząca −30: ataki Pokémonów typu Walczącego zadają mu o 30 mniej. Przy liczeniu obrażeń najpierw uwzględnia się Słabość, potem Odporność.",
+    "en": "Fighting −30: attacks from Fighting Pokémon deal 30 less to it. When working out damage, Weakness is applied first, then Resistance."
+   }
+  },
+  {
+   "n": 13,
+   "g": "play",
+   "side": "R",
+   "rects": [
+    [
+     450,
+     880,
+     590,
+     912
+    ]
+   ],
+   "title": {
+    "pl": "Koszt odwrotu",
+    "en": "Retreat cost"
+   },
+   "text": {
+    "pl": "Dwie białe gwiazdki to koszt odwrotu. Żeby zamienić Aktywnego Brambleghasta z Pokémonem z Ławki, odrzucasz z niego 2 dowolne Energie. Odwrót można zrobić raz na turę.",
+    "en": "The two white stars are the Retreat Cost. To swap your Active Brambleghast with a Benched Pokémon, discard any 2 Energy from it. You can retreat once per turn."
+   }
+  },
+  {
+   "n": 14,
+   "g": "meta",
+   "side": "L",
+   "rects": [
+    [
+     38,
+     935,
+     178,
+     957
+    ]
+   ],
+   "title": {
+    "pl": "Ilustrator",
+    "en": "Illustrator"
+   },
+   "text": {
+    "pl": "Illus. Tetsu Kayama — autor grafiki. Wielu kolekcjonerów zbiera karty według ulubionych ilustratorów.",
+    "en": "Illus. Tetsu Kayama — the artist. Many collectors build sets around their favourite illustrators."
+   }
+  },
+  {
+   "n": 15,
+   "g": "meta",
+   "side": "L",
+   "rects": [
+    [
+     40,
+     960,
+     58,
+     992
+    ]
+   ],
+   "title": {
+    "pl": "Znak regulacji",
+    "en": "Regulation mark"
+   },
+   "text": {
+    "pl": "Litera w ramce (tu „I”) mówi, do którego formatu turniejowego należy karta. Co roku najstarsze litery wypadają z formatu Standard; ta karta jest w nim obecnie dozwolona. Do gry w domu to bez znaczenia.",
+    "en": "The boxed letter (here “I”) tells you which tournament format the card belongs to. Every year the oldest letters rotate out of Standard; this card is currently legal there. For playing at home it doesn't matter."
+   }
+  },
+  {
+   "n": 16,
+   "g": "meta",
+   "side": "L",
+   "rects": [
+    [
+     62,
+     958,
+     108,
+     993
+    ]
+   ],
+   "title": {
+    "pl": "Kod setu i język",
+    "en": "Set code and language"
+   },
+   "text": {
+    "pl": "PFL to skrót setu Phantasmal Flames (listopad 2025), EN — wersja angielska. Po tym kodzie łatwo znaleźć kartę w sklepie albo na Cardmarkecie.",
+    "en": "PFL is the code for the Phantasmal Flames set (November 2025), EN means the English edition. The code makes the card easy to find in shops or on Cardmarket."
+   }
+  },
+  {
+   "n": 17,
+   "g": "meta",
+   "side": "L",
+   "rects": [
+    [
+     112,
+     960,
+     195,
+     992
+    ]
+   ],
+   "title": {
+    "pl": "Numer karty",
+    "en": "Card number"
+   },
+   "text": {
+    "pl": "047/094 to 47. karta z 94 w podstawowej numeracji setu. Karta z numerem większym niż druga liczba (np. 110/094) to tzw. secret rare — rzadsza niż cały zestaw.",
+    "en": "047/094 is card 47 of the set's 94 regular cards. A card numbered above the second figure (e.g. 110/094) is a so-called secret rare — rarer than the set itself."
+   }
+  },
+  {
+   "n": 18,
+   "g": "meta",
+   "side": "L",
+   "rects": [
+    [
+     196,
+     964,
+     216,
+     988
+    ]
+   ],
+   "title": {
+    "pl": "Symbol rzadkości",
+    "en": "Rarity symbol"
+   },
+   "text": {
+    "pl": "Czarny romb ◆ oznacza kartę niezbyt pospolitą (Uncommon). Kółko ● to pospolita, gwiazdka ★ — rzadka; więcej gwiazdek i złote symbole to karty specjalne. Pełny ranking jest w zakładce „Ranking rzadkości”.",
+    "en": "The black diamond ◆ means Uncommon. A circle ● is Common, a star ★ is Rare; extra stars and gold symbols mark special cards. The full ladder is in the “Rarity ranking” tab."
+   }
+  },
+  {
+   "n": 19,
+   "g": "meta",
+   "side": "R",
+   "rects": [
+    [
+     385,
+     924,
+     702,
+     1008
+    ]
+   ],
+   "title": {
+    "pl": "Opis z Pokédexu",
+    "en": "Pokédex entry"
+   },
+   "text": {
+    "pl": "Krótki tekst o zwyczajach Pokémona, zwykle wzięty z gier: tutaj o tym, jak rozchyla gałęzie głowy, osacza zdobycz i wysysa z niej siły życiowe. W grze bez znaczenia — to fragment encyklopedii na karcie.",
+    "en": "A short text about the Pokémon's habits, usually taken from the games: here, how it opens the branches of its head, traps prey and drains its life energy. No effect on play — it's a slice of encyclopedia printed on the card."
+   }
+  }
+ ],
+ "notes": [
+  {
+   "title": {
+    "pl": "Karty ex i Mega ex",
+    "en": "ex and Mega ex cards"
+   },
+   "text": {
+    "pl": "Mają dopisek ex przy nazwie i dodatkową zasadę na dole: gdy karta ex zostanie pokonana, przeciwnik bierze 2 karty Nagrody zamiast jednej, a przy Mega Evolution ex — aż 3. Są silniejsze, ale bardziej ryzykowne.",
+    "en": "They carry “ex” after the name and an extra rule at the bottom: when an ex is Knocked Out your opponent takes 2 Prize cards instead of one — and 3 for a Mega Evolution ex. Stronger, but riskier."
+   }
+  },
+  {
+   "title": {
+    "pl": "Karty Trenera i Energii",
+    "en": "Trainer and Energy cards"
+   },
+   "text": {
+    "pl": "Wyglądają zupełnie inaczej: nie mają HP, ataków ani słabości. Trener ma w nagłówku swój rodzaj — Item (Przedmiot), Supporter (Wsparcie, jedno na turę), Stadium (Stadion) albo Pokémon Tool (Narzędzie) — a na środku tekst efektu.",
+    "en": "They look completely different: no HP, attacks or Weakness. A Trainer shows its kind in the header — Item, Supporter (one per turn), Stadium or Pokémon Tool — with the effect text in the middle."
+   }
+  }
+ ]
+},
+
 // ---------- ETYKIETY KART (PL) ----------
 cardLabels: {
  supertype: {"Pokémon":"Pokémon", "Trainer":"Trener", "Energy":"Energia"},

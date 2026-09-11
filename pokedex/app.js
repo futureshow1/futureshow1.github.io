@@ -80,7 +80,7 @@ const UI={
   title:{pl:'Karty Pokémon TCG',en:'Pokémon TCG Cards'},
   desc:{pl:'Dwie epoki karcianki: kultowy Base Set z 1999 roku (całe 102 karty!) oraz 488 kart z najnowszych setów 2025–2026, w które grają dzisiejsi gracze. Karty ułożone od najrzadszych do najpospolitszych. Kliknij kartę, aby ją powiększyć i przeczytać ataki.',
         en:'Two eras of the TCG: the iconic 1999 Base Set (all 102 cards!) and 488 cards from the newest 2025–2026 sets today\'s players use. Cards are ordered rarest to most common. Click a card to enlarge it and read its attacks.'},
-  tabs:{base:{pl:'Base Set (1999)',en:'Base Set (1999)'},modern:{pl:'Współczesne (2025–26)',en:'Modern (2025–26)'},
+  tabs:{anatomy:{pl:'🔎 Jak czytać kartę',en:'🔎 How to read a card'},base:{pl:'Base Set (1999)',en:'Base Set (1999)'},modern:{pl:'Współczesne (2025–26)',en:'Modern (2025–26)'},
         rarity:{pl:'Ranking rzadkości',en:'Rarity ranking'}},
   baseNote:{pl:'<b>Base Set</b> — pierwszy zachodni set kart Pokémon (styczeń 1999, Wizards of the Coast). 102 karty, z których zaczęła się cała karciana mania. Najcenniejsza: holograficzny <b>Charizard 4/102</b> — egzemplarze z 1. edycji osiągają dziś ceny domów.',
             en:'<b>Base Set</b> — the first Western Pokémon card set (January 1999, Wizards of the Coast). The 102 cards that started the entire craze. Crown jewel: the holographic <b>Charizard 4/102</b> — 1st Edition copies now sell for house money.'},
@@ -271,6 +271,7 @@ function renderCards(){
   b.onclick=()=>{cardTab=b.dataset.tab;renderCards();};});
  const body=$('cards-body');
  if(cardTab==='rarity'){body.innerHTML=rarityGuideHTML();return;}
+ if(cardTab==='anatomy'){body.innerHTML=anatomyHTML();wireAnatomy();return;}
  let cards, note;
  if(cardTab==='base'){cards=BASE;note=T(UI.cards.baseNote);}
  else{
@@ -338,6 +339,90 @@ window.openCard=function(id){
   if(r.ok){const i=$('cardbig');if(i)i.src=hires;}
  }).catch(()=>{});
 };
+
+/* ---------- anatomia karty: mapa objaśnień ----------
+   Karta i wszystkie znaczniki żyją w jednym SVG w układzie pikseli karty, więc całość
+   skaluje się bez przeliczania. Numery stoją na bocznych szynach (nie zasłaniają karty),
+   rozsunięte tak, żeby się nie nachodziły; linia prowadzi do najbliższego punktu obszaru. */
+function anatomyLayout(A){
+ const PAD_X=112, PAD_T=34, PAD_B=56, GAP=58, R=24;
+ const place=side=>{
+  const items=A.spots.filter(s=>s.side===side).map(s=>{
+   const ys=s.rects.map(r=>(r[1]+r[3])/2); return {s,y:ys.reduce((a,b)=>a+b)/ys.length};
+  }).sort((a,b)=>a.y-b.y);
+  const minY=-PAD_T+R+4, maxY=A.h+PAD_B-R-4;
+  items.forEach((it,i)=>{ if(i&&it.y<items[i-1].y+GAP) it.y=items[i-1].y+GAP; if(it.y<minY) it.y=minY; });
+  for(let i=items.length-1;i>=0;i--){ const lim=i===items.length-1?maxY:items[i+1].y-GAP; if(items[i].y>lim) items[i].y=lim; }
+  const px=side==='L'?-PAD_X/2:A.w+PAD_X/2;
+  return items.map(it=>{
+   // punkt docelowy: najbliższy obszar w pionie, krawędź zwrócona do szyny
+   const r=it.s.rects.slice().sort((a,b)=>Math.abs((a[1]+a[3])/2-it.y)-Math.abs((b[1]+b[3])/2-it.y))[0];
+   const tx=side==='L'?r[0]:r[2], ty=Math.max(r[1],Math.min(r[3],it.y));
+   return {s:it.s, px, py:it.y, tx, ty, lx:side==='L'?px+R:px-R};
+  });
+ };
+ return {PAD_X,PAD_T,PAD_B,R,pins:[...place('L'),...place('R')]};
+}
+function anatomyHTML(){
+ const A=C.cardAnatomy, L=anatomyLayout(A);
+ const col=Object.fromEntries(A.groups.map(g=>[g.id,g.color]));
+ const vb=`${-L.PAD_X} ${-L.PAD_T} ${A.w+2*L.PAD_X} ${A.h+L.PAD_T+L.PAD_B}`;
+ const rects=A.spots.map(s=>s.rects.map(r=>
+  `<rect class="anat-rect" data-n="${s.n}" style="--gc:${col[s.g]}" x="${r[0]-6}" y="${r[1]-6}" width="${r[2]-r[0]+12}" height="${r[3]-r[1]+12}" rx="10"/>`).join('')).join('');
+ const lines=L.pins.map(p=>`<line class="anat-line" data-n="${p.s.n}" style="--gc:${col[p.s.g]}" x1="${p.lx}" y1="${p.py}" x2="${p.tx}" y2="${p.ty}"/>
+   <circle class="anat-dot" data-n="${p.s.n}" style="--gc:${col[p.s.g]}" cx="${p.tx}" cy="${p.ty}" r="6"/>`).join('');
+ const pins=L.pins.map(p=>`<g class="anat-pin" data-n="${p.s.n}" style="--gc:${col[p.s.g]}" tabindex="0" role="button" aria-label="${p.s.n}. ${T(p.s.title)}">
+   <circle cx="${p.px}" cy="${p.py}" r="${L.R}"/><text x="${p.px}" y="${p.py}">${p.s.n}</text></g>`).join('');
+ const svg=`<svg class="anat-svg" viewBox="${vb}" role="img" aria-label="${T(A.caption)}">
+  <defs>
+   <clipPath id="anatClip"><rect x="0" y="0" width="${A.w}" height="${A.h}" rx="34"/></clipPath>
+   <mask id="anatMask"><rect x="0" y="0" width="${A.w}" height="${A.h}" fill="white"/><g id="anatHoles"></g></mask>
+  </defs>
+  <image href="${A.img}" x="0" y="0" width="${A.w}" height="${A.h}" clip-path="url(#anatClip)"/>
+  <rect class="anat-dim" x="0" y="0" width="${A.w}" height="${A.h}" rx="34" mask="url(#anatMask)"/>
+  <g>${rects}</g><g>${lines}</g><g>${pins}</g>
+ </svg>`;
+ const list=A.groups.map(g=>`<h3 class="anat-gh" style="--gc:${g.color}">${T(g.title)}</h3>
+  <ol>${A.spots.filter(s=>s.g===g.id).map(s=>`<li class="anat-item" data-n="${s.n}" style="--gc:${g.color}" tabindex="0">
+   <span class="anat-num">${s.n}</span><div><b>${T(s.title)}</b><p>${T(s.text)}</p></div></li>`).join('')}</ol>`).join('');
+ const notes=A.notes.map(n=>`<div class="anat-note"><b>${T(n.title)}</b><p>${T(n.text)}</p></div>`).join('');
+ return `<div class="anat">
+  <div class="setsnote">${T(A.intro)}<br><span class="anat-hint">👆 ${T(A.hint)}</span></div>
+  <div class="anat-grid">
+   <div class="anat-cardcol">${svg}
+    <p class="anat-cap">${T(A.caption)} · <a href="${A.img}" target="_blank" rel="noopener">${T(A.full)}</a></p></div>
+   <div class="anat-list">${list}</div>
+  </div>
+  <div class="anat-notes">${notes}</div>
+ </div>`;
+}
+function wireAnatomy(){
+ const root=document.querySelector('.anat'); if(!root) return;
+ // przyklejona karta ma stać tuż pod paskiem menu, który na wąskich ekranach zawija się w dwa wiersze
+ const hdr=()=>{const t=$('topbar'); if(t) document.documentElement.style.setProperty('--hdr',t.offsetHeight+'px');};
+ hdr(); if(!window.__anatHdr){window.__anatHdr=1; window.addEventListener('resize',hdr);}
+ const A=C.cardAnatomy; let locked=null;
+ const set=n=>{
+  root.querySelectorAll('[data-n]').forEach(el=>el.classList.toggle('on', n!==null && +el.dataset.n===n));
+  root.classList.toggle('active', n!==null);
+  const s=A.spots.find(x=>x.n===n);
+  root.querySelector('#anatHoles').innerHTML=s?s.rects.map(r=>
+   `<rect x="${r[0]-6}" y="${r[1]-6}" width="${r[2]-r[0]+12}" height="${r[3]-r[1]+12}" rx="10" fill="black"/>`).join(''):'';
+ };
+ root.querySelectorAll('.anat-rect,.anat-pin,.anat-item').forEach(el=>{
+  const n=+el.dataset.n;
+  el.addEventListener('mouseenter',()=>{ if(locked===null) set(n); });
+  el.addEventListener('mouseleave',()=>{ if(locked===null) set(null); });
+  el.addEventListener('click',()=>{
+   locked=locked===n?null:n; set(locked);
+   if(locked!==null && !el.classList.contains('anat-item')){
+    const li=root.querySelector(`.anat-item[data-n="${n}"]`);
+    if(li) li.scrollIntoView({block:'nearest',behavior:'smooth'});
+   }
+  });
+  el.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); el.dispatchEvent(new Event('click')); } });
+ });
+}
 
 function rarityGuideHTML(){
  const g=C.rarityGuide;
