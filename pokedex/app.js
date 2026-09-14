@@ -510,6 +510,9 @@ function renderAll(){
  $('btn-en').classList.toggle('on',lang==='en');
  document.documentElement.lang=lang;
  $('foot-note').textContent=T(UI.foot);
+ // powrót na stronę główną studia — pastylka w pasku i zdanie w stopce
+ $('fs-home').title=$('fs-home').ariaLabel=lang==='pl'?'Wróć na stronę główną FutureShow':'Back to the FutureShow home page';
+ $('fs-foot').textContent=lang==='pl'?'Poképedia to projekt FutureShow — zobacz nasze pozostałe projekty na futureshow.pl →':'Poképedia is a FutureShow project — see our other work at futureshow.pl →';
  renderStart();renderDexControls();renderDex();renderCards();renderHistory();renderAnime();renderPlay();
 }
 renderAll();

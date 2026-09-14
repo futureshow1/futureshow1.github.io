@@ -288,11 +288,37 @@ h2::after{content:"";display:block;width:74px;height:6px;border-radius:4px;margi
 footer{border-top:0;background:var(--red);padding:24px 22px;text-align:center;
   color:#fff;font-size:14px;font-weight:600}
 
+.fshome{flex:none;display:inline-flex;align-items:center;gap:6px;text-decoration:none;
+  background:#fff;color:var(--navy);border:2.5px solid var(--outline);border-radius:999px;
+  padding:5px 13px;font:700 13.5px 'Baloo 2',sans-serif;box-shadow:0 3px 12px rgba(122,127,201,.3);transition:.15s}
+.fshome:hover{background:var(--yellow);transform:translateY(-1px)}
+.fshome .fsarr{font-size:15px;line-height:1}
+.fsl-short,.fsl-tiny{display:none}
+.fsfoot{margin-top:10px}
+.fsfoot a{color:#fff;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.fsfoot a:hover{color:var(--yellow)}
 .langsw{flex:none;margin-left:6px}
 @media(max-width:1080px){
   #topbar{flex-wrap:wrap}
   #mainnav{order:3;width:100%;justify-content:center;margin-left:0}
-  .langsw{margin-left:auto}
+  .fshome{margin-left:auto}
+  .langsw{margin-left:6px}
+}
+@media(max-width:520px){
+  /* logo, pastylka i przełącznik języka mają się zmieścić w jednym wierszu */
+  #topbar{gap:8px;padding:10px 16px}
+  .fsl-long{display:none}
+  .fsl-short{display:inline}
+  .fshome{padding:5px 9px;font-size:12px;gap:4px}
+  .logo{gap:8px}
+  .ball{width:26px;height:26px}
+  .logo-text{font-size:17px}
+  .langsw button{padding:5px 8px}
+}
+@media(max-width:360px){
+  .fsl-short{display:none}
+  .fsl-tiny{display:inline}
+  .logo-text{font-size:16px}
 }
 @media(max-width:640px){
   .mimg{flex-basis:100%}

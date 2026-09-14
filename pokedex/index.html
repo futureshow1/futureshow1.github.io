@@ -6,7 +6,7 @@
 <title>POKÉPEDIA — Wielka Baza Wiedzy o Pokémonach</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Baloo+2:wght@500;600;700;800&display=swap&subset=latin-ext" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=8">
+<link rel="stylesheet" href="styles.css?v=10">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%23e3350d'/><path d='M4 50a46 46 0 0 0 92 0z' fill='white'/><rect x='4' y='46' width='92' height='8' fill='%23222'/><circle cx='50' cy='50' r='14' fill='white' stroke='%23222' stroke-width='6'/></svg>">
 </head>
 <body>
@@ -24,6 +24,7 @@
     <button data-sec="anime"></button>
     <button data-sec="play"></button>
   </nav>
+  <a id="fs-home" class="fshome" href="https://futureshow.pl/"><span class="fsarr">←</span><span class="fsl-long">futureshow.pl</span><span class="fsl-short">FutureShow</span><span class="fsl-tiny">FS</span></a>
   <div class="langsw">
     <button id="btn-pl" onclick="setLang('pl')">PL</button><button id="btn-en" onclick="setLang('en')">EN</button>
   </div>
@@ -100,6 +101,7 @@
 
 <footer>
   <p id="foot-note"></p>
+  <p class="fsfoot"><a id="fs-foot" href="https://futureshow.pl/"></a></p>
 </footer>
 
 <!-- MODALE -->
@@ -109,7 +111,7 @@
 
 <script src="data/content.js?v=8"></script>
 <script src="data/data.js?v=6"></script>
-<script src="app.js?v=13"></script>
+<script src="app.js?v=14"></script>
 <script data-goatcounter="https://futureshow.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
