@@ -64,18 +64,46 @@
 
     // przycisk ponownego otwarcia ustawień cookies stoi w lewym dolnym rogu — stajemy obok niego,
     // a gdy sam baner jest otwarty, chowamy się, żeby niczego nie zasłaniać
+    // data-avoid="selektor": chowamy się, dopóki nachodzimy na wskazane elementy
+    // (np. pasek sticky, który przy wejściu leży w treści, albo ekran powitalny aplikacji)
+    var avoidSel = me && me.getAttribute('data-avoid');
+    function overlapsAvoided() {
+      if (!avoidSel) return false;
+      var els;
+      try { els = document.querySelectorAll(avoidSel); } catch (e) { return false; }
+      var ar = a.getBoundingClientRect();
+      for (var i = 0; i < els.length; i++) {
+        var r = els[i].getBoundingClientRect();
+        if (r.width === 0 || r.height === 0) continue;
+        if (getComputedStyle(els[i]).visibility === 'hidden') continue;
+        if (ar.left < r.right && ar.right > r.left && ar.top < r.bottom && ar.bottom > r.top) return true;
+      }
+      return false;
+    }
+
     function layout() {
       var reopen = document.querySelector('.fs-cookie-reopen');
       var reopenShown = reopen && reopen.offsetParent !== null && getComputedStyle(reopen).display !== 'none';
       a.classList.toggle('fsh--beside', pos === 'bl' && !!reopenShown);
       var banner = document.getElementById('fs-cookie-banner');
-      a.classList.toggle('fsh--hidden', !!(banner && banner.classList.contains('fs-show')));
+      a.classList.toggle('fsh--hidden', !!(banner && banner.classList.contains('fs-show')) || overlapsAvoided());
+    }
+
+    var queued = false;
+    function schedule() {
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(function () { queued = false; layout(); });
     }
 
     lang();
     layout();
     new MutationObserver(lang).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
-    new MutationObserver(layout).observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['class', 'style'] });
+    new MutationObserver(schedule).observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['class', 'style'] });
+    if (avoidSel) {
+      addEventListener('scroll', schedule, { passive: true, capture: true });
+      addEventListener('resize', schedule);
+    }
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
