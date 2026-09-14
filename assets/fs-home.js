@@ -50,6 +50,9 @@
     a.setAttribute('data-fs-home', '');
     a.innerHTML = '<span class="fsh__arr" aria-hidden="true">←</span><span>futureshow.pl</span>';
     if (bottom > 0 && pos.charAt(0) === 'b') a.style.bottom = 'calc(' + bottom + 'px + env(safe-area-inset-bottom,0px))';
+    // data-top="64" opuszcza pastylkę pod logo lub górny pasek strony
+    var top = me && parseInt(me.getAttribute('data-top'), 10);
+    if (top > 0 && pos.charAt(0) === 't') a.style.top = top + 'px';
     document.body.appendChild(a);
 
     function lang() {
