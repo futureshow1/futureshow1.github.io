@@ -180,7 +180,9 @@ function renderDexControls(){
  const t=$('f-type');t.innerHTML=`<option value="">${T(UI.dex.allTypes)}</option>`+
   Object.keys(C.types).sort((a,b)=>(lang==='pl'?C.types[a].pl:a).localeCompare(lang==='pl'?C.types[b].pl:b,'pl'))
   .map(k=>`<option value="${k}">${lang==='pl'?C.types[k].pl:k.charAt(0).toUpperCase()+k.slice(1)}</option>`).join('');
- const s=$('f-sort');s.innerHTML=['num','name','total','catch','rare'].map(k=>`<option value="${k}">${T(UI.dex.sort[k])}</option>`).join('');
+ const s=$('f-sort'), prev=s.value||'name';   // domyślnie alfabetycznie; zmiana języka nie resetuje wyboru
+ s.innerHTML=['name','num','total','catch','rare'].map(k=>`<option value="${k}">${T(UI.dex.sort[k])}</option>`).join('');
+ s.value=prev;
 }
 function renderDex(){
  const q=$('f-search').value.trim().toLowerCase(), gen=$('f-gen').value, typ=$('f-type').value, sort=$('f-sort').value;
