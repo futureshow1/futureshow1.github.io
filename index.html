@@ -664,14 +664,6 @@ kind:"app", t:"FutureTalk", kick:{pl:"Aplikacja · retoryka",en:"App · rhetoric
   d:{pl:"Wersja mobilna. Kurs charyzmy, retoryki i rozmowy w 15 lekcjach opartych na badaniach: krótkie plansze z pytaniami, ćwiczenie na dziś, fiszki technik, postęp i seria dni. Tempo jak w aplikacji do języków; wersji na komputer jeszcze nie ma.",
      en:"Mobile version. A 15-lesson course in charisma, rhetoric and conversation built on research: short cards with questions, a daily exercise, technique flashcards, progress and streaks. Language-app pacing; no desktop version yet."},
   link:BASE+"futuretalk/"},
- anonimizator:{
-kind:"app", t:"Anonimizator", kick:{pl:"Narzędzie · dokumenty",en:"Tool · documents"},
-  year:"2026", tag:{pl:"open source",en:"open source"}, font:"sans",
-  pal:{bg:"#0c1018",ink:"#e5e7eb",acc:"#34d399"}, motif:"lines",
-  stats:["PDF · DOCX · TXT","Bielik 11B","lokalnie"],
-  d:{pl:"Anonimizuje PDF-y, dokumenty Word, pliki tekstowe i obrazy całkowicie na Twoim komputerze: wykrywa nazwiska, PESEL, adresy, numery kont i zastępuje je spójnymi pseudonimami. Plik nigdy nie opuszcza maszyny.",
-     en:"Anonymises PDFs, Word documents, text files and images entirely on your computer: detects names, national IDs, addresses, account numbers and replaces them with consistent pseudonyms. The file never leaves your machine."},
-  link:BASE+"downloads.html#anonimizator"},
  chamczyk:{
 kind:"site", t:"Izabela Chamczyk", kick:{pl:"Dla klienta · portfolio",en:"Client · portfolio"},
   year:"2026", tag:{pl:"strona artystki",en:"artist site"}, font:"serif",
@@ -803,7 +795,7 @@ const ROWS = [
  {id:"r-sim", t:{pl:"Symulacje i wizualizacje",en:"Simulations & visualizations"},
   items:["cardiosim","psychedelic","nbody","oilgas","klimat","panama"]},
  {id:"r-apps", t:{pl:"Aplikacje — za darmo, gotowe",en:"Apps — free, ready"},
-  items:["futureform","futuretalk","anonimizator"]},
+  items:["futureform","futuretalk"]},
  {id:"r-art", t:{pl:"Sztuka i kultura",en:"Art & culture"},
   items:["mondrian","sectio","ghykakomp","swidzinski","przyluski","switkowski"]},
  {id:"r-hidden", t:{pl:"Projekty niepubliczne",en:"Non-public projects"},
@@ -1078,7 +1070,6 @@ const KEYS = {
  polskijazz:"jazz płyty muzyka komeda stańko winyl trąbka records music vinyl",
  futureform:"kalistenika trening mon sprawność wojsko ćwiczenia fitness training army",
  futuretalk:"retoryka charyzma wystąpienia mowa perswazja rozmowa rhetoric speaking persuasion",
- anonimizator:"rodo dane osobowe pdf prywatność anonimizacja gdpr privacy",
  chamczyk:"sztuka malarstwo portfolio artystka art painting",
  zem:"przemysł katalog usługi industry catalogue",
  emfazy:"stefański psychotronika dokument film teatr",
@@ -1387,15 +1378,15 @@ openFromHash();
 
  const TXT={
   pl:{kick:"Za darmo · bez konta",
-      tytul:"Trzy rzeczy, które możesz mieć od ręki",
-      lede:"Nie sprzedajemy ich i nie prosimy o dane. Działają w przeglądarce albo na Twoim komputerze.",
+      tytul:"Dwie rzeczy, które możesz mieć od ręki",
+      lede:"Nie sprzedajemy ich i nie prosimy o dane. Działają w przeglądarce telefonu.",
       all:"Zobacz wszystkie do pobrania →", later:"Nie teraz"},
   en:{kick:"Free · no account",
-      tytul:"Three things you can have right now",
-      lede:"We do not sell them and we do not ask for your details. They run in the browser or on your own machine.",
+      tytul:"Two things you can have right now",
+      lede:"We do not sell them and we do not ask for your details. They run in your phone’s browser.",
       all:"See everything to download →", later:"Not now"}
  };
- const APPS=["futuretalk","futureform","anonimizator"];
+ const APPS=["futuretalk","futureform"];
 
  function wypelnij(){
    const t=TXT[LANG]||TXT.pl;
