@@ -1,9 +1,9 @@
 /* Service worker: aplikacja ma działać bez sieci (blackout). Zmień VERSION przy każdej publikacji (także po zmianie treści). */
-const VERSION = 'nww-0.3.0';
+const VERSION = 'nww-0.3.1';
 // bez tych plików nie ma trybu offline: instalacja musi się udać
 const CORE = ['./', './index.html', './app.js', './style.css', './data/poradnik-pl.json'];
 // ozdobne: brak ikony nie może wywrócić całego cache'u
-const OPT = ['./manifest.webmanifest', './icon-192.png', './icon-512.png', './icons.svg'];
+const OPT = ['./manifest.webmanifest', './icon-192.png', './icon-512.png', './icons.svg', './LICENSE-icons.txt'];
 // 'reload' omija cache HTTP przeglądarki: nowa wersja ma dostać świeże bajty, a nie mieszankę starych i nowych
 const swiezy = u => new Request(u, { cache: 'reload' });
 

@@ -3,10 +3,10 @@
    Stan (profil, odhaczenia, plan) tylko w localStorage tego urządzenia. Ikony: Tabler Icons (MIT), sprite ./icons.svg. */
 (() => {
   'use strict';
-  const APP = { name: 'Na wszelki wypadek', version: '0.3.0', dataUrl: './data/poradnik-pl.json', iconsUrl: './icons.svg', pdf: 'https://www.gov.pl/web/poradnikbezpieczenstwa' };
+  const APP = { name: 'Na wszelki wypadek', version: '0.3.1', dataUrl: './data/poradnik-pl.json', iconsUrl: './icons.svg', pdf: 'https://www.gov.pl/web/poradnikbezpieczenstwa' };
   const STORE_PREFIX = 'nww:';
   // Bramka wersji testowej (zasłona przed przypadkowym wejściem, nie zabezpieczenie): SHA-256 hasła, zapamiętane w tym telefonie.
-  const GATE = { hash: '37617acb853dbcc2c41c582625c955902c90d8dc91dcf2e25de5bac55b83a9ae', key: 'gate', skipHosts: ['localhost', '127.0.0.1'] };
+  const GATE = { hash: '093e660c481c3cee9a23ade39bee74b60ef8be46e6ed6e3bd1221df8f178b754', key: 'gate', skipHosts: ['localhost', '127.0.0.1', '[::1]'] };
 
   // ---------- narzędzia ----------
   const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -259,6 +259,7 @@
         <a class="btn" href="#/wiecej/telefony"><span class="lbl">${ic('phone')} Telefony alarmowe i wsparcia</span></a>
         <a class="btn" href="#/wiecej/o"><span class="lbl">${ic('info')} O aplikacji i źródle</span></a>
         <a class="btn" href="${APP.pdf}" rel="noopener"><span class="lbl">${ic('book')} Poradnik w PDF (gov.pl)</span>${ic('external')}</a>
+        <a class="btn" href="https://futureshow.pl/" rel="noopener"><span class="lbl">${ic('external')} Strona autora: futureshow.pl</span></a>
       </div>`;
   }
   function vProfil() {
@@ -298,7 +299,7 @@
         <p><b>To nie jest aplikacja rządowa.</b> To niezależna, testowa wersja, która przenosi treść oficjalnego poradnika do telefonu: zadania do odhaczenia, instrukcje na wypadek zagrożenia i plan na kryzys do wypełnienia.</p>
         <p><b>Źródło treści:</b> ${esc(meta.zrodlo || 'Poradnik bezpieczeństwa, MSWiA/MON/RCB 2025')}. Numery stron odsyłają do wydania drukowanego. PDF: <a href="${APP.pdf}" rel="noopener">gov.pl/web/poradnikbezpieczenstwa</a>.</p>
         <p class="small muted">Zadania są skrócone w stosunku do poradnika, ale ich znaczenie jest takie samo. W razie wątpliwości obowiązuje tekst poradnika.</p>
-        <p class="small muted">Wersja aplikacji ${esc(APP.version)}.${meta.sprawdzono ? ` Treść sprawdzona z wydaniem drukowanym: ${esc(meta.sprawdzono)}.` : ''} Ikony: <a href="https://tabler.io/icons" rel="noopener">Tabler Icons</a> (licencja MIT).</p>
+        <p class="small muted">Wersja aplikacji ${esc(APP.version)}.${meta.sprawdzono ? ` Treść sprawdzona z wydaniem drukowanym: ${esc(meta.sprawdzono)}.` : ''} Ikony: <a href="https://tabler.io/icons" rel="noopener">Tabler Icons</a>, Paweł Kuna, <a href="./LICENSE-icons.txt" rel="noopener">licencja MIT</a>.</p>
       </section>
       <section class="card">
         <h3 class="h-card">Prywatność i kopia</h3>
@@ -317,19 +318,22 @@
   }
 
   // ---------- bramka wersji testowej ----------
-  function bramkaOtwarta() { return GATE.skipHosts.includes(location.hostname) || store.get(GATE.key, '') === GATE.hash; }
+  // To zasłona, nie zabezpieczenie. Poza secure context (http w sieci lokalnej) nie ma crypto.subtle i hasła nie da się
+  // sprawdzić, więc tam bramkę pomijamy (świadomie `=== false`: nieznana właściwość nie może zdjąć bramki na https).
+  function bramkaOtwarta() { return window.isSecureContext === false || GATE.skipHosts.includes(location.hostname) || store.get(GATE.key, '') === GATE.hash; }
+  function pokazBramke(blad) { app.innerHTML = vBramka(blad); app.querySelector('input[name=pw]')?.focus(); }
   function vBramka(blad) {
     document.body.classList.add('locked');
     return `
       <section class="card gate">
         <h2 class="h-card">Wersja testowa</h2>
-        <p>Ta wersja jest dostępna dla zaproszonych osób. Wpisz hasło, które dostałeś od autora.</p>
+        <p>Ta wersja jest dostępna dla zaproszonych osób. Wpisz hasło otrzymane od autora.</p>
         <form data-gate>
           <label>Hasło<input type="password" name="pw" autocomplete="current-password" required autofocus></label>
           ${blad ? `<p class="small" role="alert"><b>${esc(blad)}</b></p>` : ''}
           <p><button class="btn primary block" type="submit">Wejdź</button></p>
         </form>
-        <p class="small muted">Hasło zapamiętamy w tym telefonie. Aplikacja niczego nie wysyła; hasło sprawdzamy lokalnie.</p>
+        <p class="small muted">Hasło zapamiętamy w tym telefonie i sprawdzamy je lokalnie; aplikacja niczego nie wysyła. To zasłona przed przypadkowym wejściem, a nie zabezpieczenie: treść poradnika jest jawna (gov.pl). Adresu tej wersji lepiej nie rozsyłać publicznie.</p>
       </section>`;
   }
 
@@ -389,10 +393,10 @@
   app.addEventListener('submit', async e => {
     const f = e.target.closest('form[data-gate]'); if (!f) return;
     e.preventDefault();
-    if (!crypto?.subtle) { app.innerHTML = vBramka('Otwórz aplikację przez bezpieczne połączenie (https), żeby wpisać hasło.'); return; }
+    if (!crypto?.subtle) { pokazBramke('Otwórz aplikację przez bezpieczne połączenie (https), żeby wpisać hasło.'); return; }
     const h = await sha256(f.pw.value.trim());
     if (h === GATE.hash) { store.set(GATE.key, h); document.body.classList.remove('locked'); start(); }
-    else { app.innerHTML = vBramka('Nieprawidłowe hasło.'); f.pw?.focus(); }
+    else pokazBramke('Nieprawidłowe hasło.');
   });
   window.addEventListener('hashchange', () => { if (!location.hash || location.hash.startsWith('#/')) render(); });
   document.querySelector('.skip')?.addEventListener('click', e => { e.preventDefault(); app.focus(); });
@@ -401,13 +405,14 @@
   let ikonyP = null;   // jedno pobranie sprite'a, nawet gdy start() woła równolegle
   function wczytajIkony() {
     if (!ikonyP) ikonyP = fetch(APP.iconsUrl).then(r => r.ok ? r.text() : '').then(t => {
-      if (!t || document.getElementById('nww-icons')) return;
+      if (!t) { ikonyP = null; return; }                       // nieudane pobranie: następne wywołanie spróbuje znowu
+      if (document.getElementById('nww-icons')) return;
       const d = document.createElement('div'); d.id = 'nww-icons'; d.innerHTML = t; document.body.prepend(d);
-    }).catch(() => { });
+    }).catch(() => { ikonyP = null; });
     return ikonyP;
   }
   function start() {
-    if (!bramkaOtwarta()) { app.innerHTML = vBramka(''); app.querySelector('input[name=pw]')?.focus(); return; }
+    if (!bramkaOtwarta()) { pokazBramke(''); return; }
     document.body.classList.remove('locked');
     app.innerHTML = `<p class="muted">Wczytywanie poradnika…</p>`;
     Promise.all([

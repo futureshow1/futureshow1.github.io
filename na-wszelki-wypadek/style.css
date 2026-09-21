@@ -13,7 +13,7 @@
   --warn-bg: #fff4d6;
   --focus: #1a56db;
   --radius: 12px;
-  --nav-h: 64px;
+  --nav-h: max(64px, 3.75rem);   /* 64 px przy domyślnym tekście; rośnie z powiększonym */
   --fs: 106.25%;            /* 17 px przy domyślnych 16 px; skaluje się z ustawieniem rozmiaru tekstu */
 }
 @media (prefers-color-scheme: dark) {
@@ -39,7 +39,7 @@ a { color: inherit; }
 
 .top { background: var(--accent); color: var(--accent-ink); padding: 14px 0 10px; }
 .brand-row { display: flex; align-items: center; gap: 12px; }
-.brand-icon { width: 40px; height: 40px; border-radius: 9px; flex: none; }
+.brand-icon { width: 36px; height: 36px; flex: none; stroke: currentColor; fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
 .brand { margin: 0; font-size: 1.35rem; letter-spacing: .01em; }
 .brand a { text-decoration: none; color: inherit; }
 .brand-sub { margin: 2px 0 0; font-size: .9rem; }
@@ -98,7 +98,7 @@ ul.tasks li:last-child { border-bottom: 0; }
 .badge.warn { background: var(--warn-bg); color: var(--warn); border-color: transparent; }
 .badge.info { background: transparent; }
 
-.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
 .grid .btn { min-height: 80px; text-align: center; font-size: 1.05rem; padding: 12px; white-space: normal; }
 ol.steps { padding-left: 1.4em; font-size: 1.1rem; }
 ol.steps li { margin: 10px 0; }
@@ -128,12 +128,12 @@ a.tel .nr.big { font-size: 1.6rem; }
 a.tel .desc { color: var(--muted); font-size: .95rem; text-align: right; }
 
 .tabs {
-  position: fixed; left: 0; right: 0; bottom: 0; height: calc(var(--nav-h) + env(safe-area-inset-bottom, 0px));
+  position: fixed; left: 0; right: 0; bottom: 0; min-height: calc(var(--nav-h) + env(safe-area-inset-bottom, 0px));
   padding-bottom: env(safe-area-inset-bottom, 0px); padding-left: env(safe-area-inset-left, 0px); padding-right: env(safe-area-inset-right, 0px);
   display: grid; grid-template-columns: repeat(4, 1fr);
   background: var(--card); border-top: 1px solid var(--line); z-index: 5;
 }
-.tabs a { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; text-decoration: none; font-size: .78rem; color: var(--muted); font-weight: 600; min-width: 0; padding: 0 2px; text-align: center; line-height: 1.15; overflow-wrap: anywhere; border-top: 3px solid transparent; }
+.tabs a { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; text-decoration: none; font-size: .78rem; color: var(--muted); font-weight: 600; min-width: 0; padding: 6px 2px; text-align: center; line-height: 1.15; overflow-wrap: anywhere; border-top: 3px solid transparent; }
 .tabs a .ico { font-size: 1.35rem; line-height: 1; }
 .tabs a[aria-current="page"] { color: var(--accent-text); border-top-color: var(--accent-text); font-weight: 700; }
 
@@ -153,6 +153,7 @@ a.tel .desc { color: var(--muted); font-size: .95rem; text-align: right; }
 .ic.big { width: 32px; height: 32px; stroke-width: 1.75; }
 .tabs a .ic { width: 24px; height: 24px; }
 .grid .btn { flex-direction: column; gap: 6px; }
+.grid .btn span { overflow-wrap: anywhere; }
 .grid .btn .ic { color: var(--accent-text); }
 details.mod > summary .ic.mod { width: 28px; height: 28px; color: var(--accent-text); stroke-width: 1.75; }
 h2 .ic { color: var(--accent-text); }
@@ -160,6 +161,8 @@ h2 .ic { color: var(--accent-text); }
 .locked .tabs { display: none; }
 .gate input { font: inherit; font-size: 1.1rem; padding: 10px; border: 1px solid var(--field-line); border-radius: 8px; width: 100%; min-height: 48px; background: var(--bg); color: var(--ink); margin-top: 6px; }
 .gate label { display: block; font-weight: 600; }
+/* Pastylka „← futureshow.pl” (wstrzykiwana przez deploy.sh) ma sens tylko w przeglądarce; w aplikacji dodanej do ekranu początkowego chowamy ją */
+@media (display-mode: standalone), (display-mode: fullscreen), (display-mode: minimal-ui) { [data-fs-home] { display: none !important; } }
 
 @media print {
   body { background: #fff; color: #000; padding: 0; font-size: 12pt; }
