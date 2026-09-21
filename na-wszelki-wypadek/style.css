@@ -161,8 +161,7 @@ h2 .ic { color: var(--accent-text); }
 .locked .tabs { display: none; }
 .gate input { font: inherit; font-size: 1.1rem; padding: 10px; border: 1px solid var(--field-line); border-radius: 8px; width: 100%; min-height: 48px; background: var(--bg); color: var(--ink); margin-top: 6px; }
 .gate label { display: block; font-weight: 600; }
-/* Pastylka „← futureshow.pl” (wstrzykiwana przez deploy.sh) ma sens tylko w przeglądarce; w aplikacji dodanej do ekranu początkowego chowamy ją */
-@media (display-mode: standalone), (display-mode: fullscreen), (display-mode: minimal-ui) { [data-fs-home] { display: none !important; } }
+
 
 @media print {
   body { background: #fff; color: #000; padding: 0; font-size: 12pt; }

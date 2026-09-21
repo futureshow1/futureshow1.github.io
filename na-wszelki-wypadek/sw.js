@@ -1,5 +1,5 @@
 /* Service worker: aplikacja ma działać bez sieci (blackout). Zmień VERSION przy każdej publikacji (także po zmianie treści). */
-const VERSION = 'nww-0.3.1';
+const VERSION = 'nww-0.3.2';
 // bez tych plików nie ma trybu offline: instalacja musi się udać
 const CORE = ['./', './index.html', './app.js', './style.css', './data/poradnik-pl.json'];
 // ozdobne: brak ikony nie może wywrócić całego cache'u

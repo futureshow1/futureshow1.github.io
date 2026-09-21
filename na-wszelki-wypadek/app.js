@@ -3,7 +3,7 @@
    Stan (profil, odhaczenia, plan) tylko w localStorage tego urządzenia. Ikony: Tabler Icons (MIT), sprite ./icons.svg. */
 (() => {
   'use strict';
-  const APP = { name: 'Na wszelki wypadek', version: '0.3.1', dataUrl: './data/poradnik-pl.json', iconsUrl: './icons.svg', pdf: 'https://www.gov.pl/web/poradnikbezpieczenstwa' };
+  const APP = { name: 'Na wszelki wypadek', version: '0.3.2', dataUrl: './data/poradnik-pl.json', iconsUrl: './icons.svg', pdf: 'https://www.gov.pl/web/poradnikbezpieczenstwa' };
   const STORE_PREFIX = 'nww:';
   // Bramka wersji testowej (zasłona przed przypadkowym wejściem, nie zabezpieczenie): SHA-256 hasła, zapamiętane w tym telefonie.
   const GATE = { hash: '093e660c481c3cee9a23ade39bee74b60ef8be46e6ed6e3bd1221df8f178b754', key: 'gate', skipHosts: ['localhost', '127.0.0.1', '[::1]'] };
