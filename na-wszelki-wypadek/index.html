@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Na wszelki wypadek</title>
+  <meta name="description" content="Niezależna, testowa aplikacja z treścią „Poradnika bezpieczeństwa” (MSWiA, MON, RCB, 2025): zadania do odhaczenia, instrukcje na wypadek zagrożenia, plan na kryzys. Działa bez internetu. To nie jest aplikacja rządowa.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#b42318" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#d32f2f" media="(prefers-color-scheme: dark)">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Na wszelki wypadek">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icon-192.png">
+  <link rel="apple-touch-icon" href="./icon-192.png">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <a class="skip" href="#app">Przejdź do treści</a>
+  <header class="top">
+    <div class="wrap brand-row">
+      <img class="brand-icon" src="./icon-192.png" alt="" width="40" height="40">
+      <div>
+        <h1 class="brand"><a href="#/przygotowanie">Na wszelki wypadek</a></h1>
+        <p class="brand-sub">Poradnik bezpieczeństwa w telefonie</p>
+      </div>
+    </div>
+  </header>
+  <p class="notice wrap" role="note">Treść: „Poradnik bezpieczeństwa” (MSWiA, MON, RCB, 2025). To nie jest aplikacja rządowa. Numery stron odsyłają do wydania drukowanego.</p>
+
+  <main id="app" class="wrap" tabindex="-1">
+    <p class="muted">Wczytywanie poradnika…</p>
+  </main>
+  <p id="status" class="sr-only" role="status"></p>
+
+  <nav class="tabs" aria-label="Główne sekcje">
+    <a href="#/przygotowanie" data-tab="przygotowanie"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-tab-przygotowanie"></use></svg>Przygo&shy;towanie</a>
+    <a href="#/reagowanie" data-tab="reagowanie"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-tab-reagowanie"></use></svg>Reagowanie</a>
+    <a href="#/plan" data-tab="plan"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-tab-plan"></use></svg>Plan</a>
+    <a href="#/wiecej" data-tab="wiecej"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-tab-wiecej"></use></svg>Więcej</a>
+  </nav>
+
+  <noscript><p class="wrap">Aplikacja potrzebuje włączonego JavaScriptu. Poradnik w PDF: <a href="https://www.gov.pl/web/poradnikbezpieczenstwa">gov.pl/web/poradnikbezpieczenstwa</a></p></noscript>
+  <script src="/assets/fs-home.js" data-bottom="76" data-avoid=".update" defer></script>
+  <script src="./app.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "Na wszelki wypadek: poradnik bezpieczeństwa",
+  "short_name": "Na wszelki wypadek",
+  "description": "Niezależna, testowa aplikacja z treścią „Poradnika bezpieczeństwa” (MSWiA, MON, RCB, 2025): zadania, instrukcje, plan na kryzys. Działa bez internetu. To nie jest aplikacja rządowa.",
+  "lang": "pl",
+  "start_url": "./#/przygotowanie",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f6f5f2",
+  "theme_color": "#b42318",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

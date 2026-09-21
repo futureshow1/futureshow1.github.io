@@ -1,0 +1,1709 @@
+{
+  "_meta": {
+    "zrodlo": "Poradnik bezpieczeństwa, MSWiA/MON/RCB, nr publ. 1/2025, ISBN 978-83-976775-0-0, Warszawa 2025",
+    "pdf": "zrodla/PL_poradnik_bezpieczenstwa_2025.pdf",
+    "url": "https://www.gov.pl/web/poradnikbezpieczenstwa",
+    "wyciag": "2026-09-18, ręcznie z tekstu PDF; brzmienie zadań skrócone, sens 1:1; 'strona' = numer strony w druku",
+    "schemat_zadania": {
+      "id": "stały identyfikator (moduł.nr)",
+      "tekst": "zadanie w trybie rozkazującym, jak w poradniku",
+      "typ": "jednorazowe | cykliczne | reakcja | wiedza",
+      "cykl": "dla cyklicznych: miesiąc | kwartał | pół roku | rok | 10 lat",
+      "koszt": "0 | niski | średni | wysoki (szacunek nasz, nie z poradnika)",
+      "dla": "wszyscy | rodzic | opiekun | właściciel zwierzęcia | rolnik | kierowca | uczeń | pracownik | pracodawca | rezerwista",
+      "strona": "numer strony poradnika",
+      "dodano": "dla zadań dodanych po weryfikacji: data i źródło dodania"
+    },
+    "uwaga": "Pola 'koszt' i 'cykl' są naszą interpretacją. Przed publikacją zweryfikować z tekstem poradnika.",
+    "weryfikacja": "2026-09-21: 21 modułów porównanych ze stronami PDF (przegląd + sceptyczna weryfikacja, Opus); poprawki tekstu 35, stron 7, dla 60, dodania 37; raport analiza/08-weryfikacja-json.md; wersja sprzed: dane/poradnik-pl.v1-2026-09-18.json; po ręcznej deduplikacji usunięto 9 dodań-dubletów, dodane zadania przenumerowane; ręcznie: opis 112, strona 40 dla telefony.cyber, dekalog_strona, motto, fakty rola",
+    "sprawdzono": "21 września 2026"
+  },
+  "telefony": {
+    "alarmowe": [
+      {
+        "nr": "112",
+        "opis": "numer alarmowy (jeśli nie możesz zadzwonić, wezwij pomoc przez aplikację Alarm112)"
+      },
+      {
+        "nr": "999",
+        "opis": "pogotowie ratunkowe"
+      },
+      {
+        "nr": "998",
+        "opis": "straż pożarna"
+      },
+      {
+        "nr": "997",
+        "opis": "policja"
+      }
+    ],
+    "wsparcie": [
+      {
+        "nr": "800 70 22 22",
+        "opis": "centrum wsparcia dla dorosłych w kryzysie psychicznym"
+      },
+      {
+        "nr": "116 123",
+        "opis": "telefon zaufania dla dorosłych"
+      },
+      {
+        "nr": "116 111",
+        "opis": "telefon zaufania dla dzieci i młodzieży"
+      },
+      {
+        "nr": "800 12 12 12",
+        "opis": "dziecięcy telefon zaufania RPD"
+      }
+    ],
+    "pogotowia": [
+      {
+        "nr": "994",
+        "opis": "wodno-kanalizacyjne"
+      },
+      {
+        "nr": "993",
+        "opis": "ciepłownicze"
+      },
+      {
+        "nr": "992",
+        "opis": "gazowe"
+      },
+      {
+        "nr": "991",
+        "opis": "energetyczne"
+      },
+      {
+        "nr": "987",
+        "opis": "wojewódzkie centrum zarządzania kryzysowego"
+      },
+      {
+        "nr": "986",
+        "opis": "straż miejska"
+      }
+    ],
+    "cyber": [
+      {
+        "nr": "8080",
+        "opis": "przekaż podejrzany SMS z linkiem",
+        "strona": 40
+      },
+      {
+        "www": "incydent.cert.pl",
+        "opis": "zgłoś wyłudzenie (także przez mObywatel)",
+        "strona": 40
+      }
+    ],
+    "jak_wezwac_pomoc": [
+      "Dzwoń z bezpiecznego miejsca. Mów spokojnie i wyraźnie.",
+      "Podaj dokładny adres; jeśli nie znasz, opisz charakterystyczne elementy krajobrazu.",
+      "Wyjaśnij, co się stało i czy zagrożone jest życie, zdrowie lub mienie.",
+      "Poczekaj, aż operator potwierdzi przyjęcie zgłoszenia. Nie rozłączaj się pierwszy."
+    ],
+    "strona": 3
+  },
+  "sygnaly_alarmowe": {
+    "ogloszenie": "ciągły, modulowany dźwięk syreny przez 3 minuty",
+    "odwolanie": "ciągły, jednostajny dźwięk syreny przez 3 minuty",
+    "po_uslyszeniu": "włącz radio lub telewizor i stosuj się do komunikatów",
+    "kanaly": [
+      "syreny",
+      "megafony",
+      "radio/TV/internet",
+      "RSO",
+      "Alert RCB",
+      "bezpośredni kontakt"
+    ],
+    "strona": 24
+  },
+  "moduly": [
+    {
+      "id": "rola",
+      "tytul": "Wspólnie dbamy o nasze bezpieczeństwo",
+      "faza": "przygotowanie",
+      "strony": "5-9",
+      "zadania": [
+        {
+          "id": "rola.1",
+          "tekst": "Nawiąż kontakt z osobami, które mieszkają blisko Ciebie: kto potrzebuje wsparcia, kto może je dać",
+          "typ": "jednorazowe",
+          "koszt": "0",
+          "dla": "wszyscy",
+          "strona": 7
+        },
+        {
+          "id": "rola.2",
+          "tekst": "Zaangażuj się w inicjatywy sąsiedzkie, grupy informacyjne, listy kontaktowe",
+          "typ": "jednorazowe",
+          "koszt": "0",
+          "dla": "wszyscy",
+          "strona": 7
+        },
+        {
+          "id": "rola.3",
+          "tekst": "Korzystaj z lokalnych szkoleń, ćwiczeń, budżetu obywatelskiego",
+          "typ": "cykliczne",
+          "cykl": "rok",
+          "koszt": "0",
+          "dla": "wszyscy",
+          "strona": 7
+        },
+        {
+          "id": "rola.4",
+          "tekst": "Działaj w OSP, organizacji humanitarnej, klubie lub stowarzyszeniu",
+          "typ": "jednorazowe",
+          "koszt": "0",
+          "dla": "wszyscy",
+          "strona": 7
+        },
+        {
+          "id": "rola.5",
+          "tekst": "Zostań wolontariuszem, zachęć przyjaciół lub sąsiadów",
+          "typ": "jednorazowe",
+          "koszt": "0",
+          "dla": "wszyscy",
+          "strona": 7
+        },
+        {
+          "id": "rola.6",
+          "tekst": "Możesz zgłosić się jako ochotnik do służby w obronie cywilnej i wskazać, gdzie chcesz pełnić służbę; o szczegóły pytaj w urzędzie wojewódzkim",
+          "typ": "wiedza",
+          "koszt": "0",
+          "dla": "wszyscy",
+          "strona": 7
+        },
+        {
+          "id": "rola.7",
+          "tekst": "Jeśli masz kartę mobilizacyjną: przeczytaj ją (adres, termin). Zgubiona lub nieaktualna? Skontaktuj się z WCR",
+          "typ": "jednorazowe",
+          "koszt": "0",
+          "dla": "rezerwista",
+          "strona": 8
+        },
+        {
+          "id": "rola.8",
+          "tekst": "Poznaj dobrowolne szkolenia obronne (wojsko-polskie.pl lub WCR) i 4 formy służby: dobrowolna zasadnicza (do 12 miesięcy), terytorialna (rotacyjnie i dyspozycyjnie), aktywna rezerwa, zawodowa (pełny etat)",
+          "typ": "wiedza",
+          "koszt": "0",
+          "dla": "wszyscy",
+          "strona": 9
+        },
+        {
+          "id": "rola.9",
+          "tekst": "Doczytaj o obronie cywilnej na gov.pl/obrona-cywilna",
+          "typ": "wiedza",
+          "strona": 7,
+          "dla": "wszyscy",
+          "dodano": "weryfikacja 2026-09-21",
+          "koszt": "0"
+        },
+        {
+          "id": "rola.10",
+          "tekst": "Jeśli się uczysz lub studiujesz: wybierz projekty edukacyjne MON (oddziały przygotowania wojskowego, branżowe oddziały wojskowe, Cyber.Mil z klasą, Legia Akademicka); jeśli po studiach chcesz zostać żołnierzem zawodowym, możesz starać się o stypendium wojskowe na czas nauki",
+          "typ": "jednorazowe",
+          "strona": 9,
+          "dla": "uczeń",
+          "dodano": "weryfikacja 2026-09-21",
+          "koszt": "0"
+        },
+        {
+          "id": "rola.11",
+          "tekst": "Możesz zgłosić się na ćwiczenia wojskowe jako ochotnik – skontaktuj się z najbliższym Wojskowym Centrum Rekrutacji",
+          "typ": "jednorazowe",
+          "strona": 8,
+          "dla": "rezerwista",
+          "dodano": "weryfikacja 2026-09-21",
+          "koszt": "0"
+        }
+      ],
+      "fakty": [
+        "W czasie pokoju działa system ochrony ludności; po ogłoszeniu stanu wojennego lub wybuchu wojny automatycznie przekształca się w obronę cywilną (nie jest częścią Sił Zbrojnych); obronę przed zagrożeniem zewnętrznym równolegle prowadzi Wojsko Polskie.",
+        "Plany ewakuacji i schronienia tworzą wójtowie, burmistrzowie, prezydenci miast, starostowie, wojewodowie i MSWiA.",
+        "Pomoc humanitarna zawsze jest bezpłatna: nikt nie może żądać za nią pieniędzy ani przysług.",
+        "W czasie konfliktu zbrojnego nadal pracujesz w swoim zawodzie, chyba że otrzymasz inne zadania.",
+        "Państwo może zobowiązać do przekazania mienia (budynki, pojazdy), a potem je zwraca albo wypłaca rekompensatę.",
+        "Karta powołania na ćwiczenia wojskowe nie oznacza działań wojennych: to rutynowe ćwiczenia w czasie pokoju.",
+        "Każdy obywatel RP ma konstytucyjny obowiązek obrony Ojczyzny; w czasie zagrożenia, kryzysu lub stanu wojennego państwo może wezwać do udziału w działaniach obronnych."
+      ]
+    },
+    {
+      "id": "ja",
+      "tytul": "Przygotuj siebie i najbliższych",
+      "faza": "przygotowanie",
+      "strony": "11",
+      "zadania": [
+        {
+          "id": "ja.1",
+          "tekst": "Dbaj o sen, odżywianie i aktywność fizyczną",
+          "typ": "cykliczne",
+          "cykl": "miesiąc",
+          "koszt": "0",
+          "dla": "wszyscy",
+          "strona": 11
+        },
+        {
+          "id": "ja.2",
+          "tekst": "Krytycznie analizuj docierające wiadomości; dbaj o zdrowie psychiczne",
+          "typ": "wiedza",
+          "koszt": "0",
+          "dla": "wszyscy",
+          "strona": 11
+        },
+        {
+          "id": "ja.3",
+          "tekst": "Miej przy sobie niezbędne leki i urządzenia wspomagające",
+          "typ": "jednorazowe",
+          "koszt": "niski",
+          "dla": "wszyscy",
+          "strona": 11
+        },
+        {
+          "id": "ja.4",
+          "tekst": "Poinformuj najbliższych o chorobach i alergiach; dokumentację medyczną trzymaj w jednym miejscu",
+          "typ": "jednorazowe",
+          "koszt": "0",
+          "dla": "wszyscy",
+          "strona": 11
+        },
+        {
+          "id": "ja.5",
+          "tekst": "Postaraj się o kartę grupy krwi (Centrum Krwiodawstwa lub laboratorium medyczne), nawet jeśli nie jesteś krwiodawcą; noś ją przy sobie",
+          "typ": "jednorazowe",
+          "koszt": "niski",
+          "dla": "wszyscy",
+          "strona": 11
+        },
+        {
+          "id": "ja.6",
+          "tekst": "Jeśli możesz, oddawaj regularnie krew",
+          "typ": "cykliczne",
+          "cykl": "kwartał",
+          "koszt": "0",
+          "dla": "wszyscy",
+          "strona": 11
+        },
+        {
+          "id": "ja.7",
+          "tekst": "Korzystaj z programów profilaktycznych (pacjent.gov.pl)",
+          "typ": "cykliczne",
+          "cykl": "rok",
+          "koszt": "0",
+          "dla": "wszyscy",
+          "strona": 11
+        },
+        {
+          "id": "ja.8",
+          "tekst": "Sprawdź ważność szczepień (błonica, krztusiec, tężec co 10 lat)",
+          "typ": "cykliczne",
+          "cykl": "10 lat",
+          "koszt": "niski",
+          "dla": "wszyscy",
+          "strona": 11
+        },
+        {
+          "id": "ja.9",
+          "tekst": "Podtrzymuj kontakty z osobami, na których możesz polegać i które dają Ci wsparcie",
+          "typ": "cykliczne",
+          "strona": 11,
+          "dla": "wszyscy",
+          "dodano": "weryfikacja 2026-09-21",
+          "cykl": "kwartał",
+          "koszt": "0"
+        },
+        {
+          "id": "ja.10",
+          "tekst": "Nie wahaj się korzystać z profesjonalnej pomocy psychologicznej",
+          "typ": "wiedza",
+          "strona": 11,
+          "dla": "wszyscy",
+          "dodano": "weryfikacja 2026-09-21",
+          "koszt": "0"
+        }
+      ]
+    },
+    {
+      "id": "wsparcie",
+      "tytul": "Osoby potrzebujące szczególnej pomocy i dzieci",
+      "faza": "przygotowanie",
+      "strony": "12-13",
+      "zadania": [
+        {
+          "id": "wsparcie.1",
+          "tekst": "Ustal z osobą, którą wspierasz, sposób działania w kryzysie",
+          "typ": "jednorazowe",
+          "koszt": "0",
+          "dla": "opiekun",
+          "strona": 12
+        },
+        {
+          "id": "wsparcie.2",
+          "tekst": "Pomóż w przygotowaniach osobie wspieranej, np. spakuj jej plecak ewakuacyjny, zapas niezbędnych leków i baterii do urządzeń wspomagających (aparat słuchowy, sensor cukru)",
+          "typ": "jednorazowe",
+          "koszt": "średni",
+          "dla": "opiekun",
+          "strona": 12
+        },
+        {
+          "id": "wsparcie.3",
+          "tekst": "W razie zagrożenia poinformuj służby o osobie wymagającej pomocy przy ewakuacji",
+          "typ": "reakcja",
+          "koszt": "0",
+          "dla": "opiekun",
+          "strona": 12
+        },
+        {
+          "id": "wsparcie.4",
+          "tekst": "Porozmawiaj z dzieckiem o zagrożeniach stosownie do wieku: szczerze, bez drastycznych szczegółów",
+          "typ": "jednorazowe",
+          "koszt": "0",
+          "dla": "rodzic",
+          "strona": 13
+        },
+        {
+          "id": "wsparcie.5",
+          "tekst": "Wytłumacz dziecku jego zadania w kryzysie i przećwiczcie je razem",
+          "typ": "cykliczne",
+          "cykl": "pół roku",
+          "koszt": "0",
+          "dla": "rodzic",
+          "strona": 13
+        },
+        {
+          "id": "wsparcie.6",
+          "tekst": "Przygotuj identyfikatory dla dzieci i seniorów (imię, nazwisko, telefon)",
+          "typ": "jednorazowe",
+          "koszt": "niski",
+          "dla": "opiekun",
+          "strona": 52
+        },
+        {
+          "id": "wsparcie.7",
+          "tekst": "Przygotuj się do rozmowy z dzieckiem i zadbaj o spokojną atmosferę; dowiedz się, co dziecko już wie i jak się z tym czuje",
+          "typ": "jednorazowe",
+          "strona": 13,
+          "dla": "rodzic",
+          "dodano": "weryfikacja 2026-09-21",
+          "koszt": "0"
+        },
+        {
+          "id": "wsparcie.8",
+          "tekst": "Obserwuj zachowanie dziecka i reaguj na jego emocje",
+          "typ": "wiedza",
+          "strona": 13,
+          "dla": "rodzic",
+          "dodano": "weryfikacja 2026-09-21",
+          "koszt": "0"
+        },
+        {
+          "id": "wsparcie.9",
+          "tekst": "Podkreśl dziecku, że nawet w trudnej sytuacji możecie liczyć na pomoc rodziny i innych osób: sąsiadów, strażaków, policjantów, ratowników",
+          "typ": "jednorazowe",
+          "strona": 13,
+          "dla": "rodzic",
+          "dodano": "weryfikacja 2026-09-21",
+          "koszt": "0"
+        },
+        {
+          "id": "wsparcie.10",
+          "tekst": "Dowiedz się w urzędzie miasta lub gminy, jak możesz wspierać osoby potrzebujące szczególnej pomocy",
+          "typ": "wiedza",
+          "strona": 12,
+          "dla": "opiekun",
+          "dodano": "weryfikacja 2026-09-21",
+          "koszt": "0"
+        }
+      ]
+    },
+    {
+      "id": "zwierzeta",
+      "tytul": "Zadbaj o zwierzęta",
+      "faza": "przygotowanie",
+      "strony": "14-15",
+      "zadania": [
+        {
+          "id": "zwierzeta.1",
+          "tekst": "Trzymaj w jednym miejscu dokumentację zdrowotną zwierzęcia, potwierdzenia szczepień i informację o lekach",
+          "typ": "jednorazowe",
+          "koszt": "0",
+          "dla": "właściciel zwierzęcia",
+          "strona": 14
+        },
+        {
+          "id": "zwierzeta.2",
+          "tekst": "Przygotuj sprzęt transportowy: kaganiec, obroża, szelki, smycz, transporter",
+          "typ": "jednorazowe",
+          "koszt": "średni",
+          "dla": "właściciel zwierzęcia",
+          "strona": 14
+        },
+        {
+          "id": "zwierzeta.3",
+          "tekst": "Zapas karmy, wody i leków na kilka dni",
+          "typ": "cykliczne",
+          "cykl": "kwartał",
+          "koszt": "niski",
+          "dla": "właściciel zwierzęcia",
+          "strona": 14
+        },
+        {
+          "id": "zwierzeta.4",
+          "tekst": "Zaczipuj i zarejestruj zwierzę w ogólnodostępnej bazie",
+          "typ": "jednorazowe",
+          "koszt": "niski",
+          "dla": "właściciel zwierzęcia",
+          "strona": 14
+        },
+        {
+          "id": "zwierzeta.5",
+          "tekst": "Umieść dane kontaktowe przy obroży lub szelkach",
+          "typ": "jednorazowe",
+          "koszt": "niski",
+          "dla": "właściciel zwierzęcia",
+          "strona": 14
+        },
+        {
+          "id": "zwierzeta.6",
+          "tekst": "Zwierzęta gospodarskie: zapas paszy i wody na 14 dni, zbiorniki na deszczówkę",
+          "typ": "jednorazowe",
+          "koszt": "wysoki",
+          "dla": "rolnik",
+          "strona": 15
+        },
+        {
+          "id": "zwierzeta.7",
+          "tekst": "Sprawdź, czy budynki gospodarskie i ogrodzenia są odporne na warunki atmosferyczne; zgromadź materiały do ich naprawy",
+          "typ": "cykliczne",
+          "cykl": "rok",
+          "koszt": "średni",
+          "dla": "rolnik",
+          "strona": 15
+        },
+        {
+          "id": "zwierzeta.8",
+          "tekst": "Oznakuj zwierzęta (kolczyki; w nagłej sytuacji znak farbą)",
+          "typ": "jednorazowe",
+          "koszt": "niski",
+          "dla": "rolnik",
+          "strona": 15
+        },
+        {
+          "id": "zwierzeta.9",
+          "tekst": "Dowiedz się w urzędzie gminy, jak wygląda ewakuacja zwierząt w Twojej okolicy",
+          "typ": "wiedza",
+          "koszt": "0",
+          "dla": "rolnik",
+          "strona": 15
+        },
+        {
+          "id": "zwierzeta.10",
+          "tekst": "Przygotuj zwierzęta do transportu natychmiast po ogłoszeniu przez służby nakazu ewakuacji",
+          "typ": "reakcja",
+          "strona": 15,
+          "dla": "rolnik",
+          "dodano": "weryfikacja 2026-09-21"
+        },
+        {
+          "id": "zwierzeta.11",
+          "tekst": "Jeśli ewakuacja zwierząt nie jest możliwa, poinformuj służby ratownicze o pozostawionych zwierzętach",
+          "typ": "reakcja",
+          "strona": 15,
+          "dla": "rolnik",
+          "dodano": "weryfikacja 2026-09-21"
+        }
+      ],
+      "fakty": [
+        "Za ewakuację zwierząt odpowiada właściciel; koordynację prowadzi lokalne centrum zarządzania kryzysowego."
+      ]
+    },
+    {
+      "id": "otoczenie",
+      "tytul": "Przygotuj swoje otoczenie: transport, dom, szkoła, praca",
+      "faza": "przygotowanie",
+      "strony": "16-19",
+      "zadania": [
+        {
+          "id": "otoczenie.auto.1",
+          "tekst": "Utrzymuj auto sprawne i zatankowane",
+          "typ": "cykliczne",
+          "cykl": "miesiąc",
+          "koszt": "średni",
+          "dla": "kierowca",
+          "strona": 16
+        },
+        {
+          "id": "otoczenie.auto.2",
+          "tekst": "W aucie: apteczka, gaśnica, trójkąt, koło zapasowe, zestaw naprawczy, narzędzia, karta ratownicza",
+          "typ": "jednorazowe",
+          "koszt": "średni",
+          "dla": "kierowca",
+          "strona": 16
+        },
+        {
+          "id": "otoczenie.auto.3",
+          "tekst": "Dodatkowa łączność: CB radio, walkie-talkie",
+          "typ": "jednorazowe",
+          "koszt": "średni",
+          "dla": "kierowca",
+          "strona": 16
+        },
+        {
+          "id": "otoczenie.auto.4",
+          "tekst": "Papierowa mapa lub atlas; pobierz mapy offline (GPS może nie działać)",
+          "typ": "jednorazowe",
+          "koszt": "niski",
+          "dla": "kierowca",
+          "strona": 16
+        },
+        {
+          "id": "otoczenie.dom.1",
+          "tekst": "Przygotuj koce, ręczniki, taśmy do uszczelniania okien i drzwi",
+          "typ": "jednorazowe",
+          "koszt": "niski",
+          "dla": "wszyscy",
+          "strona": 17
+        },
+        {
+          "id": "otoczenie.dom.2",
+          "tekst": "Usuń zbędne przedmioty z korytarzy i klatek schodowych",
+          "typ": "jednorazowe",
+          "koszt": "0",
+          "dla": "wszyscy",
+          "strona": 17
+        },
+        {
+          "id": "otoczenie.dom.3",
+          "tekst": "Oznacz kolorowymi taśmami zawory gazu i wody oraz wyłącznik prądu; przećwicz ich wyłączanie z domownikami",
+          "typ": "jednorazowe",
+          "koszt": "niski",
+          "dla": "wszyscy",
+          "strona": 18
+        },
+        {
+          "id": "otoczenie.dom.4",
+          "tekst": "Zamontuj czujki dymu, czadu i gazu; sprawdź dokładnie ich umiejscowienie i regularnie kontroluj stan techniczny",
+          "typ": "cykliczne",
+          "cykl": "kwartał",
+          "koszt": "średni",
+          "dla": "wszyscy",
+          "strona": 18
+        },
+        {
+          "id": "otoczenie.dom.5",
+          "tekst": "Gaśnica i koc gaśniczy w domu",
+          "typ": "jednorazowe",
+          "koszt": "średni",
+          "dla": "wszyscy",
+          "strona": 18
+        },
+        {
+          "id": "otoczenie.dom.6",
+          "tekst": "Wskaż najbezpieczniejsze miejsce w domu: z dala od okien, przy ścianach nośnych, w centrum",
+          "typ": "jednorazowe",
+          "koszt": "0",
+          "dla": "wszyscy",
+          "strona": 18
+        },
+        {
+          "id": "otoczenie.dom.7",
+          "tekst": "Przeglądy instalacji (kominowej, wentylacyjnej, gazowej, elektrycznej) i ubezpieczenie mieszkania",
+          "typ": "cykliczne",
+          "cykl": "rok",
+          "koszt": "średni",
+          "dla": "wszyscy",
+          "strona": 18
+        },
+        {
+          "id": "otoczenie.szkola.1",
+          "tekst": "Uczeń: bierz udział w próbnych alarmach, informuj nauczycieli o podejrzanych zachowaniach lub przedmiotach",
+          "typ": "wiedza",
+          "koszt": "0",
+          "dla": "uczeń",
+          "strona": 19
+        },
+        {
+          "id": "otoczenie.szkola.2",
+          "tekst": "Rodzic: zapisz kontakt do osoby wyznaczonej przez szkołę ws. odbioru dzieci w zagrożeniu",
+          "typ": "jednorazowe",
+          "koszt": "0",
+          "dla": "rodzic",
+          "strona": 19
+        },
+        {
+          "id": "otoczenie.praca.1",
+          "tekst": "Sprawdź w pracy wyjścia ewakuacyjne, miejsca zbiórki, gaśnice, AED, apteczki",
+          "typ": "jednorazowe",
+          "koszt": "0",
+          "dla": "pracownik",
+          "strona": 19
+        },
+        {
+          "id": "otoczenie.praca.2",
+          "tekst": "Przećwicz ze współpracownikami plan awaryjny i ewakuację; upewnij się, że wiesz, jak rozpoznawać zagrożenia w pracy, zapobiegać im, alarmować i reagować",
+          "typ": "cykliczne",
+          "cykl": "rok",
+          "koszt": "0",
+          "dla": "pracownik",
+          "strona": 19
+        },
+        {
+          "id": "otoczenie.praca.3",
+          "tekst": "Jeśli możesz zostać zmobilizowany lub wezwany do innych zadań związanych z obroną państwa: poinformuj pracodawcę",
+          "typ": "jednorazowe",
+          "koszt": "0",
+          "dla": "rezerwista",
+          "strona": 19
+        },
+        {
+          "id": "otoczenie.praca.4",
+          "tekst": "Pracodawca: poznaj obowiązki wobec pracowników w stanach nadzwyczajnych i wojnie",
+          "typ": "wiedza",
+          "koszt": "0",
+          "dla": "pracodawca",
+          "strona": 19
+        },
+        {
+          "id": "otoczenie.praca.5",
+          "tekst": "Pracownik: zgłaszaj natychmiast zauważone nieprawidłowości (uszkodzona instalacja elektryczna, zablokowane drogi ewakuacyjne, niesprawne windy)",
+          "typ": "wiedza",
+          "strona": 19,
+          "dla": "pracownik",
+          "dodano": "weryfikacja 2026-09-21",
+          "koszt": "0"
+        }
+      ],
+      "fakty": [
+        "W kryzysie ogranicz korzystanie z samochodu: drogi mają być przejezdne dla służb i transportów wojskowych."
+      ]
+    },
+    {
+      "id": "zapasy",
+      "tytul": "Zapasy domowe na minimum 3 dni",
+      "faza": "przygotowanie",
+      "strony": "20-22",
+      "zasada": "Zapasy trwałe + rotowane (zużywaj i uzupełniaj). Przeglądaj co kilka miesięcy i sprawdzaj terminy.",
+      "zadania": [
+        {
+          "id": "zapasy.1",
+          "tekst": "Woda: minimum 3 litry na osobę na dobę × 3 dni",
+          "typ": "jednorazowe",
+          "koszt": "niski",
+          "dla": "wszyscy",
+          "strona": 21,
+          "ilosc": {
+            "na_osobe_na_dobe_l": 3,
+            "dni": 3
+          }
+        },
+        {
+          "id": "zapasy.2",
+          "tekst": "Żywność gotowa do spożycia na 3 dni",
+          "typ": "jednorazowe",
+          "koszt": "średni",
+          "dla": "wszyscy",
+          "strona": 21
+        },
+        {
+          "id": "zapasy.3",
+          "tekst": "Apteczka: leki stałe, przeciwbólowe, przeciwzapalne, przeciwwymiotne, przeciwbiegunkowe, gaza, bandaże, opatrunki na oparzenia, rękawiczki jednorazowe, antyseptyk, opaska do tamowania krwotoków, termometr, nożyczki, maseczki FFP3, folia termiczna",
+          "typ": "jednorazowe",
+          "koszt": "średni",
+          "dla": "wszyscy",
+          "strona": 21
+        },
+        {
+          "id": "zapasy.4",
+          "tekst": "Higiena: papier toaletowy, chusteczki nawilżane, podpaski, pieluchy, środki dezynfekujące, worki na śmieci, wiadro z pokrywą",
+          "typ": "jednorazowe",
+          "koszt": "niski",
+          "dla": "wszyscy",
+          "strona": 21
+        },
+        {
+          "id": "zapasy.5",
+          "tekst": "Światło i łączność: latarka, radio na baterie lub korbkę, naładowany telefon, ładowarka, naładowany powerbank, pasujące kable i baterie, świeczki, zapalniczka",
+          "typ": "jednorazowe",
+          "koszt": "średni",
+          "dla": "wszyscy",
+          "strona": 22
+        },
+        {
+          "id": "zapasy.6",
+          "tekst": "Koce, śpiwory, ciepła odzież",
+          "typ": "jednorazowe",
+          "koszt": "niski",
+          "dla": "wszyscy",
+          "strona": 22
+        },
+        {
+          "id": "zapasy.7",
+          "tekst": "Gotówka w różnych nominałach",
+          "typ": "jednorazowe",
+          "koszt": "średni",
+          "dla": "wszyscy",
+          "strona": 22
+        },
+        {
+          "id": "zapasy.8",
+          "tekst": "Narzędzia: taśmy, folie, zestawy do uszczelniania",
+          "typ": "jednorazowe",
+          "koszt": "niski",
+          "dla": "wszyscy",
+          "strona": 22
+        },
+        {
+          "id": "zapasy.9",
+          "tekst": "Alternatywne źródło ogrzewania niezależne od prądu",
+          "typ": "jednorazowe",
+          "koszt": "wysoki",
+          "dla": "wszyscy",
+          "strona": 22
+        },
+        {
+          "id": "zapasy.10",
+          "tekst": "Przegląd zapasów i terminów przydatności",
+          "typ": "cykliczne",
+          "cykl": "kwartał",
+          "koszt": "0",
+          "dla": "wszyscy",
+          "strona": 20
+        }
+      ]
+    },
+    {
+      "id": "plecak",
+      "tytul": "Plecak ewakuacyjny (każdy domownik, także dzieci)",
+      "faza": "przygotowanie",
+      "strony": "26-27",
+      "zadania": [
+        {
+          "id": "plecak.1",
+          "tekst": "Woda butelkowana; filtry lub tabletki do uzdatniania",
+          "typ": "jednorazowe",
+          "koszt": "niski",
+          "dla": "wszyscy",
+          "strona": 26
+        },
+        {
+          "id": "plecak.2",
+          "tekst": "Dokumenty, ich kopie na pendrivie, gotówka w różnych nominałach",
+          "typ": "jednorazowe",
+          "koszt": "niski",
+          "dla": "wszyscy",
+          "strona": 26
+        },
+        {
+          "id": "plecak.3",
+          "tekst": "Apteczka, leki osobiste, środki higieniczne i do dezynfekcji",
+          "typ": "jednorazowe",
+          "koszt": "niski",
+          "dla": "wszyscy",
+          "strona": 26
+        },
+        {
+          "id": "plecak.4",
+          "tekst": "Latarka, radio na baterie/korbkę, naładowany telefon, powerbank, ładowarka, kable, baterie",
+          "typ": "jednorazowe",
+          "koszt": "średni",
+          "dla": "wszyscy",
+          "strona": 26
+        },
+        {
+          "id": "plecak.5",
+          "tekst": "Scyzoryk lub multitool, zapalniczka, worki na śmieci, mapy drukowane",
+          "typ": "jednorazowe",
+          "koszt": "niski",
+          "dla": "wszyscy",
+          "strona": 27
+        },
+        {
+          "id": "plecak.6",
+          "tekst": "Żywność wysokoodżywcza gotowa do spożycia (batony energetyczne, suszone owoce, bakalie)",
+          "typ": "cykliczne",
+          "cykl": "pół roku",
+          "koszt": "niski",
+          "dla": "wszyscy",
+          "strona": 27
+        },
+        {
+          "id": "plecak.7",
+          "tekst": "Ważna rzecz osobista (zdjęcie, pamiątka)",
+          "typ": "jednorazowe",
+          "koszt": "0",
+          "dla": "wszyscy",
+          "strona": 27
+        },
+        {
+          "id": "plecak.8",
+          "tekst": "Odzież na porę roku, przeciwdeszczowa, śpiwór, karimata, folia termiczna, koc",
+          "typ": "cykliczne",
+          "cykl": "pół roku",
+          "koszt": "średni",
+          "dla": "wszyscy",
+          "strona": 27
+        },
+        {
+          "id": "plecak.9",
+          "tekst": "Alternatywna łączność (walkie-talkie)",
+          "typ": "jednorazowe",
+          "koszt": "średni",
+          "dla": "wszyscy",
+          "strona": 27
+        }
+      ]
+    },
+    {
+      "id": "ewakuacja",
+      "tytul": "Ewakuacja",
+      "faza": "reagowanie",
+      "strony": "25",
+      "zadania": [
+        {
+          "id": "ewakuacja.1",
+          "tekst": "Zamknij okna i dopływ wody, wyłącz urządzenia elektryczne i gazowe, wygaś źródła ognia",
+          "typ": "reakcja",
+          "strona": 25,
+          "dla": "wszyscy"
+        },
+        {
+          "id": "ewakuacja.2",
+          "tekst": "Ubierz się stosownie do pogody",
+          "typ": "reakcja",
+          "strona": 25,
+          "dla": "wszyscy"
+        },
+        {
+          "id": "ewakuacja.3",
+          "tekst": "Upewnij się, że dzieci mają przy sobie dane kontaktowe opiekuna i informacje medyczne",
+          "typ": "reakcja",
+          "strona": 25,
+          "dla": "rodzic"
+        },
+        {
+          "id": "ewakuacja.4",
+          "tekst": "Zabierz plecak ewakuacyjny",
+          "typ": "reakcja",
+          "strona": 25,
+          "dla": "wszyscy"
+        },
+        {
+          "id": "ewakuacja.5",
+          "tekst": "Sprawdź, czy sąsiedzi wiedzą o alarmie; w miarę możliwości pomóż osobom ze szczególnymi potrzebami",
+          "typ": "reakcja",
+          "strona": 25,
+          "dla": "wszyscy"
+        },
+        {
+          "id": "ewakuacja.6",
+          "tekst": "Skorzystaj ze zorganizowanego transportu albo idź pieszo do wyznaczonego miejsca",
+          "typ": "reakcja",
+          "strona": 25,
+          "dla": "wszyscy"
+        },
+        {
+          "id": "ewakuacja.7",
+          "tekst": "Autem: nie blokuj dróg ewakuacyjnych",
+          "typ": "reakcja",
+          "strona": 25,
+          "dla": "kierowca"
+        },
+        {
+          "id": "ewakuacja.8",
+          "tekst": "Zwierzęta: zabierz; jeśli się nie da, zabezpiecz i zostaw jedzenie i wodę",
+          "typ": "reakcja",
+          "strona": 25,
+          "dla": "właściciel zwierzęcia"
+        },
+        {
+          "id": "ewakuacja.9",
+          "tekst": "Powiadom bliskich, że się ewakuujesz, jak i dokąd",
+          "typ": "reakcja",
+          "strona": 25,
+          "dla": "wszyscy"
+        },
+        {
+          "id": "ewakuacja.10",
+          "tekst": "Nie oddawaj dokumentów osobom, które oferują pomoc lub transport; jeśli korzystasz z transportu, wyślij bliskim numer rejestracyjny pojazdu i aktualny adres miejsca, w którym jesteś",
+          "typ": "reakcja",
+          "strona": 25,
+          "dla": "wszyscy"
+        },
+        {
+          "id": "ewakuacja.11",
+          "tekst": "Gdy władze lub służby ratownicze zdecydują o ewakuacji, bezwzględnie zastosuj się do poleceń",
+          "typ": "reakcja",
+          "strona": 25,
+          "dla": "wszyscy",
+          "dodano": "weryfikacja 2026-09-21"
+        },
+        {
+          "id": "ewakuacja.12",
+          "tekst": "Jeśli w miejscu, w którym przebywasz, pojawiło się bezpośrednie zagrożenie Twojego życia lub zdrowia, nie zwlekaj z ewakuacją",
+          "typ": "reakcja",
+          "strona": 25,
+          "dla": "wszyscy",
+          "dodano": "weryfikacja 2026-09-21"
+        }
+      ]
+    },
+    {
+      "id": "tlum",
+      "tytul": "Bezpieczeństwo w tłumie",
+      "faza": "reagowanie",
+      "strony": "28",
+      "zadania": [
+        {
+          "id": "tlum.1",
+          "tekst": "Na meczu, koncercie lub innym masowym zgromadzeniu sprawdź, gdzie są wyjścia ewakuacyjne",
+          "typ": "reakcja",
+          "strona": 28,
+          "dla": "wszyscy"
+        },
+        {
+          "id": "tlum.2",
+          "tekst": "W panice poruszaj się z tłumem, unikaj gwałtownych zmian kierunku; ze środka przesuń się na zewnątrz",
+          "typ": "reakcja",
+          "strona": 28,
+          "dla": "wszyscy"
+        },
+        {
+          "id": "tlum.3",
+          "tekst": "Unikaj ciasnych przejść, szyb, ścian, ogrodzeń; nie podnoś przedmiotów z ziemi",
+          "typ": "reakcja",
+          "strona": 28,
+          "dla": "wszyscy"
+        },
+        {
+          "id": "tlum.4",
+          "tekst": "Po upadku wstań jak najszybciej – chwytaj się stabilnych elementów lub osób w pobliżu; jeśli nie możesz wstać, skul się i osłoń głowę",
+          "typ": "reakcja",
+          "strona": 28,
+          "dla": "wszyscy"
+        },
+        {
+          "id": "tlum.5",
+          "tekst": "Zaginięcie bliskiego: ochrona lub policja, przygotuj dokładny opis",
+          "typ": "reakcja",
+          "strona": 28,
+          "dla": "wszyscy"
+        }
+      ]
+    },
+    {
+      "id": "schronienie",
+      "tytul": "Schronienia",
+      "faza": "reagowanie",
+      "strony": "29, 34",
+      "zadania": [
+        {
+          "id": "schronienie.1",
+          "tekst": "Sprawdź, gdzie jest najbliższe miejsce schronienia (urząd gminy, jednostka PSP lub OSP, gov.pl/kgpsp)",
+          "typ": "jednorazowe",
+          "koszt": "0",
+          "dla": "wszyscy",
+          "strona": 29
+        },
+        {
+          "id": "schronienie.2",
+          "tekst": "Ustal wcześniej drogę ewakuacyjną do miejsca schronienia",
+          "typ": "jednorazowe",
+          "koszt": "0",
+          "dla": "wszyscy",
+          "strona": 34
+        },
+        {
+          "id": "schronienie.3",
+          "tekst": "Nie możesz dotrzeć? Zostań w domu: z dala od okien, przy ścianach nośnych, w centrum budynku",
+          "typ": "reakcja",
+          "strona": 29,
+          "dla": "wszyscy"
+        },
+        {
+          "id": "schronienie.4",
+          "tekst": "Poza domem: najniższe kondygnacje, piwnice, garaże i przejścia podziemne, tunele; nawet zagłębienie terenu",
+          "typ": "reakcja",
+          "strona": 29,
+          "dla": "wszyscy"
+        }
+      ],
+      "fakty": [
+        "Dobre schronienie: bez okien, grube ściany i strop, dostęp powietrza, wyjście awaryjne.",
+        "Schronienia oznacza się specjalnym znakiem graficznym (SCHRON)."
+      ]
+    },
+    {
+      "id": "pozar",
+      "tytul": "Pożar",
+      "faza": "reagowanie",
+      "strony": "30-31",
+      "zadania": [
+        {
+          "id": "pozar.1",
+          "tekst": "Zauważysz ogień lub dym: dzwoń 112",
+          "typ": "reakcja",
+          "strona": 31,
+          "dla": "wszyscy"
+        },
+        {
+          "id": "pozar.2",
+          "tekst": "Gaś, jeśli ogień jest nieduży; zwróć uwagę na klasy gaśnicy (A, B, C, D, F)",
+          "typ": "reakcja",
+          "strona": 31,
+          "dla": "wszyscy"
+        },
+        {
+          "id": "pozar.3",
+          "tekst": "Jeśli to bezpieczne, zakręć główny zawór gazu i wyłącz prąd",
+          "typ": "reakcja",
+          "strona": 31,
+          "dla": "wszyscy"
+        },
+        {
+          "id": "pozar.4",
+          "tekst": "Chroń drogi oddechowe mokrym materiałem; nie otwieraj okien ani drzwi; nie używaj windy",
+          "typ": "reakcja",
+          "strona": 31,
+          "dla": "wszyscy"
+        },
+        {
+          "id": "pozar.5",
+          "tekst": "Powiedz służbom, czy ktoś został w budynku i gdzie",
+          "typ": "reakcja",
+          "strona": 31,
+          "dla": "wszyscy"
+        },
+        {
+          "id": "pozar.6",
+          "tekst": "Nie gaś wodą urządzeń elektrycznych ani palących się olejów i tłuszczów",
+          "typ": "reakcja",
+          "strona": 31,
+          "dla": "wszyscy",
+          "dodano": "weryfikacja 2026-09-21",
+          "koszt": "0"
+        }
+      ],
+      "tabela_gaszenia": {
+        "materialy_stale": "koc gaśniczy lub woda; gaśnica A",
+        "ciecze": "gaśnica B; NIE koc, NIE woda",
+        "gazy": "zakręć zawór; gaśnica C; NIE koc, NIE woda",
+        "metale": "gaśnica D",
+        "tluszcze_oleje": "NIGDY wodą; przykryj pokrywką, kocem, mokrą ścierką; gaśnica F"
+      }
+    },
+    {
+      "id": "powodz",
+      "tytul": "Powódź",
+      "faza": "reagowanie",
+      "strony": "32",
+      "zadania": [
+        {
+          "id": "powodz.1",
+          "tekst": "Plecak ewakuacyjny; sprawdź, czy sąsiedzi potrzebują pomocy",
+          "typ": "reakcja",
+          "strona": 32,
+          "dla": "wszyscy"
+        },
+        {
+          "id": "powodz.2",
+          "tekst": "Worki z piaskiem, uszczelnij drzwi i okna",
+          "typ": "reakcja",
+          "strona": 32,
+          "dla": "wszyscy"
+        },
+        {
+          "id": "powodz.3",
+          "tekst": "Wartościowe rzeczy i urządzenia elektryczne przenieś na górne piętra budynku",
+          "typ": "reakcja",
+          "strona": 32,
+          "dla": "wszyscy"
+        },
+        {
+          "id": "powodz.4",
+          "tekst": "Wyłącz prąd i gaz, zabezpiecz włazy i wyloty kanalizacji",
+          "typ": "reakcja",
+          "strona": 32,
+          "dla": "wszyscy"
+        },
+        {
+          "id": "powodz.5",
+          "tekst": "Zaparkuj pojazdy w bezpiecznym miejscu, nie blokuj dróg; przygotuj zwierzęta do ewakuacji",
+          "typ": "reakcja",
+          "strona": 32,
+          "dla": "wszyscy"
+        },
+        {
+          "id": "powodz.6",
+          "tekst": "Nie da się ewakuować? Wywieś flagę w widocznym miejscu (może być z ubrań): biała = muszę się ewakuować, czerwona = potrzebuję pomocy medycznej, niebieska = potrzebuję żywności i wody",
+          "typ": "reakcja",
+          "strona": 32,
+          "dla": "wszyscy"
+        },
+        {
+          "id": "powodz.7",
+          "tekst": "Nie ignoruj alertów pogodowych ani wezwań do ewakuacji",
+          "typ": "reakcja",
+          "strona": 32,
+          "dla": "wszyscy",
+          "dodano": "weryfikacja 2026-09-21",
+          "koszt": "0"
+        },
+        {
+          "id": "powodz.8",
+          "tekst": "Gdy ogłoszono ewakuację, nie zostawaj na zalanym terenie, żeby pilnować dobytku — teren zabezpieczą służby",
+          "typ": "reakcja",
+          "strona": 32,
+          "dla": "wszyscy",
+          "dodano": "weryfikacja 2026-09-21",
+          "koszt": "0"
+        }
+      ],
+      "zrodla_info": [
+        "wody.gov.pl",
+        "isok.gov.pl",
+        "hydro.imgw.pl"
+      ]
+    },
+    {
+      "id": "blackout",
+      "tytul": "Długotrwały brak prądu",
+      "faza": "reagowanie",
+      "strony": "33",
+      "zadania": [
+        {
+          "id": "blackout.1",
+          "tekst": "Przygotuj alternatywne źródła: światła (latarki z zapasem baterii), ogrzewania (piecyk gazowy/olejowy, kominek), łączności (radio na baterie, krótkofalówki, CB)",
+          "typ": "jednorazowe",
+          "koszt": "średni",
+          "dla": "wszyscy",
+          "strona": 33
+        },
+        {
+          "id": "blackout.2",
+          "tekst": "Rozważ agregat prądotwórczy",
+          "typ": "jednorazowe",
+          "koszt": "wysoki",
+          "dla": "wszyscy",
+          "strona": 33
+        },
+        {
+          "id": "blackout.3",
+          "tekst": "Naładuj powerbanki; tryb oszczędzania energii w telefonie",
+          "typ": "reakcja",
+          "strona": 33,
+          "dla": "wszyscy"
+        },
+        {
+          "id": "blackout.4",
+          "tekst": "Oszczędzaj ciepło: wszyscy w jednym pokoju",
+          "typ": "reakcja",
+          "strona": 33,
+          "dla": "wszyscy"
+        },
+        {
+          "id": "blackout.5",
+          "tekst": "Ogranicz otwieranie lodówki i zamrażarki",
+          "typ": "reakcja",
+          "strona": 33,
+          "dla": "wszyscy"
+        },
+        {
+          "id": "blackout.6",
+          "tekst": "Odłącz urządzenia elektryczne od zasilania",
+          "typ": "reakcja",
+          "strona": 33,
+          "dla": "wszyscy"
+        }
+      ],
+      "fakty": [
+        "Blackout może potrwać kilka dni: bez wody, ogrzewania, internetu, telefonu i płatności kartą."
+      ]
+    },
+    {
+      "id": "powietrze",
+      "tytul": "Atak z powietrza",
+      "faza": "reagowanie",
+      "strony": "34",
+      "zadania": [
+        {
+          "id": "powietrze.1",
+          "tekst": "Na sygnał alarmu idź ustaloną drogą do schronienia z plecakiem; schodami, nie windą",
+          "typ": "reakcja",
+          "strona": 34,
+          "dla": "wszyscy"
+        },
+        {
+          "id": "powietrze.2",
+          "tekst": "Eksplozja na otwartym terenie: padnij, najlepiej w zagłębieniu, osłoń głowę",
+          "typ": "reakcja",
+          "strona": 34,
+          "dla": "wszyscy"
+        },
+        {
+          "id": "powietrze.3",
+          "tekst": "Nie wychodź pochopnie ze schronienia",
+          "typ": "reakcja",
+          "strona": 34,
+          "dla": "wszyscy"
+        },
+        {
+          "id": "powietrze.4",
+          "tekst": "SMS zamiast rozmów, nie przeciążaj sieci; sprawdź, kto obok potrzebuje wsparcia",
+          "typ": "reakcja",
+          "strona": 34,
+          "dla": "wszyscy"
+        }
+      ]
+    },
+    {
+      "id": "cbrn",
+      "tytul": "Zagrożenia CBRN",
+      "faza": "reagowanie",
+      "strony": "35",
+      "zadania": [
+        {
+          "id": "cbrn.1",
+          "tekst": "Zaalarmuj osoby w strefie i opuść niebezpieczny obszar",
+          "typ": "reakcja",
+          "strona": 35,
+          "dla": "wszyscy"
+        },
+        {
+          "id": "cbrn.2",
+          "tekst": "W budynku: zamknij i uszczelnij okna, drzwi, wentylację, zasuwy pieców i kominków; wyłącz klimatyzację",
+          "typ": "reakcja",
+          "strona": 35,
+          "dla": "wszyscy"
+        },
+        {
+          "id": "cbrn.3",
+          "tekst": "W aucie: zamknij okna, wyłącz wentylację, wyjedź ze strefy",
+          "typ": "reakcja",
+          "strona": 35,
+          "dla": "kierowca"
+        },
+        {
+          "id": "cbrn.4",
+          "tekst": "Po powrocie z zewnątrz zdejmij skażone ubranie; nie jedz potencjalnie skażonej żywności",
+          "typ": "reakcja",
+          "strona": 35,
+          "dla": "wszyscy"
+        },
+        {
+          "id": "cbrn.5",
+          "tekst": "Nie dotykaj twarzy, dopóki nie umyjesz rąk; umyj się mydłem pod bieżącą wodą – najpierw ręce, potem twarz; weź prysznic, a jeśli nie możesz, przetrzyj skórę i włosy wilgotną ściereczką; załóż czyste ubranie",
+          "typ": "reakcja",
+          "strona": 35,
+          "dla": "wszyscy"
+        },
+        {
+          "id": "cbrn.6",
+          "tekst": "Wrzuć do plastikowych worków wszystko, co mogło zostać skażone (np. ubranie, żywność) – szczelnie zamknij i oznacz",
+          "typ": "reakcja",
+          "strona": 35,
+          "dla": "wszyscy"
+        },
+        {
+          "id": "cbrn.7",
+          "tekst": "Skażenie promieniotwórcze: przygotuj się na przetrwanie co najmniej kilku dni wewnątrz uszczelnionego budynku",
+          "typ": "reakcja",
+          "strona": 35,
+          "dla": "wszyscy"
+        },
+        {
+          "id": "cbrn.8",
+          "tekst": "Nie dotykaj twarzy, dopóki nie umyjesz rąk",
+          "typ": "reakcja",
+          "strona": 35,
+          "dla": "wszyscy",
+          "dodano": "weryfikacja 2026-09-21",
+          "koszt": "0"
+        }
+      ],
+      "luka": "Poradnik PL nie wspomina o jodku potasu (tabletki jodowe) ani o tym, kto i kiedy je wydaje. Do uzupełnienia z RCB/PAA."
+    },
+    {
+      "id": "czujnosc",
+      "tytul": "Niepokojące zachowania i terroryzm",
+      "faza": "reagowanie",
+      "strony": "36-38",
+      "zadania": [
+        {
+          "id": "czujnosc.1",
+          "tekst": "Zwracaj uwagę w swoim otoczeniu: nieuzasadnione oferty łatwego zarobku; niewytłumaczalne zmiany w zachowaniu osób z otoczenia (np. próby zdobycia danych osobowych, planów budynku, informacji wrażliwych); podejrzane oznaczenia (graffiti, farba, kreda, taśma) tam, gdzie ich nie powinno być; osoby obserwujące, fotografujące lub filmujące (także dronem) obiekty takie jak lotniska, centra handlowe, węzły logistyczne, tory kolejowe, jednostki wojskowe, szpitale",
+          "typ": "wiedza",
+          "strona": 36,
+          "dla": "wszyscy"
+        },
+        {
+          "id": "czujnosc.2",
+          "tekst": "Podejrzenie przestępstwa: 112, policja, ABW (zgłoszenie niczym Ci nie grozi)",
+          "typ": "reakcja",
+          "strona": 37,
+          "dla": "wszyscy"
+        },
+        {
+          "id": "czujnosc.3",
+          "tekst": "Atak: nie podchodź, UCIEKAJ i ostrzegaj innych; zawiadom służby — nie zakładaj, że ktoś inny już to zrobił; nie wracaj na miejsce zdarzenia",
+          "typ": "reakcja",
+          "strona": 38,
+          "dla": "wszyscy"
+        },
+        {
+          "id": "czujnosc.4",
+          "tekst": "Nie możesz uciec: UKRYJ SIĘ z dala od tłumu — znajdź osłonę (mury, stalowe konstrukcje, grube ściany); w pomieszczeniu zabarykaduj drzwi, zasłoń okna, wyłącz światło, wycisz telefon",
+          "typ": "reakcja",
+          "strona": 38,
+          "dla": "wszyscy"
+        },
+        {
+          "id": "czujnosc.5",
+          "tekst": "Nie możesz uciec ani się ukryć: WALCZ tym, co masz pod ręką",
+          "typ": "reakcja",
+          "strona": 38,
+          "dla": "wszyscy"
+        },
+        {
+          "id": "czujnosc.6",
+          "tekst": "Dzwoń tylko, jeśli naprawdę musisz — nie blokuj sieci; nie dzwoń do osób w zagrożeniu (możesz zdradzić ich kryjówkę); nie udostępniaj zdjęć i filmów z miejsca zdarzenia; nie podsycaj paniki — nie rozpowszechniaj niesprawdzonych informacji",
+          "typ": "reakcja",
+          "strona": 38,
+          "dla": "wszyscy"
+        }
+      ],
+      "zrodla_info": [
+        "Krajowa Mapa Zagrożeń Bezpieczeństwa (policja.pl)"
+      ]
+    },
+    {
+      "id": "cyfrowe",
+      "tytul": "Dezinformacja i cyberprzestępczość",
+      "faza": "reagowanie",
+      "strony": "39-40",
+      "zadania": [
+        {
+          "id": "cyfrowe.1",
+          "tekst": "Sprawdzaj informacje w kilku niezależnych źródłach; nie rozpowszechniaj niesprawdzonych",
+          "typ": "wiedza",
+          "strona": 39,
+          "dla": "wszyscy"
+        },
+        {
+          "id": "cyfrowe.2",
+          "tekst": "Nie wierz w doniesienia o upadku państwa i kapitulacji",
+          "typ": "wiedza",
+          "strona": 39,
+          "dla": "wszyscy"
+        },
+        {
+          "id": "cyfrowe.3",
+          "tekst": "Nie rozpowszechniaj żadnych informacji o lokalizacji i ruchu Wojska Polskiego i wojsk sojuszniczych; nie fotografuj, nie nagrywaj, nie przesyłaj i nie publikuj zdjęć wojska ani ważnych obiektów (mosty, stacje kolejowe, magazyny)",
+          "typ": "wiedza",
+          "strona": 39,
+          "dla": "wszyscy"
+        },
+        {
+          "id": "cyfrowe.4",
+          "tekst": "Aktualizuj system, aplikacje i antywirusa",
+          "typ": "cykliczne",
+          "cykl": "miesiąc",
+          "koszt": "0",
+          "dla": "wszyscy",
+          "strona": 40
+        },
+        {
+          "id": "cyfrowe.5",
+          "tekst": "Menedżer haseł i silne hasła",
+          "typ": "jednorazowe",
+          "koszt": "0",
+          "dla": "wszyscy",
+          "strona": 40
+        },
+        {
+          "id": "cyfrowe.6",
+          "tekst": "Weryfikacja dwuetapowa",
+          "typ": "jednorazowe",
+          "koszt": "0",
+          "dla": "wszyscy",
+          "strona": 40
+        },
+        {
+          "id": "cyfrowe.7",
+          "tekst": "Kopie zapasowe ważnych plików i dokumentów",
+          "typ": "cykliczne",
+          "cykl": "miesiąc",
+          "koszt": "niski",
+          "dla": "wszyscy",
+          "strona": 40
+        },
+        {
+          "id": "cyfrowe.8",
+          "tekst": "Tylko legalne oprogramowanie i sprawdzone źródła aplikacji; ostrożnie z publicznym Wi-Fi",
+          "typ": "wiedza",
+          "strona": 40,
+          "dla": "wszyscy"
+        },
+        {
+          "id": "cyfrowe.9",
+          "tekst": "Podejrzany SMS prześlij na 8080; wyłudzenie zgłoś na incydent.cert.pl lub w mObywatelu",
+          "typ": "reakcja",
+          "strona": 40,
+          "dla": "wszyscy"
+        },
+        {
+          "id": "cyfrowe.10",
+          "tekst": "Informacje sprawdzaj w pewnych, publicznych źródłach: Polskie Radio, Telewizja Polska, rządowe strony internetowe i służby państwowe",
+          "typ": "wiedza",
+          "strona": 39,
+          "dla": "wszyscy",
+          "dodano": "weryfikacja 2026-09-21",
+          "koszt": "0"
+        },
+        {
+          "id": "cyfrowe.11",
+          "tekst": "Nie klikaj pochopnie w linki ani załączniki z podejrzanych wiadomości",
+          "typ": "wiedza",
+          "strona": 40,
+          "dla": "wszyscy",
+          "dodano": "weryfikacja 2026-09-21"
+        },
+        {
+          "id": "cyfrowe.12",
+          "tekst": "Sprawdzaj adresy nadawców i treść wiadomości — błędy lub brak polskich znaków mogą sygnalizować oszustwo",
+          "typ": "wiedza",
+          "strona": 40,
+          "dla": "wszyscy",
+          "dodano": "weryfikacja 2026-09-21"
+        },
+        {
+          "id": "cyfrowe.13",
+          "tekst": "Chroń dane logowania i numery na kartach płatniczych",
+          "typ": "wiedza",
+          "strona": 40,
+          "dla": "wszyscy",
+          "dodano": "weryfikacja 2026-09-21"
+        }
+      ]
+    },
+    {
+      "id": "pomoc",
+      "tytul": "Pierwsza pomoc",
+      "faza": "reagowanie",
+      "strony": "41-44",
+      "zadania": [
+        {
+          "id": "pomoc.1",
+          "tekst": "Zapisz się na kurs pierwszej pomocy",
+          "typ": "jednorazowe",
+          "koszt": "średni",
+          "dla": "wszyscy",
+          "strona": 41
+        },
+        {
+          "id": "pomoc.2",
+          "tekst": "Zainstaluj aplikację z mapą AED w okolicy",
+          "typ": "jednorazowe",
+          "koszt": "0",
+          "dla": "wszyscy",
+          "strona": 43
+        },
+        {
+          "id": "pomoc.3",
+          "tekst": "Procedura: zadbaj o bezpieczeństwo swoje i poszkodowanego (nie przemieszczaj go bez potrzeby), oceń stan (potrząśnij za ramię, „Słyszysz mnie?\"), zadzwoń na 112 albo poproś o to konkretną wskazaną osobę, poproś kogoś o AED, sprawdź oddech (przy braku kontaktu przez 10 s), pozycja boczna ustalona albo RKO 30:2 (5–6 cm, 2 uciski/s)",
+          "typ": "wiedza",
+          "strona": 41,
+          "dla": "wszyscy"
+        },
+        {
+          "id": "pomoc.4",
+          "tekst": "Krwotok: opatrunek uciskowy; gdy krwawienie z kończyny nie ustaje — opaska do tamowania krwotoków powyżej rany na ramieniu lub udzie (zapisz godzinę założenia); jeśli nie możesz założyć opaski ani opatrunku — uciskaj ranę dłonią lub tkaniną; gdy poszkodowany jest blady i spocony — unieś mu nogi o ok. 30 cm; okryj go i monitoruj jego stan do przybycia ratowników",
+          "typ": "wiedza",
+          "strona": 44,
+          "dla": "wszyscy"
+        },
+        {
+          "id": "pomoc.5",
+          "tekst": "Nie przemieszczaj poszkodowanego, jeśli nie jest to konieczne",
+          "typ": "reakcja",
+          "strona": 41,
+          "dla": "wszyscy",
+          "dodano": "weryfikacja 2026-09-21"
+        },
+        {
+          "id": "pomoc.6",
+          "tekst": "Przed sprawdzeniem oddechu odsłoń klatkę piersiową (także u kobiet), odchyl głowę do tyłu i usuń widoczne ciała obce z ust",
+          "typ": "wiedza",
+          "strona": 43,
+          "dla": "wszyscy",
+          "dodano": "weryfikacja 2026-09-21"
+        },
+        {
+          "id": "pomoc.7",
+          "tekst": "Jeśli nie chcesz wdmuchiwać powietrza, uciskaj klatkę piersiową bez przerw",
+          "typ": "wiedza",
+          "strona": 43,
+          "dla": "wszyscy",
+          "dodano": "weryfikacja 2026-09-21"
+        },
+        {
+          "id": "pomoc.8",
+          "tekst": "Prowadź reanimację do przyjazdu ratowników, powrotu oznak krążenia (oddech, ruch, kaszel) lub do chwili, gdy pomoc stanie się dla Ciebie niebezpieczna; przy zmęczeniu wyznacz kogoś na zmianę",
+          "typ": "wiedza",
+          "strona": 43,
+          "dla": "wszyscy",
+          "dodano": "weryfikacja 2026-09-21"
+        },
+        {
+          "id": "pomoc.9",
+          "tekst": "Monitoruj stan poszkodowanego do czasu przybycia ratowników",
+          "typ": "reakcja",
+          "strona": 44,
+          "dla": "wszyscy",
+          "dodano": "weryfikacja 2026-09-21",
+          "koszt": "0"
+        }
+      ],
+      "fakty": [
+        "Udzielenie pierwszej pomocy to obowiązek; za nieumyślne błędy nie odpowiadasz.",
+        "W kryzysie szpitale będą przeciążone: w sytuacjach niezagrażających życiu radzisz sobie sam."
+      ]
+    },
+    {
+      "id": "higiena",
+      "tytul": "Higiena w kryzysie",
+      "faza": "reagowanie",
+      "strony": "45",
+      "zadania": [
+        {
+          "id": "higiena.1",
+          "tekst": "Przy braku bieżącej wody zrób prowizoryczną toaletę: na wiadro nałóż plastikową torbę; po użyciu wyrzuć torbę z zawartością do osobnego pojemnika; zapach zneutralizuj ziemią, trocinami, żwirkiem",
+          "typ": "wiedza",
+          "strona": 45,
+          "dla": "wszyscy"
+        },
+        {
+          "id": "higiena.2",
+          "tekst": "Bez wody nadal możesz oddawać mocz do toalety",
+          "typ": "wiedza",
+          "strona": 45,
+          "dla": "wszyscy"
+        },
+        {
+          "id": "higiena.3",
+          "tekst": "Bez bieżącej wody: chusteczki nawilżane i płyny do dezynfekcji",
+          "typ": "wiedza",
+          "strona": 45,
+          "dla": "wszyscy"
+        }
+      ]
+    },
+    {
+      "id": "plan",
+      "tytul": "Plan na kryzys (formularze w poradniku)",
+      "faza": "plan",
+      "strony": "46-52",
+      "formularze": [
+        {
+          "id": "plan.kontakty",
+          "tytul": "Dane kontaktowe na wypadek kryzysu",
+          "pola": [
+            "imię",
+            "nazwisko",
+            "telefon",
+            "e-mail"
+          ],
+          "podpowiedz": "lekarz rodzinny, opiekunowie dzieci/seniorów/osób z niepełnosprawnościami, sąsiedzi, znajomi, szkoła, praca, przychodnia"
+        },
+        {
+          "id": "plan.spotkania",
+          "tytul": "Miejsce spotkania, jeśli zostaniemy rozdzieleni",
+          "pola": [
+            "lokalizacja",
+            "adres",
+            "osoba do kontaktu",
+            "telefon"
+          ],
+          "warianty": [
+            "w najbliższej okolicy ×3",
+            "poza miejscowością ×3"
+          ]
+        },
+        {
+          "id": "plan.zdrowie",
+          "tytul": "Choroby, alergie, leki stałe",
+          "pola": [
+            "imię i nazwisko",
+            "choroby",
+            "alergie",
+            "leki"
+          ]
+        },
+        {
+          "id": "plan.rzeczy",
+          "tytul": "Lista niezbędnych rzeczy i gdzie je trzymamy",
+          "pola": [
+            "rzecz",
+            "miejsce"
+          ]
+        },
+        {
+          "id": "plan.telefony",
+          "tytul": "Ważne telefony",
+          "pola": [
+            "kto",
+            "telefon"
+          ]
+        }
+      ],
+      "zadania": [
+        {
+          "id": "plan.1",
+          "tekst": "Opracuj rodzinny plan kryzysowy (kontakty, miejsca i terminy spotkań w okolicy i poza miejscowością)",
+          "typ": "jednorazowe",
+          "koszt": "0",
+          "dla": "wszyscy",
+          "strona": 47
+        },
+        {
+          "id": "plan.2",
+          "tekst": "Aktualizuj plan i ćwicz go z domownikami",
+          "typ": "cykliczne",
+          "cykl": "pół roku",
+          "koszt": "0",
+          "dla": "wszyscy",
+          "strona": 47
+        },
+        {
+          "id": "plan.3",
+          "tekst": "Pobierz aplikację RSO",
+          "typ": "jednorazowe",
+          "koszt": "0",
+          "dla": "wszyscy",
+          "strona": 53
+        },
+        {
+          "id": "plan.4",
+          "tekst": "Słuchaj poleceń służb i współdziałaj z innymi",
+          "typ": "reakcja",
+          "strona": 52,
+          "dla": "wszyscy",
+          "dodano": "weryfikacja 2026-09-21"
+        }
+      ]
+    }
+  ],
+  "dekalog": [
+    "Korzystaj z wiarygodnych źródeł informacji, przede wszystkim rządowych.",
+    "Opracuj i przećwicz rodzinny plan kryzysowy na wypadek różnych zagrożeń, ewakuacji i rozdzielenia.",
+    "Przygotuj domowe zapasy na minimum 3 dni i regularnie je przeglądaj.",
+    "Skompletuj apteczkę z lekami. Naucz się udzielać pierwszej pomocy.",
+    "Regularnie rób lub zlecaj przeglądy instalacji: elektrycznej, gazowej, wentylacyjnej i kominowej.",
+    "Dla dzieci i seniorów przygotuj identyfikatory z imieniem, nazwiskiem i telefonem.",
+    "Jeżeli masz zwierzęta, zaczipuj je lub oznakuj.",
+    "Sprawdź, gdzie jest najbliższe miejsce schronienia.",
+    "Skompletuj plecak ewakuacyjny.",
+    "Słuchaj poleceń służb i współdziałaj z innymi."
+  ],
+  "dekalog_strona": 52,
+  "motto": {
+    "tekst": "Decyzji o rozpoczęciu przygotowań nie odkładaj na później.",
+    "strona": 4
+  }
+}
