@@ -39,8 +39,56 @@
     <h1>404</h1>
     <p>Ta strona nie istnieje albo zmieniła adres.<br>
        This page does not exist or has moved.</p>
+    <div id="didyoumean" style="display:none; margin:0 0 2rem;">
+      <p style="margin:0 0 .8rem;">Czy chodziło o · Did you mean:</p>
+      <div id="dym-links"></div>
+    </div>
     <a href="/">futureshow.pl</a>
   </div>
+<script>
+/* Podpowiedzi przy literówkach w adresie (np. /historia-aninacji). */
+(function () {
+  var KNOWN = ["/dobranocki/","/historia-animacji/","/kino-awangardy/","/polski-jazz/",
+    "/pokedex/","/klimat/","/futurepilot/","/futuretalk/","/futureform/","/sectio-aurea/",
+    "/rezonans/","/swidzinski-contextual-art/","/mnemo/","/hinton-ai-portal/","/oil-gas-atlas/",
+    "/panama/","/afery/","/cambridge-analytica/","/matryca-okladki/","/habermas/","/nbody/",
+    "/cardiosim/","/schizoanaliza/","/digital-life/","/zlota-liczba/","/zlota-liczba-kompendium/",
+    "/mondrian-malewicz/","/switkowski/","/jan-lubicz/","/psychedelic/","/studio/",
+    "/projekty.html","/films.html","/downloads.html"];
+  function lev(a, b) {
+    var m = a.length, n = b.length, i, j, prev, tmp;
+    if (!m) return n; if (!n) return m;
+    var row = []; for (j = 0; j <= n; j++) row[j] = j;
+    for (i = 1; i <= m; i++) {
+      prev = row[0]; row[0] = i;
+      for (j = 1; j <= n; j++) {
+        tmp = row[j];
+        row[j] = Math.min(row[j] + 1, row[j-1] + 1, prev + (a[i-1] === b[j-1] ? 0 : 1));
+        prev = tmp;
+      }
+    }
+    return row[n];
+  }
+  var norm = function (s) { return s.toLowerCase().replace(/\/+$/, ""); };
+  var here = norm(location.pathname);
+  if (!here || here === "") return;
+  var scored = KNOWN.map(function (k) {
+    return { k: k, d: lev(here, norm(k)) };
+  }).sort(function (a, b) { return a.d - b.d; });
+  var best = scored.filter(function (s) {
+    return s.d > 0 && (s.d <= 3 || s.d <= Math.floor(norm(s.k).length * 0.34));
+  }).slice(0, 3);
+  if (!best.length) return;
+  var box = document.getElementById("didyoumean"), wrap = document.getElementById("dym-links");
+  best.forEach(function (s) {
+    var a = document.createElement("a");
+    a.href = s.k; a.textContent = "futureshow.pl" + s.k.replace(/\/$/, "");
+    a.style.margin = ".25rem"; a.style.fontSize = ".8rem"; a.style.textTransform = "none";
+    wrap.appendChild(a);
+  });
+  box.style.display = "block";
+})();
+</script>
 <script data-goatcounter="https://futureshow.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
