@@ -39,9 +39,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:cent
 nav.solid{background:var(--panel);backdrop-filter:blur(14px);
   border-bottom:1px solid var(--line)}
 .logo{font-weight:800;font-size:19px;letter-spacing:.04em;white-space:nowrap}
-.logo-desc{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:var(--dim);
-  text-transform:uppercase;margin-left:11px;white-space:nowrap}
-@media(max-width:980px){.logo-desc{display:none}}
+.brand{display:flex;flex-direction:column;align-items:flex-start;gap:3px;flex:none;line-height:1}
+.logo-desc{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;color:var(--dim);
+  text-transform:uppercase;white-space:nowrap}
+@media(max-width:760px){.logo-desc{display:none}}
 .claim{position:absolute;top:66px;left:0;right:0;z-index:6;text-align:center;
   padding:10px 4vw;pointer-events:none}
 .claim b{display:block;font-size:clamp(17px,2.2vw,23px);font-weight:800;
@@ -54,7 +55,6 @@ nav.solid{background:var(--panel);backdrop-filter:blur(14px);
 .navlinks{display:flex;gap:18px;font-size:13.5px;color:var(--dim)}
 .navlinks a{white-space:nowrap}
 @media(max-width:1440px){nav{gap:16px}.navlinks{gap:14px;font-size:13px}nav .search input{width:110px}}
-@media(max-width:1439px){.logo-desc{display:none}}
 .navlinks a:hover{color:var(--ink)}
 .spacer{flex:1}
 .search{display:flex;align-items:center;gap:8px;background:rgba(233,237,245,.06);
@@ -318,7 +318,7 @@ footer a{color:var(--dim)} footer a:hover{color:var(--ink)}
 <body>
 
 <nav id="nav">
-  <a class="logo" href="./">FUTURE<span>SHOW</span></a><small class="logo-desc" data-i="logodesc"></small>
+  <div class="brand"><a class="logo" href="./">FUTURE<span>SHOW</span></a><small class="logo-desc" data-i="logodesc"></small></div>
   <div class="navlinks">
     <a href="#r-new" data-i="nav_new"></a>
     <a href="#r-know" data-i="nav_know"></a>
@@ -489,7 +489,7 @@ const P = {
      en:"A portal on Rupert Sheldrake — author of the morphic resonance hypothesis — and his quarrel with the ten dogmas of science. The biologist who asked whether nature remembers."},
   link:BASE+"rezonans/"},
  awangarda:{
-  t:"Kino Awangardy", kick:{pl:"Archiwum · film",en:"Archive · film"},
+  t:"Kino Awangardy", kick:{pl:"Streaming · film",en:"Streaming · film"},
   year:"2026", tag:{pl:"portal filmowy",en:"film portal"}, font:"disp",
   pal:{bg:"#0c0b09",ink:"#f2ecdd",acc:"#e6392e"}, motif:"slash",
   stats:["564 filmy","119 artystów","30 rozdziałów"],
@@ -497,7 +497,7 @@ const P = {
      en:"A century of experimental cinema — Dadaists, Maya Deren, Fluxus, post-internet art. 564 films from YouTube, watched in place."},
   link:"https://futureshow.pl/kino-awangardy/"},
  historia:{
-  t:"Historia Animacji", kick:{pl:"Archiwum · animacja",en:"Archive · animation"},
+  t:"Historia Animacji", kick:{pl:"Streaming · animacja",en:"Streaming · animation"},
   year:"2026", tag:{pl:"portal filmowy",en:"film portal"}, font:"disp",
   pal:{bg:"#0f0e13",ink:"#f3efe6",acc:"#ffb320"}, motif:"perf",
   stats:["430 filmów","231 twórców","1833 → dziś"],
@@ -505,7 +505,7 @@ const P = {
      en:"The entire world history of animation after Bendazzi's canon — from optical toys to Pixar and the internet generation. The Polish school at its heart."},
   link:"https://futureshow.pl/historia-animacji/"},
  dobranocki:{
-  t:"Legendarne Dobranocki", kick:{pl:"Archiwum · nostalgia",en:"Archive · nostalgia"},
+  t:"Legendarne Dobranocki", kick:{pl:"Streaming · nostalgia",en:"Streaming · nostalgia"},
   year:"2026", tag:{pl:"portal filmowy",en:"film portal"}, font:"disp",
   pal:{bg:"#0b0d17",ink:"#eef0f8",acc:"#b9a5ff"}, motif:"moon",
   stats:["326 odcinków","53 bajki","1980–2000"],
@@ -617,7 +617,7 @@ kind:"site", t:"Bronisław Przyłuski", kick:{pl:"Literatura · pamięć",en:"Li
      en:"A compendium of Matila Ghyka's “The Golden Number” with annexes — proportion, the pentagram, rhythms of nature and architecture."},
   link:BASE+"zlota-liczba-kompendium/"},
  switkowski:{
-  t:"Okultyzm i magja (1939)", kick:{pl:"Archiwum · ezoteryka",en:"Archive · esoterica"},
+  t:"Okultyzm i magja (1939)", kick:{pl:"Historia · ezoteryka",en:"History · esoterica"},
   year:"2026", tag:{pl:"kompendium",en:"compendium"}, font:"serif",
   pal:{bg:"#120e08",ink:"#ecdfc8",acc:"#c9a35c"}, motif:"pendulum",
   stats:["Świtkowski","1939","kompendium"],
@@ -673,7 +673,7 @@ kind:"site", t:"Jan Lubicz-Przyłuski", kick:{pl:"Strona · autor",en:"Site · a
      en:"A bilingual Pokémon knowledge base: the complete 1,025 creatures across nine generations, 1,332 TCG cards by rarity, the history of the games and the anime, and the games played offline — real facts instead of fandom legends."},
   link:BASE+"pokedex/"},
  polskijazz:{
-  t:"Polski Jazz", kick:{pl:"Archiwum · muzyka",en:"Archive · music"},
+  t:"Polski Jazz", kick:{pl:"Streaming · muzyka",en:"Streaming · music"},
   year:"2026", tag:{pl:"katalog płyt",en:"record catalogue"}, font:"serif",
   pal:{bg:"#111013",ink:"#f2e9d8",acc:"#e0b23e"}, motif:"wave",
   stats:["200 płyt","Polish Jazz vol. 1–89","40 filmów"],
