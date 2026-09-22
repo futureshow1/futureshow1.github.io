@@ -299,6 +299,12 @@
     line-height: 1.6;
   }
 
+  .event .event-link {
+    display: inline-block; margin-top: 12px; font-size: 0.82rem; font-weight: 600;
+    color: #f0abfc; text-decoration: none; border-bottom: 1px solid rgba(240,171,252,.45);
+    transition: color .2s, border-color .2s;
+  }
+  .event .event-link:hover { color: #fff; border-color: #fff; }
   .event .evidence {
     margin-top: 12px;
     padding: 10px 14px;
@@ -468,6 +474,7 @@
     <h3>"This Is Your Digital Life" App Created</h3>
     <p>Data scientist Aleksandr Kogan and his company Global Science Research develop a personality quiz app on Facebook. Approximately 300,000 users are paid to take the test &mdash; but the app harvests data from all their Facebook friends too.</p>
     <div class="evidence">Evidence: Kogan's app exploited Facebook's Open Graph API to collect data on up to 87 million profiles from just 300,000 direct users.</div>
+    <a class="event-link" href="../digital-life/">Try a reconstruction of the app — and see what it collected &rarr;</a>
   </div>
 
   <!-- 2014 -->
