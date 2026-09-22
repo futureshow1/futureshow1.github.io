@@ -52,6 +52,9 @@ nav.solid{background:var(--panel);backdrop-filter:blur(14px);
 @media(max-width:640px){.claim{top:58px}.claim span{display:none}}
 .logo span{color:var(--cyan)}
 .navlinks{display:flex;gap:18px;font-size:13.5px;color:var(--dim)}
+.navlinks a{white-space:nowrap}
+@media(max-width:1440px){nav{gap:16px}.navlinks{gap:14px;font-size:13px}nav .search input{width:110px}}
+@media(max-width:1439px){.logo-desc{display:none}}
 .navlinks a:hover{color:var(--ink)}
 .spacer{flex:1}
 .search{display:flex;align-items:center;gap:8px;background:rgba(233,237,245,.06);
@@ -251,6 +254,10 @@ footer a{color:var(--dim)} footer a:hover{color:var(--ink)}
 }
 .sburger{display:none;background:none;border:1px solid var(--line);color:var(--ink,#e9edf5);font-size:18px;width:36px;height:36px;border-radius:8px;cursor:pointer}
 .nav-contact-m{display:none}
+/* dziewięć kategorii nie mieści się na węższych ekranach — poniżej 1240 px menu chowa się pod ☰ */
+@media(max-width:1239px){.navlinks{display:none}.sburger{display:inline-flex;align-items:center;justify-content:center}
+ #nav.open .navlinks{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:#0b0d17;border-bottom:1px solid var(--line);padding:10px 4vw 14px;gap:0;z-index:60}
+ #nav.open .navlinks a{padding:12px 0;font-size:15px}}
 @media(max-width:760px){.sburger{display:inline-flex;align-items:center;justify-content:center}.ctc{display:none}.nav-contact-m{display:block;color:var(--cyan,#6fd6ff)}
  #nav.open .navlinks{display:flex;flex-direction:column;position:fixed;top:56px;left:0;right:0;background:#0b0d17;border-bottom:1px solid var(--line);padding:10px 18px 14px;gap:0;z-index:60}
  #nav.open .navlinks a{padding:12px 0;font-size:15px}}
@@ -313,12 +320,15 @@ footer a{color:var(--dim)} footer a:hover{color:var(--ink)}
 <nav id="nav">
   <a class="logo" href="./">FUTURE<span>SHOW</span></a><small class="logo-desc" data-i="logodesc"></small>
   <div class="navlinks">
-    <a href="studio/" data-i="nav_home"></a>
     <a href="#r-new" data-i="nav_new"></a>
+    <a href="#r-know" data-i="nav_know"></a>
+    <a href="#r-film" data-i="nav_stream"></a>
     <a href="#r-data" data-i="nav_data"></a>
-    <a href="#r-learn" data-i="nav_learn"></a>
+    <a href="#r-sim" data-i="nav_sim"></a>
+    <a href="#r-games" data-i="nav_games"></a>
     <a href="#r-apps" data-i="nav_apps"></a>
-    <a href="#studio" data-i="nav_studio"></a>
+    <a href="#r-vid-ai" data-i="nav_films"></a>
+    <a href="studio/" data-i="nav_home"></a>
     <a class="nav-contact-m" href="studio/#contact" data-i="nav_contact"></a>
   </div>
   <div class="spacer"></div>
@@ -854,24 +864,24 @@ const ROWS = [
   items:["dobranocki","historia","klimat"]},
  {id:"r-new", t:{pl:"Nowości i aktualizacje",en:"New & updated"},
   items:["futurepilot","klimat","futuretalk","futureform","psychedelic","polskijazz","pokedex","cardiosim","matryca"]},
+ {id:"r-know", t:{pl:"Portale wiedzy — czytaj, klikaj, sprawdzaj się",en:"Knowledge portals — read, explore, test yourself"},
+  items:["klimat","hinton","pokedex","sheldrake","mondrian","swidzinski","switkowski","ghykakomp","przyluski"]},
+ {id:"r-film", t:{pl:"Streaming — kino, animacja, dobranocki, jazz",en:"Streaming — cinema, animation, cartoons, jazz"},
+  items:["awangarda","historia","dobranocki","polskijazz"]},
  {id:"r-data", t:{pl:"Śledztwa i dane",en:"Investigations & data"},
-  items:["matryca","afery","panama","cambridge","sejm","klimat","oilgas","digilife"]},
- {id:"r-learn", t:{pl:"Nauka przez działanie",en:"Learning by doing"},
-  items:["habermas","schizogra","futuretalk","mnemo","hinton","cardiosim","sheldrake"]},
- {id:"r-film", t:{pl:"Kino i archiwa",en:"Cinema & archives"},
-  items:["awangarda","historia","dobranocki","polskijazz","pokedex"]},
- {id:"r-sim", t:{pl:"Symulacje i wizualizacje",en:"Simulations & visualizations"},
-  items:["cardiosim","psychedelic","nbody","oilgas","klimat","panama"]},
+  items:["matryca","afery","panama","cambridge","sejm","oilgas","digilife"]},
+ {id:"r-sim", t:{pl:"Symulatory",en:"Simulators"},
+  items:["cardiosim","psychedelic","nbody","sejm"]},
+ {id:"r-games", t:{pl:"Gry — graj i ucz się",en:"Games — play and learn"},
+  items:["sectio","habermas","mnemo","schizogra"]},
  {id:"r-apps", t:{pl:"Aplikacje — za darmo, gotowe",en:"Apps — free, ready"},
-  items:["futureform","futuretalk","futurepilot"]},
- {id:"r-art", t:{pl:"Sztuka i kultura",en:"Art & culture"},
-  items:["mondrian","sectio","ghykakomp","swidzinski","przyluski","switkowski"]},
- {id:"r-hidden", t:{pl:"Projekty niepubliczne",en:"Non-public projects"},
-  items:["schizoraport","digilife","aferymock","matrycamock","janweb","chamczyk","zem","emfazy"]},
- {id:"r-vid-ai", t:{pl:"Shorty AI",en:"AI shorts"},
+  items:["futurepilot","futureform","futuretalk"]},
+ {id:"r-vid-ai", t:{pl:"Filmy — shorty AI",en:"Films — AI shorts"},
   items:["v_gniew","v_heret","v_onion","v_occult","v_ccm","v_dolls","v_creative","v_emfazy","v_dzik","v_onemany","v_witness"]},
- {id:"r-vid-doc", t:{pl:"Dokument i archiwum",en:"Documentary & archive"},
-  items:["v_rabbit","v_lupa","v_chile","v_differences","v_zaplatani","v_kontekst","v_stone","v_einstein","v_kwiek","v_baldyga","v_takenouchi","v_pollywood","v_grandmaster","v_biegacz","v_interakcje","v_patria","v_golgota","v_barona","v_nieslony","v_maclennan","v_blackmarket","v_emfazyrozmowa","v_gutt","v_instytut","v_biennale"]}
+ {id:"r-vid-doc", t:{pl:"Filmy — dokument i archiwum",en:"Films — documentary & archive"},
+  items:["v_rabbit","v_lupa","v_chile","v_differences","v_zaplatani","v_kontekst","v_stone","v_einstein","v_kwiek","v_baldyga","v_takenouchi","v_pollywood","v_grandmaster","v_biegacz","v_interakcje","v_patria","v_golgota","v_barona","v_nieslony","v_maclennan","v_blackmarket","v_emfazyrozmowa","v_gutt","v_instytut","v_biennale"]},
+ {id:"r-hidden", t:{pl:"Projekty niepubliczne",en:"Non-public projects"},
+  items:["schizoraport","digilife","aferymock","matrycamock","janweb","chamczyk","zem","emfazy"]}
 ];
 
 const FEATURED = ["dobranocki", "historia", "pokedex", "polskijazz", "awangarda", "klimat", "futurepilot", "matryca", "hinton",
@@ -881,7 +891,7 @@ const UI = {
  pl:{claim1:"Portal wiedzy i zabawy dla ciekawych świata.",
   claim2:"Interaktywne portale, gry i śledztwa — kino, historia, nauka, dane. Bez reklam i bez kont.",
   logodesc:"portal wiedzy i zabawy",
-  nav_home:"Studio",nav_apps:"Aplikacje",nav_new:"Nowości",nav_data:"Śledztwa",nav_learn:"Nauka",nav_hidden:"Niepubliczne",
+  nav_home:"O nas",nav_apps:"Aplikacje",nav_new:"Nowości",nav_data:"Śledztwa",nav_know:"Portale wiedzy",nav_stream:"Streaming",nav_sim:"Symulatory",nav_games:"Gry",nav_films:"Filmy",nav_hidden:"Niepubliczne",
   nav_studio:"Zamówienia",nav_contact:"Kontakt",search:"szukaj projektu…",
   open:"▶ Otwórz",more:"ⓘ Szczegóły",openFull:{portal:"▶ Otwórz portal",site:"▶ Otwórz stronę",app:"▶ Otwórz aplikację"},
   demo:"✉ Demo na życzenie",close:"Zamknij",
@@ -894,7 +904,7 @@ const UI = {
  en:{claim1:"Knowledge & play for the curious.",
   claim2:"Interactive portals, games and investigations — film, history, science, data. No ads, no accounts.",
   logodesc:"knowledge & play",
-  nav_home:"Studio",nav_apps:"Apps",nav_new:"New",nav_data:"Investigations",nav_learn:"Learning",nav_hidden:"Non-public",
+  nav_home:"About us",nav_apps:"Apps",nav_new:"New",nav_data:"Investigations",nav_know:"Knowledge portals",nav_stream:"Streaming",nav_sim:"Simulators",nav_games:"Games",nav_films:"Films",nav_hidden:"Non-public",
   nav_studio:"Commissions",nav_contact:"Contact",search:"search projects…",
   open:"▶ Open",more:"ⓘ Details",openFull:{portal:"▶ Open portal",site:"▶ Open site",app:"▶ Open app"},
   demo:"✉ Request a demo",close:"Close",
