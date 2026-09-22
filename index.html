@@ -741,6 +741,33 @@ const VID = {
      en:"An étude about the one that falls apart into many."}},
 
  // ── dokument i archiwum ──
+ v_lupa:{t:"Krystian Lupa. Misteria",src:"vimeo",id:"256408970",y:"2018",dur:"8:39",cat:"doc",tool:"reż. Przyłuski",
+  d:{pl:"Krótki film o Krystianie Lupie przy pracy — próby, notatki i to, czego z widowni nie widać.",
+     en:"A short film on Krystian Lupa at work — rehearsals, notes and what the audience never sees."}},
+ v_chile:{t:"Chile śladami Domeyki",src:"vimeo",id:"260735114",y:"2018",dur:"41:13",cat:"doc",tool:"montaż Przyłuski",
+  d:{pl:"Pełnometrażowa podróż śladami Ignacego Domeyki — polskiego geologa, który stał się bohaterem Chile.",
+     en:"A feature-length journey in the footsteps of Ignacy Domeyko — the Polish geologist who became a national hero of Chile."}},
+ v_zaplatani:{t:"Jesteśmy zaplątani — Świdziński",src:"vimeo",id:"255372220",y:"2018",dur:"5:12",cat:"doc",tool:"reż. Przyłuski",
+  d:{pl:"Jan Świdziński o splątaniu sztuki i życia — krótka rozmowa z twórcą sztuki kontekstualnej.",
+     en:"Jan Świdziński on the entanglement of art and life — a short conversation with the founder of contextual art."}},
+ v_kontekst:{t:"Świdziński — In the Context of Art",src:"vimeo",id:"118756804",y:"2015",dur:"3:39",cat:"doc",tool:"dokument",
+  d:{pl:"Fragment filmu „The Differences”: Świdziński wykłada własną teorię — sztukę jako sztukę kontekstualną.",
+     en:"A fragment of “The Differences”: Świdziński laying out his own theory — art as contextual art."}},
+ v_stone:{t:"Personal Stone (Rytka)",src:"vimeo",id:"255374551",y:"2018",dur:"28:50",cat:"doc",tool:"reż. Przyłuski / Weychert",
+  d:{pl:"Dokument o Zygmuncie Rytce i jego kamieniach — rzece, powtórzeniu i sztuce, która mieści się w dłoni.",
+     en:"A documentary on Zygmunt Rytka and his stones — the river, repetition and art that fits in a hand."}},
+ v_einstein:{t:"Einstein i inni",src:"vimeo",id:"255454407",y:"2018",dur:"19:39",cat:"doc",tool:"dokument",
+  d:{pl:"Zapis spektaklu-eseju o wyobraźni naukowej — Einstein, jego krytycy i granice zdrowego rozsądku.",
+     en:"A record of an essay-performance on scientific imagination — Einstein, his critics and the limits of common sense."}},
+ v_kwiek:{t:"Przemysław Kwiek — Appearance",src:"vimeo",id:"118756805",y:"2015",dur:"15:24",cat:"doc",tool:"performans",
+  d:{pl:"Zapis „Appearance” Przemysława Kwieka — współtwórcy duetu KwieKulik, klasyka polskiej sztuki działań.",
+     en:"A record of Przemysław Kwiek's “Appearance” — co-founder of KwieKulik and a classic of Polish action art."}},
+ v_baldyga:{t:"Janusz Bałdyga — performans",src:"vimeo",id:"118756806",y:"2015",dur:"6:06",cat:"doc",tool:"performans",
+  d:{pl:"Janusz Bałdyga na festiwalu „W kontekście sztuki” — równowaga, napięcie i konstrukcje na granicy upadku.",
+     en:"Janusz Bałdyga at the “In the Context of Art” festival — balance, tension and structures on the edge of collapse."}},
+ v_takenouchi:{t:"Takenouchi — Ridden by Nature",src:"vimeo",id:"172338076",y:"2016",dur:"4:32",cat:"doc",tool:"rozmowa",
+  d:{pl:"Japoński tancerz butoh Atsushi Takenouchi o naturze, która tańczy przez ciało.",
+     en:"Japanese butoh dancer Atsushi Takenouchi on nature dancing through the body."}},
  v_differences:{t:"Różnice",src:"yt",id:"SXVSJfbVupg",y:"2007",dur:"51:38",cat:"doc",tool:"reż. Przyłuski",
   d:{pl:"Pełnometrażowy dokument z festiwalu „W kontekście sztuki / Różnice” — pierwszej imprezy w całości poświęconej sztuce kontekstualnej Jana Świdzińskiego.",
      en:"A feature documentary from the “In the Context of Art / Differences” festival — the first event devoted entirely to Jan Świdziński's contextual art."}},
@@ -785,11 +812,11 @@ const VID = {
  const PAL={ai:{bg:"#0d0b14",ink:"#efe9f5",acc:"#c58cff"},doc:{bg:"#0f0e0c",ink:"#f2ede4",acc:"#e0a44b"}};
  Object.keys(VID).forEach(k=>{
   const v=VID[k];
-  P[k]={kind:"video", t:v.t, year:v.y, font:"sans", motif:null,
+  P[k]={kind:"video", t:v.t, year:v.cat==="doc"?"":v.y, font:"sans", motif:null,
     kick:v.cat==="ai"?{pl:"Short · AI",en:"Short · AI"}:{pl:"Film · dokument",en:"Film · documentary"},
     tag:v.lock?{pl:"zgłoszenie festiwalowe",en:"festival submission"}
               :{pl:v.src==="vimeo"?"Vimeo":"YouTube",en:v.src==="vimeo"?"Vimeo":"YouTube"},
-    pal:PAL[v.cat], stats:[v.dur,v.tool,v.y].filter(x=>x&&x!=="—"),
+    pal:PAL[v.cat], stats:(v.cat==="doc"?[v.dur,v.tool]:[v.dur,v.tool,v.y]).filter(x=>x&&x!=="—"),
     d:v.d, link:null, video:v};
   GALLERY[k]=["vid-"+k];
  });
@@ -815,7 +842,7 @@ const ROWS = [
  {id:"r-vid-ai", t:{pl:"Shorty AI",en:"AI shorts"},
   items:["v_gniew","v_heret","v_onion","v_occult","v_ccm","v_dolls","v_creative","v_emfazy","v_dzik","v_onemany","v_witness"]},
  {id:"r-vid-doc", t:{pl:"Dokument i archiwum",en:"Documentary & archive"},
-  items:["v_differences","v_interakcje","v_patria","v_golgota","v_barona","v_nieslony","v_maclennan","v_blackmarket","v_emfazyrozmowa","v_gutt","v_instytut","v_biennale","v_rabbit"]}
+  items:["v_rabbit","v_lupa","v_chile","v_differences","v_zaplatani","v_kontekst","v_stone","v_einstein","v_kwiek","v_baldyga","v_takenouchi","v_interakcje","v_patria","v_golgota","v_barona","v_nieslony","v_maclennan","v_blackmarket","v_emfazyrozmowa","v_gutt","v_instytut","v_biennale"]}
 ];
 
 const FEATURED = ["dobranocki", "historia", "pokedex", "polskijazz", "awangarda", "klimat", "futurepilot", "matryca", "hinton",
