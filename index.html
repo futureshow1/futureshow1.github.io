@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FutureShow — Baw się wiedzą: portale, śledztwa, gry, aplikacje</title>
-<meta name="description" content="FutureShow: interaktywne portale wiedzy, śledztwa danych, gry edukacyjne, symulacje i darmowe aplikacje. Przeglądaj jak w serwisie streamingowym.">
+<title>FutureShow — portal wiedzy i zabawy: darmowe portale, gry, śledztwa</title>
+<meta name="description" content="Portal wiedzy i zabawy dla ciekawych świata: darmowe interaktywne portale, gry i śledztwa — kino, historia, nauka, dane. Bez reklam i bez kont.">
 <link rel="canonical" href="https://futureshow.pl/">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"><link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="description" content="Katalog interaktywnych portali, symulacji i śledztw studia FutureShow — przeglądaj jak w serwisie streamingowym.">
@@ -39,6 +39,17 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:cent
 nav.solid{background:var(--panel);backdrop-filter:blur(14px);
   border-bottom:1px solid var(--line)}
 .logo{font-weight:800;font-size:19px;letter-spacing:.04em;white-space:nowrap}
+.logo-desc{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:var(--dim);
+  text-transform:uppercase;margin-left:11px;white-space:nowrap}
+@media(max-width:980px){.logo-desc{display:none}}
+.claim{position:absolute;top:66px;left:0;right:0;z-index:6;text-align:center;
+  padding:10px 4vw;pointer-events:none}
+.claim b{display:block;font-size:clamp(17px,2.2vw,23px);font-weight:800;
+  letter-spacing:.01em;text-shadow:0 2px 18px rgba(0,0,0,.95),0 0 40px rgba(0,0,0,.6)}
+.claim span{display:block;margin-top:5px;font-family:var(--mono);
+  font-size:clamp(10.5px,1.2vw,12.5px);letter-spacing:.06em;color:var(--dim);
+  text-shadow:0 2px 14px rgba(0,0,0,.95)}
+@media(max-width:640px){.claim{top:58px}.claim span{display:none}}
 .logo span{color:var(--cyan)}
 .navlinks{display:flex;gap:18px;font-size:13.5px;color:var(--dim)}
 .navlinks a:hover{color:var(--ink)}
@@ -294,7 +305,7 @@ footer a{color:var(--dim)} footer a:hover{color:var(--ink)}
 <body>
 
 <nav id="nav">
-  <a class="logo" href="./">FUTURE<span>SHOW</span></a>
+  <a class="logo" href="./">FUTURE<span>SHOW</span></a><small class="logo-desc" data-i="logodesc"></small>
   <div class="navlinks">
     <a href="studio/" data-i="nav_home"></a>
     <a href="#r-new" data-i="nav_new"></a>
@@ -312,6 +323,7 @@ footer a{color:var(--dim)} footer a:hover{color:var(--ink)}
 </nav>
 
 <header class="hero" id="hero"></header>
+<div class="claim"><b data-i="claim1"></b><span data-i="claim2"></span></div>
 <main id="rails"></main>
 
 <section class="studio" id="studio">
@@ -832,6 +844,8 @@ const VID = {
 })();
 
 const ROWS = [
+ {id:"r-start", t:{pl:"Zacznij tutaj — trzy pewniaki",en:"Start here — three sure bets"},
+  items:["dobranocki","historia","klimat"]},
  {id:"r-new", t:{pl:"Nowości i aktualizacje",en:"New & updated"},
   items:["futurepilot","klimat","futuretalk","futureform","psychedelic","polskijazz","pokedex","cardiosim","matryca"]},
  {id:"r-data", t:{pl:"Śledztwa i dane",en:"Investigations & data"},
@@ -858,7 +872,10 @@ const FEATURED = ["dobranocki", "historia", "pokedex", "polskijazz", "awangarda"
                   "sectio", "futuretalk", "mnemo", "cardiosim", "oilgas", "sheldrake", "mondrian", "przyluski"];
 
 const UI = {
- pl:{nav_home:"Studio",nav_apps:"Aplikacje",nav_new:"Nowości",nav_data:"Śledztwa",nav_learn:"Nauka",nav_hidden:"Niepubliczne",
+ pl:{claim1:"Portal wiedzy i zabawy dla ciekawych świata.",
+  claim2:"Darmowe interaktywne portale, gry i śledztwa — kino, historia, nauka, dane. Bez reklam i bez kont.",
+  logodesc:"portal wiedzy i zabawy",
+  nav_home:"Studio",nav_apps:"Aplikacje",nav_new:"Nowości",nav_data:"Śledztwa",nav_learn:"Nauka",nav_hidden:"Niepubliczne",
   nav_studio:"Zamówienia",nav_contact:"Kontakt",search:"szukaj projektu…",
   open:"▶ Otwórz",more:"ⓘ Szczegóły",openFull:{portal:"▶ Otwórz portal",site:"▶ Otwórz stronę",app:"▶ Otwórz aplikację"},
   demo:"✉ Demo na życzenie",close:"Zamknij",
@@ -868,7 +885,10 @@ const UI = {
   s_cta1:"✉ Napisz do nas",s_cta2:"Zacznij projekt →",
   f_priv:"Bez cookies. Jedyny pomiar to bezcookiesowy licznik odwiedzin (GoatCounter).",
   trust:["nominacja EFA 2009","„Persona” Krystiana Lupy","nagroda MKiDN 2007","wykłady: Praga · Bezalel"]},
- en:{nav_home:"Studio",nav_apps:"Apps",nav_new:"New",nav_data:"Investigations",nav_learn:"Learning",nav_hidden:"Non-public",
+ en:{claim1:"Knowledge & play for the curious.",
+  claim2:"Free interactive portals, games and investigations — film, history, science, data. No ads, no accounts.",
+  logodesc:"knowledge & play",
+  nav_home:"Studio",nav_apps:"Apps",nav_new:"New",nav_data:"Investigations",nav_learn:"Learning",nav_hidden:"Non-public",
   nav_studio:"Commissions",nav_contact:"Contact",search:"search projects…",
   open:"▶ Open",more:"ⓘ Details",openFull:{portal:"▶ Open portal",site:"▶ Open site",app:"▶ Open app"},
   demo:"✉ Request a demo",close:"Close",
