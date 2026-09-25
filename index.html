@@ -43,6 +43,15 @@ nav.solid{background:var(--panel);backdrop-filter:blur(14px);
 .logo-desc{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;color:var(--dim);
   text-transform:uppercase;white-space:nowrap}
 @media(max-width:760px){.logo-desc{display:none}}
+.offer{margin:0 4vw;padding:18px 22px;display:flex;align-items:center;gap:22px;flex-wrap:wrap;
+  background:linear-gradient(90deg,rgba(111,214,255,.10),rgba(111,214,255,.02));
+  border:1px solid rgba(111,214,255,.28);border-radius:14px}
+.offer-txt{flex:1;min-width:260px}
+.offer-txt b{display:block;font-size:16.5px;font-weight:800;letter-spacing:-.01em}
+.offer-txt span{display:block;margin-top:5px;color:var(--dim);font-size:14px;line-height:1.55}
+.offer-btn{flex:none;background:var(--cyan);color:#05131c;border-color:var(--cyan);font-weight:600;white-space:nowrap}
+.offer-btn:hover{filter:brightness(1.1)}
+@media(max-width:700px){.offer{gap:14px}.offer-btn{width:100%;text-align:center}}
 .claim{position:absolute;top:66px;left:0;right:0;z-index:6;text-align:center;
   padding:10px 4vw;pointer-events:none}
 .claim b{display:block;font-size:clamp(17px,2.2vw,23px);font-weight:800;
@@ -54,7 +63,14 @@ nav.solid{background:var(--panel);backdrop-filter:blur(14px);
 .logo span{color:var(--cyan)}
 .navlinks{display:flex;gap:18px;font-size:13.5px;color:var(--dim)}
 .navlinks a{white-space:nowrap}
-@media(max-width:1440px){nav{gap:16px}.navlinks{gap:14px;font-size:13px}nav .search input{width:110px}}
+@media(max-width:1440px){nav{gap:14px}.navlinks{gap:12px;font-size:13px}nav .search input{width:110px}}
+/* poniżej 1240 px wyszukiwarka zwija się do ikony i rozwija po kliknięciu */
+@media(max-width:1239px){
+  nav .search{cursor:pointer}
+  nav .search input{width:0;padding:0;opacity:0;transition:width .2s,opacity .2s}
+  nav .search.open input{width:130px;opacity:1}
+  nav{gap:12px}.navlinks{gap:10px;font-size:12.5px}
+}
 .navlinks a:hover{color:var(--ink)}
 .spacer{flex:1}
 .search{display:flex;align-items:center;gap:8px;background:rgba(233,237,245,.06);
@@ -257,8 +273,8 @@ footer a{color:var(--dim)} footer a:hover{color:var(--ink)}
 }
 .sburger{display:none;background:none;border:1px solid var(--line);color:var(--ink,#e9edf5);font-size:18px;width:36px;height:36px;border-radius:8px;cursor:pointer}
 .nav-contact-m{display:none}
-/* dziewięć kategorii nie mieści się na węższych ekranach — poniżej 1240 px menu chowa się pod ☰ */
-@media(max-width:1239px){.navlinks{display:none}.sburger{display:inline-flex;align-items:center;justify-content:center}
+/* menu ma być widoczne — chowa się pod ☰ dopiero poniżej 960 px (telefony i wąskie tablety) */
+@media(max-width:959px){.navlinks{display:none}.sburger{display:inline-flex;align-items:center;justify-content:center}
  #nav.open .navlinks{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:#0b0d17;border-bottom:1px solid var(--line);padding:10px 4vw 14px;gap:0;z-index:60}
  #nav.open .navlinks a{padding:12px 0;font-size:15px}}
 @media(max-width:760px){.sburger{display:inline-flex;align-items:center;justify-content:center}.ctc{display:none}.nav-contact-m{display:block;color:var(--cyan,#6fd6ff)}
@@ -331,18 +347,23 @@ footer a{color:var(--dim)} footer a:hover{color:var(--ink)}
     <a href="#r-games" data-i="nav_games"></a>
     <a href="#r-apps" data-i="nav_apps"></a>
     <a href="#r-vid-ai" data-i="nav_films"></a>
-    <a href="studio/" data-i="nav_home"></a>
+    <a href="studio/#studio" data-i="nav_home"></a>
     <a class="nav-contact-m" href="studio/#contact" data-i="nav_contact"></a>
   </div>
   <div class="spacer"></div>
   <button class="sburger" id="sburger" aria-label="Menu">☰</button>
   <div class="search">◉ <input id="q" autocomplete="off"></div>
   <button class="langbtn" id="langbtn">EN</button>
-  <a class="ctc" href="studio/#contact" data-i="nav_contact"></a>
+  <a class="ctc" href="studio/#contact" data-i="nav_order"></a>
 </nav>
 
 <header class="hero" id="hero"></header>
 <div class="claim"><b data-i="claim1"></b><span data-i="claim2"></span></div>
+<section class="offer" id="offer">
+  <div class="offer-txt"><b data-i="of_title"></b><span data-i="of_lede"></span></div>
+  <a class="btn offer-btn" href="studio/" data-i="of_cta"></a>
+</section>
+
 <main id="rails"></main>
 
 <section class="studio" id="studio">
@@ -939,11 +960,14 @@ const FEATURED = ["dobranocki", "oilgas", "pokedex", "awangarda", "historia", "k
                   "polskijazz", "sheldrake", "futuretalk", "sectio", "hinton", "mondrian", "futurepilot", "matryca", "przyluski"];
 
 const UI = {
- pl:{claim1:"Portal wiedzy i zabawy dla ciekawych świata.",
-  claim2:"Interaktywne portale, gry i śledztwa — kino, historia, nauka, dane. Bez reklam i bez kont.",
+ pl:{claim1:"Zamieniamy trudne tematy w rzeczy do klikania.",
+  claim2:"Studio FutureShow: portale wiedzy, śledztwa, symulatory i gry. Bez reklam i bez kont.",
   logodesc:"portal wiedzy i zabawy",
-  nav_home:"O nas",nav_apps:"Aplikacje",nav_new:"Nowości",nav_data:"Śledztwa",nav_know:"Portale wiedzy",nav_stream:"Streaming",nav_sim:"Symulatory",nav_games:"Gry",nav_films:"Filmy",nav_hidden:"Niepubliczne",
-  nav_studio:"Zamówienia",nav_contact:"Kontakt",search:"szukaj projektu…",
+  of_title:"Robimy to na zamówienie.",
+  of_lede:"Interaktywne portale wiedzy, wizualizacje danych, symulatory i gry edukacyjne — dla muzeów, mediów, instytucji kultury i organizacji. Poniżej projekty, które zbudowaliśmy.",
+  of_cta:"Zamówienia →",
+  nav_home:"O nas",nav_apps:"Aplikacje",nav_new:"Nowości",nav_data:"Śledztwa",nav_know:"Wiedza",nav_stream:"Streaming",nav_sim:"Symulatory",nav_games:"Gry",nav_films:"Filmy",nav_hidden:"Niepubliczne",
+  nav_studio:"Zamówienia",nav_contact:"Kontakt",nav_order:"Zamówienia",search:"szukaj projektu…",
   open:"▶ Otwórz",more:"ⓘ Szczegóły",openFull:{portal:"▶ Otwórz portal",site:"▶ Otwórz stronę",app:"▶ Otwórz aplikację"},
   demo:"✉ Demo na życzenie",close:"Zamknij",
   share:"🔗 Kopiuj link",shared:"✓ Skopiowano",
@@ -952,11 +976,14 @@ const UI = {
   s_cta1:"✉ Napisz do nas",s_cta2:"Zacznij projekt →",
   f_priv:"Bez cookies. Jedyny pomiar to bezcookiesowy licznik odwiedzin (GoatCounter).",
   trust:["nominacja EFA 2009","„Persona” Krystiana Lupy","nagroda MKiDN 2007","wykłady: Praga · Bezalel"]},
- en:{claim1:"Knowledge & play for the curious.",
-  claim2:"Interactive portals, games and investigations — film, history, science, data. No ads, no accounts.",
+ en:{claim1:"We turn hard subjects into things you can click.",
+  claim2:"FutureShow studio: knowledge portals, investigations, simulators and games. No ads, no accounts.",
   logodesc:"knowledge & play",
-  nav_home:"About us",nav_apps:"Apps",nav_new:"New",nav_data:"Investigations",nav_know:"Knowledge portals",nav_stream:"Streaming",nav_sim:"Simulators",nav_games:"Games",nav_films:"Films",nav_hidden:"Non-public",
-  nav_studio:"Commissions",nav_contact:"Contact",search:"search projects…",
+  of_title:"We build these to order.",
+  of_lede:"Interactive knowledge portals, data visualisations, simulators and educational games — for museums, media, cultural institutions and NGOs. Below: the projects we have built.",
+  of_cta:"Commissions →",
+  nav_home:"About us",nav_apps:"Apps",nav_new:"New",nav_data:"Investigations",nav_know:"Knowledge",nav_stream:"Streaming",nav_sim:"Simulators",nav_games:"Games",nav_films:"Films",nav_hidden:"Non-public",
+  nav_studio:"Commissions",nav_contact:"Contact",nav_order:"Commissions",search:"search projects…",
   open:"▶ Open",more:"ⓘ Details",openFull:{portal:"▶ Open portal",site:"▶ Open site",app:"▶ Open app"},
   demo:"✉ Request a demo",close:"Close",
   share:"🔗 Copy link",shared:"✓ Copied",
@@ -1462,6 +1489,18 @@ document.addEventListener("click",e=>{
 });
 document.getElementById('sburger').onclick=()=>document.getElementById('nav').classList.toggle('open');
 document.querySelectorAll('#nav .navlinks a').forEach(a=>a.addEventListener('click',()=>document.getElementById('nav').classList.remove('open')));
+/* zwinięta wyszukiwarka (poniżej 1240 px): klik w ikonę rozwija pole */
+(function(){
+ const box=document.querySelector("nav .search"), inp=document.getElementById("q");
+ if(!box||!inp) return;
+ box.addEventListener("click",e=>{
+  if(!matchMedia("(max-width:1239px)").matches) return;
+  if(!box.classList.contains("open")){ box.classList.add("open"); setTimeout(()=>inp.focus(),120); }
+ });
+ document.addEventListener("click",e=>{
+  if(!box.contains(e.target) && !inp.value) box.classList.remove("open");
+ });
+})();
 document.getElementById("langbtn").onclick=()=>{
  LANG=LANG==="pl"?"en":"pl";store.set("fs-lang",LANG);store.set("lang",LANG);renderAll();};
 document.getElementById("q").addEventListener("input",e=>{
