@@ -248,6 +248,17 @@ window.KLIMAT = (function () {
     { f: 'zrodla.html', n: '', pl: 'Źródła', en: 'Sources' },
   ];
   function here() { const f = location.pathname.split('/').pop() || 'index.html'; return f === '' ? 'index.html' : f; }
+  /* instytucje, z których pochodzą dane portalu (meta.sources w data/*.json) */
+  const SRC = [
+    { n: 'NASA GISS', u: 'https://data.giss.nasa.gov/gistemp/', pl: '— GISTEMP v4: temperatura globalna, siatka, strefy', en: '— GISTEMP v4: global, gridded and zonal temperature' },
+    { n: 'NOAA GML', u: 'https://gml.noaa.gov/ccgg/trends/', pl: '— CO₂ z Mauna Loa, metan, podtlenek azotu', en: '— Mauna Loa CO₂, methane, nitrous oxide' },
+    { n: 'NOAA NCEI', u: 'https://www.ncei.noaa.gov/access/global-ocean-heat-content/', pl: '— ciepło oceanu 0–2000 m', en: '— ocean heat content 0–2000 m' },
+    { n: 'NOAA CPC', u: 'https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/ONI_v5.php', pl: '— indeks El Niño / La Niña (ONI)', en: '— El Niño / La Niña index (ONI)' },
+    { n: 'NSIDC', u: 'https://nsidc.org/data/seaice_index', pl: '— zasięg lodu morskiego (Sea Ice Index v3)', en: '— sea ice extent (Sea Ice Index v3)' },
+    { n: 'CSIRO / EPA', u: 'https://www.epa.gov/climate-indicators/climate-change-indicators-sea-level', pl: '— poziom morza: mareografy i satelity', en: '— sea level: tide gauges and satellites' },
+    { n: 'Our World in Data', u: 'https://github.com/owid/co2-data', pl: '— emisje i energia, na danych Global Carbon Project', en: '— emissions and energy, built on Global Carbon Project' },
+    { n: 'Natural Earth', u: 'https://www.naturalearthdata.com/downloads/50m-cultural-vectors/', pl: '— granice krajów na mapie', en: '— country borders on the map' }
+  ];
   function chrome() {
     const cur = here();
     const top = document.createElement('header'); top.className = 'top';
@@ -269,7 +280,9 @@ window.KLIMAT = (function () {
     const f = document.createElement('footer');
     f.innerHTML = `<div class="in"><div><h5>Klimat · FutureShow</h5><p style="font-size:13px;color:var(--dim);margin:0">${T('Portal edukacyjny o zmianach klimatu. Każda liczba pochodzi z otwartych, cytowanych zbiorów danych naukowych i jest odświeżana automatycznie.', 'An education portal on climate change. Every number comes from open, cited scientific datasets and is refreshed automatically.')}</p><div class="stamp" id="stamp"></div></div>
       <div><h5>${T('Rozdziały', 'Chapters')}</h5><ul>${CH.filter(c => c.n).map(c => `<li><a href="${c.f}">${c.n} · ${pl() ? c.pl : c.en}</a></li>`).join('')}</ul></div>
-      <div><h5>${T('Narzędzia', 'Tools')}</h5><ul><li><a href="mapa.html">${T('Mapa zmian klimatu', 'Climate change map')}</a></li><li><a href="slownik.html">${T('Słownik', 'Glossary')}</a></li><li><a href="zrodla.html">${T('Źródła i metoda', 'Sources & method')}</a></li><li><a href="data/indicators.json">${T('Dane (JSON)', 'Data (JSON)')}</a></li><li><a href="https://github.com/futureshow1/futureshow1.github.io/tree/main/klimat" target="_blank" rel="noopener">GitHub ↗</a></li></ul></div></div>`;
+      <div><h5>${T('Narzędzia', 'Tools')}</h5><ul><li><a href="mapa.html">${T('Mapa zmian klimatu', 'Climate change map')}</a></li><li><a href="slownik.html">${T('Słownik', 'Glossary')}</a></li><li><a href="zrodla.html">${T('Źródła i metoda', 'Sources & method')}</a></li><li><a href="data/indicators.json">${T('Dane (JSON)', 'Data (JSON)')}</a></li><li><a href="https://github.com/futureshow1/futureshow1.github.io/tree/main/klimat" target="_blank" rel="noopener">GitHub ↗</a></li></ul></div>
+      <div><h5>${T('Źródła danych', 'Data sources')}</h5><ul class="src-list">${SRC.map(x => `<li><a href="${x.u}" target="_blank" rel="noopener">${x.n}</a> <span>${pl() ? x.pl : x.en}</span></li>`).join('')}</ul>
+        <p style="margin:10px 0 0"><a href="zrodla.html">${T('Pełna lista źródeł i metoda →', 'Full source list & method →')}</a></p></div></div>`;
     document.body.appendChild(f);
     bindSources(document);
   }
