@@ -224,7 +224,7 @@ window.KLIMAT = (function () {
     ensureDrawer();
     const ids = $$('[data-src]').map(e => e.dataset.src).flatMap(s => s.split(',')).filter((v, i, a) => a.indexOf(v) === i);
     const order = id ? [id].concat(ids.filter(x => x !== id)) : ids;
-    drawerEl.innerHTML = `<div class="dh"><h2>${T('Źródła na tej stronie', 'Sources on this page')}</h2><button class="x" aria-label="close">✕</button></div><div class="db">${order.map(x => sourceCard(x, x === id)).join('')}<p class="muted" style="font-size:12px;margin-top:14px">${T('Dane liczbowe są generowane automatycznie ze wskazanych plików źródłowych. Pełna lista i metoda:', 'Numbers are generated automatically from the listed source files. Full list and method:')} <a href="zrodla.html">${T('Źródła i metoda', 'Sources & method')} →</a></p></div>`;
+    drawerEl.innerHTML = `<div class="dh"><h2>${T('Źródła na tej stronie', 'Sources on this page')}</h2><button class="x" aria-label="close">✕</button></div><div class="db">${order.map(x => sourceCard(x, x === id)).join('')}<p class="muted" style="font-size:12px;margin-top:14px">${T('Dane liczbowe są aktualizowane na bieżąco ze wskazanych plików źródłowych. Pełna lista i metoda:', 'Numbers are kept up to date from the listed source files. Full list and method:')} <a href="zrodla.html">${T('Źródła i metoda', 'Sources & method')} →</a></p></div>`;
     $('.x', drawerEl).onclick = closeSources; drawerEl.classList.add('on'); dimEl.classList.add('on');
     if (id) { const el = $('#src-' + CSS.escape(id), drawerEl); if (el) el.scrollIntoView({ block: 'start' }); }
   }
