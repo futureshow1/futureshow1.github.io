@@ -1,0 +1,877 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Agata de Latour — three homepage drafts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0C0D10; --paper:#EFEEE9; --muted:#6E7278; --muted-2:#989CA3;
+  --ui:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:hidden;background:var(--ink);color:var(--paper);font-family:var(--ui);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit}
+
+/* ——— chooser chrome ——— */
+.top{position:sticky;top:0;z-index:60;display:flex;align-items:center;gap:14px;padding:12px 20px;background:rgba(12,13,16,.9);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.07);flex-wrap:wrap}
+.brand{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase}
+.brand em{font-style:normal;color:var(--muted);letter-spacing:.06em;margin-left:9px;text-transform:none;font-size:11px}
+.top .sp{flex:1}
+.grp{display:flex;gap:4px;background:rgba(255,255,255,.05);border-radius:999px;padding:3px}
+.btn{font-size:12px;font-weight:500;letter-spacing:.02em;background:none;border:0;border-radius:999px;padding:7px 14px;cursor:pointer;color:var(--muted-2);transition:.16s;white-space:nowrap}
+.btn:hover{color:var(--paper)}
+.btn.on{background:var(--paper);color:var(--ink)}
+.lbl{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#53575E}
+
+.wrap{max-width:1620px;margin:0 auto;padding:22px 20px 64px;display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:24px;align-items:start}
+.stage{min-width:0}
+.stage-head{display:flex;align-items:baseline;gap:12px;margin:0 0 11px 3px;flex-wrap:wrap}
+.stage-head h2{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:500}
+.stage-head .tag{font-size:12px;color:var(--muted)}
+
+.browser{width:100%;background:#fff;border-radius:11px;overflow:hidden;box-shadow:0 28px 64px rgba(0,0,0,.55);transition:width .28s cubic-bezier(.4,0,.2,1)}
+.browser.mobile{width:390px;border-radius:30px;box-shadow:0 28px 64px rgba(0,0,0,.55),0 0 0 8px #1A1C21}
+.bbar{display:flex;align-items:center;gap:8px;padding:8px 12px;background:#101216;border-bottom:1px solid rgba(255,255,255,.07)}
+.dots{display:flex;gap:5px}
+.dots i{width:8px;height:8px;border-radius:50%;background:#2E323A;display:block}
+.url{flex:1;font-family:var(--mono);font-size:10.5px;color:#7B8088;background:#191C21;border-radius:5px;padding:4px 10px;text-align:center}
+.viewport{container-type:inline-size;height:76vh;min-height:540px;overflow-y:auto;overflow-x:hidden;background:#fff;scroll-behavior:smooth}
+.browser.mobile .viewport{height:700px}
+.page{display:none}
+.page.show{display:block}
+
+.notes{position:sticky;top:72px;border:1px solid rgba(255,255,255,.09);border-radius:11px;padding:19px 19px 21px;background:rgba(255,255,255,.028)}
+.notes h3{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:4px}
+.notes .sub{font-size:12px;color:var(--muted);margin-bottom:15px;line-height:1.5}
+.notes dt{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#7F8CFF;margin:14px 0 5px}
+.notes dd{font-size:13px;line-height:1.62;color:#C3C5C9}
+.notes dd b{color:#fff;font-weight:600}
+.notes .warn dt{color:#E0916F}
+
+.compare{max-width:1080px;margin:0 auto;padding:6px 20px 90px;display:none}
+.compare.show{display:block}
+.compare h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:38px;letter-spacing:-.01em;margin-bottom:10px}
+.compare p.intro{font-size:15px;line-height:1.72;color:#B6B9BE;max-width:74ch;margin-bottom:30px}
+.compare table{width:100%;border-collapse:collapse;font-size:13.5px;margin-bottom:34px}
+.compare th,.compare td{text-align:left;padding:13px 14px;border-bottom:1px solid rgba(255,255,255,.09);vertical-align:top;line-height:1.55;color:#C3C5C9}
+.compare th{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.compare td:first-child{color:#fff;font-weight:600;white-space:nowrap}
+.rec{border:1px solid rgba(127,140,255,.28);background:rgba(127,140,255,.08);border-radius:11px;padding:24px 26px;margin-bottom:22px}
+.rec h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:25px;margin-bottom:11px}
+.rec p{font-size:14.5px;line-height:1.75;color:#CFD1D6;margin-bottom:11px}
+.rec ul{margin:10px 0 0 17px;font-size:14px;line-height:1.74;color:#CFD1D6}
+.rec li{margin-bottom:7px}
+.rec b{color:#fff}
+
+@media (max-width:1180px){
+  .wrap{grid-template-columns:minmax(0,1fr)}
+  .notes{position:static}
+  .browser.mobile{width:min(390px,100%)}
+}
+
+/* ================================================================
+   SHARED PAGE BASICS
+   ================================================================ */
+.page{font-size:16px;line-height:1.6;text-rendering:optimizeLegibility}
+.page ::selection{background:#0C0D10;color:#fff}
+.mono{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase}
+.todo{display:inline-block;font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;background:#F6E3C9;color:#8A5A12;border-radius:3px;padding:2px 6px;vertical-align:middle}
+.lang{display:flex;gap:8px;font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase}
+.lang b{font-weight:500}
+.lang s{text-decoration:none;opacity:.38}
+
+/* ================================================================
+   A — EDITORIAL
+   ================================================================ */
+.va{--bg:#FBFAF6;--fg:#13110E;--soft:#5F5A51;--rule:#E4DFD3;--acc:#1E4B3C;--tint:#EDF1EC;
+    background:var(--bg);color:var(--fg);font-family:var(--ui)}
+.va .serif{font-family:'Instrument Serif',Georgia,serif;font-weight:400;letter-spacing:-.018em}
+.va header{display:flex;align-items:center;gap:26px;padding:22px 64px;border-bottom:1px solid var(--rule)}
+.va .mark{font-family:'Instrument Serif',serif;font-size:23px;letter-spacing:-.01em}
+.va .mark i{font-style:normal;color:var(--acc)}
+.va nav{margin-left:auto;display:flex;gap:28px;font-size:13.5px;color:var(--soft)}
+.va nav a{position:relative;padding-bottom:3px}
+.va nav a::after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--acc);transform:scaleX(0);transform-origin:left;transition:transform .28s cubic-bezier(.4,0,.2,1)}
+.va nav a:hover::after{transform:scaleX(1)}
+.va .lang{color:var(--soft)}
+
+.va .hero{display:grid;grid-template-columns:minmax(0,1fr) 250px;gap:58px;padding:96px 64px 78px;align-items:end}
+.va h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(42px,7.4cqw,94px);line-height:.98;letter-spacing:-.026em;max-width:13ch}
+.va h1 em{font-style:italic;color:var(--acc)}
+.va .hero-2{font-family:'Instrument Serif',serif;font-size:clamp(22px,2.9cqw,33px);line-height:1.2;letter-spacing:-.018em;color:#3A352E;margin-top:20px;max-width:22ch}
+.va .hero aside{border-left:1px solid var(--rule);padding-left:22px}
+.va .hero aside .mono{color:var(--acc);display:block;margin-bottom:11px}
+.va .hero aside p{font-size:13.5px;line-height:1.66;color:var(--soft)}
+
+.va .lede{padding:0 64px 60px;display:grid;grid-template-columns:minmax(0,1fr) 250px;gap:58px}
+.va .lede p{font-size:19px;line-height:1.62;max-width:54ch;color:#2C2822}
+.va .lede .act{display:flex;flex-direction:column;gap:13px;align-items:flex-start}
+.va .cta{display:inline-flex;align-items:center;gap:9px;background:var(--acc);color:#fff;border-radius:2px;padding:14px 24px;font-size:13.5px;font-weight:500;letter-spacing:.01em;transition:.18s}
+.va .cta:hover{background:#163A2E;gap:14px}
+.va .cta span{transition:transform .18s}
+.va .link{font-size:13.5px;color:var(--soft);border-bottom:1px solid var(--rule);padding-bottom:2px;transition:.18s}
+.va .link:hover{color:var(--acc);border-color:var(--acc)}
+
+.va .ticker{border-block:1px solid var(--rule);padding:15px 64px;display:flex;gap:34px;flex-wrap:wrap;color:var(--soft)}
+.va .ticker span{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase}
+
+.va .modes{padding:78px 64px 30px}
+.va .modes>.mono{color:var(--acc);margin-bottom:8px;display:block}
+.va .modes>h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:34px;letter-spacing:-.02em;margin-bottom:38px;max-width:22ch}
+.va .mode{display:grid;grid-template-columns:76px minmax(0,1fr) 230px;gap:36px;padding:32px 0;border-top:1px solid var(--rule);align-items:start;transition:.2s}
+.va .mode:hover{background:linear-gradient(90deg,rgba(30,75,60,.04),transparent 70%)}
+.va .mode .n{font-family:'Instrument Serif',serif;font-size:40px;color:var(--rule);line-height:1}
+.va .mode:hover .n{color:var(--acc)}
+.va .mode h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:30px;letter-spacing:-.015em;margin-bottom:11px}
+.va .mode p{font-size:15.5px;line-height:1.72;color:var(--soft);max-width:50ch}
+.va .mode .meta .mono{color:var(--acc);display:block;margin-bottom:8px}
+.va .mode .meta p{font-size:13px;line-height:1.6}
+
+.va .method{margin-top:44px;background:var(--tint);border-top:1px solid var(--rule);padding:80px 64px;display:grid;grid-template-columns:300px minmax(0,1fr);gap:64px;align-items:center}
+.va .venn{position:relative;width:268px;height:196px}
+.va .venn i{position:absolute;top:0;width:168px;height:168px;border-radius:50%;mix-blend-mode:multiply;display:block;border:1px solid rgba(0,0,0,.06)}
+.va .venn i:first-child{left:0;background:#B3CDBF}
+.va .venn i:last-child{left:100px;background:#E4D3AC}
+.va .venn b{position:absolute;left:100px;top:72px;width:68px;text-align:center;font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:#14352A;line-height:1.5;z-index:2}
+.va .venn u{position:absolute;bottom:0;font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);text-decoration:none}
+.va .venn u:first-of-type{left:22px}
+.va .venn u:last-of-type{right:16px}
+.va .method h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:36px;letter-spacing:-.02em;margin-bottom:9px}
+.va .method>div>p{font-size:15.5px;color:var(--soft);max-width:52ch;margin-bottom:30px;line-height:1.7}
+.va .steps{display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.va .step{background:var(--tint);padding:20px 22px}
+.va .step .mono{color:var(--acc);display:block;margin-bottom:8px}
+.va .step h4{font-family:'Instrument Serif',serif;font-weight:400;font-size:20px;margin-bottom:6px}
+.va .step p{font-size:13.5px;line-height:1.62;color:var(--soft)}
+
+.va .story{border-top:1px solid var(--rule);padding:82px 64px 78px;display:grid;grid-template-columns:120px minmax(0,1fr) 248px;gap:42px;align-items:start}
+.va .pic{aspect-ratio:3/4;background:var(--tint);border:1px solid var(--rule);display:flex;align-items:flex-end;padding:15px;margin:0}
+.slot{font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;line-height:1.7;opacity:.8}
+.va .pic .slot{color:var(--acc)}
+.va .story>.mono{color:var(--acc);padding-top:9px}
+.va .story .first{font-family:'Instrument Serif',serif;font-size:clamp(23px,3cqw,31px);line-height:1.28;letter-spacing:-.018em;margin-bottom:24px;max-width:28ch}
+.va .story p{font-size:16px;line-height:1.82;color:#3B362E;max-width:62ch;margin-bottom:17px}
+.va .story .belief{border-left:2px solid var(--acc);padding-left:22px;margin-top:30px}
+.va .story .belief p{color:var(--fg);margin-bottom:12px}
+.va .story .belief p:first-child{font-weight:500}
+.va .quote{padding:96px 64px;text-align:center;position:relative}
+.va .quote::before{content:'\201C';font-family:'Instrument Serif',serif;font-size:150px;color:var(--rule);position:absolute;top:36px;left:50%;transform:translateX(-50%);line-height:1}
+.va .quote blockquote{font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(24px,3.4cqw,38px);line-height:1.28;max-width:22ch;margin:0 auto 22px;position:relative}
+.va .quote cite{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--soft);font-style:normal}
+
+.va .sign{border-top:1px solid var(--rule);padding:56px 64px;display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:50px;align-items:center}
+.va .sign h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:27px;margin-bottom:7px}
+.va .sign p{font-size:14px;color:var(--soft);line-height:1.65;max-width:44ch}
+.va .field{display:flex;border-bottom:1px solid var(--fg)}
+.va .field input{flex:1;font:inherit;font-size:15px;padding:12px 0;border:0;background:none;color:var(--fg);outline:none}
+.va .field input::placeholder{color:#A9A39A}
+.va .field button{background:none;border:0;cursor:pointer;font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--acc);padding:0 2px}
+.va footer{border-top:1px solid var(--rule);padding:26px 64px;display:flex;gap:26px;flex-wrap:wrap;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft)}
+.va footer .sp{flex:1}
+
+/* ================================================================
+   B — DOSSIER
+   ================================================================ */
+.vb{--bg:#fff;--fg:#0A0B0C;--soft:#5E6469;--rule:#DFE1E4;--acc:#D22B1E;--ink2:#0A0B0C;
+    background:var(--bg);color:var(--fg);font-family:var(--ui)}
+.vb header{display:flex;align-items:center;gap:22px;padding:14px 52px;background:var(--ink2);color:#fff;position:sticky;top:0;z-index:5}
+.vb .mark{font-size:14px;font-weight:600;letter-spacing:.04em}
+.vb .mark em{font-style:normal;font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#8A9096;display:block;margin-top:2px}
+.vb nav{margin-left:auto;display:flex;gap:22px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#9AA0A6}
+.vb nav a:hover{color:#fff}
+.vb .lang{color:#6E747A}
+.vb .lang b{color:#fff}
+.vb .book{background:var(--acc);color:#fff;padding:8px 16px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;transition:.16s}
+.vb .book:hover{background:#B01F14}
+
+.vb .hero{display:grid;grid-template-columns:minmax(0,1fr) 288px;border-bottom:1px solid var(--rule)}
+.vb .hero .txt{padding:62px 52px 54px;border-right:1px solid var(--rule)}
+.vb .hero .kicker{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--acc);margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.vb .hero .kicker::before{content:'';width:26px;height:2px;background:var(--acc)}
+.vb .hero h1{font-size:clamp(30px,5.2cqw,54px);line-height:1.04;letter-spacing:-.035em;font-weight:700;max-width:16ch}
+.vb .hero .lead{font-size:16.5px;line-height:1.66;color:var(--soft);max-width:50ch;margin-top:22px}
+.vb .row{display:flex;gap:10px;margin-top:30px;flex-wrap:wrap}
+.vb .cta{background:var(--ink2);color:#fff;padding:13px 22px;font-size:13px;font-weight:500;transition:.16s}
+.vb .cta:hover{background:var(--acc)}
+.vb .cta.ghost{background:none;color:var(--ink2);border:1px solid var(--rule)}
+.vb .cta.ghost:hover{border-color:var(--ink2);background:none}
+.vb .card{padding:26px 26px;font-family:var(--mono);font-size:11px;line-height:1.5}
+.vb .card .t{font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--acc);padding-bottom:12px;border-bottom:1px solid var(--rule);margin-bottom:14px}
+.vb .card dl{display:grid;grid-template-columns:auto 1fr;gap:9px 12px}
+.vb .card dt{color:#9AA0A6;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;padding-top:1px}
+.vb .card dd{color:var(--fg)}
+
+.vb .num{display:flex;align-items:baseline;gap:14px;padding:0 52px;margin:54px 0 20px}
+.vb .num i{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--acc);font-style:normal}
+.vb .num h2{font-size:20px;font-weight:700;letter-spacing:-.02em}
+.vb .num span{flex:1;height:1px;background:var(--rule)}
+
+.vb .offer{padding:0 52px;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin:0 52px}
+.vb .o{background:#fff;padding:30px 30px 34px}
+.vb .o h3{font-size:21px;font-weight:700;letter-spacing:-.02em;margin-bottom:11px}
+.vb .o>p{font-size:14.5px;line-height:1.68;color:var(--soft);margin-bottom:20px}
+.vb .o dl{font-family:var(--mono);font-size:11.5px;line-height:1.62;border-top:1px solid var(--rule);padding-top:16px}
+.vb .o dt{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--acc);margin-top:13px}
+.vb .o dd{color:var(--soft)}
+
+.vb .tbl{margin:0 52px;width:calc(100% - 104px);border-collapse:collapse;font-size:14px}
+.vb .tbl th{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:#9AA0A6;text-align:left;padding:0 14px 10px 0;font-weight:400;border-bottom:1px solid var(--ink2)}
+.vb .tbl td{padding:15px 14px 15px 0;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.5}
+.vb .tbl td:first-child{font-family:var(--mono);font-size:12px;color:var(--acc);white-space:nowrap;width:104px}
+.vb .tbl td:nth-child(2){font-weight:600;white-space:nowrap}
+.vb .tbl td:last-child{color:var(--soft)}
+.vb .tbl tr:hover td{background:#FAFAFB}
+
+.vb .pub{margin:60px 0 0;background:var(--ink2);color:#fff;padding:60px 52px;display:grid;grid-template-columns:230px minmax(0,1fr);gap:54px;align-items:center}
+.vb .cover{aspect-ratio:3/4;background:var(--acc);padding:26px 22px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 24px 50px rgba(0,0,0,.45)}
+.vb .cover .top{font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;opacity:.78}
+.vb .cover .ttl{font-size:30px;font-weight:700;letter-spacing:-.03em;line-height:1.02}
+.vb .cover .bot{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;opacity:.78}
+.vb .pub .kicker{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#FF7A6E;margin-bottom:14px}
+.vb .pub h2{font-size:27px;font-weight:700;letter-spacing:-.025em;line-height:1.2;margin-bottom:15px;max-width:26ch}
+.vb .pub p{font-size:15px;line-height:1.7;color:rgba(255,255,255,.72);max-width:58ch;margin-bottom:24px}
+.vb .pub .cta{background:#fff;color:var(--ink2)}
+.vb .pub .cta:hover{background:var(--acc);color:#fff}
+
+.vb .band{height:200px;background:var(--tint);border-block:1px solid var(--rule);display:flex;align-items:flex-end;padding:0 52px 16px}
+.vb .band .slot{color:#9AA0A6}
+.vb .about{padding:56px 52px;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:54px}
+.vb .about p{font-size:15.5px;line-height:1.76;color:var(--soft);max-width:62ch;margin-bottom:13px}
+.vb .about p strong{color:var(--fg);font-weight:600}
+.vb .creed{margin:0 52px 8px;border-left:3px solid var(--acc);padding:4px 0 4px 22px}
+.vb .creed p{font-size:19px;line-height:1.5;letter-spacing:-.01em;color:var(--fg);max-width:54ch;font-weight:500}
+.vb .creed span{display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:#9AA0A6;margin-top:11px}
+.vb .about .side{font-family:var(--mono);font-size:11px;line-height:1.7;color:var(--soft);border-left:2px solid var(--acc);padding-left:18px}
+.vb .contact{padding:52px;display:grid;grid-template-columns:1fr 1fr;gap:50px;background:#FAFAFB}
+.vb .contact h2{font-size:22px;font-weight:700;letter-spacing:-.02em;margin-bottom:11px}
+.vb .contact p{font-size:14.5px;line-height:1.7;color:var(--soft);max-width:44ch}
+.vb .form{display:grid;gap:9px}
+.vb .form input,.vb .form textarea{font:inherit;font-size:14px;padding:12px 14px;border:1px solid var(--rule);background:#fff;color:var(--fg);width:100%;outline:none;transition:.15s}
+.vb .form input:focus,.vb .form textarea:focus{border-color:var(--ink2)}
+.vb .form textarea{min-height:88px;resize:vertical}
+.vb footer{background:var(--ink2);color:#8A9096;padding:22px 52px;display:flex;gap:24px;flex-wrap:wrap;font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase}
+.vb footer .sp{flex:1}
+
+/* ================================================================
+   C — QUESTIONS
+   ================================================================ */
+.vc{--bg:#F4EBDF;--fg:#1E1710;--soft:#6B5B4A;--rule:#E1D3C1;--acc:#C24E2C;--acc2:#1F5E57;
+    background:var(--bg);color:var(--fg);font-family:var(--ui);position:relative}
+.vc::before{content:'';position:absolute;inset:0;pointer-events:none;z-index:1;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.06'/%3E%3C/svg%3E")}
+.vc>*{position:relative;z-index:2}
+.vc .fr{font-family:'Fraunces','Instrument Serif',serif;font-variation-settings:"SOFT" 40,"WONK" 1;letter-spacing:-.02em}
+.vc header{display:flex;align-items:center;gap:24px;padding:22px 58px}
+.vc .mark{font-family:'Fraunces',serif;font-weight:600;font-size:20px;letter-spacing:-.02em}
+.vc nav{margin-left:auto;display:flex;gap:24px;font-size:13.5px;color:var(--soft)}
+.vc nav a:hover{color:var(--acc)}
+.vc .lang{color:var(--soft)}
+
+.vc .hero{padding:56px 58px 8px}
+.vc .hero .mono{color:var(--acc);display:block;margin-bottom:22px}
+.vc h1{font-family:'Fraunces',serif;font-weight:600;font-variation-settings:"SOFT" 60,"WONK" 1;
+  font-size:clamp(38px,7.6cqw,84px);line-height:.98;letter-spacing:-.035em;max-width:13ch}
+.vc h1 em{font-style:italic;color:var(--acc)}
+.vc .hero p{font-size:17.5px;line-height:1.62;color:var(--soft);max-width:46ch;margin-top:22px}
+
+.vc .deck{padding:40px 58px 0;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.vc .q{position:relative;text-align:left;background:#FCF9F5;border:1px solid var(--rule);border-radius:3px;padding:26px 28px 24px;cursor:pointer;
+  transition:transform .22s cubic-bezier(.34,1.3,.64,1),box-shadow .22s,background .2s,border-color .2s;color:var(--fg);overflow:hidden}
+.vc .q::after{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--acc);transform:scaleY(0);transform-origin:top;transition:transform .26s}
+.vc .q:hover{transform:translateY(-3px) rotate(-.35deg);box-shadow:0 14px 30px rgba(70,42,20,.1)}
+.vc .q:hover::after,.vc .q.on::after{transform:scaleY(1)}
+.vc .q.on{background:var(--fg);color:#F4EBDF;border-color:var(--fg)}
+.vc .q .n{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;color:var(--acc);display:block;margin-bottom:13px}
+.vc .q h3{font-family:'Fraunces',serif;font-weight:500;font-variation-settings:"SOFT" 40;font-size:21px;line-height:1.26;letter-spacing:-.015em}
+.vc .q small{display:block;font-size:12.5px;margin-top:10px;color:var(--soft);line-height:1.5}
+.vc .q.on small{color:rgba(244,235,223,.6)}
+
+.vc .ans{margin:16px 58px 0;background:#FCF9F5;border:1px solid var(--rule);border-radius:3px;padding:36px 38px 34px;display:none}
+.vc .ans.show{display:block;animation:rise .34s cubic-bezier(.2,.7,.3,1)}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.vc .ans .mono{color:var(--acc);display:block;margin-bottom:13px}
+.vc .ans h4{font-family:'Fraunces',serif;font-weight:500;font-size:28px;line-height:1.16;letter-spacing:-.025em;margin-bottom:15px;max-width:22ch}
+.vc .ans>p{font-size:16px;line-height:1.74;color:var(--soft);max-width:62ch;margin-bottom:28px}
+.vc .flow{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-bottom:28px;border-top:1px solid var(--rule)}
+.vc .f{padding:18px 20px 16px 0;position:relative}
+.vc .f::before{content:'';position:absolute;top:-4px;left:0;width:7px;height:7px;border-radius:50%;background:var(--acc)}
+.vc .f b{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--acc);display:block;margin-bottom:7px}
+.vc .f p{font-size:13.5px;line-height:1.58;color:var(--soft)}
+.vc .chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.vc .chips i{font-style:normal;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;background:var(--bg);border:1px solid var(--rule);border-radius:999px;padding:7px 13px;color:var(--soft)}
+.vc .cta{display:inline-flex;align-items:center;gap:9px;background:var(--acc);color:#fff;border-radius:2px;padding:13px 22px;font-size:13.5px;font-weight:500;transition:.18s}
+.vc .cta:hover{background:#A63C1E;gap:14px}
+
+.vc .who{margin-top:76px;background:var(--fg);color:#F4EBDF;padding:64px 58px}
+.vc .who .in{display:grid;grid-template-columns:186px minmax(0,1fr) 224px;gap:40px;align-items:start}
+.vc .who .pic{aspect-ratio:1;border:1px solid rgba(244,235,223,.24);display:flex;align-items:flex-end;padding:14px;margin:0}
+.vc .who .pic .slot{color:rgba(244,235,223,.6)}
+.vc .who h2{font-family:'Fraunces',serif;font-weight:500;font-size:34px;letter-spacing:-.03em;margin-bottom:16px}
+.vc .who p{font-size:16px;line-height:1.76;opacity:.74;max-width:56ch;margin-bottom:14px}
+.vc .who .creed{border-left:2px solid var(--acc);padding-left:20px;margin:22px 0 0}
+.vc .who .creed p{opacity:1;font-size:17px;line-height:1.6;max-width:48ch}
+.vc .who .facts{font-family:var(--mono);font-size:11px;line-height:1.8;border-left:1px solid rgba(244,235,223,.22);padding-left:20px}
+.vc .who .facts b{display:block;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;opacity:.5;margin-top:14px;font-weight:400}
+.vc .who .facts b:first-child{margin-top:0}
+
+.vc .reads{padding:70px 58px 10px}
+.vc .reads h2{font-family:'Fraunces',serif;font-weight:500;font-size:32px;letter-spacing:-.03em;margin-bottom:7px}
+.vc .reads .sub{font-size:15px;color:var(--soft);margin-bottom:30px}
+.vc .g3{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.vc .art{background:var(--bg);padding:26px 24px 28px;transition:.2s;display:block}
+.vc .art:hover{background:#FCF9F5}
+.vc .art .k{font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--acc);margin-bottom:14px}
+.vc .art h4{font-family:'Fraunces',serif;font-weight:500;font-size:20px;line-height:1.24;letter-spacing:-.02em;margin-bottom:10px}
+.vc .art p{font-size:13.5px;line-height:1.6;color:var(--soft)}
+.vc .sign{padding:64px 58px 70px}
+.vc .sign .box{background:var(--acc2);color:#F4EBDF;padding:46px 46px;display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;border-radius:3px}
+.vc .sign h3{font-family:'Fraunces',serif;font-weight:500;font-size:28px;letter-spacing:-.025em;margin-bottom:10px}
+.vc .sign p{font-size:14.5px;line-height:1.66;opacity:.78}
+.vc .field{display:flex;border-bottom:1px solid rgba(244,235,223,.4)}
+.vc .field input{flex:1;font:inherit;font-size:15px;padding:12px 0;border:0;background:none;color:#F4EBDF;outline:none}
+.vc .field input::placeholder{color:rgba(244,235,223,.5)}
+.vc .field button{background:none;border:0;cursor:pointer;font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#F4EBDF}
+.vc footer{border-top:1px solid var(--rule);padding:24px 58px 40px;display:flex;gap:24px;flex-wrap:wrap;font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft)}
+.vc footer .sp{flex:1}
+
+/* ——— narrow frame ——— */
+@container (max-width:760px){
+  .va header,.va .hero,.va .lede,.va .ticker,.va .modes,.va .method,.va .story,.va .quote,.va .sign,.va footer,
+  .vb header,.vb .hero .txt,.vb .num,.vb .pub,.vb .about,.vb .contact,.vb footer,
+  .vc header,.vc .hero,.vc .deck,.vc .who,.vc .reads,.vc .sign,.vc footer{padding-left:20px;padding-right:20px}
+  .vb .offer{margin-left:20px;margin-right:20px;padding:0}
+  .vb .tbl{margin-left:20px;margin-right:20px;width:calc(100% - 40px)}
+  .vc .ans{margin-left:20px;margin-right:20px;padding:26px 22px}
+  .page nav{display:none}
+  .va .hero,.va .lede,.va .method,.va .story,.vc .who .in,.va .sign,.vb .hero,.vb .about,.vb .contact,.vc .who .in,.vc .sign .box{grid-template-columns:minmax(0,1fr);gap:26px}
+  .va .story{padding-top:52px;padding-bottom:52px}
+  .va .pic{aspect-ratio:4/3}
+  .vb .band{height:190px}
+  .vc .who .pic{max-width:200px}
+  .vb .band{height:150px;padding-left:20px;padding-right:20px}
+  .va .story .first{font-size:22px}
+  .va .hero{padding-top:48px;padding-bottom:30px;align-items:start}
+  .va .hero aside{border-left:0;border-top:1px solid var(--rule);padding-left:0;padding-top:16px}
+  .va .mode{grid-template-columns:44px minmax(0,1fr);gap:16px;padding:24px 0}
+  .va .mode .n{font-size:26px}
+  .va .mode .meta{grid-column:2}
+  .va .method{padding-top:52px;padding-bottom:52px}
+  .va .venn{max-width:280px}
+  .va .quote{padding:64px 20px}
+  .va .quote::before{font-size:96px;top:22px}
+  .vb .hero .txt{border-right:0;padding-top:42px;padding-bottom:34px}
+  .vb .card{border-top:1px solid var(--rule)}
+  .vb .offer{grid-template-columns:1fr}
+  .vb .cover{max-width:180px}
+  .vb .tbl td:nth-child(2){white-space:normal}
+  .vb .pub{grid-template-columns:1fr;gap:30px}
+  .vc .deck,.vc .g3,.vc .flow{grid-template-columns:1fr}
+  .vc .flow .f{padding-left:0;border-bottom:1px solid var(--rule)}
+  .vc .hero{padding-top:34px}
+  .vc .who{margin-top:52px;padding-top:48px;padding-bottom:48px}
+  .vc .sign .box{padding:30px 24px}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="brand">Agata de Latour <em>three homepage drafts · v0.3 · draft for review, nothing published</em></div>
+  <div class="sp"></div>
+  <span class="lbl">Direction</span>
+  <div class="grp" id="tabs">
+    <button class="btn on" data-v="a">A · Editorial</button>
+    <button class="btn" data-v="b">B · Questions</button>
+    <button class="btn" data-v="c">C · Dossier</button>
+    <button class="btn" data-v="x">Compare</button>
+  </div>
+  <span class="lbl">View</span>
+  <div class="grp" id="views">
+    <button class="btn on" data-w="desktop">Desktop</button>
+    <button class="btn" data-w="mobile">Phone</button>
+  </div>
+</header>
+
+<div class="wrap" id="wrap">
+  <div class="stage">
+    <div class="stage-head"><h2 id="stageTitle">A — Editorial</h2><span class="tag" id="stageTag">lineage: Priya Parker</span></div>
+    <div class="browser" id="browser">
+      <div class="bbar"><div class="dots"><i></i><i></i><i></i></div><div class="url" id="url">agatadelatour.com</div></div>
+      <div class="viewport" id="viewport">
+
+<!-- ======================= A — EDITORIAL ======================= -->
+<div class="page va show" data-v="a">
+  <header>
+    <div class="mark">Agata de&nbsp;Latour<i>.</i></div>
+    <nav><a href="#">Work</a><a href="#">About</a><a href="#">Writing</a><a href="#">Contact</a></nav>
+    <div class="lang"><b>EN</b><s>FR</s><s>PL</s></div>
+  </header>
+
+  <section class="hero">
+    <div>
+      <h1>Some differences <em>don't dissolve</em>.</h1>
+      <p class="hero-2">You still have to work together on Monday.</p>
+    </div>
+    <aside>
+      <span class="mono">Paris · Strasbourg</span>
+      <p>Training, facilitation and advisory work in English, French and Polish.</p>
+    </aside>
+  </section>
+
+  <section class="lede">
+    <p>I train teams and institutions in the conversations they have been putting off. Not the ones about strategy — the ones about the client who wouldn't deal with a woman, the meeting everybody left angry, the thing that was said two years ago and has not been mentioned since.</p>
+    <div class="act">
+      <a class="cta" href="#">See how I work <span>→</span></a>
+      <a class="link" href="#">Or write to me directly</a>
+    </div>
+  </section>
+
+  <div class="ticker">
+    <span>Council of Europe</span><span>ALDA</span><span>Lieu d'Europe</span><span>Ligue de l'enseignement</span><span>SINGA</span><span>ARTE</span>
+  </div>
+
+  <section class="modes">
+    <span class="mono">Three ways of working</span>
+    <h2>Almost everything I am asked for takes one of three shapes.</h2>
+
+    <div class="mode">
+      <div class="n">01</div>
+      <div>
+        <h3>Training</h3>
+        <p>Your team already has the material. It is the three or four incidents nobody brings up: the client who would not deal with a woman, the meeting where the interpreter softened something, the colleague who stopped speaking up in March. I collect them anonymously two weeks beforehand, and we spend the day on those instead of on cultural dimensions.</p>
+      </div>
+      <div class="meta"><span class="mono">For</span><p>aid organisations, local government, schools, multinational teams</p></div>
+    </div>
+
+    <div class="mode">
+      <div class="n">02</div>
+      <div>
+        <h3>Facilitation</h3>
+        <p>Some meetings cannot be chaired, only held. Consultations where the decision is already resented, a team meeting after a conflict, two sides at one table who each believe the other has already won. I prepare with each side separately, run the day to a written order, and afterwards write the note in language both sides can sign.</p>
+      </div>
+      <div class="meta"><span class="mono">For</span><p>public institutions, organisations in crisis, teams after a change</p></div>
+    </div>
+
+    <div class="mode">
+      <div class="n">03</div>
+      <div>
+        <h3>Advisory</h3>
+        <p>Your form is the first conversation your institution has with a person. Very often it is also the last. I go through the materials, the language, the procedures and the whole path someone takes to reach you, and come back with a list of what turns people away and what can be changed inside a month.</p>
+      </div>
+      <div class="meta"><span class="mono">For</span><p>public administration, universities, integration programmes, EU projects</p></div>
+    </div>
+  </section>
+
+  <section class="method">
+    <div class="venn">
+      <i></i><i></i>
+      <b>what can<br>be said</b>
+      <u>one side</u><u>the other</u>
+    </div>
+    <div>
+      <h2>What can be said here</h2>
+      <p>Three movements, whether it is a two-day course or one difficult meeting.</p>
+      <div class="steps">
+        <div class="step"><span class="mono">01</span><h4>Find out what cannot be said yet</h4><p>Before anything is practised, I find out which sentences are currently impossible in this room, and why. It is rarely the topic in the brief.</p></div>
+        <div class="step"><span class="mono">02</span><h4>Say one true thing on purpose</h4><p>Not everything. One thing, said deliberately, in front of everyone, at a moment the group can survive. That is the whole technique, and it takes preparation.</p></div>
+        <div class="step"><span class="mono">03</span><h4>Leave a rule behind, not a feeling</h4><p>A workshop that ends in goodwill has changed nothing by Thursday. We leave with one sentence, one procedure or one change to a form — something that works when I am not there.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="story">
+    <span class="mono">Who I am</span>
+    <div>
+      <p class="first">For years my job was to carry other people's words across a language.</p>
+      <p>I worked as a journalist and a translator in Brussels, and as a sworn interpreter in courtrooms — where a sentence is not finished until someone has said it again in the other language and both sides accept that this is what was said. You learn quickly that the work is not vocabulary. It is knowing what a person meant, what they said instead, and which of the two to carry across.</p>
+      <p>Then I stopped describing Europe and started working inside it. In 2016 the Council of Europe asked me to research and edit a handbook on answering hate speech. I spent a year reading the worst things people say to each other, and the best replies anyone had found. The most useful thing I learned was not what to say back. It was when not to.</p>
+      <p>Since then I have worked with teams that receive refugees, city departments whose forms nobody returns, and organisations where something was said in a meeting two years ago and has not been mentioned since. I do not make the difference disappear. I make it workable.</p>
+      <div class="belief">
+        <p>You do not build peace by avoiding conflict. You build it by making a room safe enough to go through one.</p>
+        <p>The problem is rarely the difference itself. It is the hatred that grows around it, and the stories people tell themselves about each other to keep it fed. My work is not to make the difference disappear. It is to build enough safety in the room that people can finally cross it — together, and out loud.</p>
+      </div>
+    </div>
+    <figure class="pic"><span class="slot">portrait<br>to be supplied</span></figure>
+  </section>
+
+  <section class="quote">
+    <blockquote>It was the first time anyone said out loud what we had all known for a year.</blockquote>
+    <cite>Workshop participant <span class="todo">quote to be collected</span></cite>
+  </section>
+
+  <section class="sign">
+    <div>
+      <h3>A letter once a month</h3>
+      <p>One situation, one question, one thing to try. I write when I have something worth saying, which is roughly monthly. No offers.</p>
+    </div>
+    <div class="field"><input placeholder="your email address"><button>Subscribe →</button></div>
+  </section>
+
+  <footer>
+    <span>Agata de Latour</span><span>Paris · Strasbourg</span><div class="sp"></div>
+    <span>hello@agatadelatour.com</span><span>LIBRA — registered practice</span>
+  </footer>
+</div>
+
+<!-- ======================= B — DOSSIER ======================= -->
+<div class="page vb" data-v="c">
+  <header>
+    <div class="mark">Agata de Latour<em>Intercultural trainer · Facilitator</em></div>
+    <nav><a href="#">Work</a><a href="#">Track record</a><a href="#">Publication</a><a href="#">Writing</a></nav>
+    <div class="lang"><b>EN</b><s>FR</s><s>PL</s></div>
+    <a class="book" href="#">Book a talk</a>
+  </header>
+
+  <section class="hero">
+    <div class="txt">
+      <p class="kicker">Council of Europe — researcher and editor, “WE CAN!”, 2016</p>
+      <h1>Intercultural competence and countering hate speech.</h1>
+      <p class="lead">Training, keynotes and advisory work for public institutions, universities and civil-society organisations — in English, French and Polish, across France, Poland and European programmes.</p>
+      <div class="row">
+        <a class="cta" href="#">Book a talk</a>
+        <a class="cta ghost" href="#">Course outline (PDF)</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="t">At a glance</div>
+      <dl>
+        <dt>Based</dt><dd>Paris</dd>
+        <dt>Working</dt><dd>Strasbourg and across the EU</dd>
+        <dt>Languages</dt><dd>EN · FR · PL</dd>
+        <dt>Practising</dt><dd>since 1999</dd>
+        <dt>Formats</dt><dd>keynote · 1–2 days · 4-part series</dd>
+        <dt>Notice</dt><dd>4–6 weeks <span class="todo">confirm</span></dd>
+      </dl>
+    </div>
+  </section>
+
+  <div class="creed">
+    <p>You do not build peace by avoiding conflict. You build it by making a room safe enough to go through one.</p>
+    <span>The principle behind everything below</span>
+  </div>
+
+  <div class="num"><i>01</i><h2>What I do</h2><span></span></div>
+  <section class="offer">
+    <div class="o">
+      <h3>Keynotes and lectures</h3>
+      <p>From an hour-long opening lecture to a closed session for a management team. Cases from inside European institutions and from rooms where it went wrong — not general remarks about diversity.</p>
+      <dl>
+        <dt>Topics</dt><dd>hate speech and counter-narratives · working in a multicultural team · integration in institutional practice · when not to reply</dd>
+        <dt>Length</dt><dd>45–90 minutes, in person or online</dd>
+        <dt>Languages</dt><dd>English, French, Polish</dd>
+      </dl>
+    </div>
+    <div class="o">
+      <h3>Workshops and series</h3>
+      <p>Two weeks beforehand I collect, anonymously, the situations that have already happened to you — the ones somebody went home angry about. Those become the material. Participants leave with sentences they can use, not with notes.</p>
+      <dl>
+        <dt>Scope</dt><dd>one day, two days, or four sessions with work in between</dd>
+        <dt>Group</dt><dd>8–18 people; larger audiences run as plenary plus breakouts</dd>
+        <dt>Before we start</dt><dd>an anonymous collection of incidents, and interviews with three or four people</dd>
+      </dl>
+    </div>
+  </section>
+
+  <div class="num"><i>02</i><h2>Track record</h2><span></span></div>
+  <table class="tbl">
+    <tr><th>Years</th><th>Institution</th><th>Role</th></tr>
+    <tr><td>2016</td><td>Council of Europe</td><td>Researcher and editor — “WE CAN! Taking action against hate speech through counter and alternative narratives”</td></tr>
+    <tr><td>2018 —</td><td>Own practice</td><td>Intercultural training for SINGA, KODIKO and public institutions; facilitation; advisory work</td></tr>
+    <tr><td>2022–2026</td><td>Association Tunaweza, Strasbourg</td><td>Co-president; coordinator of PAROLES — conversation pairs between exiled people and French-speaking volunteers, four editions</td></tr>
+    <tr><td>2025–2026</td><td>City of Strasbourg — La T'Rêve</td><td>Intercultural workshop series at the city's day centre; Refugee Week programme <span class="todo">years to confirm</span></td></tr>
+    <tr><td>2025</td><td>Reinnovating, EU project</td><td>Workshop on hate speech, disinformation and counter-narratives with thirty people with refugee status</td></tr>
+    <tr><td>2017–2018</td><td>ALDA</td><td>European projects, team of five</td></tr>
+    <tr><td>2014–2016</td><td>Lieu d'Europe, Strasbourg</td><td>“Making peace” programme</td></tr>
+    <tr><td>2014–2016</td><td>Ligue de l'enseignement</td><td>Intercultural education</td></tr>
+    <tr><td>2012–2013</td><td>Pour la Solidarité, Brussels</td><td>European projects</td></tr>
+    <tr><td>1999–2012</td><td>LITTERA</td><td>Journalist and translator; sworn court interpreter; contributor to ARTE</td></tr>
+  </table>
+
+  <section class="pub">
+    <div class="cover">
+      <div class="top">Council of Europe</div>
+      <div class="ttl">WE CAN!</div>
+      <div class="bot">Counter and alternative narratives · 2016</div>
+    </div>
+    <div>
+      <p class="kicker">Publication · Council of Europe · 2016</p>
+      <h2>“WE CAN! Taking action against hate speech through counter and alternative narratives”</h2>
+      <p>A handbook for youth workers, public institutions and organisations that want to answer hate speech without adopting its logic. Produced within the Council of Europe's No Hate Speech Movement. I carried out the research and edited the volume. It is free, and has been translated into more than a dozen languages.</p>
+      <a class="cta" href="#">Download free of charge</a>
+    </div>
+  </section>
+
+  <div class="band"><span class="slot">photograph from a session · shot from among the participants · to be supplied</span></div>
+
+  <div class="num"><i>03</i><h2>About</h2><span></span></div>
+  <section class="about">
+    <div>
+      <p><strong>For years my job was to carry other people's words across a language.</strong> I worked as a journalist and translator in Brussels and as a sworn interpreter in courtrooms, where a sentence is not finished until someone has said it again in the other language and both sides accept that this is what was said. The work is not vocabulary. It is knowing what a person meant, what they said instead, and which of the two to carry across.</p>
+      <p>In 2016 the <strong>Council of Europe</strong> commissioned me to research and edit its handbook on counter-narratives to hate speech. I spent a year reading the worst things people say to each other and the best replies anyone had found. The most useful thing I learned was not what to say back — it was when not to.</p>
+      <p>Since 2018 I have run my own practice: training for organisations working with refugees and migrants, facilitation of meetings that could fall apart, and advisory work for institutions. I live in Paris, work mostly out of Strasbourg, and run sessions in English, French and Polish.</p>
+    </div>
+    <div class="side">Largest single session: 380 participants, Fête des Solutions, Strasbourg<br><br>Four editions of PAROLES coordinated<br><br>Sworn court interpreter, Polish–French<br><br>Council of Europe handbook translated into more than a dozen languages</div>
+  </section>
+
+  <div class="num"><i>04</i><h2>Booking</h2><span></span></div>
+  <section class="contact">
+    <div>
+      <h2>An invitation, or a question</h2>
+      <p>Tell me what is going on and what you need. I answer within two working days, and if I am not the right person I will say who is.</p>
+    </div>
+    <div class="form">
+      <input placeholder="Name"><input placeholder="Institution"><input placeholder="Email">
+      <textarea placeholder="What is this about?"></textarea>
+      <a class="cta" href="#" style="text-align:center">Send</a>
+    </div>
+  </section>
+
+  <footer><span>Agata de Latour</span><span>Paris · Strasbourg</span><div class="sp"></div><span>LIBRA — registered practice</span><span>Privacy</span></footer>
+</div>
+
+<!-- ======================= C — QUESTIONS ======================= -->
+<div class="page vc" data-v="b">
+  <header>
+    <div class="mark">Agata de Latour</div>
+    <nav><a href="#">Who runs this</a><a href="#">Writing</a><a href="#">Contact</a></nav>
+    <div class="lang"><b>EN</b><s>FR</s><s>PL</s></div>
+  </header>
+
+  <section class="hero">
+    <span class="mono">Start here</span>
+    <h1>What are you <em>dealing with</em>?</h1>
+    <p>Pick the situation closest to yours. I will show you what I do in it, how long it takes, and what you are left with when I have gone.</p>
+  </section>
+
+  <div class="deck" id="deck">
+    <button class="q on" data-a="a1"><span class="n">01</span><h3>There is a conflict in the team that nobody will name.</h3><small>tension, everything by email, “we don't really argue here”</small></button>
+    <button class="q" data-a="a2"><span class="n">02</span><h3>We work with people from other countries and it keeps going wrong.</h3><small>misunderstandings, complaints, staff burning out</small></button>
+    <button class="q" data-a="a3"><span class="n">03</span><h3>We want to talk about hate speech and we are afraid of the subject.</h3><small>schools, libraries, cultural centres, local government</small></button>
+    <button class="q" data-a="a4"><span class="n">04</span><h3>We have a meeting next month that could fall apart.</h3><small>consultations, a team meeting after a change, two sides at one table</small></button>
+  </div>
+
+  <div class="ans show" id="a1">
+    <span class="mono">What I do here</span>
+    <h4>Separate conversations first. The room comes later.</h4>
+    <p>I do not ask people to be nice. I do not ask them to stop being angry. I ask them to say one true thing, at a moment the group can survive hearing it.</p>
+    <p>So I do not start with a workshop — in this situation a workshop only confirms that certain things are not said here. I start with four to six one-to-one conversations, to hear what each person sees and to find out whether the team is ready to name it in front of everyone. Then one facilitated meeting, where the thing is finally said in a way you can work with afterwards.</p>
+    <div class="flow">
+      <div class="f"><b>01 · Listen</b><p>Four to six one-to-one conversations, confidential.</p></div>
+      <div class="f"><b>02 · The room</b><p>One facilitated meeting, two to three hours.</p></div>
+      <div class="f"><b>03 · The note</b><p>What was agreed, and one commitment each.</p></div>
+    </div>
+    <div class="chips"><i>2–3 weeks</i><i>teams of 6 to 25</i><i>in person</i></div>
+    <a class="cta" href="#">Book a first call <span>→</span></a>
+  </div>
+
+  <div class="ans" id="a2">
+    <span class="mono">What I do here</span>
+    <h4>A course built entirely out of your own incidents.</h4>
+    <p>Two weeks beforehand I collect — anonymously — the situations that have already happened to you: the ones somebody went home angry about. They become the material. There is no lecture on cultural dimensions. There is work on what to actually say when a client refuses to deal with a woman, when a translation quietly changes the meaning, or when a procedure assumes things that are only obvious to us. Most of the work is getting out of the stories each side has started telling itself about the other.</p>
+    <div class="flow">
+      <div class="f"><b>01 · Collect</b><p>Anonymous form, two weeks ahead.</p></div>
+      <div class="f"><b>02 · Practise</b><p>One or two days on your own cases.</p></div>
+      <div class="f"><b>03 · Keep</b><p>A one-page set of sentences that worked.</p></div>
+    </div>
+    <div class="chips"><i>one or two days</i><i>8–18 people</i><i>EN · FR · PL</i></div>
+    <a class="cta" href="#">Ask for the outline <span>→</span></a>
+  </div>
+
+  <div class="ans" id="a3">
+    <span class="mono">What I do here</span>
+    <h4>This is the subject I researched for the Council of Europe.</h4>
+    <p>In 2016 I did the research and edited the Council of Europe handbook on counter-narratives to hate speech. I know where the mines are: that answering directly often amplifies, that silence cedes the ground, and that the hardest question is not what to reply but when not to reply at all. The workshop is about exactly that, and you leave with wording you can use.</p>
+    <div class="flow">
+      <div class="f"><b>01 · Frame</b><p>What we are, and are not, trying to change.</p></div>
+      <div class="f"><b>02 · Cases</b><p>Real posts, real comments, real meetings.</p></div>
+      <div class="f"><b>03 · Wording</b><p>Responses you can use, and the ones to drop.</p></div>
+    </div>
+    <div class="chips"><i>half a day or a full day</i><i>schools, libraries, public administration</i></div>
+    <a class="cta" href="#">See the handbook <span>→</span></a>
+  </div>
+
+  <div class="ans" id="a4">
+    <span class="mono">What I do here</span>
+    <h4>Preparation, the day itself, and the note that follows.</h4>
+    <p>Before the meeting I speak to each side separately and build a running order: what has to be said, in what sequence, and what must not be left until the end. On the day I run it — in English, French or Polish. Afterwards you get a written note both sides can sign. I have run a room of 380 people and a team of eight; the work is the same, the preparation is not.</p>
+    <div class="flow">
+      <div class="f"><b>01 · Prepare</b><p>Interviews with each side, one to two weeks.</p></div>
+      <div class="f"><b>02 · Run</b><p>The meeting itself, to a written running order.</p></div>
+      <div class="f"><b>03 · Note</b><p>Agreements, in language both sides accept.</p></div>
+    </div>
+    <div class="chips"><i>1–2 weeks' preparation</i><i>8 to 400 people</i><i>also online</i></div>
+    <a class="cta" href="#">Check a date <span>→</span></a>
+  </div>
+
+  <section class="who">
+    <div class="in">
+      <figure class="pic"><span class="slot">portrait<br>to be supplied</span></figure>
+      <div>
+        <h2>Who runs this</h2>
+        <p>For years my job was to carry other people's words across a language — as a journalist and translator in Brussels, and as a sworn interpreter in courtrooms. You learn quickly that the work is not vocabulary. It is knowing what a person meant, what they said instead, and which of the two to carry across.</p>
+        <p>In 2016 the Council of Europe asked me to research and edit its handbook on answering hate speech. The most useful thing I learned there was not what to say back. It was when not to.</p>
+        <p>I live in Paris, work mostly out of Strasbourg, and run sessions in English, French and Polish.</p>
+        <div class="creed">
+          <p>You do not build peace by avoiding conflict. You build it by making a room safe enough to go through one.</p>
+        </div>
+      </div>
+      <div class="facts">
+        <b>Based</b>Paris<b>Working</b>Strasbourg · EU<b>Languages</b>EN · FR · PL<b>Since</b>1999<b>Largest room</b>380 people<b>Practice</b>LIBRA, Strasbourg
+      </div>
+    </div>
+  </section>
+
+  <section class="reads">
+    <h2>Worth reading first</h2>
+    <p class="sub">Short pieces, in case you would rather read than book a call.</p>
+    <div class="g3">
+      <a class="art" href="#"><div class="k">Teams</div><h4>Three sentences that end an argument two hours too early</h4><p>Why “let's all calm down” does the exact opposite, and what to say instead.</p></a>
+      <a class="art" href="#"><div class="k">Conflict</div><h4>Stop asking people to be nice</h4><p>What I took from Charles Rojzman's social therapy, and why safety comes before agreement.</p></a>
+      <a class="art" href="#"><div class="k">Institutions</div><h4>The form nobody fills in</h4><p>How official language filters out the people it was written for — and five fixes you can make today.</p></a>
+      <a class="art" href="#"><div class="k">Hate speech</div><h4>When not to reply</h4><p>The hardest part of counter-speech: recognising the conversation you cannot win.</p></a>
+    </div>
+  </section>
+
+  <section class="sign">
+    <div class="box">
+      <div><h3>A letter once a month</h3><p>One situation, one question, one thing to try. I write when I have something to say — usually monthly.</p></div>
+      <div class="field"><input placeholder="your email address"><button>Subscribe →</button></div>
+    </div>
+  </section>
+
+  <footer><span>Agata de Latour</span><span>Paris · Strasbourg</span><div class="sp"></div><span>hello@agatadelatour.com</span><span>LIBRA — registered practice</span></footer>
+</div>
+
+      </div>
+    </div>
+  </div>
+
+  <aside class="notes">
+    <div class="note" data-v="a">
+      <h3>A — Editorial</h3>
+      <p class="sub">Lineage: priyaparker.com. Instrument Serif + Inter, hairline rules, asymmetric grid.</p>
+      <dl>
+        <dt>The idea</dt><dd>The first line names <b>the client's problem</b>, not the author's profession. Three ways of working, not twelve services. Nothing here needs a photograph to look finished.</dd>
+        <dt>What it sells</dt><dd>Time, sold in three formats at three prices. A visitor places themselves in one of them within ten seconds.</dd>
+        <dt>Why it works</dt><dd>The named frame <b>“What can be said here”</b> gives the client something to quote to their own boss. Without a name there is nothing to order.</dd>
+        <dt>Choose it if</dt><dd>The plan is to work alone, with organisations, with no appetite for publishing. Lowest upkeep: written once, it stands for a year.</dd>
+      </dl>
+      <dl class="warn">
+        <dt>Risk</dt><dd>It lives or dies on the first sentence. If it turns cautious — “I support organisations in building competence” — the whole layout collapses into a business card.</dd>
+      </dl>
+    </div>
+
+    <div class="note" data-v="c" style="display:none">
+      <h3>C — Dossier</h3>
+      <p class="sub">Lineage: erinmeyer.com, restyled as an institutional document. Inter + IBM Plex Mono, black and one red.</p>
+      <dl>
+        <dt>The idea</dt><dd>Built like a report, because that is the register these buyers live in. Numbered sections, a data card, and the track record as <b>a real table</b> rather than a row of logos.</dd>
+        <dt>What it sells</dt><dd>Defensibility. Written not for the person with the problem but for the person who has to justify the choice to a committee.</dd>
+        <dt>Why it works</dt><dd>The Council of Europe handbook is free, translated and cited — the one item that <b>a stranger can verify independently</b>. Here it is the spine of the page, not a line in a CV.</dd>
+        <dt>Choose it if</dt><dd>The market is public institutions, universities and EU programmes — which is exactly where the practice already is.</dd>
+      </dl>
+      <dl class="warn">
+        <dt>Risk</dt><dd>Cold. A small organisation may bounce off it. Every number has to survive a follow-up question, so “600 people” and “380 participants” need confirmation before publication.</dd>
+      </dl>
+    </div>
+
+    <div class="note" data-v="b" style="display:none">
+      <h3>B — Questions</h3>
+      <p class="sub">Lineage: “Why are you here?” from mbs.works plus Perel's topic entry. Fraunces + Inter, warm ground, paper grain.</p>
+      <dl>
+        <dt>The idea</dt><dd>The page opens with no introduction. It asks <b>“What are you dealing with?”</b> Four situations as cards; each opens a real answer with a three-step flow, duration and group size.</dd>
+        <dt>What it sells</dt><dd>Relief. The visitor sees their own mess described in their own words and knows immediately that someone has done this before.</dd>
+        <dt>Why it works</dt><dd>It solves what A and B leave alone: <b>very different buyers on one page</b>. A school, a city department and a company enter by the same door and land in different places.</dd>
+        <dt>Choose it if</dt><dd>The site should qualify enquiries on its own. Closest to the logic of the HUMAN app's “Before the conversation”.</dd>
+      </dl>
+      <dl class="warn">
+        <dt>Risk</dt><dd>The most editorial work. The four situations have to be written precisely enough that people think “that is us”. Written loosely they read like a marketing quiz.</dd>
+      </dl>
+    </div>
+  </aside>
+</div>
+
+<section class="compare" id="compare">
+  <h2>Which direction — and whose name</h2>
+  <p class="intro">The three layouts differ not in decoration but in <b>who stands at the centre</b>: A the practice, B the institutional proof, C the client's situation. Styling can be changed in a week; this decision cannot.</p>
+  <table>
+    <tr><th></th><th>A · Editorial</th><th>B · Questions</th><th>C · Dossier</th></tr>
+    <tr><td>Opening line</td><td>what happens to the client</td><td>a question to the visitor</td><td>where the credibility comes from</td></tr>
+    <tr><td>Written for</td><td>the person who feels the problem</td><td>anyone with a specific mess</td><td>the person who must justify the choice</td></tr>
+    <tr><td>Main market</td><td>organisations, teams</td><td>mixed — school to corporate</td><td>public institutions, universities, EU projects</td></tr>
+    <tr><td>Needs photography</td><td>no</td><td>no</td><td>no</td></tr>
+    <tr><td>Upkeep</td><td>low — stands for a year</td><td>high — the letter and the pieces</td><td>low, but the record must stay current</td></tr>
+    <tr><td>Risk</td><td>a cautious first line turns it into a business card</td><td>reads like a quiz if written loosely</td><td>coldness; smaller clients bounce</td></tr>
+    <tr><td>Build cost</td><td>lowest</td><td>highest — editorial work</td><td>medium — PDF, permissions, numbers</td></tr>
+  </table>
+
+  <div class="rec">
+    <h3>On the name: Agata de Latour, not LIBRA</h3>
+    <p>LIBRA is the name on the invoices since 2018, and it belongs in the footer as the registered practice. It should not be the name on the door. A trainer sells a person: what verifies is <b>“Agata de Latour, Council of Europe”</b>, not an abstract word. “Libra” also reads as a star sign in English and as Facebook's failed currency, and means nothing at all in French or Polish — while “de Latour” is distinctive and memorable in all three markets.</p>
+    <p>Domain in these drafts: <b>agatadelatour.com</b>, with libra kept only for invoicing.</p>
+  </div>
+
+  <div class="rec">
+    <h3>Recommendation</h3>
+    <p>Start with <b>A</b>, and move one element across from <b>C</b>: the institution strip and the Council of Europe handbook high on the page, not buried in “About”. That is one page, buildable in two weeks, which does not go stale even if nothing is ever published.</p>
+    <p><b>B</b> is stage two — once it is clear which four situations actually recur in enquiries. Guessing them now is the one mistake that actively costs work.</p>
+    <p>Before anything goes further, four things to settle:</p>
+    <ul>
+      <li><b>The first sentence</b> — is “what they keep avoiding” right, or should it be cooler? It sets the whole register.</li>
+      <li><b>The name of the frame</b> — “What can be said here” is a proposal, not a decision. It has to be the author's own.</li>
+      <li><b>Launch language</b> — these drafts are in English so you can both judge them. The live site should open in <b>French</b>, English second, Polish third.</li>
+      <li><b>Everything marked in amber</b> — figures, the quote, notice period. Nothing amber gets published unconfirmed.</li>
+    </ul>
+  </div>
+</section>
+
+<script>
+(function(){
+  var T={a:['A — Editorial','lineage: Priya Parker','agatadelatour.com'],
+         b:['B — Questions','lineage: MBS + Perel topic entry','agatadelatour.com'],
+         c:['C — Dossier','lineage: Erin Meyer, as an institutional document','agatadelatour.com/en']};
+  var wrap=document.getElementById('wrap'),cmp=document.getElementById('compare'),
+      vp=document.getElementById('viewport'),br=document.getElementById('browser');
+  function pick(v){
+    document.querySelectorAll('#tabs .btn').forEach(function(b){b.classList.toggle('on',b.dataset.v===v);});
+    history.replaceState(null,'','#'+v);
+    if(v==='x'){wrap.style.display='none';cmp.classList.add('show');window.scrollTo(0,0);return;}
+    wrap.style.display='';cmp.classList.remove('show');
+    document.querySelectorAll('.page').forEach(function(p){p.classList.toggle('show',p.dataset.v===v);});
+    document.querySelectorAll('.note').forEach(function(n){n.style.display=n.dataset.v===v?'':'none';});
+    document.getElementById('stageTitle').textContent=T[v][0];
+    document.getElementById('stageTag').textContent=T[v][1];
+    document.getElementById('url').textContent=T[v][2];
+    vp.scrollTop=0;
+  }
+  document.getElementById('tabs').addEventListener('click',function(e){var b=e.target.closest('.btn');if(b)pick(b.dataset.v);});
+  document.getElementById('views').addEventListener('click',function(e){
+    var b=e.target.closest('.btn');if(!b)return;
+    document.querySelectorAll('#views .btn').forEach(function(x){x.classList.toggle('on',x===b);});
+    br.classList.toggle('mobile',b.dataset.w==='mobile');
+  });
+  document.getElementById('deck').addEventListener('click',function(e){
+    var q=e.target.closest('.q');if(!q)return;
+    document.querySelectorAll('.vc .q').forEach(function(x){x.classList.toggle('on',x===q);});
+    document.querySelectorAll('.vc .ans').forEach(function(a){
+      var on=a.id===q.dataset.a;a.classList.toggle('show',on);
+      if(on&&br.classList.contains('mobile'))setTimeout(function(){a.scrollIntoView({block:'nearest'});},70);
+    });
+  });
+  document.addEventListener('keydown',function(e){
+    var k={'1':'a','2':'b','3':'c','4':'x'}[e.key];
+    if(k&&!/INPUT|TEXTAREA/.test(document.activeElement.tagName))pick(k);
+  });
+  var h=location.hash.slice(1);
+  pick(['a','b','c','x'].indexOf(h)>=0?h:'a');
+})();
+</script>
+</body>
+</html>
