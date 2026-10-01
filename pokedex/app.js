@@ -25,7 +25,7 @@ function shareBtn(cel){
 
 /* ---------- słownik UI ---------- */
 const UI={
- nav:{start:{pl:'Start',en:'Home'},dex:{pl:'Pokédex',en:'Pokédex'},cards:{pl:'Karty',en:'Cards'},
+ nav:{start:{pl:'Start',en:'Home'},dex:{pl:'Pokédex',en:'Pokédex'},trening:{pl:'Trening',en:'Training'},cards:{pl:'Karty',en:'Cards'},
       history:{pl:'Historia',en:'History'},anime:{pl:'Anime i filmy',en:'Anime & Movies'},play:{pl:'Gry i zabawy',en:'Games & Play'}},
  hero:{
   title:{pl:'Wielka Baza Wiedzy o Pokémonach',en:'The Great Pokémon Knowledge Base'},
@@ -41,6 +41,8 @@ const UI={
   blurbs:[
    {em:'📕',sec:'dex',pl:['Pokédex','Wszystkie {MON} Pokémonów: zdjęcia, opisy, statystyki, ewolucje i to, jak łatwo je złapać.'],
     en:['Pokédex','All {MON} Pokémon: pictures, descriptions, stats, evolutions and how easy they are to catch.']},
+   {em:'🔎',sec:'trening',pl:['Trening — dwadzieścia pytań','Zgadnij Pokémona, zadając pytania. Licznik pokazuje, ile z 10 bitów niepewności ucięło każde z nich.'],
+    en:['Training — twenty questions','Guess the Pokémon by asking questions. The counter shows how much of the 10 bits of uncertainty each one cut.']},
    {em:'🃏',sec:'cards',pl:['Karty','Base Set 1999 i najnowsze sety 2025–26, z rankingiem rzadkości od białych kruków po zwykłe kółka.'],
     en:['Cards','The 1999 Base Set and the newest 2025–26 sets, with a rarity ranking from grails to commons.']},
    {em:'📜',sec:'history',pl:['Historia','Od łapania owadów przez małego Satoshiego Tajiriego do najbardziej dochodowej marki świata.'],
@@ -514,6 +516,7 @@ function renderAll(){
  $('fs-home').title=$('fs-home').ariaLabel=lang==='pl'?'Wróć na stronę główną FutureShow':'Back to the FutureShow home page';
  $('fs-foot').textContent=lang==='pl'?'Poképedia to projekt FutureShow — zobacz nasze pozostałe projekty na futureshow.pl →':'Poképedia is a FutureShow project — see our other work at futureshow.pl →';
  renderStart();renderDexControls();renderDex();renderCards();renderHistory();renderAnime();renderPlay();
+ if(window.renderTrening)window.renderTrening(lang);
 }
 renderAll();
 go('start');

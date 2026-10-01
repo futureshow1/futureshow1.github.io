@@ -701,5 +701,66 @@ types: {
  flying:{pl:"Latający",color:"#A890F0"}, psychic:{pl:"Psychiczny",color:"#F85888"}, bug:{pl:"Robak",color:"#A8B820"},
  rock:{pl:"Skalny",color:"#B8A038"}, ghost:{pl:"Duch",color:"#705898"}, dragon:{pl:"Smok",color:"#7038F8"},
  dark:{pl:"Mroczny",color:"#705848"}, steel:{pl:"Stalowy",color:"#B8B8D0"}, fairy:{pl:"Wróżka",color:"#EE99AC"}
+},
+
+// ---------- KATEGORIE KLASYFIKACYJNE (tryb Trening / klucz do oznaczania) ----------
+// Oficjalne pola z PokéAPI: kolor (10), kształt ciała (14), grupa jajowa (15), tempo wzrostu (6).
+// Nazwy PL pisane pod dziecko — opisowo, nie encyklopedycznie.
+kinds: {
+ color: {
+  blue:{pl:"niebieski",en:"blue",hex:"#5fa8e8"}, brown:{pl:"brązowy",en:"brown",hex:"#a9744f"},
+  green:{pl:"zielony",en:"green",hex:"#78c850"}, gray:{pl:"szary",en:"gray",hex:"#9aa0a6"},
+  red:{pl:"czerwony",en:"red",hex:"#e8544f"}, white:{pl:"biały",en:"white",hex:"#f3f3ef"},
+  yellow:{pl:"żółty",en:"yellow",hex:"#ffd94a"}, purple:{pl:"fioletowy",en:"purple",hex:"#9b63c9"},
+  pink:{pl:"różowy",en:"pink",hex:"#ff8fc0"}, black:{pl:"czarny",en:"black",hex:"#4a4a52"}
+ },
+ shape: {
+  upright:{pl:"stoi na dwóch nogach",en:"upright, two legs",em:"🦖"},
+  quadruped:{pl:"chodzi na czterech",en:"four-legged",em:"🐕"},
+  humanoid:{pl:"człekokształtny",en:"human-like",em:"🧍"},
+  wings:{pl:"ze skrzydłami",en:"winged",em:"🦅"},
+  ball:{pl:"okrągły jak piłka",en:"ball-shaped",em:"⚪"},
+  arms:{pl:"ma tylko ręce, bez nóg",en:"arms, no legs",em:"👐"},
+  fish:{pl:"ryba",en:"fish-shaped",em:"🐟"},
+  armor:{pl:"w pancerzu",en:"armoured",em:"🛡️"},
+  blob:{pl:"kleks, galareta",en:"blob",em:"🫧"},
+  squiggle:{pl:"wężyk, zawijas",en:"squiggly",em:"🐛"},
+  legs:{pl:"ma tylko nogi",en:"legs only",em:"🦵"},
+  tentacles:{pl:"z mackami",en:"tentacled",em:"🐙"},
+  "bug-wings":{pl:"owad ze skrzydłami",en:"insect with wings",em:"🦋"},
+  heads:{pl:"z kilku głów lub członów",en:"multiple heads",em:"🪢"}
+ },
+ eggs: {
+  ground:{pl:"Lądowe",en:"Field"}, "no-eggs":{pl:"Bez jaj — nie ma potomstwa",en:"No Eggs"},
+  water1:{pl:"Wodne 1",en:"Water 1"}, bug:{pl:"Owadzie",en:"Bug"}, plant:{pl:"Roślinne",en:"Grass"},
+  mineral:{pl:"Mineralne",en:"Mineral"}, monster:{pl:"Potwory",en:"Monster"}, flying:{pl:"Latające",en:"Flying"},
+  dragon:{pl:"Smocze",en:"Dragon"}, humanshape:{pl:"Humanoidalne",en:"Human-Like"}, fairy:{pl:"Wróżkowe",en:"Fairy"},
+  indeterminate:{pl:"Nieokreślone",en:"Amorphous"}, water3:{pl:"Wodne 3",en:"Water 3"},
+  water2:{pl:"Wodne 2",en:"Water 2"}, ditto:{pl:"Ditto — sam w swojej grupie",en:"Ditto"}
+ },
+ growth: {
+  medium:{pl:"średnie",en:"medium"}, "medium-slow":{pl:"średnio powolne",en:"medium-slow"},
+  slow:{pl:"powolne",en:"slow"}, fast:{pl:"szybkie",en:"fast"},
+  "slow-then-very-fast":{pl:"najpierw wolno, potem bardzo szybko",en:"slow then very fast"},
+  "fast-then-very-slow":{pl:"najpierw szybko, potem bardzo wolno",en:"fast then very slow"}
+ },
+ size: {
+  XS:{pl:"malutki — do 50 cm",en:"tiny — up to 50 cm"}, S:{pl:"mały — 0,5 do 1 m",en:"small — 0.5 to 1 m"},
+  M:{pl:"jak człowiek — 1 do 2 m",en:"human-sized — 1 to 2 m"}, L:{pl:"duży — 2 do 5 m",en:"big — 2 to 5 m"},
+  XL:{pl:"kolos — ponad 5 m",en:"colossal — over 5 m"}
+ },
+ power: {
+  0:{pl:"słabeusz — poniżej 300",en:"weakling — under 300"}, 1:{pl:"średniak — 300 do 450",en:"average — 300 to 450"},
+  2:{pl:"mocarz — 450 do 550",en:"strong — 450 to 550"}, 3:{pl:"potęga — 550 i więcej",en:"powerhouse — 550+"}
+ },
+ stage: {
+  solo:{pl:"nie ewoluuje wcale",en:"never evolves"}, base:{pl:"forma podstawowa",en:"base form"},
+  mid:{pl:"forma środkowa",en:"middle form"}, final:{pl:"forma ostateczna",en:"final form"}
+ },
+ region: {
+  1:{pl:"Kanto",en:"Kanto"}, 2:{pl:"Johto",en:"Johto"}, 3:{pl:"Hoenn",en:"Hoenn"}, 4:{pl:"Sinnoh",en:"Sinnoh"},
+  5:{pl:"Unova",en:"Unova"}, 6:{pl:"Kalos",en:"Kalos"}, 7:{pl:"Alola",en:"Alola"}, 8:{pl:"Galar",en:"Galar"},
+  9:{pl:"Paldea",en:"Paldea"}
+ }
 }
 };
