@@ -552,3 +552,13 @@ footer{border-top:0;background:var(--red);padding:24px 22px;text-align:center;
 }
 .qnothing{grid-column:1/-1;background:var(--cream);border:3px dashed #e8dfae;border-radius:16px;
   padding:14px 18px;font-size:15px;color:var(--ink)}
+
+/* przycisk przejścia do pełnego opisu w Pokédeksie + wyciszanie */
+.qdex{cursor:pointer;font-family:'Fredoka',sans-serif;font-size:17px;background:var(--yellow);
+  color:var(--ink);border:3px solid var(--outline);border-radius:999px;padding:10px 22px;
+  box-shadow:0 5px 0 var(--outline);transition:transform .12s,box-shadow .12s,background .12s}
+.qdex:hover{transform:translateY(-2px);box-shadow:0 7px 0 var(--outline);background:var(--gold)}
+.qdex:active{transform:translateY(2px);box-shadow:0 3px 0 var(--outline)}
+.qmute{font-size:14px;padding:8px 16px;margin-left:auto}
+@media(max-width:700px){.qmute{margin-left:0}}
+@media(max-width:700px){.qdex{font-size:15px;padding:10px 18px}}

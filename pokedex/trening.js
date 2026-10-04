@@ -36,6 +36,88 @@ const typeColor = k => (C.types[k] || {}).color || '#888';
 function sizeCls(m) { const x = m.height_m; return x <= .5 ? 'XS' : x <= 1 ? 'S' : x <= 2 ? 'M' : x <= 5 ? 'L' : 'XL'; }
 function powerCls(m) { const x = m.total; return x < 300 ? 0 : x < 450 ? 1 : x < 550 ? 2 : 3; }
 
+
+/* ---------- dźwięk ----------
+   Wszystko syntezowane w Web Audio — zero plików do pobrania i zero kłopotów z prawami.
+   Kontekst powstaje dopiero przy pierwszym kliknięciu, bo przeglądarki blokują dźwięk
+   bez gestu użytkownika. Wysokość „blipu" przy pytaniu rośnie z liczbą uciętych bitów:
+   słychać, czy pytanie było mocne. */
+const SND = {
+  key: 'pp-20q-snd', ctx: null, master: null, verb: null,
+  get on() { try { return localStorage.getItem(this.key) !== '0'; } catch (e) { return true; } },
+  set on(v) { try { localStorage.setItem(this.key, v ? '1' : '0'); } catch (e) { } },
+  init() {
+    if (this.ctx) { if (this.ctx.state === 'suspended') this.ctx.resume(); return this.ctx; }
+    const AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) return null;
+    const c = new AC();
+    this.ctx = c;
+    this.master = c.createGain(); this.master.gain.value = 0.5; this.master.connect(c.destination);
+    // pogłos: splot z zanikającym szumem — tanio, a dźwięki przestają brzmieć jak z budzika
+    const len = Math.floor(c.sampleRate * 1.1), buf = c.createBuffer(2, len, c.sampleRate);
+    for (let ch = 0; ch < 2; ch++) {
+      const d = buf.getChannelData(ch);
+      for (let i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, 2.6);
+    }
+    const cv = c.createConvolver(); cv.buffer = buf;
+    const wet = c.createGain(); wet.gain.value = 0.25;
+    cv.connect(wet); wet.connect(this.master);
+    this.verb = cv;
+    return c;
+  },
+  play(fn) { if (!this.on) return; try { if (this.init()) fn(); } catch (e) { } },
+  note(f, at, dur, o) {
+    o = o || {};
+    const c = this.ctx, t = c.currentTime + at, v = o.vol === undefined ? 0.3 : o.vol;
+    const osc = c.createOscillator(), g = c.createGain();
+    osc.type = o.type || 'triangle';
+    osc.frequency.setValueAtTime(f, t);
+    if (o.to) osc.frequency.exponentialRampToValueAtTime(o.to, t + dur * (o.glide || 1));
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.exponentialRampToValueAtTime(v, t + (o.atk || 0.01));
+    g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+    osc.connect(g); g.connect(this.master);
+    if (this.verb && o.verb !== 0) {
+      const sendGain = c.createGain(); sendGain.gain.value = o.verb || 0.3;
+      g.connect(sendGain); sendGain.connect(this.verb);
+    }
+    osc.start(t); osc.stop(t + dur + 0.08);
+  },
+  /* pytanie — im więcej bitów ucięte, tym wyżej i jaśniej */
+  ask(bits) {
+    this.play(() => {
+      const f = 300 + Math.min(bits, 5) * 105;
+      this.note(f, 0, .17, { to: f * 1.5, vol: .24 });
+      this.note(f * 2, .015, .1, { type: 'sine', vol: .07 });
+    });
+  },
+  yes() { this.play(() => { this.note(523.25, 0, .12, { vol: .22 }); this.note(783.99, .085, .2, { vol: .22 }); }); },
+  no() { this.play(() => { this.note(196, 0, .24, { type: 'square', to: 146.83, vol: .12 }); }); },
+  pick() { this.play(() => { this.note(880, 0, .07, { type: 'sine', vol: .12 }); }); },
+  begin() { this.play(() => { [392, 523.25, 659.25].forEach((f, i) => this.note(f, i * .065, .24, { vol: .18 })); }); },
+  lose() {
+    this.play(() => { [440, 369.99, 293.66, 246.94].forEach((f, i) => this.note(f, i * .14, .45, { vol: .18 })); });
+  },
+  /* FANFARA WYGRANEJ — wbieg arpeggiem, akord w tle, bas i dzwoneczki na górze */
+  win() {
+    this.play(() => {
+      const run = [523.25, 659.25, 783.99, 1046.50];           // C5 E5 G5 C6
+      run.forEach((f, i) => this.note(f, i * .075, .26, { vol: .26, verb: .35 }));
+      this.note(1318.51, .3, .5, { vol: .22, verb: .5 });       // E6 na szczycie
+      // akord podtrzymujący + bas
+      [523.25, 659.25, 783.99].forEach(f => this.note(f, .38, .95, { type: 'sine', vol: .1, atk: .05, verb: .45 }));
+      this.note(130.81, .38, 1.0, { type: 'triangle', vol: .13, atk: .03, verb: .2 });
+      // dzwoneczki — pentatonika, żeby nic nie mogło zabrzmieć fałszywie
+      const bells = [1046.50, 1318.51, 1567.98, 2093.00, 1760.00];
+      for (let i = 0; i < 6; i++) {
+        this.note(bells[(i * 2 + 1) % bells.length], .45 + i * .085, .32,
+          { type: 'sine', vol: .06, verb: .7 });
+      }
+    });
+  }
+};
+window.ppSnd = function () { SND.on = !SND.on; if (SND.on) SND.pick(); render(); };
+
 /* ---------- słownik ---------- */
 const UI = {
   title: { pl: 'Trening', en: 'Training' },
@@ -96,6 +178,10 @@ const UI = {
   cut: { pl: 'ucięte', en: 'cut' },
   qCount: { pl: 'pyt.', en: 'q.' },
   catAll: { pl: 'Wszystkie', en: 'All' },
+  sndOn: { pl: '🔊 Dźwięk', en: '🔊 Sound' },
+  sndOff: { pl: '🔇 Cisza', en: '🔇 Muted' },
+  sndLbl: { pl: 'Dźwięki', en: 'Sounds' },
+  toDex: { pl: '📕 Zobacz go w\u00a0Pokédeksie\u00a0→', en: '📕 See it in\u00a0the\u00a0Pokédex\u00a0→' },
   noMore: { pl: 'Nie ma już o co pytać — żadne pytanie niczego nie rozstrzygnie. Zgaduj!', en: 'Nothing left to ask — no question would tell us anything new. Go ahead and guess!' },
   noMoreCat: { pl: 'W tej grupie nie ma już pytań, które coś wnoszą. Zajrzyj do pozostałych.', en: 'No questions left in this group that would tell us anything. Try the others.' }
 };
@@ -168,7 +254,7 @@ const S = {
   pool: 'all',         // kanto | all
   hints: true,
   cand: [], asked: [], used: new Set(), skipped: new Set(),
-  secret: null, start: 0, result: null, pending: null, cat: 'all', note: ''
+  secret: null, start: 0, result: null, pending: null, cat: 'all', note: '', played: false
 };
 const LIMIT = 20;
 const BEST = 'pp-20q-best';
@@ -178,7 +264,8 @@ function pool() { return S.pool === 'kanto' ? MON.filter(m => m.gen === 1) : MON
 function begin() {
   S.cand = pool(); S.asked = []; S.used = new Set(); S.skipped = new Set();
   S.result = null; S.pending = null; S.note = ''; S.start = S.cand.length;
-  S.screen = 'play'; S.cat = 'all';
+  S.screen = 'play'; S.cat = 'all'; S.played = false;
+  SND.begin();
   if (S.mode === 'you') S.secret = S.cand[Math.floor(Math.random() * S.cand.length)];
   else { S.secret = null; nextAppQuestion(); }
   render();
@@ -202,6 +289,7 @@ function askAs(keyFn, label, qid, labFn) {
   S.cand = S.cand.filter(m => keyFn(m) === ans);
   S.used.add(qid);
   S.asked.push({ label: label, ans: ans, lab: labFn && typeof ans !== 'boolean' ? labFn(ans) : null, before: before, after: S.cand.length });
+  SND.ask(L2(before / Math.max(1, S.cand.length)));
   if (S.asked.length >= LIMIT && S.cand.length > 1) { S.result = 'lose'; S.screen = 'over'; }
   render();
 }
@@ -217,6 +305,7 @@ window.ppGuess = function (id) {
   if (!m) return;
   if (m === S.secret) { S.result = 'win'; S.screen = 'over'; saveBest(); }
   else {
+    SND.no();
     S.cand = S.cand.filter(x => x !== m);
     S.asked.push({ label: t(UI.appIsIt) + ' ' + cap(m.name) + '?', ans: false, before: S.cand.length + 1, after: S.cand.length });
     S.note = t(UI.wrongGuess);
@@ -264,6 +353,7 @@ window.ppAnswer = function (raw) {
   if (p.identity) {
     if (raw === 'yes') { S.result = 'appwin'; S.screen = 'over'; }
     else {
+      SND.no();
       S.cand = S.cand.filter(m => m !== p.identity);
       S.asked.push({ label: t(UI.appIsIt) + ' ' + cap(p.identity.name) + '?', ans: false, before: S.cand.length + 1, after: S.cand.length });
       if (!S.cand.length || S.asked.length >= LIMIT) { S.result = S.cand.length ? 'applose' : 'empty'; S.screen = 'over'; }
@@ -271,13 +361,14 @@ window.ppAnswer = function (raw) {
     }
     render(); return;
   }
-  if (raw === 'skip') { S.skipped.add(vkey(p.v)); nextAppQuestion(); render(); return; }
+  if (raw === 'skip') { SND.pick(); S.skipped.add(vkey(p.v)); nextAppQuestion(); render(); return; }
   const want = p.vals[+raw];
   const before = S.cand.length;
   S.cand = S.cand.filter(m => p.v.key(m) === want);
   S.asked.push({ label: p.v.label, ans: want,
     lab: (p.v.choice && typeof want !== 'boolean') ? p.v.q.lab(want) : null,
     before: before, after: S.cand.length });
+  SND.ask(L2(before / Math.max(1, S.cand.length)));
   if (!S.cand.length) { S.result = 'empty'; S.screen = 'over'; }
   else if (S.asked.length >= LIMIT) { S.result = 'applose'; S.screen = 'over'; }
   else nextAppQuestion();
@@ -285,7 +376,13 @@ window.ppAnswer = function (raw) {
 };
 
 /* ---------- sterowanie z UI ---------- */
-window.ppSet = function (k, v) { S[k] = v; render(); };
+window.ppSet = function (k, v) { S[k] = v; SND.pick(); render(); };
+/* z ekranu końcowego prosto do pełnego opisu w Pokédeksie (go i openMon są globalne w app.js) */
+window.ppToDex = function (id) {
+  SND.pick();
+  if (window.go) window.go('dex');
+  if (window.openMon) window.openMon(id);
+};
 window.ppBegin = begin;
 window.ppMenu = function () { S.screen = 'menu'; S.note = ''; render(); };
 window.ppToGuess = function () { S.screen = 'guess'; S.note = ''; render(); };
@@ -340,6 +437,7 @@ function menuHTML() {
    <div class="qrow"><h4>${t(UI.lvl)}</h4><div class="qopts">${lv('open', UI.lvlOpen, UI.lvlOpenD)}${lv('bool', UI.lvlBool, UI.lvlBoolD)}</div></div>
    <div class="qrow"><h4>${t(UI.pool)}</h4><div class="qopts qopts--sm">${po('kanto', UI.poolK)}${po('all', UI.poolAll)}</div></div>
    <label class="qcheck"><input type="checkbox" ${S.hints ? 'checked' : ''} onchange="ppSet('hints',this.checked)"> ${t(UI.hints)}</label>
+   <label class="qcheck"><input type="checkbox" ${SND.on ? 'checked' : ''} onchange="ppSnd()"> ${t(UI.sndLbl)}</label>
    ${b ? `<p class="qbest">${t(UI.best)}: <b>${b}</b> ${t(UI.qCount)}</p>` : ''}
    <button class="qgo" onclick="ppBegin()">${t(UI.start)}</button>
   </div>`;
@@ -437,8 +535,10 @@ function overHTML() {
     </div>
     <p class="qnote">${t(UI.minQnote)}</p>
     ${logHTML()}
-    <div class="qbtns"><button class="qgo" onclick="ppBegin()">${t(UI.again)}</button>
-    <button class="qalt" onclick="ppMenu()">${t(UI.restart)}</button></div>
+    <div class="qbtns">${m && S.result !== 'empty' ? `<button class="qdex" onclick="ppToDex(${m.id})">${t(UI.toDex)}</button>` : ''}
+    <button class="qgo" onclick="ppBegin()">${t(UI.again)}</button>
+    <button class="qalt" onclick="ppMenu()">${t(UI.restart)}</button>
+    <button class="qalt qmute" onclick="ppSnd()">${t(SND.on ? UI.sndOn : UI.sndOff)}</button></div>
   </div>`;
 }
 
@@ -448,7 +548,13 @@ function render() {
   $('tren-desc').textContent = t(UI.lead).replace(/\{MON\}/g, MON.length);
   let h = '';
   if (S.screen === 'menu') h = menuHTML();
-  else if (S.screen === 'over') h = overHTML();
+  else if (S.screen === 'over') {
+    if (!S.played) {                       // jeden raz na partię, nie przy zmianie języka
+      S.played = true;
+      (S.result === 'win' || S.result === 'appwin') ? SND.win() : SND.lose();
+    }
+    h = overHTML();
+  }
   else {
     h = statsBar();
     if (S.note) h += `<p class="qnote qnote--warn">${esc(S.note)}</p>`;
@@ -457,7 +563,8 @@ function render() {
       <button class="qalt" onclick="ppToPlay()">${t(UI.backToQ)}</button></div>`;
     else {
       h += `<div class="qbtns"><button class="qgo" onclick="ppToGuess()">${t(UI.guessBtn)}</button>
-        <button class="qalt" onclick="ppMenu()">${t(UI.restart)}</button></div>` + questionsHTML();
+        <button class="qalt" onclick="ppMenu()">${t(UI.restart)}</button>
+        <button class="qalt qmute" onclick="ppSnd()">${t(SND.on ? UI.sndOn : UI.sndOff)}</button></div>` + questionsHTML();
       if (S.cand.length <= 24) h += `<div class="qpick"><h4>${t(UI.remaining)}</h4>${candHTML(true)}</div>`;
     }
     h += logHTML();
