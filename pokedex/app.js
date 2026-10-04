@@ -145,6 +145,15 @@ function cardsWord(n){
 }
 const rIdx=r=>{const i=RARITY_ORDER.indexOf(r);return i<0?RARITY_ORDER.length:i};
 
+/* ---------- generacje ----------
+   Każda generacja ma swój region (1 = Kanto, 3 = Hoenn…). Nazwy, lata i gry
+   bierzemy z C.generations, czyli z tego samego źródła co karty w sekcji Historia. */
+const GEN=Object.fromEntries((C.generations||[]).map(g=>[g.gen,g]));
+const regionOf=n=>(GEN[n]||{}).region||'';
+const genLabel=n=>{const g=GEN[n];return g?`${T(UI.dex.gen)} ${n} · ${g.region}`:`${T(UI.dex.gen)} ${n}`;};
+const genTitle=n=>{const g=GEN[n];
+ return g?`${g.region} · ${g.years} · ${g.games} · ${g.count} ${T(UI.hist.pokedexWord)}`:'';};
+
 /* ---------- nawigacja ---------- */
 let curSec='start';
 window.go=function(sec){
@@ -178,7 +187,7 @@ function renderDexControls(){
  $('dex-desc').textContent=T(UI.dex.desc);
  $('f-search').placeholder=T(UI.dex.search);
  const g=$('f-gen');g.innerHTML=`<option value="">${T(UI.dex.allGens)}</option>`+
-  [1,2,3,4,5,6,7,8,9].map(n=>`<option value="${n}">${T(UI.dex.gen)} ${n}</option>`).join('');
+  [1,2,3,4,5,6,7,8,9].map(n=>`<option value="${n}">${genLabel(n)}</option>`).join('');
  const t=$('f-type');t.innerHTML=`<option value="">${T(UI.dex.allTypes)}</option>`+
   Object.keys(C.types).sort((a,b)=>(lang==='pl'?C.types[a].pl:a).localeCompare(lang==='pl'?C.types[b].pl:b,'pl'))
   .map(k=>`<option value="${k}">${lang==='pl'?C.types[k].pl:k.charAt(0).toUpperCase()+k.slice(1)}</option>`).join('');
@@ -200,7 +209,7 @@ function renderDex(){
  $('dex-grid').innerHTML=list.map(m=>`
   <div class="mon" onclick="openMon(${m.id})">
    <span class="num">#${String(m.id).padStart(3,'0')}</span>
-   <span class="gentag">G${m.gen}</span>
+   <span class="gentag" title="${genLabel(m.gen)}">G${m.gen}</span>
    ${m.is_legendary?'<span class="leg" title="'+T(UI.dex.legendary)+'">👑</span>':m.is_mythical?'<span class="leg" title="'+T(UI.dex.mythical)+'">✨</span>':''}
    <img loading="lazy" src="images/pokemon/${String(m.id).padStart(3,'0')}.webp" alt="${m.name}">
    <h4>${m.name}</h4>
@@ -239,7 +248,7 @@ window.openMon=function(id){
   <div class="mflex">
    <div class="mimg"><img src="images/pokemon/${String(m.id).padStart(3,'0')}.webp" alt="${m.name}"></div>
    <div class="minfo">
-    <div class="num">#${String(m.id).padStart(3,'0')} · ${T(UI.dex.gen)} ${m.gen}</div>
+    <div class="num">#${String(m.id).padStart(3,'0')} · <a class="genlink" href="#dzial=history" title="${genTitle(m.gen)}" onclick="goGen(${m.gen});return false">${genLabel(m.gen)}</a></div>
     <h2>${m.name}${m.is_legendary?`<span class="badge">👑 ${T(UI.dex.legendary)}</span>`:''}${m.is_mythical?`<span class="badge">✨ ${T(UI.dex.mythical)}</span>`:''}</h2>
     <div class="genus">${genus}</div>
     <div class="chips" style="justify-content:flex-start">${m.types.map(typeChip).join('')}</div>
@@ -445,9 +454,21 @@ function renderHistory(){
  $('timeline').innerHTML=C.history.map(h=>`<div class="tl"><span class="yr">${h.year}</span><p>${T(h)}</p></div>`).join('');
  $('gens-title').textContent=T(UI.hist.gens);
  $('gens-grid').innerHTML=C.generations.map(g=>`
-  <div class="genc"><div class="top"><h3>${T(UI.dex.gen)} ${g.gen} — ${g.region}</h3><span>${g.years}</span></div>
+  <div class="genc" id="gen-${g.gen}"><div class="top"><h3>${T(UI.dex.gen)} ${g.gen} — ${g.region}</h3><span>${g.years}</span></div>
    <div class="meta">${g.games} · ${g.count} ${T(UI.hist.pokedexWord)}</div><p>${T(g)}</p></div>`).join('');
 }
+
+/* z opisu Pokémona prosto do karty jego generacji w sekcji Historia */
+window.goGen=function(n){
+ closeModal();
+ go('history');
+ const el=$('gen-'+n);
+ if(!el)return;
+ el.classList.add('genc--hi');
+ setTimeout(()=>el.classList.remove('genc--hi'),2400);
+ // go() przewija sekcję na samą górę — nasze przewinięcie musi pójść po nim
+ setTimeout(()=>el.scrollIntoView({block:'center',behavior:'smooth'}),90);
+};
 
 /* ---------- anime ---------- */
 /* w PL: polski tytuł dystrybucyjny na pierwszym planie, oryginał pod spodem
