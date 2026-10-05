@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KINO NIEME — historia filmu niemego 1895–1930: 828 filmów online</title>
+<meta name="description" content="Historia kina niemego w 828 filmach dostępnych legalnie online — 30 rozdziałów od Lumière i Mélièsa, przez Griffitha, Chaplina, ekspresjonizm i radziecki montaż, po Ozu i ostatnie filmy nieme. Polskie kino nieme w światowym kanonie. Układ według opracowań naukowych.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="KINO NIEME — 828 filmów, 30 rozdziałów, 1895 → 1930">
+<meta property="og:description" content="Cała historia kina niemego do oglądania: Lumière, Méliès, Griffith, Chaplin, Keaton, Murnau, Eisenstein, Dreyer, Ozu — i polskie kino nieme od pleografu do Mocnego człowieka. Plus tryb Maraton.">
+<meta property="og:image" content="https://futureshow.pl/kino-nieme/og-image.png">
+<meta property="og:url" content="https://futureshow.pl/kino-nieme/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Jost:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0b0a0a;
+    --bg-card: #141211;
+    --bg-card-hover: #1c1917;
+    --bg-panel: rgba(11,10,10,.94);
+    --ink: #ece3cf;
+    --ink-dim: #b3a894;
+    --ink-faint: #6e665a;
+    --acc: #8dbbdc;
+    --acc-deep: #4f8fb8;
+    --line: #2a2522;
+    --shadow: rgba(0,0,0,.6);
+    --display: 'Playfair Display', 'Georgia', serif;
+    --body: 'Jost', 'Futura', 'Helvetica Neue', sans-serif;
+    --mono: 'IBM Plex Mono', 'Courier New', monospace;
+  }
+  body.light {
+    --bg: #efe6d3;
+    --bg-card: #f8f2e4;
+    --bg-card-hover: #fffbf1;
+    --bg-panel: rgba(239,230,211,.95);
+    --ink: #1c1814;
+    --ink-dim: #5a5244;
+    --ink-faint: #8c826f;
+    --acc: #2f6e94;
+    --acc-deep: #1f5272;
+    --line: #d9cdb3;
+    --shadow: rgba(50,40,25,.25);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--body);
+    line-height: 1.5;
+    overflow-x: hidden;
+    transition: background .3s, color .3s;
+  }
+  ::selection { background: var(--acc); color: #111; }
+
+  /* ============ HEADER ============ */
+  header {
+    position: relative;
+    padding: 5rem 4vw 3.5rem;
+    border-bottom: 1px solid var(--line);
+    overflow: hidden;
+  }
+  /* perforacja taśmy filmowej */
+  header::before {
+    content: "";
+    position: absolute;
+    top: 0; right: 8vw;
+    width: 26px; height: 100%;
+    background:
+      repeating-linear-gradient(to bottom,
+        transparent 0 10px,
+        var(--line) 10px 26px,
+        transparent 26px 36px);
+    opacity: .9;
+    pointer-events: none;
+  }
+  header::after {
+    content: "";
+    position: absolute;
+    top: 0; right: 14vw;
+    width: 3px; height: 100%;
+    background: var(--acc);
+    transform: skewX(-16deg);
+    opacity: .85;
+    pointer-events: none;
+  }
+  .kicker {
+    font-family: var(--mono);
+    font-size: .72rem;
+    letter-spacing: .35em;
+    text-transform: uppercase;
+    color: var(--acc);
+    margin-bottom: 1.2rem;
+  }
+  h1 {
+    font-family: var(--display);
+    font-weight: 900;
+    font-size: clamp(2.4rem, 8vw, 6.2rem);
+    line-height: .92;
+    text-transform: uppercase;
+    letter-spacing: -.01em;
+  }
+  h1 span { display: block; white-space: nowrap; }
+  h1 #titleTop { min-height: 1em; }
+  h1 .stroke {
+    color: transparent;
+    -webkit-text-stroke: 2px var(--ink);
+  }
+  /* ziarno nitro na nagłówku */
+  header .grain{position:absolute;inset:0;pointer-events:none;opacity:.14;mix-blend-mode:overlay;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .9 0'/></filter><rect width='160' height='160' filter='url(%23n)'/></svg>")}
+  .m-note{display:block;width:100%;font-size:.78rem;color:var(--ink-faint);font-style:italic}
+  .badge.lost{background:#8a2b2b;color:#fff}
+  .f-country{font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;color:var(--acc);margin-right:.4em}
+  .lede {
+    max-width: 600px;
+    margin-top: 1.6rem;
+    color: var(--ink-dim);
+    font-weight: 300;
+    font-size: 1.02rem;
+  }
+  .lede .src { font-size: .8rem; color: var(--ink-faint); display: block; margin-top: .6rem; }
+  .stats {
+    display: flex;
+    gap: 2.8rem;
+    margin-top: 2.4rem;
+    font-family: var(--mono);
+  }
+  .stat b {
+    display: block;
+    font-size: 1.7rem;
+    color: var(--acc);
+    font-weight: 500;
+  }
+  .stat span {
+    font-size: .68rem;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  /* ============ TOOLBAR ============ */
+  .toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .8rem;
+    align-items: center;
+    padding: .9rem 4vw;
+    background: var(--bg-panel);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-dd { position: relative; }
+  .nav-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: .6em;
+    max-width: 340px;
+    font-family: var(--mono);
+    font-size: .72rem;
+    letter-spacing: .06em;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    color: var(--ink);
+    padding: .58rem .9rem;
+    cursor: pointer;
+    transition: border-color .2s;
+    white-space: nowrap;
+  }
+  .nav-btn:hover, .nav-dd.open .nav-btn { border-color: var(--acc); }
+  .nav-btn .caret { color: var(--acc); font-size: .6rem; }
+  .nav-btn .cur {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 250px;
+  }
+  .nav-list {
+    display: none;
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    width: min(460px, 92vw);
+    max-height: min(62vh, 540px);
+    overflow-y: auto;
+    background: var(--bg-panel);
+    backdrop-filter: blur(14px);
+    border: 1px solid var(--line);
+    box-shadow: 0 18px 48px var(--shadow);
+    z-index: 60;
+  }
+  .nav-dd.open .nav-list { display: block; }
+  .nav-item {
+    display: flex;
+    gap: .7em;
+    align-items: baseline;
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    border-bottom: 1px solid var(--line);
+    color: var(--ink-dim);
+    font-family: var(--mono);
+    font-size: .72rem;
+    line-height: 1.35;
+    padding: .55rem .85rem;
+    cursor: pointer;
+    transition: background .15s, color .15s;
+  }
+  .nav-item:last-child { border-bottom: none; }
+  .nav-item b { color: var(--acc); font-weight: 500; flex-shrink: 0; }
+  .nav-item .n { margin-left: auto; color: var(--ink-faint); flex-shrink: 0; }
+  .nav-item:hover { background: var(--bg-card-hover); color: var(--ink); }
+  .nav-item.active { color: var(--ink); background: var(--bg-card); box-shadow: inset 3px 0 0 var(--acc); }
+
+  .search {
+    flex: 1 1 200px;
+    max-width: 380px;
+    position: relative;
+  }
+  .search input {
+    width: 100%;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    color: var(--ink);
+    font-family: var(--mono);
+    font-size: .85rem;
+    padding: .6rem .9rem .6rem 2.2rem;
+    outline: none;
+    transition: border-color .2s;
+  }
+  .search input:focus { border-color: var(--acc); }
+  .search::before {
+    content: "◉";
+    position: absolute;
+    left: .8rem; top: 50%;
+    transform: translateY(-50%);
+    color: var(--acc);
+    font-size: .8rem;
+  }
+  .filters { display: flex; gap: .4rem; }
+  .fbtn, .tbtn {
+    font-family: var(--mono);
+    font-size: .7rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    background: none;
+    border: 1px solid var(--line);
+    color: var(--ink-dim);
+    padding: .55rem .9rem;
+    cursor: pointer;
+    transition: all .2s;
+  }
+  .fbtn:hover, .tbtn:hover { border-color: var(--ink-dim); color: var(--ink); }
+  .fbtn.active { background: var(--acc); border-color: var(--acc); color: #17130a; }
+  .tbtn { letter-spacing: .05em; }
+  .result-count {
+    margin-left: auto;
+    font-family: var(--mono);
+    font-size: .7rem;
+    color: var(--ink-faint);
+    letter-spacing: .1em;
+  }
+
+  /* ============ CHAPTER INDEX ============ */
+  .chapter-index {
+    padding: 2.2rem 4vw 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem .5rem;
+  }
+  .chip {
+    font-family: var(--mono);
+    font-size: .68rem;
+    color: var(--ink-dim);
+    text-decoration: none;
+    border: 1px solid var(--line);
+    padding: .4rem .7rem;
+    transition: all .2s;
+    display: inline-flex;
+    gap: .5em;
+    align-items: baseline;
+    cursor: pointer;
+    background: none;
+  }
+  .chip:hover { border-color: var(--acc); color: var(--ink); }
+  .chip b { color: var(--acc); font-weight: 500; }
+
+  /* ============ SECTIONS ============ */
+  main { padding: 1rem 4vw 5rem; }
+  section.chapter { padding-top: 3.6rem; }
+  .chapter-head {
+    display: flex;
+    align-items: baseline;
+    gap: 1.4rem;
+    margin-bottom: .9rem;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 1rem;
+    position: relative;
+    flex-wrap: wrap;
+  }
+  .chapter-head::after {
+    content: "";
+    position: absolute;
+    left: 0; bottom: -1px;
+    width: 72px; height: 3px;
+    background: var(--acc);
+  }
+  .ch-num {
+    font-family: var(--display);
+    font-size: 2.2rem;
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--acc);
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .ch-title {
+    font-family: var(--body);
+    font-weight: 700;
+    font-size: clamp(1.05rem, 2.4vw, 1.55rem);
+    text-transform: uppercase;
+    letter-spacing: .04em;
+  }
+  .ch-years {
+    font-family: var(--mono);
+    font-size: .7rem;
+    color: var(--acc);
+    letter-spacing: .12em;
+    white-space: nowrap;
+  }
+  .ch-count {
+    margin-left: auto;
+    font-family: var(--mono);
+    font-size: .7rem;
+    color: var(--ink-faint);
+    white-space: nowrap;
+  }
+  .ch-blurb {
+    max-width: 760px;
+    margin-bottom: 1.8rem;
+    color: var(--ink-dim);
+    font-weight: 300;
+    font-size: .92rem;
+  }
+
+  /* ============ GRID + CARDS ============ */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.2rem;
+  }
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    cursor: pointer;
+    transition: transform .25s cubic-bezier(.2,.7,.3,1), border-color .25s, background .25s;
+    display: flex;
+    flex-direction: column;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    border-color: var(--acc);
+    background: var(--bg-card-hover);
+  }
+  .thumb {
+    position: relative;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    background: #000;
+  }
+  .thumb img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: saturate(.82);
+    transition: filter .3s, transform .5s;
+  }
+  .card:hover .thumb img {
+    filter: saturate(1.05);
+    transform: scale(1.045);
+  }
+  .thumb::after {
+    content: "▶";
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    font-size: 2rem;
+    color: #fff;
+    background: rgba(255,179,32,0);
+    opacity: 0;
+    transition: all .25s;
+    text-shadow: 0 2px 18px rgba(0,0,0,.7);
+  }
+  .card:hover .thumb::after {
+    opacity: 1;
+    background: rgba(255,179,32,.16);
+  }
+  .dur {
+    position: absolute;
+    right: .5rem; bottom: .5rem;
+    font-family: var(--mono);
+    font-size: .65rem;
+    background: rgba(0,0,0,.82);
+    color: #f3efe6;
+    padding: .15rem .45rem;
+    letter-spacing: .05em;
+    z-index: 2;
+  }
+  .badge {
+    position: absolute;
+    left: .5rem; top: .5rem;
+    font-family: var(--mono);
+    font-size: .58rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    padding: .2rem .5rem;
+    z-index: 2;
+    background: var(--acc);
+    color: #17130a;
+  }
+  .badge.frag { background: #8a6d1f; color: #fff; }
+  .badge.doc { background: #3d5a80; color: #fff; }
+  .card-body {
+    padding: .9rem 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+    flex: 1;
+  }
+  .f-artist {
+    font-family: var(--mono);
+    font-size: .64rem;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--acc);
+  }
+  .f-title {
+    font-weight: 500;
+    font-size: .98rem;
+    line-height: 1.3;
+  }
+  .f-title .yr { color: var(--ink-faint); font-weight: 300; }
+  .f-meta {
+    margin-top: auto;
+    padding-top: .5rem;
+    font-family: var(--mono);
+    font-size: .64rem;
+    color: var(--ink-faint);
+    letter-spacing: .06em;
+    display: flex;
+    gap: .8em;
+  }
+
+  /* ============ MODAL ============ */
+  .modal {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(8,7,10,.94);
+    padding: 3vh 3vw;
+  }
+  .modal.open { display: flex; }
+  .modal-inner {
+    width: min(1100px, 96vw);
+    max-height: 94vh;
+    display: flex;
+    flex-direction: column;
+  }
+  .player {
+    aspect-ratio: 16/9;
+    width: 100%;
+    background: #000;
+    border: 1px solid #2a2833;
+    border-bottom: 3px solid var(--acc);
+  }
+  .player iframe { width: 100%; height: 100%; border: 0; display: block; }
+  .modal-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+    padding: 1.1rem .2rem;
+  }
+  .modal-meta .f-artist { font-size: .72rem; }
+  .modal-meta .m-title {
+    font-weight: 700;
+    font-size: 1.3rem;
+    width: 100%;
+    color: #f3efe6;
+  }
+  .modal-meta .m-info {
+    font-family: var(--mono);
+    font-size: .7rem;
+    color: #8d8672;
+    display: flex;
+    gap: 1.4em;
+    flex-wrap: wrap;
+  }
+  .modal-meta a {
+    color: #b5b0a4;
+    text-decoration: none;
+    border-bottom: 1px solid var(--acc);
+  }
+  .modal-meta a:hover { color: #f3efe6; }
+  .m-share {
+    font: inherit; color: #b8b2a6; background: none; border: none;
+    border-bottom: 1px solid var(--acc); padding: 0; cursor: pointer;
+  }
+  .m-share:hover { color: #f3efe6; }
+  .close {
+    position: fixed;
+    top: 1.2rem; right: 1.6rem;
+    font-family: var(--display);
+    font-size: 1.6rem;
+    color: #f3efe6;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 110;
+    transition: color .2s, transform .2s;
+  }
+  .close:hover { color: var(--acc); transform: rotate(90deg); }
+
+  /* ============ TO TOP ============ */
+  .totop {
+    position: fixed;
+    right: 1.4rem; bottom: 1.4rem;
+    z-index: 40;
+    width: 2.9rem; height: 2.9rem;
+    font-family: var(--display);
+    font-size: 1.05rem;
+    background: var(--bg-card);
+    color: var(--acc);
+    border: 1px solid var(--line);
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s, border-color .2s, transform .2s;
+    box-shadow: 0 8px 24px var(--shadow);
+  }
+  .totop.show { opacity: 1; pointer-events: auto; }
+  .totop:hover { border-color: var(--acc); transform: translateY(-3px); }
+
+  /* ============ FOOTER ============ */
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 2.5rem 4vw 3rem;
+    font-family: var(--mono);
+    font-size: .68rem;
+    color: var(--ink-faint);
+    letter-spacing: .08em;
+    line-height: 2;
+  }
+  footer b { color: var(--acc); font-weight: 500; }
+
+  .empty-note {
+    font-family: var(--mono);
+    font-size: .75rem;
+    color: var(--ink-faint);
+    padding: 1rem 0 2rem;
+  }
+  @media (max-width: 720px) {
+    header { padding-top: 3rem; }
+    .stats { gap: 1.6rem; }
+    .result-count { display: none; }
+    .nav-btn .cur { max-width: 120px; }
+  }
+</style>
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"><link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="canonical" href="https://futureshow.pl/kino-nieme/">
+</head>
+<body>
+<script>try{if((localStorage.getItem("kn-motyw")||"dark")==="light")document.body.classList.add("light")}catch(e){}</script>
+
+<header>
+  <div class="grain"></div>
+  <div class="kicker" data-i18n="kicker"></div>
+  <h1 aria-label="Kino nieme — Silent Cinema"><span id="titleTop">KINO</span><span class="stroke" id="titleBot">NIEME</span></h1>
+  <p class="lede"><span data-i18n="lede"></span><span class="src" data-i18n="ledeSrc"></span></p>
+  <div class="stats">
+    <div class="stat"><b id="stat-films">0</b><span data-i18n="films"></span></div>
+    <div class="stat"><b id="stat-artists">0</b><span data-i18n="artists"></span></div>
+    <div class="stat"><b id="stat-chapters">0</b><span data-i18n="chapters"></span></div>
+  </div>
+</header>
+
+<div class="toolbar">
+  <div class="nav-dd" id="navDD">
+    <button class="nav-btn" id="navBtn" aria-haspopup="true" aria-expanded="false">
+      <span class="caret">▼</span><span class="cur" id="navCur"></span>
+    </button>
+    <div class="nav-list" id="navList" role="menu"></div>
+  </div>
+  <div class="search"><input id="q" type="search" autocomplete="off"></div>
+  <div class="filters">
+    <button class="fbtn active" data-type="all" data-i18n="fAll"></button>
+    <button class="fbtn" data-type="full" data-i18n="fFull"></button>
+    <button class="fbtn" data-type="fragment" data-i18n="fFrag"></button>
+  </div>
+  <button class="tbtn" id="themeBtn" title="motyw / theme">◐</button>
+  <button class="tbtn" id="langBtn"></button>
+  <div class="result-count" id="rcount"></div>
+</div>
+
+<nav class="chapter-index" id="chapterIndex"></nav>
+
+<main id="main"></main>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true">
+  <button class="close" id="closeBtn" aria-label="Zamknij">✕</button>
+  <div class="modal-inner">
+    <div class="player" id="player"></div>
+    <div class="modal-meta" id="modalMeta"></div>
+  </div>
+</div>
+
+<button class="totop" id="toTop" aria-label="Do góry">▲</button>
+
+<style>
+#o-portalu{max-width:880px;margin:70px auto 30px;padding:0 22px;line-height:1.65;color:var(--ink-dim,#b5b0a4)}
+#o-portalu h2{font-size:1.5rem;color:var(--ink);margin:0 0 14px}
+#o-portalu h3{font-size:1.05rem;color:var(--acc);margin:26px 0 6px}
+#o-portalu p{margin:0 0 13px}
+#o-portalu b{color:var(--ink);font-weight:600}
+html[data-oplang="en"] .op-pl{display:none}
+html:not([data-oplang="en"]) .op-en{display:none}
+</style>
+<!--OPORTALU-START-->
+<section id="o-portalu">
+<div class="op-pl"><h2>O portalu — jak zbudowana jest historia kina niemego?</h2>
+<p><b>Kino nieme</b> to chronologiczny przewodnik po pierwszych czterdziestu latach filmu:
+<b>828 filmów w 30 rozdziałach</b>, od chronofotografii Muybridge'a i pleografu Prószyńskiego po ostatnie filmy nieme Ozu i Chaplina.
+Wszystkie filmy odtwarzane są z publikujących je kanałów i archiwów — portal je porządkuje i opisuje, a układ rozdziałów
+wyprowadzono z opracowań naukowych: <i>Film History</i> Thompson i Bordwella, <i>Silent Cinema</i> Cherchi Usaia,
+krakowskiej <i>Historii kina</i> (t. 1 <i>Kino nieme</i>), prac Gunninga, Eisner, Kracauera, Leydy, Tsiviana, Brownlowa
+i raportu Davida Pierce'a o zachowanych filmach.</p>
+<p>Wprowadzenia do rozdziałów powstały na podstawie <b>notatnika badawczego</b> z 60 otwartymi (open access) tekstami —
+od Lindsaya, Münsterberga i <i>Dziesiątej Muzy</i> Irzykowskiego (1924), przez antologię o „kinie atrakcji”, monografie
+Amsterdam University Press i katalogi festiwalu w Pordenone, po polskie artykuły z Pleografu, Kwartalnika Filmowego i Images.
+Pełna lista: <a href="zrodla.html" style="color:var(--acc)">Źródła i metoda</a>.</p>
+<p><b>Polskie kino nieme</b> nie jest osobną ciekawostką, lecz częścią światowego kanonu: Prószyński i Matuszewski,
+Sfinks Hertza i Pola Negri, Starewicz, Bolesławski, Szaro („Mocny człowiek”), Irzykowski — obok Lumière'ów, Griffitha,
+Murnaua, Eisensteina i Ozu. Całość działa po polsku i po angielsku, bez konta i bez opłat.</p>
+<h3>Czy filmy nieme naprawdę były nieme?</h3>
+<p>Nie — w kinie grał pianista lub orkiestra, w Japonii narrator benshi objaśniał akcję, a ponad połowa kopii była barwiona.
+Kopie na YouTube mają zwykle muzykę dodaną przez wydawcę, od rekonstrukcji oryginalnych partytur po muzykę współczesną.</p>
+<h3>Ile filmów niemych przetrwało?</h3>
+<p>Według raportu Library of Congress (David Pierce, 2013) około trzech czwartych amerykańskich pełnometrażowych filmów niemych
+przepadło; w Polsce straty są jeszcze większe. Filmy zaginione oznaczono na kartach i reprezentują je fragmenty, dokumenty lub rekonstrukcje.</p>
+<h3>Od czego zacząć?</h3>
+<p>Chronologicznie od rozdziału pierwszego — portal jest ułożony jak kurs. Można też wejść od Chaplina i Keatona (rozdziały 11–12),
+od ekspresjonizmu (16) albo od polskiego kina niemego (21–22). Tryb <a href="maraton.html" style="color:var(--acc)">Maraton</a> odtwarza wszystko po kolei.</p>
+<h3>Czy filmy są dostępne legalnie i za darmo?</h3>
+<p>Tak — portal osadza wyłącznie materiały z publikujących je kanałów (YouTube, Internet Archive) lub linkuje do archiwów (Ninateka, Bundesarchiv).
+Większość filmów sprzed 1931 roku jest w Stanach Zjednoczonych w domenie publicznej; w Europie ochrona trwa 70 lat od śmierci twórców.</p></div>
+<div class="op-en"><h2>About — how this history of silent cinema is built</h2>
+<p><b>Silent Cinema</b> is a chronological guide to the first forty years of film: <b>828 films in 30 chapters</b>,
+from Muybridge's chronophotography and Prószyński's pleograph to the last silents of Ozu and Chaplin. All films play from
+the channels and archives that publish them; the chapter structure follows the scholarship (Thompson &amp; Bordwell,
+Cherchi Usai, the Kraków <i>Historia kina</i>, Gunning, Eisner, Kracauer, Leyda, Tsivian, Brownlow, Pierce) and the chapter
+introductions are grounded in a research notebook of 60 open-access texts — see <a href="zrodla.html" style="color:var(--acc)">Sources &amp; method</a>.
+Polish silent cinema — Prószyński, Sfinks and Pola Negri, Starewicz, Szaro's “The Strong Man”, Irzykowski — is woven into the world canon.
+Silent films were never silent: music, benshi narrators and tinted prints were part of the show; YouTube copies usually carry a score added by the publisher.</p></div>
+</section>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Czy filmy nieme naprawdę były nieme?", "acceptedAnswer": {"@type": "Answer", "text": "Nie — w kinie grał pianista lub orkiestra, w Japonii narrator benshi objaśniał akcję, a ponad połowa kopii była barwiona. Kopie na YouTube mają zwykle muzykę dodaną przez wydawcę."}}, {"@type": "Question", "name": "Ile filmów niemych przetrwało?", "acceptedAnswer": {"@type": "Answer", "text": "Według raportu Library of Congress (David Pierce, 2013) około trzech czwartych amerykańskich pełnometrażowych filmów niemych przepadło; w Polsce straty są jeszcze większe."}}, {"@type": "Question", "name": "Od czego zacząć poznawanie kina niemego?", "acceptedAnswer": {"@type": "Answer", "text": "Chronologicznie od rozdziału pierwszego — 828 filmów w 30 rozdziałach ułożonych według opracowań naukowych; albo od Chaplina i Keatona, ekspresjonizmu lub polskiego kina niemego."}}, {"@type": "Question", "name": "Czy filmy na portalu są legalne i darmowe?", "acceptedAnswer": {"@type": "Answer", "text": "Tak — to osadzenia z publikujących je kanałów i archiwów; oglądanie jest darmowe i bez konta."}}]}
+</script>
+<!--OPORTALU-END-->
+<script>
+(function(){var K='kn-lang';function ap(){var v='pl';try{v=localStorage.getItem(K)||'pl'}catch(e){}
+document.documentElement.setAttribute('data-oplang',v==='en'?'en':'pl')}ap();
+document.addEventListener('click',function(){setTimeout(ap,60)},true);})();
+</script>
+<footer id="foot"></footer>
+
+<script src="data.js"></script>
+<script>
+// Rozdziały wyprowadzone z kanonu historiografii kina niemego (Thompson/Bordwell, Cherchi Usai,
+// Lubelski/Sowińska/Syska t. 1, Gunning, Eisner, Kracauer, Leyda, Tsivian, Brownlow, Pierce) —
+// zob. zrodla.html i notatnik badawczy NotebookLM.
+const SECTIONS = [
+  { pl: "Prehistoria i wynalazek kina", en: "Pre-Cinema and the Invention of Film", years: "1878–1895",
+    bpl: "Kino narodziło się ze spotkania nauki z techniką fotograficzną: Muybridge rozkładał galop konia na klatki (od 1878), Marey strzelbą fotograficzną łapał 12 obrazów na sekundę (1882), a Dickson u Edisona zastosował w latach 1889–1891 elastyczną taśmę celuloidową 35 mm z perforacją — standard, który przetrwał sto lat. Jak pokazuje Charles Musser, pierwsze studio „Black Maria” (1893) i kinetoskop uczyniły z eksperymentu przemysł. W tym samym czasie w Warszawie Kazimierz Prószyński budował pleograf (1894).",
+    ben: "Cinema was born where science met photographic technology: Muybridge broke a horse's gallop into frames (from 1878), Marey's photographic gun caught 12 images a second (1882), and Dickson at Edison's lab adopted in 1889–1891 the flexible 35 mm celluloid strip with perforations, a standard that lasted a century. As Charles Musser shows, the first studio, the “Black Maria” (1893), and the Kinetoscope turned the experiment into an industry. At the same time in Warsaw Kazimierz Prószyński was building his pleograph (1894)." },
+  { pl: "Lumière, Edison i kino atrakcji", en: "Lumière, Edison and the Cinema of Attractions", years: "1895–1906",
+    bpl: "Pierwszy płatny pokaz Lumière'ów w Grand Café (28 grudnia 1895) i premiera Vitascope'u Edisona (kwiecień 1896) otwierają epokę, którą Tom Gunning i André Gaudreault nazwali „kinem atrakcji”: nie opowieść, lecz widok, szok i zadziwienie — pociąg wjeżdżający na stację, pierwszy pocałunek na ekranie, pierwsze jazdy kamery z pociągu i gondoli. Operatorzy Lumière'ów rozjechali się po świecie, a Bolesław Matuszewski już w 1898 roku pisał, że kino jest „nowym źródłem historii”.",
+    ben: "The Lumières' first paid screening at the Grand Café (28 December 1895) and the debut of Edison's Vitascope (April 1896) open the era Tom Gunning and André Gaudreault called the “cinema of attractions”: not story but view, shock and wonder — a train pulling into a station, the first screen kiss, the first tracking shots from trains and gondolas. Lumière operators fanned out across the globe, and in 1898 Bolesław Matuszewski was already calling film “a new source of history”." },
+  { pl: "Georges Méliès i film tricków", en: "Méliès and the Trick Film", years: "1896–1912",
+    bpl: "Iluzjonista z Théâtre Robert-Houdin odkrył w 1896 roku trik zatrzymanej kamery, zbudował w Montreuil pierwsze oszklone studio (1897) i stworzył féerie — baśniowe widowiska złożone z malowanych tableaux. „Podróż na Księżyc” (1902) dowiodła, że inscenizowana fantazja może być światowym towarem; gdy amerykańskie wytwórnie piratowały jego filmy, brat Gaston otworzył w Nowym Jorku filię Star-Film (1903). Obok Mélièsa: Alice Guy, pierwsza reżyserka w historii, i Segundo de Chomón, mistrz triku w Pathé.",
+    ben: "A conjuror from the Théâtre Robert-Houdin discovered the stop trick in 1896, built the first glass studio at Montreuil (1897) and created the féerie — fairy-tale spectacles of painted tableaux. “A Trip to the Moon” (1902) proved that staged fantasy could be a global commodity; when American companies pirated his films, his brother Gaston opened a Star-Film branch in New York (1903). Alongside Méliès: Alice Guy, the first woman director, and Segundo de Chomón, Pathé's master of the trick film." },
+  { pl: "Szkoła z Brighton i narodziny montażu", en: "The Brighton School and the Birth of Editing", years: "1898–1908",
+    bpl: "Grupę fotografów i wynalazców z nadmorskiego Brighton — George'a Alberta Smitha, Jamesa Williamsona, Esmé Collingsa — Georges Sadoul nazwał pierwszą szkołą filmową. Około 1900 roku przełamali teatralną statyczność kadru: lupa babci w „Grandma's Reading Glass” to pierwsze zbliżenia i spojrzenie subiektywne, „Fire!” (1901) łączy plener z wnętrzem w sekwencję ratunku, a „The Big Swallow” połyka kamerę. David Bordwell widzi w tych filmach początek montażu analitycznego; Porter uczył się od nich wprost.",
+    ben: "Georges Sadoul called the photographers and inventors of seaside Brighton — George Albert Smith, James Williamson, Esmé Collings — the first school of cinema. Around 1900 they broke the theatrical stillness of the frame: Grandma's magnifying glass gives the first close-ups and point-of-view shots, “Fire!” (1901) joins exterior and interior into a rescue sequence, and “The Big Swallow” devours the camera. David Bordwell sees in these films the beginning of analytical editing; Porter learned from them directly." },
+  { pl: "Porter, nickelodeony i wczesne kino amerykańskie", en: "Porter, Nickelodeons and Early American Narrative", years: "1902–1908",
+    bpl: "Edwin S. Porter, od 1900 roku główny realizator wytwórni Edisona, przekształcił kino z „wizualnej gazety” w opowiadanie (Charles Musser): „Życie amerykańskiego strażaka” i „Napad na ekspres” (1903) łączą wątki równoległe, pościg i napięcie, a słynny strzał w obiektyw był atrakcją, którą kiniarz mógł pokazać na początku lub na końcu. W 1905 roku w Pittsburghu otwarto pierwszy nickelodeon — pięciocentowe kino w sklepie — i w kilka lat kino stało się masową rozrywką Ameryki.",
+    ben: "Edwin S. Porter, chief filmmaker at Edison's company from 1900, turned cinema from a “visual newspaper” into storytelling (Charles Musser): “Life of an American Fireman” and “The Great Train Robbery” (1903) combine parallel strands, chase and suspense, and the famous shot fired at the lens was an attraction an exhibitor could place at the beginning or the end. In 1905 the first nickelodeon — a five-cent cinema in a storefront — opened in Pittsburgh, and within a few years film became America's mass entertainment." },
+  { pl: "Francja przed wojną: Pathé, Gaumont, Feuillade", en: "French Hegemony: Pathé, Gaumont, Feuillade", years: "1906–1918",
+    bpl: "W latach 1903–1909 Francja rządziła światowym rynkiem — Georges Sadoul mówi o „erze Pathé”: w 1906 roku wytwórnia tłoczyła 40 000 metrów taśmy dziennie, a od 1907 wprowadziła wynajem filmów zamiast sprzedaży. Na kryzys i ambicje mieszczańskiej publiczności odpowiedziały Film d'Art (1908) z aktorami Comédie-Française, komedie Maxa Lindera i realistyczne cykle Louisa Feuillade'a, którego seriale „Fantômas” i „Les Vampires” z Musidorą zachwyciły surrealistów. Wojna 1914 roku załamała ten przemysł i otworzyła drogę Ameryce.",
+    ben: "From 1903 to 1909 France ruled the world market — Georges Sadoul speaks of the “Pathé era”: in 1906 the company turned out 40,000 metres of film a day and from 1907 rented films instead of selling them. The crisis and the ambitions of a bourgeois audience were answered by Film d'Art (1908) with actors of the Comédie-Française, Max Linder's comedies and the realist series of Louis Feuillade, whose serials “Fantômas” and “Les Vampires” with Musidora enchanted the Surrealists. The war of 1914 broke this industry and opened the way for America." },
+  { pl: "D.W. Griffith: od Biographu do Nietolerancji", en: "D.W. Griffith: From Biograph to Intolerance", years: "1908–1921",
+    bpl: "W Biographie (1908–1913) Griffith nakręcił ponad 400 krótkich filmów i, jak pokazał Tom Gunning, zbudował „system narratora”: montaż równoległy, zbliżenie i kadrowanie podporządkowane opowiadaniu; Roberta Pearson opisała, jak jego aktorzy przeszli od gestu teatralnego do stonowanego realizmu. „Narodziny narodu” (1915) dowiodły potęgi pełnego metrażu i wywołały protesty NAACP przeciw rasistowskiej gloryfikacji Ku Klux Klanu — odpowiedzią czarnych twórców był Oscar Micheaux. „Nietolerancja” (1916), kosztująca 1,9 mln dolarów filmowa fuga czterech epok, wyznaczyła granice kina widowiskowego.",
+    ben: "At Biograph (1908–1913) Griffith made over 400 short films and, as Tom Gunning showed, built a “narrator system”: crosscutting, the close-up and framing put in the service of storytelling; Roberta Pearson traced how his actors moved from theatrical gesture to restrained realism. “The Birth of a Nation” (1915) proved the power of the feature and provoked NAACP protests against its racist glorification of the Ku Klux Klan — Black filmmakers answered through Oscar Micheaux. “Intolerance” (1916), a $1.9 million cinematic fugue of four epochs, marked the limits of spectacle cinema." },
+  { pl: "Włoskie kolosy i divy", en: "Italian Epics and the Diva Film", years: "1905–1926",
+    bpl: "Włochy olśniły świat kolosami historycznymi: „Quo Vadis?” (1913) grano w Royal Albert Hall, a „Cabiria” (1914) Pastrone'a, z napisami D'Annunzia i opatentowanym wózkiem kamerowym, kosztowała milion lirów. Od 1913 roku równolegle rozkwitł film diw — Lyda Borelli („Ma l'amor mio non muore!”) dała językowi włoskiemu słowo borellismo, Francesca Bertini w „Assunta Spina” (1915) grała z realistyczną prawdą — Paolo Cherchi Usai widzi w ich ciałach i gestach ekspresję nowoczesnych lęków fin de siècle'u.",
+    ben: "Italy dazzled the world with historical colossi: “Quo Vadis?” (1913) played the Royal Albert Hall, and Pastrone's “Cabiria” (1914), with intertitles by D'Annunzio and a patented camera dolly, cost a million lire. From 1913 the diva film flourished alongside — Lyda Borelli (“Ma l'amor mio non muore!”) gave Italian the word borellismo, Francesca Bertini in “Assunta Spina” (1915) acted with realist truth — and Paolo Cherchi Usai reads their bodies and gestures as an expression of fin-de-siècle anxieties." },
+  { pl: "Skandynawia: Nielsen, Sjöström, Stiller, Dreyer", en: "Scandinavian Golden Age", years: "1907–1926",
+    bpl: "Duńska Nordisk (zał. 1906) eksportowała 98% produkcji i w 1913 roku była drugim po Pathé eksporterem świata; „Przepaść” (1910) uczyniła z Asty Nielsen pierwszą międzynarodową gwiazdę o nowoczesnym, psychologicznym aktorstwie, dla której w Niemczech stworzono system Monopolfilm. Szwedzki złoty wiek otwiera „Terje Vigen” (1917) Sjöströma: natura jako los, literatura Lagerlöf i Ibsena, a „Woźnica śmierci” (1921), „Skarb pana Arne” Stillera i wczesny Dreyer zamykają epokę tuż przed wyjazdem mistrzów do Hollywood.",
+    ben: "Denmark's Nordisk (founded 1906) exported 98% of its output and in 1913 was the world's second exporter after Pathé; “The Abyss” (1910) made Asta Nielsen the first international star with a modern, psychological style, for whom Germany invented the Monopolfilm system. Sweden's golden age opens with Sjöström's “Terje Vigen” (1917): nature as fate, the literature of Lagerlöf and Ibsen; “The Phantom Carriage” (1921), Stiller's “Sir Arne's Treasure” and early Dreyer close the era just before the masters left for Hollywood." },
+  { pl: "Rosja carska: Bauer, Protazanow, Starewicz", en: "Russia before the Revolution", years: "1908–1918",
+    bpl: "Kino Imperium Rosyjskiego wypracowało własny styl — Yuri Tsivian opisuje powolne tempo gry, psychologiczną głębię, malarskie dekoracje i tragiczne finały. U Chanżonkowa pracowali Jewgienij Bauer, mistrz światłocienia i głębi przestrzeni, Jakow Protazanow, autor adaptacji Puszkina i Tołstoja z Mozżuchinem, oraz Władysław Starewicz, urodzony w polskiej rodzinie pionier animacji lalkowej, którego owadzie dramaty szły w świat jeszcze przed 1914 rokiem. Po rewolucji większość z nich wyemigrowała, a nowa awangarda budowała się w opozycji do tej szkoły.",
+    ben: "The cinema of the Russian Empire developed a style of its own — Yuri Tsivian describes its slow acting tempo, psychological depth, painterly décor and tragic endings. At Khanzhonkov's studio worked Yevgeni Bauer, master of chiaroscuro and deep space, Yakov Protazanov, adapter of Pushkin and Tolstoy with Mozzhukhin, and Władysław Starewicz, the Polish-born pioneer of puppet animation whose insect dramas travelled the world before 1914. After the revolution most of them emigrated, and the new avant-garde defined itself against this school." },
+  { pl: "Slapstick I: Keystone, Chaplin, Arbuckle", en: "Slapstick I: Keystone, Chaplin, Arbuckle", years: "1912–1919",
+    bpl: "Keystone Macka Sennetta (od sierpnia 1912) uczyniło z pościgu i fizycznego komizmu gatunek; Tom Gunning i Henry Jenkins widzą w slapsticku kontynuację kina atrakcji, gag przeciw narracji. Pod koniec 1913 roku dołączył Charlie Chaplin — w „Kid Auto Races at Venice” (1914) narodził się Włóczęga, a „Tillie's Punctured Romance” (1914) było pierwszą pełnometrażową komedią. U Fatty'ego Arbuckle'a debiutował Buster Keaton (1917), a chaplinomania zrodziła setki imitatorów. W 1919 roku Chaplin współtworzył United Artists.",
+    ben: "Mack Sennett's Keystone (from August 1912) turned the chase and physical comedy into a genre; Tom Gunning and Henry Jenkins see slapstick as the cinema of attractions continued, the gag against narrative. Charlie Chaplin joined in late 1913 — the Tramp was born in “Kid Auto Races at Venice” (1914), and “Tillie's Punctured Romance” (1914) was the first feature-length comedy. Buster Keaton debuted with Fatty Arbuckle (1917), and Chaplin mania bred hundreds of imitators. In 1919 Chaplin co-founded United Artists." },
+  { pl: "Slapstick II: Keaton, Lloyd, Laurel i Hardy", en: "Slapstick II: The Feature Years", years: "1920–1929",
+    bpl: "W latach 20. komedia przeszła od dwurolkówek do pełnych metraży wielkiej czwórki. Harold Lloyd zdjął wąsy Lonesome Luke'a, założył okulary (1917) i wisząc na zegarze w „Jeszcze wyżej!” (1923) stał się najbardziej kasowym komikiem dekady — mimo że w 1919 roku stracił palce w wybuchu rekwizytu. Buster Keaton budował gagi jak inżynier: działająca replika parowozu w „Naszej gościnności” i „Generał” (1926); Chaplin dał „Brzdąca” i „Gorączkę złota”; u Hala Roacha w 1927 roku narodził się duet Laurel i Hardy, a Frank Capra prowadził Harry'ego Langdona.",
+    ben: "In the 1920s comedy moved from two-reelers to the features of the big four. Harold Lloyd dropped Lonesome Luke's moustache, put on glasses (1917) and, dangling from a clock in “Safety Last!” (1923), became the decade's top-grossing comedian — despite losing fingers in a prop explosion in 1919. Buster Keaton built gags like an engineer: a working replica locomotive in “Our Hospitality” and “The General” (1926); Chaplin gave “The Kid” and “The Gold Rush”; at Hal Roach's in 1927 Laurel and Hardy were born as a team, and Frank Capra directed Harry Langdon." },
+  { pl: "Hollywood: gwiazdy, wytwórnie, system", en: "Hollywood: Stars, Studios and the System", years: "1914–1928",
+    bpl: "Po upadku trustu Edisona (1915) w Kalifornii powstał system studyjny oparty na pionowej integracji produkcji, dystrybucji i kin — Janet Staiger i Kristin Thompson opisują przejście do „systemu centralnego producenta”. Carl Laemmle w 1910 roku wymyślił marketing gwiazdy (Florence Lawrence), Pickford, Fairbanks, Valentino, Swanson, Chaney, Garbo i Pola Negri stali się własnością kontraktów, MGM powstało w 1924, a po skandalach (Arbuckle) studia powołały w 1922 roku Biuro Haysa — także po to, by chronić eksport, który według Thompson zdominował świat już w 1917 roku.",
+    ben: "After the Edison trust fell (1915) a studio system arose in California, built on vertical integration of production, distribution and theatres — Janet Staiger and Kristin Thompson describe the shift to the “central producer system”. Carl Laemmle invented star marketing in 1910 (Florence Lawrence); Pickford, Fairbanks, Valentino, Swanson, Chaney, Garbo and Pola Negri became contract property; MGM was formed in 1924; and after the scandals (Arbuckle) the studios set up the Hays Office in 1922 — partly to protect an export trade that, as Thompson shows, already dominated the world by 1917." },
+  { pl: "Amerykańscy mistrzowie ery niemej", en: "American Masters of the Silent Era", years: "1915–1931",
+    bpl: "Obok gwiazd rosły autorskie osobowości: Stroheim, pierwszy wielki autor Universalu, z bezkompromisowym realizmem „Chciwości” (1924); DeMille z biblijnymi widowiskami; King Vidor z „Tłumem” (1928); Sternberg, Ford, Walsh, Borzage, Browning. Hollywood importowało też Europę: Lubitsch przywiózł w 1922 roku „Lubitsch touch” (Kristin Thompson), Sjöström „Wiatr”, a Murnau w „Wschodzie słońca” (1927) ruchomą kamerę i proces Williamsa — prapoczątek green screenu. Według raportu Davida Pierce'a trzy czwarte amerykańskich fabuł niemych nie przetrwało.",
+    ben: "Beside the stars grew auteur personalities: Stroheim, Universal's first great auteur, with the uncompromising realism of “Greed” (1924); DeMille with biblical spectacles; King Vidor with “The Crowd” (1928); Sternberg, Ford, Walsh, Borzage, Browning. Hollywood also imported Europe: Lubitsch brought the “Lubitsch touch” in 1922 (Kristin Thompson), Sjöström “The Wind”, and Murnau in “Sunrise” (1927) the unchained camera and the Williams process — an ancestor of the green screen. According to David Pierce's report, three quarters of American silent features have not survived." },
+  { pl: "Pionierki i głosy niezależne: Weber, Guy, Micheaux, Flaherty", en: "Women Pioneers and Independent Voices", years: "1906–1929",
+    bpl: "Zanim korporacyjna konsolidacja lat 20. zamknęła drzwi, kobiety współtworzyły przemysł — pokazują to Jane Gaines i Annette Förster. Alice Guy-Blaché założyła w 1910 roku własne studio Solax, Lois Weber była najlepiej opłacaną reżyserką Universalu i podejmowała aborcję czy biedę („Buty”), Nell Shipman kręciła przygodowe dramaty we własnym studiu nad Priest Lake. Oscar Micheaux od 1918 roku tworzył niezależne „race movies” jako odpowiedź na Griffitha, a Flaherty „Nanookiem z Północy” (1922) zapoczątkował dokument kreacyjny.",
+    ben: "Before the corporate consolidation of the 1920s closed the door, women helped build the industry — as Jane Gaines and Annette Förster show. Alice Guy-Blaché founded her own Solax studio in 1910, Lois Weber was Universal's best-paid director and tackled abortion and poverty (“Shoes”), Nell Shipman shot adventure dramas at her own studio on Priest Lake. From 1918 Oscar Micheaux made independent “race movies” as an answer to Griffith, and Flaherty's “Nanook of the North” (1922) founded the creative documentary." },
+  { pl: "Niemiecki ekspresjonizm", en: "German Expressionism", years: "1913–1929",
+    bpl: "Premiera „Gabinetu doktora Caligari” (26 lutego 1920) z geometryczną scenografią Warma, Reimanna i Röhriga — „obraz filmowy ma być sztuką graficzną” — otworzyła nurt, który Kracauer („Od Caligariego do Hitlera”) czytał jako zapowiedź dyktatury, a Lotte Eisner jako powrót romantycznych demonów. Dziś Tomasz Kłys, Thomas Elsaesser i Barry Salt ograniczają ścisły ekspresjonizm do kilku filmów (Caligari, Genuine, Od poranka do północy, Raskolnikow, Gabinet figur woskowych) i mówią raczej o „kinie weimarskim”: Nosferatu Murnaua gra plenerem i światłem, a Lang w „Metropolis” buduje architekturę przyszłości. Zapowiedzią był „Student z Pragi” (1913) ze sobowtórem w podwójnej ekspozycji; w Berlinie Lubitscha gwiazdą była Pola Negri.",
+    ben: "The premiere of “The Cabinet of Dr. Caligari” (26 February 1920), with the geometric sets of Warm, Reimann and Röhrig — “the film image must become graphic art” — opened a current that Kracauer (“From Caligari to Hitler”) read as an omen of dictatorship and Lotte Eisner as the return of Romantic demons. Today Tomasz Kłys, Thomas Elsaesser and Barry Salt confine strict Expressionism to a handful of films (Caligari, Genuine, From Morn to Midnight, Raskolnikow, Waxworks) and prefer to speak of “Weimar cinema”: Murnau's Nosferatu works with landscape and light, and Lang in “Metropolis” builds the architecture of the future. The forerunner was “The Student of Prague” (1913) with its double-exposed doppelgänger; in Lubitsch's Berlin the star was Pola Negri." },
+  { pl: "Weimar: Kammerspiel, Pabst, Nowa Rzeczowość", en: "Weimar Realism: Kammerspiel, Pabst, Neue Sachlichkeit", years: "1921–1930",
+    bpl: "Kammerspiel — kameralny dramat o jedności miejsca, czasu i akcji, prawie bez napisów („Szyny” 1921, „Noc sylwestrowa” 1924, scenariusze Carla Mayera) — i Nowa Rzeczowość, nazwana w 1923 roku przez Hartlauba, dały kino ulicy: biedę, inflację, prostytucję. G.W. Pabst w „Zatraconej uliczce” (1925) i „Puszce Pandory” (1929) z Louise Brooks dążył, jak pisał Kracauer, do dokumentalnej prawdy; Murnau w „Portierze z hotelu Atlantic” (1924) i Dupont w „Varieté” uwolnili kamerę (entfesselte Kamera). Po otwarciu rynku na Hollywood w 1921 roku Niemcy — zauważa Kristin Thompson — błyskawicznie przyswoili amerykańskie oświetlenie i montaż; „Ludzie w niedzielę” (1930) zamykają epokę.",
+    ben: "Kammerspiel — the chamber drama of unity of place, time and action, almost without intertitles (“Shattered” 1921, “New Year's Eve” 1924, scripts by Carl Mayer) — and the New Objectivity, named by Hartlaub in 1923, produced the street film: poverty, inflation, prostitution. G.W. Pabst in “The Joyless Street” (1925) and “Pandora's Box” (1929) with Louise Brooks sought, as Kracauer wrote, documentary truth; Murnau in “The Last Laugh” (1924) and Dupont in “Varieté” unchained the camera. After the market opened to Hollywood in 1921 the Germans — Kristin Thompson notes — quickly absorbed American lighting and editing; “People on Sunday” (1930) closes the era." },
+  { pl: "Radziecki montaż", en: "Soviet Montage", years: "1923–1930",
+    bpl: "Z przemontowywania cudzych filmów i eksperymentów Lwa Kuleszowa — ujęcie znaczy przez sąsiedztwo — wyrosła szkoła, która uczyniła z montażu narzędzie kształtowania percepcji. Eisenstein sformułował montaż atrakcji i montaż intelektualny („Strajk”, „Pancernik Potiomkin”, „Październik”), Pudowkin montaż powiązań („Matka”), Wiertow Kino-Oko — kamerę potężniejszą od ludzkiego oka („Człowiek z kamerą”), Esfir Szub film kompilacyjny z kronik, Dowżenko poemat „Ziemia”. Berlińska premiera „Potiomkina” w kwietniu 1926 roku — pisze Malte Hagener — rozpoczęła międzynarodowy triumf tej szkoły; „Notatki do ogólnej historii kina” pokazują Eisensteina także jako historyka.",
+    ben: "Out of re-editing foreign films and Lev Kuleshov's experiments — a shot means by what stands next to it — grew a school that made editing a tool for shaping perception. Eisenstein formulated the montage of attractions and intellectual montage (“Strike”, “Battleship Potemkin”, “October”), Pudovkin the montage of linkage (“Mother”), Vertov the Kino-Eye, a camera more powerful than the human eye (“Man with a Movie Camera”), Esfir Shub the compilation film from newsreels, Dovzhenko the poem “Earth”. The Berlin premiere of “Potemkin” in April 1926 — writes Malte Hagener — began the school's international triumph; the “Notes for a General History of Cinema” show Eisenstein as a historian too." },
+  { pl: "Francja lat 20.: impresjonizm, Gance, Albatros", en: "French Impressionism, Gance, Albatros", years: "1919–1930",
+    bpl: "Pierwsza awangarda lat 20. chciała kina jako sztuki autonomicznej: Louis Delluc i Jean Epstein nazwali fotogenią tę właściwość obiektywu, która wydobywa z rzeczy nowe piękno, a Irzykowski w „Dziesiątej Muzie” chwalił „J'accuse” Gance'a za rytm obrazów działających jak muzyczne fermaty. Gance w „Kole” i „Napoleonie” (1927, potrójny ekran Polyvision), Epstein w „Wiernym sercu” i „Upadku domu Usherów”, L'Herbier, Dulac i Kirsanoff wprowadzili szybki montaż rytmiczny, deformacje optyczne, nieostrość i nakładania. Zapleczem było studio Albatros rosyjskich emigrantów (Wołkow, Mozżuchin), a epokę zamyka „Męczeństwo Joanny d'Arc” Dreyera (1928).",
+    ben: "The first avant-garde of the 1920s wanted cinema as an autonomous art: Louis Delluc and Jean Epstein called photogénie that property of the lens which draws new beauty out of things, and Irzykowski in “The Tenth Muse” praised Gance's “J'accuse” for the rhythm of images working like musical fermatas. Gance in “La Roue” and “Napoléon” (1927, the triple-screen Polyvision), Epstein in “Cœur fidèle” and “The Fall of the House of Usher”, L'Herbier, Dulac and Kirsanoff introduced fast rhythmic editing, optical distortion, soft focus and superimposition. The Albatros studio of Russian émigrés (Volkoff, Mozzhukhin) was its base, and Dreyer's “The Passion of Joan of Arc” (1928) closes the era." },
+  { pl: "Awangarda lat 20.: dada, surrealizm, film absolutny", en: "The 1920s Avant-Garde", years: "1921–1931",
+    bpl: "Od niemieckiego filmu absolutnego — czystej geometrii i rytmu u Eggelinga, Richtera i Ruttmanna, którego Irzykowski nazywał kompozytorem „optycznej muzyki barw” — przez dadaistyczne prowokacje Claira i Picabii („Entr'acte”) oraz Légera („Balet mechaniczny”), po surrealizm Dulac, Man Raya i Buñuela z Dalím („Pies andaluzyjski”, 1929), który odrzucił logikę na rzecz snu. Malte Hagener pokazuje, że ta awangarda wymyśliła kulturę filmową: kluby, kina studyjne (Studio des Ursulines), czasopisma i archiwa. Pełny wybór — w portalu siostrzanym KINO AWANGARDY; tu skrót z Polakami Themersonami.",
+    ben: "From the German absolute film — pure geometry and rhythm in Eggeling, Richter and Ruttmann, whom Irzykowski called a composer of “optical colour music” — through the Dada provocations of Clair and Picabia (“Entr'acte”) and Léger (“Ballet mécanique”), to the Surrealism of Dulac, Man Ray and Buñuel with Dalí (“Un chien andalou”, 1929), which rejected logic for the dream. Malte Hagener shows that this avant-garde invented film culture: clubs, art cinemas (Studio des Ursulines), journals and archives. The full selection is in the sister portal AVANT-GARDE CINEMA; here a digest, with the Polish Themersons." },
+  { pl: "Polskie kino nieme I: od pleografu do Sfinksa", en: "Polish Silent Cinema I: From the Pleograph to Sfinks", years: "1894–1918",
+    bpl: "Pod zaborami kino zaczęło się od wynalazków: pleograf Kazimierza Prószyńskiego (1894) wyprzedził pokazy Lumière'ów, a Bolesław Matuszewski w 1898 roku widział w filmie „nowe źródło historii”. Pierwsza polska fabuła, „Antoś po raz pierwszy w Warszawie” (1908), zaginęła. W lutym 1909 roku Aleksander Hertz założył Sfinks — kino, wypożyczalnię i laboratorium — a zyski z „monopolowej” dystrybucji „Przepaści” z Astą Nielsen sfinansowały własną produkcję od „Meira Ezofowicza” (1911); jak pisze Łukasz Biskupski, to Sfinks wykreował Polę Negri („Niewolnica zmysłów” 1914, zachowana „Bestia” 1917), po czym wojna 1915 roku odcięła rynek rosyjski.",
+    ben: "Under the partitions cinema began with inventions: Kazimierz Prószyński's pleograph (1894) preceded the Lumière shows, and in 1898 Bolesław Matuszewski saw in film “a new source of history”. The first Polish fiction film, “Antoś for the First Time in Warsaw” (1908), is lost. In February 1909 Aleksander Hertz founded Sfinks — a cinema, a rental office and a laboratory — and the profits from the exclusive distribution of “The Abyss” with Asta Nielsen financed its own production from “Meir Ezofowicz” (1911); as Łukasz Biskupski writes, it was Sfinks that created Pola Negri (“Slave of the Senses” 1914, the surviving “The Beast” 1917), before the war of 1915 cut off the Russian market." },
+  { pl: "Polskie kino nieme II: Druga Rzeczpospolita", en: "Polish Silent Cinema II: The Second Republic", years: "1919–1930",
+    bpl: "Kino niepodległej Polski budowało narodowe imaginarium: adaptacje literatury i dramaty patriotyczne („Cud nad Wisłą” Bolesławskiego 1921, „Pan Tadeusz” Ordyńskiego 1928, „Przedwiośnie”), kręcone — jak zauważa Weronika Szulik — w hollywoodzkim idiomie aktorskim; komedia była rzadkością. W 1924 roku Karol Irzykowski wydał „Dziesiątą Muzę”, jedną z pierwszych na świecie estetyk filmu („widzialność obcowania człowieka z materią”), a Andrzej Włast pisał felietony o repertuarze kin. Arcydzieło epoki, „Mocny człowiek” Henryka Szaro (1929), odnaleziono w Brukseli dopiero w 1997 roku; według Marka Hendrykowskiego większość polskich filmów niemych nie przetrwała. Dźwięk przyszedł z „Śpiewającym błaznem” w 1929 roku.",
+    ben: "The cinema of independent Poland built a national imaginary: literary adaptations and patriotic dramas (Bolesławski's “Miracle on the Vistula” 1921, Ordyński's “Pan Tadeusz” 1928, “Early Spring”), shot — as Weronika Szulik notes — in the Hollywood acting idiom; comedy was rare. In 1924 Karol Irzykowski published “The Tenth Muse”, one of the world's first aesthetics of film (“the visibility of man's intercourse with matter”), and Andrzej Włast wrote columns on the Warsaw repertoire. The era's masterpiece, Henryk Szaro's “The Strong Man” (1929), was rediscovered in Brussels only in 1997; according to Marek Hendrykowski most Polish silent films have not survived. Sound arrived with “The Singing Fool” in 1929." },
+  { pl: "Wielka Brytania: od Hepwortha do Hitchcocka", en: "Britain: From Hepworth to Hitchcock", years: "1908–1929",
+    bpl: "Cecil Hepworth nakręcił „Rescued by Rover” (1905) za 7 funtów 13 szylingów i 9 pensów — negatyw zużył się od tłoczenia kopii i film trzeba było kręcić dwa razy. Brytania była największym rynkiem Europy (ponad 4000 kin w 1911 roku), ale własna produkcja upadała pod naporem Ameryki — stąd ustawa kwotowa Cinematograph Films Act z 1927 roku (Kristin Thompson). Lata 20. przyniosły Elveya, Pearsona, Asquitha i młodego Hitchcocka: „Lokator” (1927), „Ring”, a w Elstree „Szantaż” (1929), zaczęty jako film niemy i ukończony jako pierwszy brytyjski film dźwiękowy; E.A. Dupont nakręcił tu „Piccadilly” z Anną May Wong.",
+    ben: "Cecil Hepworth made “Rescued by Rover” (1905) for £7 13s 9d — the negative wore out from printing copies and the film had to be reshot twice. Britain was Europe's largest market (over 4,000 cinemas in 1911), but its own production collapsed under American pressure — hence the quota legislation of the Cinematograph Films Act of 1927 (Kristin Thompson). The 1920s brought Elvey, Pearson, Asquith and the young Hitchcock: “The Lodger” (1927), “The Ring”, and at Elstree “Blackmail” (1929), begun as a silent and finished as Britain's first sound feature; E.A. Dupont shot “Piccadilly” here with Anna May Wong." },
+  { pl: "Europa Środkowa i Południowa", en: "Central and Southern Europe", years: "1912–1931",
+    bpl: "Kinematografie między mocarstwami: Austria z monumentalnymi „Sodomą i Gomorą” Michaela Kertésza (późniejszego Curtiza) i odnalezionym w 2015 roku „Miastem bez Żydów”; Czechy z Machatým („Erotikon”) i awangardą Hackenschmieda („Bezcelowy spacer”, 1930, po wystawie Film und Foto); Węgry, które w 1926 roku kazały importerom finansować jeden film rodzimy na 30 sprowadzonych, i Austria dająca 20 licencji importowych za każdy film krajowy (Kristin Thompson). Na południu Hiszpania (Florián Rey), Portugalia (Leitão de Barros, młody Oliveira) i Belgia (Storck, Dekeukeleire) tworzyły własne, często dokumentalne odpowiedzi na Hollywood.",
+    ben: "Film industries between the great powers: Austria with Michael Kertész's (later Curtiz) monumental “Sodom and Gomorrah” and “The City Without Jews”, rediscovered in 2015; Czechoslovakia with Machatý (“Erotikon”) and Hackenschmied's avant-garde (“Aimless Walk”, 1930, after the Film und Foto exhibition); Hungary, which in 1926 made importers finance one domestic film per 30 imported, and Austria, granting 20 import licences per national film (Kristin Thompson). In the south Spain (Florián Rey), Portugal (Leitão de Barros, the young Oliveira) and Belgium (Storck, Dekeukeleire) created their own, often documentary answers to Hollywood." },
+  { pl: "Japonia i Chiny: benshi i szanghajska złota era", en: "Japan and China: Benshi Cinema and Shanghai's Golden Age", years: "1910–1936",
+    bpl: "Japońskie kino nieme nigdy nie było nieme: benshi — narratorzy objaśniający akcję i dubbingujący głosy na żywo — zarabiali więcej niż reżyserzy, a ich nazwiska drukowano największą czcionką; Krzysztof Loska nazywa film tej epoki palimpsestem trzech współautorów, a Musei Tokugawa narrował „Stronę szaleństwa” Kinugasy (1926). Ruch „czystego filmu” Kaeriyamy chciał uwolnić kino od teatru, a Ozu („Urodziłem się, ale…”, 1932), Naruse i Mizoguchi („Kobieta z wodospadu”, 1933) kręcili filmy nieme do połowy lat 30. W Szanghaju wytwórnie Mingxing i Lianhua stworzyły złotą erę lewicowego melodramatu: „Bogini” (1934) z Ruan Lingyu, filmy Sun Yu i Cai Chushenga.",
+    ben: "Japanese silent cinema was never silent: the benshi — narrators who explained the action and voiced the characters live — earned more than directors and had their names printed in the largest type; Krzysztof Loska calls the film of this era a palimpsest of three co-authors, and Musei Tokugawa narrated Kinugasa's “A Page of Madness” (1926). Kaeriyama's “pure film” movement wanted to free cinema from theatre, while Ozu (“I Was Born, But…”, 1932), Naruse and Mizoguchi (“The Water Magician”, 1933) kept making silents into the mid-1930s. In Shanghai the Mingxing and Lianhua studios created a golden age of left-wing melodrama: “The Goddess” (1934) with Ruan Lingyu, the films of Sun Yu and Cai Chusheng." },
+  { pl: "Indie, Ameryka Łacińska i świat poza Zachodem", en: "India, Latin America and the Non-Western World", years: "1906–1933",
+    bpl: "Poza Zachodem kino nieme rozwijało się w cieniu Pathé, a potem Hollywood — Kristin Thompson przytacza, że sprowadzenie amerykańskiego filmu do Indii kosztowało 2000 rupii, a nakręcenie własnego 20 000; mimo to Dadasaheb Phalke, zainspirowany „Życiem Chrystusa” (1911), stworzył z mitów puranicznych własne kino tricków („Raja Harishchandra” 1913, „Kaliya Mardan” 1919), a Himansu Rai z Franzem Ostenem indyjsko-niemieckie „Shiraz” i „Rzut kośćmi”. Australia nakręciła pierwszy pełny metraż świata („Historia bandy Kelly'ego”, 1906), Meksyk „Szary automobil” (1919), Brazylia „Limite” (1931), Kolumbia antyamerykańskie „Garras de oro” (1926); jedyny zachowany irański film niemy to „Hadżi Aga, aktor filmowy” (1933). Era niema trwała tu często do połowy lat 30.",
+    ben: "Outside the West silent cinema grew in the shadow of Pathé and then Hollywood — Kristin Thompson records that importing an American film into India cost 2,000 rupees while making a local one cost 20,000; nonetheless Dadasaheb Phalke, inspired by “The Life of Christ” (1911), built a trick cinema of his own from Puranic myth (“Raja Harishchandra” 1913, “Kaliya Mardan” 1919), and Himansu Rai with Franz Osten made the Indo-German “Shiraz” and “A Throw of Dice”. Australia shot the world's first feature (“The Story of the Kelly Gang”, 1906), Mexico “The Grey Automobile” (1919), Brazil “Limite” (1931), Colombia the anti-American “Garras de oro” (1926); Iran's only surviving silent is “Haji Agha, the Cinema Actor” (1933). Here the silent era often lasted into the mid-1930s." },
+  { pl: "Western niemy", en: "The Silent Western", years: "1903–1929",
+    bpl: "Gatunek narodził się z „Napadu na ekspres” (listopad 1903), który — jak piszą Everson, Fenin i Sklar — połączył widowisko filmowe z mitem Dzikiego Zachodu znanym z pokazów Buffalo Billa i powieści groszowych; Charles Musser przypomina, że kręcono go w New Jersey. Broncho Billy Anderson nakręcił dla Essanay 376 cotygodniowych westernów, William S. Hart, zatrudniony u Ince'a w 1914 roku za 75 dolarów tygodniowo, stworzył „szlachetnego złoczyńcę” („Hell's Hinges” 1916), Tom Mix dał show. Epikę plenerową otworzyły „Karawana” Cruze'a (1923) i „Żelazny koń” Forda (1924) — za 371 000 dolarów, z 650 000 czystego zysku.",
+    ben: "The genre was born with “The Great Train Robbery” (November 1903), which — as Everson, Fenin and Sklar write — joined film spectacle to the myth of the West known from Buffalo Bill's shows and dime novels; Charles Musser reminds us it was shot in New Jersey. Broncho Billy Anderson made 376 weekly Westerns for Essanay, William S. Hart, hired by Ince in 1914 at $75 a week, created the “good badman” (“Hell's Hinges” 1916), and Tom Mix brought showmanship. Outdoor epic began with Cruze's “The Covered Wagon” (1923) and Ford's “The Iron Horse” (1924) — made for $371,000 with a $650,000 net profit." },
+  { pl: "Horror, fantastyka i science fiction", en: "Horror, Fantasy and Science Fiction", years: "1909–1930",
+    bpl: "Kino grozy ma dwa korzenie: jarmarczny trik Mélièsa — którego Jacques Deslandes nazwał „ostatnim twórcą teatru baśniowego” — i mroczne poszukiwania Niemców. Edison nakręcił pierwszego „Frankensteina” (1910), Barrymore grał Jekylla i Hyde'a (1920), Willis O'Brien ożywił dinozaury „Zaginionego świata” (1925), Lon Chaney stał się „człowiekiem o tysiącu twarzy” w „Upiorze w operze”, a seriale Pearl White i filmy Houdiniego dały sensację. Science fiction sięgnęła od „Statku niebiańskiego” (1918) i radzieckiej „Aelity” (1924) po „Metropolis” i „Kobietę na Księżycu” Langa. Zaginione „Londyn po północy” (1927) zna dziś tylko rekonstrukcja ze zdjęć.",
+    ben: "Horror has two roots: Méliès's fairground trick — Jacques Deslandes called him “the last creator of fairy-tale theatre” — and the dark explorations of the Germans. Edison shot the first “Frankenstein” (1910), Barrymore played Jekyll and Hyde (1920), Willis O'Brien brought the dinosaurs of “The Lost World” (1925) to life, Lon Chaney became “the man of a thousand faces” in “The Phantom of the Opera”, and Pearl White's serials and Houdini's films supplied sensation. Science fiction ran from “A Trip to Mars” (1918) and the Soviet “Aelita” (1924) to Lang's “Metropolis” and “Woman in the Moon”. The lost “London After Midnight” (1927) survives only as a reconstruction from stills." },
+  { pl: "Kolor i dźwięk przed rewolucją dźwiękową", en: "Colour, Sound and Technology before the Talkies", years: "1894–1931",
+    bpl: "Kino nieme nigdy nie było czarno-białe ani nieme: ponad połowa kopii była barwiona (tinting, toning), Pathé wycinało szablony dla trzech kolorów — Talbot wylicza 8000 klatek szablonu na 500 stóp taśmy — a Kinemacolor Smitha i Urbana (1906) wyświetlał 32 klatki na sekundę przez filtry czerwony i zielony; Münsterberg ostrzegał w 1916 roku, że realistyczny kolor i głos zniszczą „świadomość nierealności” sztuki filmowej. Dźwięk próbowano od kinetofonu Dicksona (1894), przez Phonoscènes Gaumonta i Tonbilder Messtera (1908), Phonofilm De Foresta (1923), po Vitaphone („Don Juan” 1926, „Śpiewak jazzbandu” 1927); dwubarwny Technicolor dał „Toll of the Sea” (1922) i „Czarnego pirata” (1926).",
+    ben: "Silent cinema was never black-and-white or silent: over half of all prints were tinted or toned, Pathé cut stencils for three colours — Talbot counts 8,000 frames per stencil for 500 feet of film — and Smith and Urban's Kinemacolor (1906) projected 32 frames a second through red and green filters; Münsterberg warned in 1916 that realistic colour and voice would destroy the “consciousness of unreality” proper to film art. Sound was attempted from Dickson's Kinetophone (1894), through Gaumont's Phonoscènes and Messter's Tonbilder (1908) and De Forest's Phonofilm (1923), to Vitaphone (“Don Juan” 1926, “The Jazz Singer” 1927); two-colour Technicolor gave “The Toll of the Sea” (1922) and “The Black Pirate” (1926)." },
+  { pl: "Dziedzictwo, restauracje i pamięć", en: "Legacy, Restoration and Memory", years: "1976–today",
+    bpl: "Według raportu Davida Pierce'a dla Library of Congress z amerykańskich pełnometrażowych filmów niemych lat 1912–1929 przetrwało w pełni około 14 procent w oryginalnym formacie 35 mm, a trzy czwarte przepadło — na każdy zachowany tytuł przypada sześć utraconych; Marek Hendrykowski pisze o „kinematografii na śmietniku”. Pamięć ratują festiwale w Pordenone (od 1982) i Bolonii, archiwa (Eye, BFI, Kinemathek, FINA — „Mocny człowiek”, „Mania”, „Pan Tadeusz”), restauracje („Napoléon”, „Metropolis” 2010) oraz historycy-filmowcy — Kevin Brownlow i David Gill z serialami „Hollywood” (1980) i „Cinema Europe” (1995). Współczesne filmy nieme — od „Artysty” po „Blancanieves” — pokazują, że ten język wciąż żyje.",
+    ben: "According to David Pierce's report for the Library of Congress, of American silent features from 1912–1929 only about 14 per cent survive complete in their original 35 mm format and three quarters are gone — six lost titles for every surviving one; Marek Hendrykowski writes of “cinema on the scrapheap”. Memory is kept by the festivals in Pordenone (since 1982) and Bologna, by archives (Eye, BFI, Kinemathek, FINA — “The Strong Man”, “Mania”, “Pan Tadeusz”), by restorations (“Napoléon”, “Metropolis” 2010) and by historian-filmmakers — Kevin Brownlow and David Gill with the series “Hollywood” (1980) and “Cinema Europe” (1995). Modern silents — from “The Artist” to “Blancanieves” — show that this language is still alive." },
+];
+
+const I18N = {
+  pl: {
+    kicker: "Historia filmu niemego · 1895 → 1930",
+    lede: "Cała historia kina niemego w filmach dostępnych legalnie online — od pierwszych taśm Lumière i Edisona, przez Mélièsa, Griffitha, Chaplina i Keatona, ekspresjonizm, radziecki montaż i francuski impresjonizm, po Ozu i ostatnie filmy nieme. Polskie kino nieme od pleografu Prószyńskiego do Mocnego człowieka — w światowym kanonie. Kliknij kartę, aby obejrzeć.",
+    ledeSrc: "Układ rozdziałów na podstawie opracowań naukowych: K. Thompson, D. Bordwell, Film History · P. Cherchi Usai, Silent Cinema · T. Lubelski, I. Sowińska, R. Syska (red.), Historia kina, t. 1: Kino nieme · T. Gunning, L. Eisner, S. Kracauer, J. Leyda, Y. Tsivian, K. Brownlow, D. Pierce · K. Irzykowski, Dziesiąta Muza — oraz otwartych źródeł zebranych w notatniku badawczym (zob. Źródła).",
+    films: "filmów", artists: "twórców", chapters: "rozdziałów",
+    fAll: "Wszystko", fFull: "Pełne filmy", fFrag: "Fragmenty i dokumenty",
+    search: "szukaj filmu, reżysera lub kraju…",
+    navLabel: "Rozdziały",
+    views: "wyśw.", viewsLong: "wyświetleń", channel: "kanał",
+    open: "otwórz na YouTube ↗", openExt: "otwórz w źródle ↗",
+    external: "Film poza YouTube — otwórz w archiwum ↗",
+    share: "kopiuj link do filmu", shared: "skopiowano ✓",
+    noembed: "Film bez zgody na osadzanie — obejrzyj na YouTube ↗",
+    badgeFrag: "Fragment", badgeDoc: "Dokument", badgeLost: "Film zaginiony",
+    empty: "Brak wyników dla tego zapytania.",
+    countWord: n => n === 1 ? "film" : (n % 10 >= 2 && n % 10 <= 4 && !(n % 100 >= 12 && n % 100 <= 14)) ? "filmy" : "filmów",
+    rcount: (a, b) => `${a} / ${b} FILMÓW`,
+    footer: `<b>KINO NIEME</b> · dostępność filmów zależy od publikujących kanałów i archiwów. Pełne metraże, których nie ma legalnie w całości, reprezentują fragmenty, zwiastuny restauracji i dokumenty. Filmy nieme na YouTube mają zwykle współczesną ścieżkę muzyczną dodaną przez wydawcę kopii. · <a href="maraton.html" style="color:var(--acc);text-decoration:none;border-bottom:1px solid var(--acc)">▶ Maraton: wszystkie po kolei</a> · <a href="zrodla.html" style="color:var(--acc);text-decoration:none;border-bottom:1px solid var(--acc)">Źródła i metoda →</a> · Portale siostrzane: <a href="/historia-animacji/" style="color:var(--acc);text-decoration:none;border-bottom:1px solid var(--acc)">HISTORIA ANIMACJI</a> · <a href="/kino-awangardy/" style="color:var(--acc);text-decoration:none;border-bottom:1px solid var(--acc)">KINO AWANGARDY</a> · <a href="/dobranocki/" style="color:var(--acc);text-decoration:none;border-bottom:1px solid var(--acc)">DOBRANOCKI</a>`,
+    langBtn: "EN", htmlLang: "pl"
+  },
+  en: {
+    kicker: "A history of silent film · 1895 → 1930",
+    lede: "The whole history of silent cinema in films legally available online — from the first Lumière and Edison strips, through Méliès, Griffith, Chaplin and Keaton, Expressionism, Soviet montage and French Impressionism, to Ozu and the last silents. Polish silent cinema, from Prószyński's pleograph to The Strong Man, woven into the world canon. Click a card to watch.",
+    ledeSrc: "Chapter structure based on the scholarship: K. Thompson & D. Bordwell, Film History · P. Cherchi Usai, Silent Cinema · T. Lubelski, I. Sowińska, R. Syska (eds.), Historia kina, vol. 1 · T. Gunning, L. Eisner, S. Kracauer, J. Leyda, Y. Tsivian, K. Brownlow, D. Pierce · K. Irzykowski, The Tenth Muse — and the open-access sources gathered in the research notebook (see Sources).",
+    films: "films", artists: "filmmakers", chapters: "chapters",
+    fAll: "All", fFull: "Full films", fFrag: "Fragments & documentaries",
+    search: "search film, director or country…",
+    navLabel: "Chapters",
+    views: "views", viewsLong: "views", channel: "channel",
+    open: "open on YouTube ↗", openExt: "open at source ↗",
+    external: "Hosted outside YouTube — open in the archive ↗",
+    share: "copy link to film", shared: "copied ✓",
+    noembed: "Embedding disabled — watch on YouTube ↗",
+    badgeFrag: "Fragment", badgeDoc: "Documentary", badgeLost: "Lost film",
+    empty: "No results for this query.",
+    countWord: n => n === 1 ? "film" : "films",
+    rcount: (a, b) => `${a} / ${b} FILMS`,
+    footer: `<b>SILENT CINEMA</b> · availability depends on the publishing channels and archives. Features unavailable in full are represented by fragments, restoration trailers and documentaries. Silent films on YouTube usually carry a modern score added by the publisher of the copy. · <a href="maraton.html" style="color:var(--acc);text-decoration:none;border-bottom:1px solid var(--acc)">▶ Marathon: all films in order</a> · <a href="zrodla.html" style="color:var(--acc);text-decoration:none;border-bottom:1px solid var(--acc)">Sources & method →</a> · Sister portals: <a href="/historia-animacji/" style="color:var(--acc);text-decoration:none;border-bottom:1px solid var(--acc)">ANIMATION HISTORY</a> · <a href="/kino-awangardy/" style="color:var(--acc);text-decoration:none;border-bottom:1px solid var(--acc)">AVANT-GARDE CINEMA</a> · <a href="/dobranocki/" style="color:var(--acc);text-decoration:none;border-bottom:1px solid var(--acc)">BEDTIME CARTOONS</a>`,
+    langBtn: "PL", htmlLang: "en"
+  }
+};
+
+const films = (window.FILMS || []).filter(f => f && f.id);
+let typeFilter = 'all';
+let query = '';
+let lang = localStorage.getItem('kn-lang') || 'pl';
+let theme = localStorage.getItem('kn-motyw') || 'dark';
+
+const T = () => I18N[lang];
+const S = sec => SECTIONS.find(s => s.pl === sec);
+const secName = sec => { const s = S(sec); return s ? (lang === 'en' ? s.en : s.pl) : sec; };
+const secBlurb = sec => { const s = S(sec); return s ? (lang === 'en' ? s.ben : s.bpl) : ''; };
+const norm = s => (s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+const fmtViews = v => {
+  if (!v) return '';
+  if (v >= 1e6) return (v/1e6).toFixed(1).replace('.0','') + 'M';
+  if (v >= 1e3) return (v/1e3).toFixed(0) + 'K';
+  return String(v);
+};
+const pad2 = n => String(n).padStart(2, '0');
+
+function matches(f) {
+  if (typeFilter === 'full' && f.type !== 'full') return false;
+  if (typeFilter === 'fragment' && f.type === 'full') return false;
+  if (query) {
+    const hay = norm(f.film + ' ' + f.artist + ' ' + (f.section || '') + ' ' + secName(f.section) + ' ' + (f.country || '') + ' ' + (f.note || ''));
+    if (!query.split(/\s+/).every(w => hay.includes(w))) return false;
+  }
+  return true;
+}
+
+function badgeFor(f) {
+  if (f.lost) return `<span class="badge lost">${T().badgeLost}</span>`;
+  if (f.type === 'fragment') return `<span class="badge frag">${T().badgeFrag}</span>`;
+  if (f.type === 'documentary') return `<span class="badge doc">${T().badgeDoc}</span>`;
+  return '';
+}
+
+function cardHTML(f, idx) {
+  return `<article class="card" data-idx="${idx}" tabindex="0" role="button" aria-label="${f.film}">
+    <div class="thumb">
+      ${badgeFor(f)}
+      ${(f.source === 'vimeo' || f.source === 'archive' || f.source === 'external')
+        ? `<img loading="lazy" src="${f.thumbnail && !f.thumbnail.includes('/vi/ext:') ? f.thumbnail : 'poster.svg'}" onerror="this.onerror=null;this.src='poster.svg'" alt="${f.film}">`
+        : f.thumb
+        ? `<img loading="lazy" src="${f.thumb}" alt="${f.film}">`
+        : `<img loading="lazy" src="https://i.ytimg.com/vi/${f.id}/hqdefault.jpg"
+           onload="if(this.naturalWidth>120){const m=new Image();m.onload=()=>{if(m.naturalWidth>640)this.src=m.src};m.src='https://i.ytimg.com/vi/${f.id}/maxresdefault.jpg'}"
+           alt="${f.film}">`}
+      ${f.duration ? `<span class="dur">${f.duration}</span>` : ''}
+    </div>
+    <div class="card-body">
+      <div class="f-artist">${f.artist}</div>
+      <div class="f-title">${f.film}${f.year ? ` <span class="yr">(${f.year})</span>` : ''}</div>
+      <div class="f-meta">
+        ${f.country ? `<span class="f-country">${f.country}</span>` : ''}
+        ${f.views ? `<span>${fmtViews(f.views)} ${T().views}</span>` : ''}
+        ${f.channel ? `<span>${f.channel}</span>` : ''}
+      </div>
+    </div>
+  </article>`;
+}
+
+let visibleSections = []; // [{sec, si, anchor, num}]
+
+function render() {
+  const main = document.getElementById('main');
+  const idxNav = document.getElementById('chapterIndex');
+  const navList = document.getElementById('navList');
+  let html = '', idxHtml = '', navHtml = '', shown = 0, chapters = 0;
+  visibleSections = [];
+
+  SECTIONS.forEach((secObj, si) => {
+    const sec = secObj.pl;
+    const secFilms = films.map((f, i) => ({...f, _i: i})).filter(f => f.section === sec && matches(f));
+    if (!secFilms.length) return;
+    chapters++;
+    const anchor = 'ch' + si;
+    const num = pad2(chapters);
+    visibleSections.push({sec, si, anchor, num});
+    const name = secName(sec);
+    idxHtml += `<button class="chip" data-goto="${anchor}"><b>${num}</b> ${name}</button>`;
+    navHtml += `<button class="nav-item" role="menuitem" data-goto="${anchor}" data-anchor="${anchor}"><b>${num}</b> ${name} <span class="n">${secFilms.length}</span></button>`;
+    html += `<section class="chapter" id="${anchor}">
+      <div class="chapter-head">
+        <div class="ch-num">${num}</div>
+        <div class="ch-title">${name}</div>
+        <div class="ch-years">${secObj.years}</div>
+        <div class="ch-count">${secFilms.length} ${T().countWord(secFilms.length)}</div>
+      </div>
+      <p class="ch-blurb">${secBlurb(sec)}</p>
+      <div class="grid">${secFilms.map(f => cardHTML(f, f._i)).join('')}</div>
+    </section>`;
+    shown += secFilms.length;
+  });
+
+  main.innerHTML = html || `<p class="empty-note">${T().empty}</p>`;
+  idxNav.innerHTML = idxHtml;
+  navList.innerHTML = navHtml;
+  document.getElementById('rcount').textContent = T().rcount(shown, films.length);
+  updateSpy();
+}
+
+function applyI18n() {
+  const t = T();
+  document.documentElement.lang = t.htmlLang;
+  document.querySelectorAll('[data-i18n]').forEach(el => { el.textContent = t[el.dataset.i18n]; });
+  document.getElementById('q').placeholder = t.search;
+  document.getElementById('langBtn').textContent = t.langBtn;
+  document.getElementById('foot').innerHTML = t.footer;
+  render();
+}
+
+function openModal(f) {
+  const modal = document.getElementById('modal');
+  document.getElementById('player').innerHTML = f.noembed
+    ? `<a href="${f.url}" target="_blank" rel="noopener" style="display:grid;place-items:center;width:100%;height:100%;text-decoration:none;background:url('${f.thumb || `https://i.ytimg.com/vi/${f.id}/hqdefault.jpg`}') center/cover;position:relative">
+         <span style="font-family:var(--mono);font-size:.85rem;letter-spacing:.1em;background:rgba(15,14,19,.9);border:1px solid var(--acc);color:#f3efe6;padding:1rem 1.6rem">
+           ${T().noembed}
+         </span></a>`
+    : f.source === 'vimeo'
+      ? `<iframe src="https://player.vimeo.com/video/${String(f.id).replace('vimeo:','')}?autoplay=1&dnt=1" allow="autoplay; fullscreen" allowfullscreen></iframe>`
+    : f.source === 'archive'
+      ? `<iframe src="https://archive.org/embed/${String(f.id).replace('archive:','')}?autoplay=1" allow="autoplay; fullscreen" allowfullscreen></iframe>`
+    : f.source === 'external'
+      ? `<a href="${f.url}" target="_blank" rel="noopener" style="display:grid;place-items:center;width:100%;height:100%;text-decoration:none;background:url('${f.thumbnail || 'poster.svg'}') center/cover;position:relative">
+         <span style="font-family:var(--mono);font-size:.85rem;letter-spacing:.1em;background:rgba(11,10,10,.9);border:1px solid var(--acc);color:#ece3cf;padding:1rem 1.6rem">${T().external}</span></a>`
+      : `<iframe src="https://www.youtube-nocookie.com/embed/${f.id}?autoplay=1&rel=0" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>`;
+  document.getElementById('modalMeta').innerHTML = `
+    <div class="m-title">${f.film}${f.year ? ` (${f.year})` : ''}</div>
+    <div class="f-artist">${f.artist}</div>
+    <div class="m-info">
+      ${f.duration ? `<span>⏱ ${f.duration}</span>` : ''}
+      ${f.views ? `<span>${fmtViews(f.views)} ${T().viewsLong}</span>` : ''}
+      ${f.channel ? `<span>${T().channel}: ${f.channel}</span>` : ''}
+      ${f.note ? `<span class="m-note">${f.note}</span>` : ''}
+      <a href="${f.url}" target="_blank" rel="noopener">${f.source === 'vimeo' ? T().open.replace('YouTube', 'Vimeo') : f.source === 'archive' ? T().open.replace('YouTube', 'Internet Archive') : f.source === 'external' ? T().openExt : T().open}</a>
+      <button class="m-share" id="mShare">🔗 ${T().share}</button>
+    </div>`;
+  document.getElementById('mShare').addEventListener('click', function () {
+    const link = location.origin + location.pathname + '#film=' + f.id;
+    const btn = this;
+    const ok = () => { btn.textContent = '✓ ' + T().shared; setTimeout(() => { btn.textContent = '🔗 ' + T().share; }, 2000); };
+    if (navigator.clipboard) navigator.clipboard.writeText(link).then(ok, () => prompt(T().share, link));
+    else prompt(T().share, link);
+  });
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  try { history.replaceState(null, '', '#film=' + f.id); } catch (e) {}
+}
+
+function closeModal() {
+  document.getElementById('modal').classList.remove('open');
+  document.getElementById('player').innerHTML = '';
+  document.body.style.overflow = '';
+  if (location.hash.indexOf('#film=') === 0) {
+    try { history.replaceState(null, '', location.pathname + location.search); } catch (e) {}
+  }
+}
+
+/* ---- udostępnianie: #film=<id> otwiera konkretny film ---- */
+function openFromHash() {
+  const h = location.hash;
+  if (h.indexOf('#film=') !== 0) return;
+  const id = decodeURIComponent(h.slice(6));
+  const f = films.find(x => x.id === id);
+  if (f) openModal(f);
+}
+addEventListener('hashchange', openFromHash);
+
+// ---- scroll spy ----
+function updateSpy() {
+  const t = T();
+  let current = null;
+  for (const vs of visibleSections) {
+    const el = document.getElementById(vs.anchor);
+    if (el && el.getBoundingClientRect().top <= 140) current = vs;
+    else break;
+  }
+  const cur = document.getElementById('navCur');
+  cur.textContent = current ? `${current.num} · ${secName(current.sec)}` : `${t.navLabel} (${visibleSections.length})`;
+  document.querySelectorAll('.nav-item').forEach(it => {
+    it.classList.toggle('active', !!current && it.dataset.anchor === current.anchor);
+  });
+  document.getElementById('toTop').classList.toggle('show', window.scrollY > 700);
+}
+let spyTick = false;
+window.addEventListener('scroll', () => {
+  if (spyTick) return;
+  spyTick = true;
+  requestAnimationFrame(() => { updateSpy(); spyTick = false; });
+}, {passive: true});
+
+// ---- events ----
+document.addEventListener('click', e => {
+  const goto = e.target.closest('[data-goto]');
+  if (goto) {
+    document.getElementById('navDD').classList.remove('open');
+    document.getElementById(goto.dataset.goto)?.scrollIntoView({behavior: 'smooth'});
+    return;
+  }
+  if (e.target.closest('#navBtn')) {
+    const dd = document.getElementById('navDD');
+    dd.classList.toggle('open');
+    document.getElementById('navBtn').setAttribute('aria-expanded', dd.classList.contains('open'));
+    if (dd.classList.contains('open')) {
+      const act = dd.querySelector('.nav-item.active');
+      if (act) act.scrollIntoView({block: 'center'});
+    }
+    return;
+  }
+  if (!e.target.closest('.nav-dd')) document.getElementById('navDD').classList.remove('open');
+  const card = e.target.closest('.card');
+  if (card) { openModal(films[+card.dataset.idx]); return; }
+  if (e.target.id === 'modal' || e.target.id === 'closeBtn') closeModal();
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') { closeModal(); document.getElementById('navDD').classList.remove('open'); }
+  if (e.key === 'Enter' && document.activeElement?.classList.contains('card'))
+    openModal(films[+document.activeElement.dataset.idx]);
+});
+document.getElementById('q').addEventListener('input', e => { query = norm(e.target.value.trim()); render(); });
+document.querySelectorAll('.fbtn').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('.fbtn').forEach(x => x.classList.remove('active'));
+  b.classList.add('active');
+  typeFilter = b.dataset.type;
+  render();
+}));
+document.getElementById('toTop').addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
+document.getElementById('themeBtn').addEventListener('click', () => {
+  theme = theme === 'dark' ? 'light' : 'dark';
+  localStorage.setItem('kn-motyw', theme);
+  document.body.classList.toggle('light', theme === 'light');
+});
+document.getElementById('langBtn').addEventListener('click', () => {
+  lang = lang === 'pl' ? 'en' : 'pl';
+  localStorage.setItem('kn-lang', lang);
+  applyI18n();
+});
+
+// ---- morfujący tytuł: HISTORIA/ANIMACJI <-> ANIMATION/A HISTORY ----
+(function(){
+  const top = document.getElementById('titleTop');
+  const bot = document.getElementById('titleBot');
+  if (!top || !bot) return;
+  const TITLES = [ {t:'KINO', b:'NIEME'}, {t:'SILENT', b:'CINEMA'} ];
+  const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZĄĆĘŁŃÓŚŹŻ▚▞█/·-';
+  const rnd = () => CHARS[(Math.random()*CHARS.length)|0];
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const HOLD = 2800, MORPH = 900;
+  const render = (target, p) => {
+    const locked = Math.floor(p*p*target.length);
+    let s = '';
+    for (let k=0;k<target.length;k++){
+      const ch = target[k];
+      s += (k < locked || ch === ' ' || ch === '-') ? ch : rnd();
+    }
+    return s;
+  };
+  let i = 0, phase = 'hold', phaseStart = performance.now(), to = TITLES[0];
+  top.textContent = TITLES[0].t; bot.textContent = TITLES[0].b;
+  setInterval(() => {
+    const now = performance.now(), el = now - phaseStart;
+    if (phase === 'hold') {
+      if (el >= HOLD) { phase = 'morph'; phaseStart = now; i = (i+1) % TITLES.length; to = TITLES[i]; }
+    } else {
+      const p = Math.min(1, el / MORPH);
+      top.textContent = render(to.t, p);
+      bot.textContent = render(to.b, p);
+      if (p >= 1) { top.textContent = to.t; bot.textContent = to.b; phase = 'hold'; phaseStart = now; }
+    }
+  }, 45);
+})();
+
+// ---- init ----
+document.body.classList.toggle('light', theme === 'light');
+document.getElementById('stat-films').textContent = films.length;
+document.getElementById('stat-artists').textContent = new Set(films.map(f => f.artist)).size;
+document.getElementById('stat-chapters').textContent = new Set(films.map(f => f.section)).size;
+applyI18n();
+openFromHash();
+</script>
+<script data-goatcounter="https://futureshow.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script src="https://futureshow.pl/assets/fs-home.js" data-pos="br" data-avoid=".toolbar" defer></script>
+</body>
+</html>

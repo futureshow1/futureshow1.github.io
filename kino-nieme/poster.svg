@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 270">
+  <rect width="480" height="270" fill="#141211"/>
+  <rect x="24" y="20" width="432" height="230" fill="none" stroke="#ece3cf" stroke-width="2"/>
+  <rect x="34" y="30" width="412" height="210" fill="none" stroke="#ece3cf" stroke-width="1" opacity=".5"/>
+  <g fill="#8dbbdc"><rect x="6" y="40" width="8" height="18"/><rect x="6" y="126" width="8" height="18"/><rect x="6" y="212" width="8" height="18"/><rect x="466" y="40" width="8" height="18"/><rect x="466" y="126" width="8" height="18"/><rect x="466" y="212" width="8" height="18"/></g>
+  <text x="240" y="128" text-anchor="middle" font-family="Georgia, 'Playfair Display', serif" font-size="30" fill="#ece3cf" font-style="italic">Film w archiwum</text>
+  <text x="240" y="162" text-anchor="middle" font-family="'Courier New', monospace" font-size="13" fill="#b3a894" letter-spacing="3">POZA YOUTUBE · OTWÓRZ W ŹRÓDLE</text>
+</svg>

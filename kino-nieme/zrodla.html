@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Źródła i metoda — KINO NIEME</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Jost:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0b0a0a; --bg-card: #141211; --ink: #ece3cf; --ink-dim: #b3a894;
+    --ink-faint: #6e665a; --acc: #8dbbdc; --line: #2a2522;
+    --display: 'Playfair Display', serif;
+    --body: 'Jost', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+  body.light {
+    --bg: #efe6d3; --bg-card: #f8f2e4; --ink: #1c1814; --ink-dim: #5a5244;
+    --ink-faint: #8c826f; --acc: #2f6e94; --line: #d9cdb3;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--ink); font-family: var(--body); line-height: 1.6; transition: background .3s, color .3s; }
+  ::selection { background: var(--acc); color: #111; }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 3.5rem 5vw 5rem; }
+  .top { display: flex; align-items: baseline; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.6rem; }
+  .back { font-family: var(--mono); font-size: .75rem; letter-spacing: .12em; color: var(--acc); text-decoration: none; border: 1px solid var(--line); padding: .5rem .9rem; transition: border-color .2s; }
+  .back:hover { border-color: var(--acc); }
+  .btns { margin-left: auto; display: flex; gap: .4rem; }
+  .tbtn { font-family: var(--mono); font-size: .7rem; background: none; border: 1px solid var(--line); color: var(--ink-dim); padding: .5rem .9rem; cursor: pointer; }
+  .tbtn:hover { border-color: var(--acc); color: var(--ink); }
+  h1 { font-family: var(--display); font-size: clamp(1.8rem, 5vw, 3.2rem); text-transform: uppercase; line-height: 1; margin-bottom: .4rem; }
+  h1 span { color: transparent; -webkit-text-stroke: 1.5px var(--ink); }
+  .sub { font-family: var(--mono); font-size: .72rem; letter-spacing: .3em; text-transform: uppercase; color: var(--acc); margin-bottom: 3rem; }
+  h2 { font-weight: 700; text-transform: uppercase; letter-spacing: .05em; font-size: 1.05rem; margin: 2.8rem 0 1rem; padding-bottom: .6rem; border-bottom: 1px solid var(--line); position: relative; }
+  h2::after { content: ""; position: absolute; left: 0; bottom: -1px; width: 56px; height: 3px; background: var(--acc); }
+  p { color: var(--ink-dim); font-weight: 300; margin-bottom: 1rem; max-width: 70ch; }
+  ol.bib { list-style: none; counter-reset: b; }
+  ol.bib li { counter-increment: b; padding: .9rem 0 .9rem 3rem; border-bottom: 1px solid var(--line); position: relative; color: var(--ink-dim); font-weight: 300; }
+  ol.bib li::before { content: counter(b, decimal-leading-zero); position: absolute; left: 0; top: .95rem; font-family: var(--display); color: transparent; -webkit-text-stroke: 1px var(--acc); font-size: 1.1rem; }
+  ol.bib b { color: var(--ink); font-weight: 500; }
+  ul.ch { columns: 2; gap: 2.5rem; list-style: none; }
+  ul.ch li { font-family: var(--mono); font-size: .78rem; color: var(--ink-dim); padding: .35rem 0; break-inside: avoid; }
+  ul.ch li::before { content: "▸ "; color: var(--acc); }
+  .note { font-family: var(--mono); font-size: .72rem; color: var(--ink-faint); border: 1px solid var(--line); padding: 1rem 1.2rem; margin-top: 2.5rem; line-height: 1.9; }
+  .note b { color: var(--acc); font-weight: 500; }
+  @media (max-width: 640px) { ul.ch { columns: 1; } }
+</style>
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"><link rel="apple-touch-icon" href="apple-touch-icon.png"></head>
+<style>ol.bib small{display:block;font-family:var(--mono);font-size:.68rem;color:var(--ink-faint);margin-top:.25rem}ol.bib a{color:var(--acc);text-decoration:none;border-bottom:1px solid transparent}ol.bib a:hover{border-color:var(--acc)}</style>
+<body>
+<script>try{if((localStorage.getItem("kn-motyw")||"dark")==="light")document.body.classList.add("light")}catch(e){}</script>
+<div class="wrap">
+  <div class="top">
+    <a class="back" href="index.html">← KINO NIEME</a>
+    <a class="back" href="maraton.html" id="marLink">▶ Maraton</a>
+    <div class="btns"><button class="tbtn" id="themeBtn">◐</button><button class="tbtn" id="langBtn">EN</button></div>
+  </div>
+  <div data-lang="pl">
+    <h1>Źródła <span>i metoda</span></h1>
+    <div class="sub">Skąd wziął się ten portal · 828 filmów · 50 źródeł w notatniku</div>
+    <h2>Literatura — kanon rozdziałów</h2>
+    <p>Układ 30 rozdziałów, dobór twórców i hierarchia filmów zostały wyprowadzone z literatury przedmiotu, a nie z algorytmu YouTube:</p>
+    <ol class="bib">
+<li><b>Kristin Thompson, David Bordwell</b>, <i>Film History: An Introduction</i> (wyd. 4, McGraw-Hill 2019), cz. I–II (1880–1930) — podstawa periodyzacji: kino wczesne (1880–1904), ekspansja (1905–1912), kino klasyczne i narodowe (1913–1919), style lat 20. (ekspresjonizm, impresjonizm, montaż radziecki), przełom dźwiękowy.</li>
+<li><b>Paolo Cherchi Usai</b>, <i>Silent Cinema: A Guide to Study, Research and Curatorship</i> (BFI/Bloomsbury 2019) — metodologia badania i oglądania filmów niemych (nośniki, prędkość, barwienie, muzyka, archiwa).</li>
+<li><b>Tadeusz Lubelski, Iwona Sowińska, Rafał Syska (red.)</b>, <i>Historia kina, t. 1: Kino nieme</i> (Universitas 2009) — polska synteza; rozdziały o kinematografiach narodowych, w tym polskiej.</li>
+<li><b>Tom Gunning</b>, „The Cinema of Attractions" (1986) i <i>D.W. Griffith and the Origins of American Narrative Film</i> (1991); <b>Wanda Strauven (red.)</b>, <i>The Cinema of Attractions Reloaded</i> (2006) — ramy dla rozdziałów 02–07.</li>
+<li><b>Lotte H. Eisner</b>, <i>Ekran demoniczny</i> (1952); <b>Siegfried Kracauer</b>, <i>Od Caligariego do Hitlera</i> (1947); <b>Tomasz Kłys</b>, „Ekspresjonizm raz jeszcze" (2009) — rozdziały 16–17.</li>
+<li><b>Jay Leyda</b>, <i>Kino: A History of the Russian and Soviet Film</i> (1960); <b>Yuri Tsivian</b>, <i>Early Cinema in Russia and Its Cultural Reception</i> (1994) — rozdziały 10 i 18.</li>
+<li><b>Richard Abel</b>, <i>The Ciné Goes to Town: French Cinema 1896–1914</i> (1994) i <i>French Cinema: The First Wave 1915–1929</i> (1984) — rozdziały 03, 06, 19.</li>
+<li><b>Kevin Brownlow</b>, <i>The Parade's Gone By…</i> (1968) oraz seriale <i>Hollywood</i> (1980) i <i>Cinema Europe</i> (1995) — rozdziały 11–14, 30.</li>
+<li><b>David Pierce</b>, <i>The Survival of American Silent Feature Films 1912–1929</i> (Library of Congress 2013) — skala strat; podstawa not o filmach zaginionych.</li>
+<li><b>Małgorzata Hendrykowska</b>, <i>Śladami tamtych cieni. Film w kulturze polskiej przełomu stuleci 1895–1914</i> (1993) i <i>Historia polskiego filmu dokumentalnego 1896–1944</i> (2015); <b>Władysław Banaszkiewicz, Witold Witczak</b>, <i>Historia filmu polskiego, t. 1: 1895–1929</i> (1966) — rozdziały 21–22.</li>
+<li><b>Karol Irzykowski</b>, <i>Dziesiąta Muza. Zagadnienia estetyczne kina</i> (1924) — pierwsza polska estetyka filmu, pisana w środku epoki niemej.</li>
+<li><b>Georges Sadoul</b>, <i>Histoire générale du cinéma</i>, t. 1–5 (1946–1975); <b>David A. Cook</b>, <i>A History of Narrative Film</i> — uzupełnienia dla kinematografii narodowych.</li>
+</ol>
+    <h2>Metoda hybrydowa</h2>
+<p><b>1.</b> Z literatury przedmiotu wyprowadzono kanon: 30 rozdziałów i ok. 450 filmów-kotwic (reżyser, tytuł, rok).</p>
+<p><b>2.</b> Założono notatnik badawczy w NotebookLM z 60 otwartymi (open access) opracowaniami — od Lindsaya, Münsterberga i Irzykowskiego, przez antologię o „kinie atrakcji", monografie Amsterdam University Press i raport Library of Congress, po polskie artykuły z Pleografu, Kwartalnika Filmowego i Images. Notatnik posłużył do krytyki układu rozdziałów i napisania wprowadzeń opartych na tezach badaczy.</p>
+<p><b>3.</b> Kanon skonfrontowano z zasobami YouTube (kwerenda yt-dlp z punktacją: zgodność tytułu i roku, długość, kanał archiwalny, bez kopii z komentarzem i „AI remaster"); każdy wynik zweryfikowano pod kątem dostępności i osadzalności. Czego nie ma legalnie w całości, reprezentują fragmenty, zwiastuny restauracji i dokumenty (oznaczone na kartach). Filmy zaginione oznaczono osobno. Luki odnotowano w raportach zamiast wypełniać je zamiennikami.</p>
+<p><b>4.</b> Uwaga do słuchania: filmy nieme na YouTube mają zwykle ścieżkę muzyczną dodaną przez wydawcę kopii (od rekonstrukcji oryginalnych partytur po muzykę współczesną). Prędkość projekcji i barwienie (tinting) kopii również różnią się między wydaniami — zob. Cherchi Usai i Pieńkowski w bibliografii.</p>
+    <h2>Notatnik badawczy — otwarte opracowania (50)</h2>
+    <p>Wszystkie poniższe teksty są dostępne legalnie online (domena publiczna lub open access) i zostały wczytane do notatnika NotebookLM, na którym oparto wprowadzenia do rozdziałów.</p>
+    <h2>Klasyka epoki (teksty źródłowe w domenie publicznej)</h2>
+<ol class="bib">
+<li>Vachel Lindsay, The Art of the Moving Picture (wyd. 1922 – rewizja książki z 1915) (1915/1922)<small><a href="https://www.gutenberg.org/cache/epub/13029/pg13029-images.html" target="_blank" rel="noopener">https://www.gutenberg.org/cache/epub/13029/pg13029-images.html</a></small></li>
+<li>Hugo Münsterberg, The Photoplay: A Psychological Study (1916)<small><a href="https://www.gutenberg.org/cache/epub/15383/pg15383-images.html" target="_blank" rel="noopener">https://www.gutenberg.org/cache/epub/15383/pg15383-images.html</a></small></li>
+<li>Frederick A. Talbot, Moving Pictures: How They Are Made and Worked (1912)<small><a href="https://www.gutenberg.org/cache/epub/67972/pg67972-images.html" target="_blank" rel="noopener">https://www.gutenberg.org/cache/epub/67972/pg67972-images.html</a></small></li>
+<li>Epes Winthrop Sargent, The Technique of the Photoplay (wyd. 2) (1913)<small><a href="https://archive.org/download/techniqueofphoto00sargrich/techniqueofphoto00sargrich_djvu.txt" target="_blank" rel="noopener">https://archive.org/download/techniqueofphoto00sargrich/techniqueofphoto00sargrich_djvu.tx…</a></small></li>
+<li>Terry Ramsaye, A Million and One Nights: A History of the Motion Picture (1926)<small><a href="https://archive.org/download/ramsaye_book_1926/ramsaye_book_1926_djvu.txt" target="_blank" rel="noopener">https://archive.org/download/ramsaye_book_1926/ramsaye_book_1926_djvu.txt</a></small></li>
+<li>Robert Grau, The Theatre of Science: A Volume of Progress and Achievement in the Motion Picture Industry (1914)<small><a href="https://archive.org/download/theatreofscience00graurich/theatreofscience00graurich_djvu.txt" target="_blank" rel="noopener">https://archive.org/download/theatreofscience00graurich/theatreofscience00graurich_djvu.tx…</a></small></li>
+<li>Karol Irzykowski, Dziesiąta Muza. Zagadnienia estetyczne kina (skan 1. wyd., Kraków) (1924)<small><a href="https://www.sbc.org.pl/Content/80473/download/" target="_blank" rel="noopener">https://www.sbc.org.pl/Content/80473/download/</a></small></li>
+</ol>
+<h2>Monografie i antologie open access</h2>
+<ol class="bib">
+<li>Wanda Strauven (red.), The Cinema of Attractions Reloaded (AUP) (2006)<small><a href="https://archive.org/download/oapen-20.500.12657-35197/340138.pdf" target="_blank" rel="noopener">https://archive.org/download/oapen-20.500.12657-35197/340138.pdf</a></small></li>
+<li>Kristin Thompson, Herr Lubitsch Goes to Hollywood: German and American Film after World War I (AUP) (2005)<small><a href="https://archive.org/download/oapen-20.500.12657-35134/340212.pdf" target="_blank" rel="noopener">https://archive.org/download/oapen-20.500.12657-35134/340212.pdf</a></small></li>
+<li>Kristin Thompson, Exporting Entertainment: America in the World Film Market 1907–1934 (BFI 1985, skan OCR autorki) (1985)<small><a href="https://www.davidbordwell.net/books/exportingentertainment_thompson_bfi1985_ocr.pdf" target="_blank" rel="noopener">https://www.davidbordwell.net/books/exportingentertainment_thompson_bfi1985_ocr.pdf</a></small></li>
+<li>David Bordwell, On the History of Film Style (2. wyd., wersja darmowa) (2018)<small><a href="https://www.davidbordwell.net/books/on-history-film-style-davidbordwell-180531.pdf" target="_blank" rel="noopener">https://www.davidbordwell.net/books/on-history-film-style-davidbordwell-180531.pdf</a></small></li>
+<li>Malte Hagener, Moving Forward, Looking Back: The European Avant-garde and the Invention of Film Culture 1919–1939 (AUP) (2007)<small><a href="https://archive.org/download/oapen-20.500.12657-35202/340131.pdf" target="_blank" rel="noopener">https://archive.org/download/oapen-20.500.12657-35202/340131.pdf</a></small></li>
+<li>Ivo Blom, Jean Desmet and the Early Dutch Film Trade (AUP) (2003)<small><a href="https://archive.org/download/oapen-20.500.12657-35113/340233.pdf" target="_blank" rel="noopener">https://archive.org/download/oapen-20.500.12657-35113/340233.pdf</a></small></li>
+<li>David Pierce, The Survival of American Silent Feature Films: 1912–1929 (Library of Congress / CLIR) (2013)<small><a href="https://www.clir.org/wp-content/uploads/sites/6/pub158.pdf" target="_blank" rel="noopener">https://www.clir.org/wp-content/uploads/sites/6/pub158.pdf</a></small></li>
+<li>Jan Olsson, Los Angeles Before Hollywood: Journalism and American Film Culture, 1905 to 1915 (Mediehistoriskt arkiv 7, Kungliga biblioteket) (2008)<small><a href="https://mediehistorisktarkiv.se/wp-content/uploads/2025/09/olsson_2025.pdf" target="_blank" rel="noopener">https://mediehistorisktarkiv.se/wp-content/uploads/2025/09/olsson_2025.pdf</a></small></li>
+<li>Thomas Elsaesser (red.), A Second Life: German Cinema&#x27;s First Decades (AUP) (1996)<small><a href="https://archive.org/download/oapen-20.500.12657-35080/340268.pdf" target="_blank" rel="noopener">https://archive.org/download/oapen-20.500.12657-35080/340268.pdf</a></small></li>
+<li>Bernadette Kester, Film Front Weimar: Representations of the First World War in German Films from the Weimar Period (1919–1933) (AUP) (2002)<small><a href="https://archive.org/download/oapen-20.500.12657-35110/340236.pdf" target="_blank" rel="noopener">https://archive.org/download/oapen-20.500.12657-35110/340236.pdf</a></small></li>
+<li>Naum Kleiman, Antonio Somaini (red.), Sergei M. Eisenstein: Notes for a General History of Cinema (AUP) (2016)<small><a href="https://archive.org/download/oapen-20.500.12657-32683/610151.pdf" target="_blank" rel="noopener">https://archive.org/download/oapen-20.500.12657-32683/610151.pdf</a></small></li>
+<li>Annette Förster, Women in the Silent Cinema: Histories of Fame and Fate (AUP) (2017)<small><a href="https://archive.org/download/oapen-20.500.12657-23348/9789048524518.pdf" target="_blank" rel="noopener">https://archive.org/download/oapen-20.500.12657-23348/9789048524518.pdf</a></small></li>
+<li>Gerry Turvey, The B&amp;C Kinematograph Company and British Cinema: Early Twentieth-Century Spectacle and Melodrama (John Libbey / Univ. of Exeter Press) (2019)<small><a href="https://archive.org/download/oapen-20.500.12657-50267/9781905816668.pdf" target="_blank" rel="noopener">https://archive.org/download/oapen-20.500.12657-50267/9781905816668.pdf</a></small></li>
+<li>Julie K. Allen, Screening Europe in Australasia: Transnational Silent Film Before and After the Rise of Hollywood (Univ. of Exeter Press) (2022)<small><a href="https://archive.org/download/oapen-20.500.12657-54077/9781905816897.pdf" target="_blank" rel="noopener">https://archive.org/download/oapen-20.500.12657-54077/9781905816897.pdf</a></small></li>
+<li>Charles Musser, Before the Nickelodeon: Edwin S. Porter and the Edison Manufacturing Company (UC Press E-Books Collection, pełny tekst HTML) (1991)<small><a href="https://publishing.cdlib.org/ucpressebooks/public/book/before-the-nickelodeon-edwin-s-porter-and-the-edison-manufacturing-company.html" target="_blank" rel="noopener">https://publishing.cdlib.org/ucpressebooks/public/book/before-the-nickelodeon-edwin-s-port…</a></small></li>
+<li>Roberta E. Pearson, Eloquent Gestures: The Transformation of Performance Style in the Griffith Biograph Films (UC Press E-Books Collection) (1992)<small><a href="https://publishing.cdlib.org/ucpressebooks/public/book/eloquent-gestures-the-transformation-of-performance-style-in-the-griffith-biograph-films.html" target="_blank" rel="noopener">https://publishing.cdlib.org/ucpressebooks/public/book/eloquent-gestures-the-transformatio…</a></small></li>
+<li>Sofia Bull, Astrid Söderbergh Widding (red.), Not So Silent: Women in Cinema before Sound (Stockholm Cinema Studies 12) (2010)<small><a href="https://su.diva-portal.org/smash/get/diva2:324333/FULLTEXT01.pdf" target="_blank" rel="noopener">https://su.diva-portal.org/smash/get/diva2:324333/FULLTEXT01.pdf</a></small></li>
+</ol>
+<h2>Artykuły naukowe open access (Pleograf, Kwartalnik Filmowy, Images)</h2>
+<ol class="bib">
+<li>Łukasz Biskupski, „Zagadka Sfinksa” (Pleograf 1/2019, Kino przedwojenne) (2019)<small><a href="https://pleograf.pl/index.php/z-archiwum-zagadka-sfinksa/" target="_blank" rel="noopener">https://pleograf.pl/index.php/z-archiwum-zagadka-sfinksa/</a></small></li>
+<li>Kamila Kuc, „Odkrywanie swoistości medium. Pierwsze polskie roszczenia filmu do miana sztuki” (Pleograf) (2019)<small><a href="https://pleograf.pl/index.php/odkrywanie-swoistosci-medium-pierwsze-polskie-roszczenia-filmu-do-miana-sztuki/" target="_blank" rel="noopener">https://pleograf.pl/index.php/odkrywanie-swoistosci-medium-pierwsze-polskie-roszczenia-fil…</a></small></li>
+<li>Weronika Szulik, „«Dziesiąta Muza (impresje)» – felietony Andrzeja Własta na tle myśli filmowej dwudziestolecia międzywojennego” (Pleograf) (2019)<small><a href="https://pleograf.pl/index.php/dziesiata-muza-impresje-felietony-andrzeja-wlasta-na-tle-mysli-filmowej-dwudziestolecia-miedzywojennego/" target="_blank" rel="noopener">https://pleograf.pl/index.php/dziesiata-muza-impresje-felietony-andrzeja-wlasta-na-tle-mys…</a></small></li>
+<li>Małgorzata Radkiewicz, „Dwugłos o X muzie. Teksty filmowe Andrzeja Własta i Karola Irzykowskiego” (Pleograf) (2019)<small><a href="https://pleograf.pl/index.php/dwuglos-o-x-muzie-teksty-filmowe-andrzeja-wlasta-i-karola-irzykowskiego/" target="_blank" rel="noopener">https://pleograf.pl/index.php/dwuglos-o-x-muzie-teksty-filmowe-andrzeja-wlasta-i-karola-ir…</a></small></li>
+<li>Michał Pieńkowski, „Kino nieme okiem współczesnego widza” (Pleograf, Z warsztatu) (2019)<small><a href="https://pleograf.pl/index.php/z-warsztatu-kino-nieme-okiem-wspolczesnego-widza/" target="_blank" rel="noopener">https://pleograf.pl/index.php/z-warsztatu-kino-nieme-okiem-wspolczesnego-widza/</a></small></li>
+<li>Weronika Szulik, „Adaptowanie nowoczesności: powieści filmowe Leo Belmonta i Zofii Dromlewiczowej” (Pleograf) (2019)<small><a href="https://pleograf.pl/index.php/adaptowanie-nowoczesnosci-powiesci-filmowe-leo-belmonta-i-zofii-dromlewiczowej/" target="_blank" rel="noopener">https://pleograf.pl/index.php/adaptowanie-nowoczesnosci-powiesci-filmowe-leo-belmonta-i-zo…</a></small></li>
+<li>Krzysztof Loska, „«Benshi» jako współautor filmu” (Kwartalnik Filmowy 59, 2007) (2007)<small><a href="https://czasopisma.ispan.pl/index.php/kf/article/download/3440/2508" target="_blank" rel="noopener">https://czasopisma.ispan.pl/index.php/kf/article/download/3440/2508</a></small></li>
+<li>Tomasz Kłys, „Ekspresjonizm raz jeszcze, czyli na nowo o historii filmu niemieckiego” (Kwartalnik Filmowy 67–68, 2009) (2009)<small><a href="https://czasopisma.ispan.pl/index.php/kf/article/download/3102/2218" target="_blank" rel="noopener">https://czasopisma.ispan.pl/index.php/kf/article/download/3102/2218</a></small></li>
+<li>Grzegorz Nadgrodkiewicz, „Pasja braci Fassnacht i filmowe echa widowiska «na wzór Oberammergau»… «Galilejczyk» Dymitra Buchowieckiego” (Kwartalnik Filmowy 2014) (2014)<small><a href="https://czasopisma.ispan.pl/index.php/kf/article/download/2388/1614" target="_blank" rel="noopener">https://czasopisma.ispan.pl/index.php/kf/article/download/2388/1614</a></small></li>
+<li>Wojciech Świdziński, „Między awangardowym eksperymentem a tanim horrorem. Ekranizacje twórczości Edgara Allana Poe przed 1939 rokiem” (Kwartalnik Filmowy 2009) (2009)<small><a href="https://czasopisma.ispan.pl/index.php/kf/article/download/3107/2223" target="_blank" rel="noopener">https://czasopisma.ispan.pl/index.php/kf/article/download/3107/2223</a></small></li>
+<li>Magdalena Kempna-Pieniążek, „Polifoniczne «Kino nieme»” (Kwartalnik Filmowy 71–72, 2010; recenzja t. 1 „Historii kina” red. Lubelski, Sowińska, Syska) (2010)<small><a href="https://czasopisma.ispan.pl/index.php/kf/article/download/3038/2150" target="_blank" rel="noopener">https://czasopisma.ispan.pl/index.php/kf/article/download/3038/2150</a></small></li>
+<li>Tadeusz Lubelski, „Krakowski projekt czterotomowej «Historii kina»” (Kwartalnik Filmowy 67–68, 2009) (2009)<small><a href="https://czasopisma.ispan.pl/index.php/kf/article/download/3117/2232" target="_blank" rel="noopener">https://czasopisma.ispan.pl/index.php/kf/article/download/3117/2232</a></small></li>
+<li>Bo Florin, „Nieme kino według Ingmara Bergmana” (Kwartalnik Filmowy 2002) (2002)<small><a href="https://czasopisma.ispan.pl/index.php/kf/article/download/3866/2863" target="_blank" rel="noopener">https://czasopisma.ispan.pl/index.php/kf/article/download/3866/2863</a></small></li>
+<li>Małgorzata Hendrykowska, „Filmowcy amatorzy w Polsce przed rokiem 1939” (Images XIX/28, 2017) (2017)<small><a href="https://pressto.amu.edu.pl/index.php/i/article/download/8784/8593" target="_blank" rel="noopener">https://pressto.amu.edu.pl/index.php/i/article/download/8784/8593</a></small></li>
+<li>Marek Hendrykowski, „Kinematografia na śmietniku” (Images 32/41, 2022) (2022)<small><a href="https://pressto.amu.edu.pl/index.php/i/article/download/36942/31699/79595" target="_blank" rel="noopener">https://pressto.amu.edu.pl/index.php/i/article/download/36942/31699/79595</a></small></li>
+<li>Marek Hendrykowski, „Na dnie oka. Dziesiąta Muza z perspektywy stulecia” (Przestrzenie Teorii, 2023/24) (2024)<small><a href="https://pressto.amu.edu.pl/index.php/pt/article/download/37284/31960/80553" target="_blank" rel="noopener">https://pressto.amu.edu.pl/index.php/pt/article/download/37284/31960/80553</a></small></li>
+</ol>
+<h2>Katalogi i źródła referencyjne</h2>
+<ol class="bib">
+<li>Le Giornate del Cinema Muto – Catalogo / Catalogue 43 (Pordenone 2024) (2024)<small><a href="https://www.giornatedelcinemamuto.it/wp-content/uploads/2025/05/CATALOGO-GCM2024-REVISED-VERSION-WEB-LowDef.pdf" target="_blank" rel="noopener">https://www.giornatedelcinemamuto.it/wp-content/uploads/2025/05/CATALOGO-GCM2024-REVISED-V…</a></small></li>
+<li>Le Giornate del Cinema Muto – Catalogo 44 (Pordenone 2025) (2025)<small><a href="https://www.giornatedelcinemamuto.it/wp-content/uploads/2025/10/CATALOGO-GCM2025-LowRes-v1.pdf" target="_blank" rel="noopener">https://www.giornatedelcinemamuto.it/wp-content/uploads/2025/10/CATALOGO-GCM2025-LowRes-v1…</a></small></li>
+<li>Le Giornate del Cinema Muto – Catalogo 45 (Pordenone 2026) (2026)<small><a href="https://www.giornatedelcinemamuto.it/wp-content/uploads/2026/10/Catalogo-GCM-2026-LowRes.pdf" target="_blank" rel="noopener">https://www.giornatedelcinemamuto.it/wp-content/uploads/2026/10/Catalogo-GCM-2026-LowRes.p…</a></small></li>
+</ol>
+<h2>Wykłady i dokumenty wideo użyte jako źródła</h2>
+<ol class="bib">
+<li>Brownlow/Gill, Hollywood – odc. 2 „In the Beginning” (1980)<small><a href="https://www.youtube.com/watch?v=0_wAGiIrKs4" target="_blank" rel="noopener">https://www.youtube.com/watch?v=0_wAGiIrKs4</a></small></li>
+<li>Brownlow/Gill, Cinema Europe: The Other Hollywood – odc. 1 „Where It All Began” (1995)<small><a href="https://www.youtube.com/watch?v=Argtu-R3JVQ" target="_blank" rel="noopener">https://www.youtube.com/watch?v=Argtu-R3JVQ</a></small></li>
+<li>Face to Face with Kevin Brownlow (wywiad-rzeka z historykiem i restauratorem kina niemego) (2018 (publ.))<small><a href="https://www.youtube.com/watch?v=GAeA1c1WaD8" target="_blank" rel="noopener">https://www.youtube.com/watch?v=GAeA1c1WaD8</a></small></li>
+<li>CrashCourse, Movies are Magic: Crash Course Film History #1 (prekino) (2017)<small><a href="https://www.youtube.com/watch?v=vsnB4iBb78o" target="_blank" rel="noopener">https://www.youtube.com/watch?v=vsnB4iBb78o</a></small></li>
+<li>CrashCourse, The Birth of the Feature Film: Crash Course Film History #6 (2017)<small><a href="https://www.youtube.com/watch?v=HaBmjhmKWTs" target="_blank" rel="noopener">https://www.youtube.com/watch?v=HaBmjhmKWTs</a></small></li>
+<li>CrashCourse, The Silent Era: Crash Course Film History #9 (2017)<small><a href="https://www.youtube.com/watch?v=ROOV9tucra0" target="_blank" rel="noopener">https://www.youtube.com/watch?v=ROOV9tucra0</a></small></li>
+<li>Tom Gunning, „Your Number Is Up! Questioning Numbers in Film History” (Neubauer Collegium, Univ. of Chicago) (2014)<small><a href="https://www.youtube.com/watch?v=VvwC_3FyRAo" target="_blank" rel="noopener">https://www.youtube.com/watch?v=VvwC_3FyRAo</a></small></li>
+</ol>
+
+    <h2>Główne kanały źródłowe</h2>
+<ul class="ch">
+<li>Films by the Year <span style="color:var(--ink-faint)">(36)</span></li>
+<li>Silver Screen Filmothèque <span style="color:var(--ink-faint)">(25)</span></li>
+<li>iconauta <span style="color:var(--ink-faint)">(19)</span></li>
+<li>History Club <span style="color:var(--ink-faint)">(18)</span></li>
+<li>Классика советского кино (официальный канал) <span style="color:var(--ink-faint)">(17)</span></li>
+<li>Library of Congress <span style="color:var(--ink-faint)">(13)</span></li>
+<li>Donald P. Borchers <span style="color:var(--ink-faint)">(13)</span></li>
+<li>Early Cinema History <span style="color:var(--ink-faint)">(12)</span></li>
+<li>PELICULAS MUDAS / Silent cinema <span style="color:var(--ink-faint)">(12)</span></li>
+<li>Quality Silent Films <span style="color:var(--ink-faint)">(12)</span></li>
+<li>André Bourbeau <span style="color:var(--ink-faint)">(12)</span></li>
+<li>BFI <span style="color:var(--ink-faint)">(10)</span></li>
+<li>psatioat <span style="color:var(--ink-faint)">(10)</span></li>
+<li>Modern Chinese Cultural Studies <span style="color:var(--ink-faint)">(10)</span></li>
+<li>Cult Cinema Classics <span style="color:var(--ink-faint)">(9)</span></li>
+<li>CrashCourse <span style="color:var(--ink-faint)">(9)</span></li>
+<li>Wm. Thomas Sherman <span style="color:var(--ink-faint)">(8)</span></li>
+<li>Smells Like Popcorn Huele A Palomitas <span style="color:var(--ink-faint)">(7)</span></li>
+<li>Silver Screen Classics <span style="color:var(--ink-faint)">(7)</span></li>
+<li>CLUB CINEMA 7 <span style="color:var(--ink-faint)">(6)</span></li>
+<li>Storia del Cinema <span style="color:var(--ink-faint)">(6)</span></li>
+<li>Films <span style="color:var(--ink-faint)">(6)</span></li>
+<li>Screen Prism <span style="color:var(--ink-faint)">(6)</span></li>
+<li>Ninateka (FINA) <span style="color:var(--ink-faint)">(6)</span></li>
+<li>古典邦画集PD <span style="color:var(--ink-faint)">(6)</span></li>
+<li>Silent Hall of Fame <span style="color:var(--ink-faint)">(5)</span></li>
+<li>Motion Pictures <span style="color:var(--ink-faint)">(5)</span></li>
+<li>Laurel &amp; Hardy <span style="color:var(--ink-faint)">(5)</span></li>
+<li>Grandpa&#x27;s Old Movies Chest  <span style="color:var(--ink-faint)">(5)</span></li>
+<li>Akademia Polskiego Filmu <span style="color:var(--ink-faint)">(5)</span></li>
+<li>Chuck from KY <span style="color:var(--ink-faint)">(5)</span></li>
+<li>Lancaster Silent Movies &amp; Classic Film Club <span style="color:var(--ink-faint)">(5)</span></li>
+<li>Cinema History <span style="color:var(--ink-faint)">(4)</span></li>
+<li>Cinema in Public Domain (Domínio Público) <span style="color:var(--ink-faint)">(4)</span></li>
+<li>Classic Hollywood Movies <span style="color:var(--ink-faint)">(4)</span></li>
+<li>Silent films of the 1910s <span style="color:var(--ink-faint)">(4)</span></li>
+<li>Inter-Pathé <span style="color:var(--ink-faint)">(4)</span></li>
+<li>The Treasures of Cinema Classics <span style="color:var(--ink-faint)">(4)</span></li>
+<li>All soviet movies on RVISION <span style="color:var(--ink-faint)">(4)</span></li>
+<li>Harold Lloyd <span style="color:var(--ink-faint)">(4)</span></li>
+</ul>
+
+    <div class="note"><b>Nota:</b> filmy odtwarzane są bezpośrednio z YouTube (youtube-nocookie.com) lub Internet Archive — portal niczego nie kopiuje ani nie przechowuje. Dostępność zależy od publikujących kanałów. Typy kart: pełny film / fragment / dokument / film zaginiony (materiał zastępczy). Notatnik badawczy: NotebookLM „KINO NIEME — opracowania naukowe".</div>
+  </div>
+  <div data-lang="en" hidden>
+    <h1>Sources <span>&amp; method</span></h1>
+    <div class="sub">Where this portal comes from · 828 films · 50 notebook sources</div>
+    <h2>Literature — the chapter canon</h2>
+    <p>The 30-chapter structure, the selection of filmmakers and the hierarchy of films were derived from the scholarly literature, not from the YouTube algorithm:</p>
+    <ol class="bib">
+<li><b>Kristin Thompson, David Bordwell</b>, <i>Film History: An Introduction</i> (wyd. 4, McGraw-Hill 2019), cz. I–II (1880–1930) — podstawa periodyzacji: kino wczesne (1880–1904), ekspansja (1905–1912), kino klasyczne i narodowe (1913–1919), style lat 20. (ekspresjonizm, impresjonizm, montaż radziecki), przełom dźwiękowy.</li>
+<li><b>Paolo Cherchi Usai</b>, <i>Silent Cinema: A Guide to Study, Research and Curatorship</i> (BFI/Bloomsbury 2019) — metodologia badania i oglądania filmów niemych (nośniki, prędkość, barwienie, muzyka, archiwa).</li>
+<li><b>Tadeusz Lubelski, Iwona Sowińska, Rafał Syska (red.)</b>, <i>Historia kina, t. 1: Kino nieme</i> (Universitas 2009) — polska synteza; rozdziały o kinematografiach narodowych, w tym polskiej.</li>
+<li><b>Tom Gunning</b>, „The Cinema of Attractions" (1986) i <i>D.W. Griffith and the Origins of American Narrative Film</i> (1991); <b>Wanda Strauven (red.)</b>, <i>The Cinema of Attractions Reloaded</i> (2006) — ramy dla rozdziałów 02–07.</li>
+<li><b>Lotte H. Eisner</b>, <i>Ekran demoniczny</i> (1952); <b>Siegfried Kracauer</b>, <i>Od Caligariego do Hitlera</i> (1947); <b>Tomasz Kłys</b>, „Ekspresjonizm raz jeszcze" (2009) — rozdziały 16–17.</li>
+<li><b>Jay Leyda</b>, <i>Kino: A History of the Russian and Soviet Film</i> (1960); <b>Yuri Tsivian</b>, <i>Early Cinema in Russia and Its Cultural Reception</i> (1994) — rozdziały 10 i 18.</li>
+<li><b>Richard Abel</b>, <i>The Ciné Goes to Town: French Cinema 1896–1914</i> (1994) i <i>French Cinema: The First Wave 1915–1929</i> (1984) — rozdziały 03, 06, 19.</li>
+<li><b>Kevin Brownlow</b>, <i>The Parade's Gone By…</i> (1968) oraz seriale <i>Hollywood</i> (1980) i <i>Cinema Europe</i> (1995) — rozdziały 11–14, 30.</li>
+<li><b>David Pierce</b>, <i>The Survival of American Silent Feature Films 1912–1929</i> (Library of Congress 2013) — skala strat; podstawa not o filmach zaginionych.</li>
+<li><b>Małgorzata Hendrykowska</b>, <i>Śladami tamtych cieni. Film w kulturze polskiej przełomu stuleci 1895–1914</i> (1993) i <i>Historia polskiego filmu dokumentalnego 1896–1944</i> (2015); <b>Władysław Banaszkiewicz, Witold Witczak</b>, <i>Historia filmu polskiego, t. 1: 1895–1929</i> (1966) — rozdziały 21–22.</li>
+<li><b>Karol Irzykowski</b>, <i>Dziesiąta Muza. Zagadnienia estetyczne kina</i> (1924) — pierwsza polska estetyka filmu, pisana w środku epoki niemej.</li>
+<li><b>Georges Sadoul</b>, <i>Histoire générale du cinéma</i>, t. 1–5 (1946–1975); <b>David A. Cook</b>, <i>A History of Narrative Film</i> — uzupełnienia dla kinematografii narodowych.</li>
+</ol>
+    <h2>Hybrid method</h2>
+<p><b>1.</b> A canon was derived from the literature: 30 chapters and c. 450 anchor films (director, title, year).</p>
+<p><b>2.</b> A NotebookLM research notebook was built from 60 open-access works — from Lindsay, Münsterberg and Irzykowski, through the “cinema of attractions” anthology, Amsterdam University Press monographs and the Library of Congress survival report, to Polish articles from Pleograf, Kwartalnik Filmowy and Images. The notebook was used to critique the chapter structure and to write introductions grounded in scholars' claims.</p>
+<p><b>3.</b> The canon was matched against YouTube (yt-dlp query with scoring: title and year match, duration, archival channel, no commentary overlays or “AI remasters”); every hit was checked for availability and embeddability. Works unavailable in full are represented by fragments, restoration trailers and documentaries (labelled on cards). Lost films are marked separately. Gaps were recorded rather than filled with substitutes.</p>
+<p><b>4.</b> A note on listening: silent films on YouTube usually carry a score added by the copy's publisher (from reconstructed original scores to contemporary music). Projection speed and tinting also vary between editions — see Cherchi Usai and Pieńkowski in the bibliography.</p>
+    <h2>Research notebook — open-access works (50)</h2>
+    <p>All texts below are legally available online (public domain or open access) and were loaded into the NotebookLM notebook on which the chapter introductions are based.</p>
+    <h2>Period classics (public-domain primary texts)</h2>
+<ol class="bib">
+<li>Vachel Lindsay, The Art of the Moving Picture (wyd. 1922 – rewizja książki z 1915) (1915/1922)<small><a href="https://www.gutenberg.org/cache/epub/13029/pg13029-images.html" target="_blank" rel="noopener">https://www.gutenberg.org/cache/epub/13029/pg13029-images.html</a></small></li>
+<li>Hugo Münsterberg, The Photoplay: A Psychological Study (1916)<small><a href="https://www.gutenberg.org/cache/epub/15383/pg15383-images.html" target="_blank" rel="noopener">https://www.gutenberg.org/cache/epub/15383/pg15383-images.html</a></small></li>
+<li>Frederick A. Talbot, Moving Pictures: How They Are Made and Worked (1912)<small><a href="https://www.gutenberg.org/cache/epub/67972/pg67972-images.html" target="_blank" rel="noopener">https://www.gutenberg.org/cache/epub/67972/pg67972-images.html</a></small></li>
+<li>Epes Winthrop Sargent, The Technique of the Photoplay (wyd. 2) (1913)<small><a href="https://archive.org/download/techniqueofphoto00sargrich/techniqueofphoto00sargrich_djvu.txt" target="_blank" rel="noopener">https://archive.org/download/techniqueofphoto00sargrich/techniqueofphoto00sargrich_djvu.tx…</a></small></li>
+<li>Terry Ramsaye, A Million and One Nights: A History of the Motion Picture (1926)<small><a href="https://archive.org/download/ramsaye_book_1926/ramsaye_book_1926_djvu.txt" target="_blank" rel="noopener">https://archive.org/download/ramsaye_book_1926/ramsaye_book_1926_djvu.txt</a></small></li>
+<li>Robert Grau, The Theatre of Science: A Volume of Progress and Achievement in the Motion Picture Industry (1914)<small><a href="https://archive.org/download/theatreofscience00graurich/theatreofscience00graurich_djvu.txt" target="_blank" rel="noopener">https://archive.org/download/theatreofscience00graurich/theatreofscience00graurich_djvu.tx…</a></small></li>
+<li>Karol Irzykowski, Dziesiąta Muza. Zagadnienia estetyczne kina (skan 1. wyd., Kraków) (1924)<small><a href="https://www.sbc.org.pl/Content/80473/download/" target="_blank" rel="noopener">https://www.sbc.org.pl/Content/80473/download/</a></small></li>
+</ol>
+<h2>Open-access monographs and anthologies</h2>
+<ol class="bib">
+<li>Wanda Strauven (red.), The Cinema of Attractions Reloaded (AUP) (2006)<small><a href="https://archive.org/download/oapen-20.500.12657-35197/340138.pdf" target="_blank" rel="noopener">https://archive.org/download/oapen-20.500.12657-35197/340138.pdf</a></small></li>
+<li>Kristin Thompson, Herr Lubitsch Goes to Hollywood: German and American Film after World War I (AUP) (2005)<small><a href="https://archive.org/download/oapen-20.500.12657-35134/340212.pdf" target="_blank" rel="noopener">https://archive.org/download/oapen-20.500.12657-35134/340212.pdf</a></small></li>
+<li>Kristin Thompson, Exporting Entertainment: America in the World Film Market 1907–1934 (BFI 1985, skan OCR autorki) (1985)<small><a href="https://www.davidbordwell.net/books/exportingentertainment_thompson_bfi1985_ocr.pdf" target="_blank" rel="noopener">https://www.davidbordwell.net/books/exportingentertainment_thompson_bfi1985_ocr.pdf</a></small></li>
+<li>David Bordwell, On the History of Film Style (2. wyd., wersja darmowa) (2018)<small><a href="https://www.davidbordwell.net/books/on-history-film-style-davidbordwell-180531.pdf" target="_blank" rel="noopener">https://www.davidbordwell.net/books/on-history-film-style-davidbordwell-180531.pdf</a></small></li>
+<li>Malte Hagener, Moving Forward, Looking Back: The European Avant-garde and the Invention of Film Culture 1919–1939 (AUP) (2007)<small><a href="https://archive.org/download/oapen-20.500.12657-35202/340131.pdf" target="_blank" rel="noopener">https://archive.org/download/oapen-20.500.12657-35202/340131.pdf</a></small></li>
+<li>Ivo Blom, Jean Desmet and the Early Dutch Film Trade (AUP) (2003)<small><a href="https://archive.org/download/oapen-20.500.12657-35113/340233.pdf" target="_blank" rel="noopener">https://archive.org/download/oapen-20.500.12657-35113/340233.pdf</a></small></li>
+<li>David Pierce, The Survival of American Silent Feature Films: 1912–1929 (Library of Congress / CLIR) (2013)<small><a href="https://www.clir.org/wp-content/uploads/sites/6/pub158.pdf" target="_blank" rel="noopener">https://www.clir.org/wp-content/uploads/sites/6/pub158.pdf</a></small></li>
+<li>Jan Olsson, Los Angeles Before Hollywood: Journalism and American Film Culture, 1905 to 1915 (Mediehistoriskt arkiv 7, Kungliga biblioteket) (2008)<small><a href="https://mediehistorisktarkiv.se/wp-content/uploads/2025/09/olsson_2025.pdf" target="_blank" rel="noopener">https://mediehistorisktarkiv.se/wp-content/uploads/2025/09/olsson_2025.pdf</a></small></li>
+<li>Thomas Elsaesser (red.), A Second Life: German Cinema&#x27;s First Decades (AUP) (1996)<small><a href="https://archive.org/download/oapen-20.500.12657-35080/340268.pdf" target="_blank" rel="noopener">https://archive.org/download/oapen-20.500.12657-35080/340268.pdf</a></small></li>
+<li>Bernadette Kester, Film Front Weimar: Representations of the First World War in German Films from the Weimar Period (1919–1933) (AUP) (2002)<small><a href="https://archive.org/download/oapen-20.500.12657-35110/340236.pdf" target="_blank" rel="noopener">https://archive.org/download/oapen-20.500.12657-35110/340236.pdf</a></small></li>
+<li>Naum Kleiman, Antonio Somaini (red.), Sergei M. Eisenstein: Notes for a General History of Cinema (AUP) (2016)<small><a href="https://archive.org/download/oapen-20.500.12657-32683/610151.pdf" target="_blank" rel="noopener">https://archive.org/download/oapen-20.500.12657-32683/610151.pdf</a></small></li>
+<li>Annette Förster, Women in the Silent Cinema: Histories of Fame and Fate (AUP) (2017)<small><a href="https://archive.org/download/oapen-20.500.12657-23348/9789048524518.pdf" target="_blank" rel="noopener">https://archive.org/download/oapen-20.500.12657-23348/9789048524518.pdf</a></small></li>
+<li>Gerry Turvey, The B&amp;C Kinematograph Company and British Cinema: Early Twentieth-Century Spectacle and Melodrama (John Libbey / Univ. of Exeter Press) (2019)<small><a href="https://archive.org/download/oapen-20.500.12657-50267/9781905816668.pdf" target="_blank" rel="noopener">https://archive.org/download/oapen-20.500.12657-50267/9781905816668.pdf</a></small></li>
+<li>Julie K. Allen, Screening Europe in Australasia: Transnational Silent Film Before and After the Rise of Hollywood (Univ. of Exeter Press) (2022)<small><a href="https://archive.org/download/oapen-20.500.12657-54077/9781905816897.pdf" target="_blank" rel="noopener">https://archive.org/download/oapen-20.500.12657-54077/9781905816897.pdf</a></small></li>
+<li>Charles Musser, Before the Nickelodeon: Edwin S. Porter and the Edison Manufacturing Company (UC Press E-Books Collection, pełny tekst HTML) (1991)<small><a href="https://publishing.cdlib.org/ucpressebooks/public/book/before-the-nickelodeon-edwin-s-porter-and-the-edison-manufacturing-company.html" target="_blank" rel="noopener">https://publishing.cdlib.org/ucpressebooks/public/book/before-the-nickelodeon-edwin-s-port…</a></small></li>
+<li>Roberta E. Pearson, Eloquent Gestures: The Transformation of Performance Style in the Griffith Biograph Films (UC Press E-Books Collection) (1992)<small><a href="https://publishing.cdlib.org/ucpressebooks/public/book/eloquent-gestures-the-transformation-of-performance-style-in-the-griffith-biograph-films.html" target="_blank" rel="noopener">https://publishing.cdlib.org/ucpressebooks/public/book/eloquent-gestures-the-transformatio…</a></small></li>
+<li>Sofia Bull, Astrid Söderbergh Widding (red.), Not So Silent: Women in Cinema before Sound (Stockholm Cinema Studies 12) (2010)<small><a href="https://su.diva-portal.org/smash/get/diva2:324333/FULLTEXT01.pdf" target="_blank" rel="noopener">https://su.diva-portal.org/smash/get/diva2:324333/FULLTEXT01.pdf</a></small></li>
+</ol>
+<h2>Open-access journal articles (Pleograf, Kwartalnik Filmowy, Images)</h2>
+<ol class="bib">
+<li>Łukasz Biskupski, „Zagadka Sfinksa” (Pleograf 1/2019, Kino przedwojenne) (2019)<small><a href="https://pleograf.pl/index.php/z-archiwum-zagadka-sfinksa/" target="_blank" rel="noopener">https://pleograf.pl/index.php/z-archiwum-zagadka-sfinksa/</a></small></li>
+<li>Kamila Kuc, „Odkrywanie swoistości medium. Pierwsze polskie roszczenia filmu do miana sztuki” (Pleograf) (2019)<small><a href="https://pleograf.pl/index.php/odkrywanie-swoistosci-medium-pierwsze-polskie-roszczenia-filmu-do-miana-sztuki/" target="_blank" rel="noopener">https://pleograf.pl/index.php/odkrywanie-swoistosci-medium-pierwsze-polskie-roszczenia-fil…</a></small></li>
+<li>Weronika Szulik, „«Dziesiąta Muza (impresje)» – felietony Andrzeja Własta na tle myśli filmowej dwudziestolecia międzywojennego” (Pleograf) (2019)<small><a href="https://pleograf.pl/index.php/dziesiata-muza-impresje-felietony-andrzeja-wlasta-na-tle-mysli-filmowej-dwudziestolecia-miedzywojennego/" target="_blank" rel="noopener">https://pleograf.pl/index.php/dziesiata-muza-impresje-felietony-andrzeja-wlasta-na-tle-mys…</a></small></li>
+<li>Małgorzata Radkiewicz, „Dwugłos o X muzie. Teksty filmowe Andrzeja Własta i Karola Irzykowskiego” (Pleograf) (2019)<small><a href="https://pleograf.pl/index.php/dwuglos-o-x-muzie-teksty-filmowe-andrzeja-wlasta-i-karola-irzykowskiego/" target="_blank" rel="noopener">https://pleograf.pl/index.php/dwuglos-o-x-muzie-teksty-filmowe-andrzeja-wlasta-i-karola-ir…</a></small></li>
+<li>Michał Pieńkowski, „Kino nieme okiem współczesnego widza” (Pleograf, Z warsztatu) (2019)<small><a href="https://pleograf.pl/index.php/z-warsztatu-kino-nieme-okiem-wspolczesnego-widza/" target="_blank" rel="noopener">https://pleograf.pl/index.php/z-warsztatu-kino-nieme-okiem-wspolczesnego-widza/</a></small></li>
+<li>Weronika Szulik, „Adaptowanie nowoczesności: powieści filmowe Leo Belmonta i Zofii Dromlewiczowej” (Pleograf) (2019)<small><a href="https://pleograf.pl/index.php/adaptowanie-nowoczesnosci-powiesci-filmowe-leo-belmonta-i-zofii-dromlewiczowej/" target="_blank" rel="noopener">https://pleograf.pl/index.php/adaptowanie-nowoczesnosci-powiesci-filmowe-leo-belmonta-i-zo…</a></small></li>
+<li>Krzysztof Loska, „«Benshi» jako współautor filmu” (Kwartalnik Filmowy 59, 2007) (2007)<small><a href="https://czasopisma.ispan.pl/index.php/kf/article/download/3440/2508" target="_blank" rel="noopener">https://czasopisma.ispan.pl/index.php/kf/article/download/3440/2508</a></small></li>
+<li>Tomasz Kłys, „Ekspresjonizm raz jeszcze, czyli na nowo o historii filmu niemieckiego” (Kwartalnik Filmowy 67–68, 2009) (2009)<small><a href="https://czasopisma.ispan.pl/index.php/kf/article/download/3102/2218" target="_blank" rel="noopener">https://czasopisma.ispan.pl/index.php/kf/article/download/3102/2218</a></small></li>
+<li>Grzegorz Nadgrodkiewicz, „Pasja braci Fassnacht i filmowe echa widowiska «na wzór Oberammergau»… «Galilejczyk» Dymitra Buchowieckiego” (Kwartalnik Filmowy 2014) (2014)<small><a href="https://czasopisma.ispan.pl/index.php/kf/article/download/2388/1614" target="_blank" rel="noopener">https://czasopisma.ispan.pl/index.php/kf/article/download/2388/1614</a></small></li>
+<li>Wojciech Świdziński, „Między awangardowym eksperymentem a tanim horrorem. Ekranizacje twórczości Edgara Allana Poe przed 1939 rokiem” (Kwartalnik Filmowy 2009) (2009)<small><a href="https://czasopisma.ispan.pl/index.php/kf/article/download/3107/2223" target="_blank" rel="noopener">https://czasopisma.ispan.pl/index.php/kf/article/download/3107/2223</a></small></li>
+<li>Magdalena Kempna-Pieniążek, „Polifoniczne «Kino nieme»” (Kwartalnik Filmowy 71–72, 2010; recenzja t. 1 „Historii kina” red. Lubelski, Sowińska, Syska) (2010)<small><a href="https://czasopisma.ispan.pl/index.php/kf/article/download/3038/2150" target="_blank" rel="noopener">https://czasopisma.ispan.pl/index.php/kf/article/download/3038/2150</a></small></li>
+<li>Tadeusz Lubelski, „Krakowski projekt czterotomowej «Historii kina»” (Kwartalnik Filmowy 67–68, 2009) (2009)<small><a href="https://czasopisma.ispan.pl/index.php/kf/article/download/3117/2232" target="_blank" rel="noopener">https://czasopisma.ispan.pl/index.php/kf/article/download/3117/2232</a></small></li>
+<li>Bo Florin, „Nieme kino według Ingmara Bergmana” (Kwartalnik Filmowy 2002) (2002)<small><a href="https://czasopisma.ispan.pl/index.php/kf/article/download/3866/2863" target="_blank" rel="noopener">https://czasopisma.ispan.pl/index.php/kf/article/download/3866/2863</a></small></li>
+<li>Małgorzata Hendrykowska, „Filmowcy amatorzy w Polsce przed rokiem 1939” (Images XIX/28, 2017) (2017)<small><a href="https://pressto.amu.edu.pl/index.php/i/article/download/8784/8593" target="_blank" rel="noopener">https://pressto.amu.edu.pl/index.php/i/article/download/8784/8593</a></small></li>
+<li>Marek Hendrykowski, „Kinematografia na śmietniku” (Images 32/41, 2022) (2022)<small><a href="https://pressto.amu.edu.pl/index.php/i/article/download/36942/31699/79595" target="_blank" rel="noopener">https://pressto.amu.edu.pl/index.php/i/article/download/36942/31699/79595</a></small></li>
+<li>Marek Hendrykowski, „Na dnie oka. Dziesiąta Muza z perspektywy stulecia” (Przestrzenie Teorii, 2023/24) (2024)<small><a href="https://pressto.amu.edu.pl/index.php/pt/article/download/37284/31960/80553" target="_blank" rel="noopener">https://pressto.amu.edu.pl/index.php/pt/article/download/37284/31960/80553</a></small></li>
+</ol>
+<h2>Catalogues and reference</h2>
+<ol class="bib">
+<li>Le Giornate del Cinema Muto – Catalogo / Catalogue 43 (Pordenone 2024) (2024)<small><a href="https://www.giornatedelcinemamuto.it/wp-content/uploads/2025/05/CATALOGO-GCM2024-REVISED-VERSION-WEB-LowDef.pdf" target="_blank" rel="noopener">https://www.giornatedelcinemamuto.it/wp-content/uploads/2025/05/CATALOGO-GCM2024-REVISED-V…</a></small></li>
+<li>Le Giornate del Cinema Muto – Catalogo 44 (Pordenone 2025) (2025)<small><a href="https://www.giornatedelcinemamuto.it/wp-content/uploads/2025/10/CATALOGO-GCM2025-LowRes-v1.pdf" target="_blank" rel="noopener">https://www.giornatedelcinemamuto.it/wp-content/uploads/2025/10/CATALOGO-GCM2025-LowRes-v1…</a></small></li>
+<li>Le Giornate del Cinema Muto – Catalogo 45 (Pordenone 2026) (2026)<small><a href="https://www.giornatedelcinemamuto.it/wp-content/uploads/2026/10/Catalogo-GCM-2026-LowRes.pdf" target="_blank" rel="noopener">https://www.giornatedelcinemamuto.it/wp-content/uploads/2026/10/Catalogo-GCM-2026-LowRes.p…</a></small></li>
+</ol>
+<h2>Lectures and documentaries used as sources</h2>
+<ol class="bib">
+<li>Brownlow/Gill, Hollywood – odc. 2 „In the Beginning” (1980)<small><a href="https://www.youtube.com/watch?v=0_wAGiIrKs4" target="_blank" rel="noopener">https://www.youtube.com/watch?v=0_wAGiIrKs4</a></small></li>
+<li>Brownlow/Gill, Cinema Europe: The Other Hollywood – odc. 1 „Where It All Began” (1995)<small><a href="https://www.youtube.com/watch?v=Argtu-R3JVQ" target="_blank" rel="noopener">https://www.youtube.com/watch?v=Argtu-R3JVQ</a></small></li>
+<li>Face to Face with Kevin Brownlow (wywiad-rzeka z historykiem i restauratorem kina niemego) (2018 (publ.))<small><a href="https://www.youtube.com/watch?v=GAeA1c1WaD8" target="_blank" rel="noopener">https://www.youtube.com/watch?v=GAeA1c1WaD8</a></small></li>
+<li>CrashCourse, Movies are Magic: Crash Course Film History #1 (prekino) (2017)<small><a href="https://www.youtube.com/watch?v=vsnB4iBb78o" target="_blank" rel="noopener">https://www.youtube.com/watch?v=vsnB4iBb78o</a></small></li>
+<li>CrashCourse, The Birth of the Feature Film: Crash Course Film History #6 (2017)<small><a href="https://www.youtube.com/watch?v=HaBmjhmKWTs" target="_blank" rel="noopener">https://www.youtube.com/watch?v=HaBmjhmKWTs</a></small></li>
+<li>CrashCourse, The Silent Era: Crash Course Film History #9 (2017)<small><a href="https://www.youtube.com/watch?v=ROOV9tucra0" target="_blank" rel="noopener">https://www.youtube.com/watch?v=ROOV9tucra0</a></small></li>
+<li>Tom Gunning, „Your Number Is Up! Questioning Numbers in Film History” (Neubauer Collegium, Univ. of Chicago) (2014)<small><a href="https://www.youtube.com/watch?v=VvwC_3FyRAo" target="_blank" rel="noopener">https://www.youtube.com/watch?v=VvwC_3FyRAo</a></small></li>
+</ol>
+
+    <h2>Main source channels</h2>
+<ul class="ch">
+<li>Films by the Year <span style="color:var(--ink-faint)">(36)</span></li>
+<li>Silver Screen Filmothèque <span style="color:var(--ink-faint)">(25)</span></li>
+<li>iconauta <span style="color:var(--ink-faint)">(19)</span></li>
+<li>History Club <span style="color:var(--ink-faint)">(18)</span></li>
+<li>Классика советского кино (официальный канал) <span style="color:var(--ink-faint)">(17)</span></li>
+<li>Library of Congress <span style="color:var(--ink-faint)">(13)</span></li>
+<li>Donald P. Borchers <span style="color:var(--ink-faint)">(13)</span></li>
+<li>Early Cinema History <span style="color:var(--ink-faint)">(12)</span></li>
+<li>PELICULAS MUDAS / Silent cinema <span style="color:var(--ink-faint)">(12)</span></li>
+<li>Quality Silent Films <span style="color:var(--ink-faint)">(12)</span></li>
+<li>André Bourbeau <span style="color:var(--ink-faint)">(12)</span></li>
+<li>BFI <span style="color:var(--ink-faint)">(10)</span></li>
+<li>psatioat <span style="color:var(--ink-faint)">(10)</span></li>
+<li>Modern Chinese Cultural Studies <span style="color:var(--ink-faint)">(10)</span></li>
+<li>Cult Cinema Classics <span style="color:var(--ink-faint)">(9)</span></li>
+<li>CrashCourse <span style="color:var(--ink-faint)">(9)</span></li>
+<li>Wm. Thomas Sherman <span style="color:var(--ink-faint)">(8)</span></li>
+<li>Smells Like Popcorn Huele A Palomitas <span style="color:var(--ink-faint)">(7)</span></li>
+<li>Silver Screen Classics <span style="color:var(--ink-faint)">(7)</span></li>
+<li>CLUB CINEMA 7 <span style="color:var(--ink-faint)">(6)</span></li>
+<li>Storia del Cinema <span style="color:var(--ink-faint)">(6)</span></li>
+<li>Films <span style="color:var(--ink-faint)">(6)</span></li>
+<li>Screen Prism <span style="color:var(--ink-faint)">(6)</span></li>
+<li>Ninateka (FINA) <span style="color:var(--ink-faint)">(6)</span></li>
+<li>古典邦画集PD <span style="color:var(--ink-faint)">(6)</span></li>
+<li>Silent Hall of Fame <span style="color:var(--ink-faint)">(5)</span></li>
+<li>Motion Pictures <span style="color:var(--ink-faint)">(5)</span></li>
+<li>Laurel &amp; Hardy <span style="color:var(--ink-faint)">(5)</span></li>
+<li>Grandpa&#x27;s Old Movies Chest  <span style="color:var(--ink-faint)">(5)</span></li>
+<li>Akademia Polskiego Filmu <span style="color:var(--ink-faint)">(5)</span></li>
+<li>Chuck from KY <span style="color:var(--ink-faint)">(5)</span></li>
+<li>Lancaster Silent Movies &amp; Classic Film Club <span style="color:var(--ink-faint)">(5)</span></li>
+<li>Cinema History <span style="color:var(--ink-faint)">(4)</span></li>
+<li>Cinema in Public Domain (Domínio Público) <span style="color:var(--ink-faint)">(4)</span></li>
+<li>Classic Hollywood Movies <span style="color:var(--ink-faint)">(4)</span></li>
+<li>Silent films of the 1910s <span style="color:var(--ink-faint)">(4)</span></li>
+<li>Inter-Pathé <span style="color:var(--ink-faint)">(4)</span></li>
+<li>The Treasures of Cinema Classics <span style="color:var(--ink-faint)">(4)</span></li>
+<li>All soviet movies on RVISION <span style="color:var(--ink-faint)">(4)</span></li>
+<li>Harold Lloyd <span style="color:var(--ink-faint)">(4)</span></li>
+</ul>
+
+    <div class="note"><b>Note:</b> films play directly from YouTube (youtube-nocookie.com) or the Internet Archive — the portal copies and stores nothing. Availability depends on the publishing channels. Card types: full film / fragment / documentary / lost film (substitute material). Research notebook: NotebookLM “KINO NIEME — opracowania naukowe”.</div>
+  </div>
+</div>
+<script>
+let lang = localStorage.getItem('kn-lang') || 'pl';
+let theme = localStorage.getItem('kn-motyw') || 'dark';
+function apply() {
+  document.body.classList.toggle('light', theme === 'light');
+  document.querySelectorAll('[data-lang]').forEach(el => { el.hidden = el.dataset.lang !== lang; });
+  document.getElementById('langBtn').textContent = lang === 'pl' ? 'EN' : 'PL';
+  document.documentElement.lang = lang;
+  document.querySelector('.back').textContent = lang === 'pl' ? '← KINO NIEME' : '← SILENT CINEMA';
+}
+document.getElementById('langBtn').onclick = () => { lang = lang === 'pl' ? 'en' : 'pl'; localStorage.setItem('kn-lang', lang); apply(); };
+document.getElementById('themeBtn').onclick = () => { theme = theme === 'dark' ? 'light' : 'dark'; localStorage.setItem('kn-motyw', theme); apply(); };
+apply();
+</script>
+<script data-goatcounter="https://futureshow.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script src="https://futureshow.pl/assets/fs-home.js" defer></script>
+</body>
+</html>
