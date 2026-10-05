@@ -974,6 +974,8 @@ const ROWS = [
 const FEATURED = ["kinonieme", "pokedex", "futurepilot", "historia", "klimat", "dobranocki", "sectio", "oilgas",
                   "awangarda", "cardiosim", "polskijazz", "matryca", "mnemo", "futuretalk", "sheldrake", "hinton",
                   "mondrian", "przyluski"];
+/* Symulator Sejmu wchodzi na 2. pozycję w dniu premiery (6.10.2026) i nie wymaga wgrywania zmian */
+if(new Date() >= new Date(2026,9,6) && !FEATURED.includes("sejm")) FEATURED.splice(1,0,"sejm");
 
 const UI = {
  pl:{claim1:"Zamieniamy trudne tematy w rzeczy do klikania.",
