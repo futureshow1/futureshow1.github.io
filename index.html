@@ -116,6 +116,9 @@ nav.solid{background:var(--panel);backdrop-filter:blur(14px);
 .hero-inner{position:relative;z-index:2;max-width:760px;margin-right:60px}
 .h-kick{font-family:var(--mono);font-size:13px;letter-spacing:.28em;
   text-transform:uppercase;margin-bottom:18px;text-shadow:0 1px 12px rgba(0,0,5,.8)}
+.h-badge{display:inline-block;background:#e6392e;color:#fff;font-size:11px;font-weight:700;
+  letter-spacing:.16em;padding:3px 8px;border-radius:3px;margin-right:11px;
+  text-shadow:none;box-shadow:0 3px 14px rgba(0,0,0,.45)}
 .h-title{font-weight:800;font-size:clamp(2.5rem,5.6vw,4.4rem);line-height:1.02;
   letter-spacing:-.02em;text-shadow:0 2px 26px rgba(0,0,5,.78)}
 .h-title .serif{font-family:var(--serif);font-weight:600}
@@ -525,6 +528,7 @@ const P = {
   link:"https://futureshow.pl/kino-awangardy/"},
  kinonieme:{
   t:"Kino Nieme", kick:{pl:"Streaming · kino nieme",en:"Streaming · silent cinema"},
+  badge:{pl:"NOWOŚĆ",en:"NEW"},
   year:"2026", tag:{pl:"portal filmowy",en:"film portal"}, font:"serif",
   pal:{bg:"#0b0a0a",ink:"#ece3cf",acc:"#8dbbdc"}, motif:"perf",
   stats:["828 filmów","30 rozdziałów","1895 → 1930"],
@@ -693,6 +697,7 @@ kind:"site", t:"Jan Przyłuski", kick:{pl:"Strona · autor",en:"Site · author"}
   link:BASE+"psychedelic/"},
  pokedex:{
   t:"Poképedia", kick:{pl:"Popkultura · baza",en:"Pop culture · database"},
+  badge:{pl:"NOWE: ZGADYWANKA",en:"NEW: GUESSING GAME"},
   year:"2026", tag:{pl:"baza wiedzy",en:"knowledge base"}, font:"disp",
   pal:{bg:"#1a0f2e",ink:"#f5ecff",acc:"#ffcc33"}, motif:"ball",
   stats:["1025 Pokémonów","1332 karty TCG","trening: 20 pytań"],
@@ -965,9 +970,10 @@ const ROWS = [
   items:["schizoraport","aferymock","matrycamock","janweb","chamczyk","zem","emfazy"]}
 ];
 
-/* kolejność ustalona ręcznie przez Jana (26.09), nie wg popularności */
-const FEATURED = ["kinonieme","awangarda", "dobranocki", "futurepilot", "historia", "klimat", "oilgas", "pokedex", "mnemo",
-                  "cardiosim", "polskijazz", "sheldrake", "futuretalk", "sectio", "hinton", "mondrian", "matryca", "przyluski"];
+/* kolejność ustalona ręcznie przez Jana (5.10): najpierw nowości, potem przemieszane rodzaje */
+const FEATURED = ["kinonieme", "pokedex", "futurepilot", "historia", "klimat", "dobranocki", "sectio", "oilgas",
+                  "awangarda", "cardiosim", "polskijazz", "matryca", "mnemo", "futuretalk", "sheldrake", "hinton",
+                  "mondrian", "przyluski"];
 
 const UI = {
  pl:{claim1:"Zamieniamy trudne tematy w rzeczy do klikania.",
@@ -1295,7 +1301,7 @@ function renderHero(){
   return `<div class="h-slide ${ix===heroIx?"act":""}" data-ix="${ix}" data-k="${k}">
    <div class="h-bgs">${imgs}</div><div class="hero-shade"></div>
    <div class="hero-inner">
-    <div class="h-kick" style="color:${p.pal.acc}">${p.kick[LANG]} · FUTURESHOW</div>
+    <div class="h-kick" style="color:${p.pal.acc}">${p.badge?`<span class="h-badge">${p.badge[LANG]}</span>`:""}${p.kick[LANG]} · FUTURESHOW</div>
     <h1 class="h-title"><span class="${cls}">${tt(p)}</span></h1>
     <p class="h-lede">${p.d[LANG]}</p>
     <div class="h-stats">${ss(p).map(x=>`<span class="h-stat">${x}</span>`).join("")}</div>
