@@ -416,7 +416,7 @@ const GALLERY={
  cardiosim:["cardiosim-5","cardiosim-4","cardiosim-6","cardiosim-2"],
  oilgas:["oilgas-3","oilgas-4","oilgas-5"],
  mnemo:["mnemo-1","mnemo-2","mnemo-3"],
- hinton:["hinton-3","hinton-1","hinton-4","hinton-5"],
+ hinton:["hinton-cyber-1","hinton-cyber-2","hinton-cyber-3","hinton-cyber-4","hinton-cyber-5"],
  sheldrake:["sheldrake-4","sheldrake-5","sheldrake-6","sheldrake-3"],
  mondrian:["mondrian-3","mondrian-2","mondrian-1"],
  sectio:["sectio-0","sectio-7","sectio-4","sectio-8","sectio-5","sectio-9","sectio-6"],
@@ -443,7 +443,7 @@ const CREDIT={
  cardiosim:{pl:"ryciny anatomiczne: Wellcome Collection (domena publiczna) · zrzut symulatora",en:"anatomical plates: Wellcome Collection (public domain) · simulator screenshot"},
  futurepilot:{pl:"fot. Josh Sorenson, Goh Rhy Yan (CC0) · BLM Oregon/Washington, U.S. Air Force, U.S. Army — domena publiczna (Wikimedia Commons)",en:"photos: Josh Sorenson, Goh Rhy Yan (CC0) · BLM Oregon/Washington, U.S. Air Force, U.S. Army — public domain (Wikimedia Commons)"},
  futuretalk:{pl:"Cesare Maccari, „Cyceron oskarża Katylinę w senacie rzymskim”, ok. 1888 (domena publiczna) · sceny TEDx: TEDx Christchurch (CC BY 2.0), TEDxAmsterdamWomen (domena publiczna) · fot. Alexandre Pellaes, Oscar Keys (Unsplash)",en:"Cesare Maccari, “Cicero Denounces Catiline in the Roman Senate”, c. 1888 (public domain) · TEDx stages: TEDx Christchurch (CC BY 2.0), TEDxAmsterdamWomen (public domain) · photos: Alexandre Pellaes, Oscar Keys (Unsplash)"},
- hinton:{pl:"grafiki: Jan Przyłuski / FutureShow · zrzut portalu",en:"artwork: Jan Przyłuski / FutureShow · portal screenshot"},
+ hinton:{pl:"fot. Moyan Brenn (CC BY 2.0), Benlisquare (CC BY-SA 4.0), Peter Shanks (CC BY 2.0), Basile Morin (CC BY-SA 4.0) — Wikimedia Commons",en:"photos: Moyan Brenn (CC BY 2.0), Benlisquare (CC BY-SA 4.0), Peter Shanks (CC BY 2.0), Basile Morin (CC BY-SA 4.0) — Wikimedia Commons"},
  schizogra:{pl:"kłącza: Köhler's Medizinal-Pflanzen, 1897 (domena publiczna)",en:"rhizomes: Köhler's Medizinal-Pflanzen, 1897 (public domain)"},
  mnemo:{pl:"ryciny: Ars magna Llulla · Ars memoriae Fludda, 1617 (domena publiczna)",en:"plates: Llull's Ars magna · Fludd's Ars memoriae, 1617 (public domain)"},
  mondrian:{pl:"obrazy: Piet Mondrian (domena publiczna)",en:"paintings: Piet Mondrian (public domain)"},
@@ -504,11 +504,12 @@ const P = {
   link:"https://futureshow.pl/mnemo/"},
  hinton:{
   t:"AI, Explained", kick:{pl:"Edukacja · AI",en:"Education · AI"},
+  badge:{pl:"NOWA EDYCJA — CYBERPUNK",en:"NEW EDITION — CYBERPUNK"},
   year:"2026", tag:{pl:"portal",en:"portal"}, font:"sans",
-  pal:{bg:"#101019",ink:"#e9edf5",acc:"#ff6b6b"}, motif:"neural",
-  stats:["15 sekcji","hi-tech + cyberpunk","PL · EN"],
-  d:{pl:"Jak NAPRAWDĘ działa AI — dokładnie tą ścieżką, którą tłumaczy to Geoffrey Hinton. Czytaj, klikaj, eksperymentuj — od neuronu do sieci.",
-     en:"How AI REALLY works — following the exact path Geoffrey Hinton uses to explain it. Read, click, experiment — from a neuron to a network."},
+  pal:{bg:"#0b0618",ink:"#eef2ff",acc:"#ff2bd6"}, motif:"neural",
+  stats:["15 sekcji","edycja cyberpunk","PL · EN"],
+  d:{pl:"Jak NAPRAWDĘ działa AI — ścieżką, którą tłumaczy to Geoffrey Hinton. Nowość: edycja cyberpunk — sekwencja startowa jak z terminala, syntezowany dźwięk, glitch i nawigacja klawiaturą. Ten sam portal, neonowa skóra: od neuronu do sieci.",
+     en:"How AI REALLY works — following the path Geoffrey Hinton uses to explain it. New: a cyberpunk edition — terminal boot sequence, synthesized audio, glitch and keyboard navigation. Same portal, neon skin: from a neuron to a network."},
   link:"https://futureshow.pl/hinton-ai-portal/"},
  sheldrake:{
   t:"Rezonans", kick:{pl:"Nauka · heterodoksja",en:"Science · heterodoxy"},
@@ -914,7 +915,7 @@ const T_EN = {
 const STATS_EN = {
  matryca:["33 cases","480+ sources","PL"], sejm:["1.76M decisions","3,834 votes","1,979 careers"],
  cardiosim:["10 drugs","8 scenarios","real-time"], oilgas:["240+ sites","90+ pipelines","6 regions"],
- mnemo:["14 chapters","9 trainers","since Cicero"], hinton:["15 sections","hi-tech edition","PL · EN"],
+ mnemo:["14 chapters","9 trainers","since Cicero"], hinton:["15 sections","cyberpunk edition","PL · EN"],
  sheldrake:["Rupert Sheldrake","10 dogmas of science","morphic resonance"],
  awangarda:["564 films","119 artists","30 chapters"], historia:["430 films","231 creators","1833 → today"], kinonieme:["828 films","30 chapters","1895 → 1930"],
  dobranocki:["326 episodes","53 series","1980–2000"], mondrian:["3D triptych","42 quotes","three.js"],
@@ -971,9 +972,10 @@ const ROWS = [
 ];
 
 /* kolejność ustalona ręcznie przez Jana (5.10): najpierw nowości, potem przemieszane rodzaje */
-const FEATURED = ["kinonieme", "pokedex", "futurepilot", "historia", "klimat", "dobranocki", "sectio", "oilgas",
-                  "awangarda", "cardiosim", "polskijazz", "matryca", "mnemo", "futuretalk", "sheldrake", "hinton",
+const FEATURED = ["hinton", "kinonieme", "pokedex", "futurepilot", "historia", "klimat", "dobranocki", "sectio", "oilgas",
+                  "awangarda", "cardiosim", "polskijazz", "matryca", "mnemo", "futuretalk", "sheldrake",
                   "mondrian", "przyluski"];
+/* 7.10.2026: AI, Explained na 1. pozycji — premiera edycji cyberpunk */
 /* Symulator Sejmu wchodzi na 2. pozycję w dniu premiery (6.10.2026) i nie wymaga wgrywania zmian */
 if(new Date() >= new Date(2026,9,6) && !FEATURED.includes("sejm")) FEATURED.splice(1,0,"sejm");
 
