@@ -533,7 +533,7 @@ const P = {
   t:"Słuchowiska dla dzieci", kick:{pl:"Streaming · bajki audio",en:"Streaming · audio stories"},
   badge:{pl:"NOWOŚĆ",en:"NEW"},
   year:"2026", tag:{pl:"portal audio",en:"audio portal"}, font:"sans",
-  pal:{bg:"#fff7e6",ink:"#2a1f3d",acc:"#4ecdc4"}, motif:"radio",
+  pal:{bg:"#141026",ink:"#fdf3e3",acc:"#4ecdc4"}, motif:"radio",
   stats:["439 nagrań","716 godzin","PL · EN · UK"],
   d:{pl:"Kilkaset godzin bajek do słuchania za darmo: słuchowiska Teatru Polskiego Radia i Radia Dzieciom, bajki muzyczne z winyli Polskich Nagrań, baśnie czytane przez aktorów, teatry lalkowe, Wolne Lektury, LibriVox i stare amerykańskie radio. Gra na stronie, także przy zgaszonym ekranie.",
      en:"Hundreds of hours of free audio stories: Polish Radio dramas, musical fairy tales from vintage vinyls, classics read by actors, puppet theatres, public-domain audiobooks, LibriVox and golden-age American radio. Plays on the page, even with the screen off."},
@@ -613,7 +613,7 @@ const P = {
  schizogra:{
   t:"Schizoanaliza: Gra", kick:{pl:"Filozofia · kłącze",en:"Philosophy · rhizome"},
   year:"2026", tag:{pl:"gra edukacyjna",en:"educational game"}, font:"sans",
-  pal:{bg:"#120e16",ink:"#eee9f5",acc:"#a78bfa"}, motif:"rhizome",
+  pal:{bg:"#0a0a0a",ink:"#e9f5c9",acc:"#ceea36"}, motif:"klacze",
   stats:["Deleuze & Guattari","kłącze","PL · EN"],
   d:{pl:"Schizoanaliza Deleuze'a i Guattariego jako gra edukacyjna. Wejdź w kłącze — bez początku i końca, ale z mapą.",
      en:"Deleuze and Guattari's schizoanalysis as an educational game. Enter the rhizome — no beginning, no end, but with a map."},
@@ -1033,17 +1033,14 @@ function motif(k,pal){
  const a=pal.acc, i=pal.ink;
 
  /* ── motywy dodane, żeby żaden projekt nie dzielił grafiki z innym ── */
- if(k==="radio"){let d=`<path d="M60 104 Q100 70 140 104" fill="none" stroke="${i}" stroke-width="6" stroke-linecap="round" opacity=".55"/>
-  <line x1="150" y1="108" x2="182" y2="52" stroke="${i}" stroke-width="3" stroke-linecap="round" opacity=".55"/><circle cx="183" cy="50" r="4" fill="${a}"/>
-  <rect x="24" y="104" width="152" height="112" rx="18" fill="${a}"/>
-  <rect x="38" y="120" width="72" height="80" rx="8" fill="${i}" opacity=".16"/>`;
-  for(let j=0;j<7;j++)d+=`<rect x="44" y="${127+j*10.5}" width="60" height="4" rx="2" fill="${i}" opacity=".45"/>`;
-  d+=`<circle cx="146" cy="150" r="22" fill="#fff" opacity=".92"/><circle cx="146" cy="150" r="14" fill="none" stroke="${i}" stroke-width="2" opacity=".5"/>
-  <line x1="146" y1="150" x2="156" y2="138" stroke="${i}" stroke-width="3" stroke-linecap="round"/>
-  <circle cx="132" cy="190" r="6" fill="#fff" opacity=".9"/><circle cx="160" cy="190" r="6" fill="#fff" opacity=".9"/>
-  <rect x="40" y="216" width="18" height="10" rx="2" fill="${i}" opacity=".5"/><rect x="142" y="216" width="18" height="10" rx="2" fill="${i}" opacity=".5"/>
-  <path d="M190 128 q14 22 0 44" fill="none" stroke="${i}" stroke-width="3" stroke-linecap="round" opacity=".35"/>
-  <path d="M198 116 q22 34 0 68" fill="none" stroke="${i}" stroke-width="3" stroke-linecap="round" opacity=".2"/>`;
+ if(k==="radio"){const cx=100,cy=200;let d="";
+  for(let j=1;j<=4;j++){const r=26+j*27,a1=-152*Math.PI/180,a2=-28*Math.PI/180;
+   const x1=(cx+r*Math.cos(a1)).toFixed(1),y1=(cy+r*Math.sin(a1)).toFixed(1);
+   const x2=(cx+r*Math.cos(a2)).toFixed(1),y2=(cy+r*Math.sin(a2)).toFixed(1);
+   d+=`<path d="M${x1} ${y1} A${r} ${r} 0 0 1 ${x2} ${y2}" fill="none" stroke="${j%2?a:i}" stroke-width="${(5.2-j*0.7).toFixed(1)}" stroke-linecap="round" opacity="${(0.9-j*0.16).toFixed(2)}"/>`}
+  d+=`<circle cx="${cx}" cy="${cy}" r="9" fill="${a}"/>
+   <circle cx="44" cy="74" r="2" fill="${i}" opacity=".45"/><circle cx="160" cy="96" r="2.4" fill="${i}" opacity=".3"/>
+   <circle cx="72" cy="46" r="1.6" fill="${i}" opacity=".28"/><circle cx="138" cy="58" r="1.8" fill="${a}" opacity=".4"/>`;
   return sv(d)}
  if(k==="stripes"){let d="";const c=["#2b4a7d","#3f6ea8","#6fa3c9","#a9c8dd","#e6d7c3","#e8a06a","#d9663f","#b83521","#8c1c10"];
   for(let j=0;j<18;j++)d+=`<rect x="${8+j*10.5}" y="34" width="9.4" height="152" fill="${c[Math.min(8,Math.floor(j*9/18))]}"/>`;
@@ -1118,6 +1115,17 @@ function motif(k,pal){
   for(let t=0;t<=8;t++){const ang=Math.PI*(1+t/8);
    d+=`<circle cx="${100+R*Math.cos(ang)}" cy="${120+R*Math.sin(ang)*0.9}" r="3.6"
      fill="${(t+r)%5===2?a:i}" opacity="${(t+r)%5===2?1:.4}"/>`}}
+  return sv(d)}
+ if(k==="klacze"){let d="";
+  for(let x=20;x<200;x+=30)d+=`<line x1="${x}" y1="0" x2="${x}" y2="300" stroke="${i}" stroke-width="1" opacity=".05"/>`;
+  for(let y=20;y<300;y+=30)d+=`<line x1="0" y1="${y}" x2="200" y2="${y}" stroke="${i}" stroke-width="1" opacity=".05"/>`;
+  const n=[[46,70],[104,50],[158,88],[70,128],[128,140],[172,176],[38,180],[96,206]];
+  const e=[[0,1],[1,2],[0,3],[1,3],[2,4],[3,4],[4,5],[3,6],[6,7],[4,7]];
+  e.forEach(([x,y],q)=>{const A=n[x],B=n[y];const mx=(A[0]+B[0])/2+(q%2?14:-14),my=(A[1]+B[1])/2+(q%3?-12:12);
+   d+=`<path d="M${A[0]} ${A[1]} Q${mx} ${my} ${B[0]} ${B[1]}" fill="none" stroke="${a}" stroke-width="1.6" opacity=".45"/>`});
+  n.forEach(([x,y],q)=>{const r=[5,7,4,6,9,4,5,7][q];
+   d+=`<circle cx="${x}" cy="${y}" r="${r*2.6}" fill="${a}" opacity=".10"/><circle cx="${x}" cy="${y}" r="${r}" fill="${a}" opacity=".95"/>`});
+  d+=`<circle cx="128" cy="140" r="20" fill="none" stroke="${a}" stroke-width="1.4" opacity=".5"/>`;
   return sv(d)}
  if(k==="net"||k==="rhizome"){const n=[[35,60],[95,38],[160,66],[62,120],[132,112],[172,150],[40,170]];
   let d=n.map((p,ix)=>`<circle cx="${p[0]}" cy="${p[1]}" r="4.4" fill="${ix%3?i:a}" opacity="${ix%3?.5:1}"/>`).join("");
