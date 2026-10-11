@@ -8,14 +8,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --c-bg: #faf7f2;
-    --c-bg-card: #ffffff;
-    --c-text: #1f1a16;
+    --c-bg: #f2ece0;
+    --c-bg-card: #fbf7ef;
+    --c-text: #1b1714;
     --c-muted: #6b5f54;
-    --c-accent: #8b1e1e;
-    --c-gold: #b08a3e;
-    --c-border: #e6dfd3;
-    --c-quote: #f3ebd9;
+    --c-accent: #7a1d16;
+    --c-gold: #a8864f;
+    --c-border: #ded3c0;
+    --c-quote: #ece2cd;
+    --c-plate: #211c17;
   }
   .dark {
     --c-bg: #14110d;
@@ -26,15 +27,58 @@
     --c-gold: #d9b860;
     --c-border: #2e2620;
     --c-quote: #2a221a;
+    --c-plate: #0d0b09;
   }
   body {
-    background: var(--c-bg);
+    background:
+      radial-gradient(circle at 18% 12%, rgba(168,134,79,.07), transparent 42%),
+      radial-gradient(circle at 82% 78%, rgba(122,29,22,.05), transparent 46%),
+      var(--c-bg);
     color: var(--c-text);
     font-family: 'Inter', sans-serif;
     transition: background .25s, color .25s;
   }
+  /* ziarno papieru */
+  body::before {
+    content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: .5;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+  }
+  .dark body::before { opacity: .25; }
+
+  /* ---- plansza tytułowa jak w drukach międzywojennych ---- */
+  .plate {
+    background: var(--c-plate);
+    color: #efe6d4;
+    padding: 2.6rem 2rem 2.2rem;
+    position: relative;
+    box-shadow: inset 0 0 0 1px rgba(168,134,79,.35), inset 0 0 0 7px var(--c-plate), inset 0 0 0 8px rgba(168,134,79,.22);
+  }
+  .plate .kicker { color: var(--c-gold); letter-spacing: .32em; font-size: .68rem; text-transform: uppercase; }
+  .plate h1 { color: #f6eedd; font-weight: 600; letter-spacing: -.01em; }
+  .plate .byline { color: rgba(239,230,212,.72); }
+  .rule-dbl { border: 0; border-top: 1px solid rgba(168,134,79,.55); border-bottom: 1px solid rgba(168,134,79,.28); height: 3px; }
+
+  /* ---- liczby ---- */
+  .stat { background: var(--c-bg-card); border: 1px solid var(--c-border); border-top: 2px solid var(--c-gold); }
+  .stat .num { font-family: 'Cormorant Garamond', serif; font-size: 2.9rem; line-height: 1; color: var(--c-accent); font-weight: 600; }
+  .stat .lab { font-size: .64rem; letter-spacing: .22em; text-transform: uppercase; color: var(--c-muted); }
+
+  /* ---- znaczki nawigacji zamiast emoji ---- */
+  .glyph {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 22px; height: 22px; flex: none; margin-right: .55rem;
+    border: 1px solid var(--c-border); border-radius: 999px;
+    font-size: .72rem; line-height: 1; color: var(--c-gold);
+    font-family: 'Cormorant Garamond', serif;
+  }
+  .nav-item.active .glyph { border-color: var(--c-accent); color: var(--c-accent); }
+  .glyph-inline { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px;
+    border: 1px solid var(--c-border); border-radius: 999px; font-size: .68rem; color: var(--c-gold);
+    font-family: 'Cormorant Garamond', serif; margin-right: .4rem; vertical-align: -.3rem; }
   h1, h2, h3, h4, .serif { font-family: 'Cormorant Garamond', serif; }
-  .card { background: var(--c-bg-card); border-color: var(--c-border); }
+  .card { background: var(--c-bg-card); border-color: var(--c-border); box-shadow: 0 1px 2px rgba(27,23,20,.04), 0 10px 24px rgba(27,23,20,.05); }
+  .card h2, .card h3 { position: relative; }
+  .card > h2::after, .card > h3::after { content:""; display:block; width:46px; height:1px; background: var(--c-gold); opacity:.7; margin-top:.5rem; }
   .text-muted { color: var(--c-muted); }
   .text-accent { color: var(--c-accent); }
   .text-gold { color: var(--c-gold); }
@@ -45,7 +89,7 @@
   .ring-themed { box-shadow: 0 0 0 1px var(--c-border); }
   .nav-item { color: var(--c-muted); }
   .nav-item:hover { color: var(--c-text); background: var(--c-quote); }
-  .nav-item.active { color: var(--c-accent); background: var(--c-quote); font-weight: 600; border-left: 3px solid var(--c-accent); }
+  .nav-item.active { color: var(--c-accent); background: linear-gradient(90deg, var(--c-quote), transparent); font-weight: 600; border-left: 2px solid var(--c-accent); }
   blockquote {
     background: var(--c-quote);
     border-left: 4px solid var(--c-gold);
@@ -712,19 +756,19 @@ window.DATA = DATA;
 <script>
 // =============== APPLICATION ===============
 const SECTIONS = [
-  { id: 'overview',   label: 'Strona główna',         icon: '📖' },
+  { id: 'overview',   label: 'Strona główna',         icon: '❦' },
   { id: 'theses',     label: '10 najważniejszych tez', icon: '★' },
-  { id: 'map',        label: 'Mapa pojęciowa',         icon: '🗺' },
+  { id: 'map',        label: 'Mapa pojęciowa',         icon: '◈' },
   { id: 'intro',      label: 'Wstęp & przedmowa',      icon: '✎' },
   { id: 'part1',      label: 'Część I — Psychologia',  icon: 'I' },
   { id: 'part2',      label: 'Część II — Parapsychologia', icon: 'II' },
   { id: 'part3',      label: 'Część III — Okultyzm',   icon: 'III' },
-  { id: 'glossary',   label: 'Glosariusz',             icon: '⌘' },
+  { id: 'glossary',   label: 'Glosariusz',             icon: '§' },
   { id: 'people',     label: 'Postacie & badacze',     icon: '☉' },
-  { id: 'timeline',   label: 'Chronologia',            icon: '⧖' },
-  { id: 'flashcards', label: 'Fiszki',                 icon: '⬚' },
+  { id: 'timeline',   label: 'Chronologia',            icon: '⧗' },
+  { id: 'flashcards', label: 'Fiszki',                 icon: '▣' },
   { id: 'quiz',       label: 'Quiz',                   icon: '?' },
-  { id: 'sources',    label: 'Źródła & metadane',      icon: '⚓' }
+  { id: 'sources',    label: 'Źródła & metadane',      icon: '⚑' }
 ];
 
 function esc(s){ return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
@@ -734,26 +778,25 @@ const RENDER = {
 
   overview: () => `
     <div class="space-y-6">
-      <div class="text-xs uppercase tracking-widest text-gold">Kompendium edukacyjne</div>
-      <h1 class="serif text-5xl font-bold text-accent leading-tight">${esc(DATA.meta.title)}</h1>
-      <div class="serif text-2xl text-muted">${esc(DATA.meta.author)} <span class="text-gold">·</span> ${DATA.meta.year}</div>
+      <div class="plate rounded-sm text-center">
+        <div class="kicker">Kompendium edukacyjne</div>
+        <svg viewBox="0 0 120 44" class="mx-auto my-4" style="width:150px;height:auto" aria-hidden="true">
+          <g fill="none" stroke="#a8864f" stroke-width="1" opacity=".85">
+            <circle cx="60" cy="22" r="13"/><circle cx="60" cy="22" r="19" opacity=".45"/>
+            <path d="M60 9 L71 28 L49 28 Z"/><path d="M60 35 L49 16 L71 16 Z" opacity=".5"/>
+            <path d="M6 22 H34"/><path d="M86 22 H114"/>
+            <path d="M34 22 l5 -3 v6 z" fill="#a8864f" stroke="none"/><path d="M86 22 l-5 -3 v6 z" fill="#a8864f" stroke="none"/>
+          </g>
+        </svg>
+        <h1 class="serif text-4xl md:text-5xl leading-tight">${esc(DATA.meta.title)}</h1>
+        <hr class="rule-dbl my-4 mx-auto" style="max-width:260px">
+        <div class="serif text-xl byline">${esc(DATA.meta.author)} <span style="color:#a8864f">·</span> ${DATA.meta.year}</div>
+      </div>
 
       <div class="grid md:grid-cols-3 gap-4 mt-8">
-        <div class="card p-5 rounded-lg border">
-          <div class="text-xs text-muted uppercase">Rozdziałów</div>
-          <div class="serif text-3xl text-accent mt-1">${DATA.chaptersPart1.length + DATA.chaptersPart2.length + DATA.chaptersPart3.length}</div>
-          <div class="text-sm text-muted">w trzech częściach</div>
-        </div>
-        <div class="card p-5 rounded-lg border">
-          <div class="text-xs text-muted uppercase">Pojęcia w glosariuszu</div>
-          <div class="serif text-3xl text-accent mt-1">${DATA.glossary.length}</div>
-          <div class="text-sm text-muted">z definicjami</div>
-        </div>
-        <div class="card p-5 rounded-lg border">
-          <div class="text-xs text-muted uppercase">Postacie & media</div>
-          <div class="serif text-3xl text-accent mt-1">${DATA.people.length}</div>
-          <div class="text-sm text-muted">badaczy i mediów</div>
-        </div>
+        <div class="stat p-5 rounded-sm">\n          <div class="lab">Rozdziałów</div>\n          <div class="num mt-2">${DATA.chaptersPart1.length + DATA.chaptersPart2.length + DATA.chaptersPart3.length}</div>\n          <div class="text-sm text-muted mt-1">w trzech częściach</div>\n        </div>
+        <div class="stat p-5 rounded-sm">\n          <div class="lab">Pojęć w glosariuszu</div>\n          <div class="num mt-2">${DATA.glossary.length}</div>\n          <div class="text-sm text-muted mt-1">z definicjami</div>\n        </div>
+        <div class="stat p-5 rounded-sm">\n          <div class="lab">Postaci i mediów</div>\n          <div class="num mt-2">${DATA.people.length}</div>\n          <div class="text-sm text-muted mt-1">badaczy i mediów</div>\n        </div>
       </div>
 
       <div class="card p-6 rounded-lg border mt-6">
@@ -764,15 +807,15 @@ const RENDER = {
       <div class="card p-6 rounded-lg border">
         <h2 class="serif text-2xl text-accent mb-3">Jak korzystać z kompendium</h2>
         <ul class="space-y-2 text-sm">
-          <li>📖 <strong>Strona główna</strong> — Twoje miejsce startowe.</li>
-          <li>★ <strong>10 najważniejszych tez</strong> — esencja całej książki w 10 punktach. Zacznij tutaj, jeśli masz mało czasu.</li>
-          <li>🗺 <strong>Mapa pojęciowa</strong> — wizualne ujęcie struktury książki w trzech blokach.</li>
-          <li>I/II/III <strong>Streszczenia rozdziałów</strong> — każdy rozdział: esencja, tezy, pojęcia, postacie, cytat.</li>
-          <li>⌘ <strong>Glosariusz</strong> — ${DATA.glossary.length} pojęć z wyszukiwarką.</li>
-          <li>☉ <strong>Postacie</strong> — parapsychologowie, media, postacie historyczne (z filtrem kategorii).</li>
-          <li>⧖ <strong>Chronologia</strong> — kluczowe wydarzenia od 3800 p.n.e. do 1939 r.</li>
-          <li>⬚ <strong>Fiszki</strong> — 25 kart do nauki (kliknij, by odsłonić odpowiedź).</li>
-          <li>? <strong>Quiz</strong> — 20 pytań kontrolnych z wynikiem i wyjaśnieniami.</li>
+          <li><span class="glyph-inline">❦</span><strong>Strona główna</strong> — Twoje miejsce startowe.</li>
+          <li><span class="glyph-inline">★</span><strong>10 najważniejszych tez</strong> — esencja całej książki w 10 punktach. Zacznij tutaj, jeśli masz mało czasu.</li>
+          <li><span class="glyph-inline">◈</span><strong>Mapa pojęciowa</strong> — wizualne ujęcie struktury książki w trzech blokach.</li>
+          <li><span class="glyph-inline">III</span><strong>Streszczenia rozdziałów</strong> — każdy rozdział: esencja, tezy, pojęcia, postacie, cytat.</li>
+          <li><span class="glyph-inline">§</span><strong>Glosariusz</strong> — ${DATA.glossary.length} pojęć z wyszukiwarką.</li>
+          <li><span class="glyph-inline">☉</span><strong>Postacie</strong> — parapsychologowie, media, postacie historyczne (z filtrem kategorii).</li>
+          <li><span class="glyph-inline">⧗</span><strong>Chronologia</strong> — kluczowe wydarzenia od 3800 p.n.e. do 1939 r.</li>
+          <li><span class="glyph-inline">▣</span><strong>Fiszki</strong> — 25 kart do nauki (kliknij, by odsłonić odpowiedź).</li>
+          <li><span class="glyph-inline">?</span><strong>Quiz</strong> — 20 pytań kontrolnych z wynikiem i wyjaśnieniami.</li>
         </ul>
       </div>
 
@@ -1073,7 +1116,7 @@ function buildNav() {
   const nav = document.getElementById('nav');
   nav.innerHTML = SECTIONS.map(s => `
     <a href="#${s.id}" data-id="${s.id}" class="nav-item flex items-center gap-2.5 px-3 py-2 rounded text-sm cursor-pointer">
-      <span class="serif font-bold w-5 text-center text-gold">${s.icon}</span>
+      <span class="glyph">${s.icon}</span>
       <span>${s.label}</span>
     </a>
   `).join('');
