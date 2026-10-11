@@ -533,7 +533,7 @@ const P = {
   t:"Słuchowiska dla dzieci", kick:{pl:"Streaming · bajki audio",en:"Streaming · audio stories"},
   badge:{pl:"NOWOŚĆ",en:"NEW"},
   year:"2026", tag:{pl:"portal audio",en:"audio portal"}, font:"sans",
-  pal:{bg:"#fff7e6",ink:"#2a1f3d",acc:"#ff6b6b"}, motif:"dots",
+  pal:{bg:"#fff7e6",ink:"#2a1f3d",acc:"#4ecdc4"}, motif:"radio",
   stats:["439 nagrań","716 godzin","PL · EN · UK"],
   d:{pl:"Kilkaset godzin bajek do słuchania za darmo: słuchowiska Teatru Polskiego Radia i Radia Dzieciom, bajki muzyczne z winyli Polskich Nagrań, baśnie czytane przez aktorów, teatry lalkowe, Wolne Lektury, LibriVox i stare amerykańskie radio. Gra na stronie, także przy zgaszonym ekranie.",
      en:"Hundreds of hours of free audio stories: Polish Radio dramas, musical fairy tales from vintage vinyls, classics read by actors, puppet theatres, public-domain audiobooks, LibriVox and golden-age American radio. Plays on the page, even with the screen off."},
@@ -1033,6 +1033,18 @@ function motif(k,pal){
  const a=pal.acc, i=pal.ink;
 
  /* ── motywy dodane, żeby żaden projekt nie dzielił grafiki z innym ── */
+ if(k==="radio"){let d=`<path d="M60 104 Q100 70 140 104" fill="none" stroke="${i}" stroke-width="6" stroke-linecap="round" opacity=".55"/>
+  <line x1="150" y1="108" x2="182" y2="52" stroke="${i}" stroke-width="3" stroke-linecap="round" opacity=".55"/><circle cx="183" cy="50" r="4" fill="${a}"/>
+  <rect x="24" y="104" width="152" height="112" rx="18" fill="${a}"/>
+  <rect x="38" y="120" width="72" height="80" rx="8" fill="${i}" opacity=".16"/>`;
+  for(let j=0;j<7;j++)d+=`<rect x="44" y="${127+j*10.5}" width="60" height="4" rx="2" fill="${i}" opacity=".45"/>`;
+  d+=`<circle cx="146" cy="150" r="22" fill="#fff" opacity=".92"/><circle cx="146" cy="150" r="14" fill="none" stroke="${i}" stroke-width="2" opacity=".5"/>
+  <line x1="146" y1="150" x2="156" y2="138" stroke="${i}" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="132" cy="190" r="6" fill="#fff" opacity=".9"/><circle cx="160" cy="190" r="6" fill="#fff" opacity=".9"/>
+  <rect x="40" y="216" width="18" height="10" rx="2" fill="${i}" opacity=".5"/><rect x="142" y="216" width="18" height="10" rx="2" fill="${i}" opacity=".5"/>
+  <path d="M190 128 q14 22 0 44" fill="none" stroke="${i}" stroke-width="3" stroke-linecap="round" opacity=".35"/>
+  <path d="M198 116 q22 34 0 68" fill="none" stroke="${i}" stroke-width="3" stroke-linecap="round" opacity=".2"/>`;
+  return sv(d)}
  if(k==="stripes"){let d="";const c=["#2b4a7d","#3f6ea8","#6fa3c9","#a9c8dd","#e6d7c3","#e8a06a","#d9663f","#b83521","#8c1c10"];
   for(let j=0;j<18;j++)d+=`<rect x="${8+j*10.5}" y="34" width="9.4" height="152" fill="${c[Math.min(8,Math.floor(j*9/18))]}"/>`;
   return sv(d)}
