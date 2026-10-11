@@ -413,8 +413,18 @@ img {
   margin-bottom: 40px;
 }
 
+.bio-intro p + p {
+  margin-top: 1.1em;
+}
+
+/* pozycja bez wyodrębnionego roku zajmuje obie kolumny */
+.cv-section li:not(:has(.cv-year)) {
+  grid-template-columns: 1fr;
+}
+
 .cv-section {
-  margin-bottom: 40px;
+  margin-bottom: 44px;
+  max-width: 900px;
 }
 
 .cv-section h3 {
@@ -433,7 +443,26 @@ img {
 .cv-section li {
   font-size: 0.9rem;
   line-height: 1.7;
-  padding: 3px 0;
+  padding: 4px 0;
+  display: grid;
+  grid-template-columns: 104px 1fr;
+  gap: 18px;
+  align-items: baseline;
+}
+
+.cv-year {
+  font-size: 0.8rem;
+  letter-spacing: 0.03em;
+  color: rgba(0,0,0,0.45);
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .cv-section li {
+    grid-template-columns: 1fr;
+    gap: 2px;
+    padding: 7px 0;
+  }
 }
 
 /* ============================================
