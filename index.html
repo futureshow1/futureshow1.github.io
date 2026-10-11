@@ -411,6 +411,7 @@ const GALLERY={
  matryca:["matryca-cover-1","matryca","matryca-cover-4","matryca-2","matryca-cover-2","matryca-cover-3"],
  awangarda:["awangarda-3","awangarda-1","awangarda-2","awangarda-6","awangarda-5"],
  historia:["historia-4","historia-7","historia-8","historia-6","historia-9","historia-1","historia-5"],
+ sluchowiska:["sluchowiska-1","sluchowiska-2","sluchowiska-3","sluchowiska-4","sluchowiska-5"],
  kinonieme:["kinonieme-1","kinonieme-2","kinonieme-3","kinonieme-4","kinonieme-5","kinonieme-6"],
  dobranocki:["dobranocki-1","dobranocki-5","dobranocki-3","dobranocki-4","dobranocki-6"],
  cardiosim:["cardiosim-5","cardiosim-4","cardiosim-6","cardiosim-2"],
@@ -437,6 +438,7 @@ const GALLERY={
 const CREDIT={
  matryca:{pl:"okładki: propozycje v3 (FutureShow) · zrzuty portalu",en:"covers: v3 proposals (FutureShow) · portal screenshots"},
  awangarda:{pl:"kadry: Buñuel, Deren, Wiertow, Léger, Anger (YouTube)",en:"stills: Buñuel, Deren, Vertov, Léger, Anger (YouTube)"},
+ sluchowiska:{pl:"zrzut portalu · kolaż miniatur nagrań z katalogu · fot.: słuchanie radia kryształkowego, Szwecja lata 20. (domena publiczna) · Russell Lee, FSA 1940 (domena publiczna) · chłopiec z gramofonem, FSA (domena publiczna) — Wikimedia Commons",en:"portal screenshot · collage of recording thumbnails from the catalogue · photos: listening to a crystal radio, Sweden 1920s (public domain) · Russell Lee, FSA 1940 (public domain) · boy with a phonograph, FSA (public domain) — Wikimedia Commons"},
  kinonieme:{pl:"kadry: Nosferatu (Murnau 1922), Męczeństwo Joanny d'Arc (Dreyer 1928), Metropolis (Lang 1927), Pancernik Potiomkin (Eisenstein 1925), Gabinet doktora Caligari (Wiene 1920), Generał (Keaton 1926) — domena publiczna; Metropolis — domena publiczna w USA",en:"stills: Nosferatu (Murnau 1922), The Passion of Joan of Arc (Dreyer 1928), Metropolis (Lang 1927), Battleship Potemkin (Eisenstein 1925), The Cabinet of Dr. Caligari (Wiene 1920), The General (Keaton 1926) — public domain; Metropolis — public domain in the US"},
  historia:{pl:"tarcza fenakistiskopu ok. 1840 (domena publiczna) · kadry: Wang Shuchen, Shinkai, Bagiński, Chitruk, Wan Laiming, Zitzman",en:"phenakistiscope disc, c. 1840 (public domain) · stills: Wang Shuchen, Shinkai, Bagiński, Chitruk, Wan Laiming, Zitzman"},
  dobranocki:{pl:"kadry: Bolek i Lolek, Miś Uszatek, Krecik, Wilk i Zając",en:"stills: Bolek i Lolek, Uszatek, Krtek, Nu pogodi"},
@@ -527,9 +529,17 @@ const P = {
   d:{pl:"Sto lat kina eksperymentalnego — od dadaistów, przez Mayę Deren i Fluxus, po sztukę post-internetową. 564 filmy z YouTube, oglądane na miejscu.",
      en:"A century of experimental cinema — Dadaists, Maya Deren, Fluxus, post-internet art. 564 films from YouTube, watched in place."},
   link:"https://futureshow.pl/kino-awangardy/"},
+ sluchowiska:{
+  t:"Słuchowiska dla dzieci", kick:{pl:"Streaming · bajki audio",en:"Streaming · audio stories"},
+  badge:{pl:"NOWOŚĆ",en:"NEW"},
+  year:"2026", tag:{pl:"portal audio",en:"audio portal"}, font:"sans",
+  pal:{bg:"#fff7e6",ink:"#2a1f3d",acc:"#ff6b6b"}, motif:"dots",
+  stats:["439 nagrań","716 godzin","PL · EN · UK"],
+  d:{pl:"Kilkaset godzin bajek do słuchania za darmo: słuchowiska Teatru Polskiego Radia i Radia Dzieciom, bajki muzyczne z winyli Polskich Nagrań, baśnie czytane przez aktorów, teatry lalkowe, Wolne Lektury, LibriVox i stare amerykańskie radio. Gra na stronie, także przy zgaszonym ekranie.",
+     en:"Hundreds of hours of free audio stories: Polish Radio dramas, musical fairy tales from vintage vinyls, classics read by actors, puppet theatres, public-domain audiobooks, LibriVox and golden-age American radio. Plays on the page, even with the screen off."},
+  link:"https://futureshow.pl/sluchowiska/"},
  kinonieme:{
   t:"Kino Nieme", kick:{pl:"Streaming · kino nieme",en:"Streaming · silent cinema"},
-  badge:{pl:"NOWOŚĆ",en:"NEW"},
   year:"2026", tag:{pl:"portal filmowy",en:"film portal"}, font:"serif",
   pal:{bg:"#0b0a0a",ink:"#ece3cf",acc:"#8dbbdc"}, motif:"perf",
   stats:["828 filmów","30 rozdziałów","1895 → 1930"],
@@ -896,7 +906,7 @@ const VID = {
    Pola polskie zostają w P/VID bez zmian; tu tylko to, czego brakowało po angielsku.
    tt(p) i ss(p) wybierają wersję wg LANG — używać ich zamiast p.t i p.stats. */
 const T_EN = {
- sejm:"Sejm Simulator", awangarda:"Avant-garde Cinema", historia:"Animation History", kinonieme:"Silent Cinema",
+ sejm:"Sejm Simulator", awangarda:"Avant-garde Cinema", historia:"Animation History", kinonieme:"Silent Cinema", sluchowiska:"Audio Stories for Kids",
  dobranocki:"Legendary Bedtime Cartoons", habermas:"The Discourse of Modernity",
  schizogra:"Schizoanalysis: The Game", schizoraport:"Schizoanalysis: The Report",
  ghykakomp:"The Golden Number", switkowski:"Occultism and Magic (1939)",
@@ -917,7 +927,7 @@ const STATS_EN = {
  cardiosim:["10 drugs","8 scenarios","real-time"], oilgas:["240+ sites","90+ pipelines","6 regions"],
  mnemo:["14 chapters","9 trainers","since Cicero"], hinton:["15 sections","cyberpunk edition","PL · EN"],
  sheldrake:["Rupert Sheldrake","10 dogmas of science","morphic resonance"],
- awangarda:["564 films","119 artists","30 chapters"], historia:["430 films","231 creators","1833 → today"], kinonieme:["828 films","30 chapters","1895 → 1930"],
+ awangarda:["564 films","119 artists","30 chapters"], historia:["430 films","231 creators","1833 → today"], kinonieme:["828 films","30 chapters","1895 → 1930"], sluchowiska:["439 recordings","716 hours","PL · EN · UK"],
  dobranocki:["326 episodes","53 series","1980–2000"], mondrian:["3D triptych","42 quotes","three.js"],
  cambridge:["87M profiles","2014–2020","scrollytelling"], afery:["40 scandals","1988–2026","interactive report"],
  panama:["11.5M files","2.6 TB","2016"], nbody:["Barnes-Hut","O(n log n)","real-time"], habermas:["Habermas","12 lectures","interactive"],
@@ -950,11 +960,11 @@ const ROWS = [
  {id:"r-start", t:{pl:"Zacznij tutaj — trzy pewniaki",en:"Start here — three sure bets"},
   items:["dobranocki","historia","klimat"]},
  {id:"r-new", t:{pl:"Nowości i aktualizacje",en:"New & updated"},
-  items:["kinonieme","futurepilot","klimat","futuretalk","futureform","matryca","polskijazz","pokedex","cardiosim"]},
+  items:["sluchowiska","kinonieme","futurepilot","klimat","futuretalk","futureform","matryca","polskijazz","pokedex","cardiosim"]},
  {id:"r-know", t:{pl:"Portale wiedzy — czytaj, klikaj, sprawdzaj się",en:"Knowledge portals — read, explore, test yourself"},
   items:["klimat","hinton","pokedex","sheldrake","mondrian","swidzinski","switkowski","ghykakomp","przyluski"]},
  {id:"r-film", t:{pl:"Streaming — kino, animacja, dobranocki, jazz",en:"Streaming — cinema, animation, cartoons, jazz"},
-  items:["kinonieme","awangarda","historia","dobranocki","polskijazz"]},
+  items:["kinonieme","sluchowiska","awangarda","historia","dobranocki","polskijazz"]},
  {id:"r-data", t:{pl:"Śledztwa i dane",en:"Investigations & data"},
   items:["matryca","afery","panama","cambridge","sejm","oilgas"]},
  {id:"r-sim", t:{pl:"Symulatory",en:"Simulators"},
@@ -972,7 +982,7 @@ const ROWS = [
 ];
 
 /* kolejność ustalona ręcznie przez Jana (5.10): najpierw nowości, potem przemieszane rodzaje */
-const FEATURED = ["hinton", "kinonieme", "pokedex", "futurepilot", "historia", "klimat", "dobranocki", "sectio", "oilgas",
+const FEATURED = ["sluchowiska", "hinton", "kinonieme", "pokedex", "futurepilot", "historia", "klimat", "dobranocki", "sectio", "oilgas",
                   "awangarda", "cardiosim", "polskijazz", "matryca", "mnemo", "futuretalk", "sheldrake",
                   "mondrian", "przyluski"];
 /* 7.10.2026: AI, Explained na 1. pozycji — premiera edycji cyberpunk */
@@ -1193,7 +1203,7 @@ const fontFor = f => f==="disp"?"var(--disp)":f==="serif"?"var(--serif)":"var(--
 const wFor = f => f==="disp"?"400":f==="serif"?"600":"800";
 const gal = k => (GALLERY[k]||[]).map(f=>ASSET+f+".jpg");
 /* pionowe plakaty dla kart (hero i modal uzywaja galerii 16:9) */
-const POSTER = {kinonieme:1,futurepilot:1,klimat:1,psychedelic:1,pokedex:1,polskijazz:1,chamczyk:1,zem:1,emfazy:1,matryca:1,oilgas:1,habermas:1,cardiosim:1,afery:1,panama:1,historia:1,cambridge:1,sectio:1,ghykakomp:1,swidzinski:1,schizogra:1};
+const POSTER = {sluchowiska:1,kinonieme:1,futurepilot:1,klimat:1,psychedelic:1,pokedex:1,polskijazz:1,chamczyk:1,zem:1,emfazy:1,matryca:1,oilgas:1,habermas:1,cardiosim:1,afery:1,panama:1,historia:1,cambridge:1,sectio:1,ghykakomp:1,swidzinski:1,schizogra:1};
 /* zdjecia pionowe / kadry filmowe, ktore dobrze znosza przyciecie do 2:3 — reszta pokazuje sie jako pasek 16:9 */
 const FULL = {mnemo:1,mondrian:1,schizogra:1,przyluski:1,hinton:1,switkowski:1,sejm:1,nbody:1,awangarda:1,dobranocki:1};
 Object.keys(VID).forEach(k=>{ FULL[k]=1; });   // filmy: miniatura na całą kartę
@@ -1232,6 +1242,7 @@ const KEYS = {
  sheldrake:"rezonans morficzny biologia pola morfogenetyczne heterodoksja morphic resonance biology",
  awangarda:"film eksperymentalny dadaizm surrealizm kino awangarda experimental cinema avant-garde",
  historia:"animacja kreskówki film animowany disney anime pixar animation cartoons",
+ sluchowiska:"słuchowiska bajki audio audiobooki dla dzieci radio dzieciom bajki-grajki polskie nagrania na dobranoc podcasty audio stories kids",
  kinonieme:"kino nieme film niemy chaplin keaton méliès griffith murnau eisenstein ekspresjonizm silent cinema silent film",
  dobranocki:"bajki kreskówki prl dzieciństwo bolek lolek miś uszatek krecik cartoons childhood",
  mondrian:"malarstwo abstrakcja de stijl malewicz suprematyzm sztuka painting abstraction",

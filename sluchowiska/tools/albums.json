@@ -1,0 +1,107 @@
+{
+ "Jaś i Małgosia": {
+  "title": "Jaś i Małgosia — bajka muzyczna",
+  "author": "bracia Grimm / Polskie Nagrania",
+  "age": "3-7",
+  "note": "Album w 17 krótkich częściach z piosenkami (Piosenka Czarownicy, Piosenka drwala, finałowa)."
+ },
+ "Ali Baba i Czterdziestu Rozbójników / Muchy Króla Apsika": {
+  "title": "Ali Baba i Czterdziestu Rozbójników / Muchy Króla Apsika",
+  "author": "baśnie 1001 nocy, Jan Brzechwa / Polskie Nagrania",
+  "age": "4-9",
+  "note": "Dwie bajki muzyczne z jednego winylu plus piosenki (Sprytny Ali Baba, Piosenka Kasima, Piosenka o skarbach)."
+ },
+ "Zabawa w podróż": {
+  "title": "Zabawa w podróż",
+  "author": "Polskie Nagrania",
+  "age": "3-7",
+  "note": "Bajka muzyczna w 24 częściach: samochodem, na rowerze, w pociągu, w samolocie, rakietą aż do gwiazd."
+ },
+ "Król Bul": {
+  "title": "Król Bul",
+  "author": "Polskie Nagrania",
+  "age": "4-8",
+  "note": "9 odcinków: Króla boli ząb, Nowe porządki, Czarnoksięska maskarada, Królewskie więzienie, Wizyta Króla Teścia…"
+ },
+ "Czerwony Kapturek / Jaś i Małgosia - Bajki Brzechwy": {
+  "title": "Czerwony Kapturek / Jaś i Małgosia — bajki Brzechwy",
+  "author": "Jan Brzechwa wg Grimm / Polskie Nagrania",
+  "age": "3-7",
+  "note": "Dwie baśnie w wierszowanej adaptacji Brzechwy z piosenkami."
+ },
+ "Pinokio": {
+  "title": "Pinokio",
+  "author": "Carlo Collodi / adapt. Wiesław Opałek, muz. Ryszard Sielicki",
+  "age": "5-10",
+  "note": "Pinokio — Jerzy Bończak, Gepetto — Edmund Fidler, Teresa Lipowska, Janusz Zakrzeński, Emilian Kamiński. 13 części."
+ },
+ "O Tadku - Niejadku / Kosmiczna heca": {
+  "title": "O Tadku-Niejadku, Babci i Dziadku / Kosmiczna heca",
+  "author": "Polskie Nagrania",
+  "age": "3-7",
+  "note": "Dwie bajki muzyczne i piosenki (Piosenka głodnego Tadka, Nie chcę jeść, Piosenka Tadka, już nie niejadka)."
+ },
+ "Alicja w Krainie Czarów": {
+  "title": "Alicja w Krainie Czarów",
+  "author": "Lewis Carroll / Antoni Marianowicz, muz. Ryszard Sielicki",
+  "age": "6-11",
+  "note": "Alicja — Magdalena Zawadzka, Piotr Fronczewski, Wiesław Michnikowski, Irena Kwiatkowska, Iga Cembrzyńska. 12 części."
+ },
+ "Kot w butach / Lata ptaszek - Bajki Brzechwy": {
+  "title": "Kot w butach / Lata ptaszek — bajki Brzechwy",
+  "author": "Jan Brzechwa / Polskie Nagrania",
+  "age": "3-8",
+  "note": "Dwie bajki muzyczne Brzechwy z jednego winylu."
+ },
+ "Kot w butach / Tomcio Paluszek / Biala kotka / Lew i mysz": {
+  "title": "Kot w butach / Tomcio Paluszek / Biała kotka / Lew i mysz",
+  "author": "Perrault, d'Aulnoy, La Fontaine — czyta Anna Dymna",
+  "type": "czytanie",
+  "performers": "Anna Dymna",
+  "age": "4-8",
+  "note": "Cztery baśnie w 13 częściach."
+ },
+ "O dwóch takich co ukradli księżyc": {
+  "title": "O dwóch takich, co ukradli księżyc",
+  "author": "Kornel Makuszyński — czyta Anna Dymna",
+  "type": "czytanie",
+  "performers": "Anna Dymna",
+  "age": "6-10",
+  "note": "Dwie części, łącznie ponad godzina."
+ },
+ "Brzydkie kaczatko / Choinka": {
+  "title": "Brzydkie kaczątko / Choinka",
+  "author": "Hans Christian Andersen — czyta Anna Dymna",
+  "type": "czytanie",
+  "performers": "Anna Dymna",
+  "age": "4-8"
+ },
+ "Kopciuszek / Bajka o Gryfie": {
+  "title": "Kopciuszek / Bajka o Gryfie",
+  "author": "bracia Grimm — czyta Anna Dymna",
+  "type": "czytanie",
+  "performers": "Anna Dymna",
+  "age": "4-8"
+ },
+ "Gasiareczka u studni / Prawdziwa narzeczona": {
+  "title": "Gąsiareczka u studni / Prawdziwa narzeczona",
+  "author": "bracia Grimm — czyta Anna Dymna",
+  "type": "czytanie",
+  "performers": "Anna Dymna",
+  "age": "5-9"
+ },
+ "Wielka Kolekcja Bajek — Wiktor Zborowski": {
+  "title": "Wielka Kolekcja Bajek — czyta Wiktor Zborowski",
+  "author": "Andersen, Grimm, Perrault",
+  "type": "czytanie",
+  "performers": "Wiktor Zborowski",
+  "age": "4-9",
+  "note": "Baśnie Andersena, Grimm i Perraulta w interpretacji Wiktora Zborowskiego; oficjalna dystrybucja wydawcy AGOY. Lista dostępnych części poniżej po kliknięciu „Słuchaj”."
+ },
+ "Robinson Crusoe cz.I": {
+  "skip": true
+ },
+ "Robinson Crusoe cz.II": {
+  "skip": true
+ }
+}

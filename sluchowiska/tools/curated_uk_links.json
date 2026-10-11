@@ -1,0 +1,88 @@
+[
+ {
+  "section": "world",
+  "lang": "uk",
+  "title": "Суспільне Казки — podcast (221 odcinków)",
+  "author": "Суспільне мовлення / Українське Радіо",
+  "source": "Apple Podcasts",
+  "type": "podcast",
+  "age": "3-8",
+  "year": 2022,
+  "parts": 221,
+  "url": "https://podcasts.apple.com/ua/podcast/id1614373112",
+  "note": "Cotygodniowe bajki po 6–9 minut; czytają Serhij Prytuła, alyona alyona, ONUKA, Rosawa."
+ },
+ {
+  "section": "world",
+  "lang": "uk",
+  "title": "UA: Казки — całodobowe radio bajek",
+  "author": "Суспільне / Українське Радіо",
+  "source": "Suspilne",
+  "type": "kolekcja",
+  "age": "3-10",
+  "year": 2018,
+  "url": "https://kazky.suspilne.media/online.php",
+  "note": "Ponad 200 bajek nagranych w studiu Ukraińskiego Radia; czytają m.in. Andrij Chływniuk i Sasza Kolcowa."
+ },
+ {
+  "section": "world",
+  "lang": "uk",
+  "title": "Моя українська вечірня казка — LRT",
+  "author": "bajki ludowe ukraińskie / Litewskie Radio",
+  "source": "LRT Radioteka",
+  "type": "czytanie",
+  "age": "3-8",
+  "year": 2022,
+  "url": "https://www.lrt.lt/mediateka/audio/vakaro-pasaka-moia-ukrayins-ka-vechirnia-kazka",
+  "note": "Koza-dereza, Zajęcze sadło, Mądra dziewczyna i inne — czytają dzieci ze szkoły „Hrawitacija” w Wilnie."
+ },
+ {
+  "section": "world",
+  "lang": "uk",
+  "title": "Байки Леоніда Глібова",
+  "author": "Леонід Глібов",
+  "source": "LibriVox",
+  "type": "wiersz",
+  "age": "6-12",
+  "year": 2012,
+  "url": "http://librivox.org/fables-by-glibov/",
+  "note": "Pierwszy ukraiński projekt LibriVox, domena publiczna."
+ },
+ {
+  "section": "world",
+  "lang": "uk",
+  "title": "Наша класика — радіовистави за шкільною програмою",
+  "author": "Українське Радіо / Суспільне",
+  "source": "SoundCloud",
+  "type": "sluchowisko",
+  "age": "12+",
+  "year": 2021,
+  "parts": 90,
+  "url": "https://soundcloud.com/suspilnepodcast/sets/nasha-klasika",
+  "note": "Franko, Chwylowy, Kostenko — dla nastolatków."
+ },
+ {
+  "section": "world",
+  "lang": "uk",
+  "title": "ЧИТАСИК — дитячі аудіокнижки",
+  "author": "Anastasiia Boiko",
+  "source": "Spotify",
+  "type": "podcast",
+  "age": "3-10",
+  "year": 2023,
+  "parts": 212,
+  "url": "https://open.spotify.com/show/4ZfLsGCPnfKWDdxocxi467"
+ },
+ {
+  "section": "world",
+  "lang": "uk",
+  "title": "Казки на Ніч (Uliana Rybak)",
+  "author": "bajki ludowe ukraińskie",
+  "source": "Spotify",
+  "type": "podcast",
+  "age": "3-7",
+  "year": 2020,
+  "parts": 31,
+  "url": "https://open.spotify.com/show/68S0xxrZcu31INyUNBgumA"
+ }
+]
