@@ -10,7 +10,7 @@ Baza darmowych, legalnie dostępnych słuchowisk, bajek audio i audiobooków dla
 - **Odtwarzacz w karcie:** MP3 z Wolnych Lektur gra bezpośrednio (`<audio>` z listą części, kolejne części
   automatycznie), YouTube przez `youtube-nocookie.com` (serie wieloodcinkowe jako playlista z listy ID),
   archive.org przez wbudowany odtwarzacz; podcasty i strony nadawców otwierają się w nowej karcie.
-- **Pasek „teraz gra”** przyklejony u góry: play/pauza i głośność z wyciszeniem (MP3 i YouTube przez `enablejsapi`, głośność pamiętana w localStorage), poprzedni/następny utwór,
+- **Pasek „teraz gra”** przyklejony u góry: play/pauza, pasek przewijania z czasem, głośność z wyciszeniem (MP3 i YouTube przez `enablejsapi`, głośność pamiętana w localStorage), poprzedni/następny utwór,
   skok do karty, zamknięcie; odtwarzacz przeżywa filtrowanie i wyszukiwanie (parkowany w ukrytym kontenerze).
 - **Zgaszony ekran:** MP3 grają po zablokowaniu telefonu i mają Media Session (ekran blokady: tytuł, okładka, pauza,
   następny/poprzedni, ±15 s); filtr „gra przy zgaszonym ekranie” i plakietka na kartach. Osadzenia YouTube zatrzymują się
