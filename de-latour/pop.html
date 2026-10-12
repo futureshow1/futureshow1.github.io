@@ -84,7 +84,7 @@ h1 em{font-style:normal;color:var(--yellow)}
 @media (max-width:1100px){
   .hero::before{opacity:.22}
   .hero .txt{max-width:none}
-  .hero .slot{position:relative;transform:none;width:auto;max-width:300px;aspect-ratio:4/3;margin-top:30px}
+  .hero .slot{position:relative;right:auto;top:auto;transform:none;width:auto;max-width:300px;aspect-ratio:4/3;margin-top:30px}
 }
 
 /* pasek instytucji */
@@ -229,11 +229,39 @@ body.hero-in .hero p.sub,body.hero-in .hero .cta-row,body.hero-in .hero .slot{op
 }
 
 @media (max-width:700px){
-  header{top:33px}
-  .bar{padding:7px 16px;gap:10px}
+  .bar{position:static;padding:7px 16px;gap:10px}
   .bar b{font-size:9.5px}
   .bar span{font-size:10.5px}
   .bar button{display:none}
+  header{top:0}
+  header .wrap{padding-block:13px}
+  .mark{font-size:19px}
+  /* hero na telefonie: bez zdjęcia w tle, portret jako pełny kadr pod tekstem */
+  .hero::before{display:none}
+  .hero .wrap{padding-block:44px 0}
+  h1{font-size:clamp(34px,10.5vw,44px);max-width:none}
+  .hero p.sub{font-size:18px;margin-top:20px}
+  .hero .cta-row{margin-top:26px;gap:18px}
+  .hero .slot{max-width:none;aspect-ratio:4/5;margin:36px -20px 0;width:auto}
+  .hero .slot img{object-position:center 18%!important}
+  /* pasek instytucji: jedna przewijana linia */
+  .ticker .wrap{flex-wrap:nowrap;overflow-x:auto;gap:22px;padding-block:13px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .ticker .wrap::-webkit-scrollbar{display:none}
+  .ticker span{white-space:nowrap;font-size:12px}
+  .band-wide{height:200px}
+  .work h2,.method h2,.clients h2{font-size:26px}
+  .card h3{font-size:23px}
+  .card p,.story p,.stance p{font-size:17px}
+  .story .first{font-size:24px}
+  .creed p{font-size:21px}
+  .hate h2{font-size:38px;max-width:none}
+  .hate li{font-size:20px}
+  .shared .big{font-size:25px;max-width:none}
+  .stance h2{font-size:25px}
+  .step{padding:24px 22px 30px}
+  .clients li .ico{width:44px;height:44px}
+  footer .wrap{flex-direction:column;gap:8px;align-items:flex-start}
+  footer .sp{display:none}
 }
 @media (max-width:900px){
   .wrap{padding-inline:20px}
@@ -244,6 +272,9 @@ body.hero-in .hero p.sub,body.hero-in .hero .cta-row,body.hero-in .hero .slot{op
   .work,.story,.method{padding-block:50px}
   .creed .wrap,.stance .wrap,.hate .wrap,.clients .wrap,.letter .wrap,.shared .wrap{padding-block:48px}
   .hero .wrap{padding-block:56px 50px}
+}
+@media (max-width:700px){
+  .hero .wrap{padding-block:44px 0}
 }
 </style>
 </head>
@@ -482,7 +513,7 @@ body.hero-in .hero p.sub,body.hero-in .hero .cta-row,body.hero-in .hero .slot{op
     split(h1);
     h1.querySelector('em') && h1.querySelector('em').style.setProperty('--ud',(0.3+n*0.07).toFixed(2)+'s');
   }
-  function startHero(){ requestAnimationFrame(function(){ requestAnimationFrame(function(){ b.classList.add('hero-in'); }); }); }
+  function startHero(){ var go=function(){ b.classList.add('hero-in'); }; requestAnimationFrame(function(){ requestAnimationFrame(go); }); setTimeout(go,120); }
   if(!b.classList.contains('locked')) startHero();
 
   var sel='.work h2,.card,.story .first,.story p,.creed p,.hate h2,.hate .gloss,.hate li,.hate .after,.shared .big,'+
@@ -496,8 +527,8 @@ body.hero-in .hero p.sub,body.hero-in .hero .cta-row,body.hero-in .hero .slot{op
     });
     var io=new IntersectionObserver(function(es){
       es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-    },{threshold:.15,rootMargin:'0px 0px -6% 0px'});
-    els.forEach(function(el){ io.observe(el); });
+    },{threshold:0.04,rootMargin:'0px 0px -4% 0px'});
+    els.forEach(function(el){ if(el.getBoundingClientRect().bottom<0) el.classList.add('in'); else io.observe(el); });
   }
 
   document.getElementById('go').addEventListener('click',tryIt);
