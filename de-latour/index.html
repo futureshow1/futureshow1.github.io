@@ -124,8 +124,15 @@ h1 em{font-style:italic;color:var(--acc)}
 .topics span:nth-child(2)::before{background:var(--c2)}
 .topics span:nth-child(3)::before{background:var(--c3)}
 .topics span:nth-child(4)::before{background:var(--c4)}
-.ticker{background:var(--sand);border-block:1px solid var(--rule)}
-.ticker .wrap{display:flex;gap:32px;flex-wrap:wrap;padding-block:17px;color:var(--soft)}
+.ticker{overflow:hidden;position:relative}
+.ticker .track{display:flex;flex-wrap:nowrap;width:max-content;padding-block:17px;
+  animation:marquee 44s linear infinite;will-change:transform}
+.ticker:hover .track{animation-play-state:paused}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.ticker .track{animation:none;flex-wrap:wrap;width:auto;padding-inline:40px}}
+.ticker span{white-space:nowrap;padding-inline:20px;position:relative}
+.ticker span::after{content:'';position:absolute;right:-3px;top:50%;width:4px;height:4px;border-radius:50%;
+  transform:translateY(-50%);opacity:.45;background:currentColor}
 .ticker span{font-size:11.5px;font-weight:600;letter-spacing:.15em;text-transform:uppercase}
 
 /* ——— work with agata ——— */
@@ -338,9 +345,7 @@ footer .nm{font-family:var(--disp);font-size:18px;color:#E8EAF0}
 </div>
 
 <div class="ticker">
-  <div class="wrap">
-    <span>Council of Europe</span><span>ALDA</span><span>Lieu d'Europe</span><span>Ligue de l'enseignement</span><span>City of Strasbourg</span><span>SINGA</span><span>KODIKO</span>
-  </div>
+  <div class="track" aria-label="Institutions"><span>Council of Europe</span><span>ALDA</span><span>Lieu d'Europe</span><span>Ligue de l'enseignement</span><span>City of Strasbourg</span><span>SINGA</span><span>KODIKO</span><span>Council of Europe</span><span>ALDA</span><span>Lieu d'Europe</span><span>Ligue de l'enseignement</span><span>City of Strasbourg</span><span>SINGA</span><span>KODIKO</span></div>
 </div>
 
 <div class="band-wide"><img src="img/scena.jpg" alt="" style="object-position:center 38%"></div>

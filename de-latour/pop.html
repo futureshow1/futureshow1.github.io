@@ -93,8 +93,15 @@ h1 em{font-style:normal;color:var(--yellow)}
 .topics span{position:relative;padding-left:18px;font-family:var(--disp);font-size:16px;font-weight:600;
   letter-spacing:.1em;text-transform:uppercase}
 .topics span::before{content:'';position:absolute;left:0;top:.42em;width:10px;height:10px;background:var(--yellow)}
-.ticker{background:var(--tint);border-bottom:1px solid var(--rule)}
-.ticker .wrap{display:flex;gap:30px;flex-wrap:wrap;padding-block:15px;color:var(--soft)}
+.ticker{overflow:hidden;position:relative}
+.ticker .track{display:flex;flex-wrap:nowrap;width:max-content;padding-block:17px;
+  animation:marquee 44s linear infinite;will-change:transform}
+.ticker:hover .track{animation-play-state:paused}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.ticker .track{animation:none;flex-wrap:wrap;width:auto;padding-inline:40px}}
+.ticker span{white-space:nowrap;padding-inline:20px;position:relative}
+.ticker span::after{content:'';position:absolute;right:-3px;top:50%;width:4px;height:4px;border-radius:50%;
+  transform:translateY(-50%);opacity:.45;background:currentColor}
 .ticker span{font-family:var(--disp);font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
 
 /* karty jak artykuły */
@@ -280,9 +287,7 @@ body.locked #gate{display:flex}
 </div>
 
 <div class="ticker">
-  <div class="wrap">
-    <span>Council of Europe</span><span>ALDA</span><span>Lieu d'Europe</span><span>Ligue de l'enseignement</span><span>City of Strasbourg</span><span>SINGA</span><span>KODIKO</span>
-  </div>
+  <div class="track" aria-label="Institutions"><span>Council of Europe</span><span>ALDA</span><span>Lieu d'Europe</span><span>Ligue de l'enseignement</span><span>City of Strasbourg</span><span>SINGA</span><span>KODIKO</span><span>Council of Europe</span><span>ALDA</span><span>Lieu d'Europe</span><span>Ligue de l'enseignement</span><span>City of Strasbourg</span><span>SINGA</span><span>KODIKO</span></div>
 </div>
 
 <div class="band-wide"><img src="img/scena.jpg" alt="" style="object-position:center 38%"></div>
