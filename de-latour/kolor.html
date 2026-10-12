@@ -10,11 +10,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..500&family=Karla:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
 :root{
-  --paper:#FDFBF7; --sand:#F5EDE2; --mint:#E9F0EB;
-  --ink:#1C1A17; --soft:#6C6259; --rule:#E7DDCF;
-  --acc:#D1522F; --acc-d:#AF4123; --deep:#1F4F47;
-  --c1:#D1522F; --c2:#1F4F47; --c3:#C08A2E; --c4:#2F5EA8;
-  --c1s:#FBEBE4; --c2s:#E6EFEB; --c3s:#F8EFDC; --c4s:#E7EDF8;
+  --paper:#FAFAF7; --sand:#ECEFF4; --mint:#EAF0EF;
+  --ink:#14171E; --soft:#5F6670; --rule:#DEE3E9;
+  --acc:#2B36C9; --acc-d:#1E27A4; --deep:#1B2566;
+  --c1:#2B36C9; --c2:#0E8A6A; --c3:#DE9A0F; --c4:#CE3C66;
+  --c1s:#E8EAFB; --c2s:#E1F1EC; --c3s:#FBF1DA; --c4s:#FBE7EE;
   --body:'Karla',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   --disp:'Fraunces',Georgia,serif;
 }
@@ -39,7 +39,7 @@ button{font:inherit;color:inherit}
 
 /* ——— pasek roboczy ——— */
 .bar{position:sticky;top:0;z-index:60;display:flex;align-items:center;gap:14px;
-  padding:9px 20px;background:#17150F;color:#EDE6DA;font-size:12px;letter-spacing:.02em;flex-wrap:wrap}
+  padding:9px 20px;background:#141821;color:#E8EAF0;font-size:12px;letter-spacing:.02em;flex-wrap:wrap}
 .bar b{font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:10.5px}
 .bar .sp{flex:1}
 .bar button{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);
@@ -76,9 +76,9 @@ nav a:hover::after{transform:scaleX(1)}
    Sprowadza kadry od różnych fotografów do jednej tonacji. */
 .ph{position:relative;overflow:hidden;background:var(--ink)}
 .ph img{display:block;width:100%;height:100%;object-fit:cover;
-  filter:saturate(.74) contrast(1.06) brightness(1.03) sepia(.1)}
+  filter:saturate(.78) contrast(1.07) brightness(1.02)}
 .ph::after{content:'';position:absolute;inset:0;pointer-events:none;
-  background:var(--acc);opacity:.1;mix-blend-mode:soft-light}
+  background:var(--acc);opacity:.07;mix-blend-mode:soft-light}
 /* slot ze zdjęciem na rybę */
 .slot.ph{background:var(--ink);border-color:transparent}
 .slot.ph::before{display:none}
@@ -89,7 +89,7 @@ nav a:hover::after{transform:scaleX(1)}
 .slot{position:relative;background:var(--mint);border:1px solid var(--rule);
   display:flex;align-items:flex-end;padding:14px;overflow:hidden}
 .slot::before{content:'';position:absolute;inset:0;
-  background:repeating-linear-gradient(135deg,transparent 0 11px,rgba(31,79,71,.045) 11px 22px)}
+  background:repeating-linear-gradient(135deg,transparent 0 11px,rgba(43,54,201,.05) 11px 22px)}
 .slot span{position:relative;font-size:10.5px;font-weight:600;letter-spacing:.13em;
   text-transform:uppercase;line-height:1.65;color:var(--deep);opacity:.85}
 
@@ -143,10 +143,10 @@ h1 em{font-style:italic;color:var(--acc)}
 .story .lab{color:var(--c2);padding-top:11px}
 .story .first{font-family:var(--disp);font-variation-settings:"SOFT" 40,"WONK" 1;font-weight:400;
   font-size:clamp(23px,2.8vw,31px);line-height:1.3;letter-spacing:-.02em;margin-bottom:26px;max-width:26ch}
-.story p{font-size:17px;line-height:1.82;color:#3A342D;max-width:62ch;margin-bottom:18px}
+.story p{font-size:17px;line-height:1.82;color:#343A44;max-width:62ch;margin-bottom:18px}
 
 /* ——— credo ——— */
-.creed{background:var(--deep);color:#EAF2EE}
+.creed{background:var(--deep);color:#E6E9FA}
 .creed .wrap{padding-block:76px;display:grid;grid-template-columns:repeat(2,1fr);gap:54px}
 .creed p{font-family:var(--disp);font-variation-settings:"SOFT" 50,"WONK" 1;font-weight:300;
   font-size:clamp(21px,2.5vw,27px);line-height:1.38;letter-spacing:-.018em}
@@ -178,7 +178,7 @@ body.locked #gate{display:flex}
 #gate p{font-size:15px;line-height:1.65;color:var(--soft);margin-bottom:26px}
 #gate .row{display:flex;border-bottom:1.5px solid var(--ink)}
 #gate input{flex:1;font:inherit;font-size:16px;padding:13px 0;border:0;background:none;color:var(--ink);outline:none}
-#gate input::placeholder{color:#AFA69A}
+#gate input::placeholder{color:#9BA3AE}
 #gate button{background:none;border:0;cursor:pointer;font-size:11.5px;font-weight:600;
   letter-spacing:.15em;text-transform:uppercase;color:var(--acc);padding-inline:6px}
 #gate .err{min-height:20px;margin-top:12px;font-size:13px;color:var(--acc);opacity:0;transition:.2s}
@@ -192,7 +192,7 @@ body.locked #gate{display:flex}
 .stance .wrap{padding-block:72px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:54px;align-items:start}
 .stance h2{font-family:var(--disp);font-weight:400;font-size:clamp(25px,3vw,33px);
   letter-spacing:-.025em;line-height:1.18;max-width:18ch}
-.stance p{font-size:16.5px;line-height:1.78;color:#443D35;max-width:56ch;margin-bottom:15px}
+.stance p{font-size:16.5px;line-height:1.78;color:#343A44;max-width:56ch;margin-bottom:15px}
 
 /* ——— metoda ——— */
 .method{padding-block:86px}
@@ -218,8 +218,8 @@ body.locked #gate{display:flex}
 .band-wide{position:relative;height:clamp(230px,36vw,470px);overflow:hidden;background:var(--ink)}
 .band-wide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
   object-position:center 12%;
-  filter:saturate(.74) contrast(1.06) brightness(1.03) sepia(.1)}
-.band-wide::after{content:'';position:absolute;inset:0;background:var(--acc);opacity:.1;mix-blend-mode:soft-light}
+  filter:saturate(.78) contrast(1.07) brightness(1.02)}
+.band-wide::after{content:'';position:absolute;inset:0;background:var(--acc);opacity:.07;mix-blend-mode:soft-light}
 .clients{background:var(--mint);border-block:1px solid var(--rule)}
 .clients .wrap{padding-block:70px}
 .clients .lab{color:var(--c4);display:block;margin-bottom:10px}
@@ -239,15 +239,15 @@ body.locked #gate{display:flex}
 .letter p{font-size:15.5px;color:var(--soft);line-height:1.66;max-width:46ch}
 .field{display:flex;border-bottom:1.5px solid var(--ink)}
 .field input{flex:1;font:inherit;font-size:16px;padding:13px 0;border:0;background:none;color:var(--ink);outline:none}
-.field input::placeholder{color:#AFA69A}
+.field input::placeholder{color:#9BA3AE}
 .field button{background:none;border:0;cursor:pointer;font-size:11.5px;font-weight:600;
   letter-spacing:.15em;text-transform:uppercase;color:var(--acc);padding-inline:4px}
 
 /* ——— stopka ——— */
-footer{background:#17150F;color:#B8AFA2}
+footer{background:#141821;color:#A8AFBC}
 footer .wrap{padding-block:34px 40px;display:flex;gap:28px;flex-wrap:wrap;font-size:13px;align-items:baseline}
 footer .sp{flex:1}
-footer .nm{font-family:var(--disp);font-size:18px;color:#EDE6DA}
+footer .nm{font-family:var(--disp);font-size:18px;color:#E8EAF0}
 
 @media (max-width:900px){
   .wrap{padding-inline:22px}
@@ -279,7 +279,7 @@ footer .nm{font-family:var(--disp);font-size:18px;color:#EDE6DA}
 </div>
 
 <div class="bar">
-  <b>Agata de Latour</b><span style="opacity:.8;font-size:11.5px">wersja z kolorem · <a href="index.html" style="color:#EDE6DA">wersja spokojna →</a></span>
+  <b>Agata de Latour</b><span style="opacity:.8;font-size:11.5px">wersja z kolorem · <a href="index.html" style="color:#E8EAF0">wersja spokojna →</a></span>
   <div class="sp"></div>
   <button id="bPhone">Telefon</button>
 </div>
