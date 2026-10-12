@@ -75,6 +75,12 @@ nav a:hover::after{transform:scaleX(1)}
   filter:saturate(.74) contrast(1.06) brightness(1.03) sepia(.1)}
 .ph::after{content:'';position:absolute;inset:0;pointer-events:none;
   background:var(--acc);opacity:.1;mix-blend-mode:soft-light}
+/* slot ze zdjęciem na rybę */
+.slot.ph{background:var(--ink);border-color:transparent}
+.slot.ph::before{display:none}
+.slot.ph img{position:absolute;inset:0}
+.slot.ph span{position:relative;z-index:2;color:#fff;opacity:1;
+  background:rgba(20,18,15,.5);padding:5px 9px;border-radius:2px}
 
 .slot{position:relative;background:var(--mint);border:1px solid var(--rule);
   display:flex;align-items:flex-end;padding:14px;overflow:hidden}
@@ -277,7 +283,7 @@ footer .nm{font-family:var(--disp);font-size:18px;color:#EDE6DA}
       </div>
       <div class="note"><b>Twoje słowa, nie moje.</b> Nagłówek to Twoja poprawka do tezy Priyi Parker: „people can gather well with their differences, despite and thanks to them". Podtytuł też Twój: „the differences give us challenges in communication but also nourish our souls and minds". Credo na zielonym pasie, pytanie „Comment haïr moins ?" wraz z odpowiedzią i zdanie o tym, co wspólne — też Twoje, z wpisów. Reszta jest do wymiany, jeśli nie brzmi jak Ty.</div>
     </div>
-    <figure class="slot"><span>portrait<br>look at camera · plain wall · daylight<br>not a studio shot</span></figure>
+    <figure class="slot ph"><img src="img/portret.jpg" alt=""><span>placeholder · portrait to be shot</span></figure>
   </div>
 </section>
 
@@ -294,21 +300,21 @@ footer .nm{font-family:var(--disp);font-size:18px;color:#EDE6DA}
     <div class="cards">
 
       <article class="card">
-        <figure class="slot"><span>you, mid-session<br>shot from inside the group</span></figure>
+        <figure class="slot ph"><img src="img/training.jpg" alt=""><span>placeholder · you, mid-session</span></figure>
         <h3>Training</h3>
         <p>Your team already has the material. It is the three or four incidents nobody brings up: the client who would not deal with a woman, the meeting where the interpreter softened something, the colleague who stopped speaking up in March. I collect them anonymously two weeks beforehand, and we spend the day on those.</p>
         <div class="who"><b>For</b>organisations working with newcomers, local government, schools, multinational teams</div>
       </article>
 
       <article class="card">
-        <figure class="slot"><span>a room mid-conversation<br>two people listening</span></figure>
+        <figure class="slot ph"><img src="img/facilitation.jpg" alt=""><span>placeholder · a room mid-conversation</span></figure>
         <h3>Facilitation</h3>
         <p>Some meetings cannot be chaired, only held. Consultations where the decision is already resented, a team meeting after a conflict, two sides at one table who each believe the other has already won. I prepare with each side separately, run the day, and write the note afterwards in language both sides can sign.</p>
         <div class="who"><b>For</b>public institutions, organisations in crisis, teams after a change</div>
       </article>
 
       <article class="card">
-        <figure class="slot"><span>hands, papers, a form<br>detail shot, no faces</span></figure>
+        <figure class="slot ph"><img src="img/advisory.jpg" alt=""><span>placeholder · hands, papers, a form</span></figure>
         <h3>Advisory</h3>
         <p>Your form is the first conversation your institution has with a person. Very often it is also the last. I go through the materials, the language, the procedures and the whole path someone takes to reach you, and come back with a list of what turns people away and what can be changed inside a month.</p>
         <div class="who"><b>For</b>public administration, universities, integration programmes, European projects</div>
