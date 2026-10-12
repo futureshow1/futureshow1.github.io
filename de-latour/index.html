@@ -116,6 +116,35 @@ h1 em{font-style:italic;color:var(--acc)}
   text-transform:uppercase;opacity:.55;margin-top:18px}
 
 /* ——— stanowisko ——— */
+.hate{border-block:1px solid var(--rule)}
+.hate .wrap{padding-block:80px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:start}
+.hate h2{font-family:var(--disp);font-variation-settings:"SOFT" 60,"WONK" 1;font-style:italic;font-weight:300;
+  font-size:clamp(30px,4.4vw,52px);line-height:1.04;letter-spacing:-.03em;color:var(--acc);max-width:11ch}
+.hate .gloss{font-size:11.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);margin-top:20px}
+.hate ul{list-style:none}
+.hate li{font-family:var(--disp);font-variation-settings:"SOFT" 40;font-weight:400;
+  font-size:clamp(19px,2.1vw,25px);line-height:1.46;letter-spacing:-.016em}
+.hate li+li{margin-top:2px}
+.hate .after{margin-top:28px;font-size:16.5px;line-height:1.74;color:var(--soft);max-width:44ch}
+.hate .src{margin-top:22px;font-size:11px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--soft)}
+
+/* ——— bramka ——— */
+body.locked{overflow:hidden}
+body.locked .bar,body.locked .page{display:none}
+#gate{display:none;position:fixed;inset:0;z-index:200;background:var(--paper);
+  align-items:center;justify-content:center;padding:24px}
+body.locked #gate{display:flex}
+#gate .box{width:100%;max-width:430px;text-align:center}
+#gate .nm{font-family:var(--disp);font-size:30px;letter-spacing:-.02em;font-weight:500;margin-bottom:14px}
+#gate .nm i{font-style:normal;color:var(--acc)}
+#gate p{font-size:15px;line-height:1.65;color:var(--soft);margin-bottom:26px}
+#gate .row{display:flex;border-bottom:1.5px solid var(--ink)}
+#gate input{flex:1;font:inherit;font-size:16px;padding:13px 0;border:0;background:none;color:var(--ink);outline:none}
+#gate input::placeholder{color:#AFA69A}
+#gate button{background:none;border:0;cursor:pointer;font-size:11.5px;font-weight:600;
+  letter-spacing:.15em;text-transform:uppercase;color:var(--acc);padding-inline:6px}
+#gate .err{min-height:20px;margin-top:12px;font-size:13px;color:var(--acc);opacity:0;transition:.2s}
+#gate.bad .err{opacity:1}
 .shared .wrap{padding-block:74px;text-align:center}
 .shared .big{font-family:var(--disp);font-variation-settings:"SOFT" 60,"WONK" 1;font-weight:300;
   font-style:italic;font-size:clamp(25px,3.6vw,42px);line-height:1.22;letter-spacing:-.025em;max-width:20ch;margin:0 auto}
@@ -170,7 +199,8 @@ footer .nm{font-family:var(--disp);font-size:18px;color:#EDE6DA}
   .hero .wrap,.story .wrap,.creed .wrap,.stance .wrap,.letter .wrap{grid-template-columns:minmax(0,1fr);gap:30px}
   .hero .wrap{padding-block:46px 40px}
   .hero .slot{aspect-ratio:4/3;max-width:360px}
-  .cards,.steps,.clients ul{grid-template-columns:minmax(0,1fr)}
+  .cards,.steps,.clients ul,.hate .wrap{grid-template-columns:minmax(0,1fr)}
+  .hate .wrap{padding-block:52px;gap:28px}
   nav{display:none}
   .story .lab{padding-top:0}
   .work,.story,.method{padding-block:54px}
@@ -178,12 +208,25 @@ footer .nm{font-family:var(--disp);font-size:18px;color:#EDE6DA}
 }
 </style>
 </head>
-<body class="notes">
+<body class="locked">
+
+<div id="gate">
+  <div class="box">
+    <div class="nm">Agata de&nbsp;Latour<i>.</i></div>
+    <p>Strona w przygotowaniu — wpisz hasło, które dostałaś.<br>
+       <span style="opacity:.7">Work in progress — please enter the password you were given.</span></p>
+    <div class="row">
+      <input id="pw" type="password" placeholder="hasło / password" autocomplete="off" autofocus>
+      <button id="go">Wejdź</button>
+    </div>
+    <div class="err">Nie to hasło. / Not that one.</div>
+  </div>
+</div>
 
 <div class="bar">
   <b>Agata de Latour</b><span>strona v0.4 · kierunek wybrany przez Agatę 12.10.2026</span>
   <div class="sp"></div>
-  <button id="bNotes" class="on">Notatki</button>
+  <button id="bNotes">Notatki</button>
   <button id="bPhone">Telefon</button>
 </div>
 
@@ -278,6 +321,28 @@ footer .nm{font-family:var(--disp);font-size:18px;color:#EDE6DA}
   </div>
 </section>
 
+<section class="hate">
+  <div class="wrap">
+    <div>
+      <h2>Comment haïr moins&nbsp;?</h2>
+      <p class="gloss">How do we hate less?</p>
+      <div class="note"><b>Twoje pytanie i Twoja odpowiedź</b>, oba z wpisu o Rojzmanie — po francusku, bo tak je napisałaś i tak brzmią najmocniej. Lista obok to Twoje zdania jeden do jednego. Jeśli uznasz, że to za ostre na stronę główną, przenosimy to pod tekst.</div>
+    </div>
+    <div>
+      <ul>
+        <li>Talk about facts.</li>
+        <li>About daily reality.</li>
+        <li>About the impact.</li>
+        <li>About emotions.</li>
+        <li>Step out of the fantasies.</li>
+        <li>Step out of the representations.</li>
+      </ul>
+      <p class="after">And little by little, when people really meet, something changes. Often they discover that there is suffering on both sides.</p>
+      <p class="src">cytat · wpis o Charles Rojzman, 09.2026</p>
+    </div>
+  </div>
+</section>
+
 <section class="shared">
   <div class="wrap">
     <p class="big">Before our differences, there is what we share.</p>
@@ -352,8 +417,21 @@ footer .nm{font-family:var(--disp);font-size:18px;color:#EDE6DA}
 
 <script>
 (function(){
-  var b=document.body;
-  document.getElementById('bNotes').addEventListener('click',function(){
+  var b=document.body, PASS='Latour2026', KEY='adl-ok';
+  try{ if(localStorage.getItem(KEY)==='1') b.classList.remove('locked'); }catch(e){}
+  var g=document.getElementById('gate'), pw=document.getElementById('pw');
+  function tryIt(){
+    if(pw.value.trim()===PASS){
+      try{ localStorage.setItem(KEY,'1'); }catch(e){}
+      b.classList.remove('locked'); g.classList.remove('bad');
+    } else { g.classList.add('bad'); pw.select(); }
+  }
+  document.getElementById('go').addEventListener('click',tryIt);
+  pw.addEventListener('keydown',function(e){ if(e.key==='Enter') tryIt(); });
+  pw.addEventListener('input',function(){ g.classList.remove('bad'); });
+  var bn=document.getElementById('bNotes');
+  if(location.hash==='#notes'){ b.classList.add('notes'); bn.classList.add('on'); }
+  bn.addEventListener('click',function(){
     b.classList.toggle('notes'); this.classList.toggle('on',b.classList.contains('notes'));
   });
   document.getElementById('bPhone').addEventListener('click',function(){
