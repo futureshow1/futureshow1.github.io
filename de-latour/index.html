@@ -100,6 +100,12 @@ nav a:hover::after{transform:scaleX(1)}
 .hero .txt{max-width:min(620px,54%)}
 h1{font-family:var(--disp);font-variation-settings:"SOFT" 50,"WONK" 1;font-weight:400;
   font-size:clamp(33px,4.4vw,52px);line-height:1.1;letter-spacing:-.026em;max-width:20ch}
+h1 .hl{background-image:linear-gradient(#F6D213,#F6D213);background-repeat:no-repeat;
+  background-size:0% .34em;background-position:0 86%;
+  transition:background-size .5s cubic-bezier(.4,0,.2,1);
+  -webkit-box-decoration-break:clone;box-decoration-break:clone;cursor:default}
+h1 .hl:hover{background-size:100% .34em}
+@media (hover:none){h1 .hl{transition:none}}
 h1 em{font-style:italic;color:var(--acc)}
 .hero p.sub{font-size:19px;line-height:1.6;color:var(--soft);max-width:46ch;margin-top:26px}
 .hero .cta-row{display:flex;align-items:center;gap:24px;margin-top:34px;flex-wrap:wrap}
@@ -322,7 +328,7 @@ footer .nm{font-family:var(--disp);font-size:18px;color:#E8EAF0}
 <section class="hero">
   <div class="wrap">
     <div class="txt">
-      <h1>People can work well together with their <em>differences</em> — despite them, and <em>thanks to them</em>.</h1>
+      <h1>People can work well together <em>with</em> their <span class="hl">differences</span> — despite them, and <span class="hl">thanks to them</span>.</h1>
       <p class="sub">Differences make communication harder. They also nourish our minds. I work with both halves of that — in English, French and Polish, from Paris and Strasbourg.</p>
       <div class="cta-row">
         <a class="btn" href="#work">Work with Agata <span>→</span></a>
