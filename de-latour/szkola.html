@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Agata de Latour — School of Life</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..600;1,8..60,300..400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FFFFFF; --ink:#323232; --deepink:#1C1C1A; --olive:#30301F;
+  --yellow:#F6D213; --yellow-d:#E0BE00; --rule:#DEDEDA; --soft:#6E6E68; --tint:#F5F4EF;
+  --body:'Source Serif 4',Georgia,serif;
+  --disp:'Barlow Condensed','Arial Narrow',sans-serif;
+  --acc:var(--yellow); --deep:var(--olive); --sand:var(--tint); --mint:var(--tint);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding-inline:40px}
+.lab{font-family:var(--disp);font-size:14px;font-weight:600;letter-spacing:.16em;text-transform:uppercase}
+.disp{font-family:var(--disp)}
+
+/* pasek roboczy */
+.bar{position:sticky;top:0;z-index:60;display:flex;align-items:center;gap:14px;padding:9px 20px;
+  background:var(--deepink);color:#fff;font-family:var(--disp);font-size:13px;letter-spacing:.05em;flex-wrap:wrap}
+.bar b{font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:12px}
+.bar .sp{flex:1}
+.bar button{background:none;border:1px solid rgba(255,255,255,.4);border-radius:0;padding:5px 13px;
+  font-family:var(--disp);font-size:12px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+.bar button.on{background:var(--yellow);color:var(--deepink);border-color:var(--yellow)}
+.page{transition:max-width .3s}
+body.phone .page{max-width:420px;margin:0 auto;box-shadow:0 0 0 1px var(--rule)}
+body.phone .wrap{padding-inline:20px}
+
+/* szyna */
+.rail{position:fixed;left:0;top:0;bottom:0;width:48px;z-index:40;display:flex;align-items:center;justify-content:center;
+  pointer-events:none;opacity:0;transition:opacity .4s}
+.rail.on{opacity:1}
+.rail span{writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--disp);font-size:12px;
+  font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--soft)}
+.rail i{position:absolute;top:0;bottom:0;right:0;width:1px;background:var(--rule)}
+@media (max-width:1100px){.rail{display:none}}
+
+/* nagłówek */
+header{border-bottom:1px solid var(--rule);position:sticky;top:37px;background:var(--paper);z-index:30}
+header .wrap{display:flex;align-items:center;gap:30px;padding-block:16px}
+.mark{font-family:var(--disp);font-weight:700;font-size:22px;letter-spacing:.02em;text-transform:uppercase;line-height:1}
+.mark i{font-style:normal;color:var(--yellow-d)}
+nav{margin-left:auto;display:flex;gap:26px;font-family:var(--disp);font-size:15px;font-weight:600;
+  letter-spacing:.09em;text-transform:uppercase}
+nav a:hover{color:var(--yellow-d)}
+.lang{display:flex;gap:9px;font-family:var(--disp);font-size:13px;font-weight:600;letter-spacing:.12em;color:var(--soft)}
+.lang s{text-decoration:none;opacity:.4}
+
+/* zdjęcia */
+.ph{position:relative;overflow:hidden;background:var(--deepink)}
+.ph img{display:block;width:100%;height:100%;object-fit:cover;filter:saturate(.8) contrast(1.05)}
+.slot{position:relative;background:var(--tint);border:1px solid var(--rule);display:flex;align-items:flex-end;padding:14px;overflow:hidden}
+.slot span{position:relative;font-family:var(--disp);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft)}
+.slot.ph{border-color:transparent}
+.slot.ph img{position:absolute;inset:0}
+
+/* hero — ciemny pas ze zdjęciem, jak u nich */
+.hero{position:relative;background:var(--deepink);color:#fff;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:url('img/scena.jpg') center 35%/cover;opacity:.3;filter:saturate(.6)}
+.hero .wrap{position:relative;padding-block:92px 86px}
+.hero .txt{max-width:min(760px,70%)}
+h1{font-family:var(--disp);font-weight:700;font-size:clamp(38px,6vw,76px);line-height:.98;
+  letter-spacing:.005em;text-transform:uppercase;max-width:16ch}
+h1 em{font-style:normal;color:var(--yellow)}
+.hero p.sub{font-size:20px;line-height:1.55;color:rgba(255,255,255,.84);max-width:46ch;margin-top:24px}
+.hero .cta-row{display:flex;align-items:center;gap:26px;margin-top:34px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--yellow);color:var(--deepink);
+  padding:14px 26px;font-family:var(--disp);font-size:16px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;transition:.16s}
+.btn:hover{background:#fff}
+.lnk{font-size:17px;color:rgba(255,255,255,.8);border-bottom:1px solid rgba(255,255,255,.35);padding-bottom:2px}
+.lnk:hover{color:var(--yellow);border-color:var(--yellow)}
+.hero .slot{position:absolute;right:40px;top:50%;transform:translateY(-50%);width:min(26vw,300px);aspect-ratio:3/4;margin:0;border:0}
+@media (max-width:1100px){
+  .hero::before{opacity:.22}
+  .hero .txt{max-width:none}
+  .hero .slot{position:static;transform:none;width:auto;max-width:300px;aspect-ratio:4/3;margin-top:30px}
+}
+
+/* pasek instytucji */
+.ticker{background:var(--tint);border-bottom:1px solid var(--rule)}
+.ticker .wrap{display:flex;gap:30px;flex-wrap:wrap;padding-block:15px;color:var(--soft)}
+.ticker span{font-family:var(--disp);font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+
+/* karty jak artykuły */
+.work{padding-block:72px 16px}
+.work .lab{color:var(--yellow-d);display:block;margin-bottom:12px}
+.work h2{font-size:clamp(28px,3.4vw,40px);font-weight:400;line-height:1.14;max-width:22ch;margin-bottom:40px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:34px}
+.card{display:flex;flex-direction:column}
+.card .slot{aspect-ratio:4/3;margin-bottom:18px}
+.card h3{font-size:25px;font-weight:600;line-height:1.2;margin-bottom:10px}
+.card p{font-size:17px;line-height:1.56;color:var(--soft);margin-bottom:16px}
+.card .who{margin-top:auto;padding-top:14px;border-top:1px solid var(--rule);font-size:15px;color:var(--soft)}
+.card .who b{display:block;font-family:var(--disp);font-size:12px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--yellow-d);margin-bottom:4px}
+
+/* historia */
+.story{padding-block:76px;background:var(--tint);border-block:1px solid var(--rule)}
+.story .wrap{display:grid;grid-template-columns:190px minmax(0,1fr);gap:46px;align-items:start}
+.story .lab{color:var(--yellow-d);padding-top:10px}
+.story .first{font-size:clamp(24px,2.9vw,33px);line-height:1.26;font-weight:400;margin-bottom:24px;max-width:26ch}
+.story p{font-size:18px;line-height:1.74;max-width:62ch;margin-bottom:17px}
+
+/* credo — żółte pole */
+.creed{background:var(--yellow);color:var(--deepink)}
+.creed .wrap{padding-block:68px;display:grid;grid-template-columns:repeat(2,1fr);gap:50px}
+.creed p{font-size:clamp(21px,2.4vw,27px);line-height:1.34;font-weight:400}
+.creed small{display:block;font-family:var(--disp);font-size:12px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;opacity:.6;margin-top:16px}
+
+/* haïr moins */
+.hate{border-bottom:1px solid var(--rule)}
+.hate .wrap{padding-block:74px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:52px;align-items:start}
+.hate h2{font-family:var(--disp);font-weight:700;font-size:clamp(34px,5vw,60px);line-height:.98;
+  text-transform:uppercase;max-width:9ch}
+.hate .gloss{font-family:var(--disp);font-size:13px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--soft);margin-top:16px}
+.hate ul{list-style:none}
+.hate li{font-size:clamp(20px,2.1vw,25px);line-height:1.42}
+.hate .after{margin-top:24px;font-size:17px;line-height:1.7;color:var(--soft);max-width:44ch}
+.hate .src{display:none}
+
+/* co wspólne */
+.shared{background:var(--olive);color:#fff}
+.shared .wrap{padding-block:72px;text-align:center}
+.shared .big{font-size:clamp(26px,3.5vw,42px);line-height:1.2;font-weight:400;font-style:italic;max-width:20ch;margin:0 auto}
+.shared .src{display:none}
+
+/* stanowisko */
+.stance{border-bottom:1px solid var(--rule)}
+.stance .wrap{padding-block:70px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:52px;align-items:start}
+.stance h2{font-size:clamp(26px,3.1vw,36px);font-weight:400;line-height:1.16;max-width:18ch}
+.stance p{font-size:17.5px;line-height:1.72;max-width:56ch;margin-bottom:15px;color:var(--soft)}
+
+/* metoda jako karty */
+.method{padding-block:76px;background:var(--tint);border-bottom:1px solid var(--rule)}
+.method .lab{color:var(--yellow-d);display:block;margin-bottom:12px}
+.method h2{font-size:clamp(28px,3.4vw,40px);font-weight:400;margin-bottom:10px}
+.method .intro{font-size:18px;color:var(--soft);max-width:58ch;margin-bottom:16px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:26px}
+.step{background:var(--paper);border:1px solid var(--rule);padding:30px 28px 34px;position:relative}
+.step::after{content:'';position:absolute;left:28px;right:28px;bottom:22px;height:3px;background:var(--yellow)}
+.step .n{font-family:var(--disp);font-size:15px;font-weight:600;letter-spacing:.16em;color:var(--soft);margin-bottom:16px}
+.step h4{font-size:23px;font-weight:600;line-height:1.2;margin-bottom:10px}
+.step p{font-size:16.5px;line-height:1.6;color:var(--soft);margin-bottom:22px}
+.method .open{margin-top:26px;font-size:17px;line-height:1.66;color:var(--soft);max-width:62ch;font-style:italic}
+
+/* pas ze zdjęciem */
+.band-wide{position:relative;height:clamp(230px,34vw,440px);overflow:hidden;background:var(--deepink)}
+.band-wide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 12%;filter:saturate(.8) contrast(1.05)}
+
+/* dla kogo */
+.clients{padding-block:0}
+.clients .wrap{padding-block:72px}
+.clients .lab{color:var(--yellow-d);display:block;margin-bottom:12px}
+.clients h2{font-size:clamp(26px,3.1vw,36px);font-weight:400;margin-bottom:30px}
+.clients ul{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:26px}
+.clients li{border-top:3px solid var(--yellow);padding-top:16px;font-size:17px;line-height:1.55}
+.clients li b{display:block;font-size:21px;font-weight:600;margin-bottom:5px}
+.clients li span{color:var(--soft);font-size:16.5px}
+
+/* list — żółty pas członkostwa */
+.letter{background:var(--yellow)}
+.letter .wrap{padding-block:62px;display:grid;grid-template-columns:minmax(0,1fr) 420px;gap:50px;align-items:center}
+.letter h3{font-size:clamp(24px,2.8vw,32px);font-weight:400;margin-bottom:10px}
+.letter p{font-size:17px;line-height:1.6;max-width:46ch}
+.field{display:flex;border-bottom:2px solid var(--deepink)}
+.field input{flex:1;font:inherit;font-size:17px;padding:12px 0;border:0;background:none;color:var(--deepink);outline:none}
+.field input::placeholder{color:rgba(28,28,26,.5)}
+.field button{background:none;border:0;cursor:pointer;font-family:var(--disp);font-size:14px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--deepink);padding-inline:6px}
+
+footer{background:var(--deepink);color:#A5A59D}
+footer .wrap{padding-block:34px 42px;display:flex;gap:28px;flex-wrap:wrap;font-size:15px;align-items:baseline}
+footer .sp{flex:1}
+footer .nm{font-family:var(--disp);font-size:20px;font-weight:700;text-transform:uppercase;color:#fff}
+
+/* bramka */
+body.locked{overflow:hidden}
+body.locked .bar,body.locked .page{display:none}
+#gate{display:none;position:fixed;inset:0;z-index:200;background:var(--paper);align-items:center;justify-content:center;padding:24px}
+body.locked #gate{display:flex}
+#gate .box{width:100%;max-width:430px;text-align:center}
+#gate .nm{font-family:var(--disp);font-weight:700;font-size:30px;text-transform:uppercase;margin-bottom:14px}
+#gate .nm i{font-style:normal;color:var(--yellow-d)}
+#gate p{font-size:16px;line-height:1.6;color:var(--soft);margin-bottom:24px}
+#gate .row{display:flex;border-bottom:2px solid var(--deepink)}
+#gate input{flex:1;font:inherit;font-size:17px;padding:12px 0;border:0;background:none;outline:none}
+#gate input::placeholder{color:#A8A8A2}
+#gate button{background:none;border:0;cursor:pointer;font-family:var(--disp);font-size:14px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--yellow-d);padding-inline:6px}
+#gate .err{min-height:20px;margin-top:12px;font-size:15px;color:#B3261E;opacity:0;transition:.2s}
+#gate.bad .err{opacity:1}
+
+@media (max-width:900px){
+  .wrap{padding-inline:20px}
+  .story .wrap,.creed .wrap,.stance .wrap,.hate .wrap,.letter .wrap{grid-template-columns:minmax(0,1fr);gap:28px}
+  .cards,.steps,.clients ul{grid-template-columns:minmax(0,1fr)}
+  nav{display:none}
+  .story .lab{padding-top:0}
+  .work,.story,.method{padding-block:50px}
+  .creed .wrap,.stance .wrap,.hate .wrap,.clients .wrap,.letter .wrap,.shared .wrap{padding-block:48px}
+  .hero .wrap{padding-block:56px 50px}
+}
+</style>
+</head>
+<body class="locked">
+
+<div id="gate">
+  <div class="box">
+    <div class="nm">Agata de&nbsp;Latour<i>.</i></div>
+    <p>Strona w przygotowaniu — wpisz hasło, które dostałaś.<br>
+       <span style="opacity:.7">Work in progress — please enter the password you were given.</span></p>
+    <div class="row">
+      <input id="pw" type="password" placeholder="hasło / password" autocomplete="off" autofocus>
+      <button id="go">Wejdź</button>
+    </div>
+    <div class="err">Nie to hasło. / Not that one.</div>
+  </div>
+</div>
+
+<div class="bar">
+  <b>Agata de Latour</b><span style="opacity:.8;font-size:11.5px">wersja School of Life · <a href="index.html" style="color:#fff">spokojna</a> · <a href="kolor.html" style="color:#fff">kolor</a></span>
+  <div class="sp"></div>
+  <button id="bPhone">Telefon</button>
+</div>
+
+<div class="rail" id="rail"><span>Agata de Latour</span><i></i></div>
+
+<div class="page">
+
+<header>
+  <div class="wrap">
+    <div class="mark">Agata de&nbsp;Latour<i>.</i></div>
+    <nav><a href="#work">Work with Agata</a><a href="#story">How I got here</a><a href="#method">Method</a><a href="#contact">Contact</a></nav>
+    <div class="lang"><span>EN</span><s>FR</s><s>PL</s></div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="txt">
+      <h1>People can work well together <em>with</em> their differences — despite them, and thanks to them.</h1>
+      <p class="sub">Differences make communication harder. They also nourish our minds. I work with both halves of that — in English, French and Polish, from Paris and Strasbourg.</p>
+      <div class="cta-row">
+        <a class="btn" href="#work">Work with Agata <span>→</span></a>
+        <a class="lnk" href="#story">Or read how I got here</a>
+      </div>
+    </div>
+    <figure class="slot ph"><img src="img/portret.jpg" alt="Agata de Latour" style="object-position:center 26%"></figure>
+  </div>
+</section>
+
+<div class="ticker">
+  <div class="wrap">
+    <span>Council of Europe</span><span>ALDA</span><span>Lieu d'Europe</span><span>Ligue de l'enseignement</span><span>City of Strasbourg</span><span>SINGA</span><span>KODIKO</span>
+  </div>
+</div>
+
+<div class="band-wide"><img src="img/scena.jpg" alt="" style="object-position:center 38%"></div>
+
+<section class="work" id="work">
+  <div class="wrap">
+    <span class="lab">Work with Agata</span>
+    <h2>Three ways we can work together.</h2>
+    <div class="cards">
+
+      <article class="card">
+        <figure class="slot ph"><img src="img/training.jpg" alt="" style="object-position:62% center"></figure>
+        <h3>Training</h3>
+        <p>Your team already has the material. It is the three or four incidents nobody brings up: the client who would not deal with a woman, the meeting where the interpreter softened something, the colleague who stopped speaking up in March. I collect them anonymously two weeks beforehand, and we spend the day on those.</p>
+        <div class="who"><b>For</b>organisations working with newcomers, local government, schools, multinational teams</div>
+      </article>
+
+      <article class="card">
+        <figure class="slot ph"><img src="img/facilitation.jpg" alt="" style="object-position:40% center"></figure>
+        <h3>Facilitation</h3>
+        <p>Some meetings cannot be chaired, only held. Consultations where the decision is already resented, a team meeting after a conflict, two sides at one table who each believe the other has already won. I prepare with each side separately, run the day, and write the note afterwards in language both sides can sign.</p>
+        <div class="who"><b>For</b>public institutions, organisations in crisis, teams after a change</div>
+      </article>
+
+      <article class="card">
+        <figure class="slot ph"><img src="img/advisory.jpg" alt=""></figure>
+        <h3>Advisory</h3>
+        <p>Your form is the first conversation your institution has with a person. Very often it is also the last. I go through the materials, the language, the procedures and the whole path someone takes to reach you, and come back with a list of what turns people away and what can be changed inside a month.</p>
+        <div class="who"><b>For</b>public administration, universities, integration programmes, European projects</div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="story" id="story">
+  <div class="wrap">
+    <span class="lab">How I got here</span>
+    <div>
+      <p class="first">I left Poland in my twenties, and learned the world by comparing it.</p>
+      <p>Living between Polish and French, you spend years noticing what travels between two cultures and what quietly does not. What comes out of it is adaptability — not a talent, a habit built from observation, comparison and a great deal of being wrong. I made a profession of it: first as a journalist and translator in Brussels, then as a sworn interpreter in courtrooms — where a sentence is not finished until someone has said it again in the other language and both sides accept that this is what was said.</p>
+      <p>That is where the real work turned out to be. Not vocabulary: knowing what a person meant, what they said instead, and which of the two to carry across.</p>
+      <p>In 2016 the Council of Europe asked me to research and edit its handbook on answering hate speech. I spent a year reading the worst things people say to each other, and the best replies anyone had found. The most useful thing I learned was not what to say back. It was when not to.</p>
+      <p>Since then I have worked with teams receiving refugees, city departments whose forms nobody returns, and organisations where something was said in a meeting two years ago and has not been mentioned since. Working with people who travelled much further than I did — from the Middle East, from Central and South Asia — has widened all of it again.</p>
+      <p>I do not make the difference disappear. I make it workable.</p>
+    </div>
+  </div>
+</section>
+
+<section class="creed">
+  <div class="wrap">
+    <div>
+      <p>You do not build peace by avoiding conflict. You build it by making a room safe enough to go through one.</p>
+    </div>
+    <div>
+      <p>The problem is not necessarily the conflict. It is the hatred that comes with it, and the fantasies that feed it.</p>
+    </div>
+  </div>
+</section>
+
+<section class="hate">
+  <div class="wrap">
+    <div>
+      <h2>Comment haïr moins&nbsp;?</h2>
+      <p class="gloss">How do we hate less?</p>
+    </div>
+    <div>
+      <ul>
+        <li>Talk about facts.</li>
+        <li>About daily reality.</li>
+        <li>About the impact.</li>
+        <li>About emotions.</li>
+        <li>Step out of the fantasies.</li>
+        <li>Step out of the representations.</li>
+      </ul>
+      <p class="after">And little by little, when people really meet, something changes. Often they discover that there is suffering on both sides.</p>
+    </div>
+  </div>
+</section>
+
+<section class="shared">
+  <div class="wrap">
+    <p class="big">Before our differences, there is what we share.</p>
+  </div>
+</section>
+
+<section class="stance">
+  <div class="wrap">
+    <div>
+      <h2>I don't work from a map of national cultures.</h2>
+    </div>
+    <div>
+      <p>The classic approach sorts people by where they come from and predicts how they will behave. It is a useful first glance and a poor second one. It fixes people in place, and it leaves no room for the only thing that actually interests me: how a particular person behaves in a particular room, on a particular day, with these particular people.</p>
+      <p>So I work from curiosity, flexibility and fluidity rather than from categories. The frameworks are there — I know them well enough to teach them — but they stay in service of the person and the situation in front of us, never the other way round.</p>
+    </div>
+  </div>
+</section>
+
+<section class="method" id="method">
+  <div class="wrap">
+    <span class="lab">The method</span>
+    <h2>What can be said here</h2>
+    <p class="intro">I don't ask people to be nice. I don't even ask them to stop being angry. I ask for a room where they can finally say what they think, what they feel, what they have lived through.</p>
+    <p class="intro">Three movements, whether it is a two-day course or one difficult meeting. Deliberately broad: the shape stays the same, what goes inside it is yours.</p>
+    <div class="steps">
+      <div class="step"><div class="n">01</div><h4>Find out what cannot be said yet</h4><p>Before anything is practised, I find out which sentences are currently impossible in this room, and why. It is rarely the topic in the brief.</p></div>
+      <div class="step"><div class="n">02</div><h4>Say one true thing on purpose</h4><p>Not everything. One thing, said deliberately, in front of everyone, at a moment the group can survive it. This is where people step out of the stories they tell themselves about each other, and into a shared reality.</p></div>
+      <div class="step"><div class="n">03</div><h4>Leave a rule behind, not a feeling</h4><p>A workshop that ends in goodwill has changed nothing by Thursday. We leave with one sentence, one procedure or one change to a form — something that works when I am not there.</p></div>
+    </div>
+    <p class="open">The method is a frame, not a doctrine. It holds a two-hour conversation and a four-month programme equally well, and it does not tell anyone in advance who they are.</p>
+  </div>
+</section>
+
+<div class="band-wide"><img src="img/grupa.jpg" alt=""></div>
+
+<section class="clients">
+  <div class="wrap">
+    <span class="lab">Who I usually work with</span>
+    <h2>If you recognise yourself here, we will understand each other quickly.</h2>
+    <ul>
+      <li><b>Organisations receiving newcomers</b><span>Associations and services whose staff are tired, and whose good intentions keep producing misunderstandings.</span></li>
+      <li><b>Public institutions</b><span>Departments whose procedures were written for people who already know how things work here.</span></li>
+      <li><b>Multinational teams</b><span>Companies where the working language is English and half the room is holding something back.</span></li>
+      <li><b>European projects</b><span>Consortia that have to produce something together across four countries and three working cultures.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="letter" id="contact">
+  <div class="wrap">
+    <div>
+      <h3>A letter once a month</h3>
+      <p>One situation, one question, one thing to try. I write when I have something worth saying, which is roughly monthly. No offers.</p>
+    </div>
+    <div class="field"><input placeholder="your email address" id="mail"><button>Subscribe</button></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="nm">Agata de Latour</span>
+    <span>Paris · Strasbourg</span>
+    <div class="sp"></div>
+    <span>hello@agatadelatour.com</span>
+    <span>LIBRA — registered practice</span>
+  </div>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var b=document.body, PASS='Latour2026', KEY='adl-ok';
+  try{ if(localStorage.getItem(KEY)==='1') b.classList.remove('locked'); }catch(e){}
+  var g=document.getElementById('gate'), pw=document.getElementById('pw');
+  function tryIt(){
+    if(pw.value.trim()===PASS){
+      try{ localStorage.setItem(KEY,'1'); }catch(e){}
+      b.classList.remove('locked'); g.classList.remove('bad');
+    } else { g.classList.add('bad'); pw.select(); }
+  }
+  document.getElementById('go').addEventListener('click',tryIt);
+  pw.addEventListener('keydown',function(e){ if(e.key==='Enter') tryIt(); });
+  pw.addEventListener('input',function(){ g.classList.remove('bad'); });
+  var rail=document.getElementById('rail'), hdr=document.querySelector('header');
+  if(rail&&hdr&&'IntersectionObserver' in window){
+    new IntersectionObserver(function(es){ rail.classList.toggle('on',!es[0].isIntersecting); },
+      {threshold:0}).observe(hdr);
+  }
+  document.getElementById('bPhone').addEventListener('click',function(){
+    b.classList.toggle('phone'); this.classList.toggle('on',b.classList.contains('phone'));
+  });
+})();
+</script>
+</body>
+</html>
