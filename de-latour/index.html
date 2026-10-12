@@ -25,6 +25,16 @@ button{font:inherit;color:inherit}
 .lab{font-size:11.5px;font-weight:600;letter-spacing:.17em;text-transform:uppercase}
 .wrap{max-width:1180px;margin:0 auto;padding-inline:40px}
 
+/* szyna z nazwiskiem — wzorzec Harvard Film Archive */
+.rail{position:fixed;left:0;top:0;bottom:0;width:52px;z-index:40;display:flex;
+  align-items:center;justify-content:center;pointer-events:none;
+  opacity:0;transform:translateX(-6px);transition:opacity .45s ease,transform .45s ease}
+.rail.on{opacity:1;transform:none}
+.rail span{writing-mode:vertical-rl;transform:rotate(180deg);
+  font-size:11px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--soft)}
+.rail i{position:absolute;top:0;bottom:0;right:0;width:1px;background:var(--rule)}
+@media (max-width:1100px){.rail{display:none}}
+
 /* ——— pasek roboczy ——— */
 .bar{position:sticky;top:0;z-index:60;display:flex;align-items:center;gap:14px;
   padding:9px 20px;background:#17150F;color:#EDE6DA;font-size:12px;letter-spacing:.02em;flex-wrap:wrap}
@@ -58,6 +68,14 @@ nav a:hover::after{transform:scaleX(1)}
 .lang s{text-decoration:none;opacity:.4}
 
 /* ——— slot na zdjęcie ——— */
+/* jeden filtr na wszystkie zdjęcia — wzorzec Harvard Film Archive.
+   Sprowadza kadry od różnych fotografów do jednej tonacji. */
+.ph{position:relative;overflow:hidden;background:var(--ink)}
+.ph img{display:block;width:100%;height:100%;object-fit:cover;
+  filter:saturate(.74) contrast(1.06) brightness(1.03) sepia(.1)}
+.ph::after{content:'';position:absolute;inset:0;pointer-events:none;
+  background:var(--acc);opacity:.1;mix-blend-mode:soft-light}
+
 .slot{position:relative;background:var(--mint);border:1px solid var(--rule);
   display:flex;align-items:flex-end;padding:14px;overflow:hidden}
 .slot::before{content:'';position:absolute;inset:0;
@@ -66,8 +84,9 @@ nav a:hover::after{transform:scaleX(1)}
   text-transform:uppercase;line-height:1.65;color:var(--deep);opacity:.85}
 
 /* ——— hero ——— */
-.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:60px;
-  padding-block:84px 70px;align-items:center}
+.hero{position:relative;overflow:hidden}
+.hero .wrap{padding-block:84px 76px}
+.hero .txt{max-width:min(620px,54%)}
 h1{font-family:var(--disp);font-variation-settings:"SOFT" 50,"WONK" 1;font-weight:400;
   font-size:clamp(33px,4.4vw,52px);line-height:1.1;letter-spacing:-.026em;max-width:20ch}
 h1 em{font-style:italic;color:var(--acc)}
@@ -78,7 +97,12 @@ h1 em{font-style:italic;color:var(--acc)}
 .btn:hover{background:var(--acc-d);gap:14px}
 .lnk{font-size:15px;color:var(--soft);border-bottom:1px solid var(--rule);padding-bottom:2px;transition:.18s}
 .lnk:hover{color:var(--acc);border-color:var(--acc)}
-.hero .slot{aspect-ratio:3/4}
+.hero .slot{position:absolute;right:0;top:58px;bottom:58px;width:min(40vw,430px);margin:0}
+@media (max-width:1100px){
+  .hero{overflow:visible}
+  .hero .slot{position:static;width:auto;max-width:380px;aspect-ratio:4/3;margin-top:34px}
+  .hero .txt{max-width:none}
+}
 
 /* ——— pasek instytucji ——— */
 .ticker{background:var(--sand);border-block:1px solid var(--rule)}
@@ -230,6 +254,8 @@ footer .nm{font-family:var(--disp);font-size:18px;color:#EDE6DA}
   <button id="bPhone">Telefon</button>
 </div>
 
+<div class="rail" id="rail"><span>Agata de Latour</span><i></i></div>
+
 <div class="page">
 
 <header>
@@ -242,7 +268,7 @@ footer .nm{font-family:var(--disp);font-size:18px;color:#EDE6DA}
 
 <section class="hero">
   <div class="wrap">
-    <div>
+    <div class="txt">
       <h1>People can work well together <em>with</em> their differences — despite them, and thanks to them.</h1>
       <p class="sub">Differences make communication harder. They also nourish our minds. I work with both halves of that — in English, French and Polish, from Paris and Strasbourg.</p>
       <div class="cta-row">
@@ -429,6 +455,11 @@ footer .nm{font-family:var(--disp);font-size:18px;color:#EDE6DA}
   document.getElementById('go').addEventListener('click',tryIt);
   pw.addEventListener('keydown',function(e){ if(e.key==='Enter') tryIt(); });
   pw.addEventListener('input',function(){ g.classList.remove('bad'); });
+  var rail=document.getElementById('rail'), hdr=document.querySelector('header');
+  if(rail&&hdr&&'IntersectionObserver' in window){
+    new IntersectionObserver(function(es){ rail.classList.toggle('on',!es[0].isIntersecting); },
+      {threshold:0}).observe(hdr);
+  }
   var bn=document.getElementById('bNotes');
   if(location.hash==='#notes'){ b.classList.add('notes'); bn.classList.add('on'); }
   bn.addEventListener('click',function(){
