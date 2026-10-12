@@ -199,6 +199,10 @@ body.locked #gate{display:flex}
 .method .open{margin-top:26px;font-size:15px;color:var(--soft);max-width:62ch;font-style:italic}
 
 /* ——— dla kogo ——— */
+.band-wide{position:relative;height:clamp(220px,32vw,400px);overflow:hidden;background:var(--ink)}
+.band-wide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  filter:saturate(.74) contrast(1.06) brightness(1.03) sepia(.1)}
+.band-wide::after{content:'';position:absolute;inset:0;background:var(--acc);opacity:.1;mix-blend-mode:soft-light}
 .clients{background:var(--mint);border-block:1px solid var(--rule)}
 .clients .wrap{padding-block:70px}
 .clients .lab{color:var(--deep);display:block;margin-bottom:10px}
@@ -283,7 +287,7 @@ footer .nm{font-family:var(--disp);font-size:18px;color:#EDE6DA}
       </div>
       <div class="note"><b>Twoje słowa, nie moje.</b> Nagłówek to Twoja poprawka do tezy Priyi Parker: „people can gather well with their differences, despite and thanks to them". Podtytuł też Twój: „the differences give us challenges in communication but also nourish our souls and minds". Credo na zielonym pasie, pytanie „Comment haïr moins ?" wraz z odpowiedzią i zdanie o tym, co wspólne — też Twoje, z wpisów. Reszta jest do wymiany, jeśli nie brzmi jak Ty.</div>
     </div>
-    <figure class="slot ph"><img src="img/portret.jpg" alt=""><span>placeholder · portrait to be shot</span></figure>
+    <figure class="slot ph"><img src="img/portret.jpg" alt="Agata de Latour" style="object-position:center 28%"></figure>
   </div>
 </section>
 
@@ -300,21 +304,21 @@ footer .nm{font-family:var(--disp);font-size:18px;color:#EDE6DA}
     <div class="cards">
 
       <article class="card">
-        <figure class="slot ph"><img src="img/training.jpg" alt=""><span>placeholder · you, mid-session</span></figure>
+        <figure class="slot ph"><img src="img/training.jpg" alt="" style="object-position:62% center"></figure>
         <h3>Training</h3>
         <p>Your team already has the material. It is the three or four incidents nobody brings up: the client who would not deal with a woman, the meeting where the interpreter softened something, the colleague who stopped speaking up in March. I collect them anonymously two weeks beforehand, and we spend the day on those.</p>
         <div class="who"><b>For</b>organisations working with newcomers, local government, schools, multinational teams</div>
       </article>
 
       <article class="card">
-        <figure class="slot ph"><img src="img/facilitation.jpg" alt=""><span>placeholder · a room mid-conversation</span></figure>
+        <figure class="slot ph"><img src="img/facilitation.jpg" alt="" style="object-position:40% center"></figure>
         <h3>Facilitation</h3>
         <p>Some meetings cannot be chaired, only held. Consultations where the decision is already resented, a team meeting after a conflict, two sides at one table who each believe the other has already won. I prepare with each side separately, run the day, and write the note afterwards in language both sides can sign.</p>
         <div class="who"><b>For</b>public institutions, organisations in crisis, teams after a change</div>
       </article>
 
       <article class="card">
-        <figure class="slot ph"><img src="img/advisory.jpg" alt=""><span>placeholder · hands, papers, a form</span></figure>
+        <figure class="slot ph"><img src="img/advisory.jpg" alt=""></figure>
         <h3>Advisory</h3>
         <p>Your form is the first conversation your institution has with a person. Very often it is also the last. I go through the materials, the language, the procedures and the whole path someone takes to reach you, and come back with a list of what turns people away and what can be changed inside a month.</p>
         <div class="who"><b>For</b>public administration, universities, integration programmes, European projects</div>
@@ -407,6 +411,8 @@ footer .nm{font-family:var(--disp);font-size:18px;color:#EDE6DA}
   </div>
 </section>
 
+<div class="band-wide"><img src="img/grupa.jpg" alt=""></div>
+
 <section class="clients">
   <div class="wrap">
     <span class="lab">Who I usually work with</span>
@@ -417,7 +423,7 @@ footer .nm{font-family:var(--disp);font-size:18px;color:#EDE6DA}
       <li><b>Multinational teams</b><span>Companies where the working language is English and half the room is holding something back.</span></li>
       <li><b>European projects</b><span>Consortia that have to produce something together across four countries and three working cultures.</span></li>
     </ul>
-    <div class="note"><b>Wzorzec:</b> Essential Partners — podobało Ci się, że jasno nazywają typy klientów, dzięki czemu każdy łatwo się rozpoznaje.</div>
+    <div class="note"><b>Zdjęcia:</b> prawdziwe, z archiwum Agaty. Przed zdjęciem bramki hasłowej trzeba mieć zgody rozpoznawalnych uczestników — zwłaszcza osób z doświadczeniem uchodźstwa — albo wybrać kadry, na których twarzy nie widać.<br><br><b>Wzorzec:</b> Essential Partners — podobało Ci się, że jasno nazywają typy klientów, dzięki czemu każdy łatwo się rozpoznaje.</div>
   </div>
 </section>
 

@@ -1,8 +1,12 @@
-Zdjęcia NA RYBĘ (placeholder) — do zastąpienia zdjęciami Agaty.
-Źródło: StockSnap.io, licencja CC0 (domena publiczna, bez obowiązku atrybucji),
-znalezione przez API Openverse.
+Zdjęcia Agaty — jej własny materiał, przekazany przez Jana 12.10.2026.
+Zastąpiły wcześniejsze zdjęcia zastępcze ze StockSnap (CC0), które usunięto.
 
-portret.jpg      QQ8PXA4DPH  "Woman Glasses"
-training.jpg     V7QBUSASPI  "People Discussion"
-facilitation.jpg 0IDDBGKWDX  "Designers Discuss"
-advisory.jpg     8Y0EDX4VP9  "Writing Drawing"
+portret.jpg       portret (selfie)
+training.jpg      prowadzenie sesji, widok z wnętrza grupy — warsztat, maj 2023
+facilitation.jpg  wykład „Compétences interculturelles" przy slajdzie
+advisory.jpg      grupa przed budynkiem, zakończenie cyklu
+grupa.jpg         duże zdjęcie grupowe na dziedzińcu
+
+UWAGA PRZED PUBLIKACJĄ: na zdjęciach są rozpoznawalni uczestnicy, w tym osoby
+z doświadczeniem uchodźstwa. Przed zdjęciem bramki hasłowej trzeba mieć zgody
+albo wybrać kadry, na których twarze uczestników nie są rozpoznawalne.
