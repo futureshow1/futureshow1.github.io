@@ -87,21 +87,11 @@ h1 em{font-style:normal;color:var(--yellow)}
   .hero .slot{position:relative;transform:none;width:auto;max-width:300px;aspect-ratio:4/3;margin-top:30px}
 }
 
-/* pasek instytucji */
 .topics{border-bottom:1px solid var(--rule);background:var(--paper)}
 .topics .wrap{display:flex;gap:26px;flex-wrap:wrap;padding-block:16px}
 .topics span{position:relative;padding-left:18px;font-family:var(--disp);font-size:16px;font-weight:600;
   letter-spacing:.1em;text-transform:uppercase}
 .topics span::before{content:'';position:absolute;left:0;top:.42em;width:10px;height:10px;background:var(--yellow)}
-.ticker{overflow:hidden;position:relative}
-.ticker .track{display:flex;flex-wrap:nowrap;width:max-content;padding-block:17px;
-  animation:marquee 44s linear infinite;will-change:transform}
-.ticker:hover .track{animation-play-state:paused}
-@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@media (prefers-reduced-motion:reduce){.ticker .track{animation:none;flex-wrap:wrap;width:auto;padding-inline:40px}}
-.ticker span{white-space:nowrap;padding-inline:20px;position:relative}
-.ticker span::after{content:'';position:absolute;right:-3px;top:50%;width:4px;height:4px;border-radius:50%;
-  transform:translateY(-50%);opacity:.45;background:currentColor}
 .ticker span{font-family:var(--disp);font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
 
 /* karty jak artykuły */
@@ -122,6 +112,7 @@ h1 em{font-style:normal;color:var(--yellow)}
 .story .wrap{display:grid;grid-template-columns:190px minmax(0,1fr);gap:46px;align-items:start}
 .story .lab{color:var(--yellow-d);padding-top:10px}
 .story .first{font-size:clamp(24px,2.9vw,33px);line-height:1.26;font-weight:400;margin-bottom:24px;max-width:26ch}
+.story p strong{color:var(--ink);font-weight:600}
 .story p{font-size:18px;line-height:1.74;max-width:62ch;margin-bottom:17px}
 
 /* credo — żółte pole */
@@ -286,10 +277,6 @@ body.locked #gate{display:flex}
   </div>
 </div>
 
-<div class="ticker">
-  <div class="track" aria-label="Institutions"><span>Council of Europe</span><span>ALDA</span><span>Lieu d'Europe</span><span>Ligue de l'enseignement</span><span>City of Strasbourg</span><span>SINGA</span><span>KODIKO</span><span>Council of Europe</span><span>ALDA</span><span>Lieu d'Europe</span><span>Ligue de l'enseignement</span><span>City of Strasbourg</span><span>SINGA</span><span>KODIKO</span></div>
-</div>
-
 <div class="band-wide"><img src="img/scena.jpg" alt="" style="object-position:center 38%"></div>
 
 <section class="work" id="work">
@@ -330,8 +317,9 @@ body.locked #gate{display:flex}
       <p class="first">I left Poland in my twenties, and learned the world by comparing it.</p>
       <p>Living between Polish and French, you spend years noticing what travels between two cultures and what quietly does not. What comes out of it is adaptability — not a talent, a habit built from observation, comparison and a great deal of being wrong. I made a profession of it: first as a journalist and translator in Brussels, then as a sworn interpreter in courtrooms — where a sentence is not finished until someone has said it again in the other language and both sides accept that this is what was said.</p>
       <p>That is where the real work turned out to be. Not vocabulary: knowing what a person meant, what they said instead, and which of the two to carry across.</p>
+        <p>Then I stopped describing Europe and started working inside it — European projects at <strong>Pour la Solidarité</strong> in Brussels and later at <strong>ALDA</strong>, intercultural education with the <strong>Ligue de l'enseignement</strong>, and the “Making peace” programme at <strong>Lieu d'Europe</strong> in Strasbourg.</p>
       <p>In 2016 the Council of Europe asked me to research and edit its handbook on answering hate speech. I spent a year reading the worst things people say to each other, and the best replies anyone had found. The most useful thing I learned was not what to say back. It was when not to.</p>
-      <p>Since then I have worked with teams receiving refugees, city departments whose forms nobody returns, and organisations where something was said in a meeting two years ago and has not been mentioned since. Working with people who travelled much further than I did — from the Middle East, from Central and South Asia — has widened all of it again.</p>
+      <p>Since then I have worked with teams receiving refugees — <strong>SINGA</strong>, <strong>KODIKO</strong> — with the <strong>City of Strasbourg</strong> at its day centre La T'Rêve, with departments whose forms nobody returns, and with organisations where something was said in a meeting two years ago and has not been mentioned since. Working with people who travelled much further than I did — from the Middle East, from Central and South Asia — has widened all of it again.</p>
       <p>I do not make the difference disappear. I make it workable.</p>
     </div>
   </div>
