@@ -111,11 +111,19 @@ h1 em{font-style:italic;color:var(--acc)}
 .hero .slot{position:absolute;right:0;top:58px;bottom:58px;width:min(40vw,430px);margin:0}
 @media (max-width:1100px){
   .hero{overflow:visible}
-  .hero .slot{position:relative;right:auto;top:auto;bottom:auto;width:auto;max-width:380px;aspect-ratio:4/3;margin-top:34px}
+  .hero .slot{position:relative;width:auto;max-width:380px;aspect-ratio:4/3;margin-top:34px}
   .hero .txt{max-width:none}
 }
 
 /* ——— pasek instytucji ——— */
+.topics{border-bottom:1px solid var(--rule);background:var(--paper)}
+.topics .wrap{display:flex;gap:30px;flex-wrap:wrap;padding-block:17px}
+.topics span{position:relative;padding-left:17px;font-size:14px;font-weight:600;letter-spacing:.015em}
+.topics span::before{content:'';position:absolute;left:0;top:.52em;width:9px;height:9px;border-radius:50%}
+.topics span:nth-child(1)::before{background:var(--c1)}
+.topics span:nth-child(2)::before{background:var(--c2)}
+.topics span:nth-child(3)::before{background:var(--c3)}
+.topics span:nth-child(4)::before{background:var(--c4)}
 .ticker{background:var(--sand);border-block:1px solid var(--rule)}
 .ticker .wrap{display:flex;gap:32px;flex-wrap:wrap;padding-block:17px;color:var(--soft)}
 .ticker span{font-size:11.5px;font-weight:600;letter-spacing:.15em;text-transform:uppercase}
@@ -322,6 +330,12 @@ footer .nm{font-family:var(--disp);font-size:18px;color:#E8EAF0}
     <figure class="slot ph"><img src="img/portret.jpg" alt="Agata de Latour" style="object-position:center 26%"></figure>
   </div>
 </section>
+
+<div class="topics">
+  <div class="wrap">
+    <span>Intercultural relations</span><span>Inclusive leadership</span><span>Active listening</span><span>Countering hate speech</span>
+  </div>
+</div>
 
 <div class="ticker">
   <div class="wrap">
