@@ -111,7 +111,7 @@ h1 em{font-style:italic;color:var(--acc)}
 .hero .slot{position:absolute;right:0;top:58px;bottom:58px;width:min(40vw,430px);margin:0}
 @media (max-width:1100px){
   .hero{overflow:visible}
-  .hero .slot{position:static;width:auto;max-width:380px;aspect-ratio:4/3;margin-top:34px}
+  .hero .slot{position:relative;width:auto;max-width:380px;aspect-ratio:4/3;margin-top:34px}
   .hero .txt{max-width:none}
 }
 
@@ -255,6 +255,12 @@ footer .wrap{padding-block:34px 40px;display:flex;gap:28px;flex-wrap:wrap;font-s
 footer .sp{flex:1}
 footer .nm{font-family:var(--disp);font-size:18px;color:#E8EAF0}
 
+@media (max-width:700px){
+  .bar{padding:7px 16px;gap:10px}
+  .bar b{font-size:9.5px}
+  .bar span{font-size:10.5px}
+  .bar button{display:none}
+}
 @media (max-width:900px){
   .wrap{padding-inline:22px}
   .hero .wrap,.story .wrap,.creed .wrap,.stance .wrap,.letter .wrap{grid-template-columns:minmax(0,1fr);gap:30px}

@@ -84,7 +84,7 @@ h1 em{font-style:normal;color:var(--yellow)}
 @media (max-width:1100px){
   .hero::before{opacity:.22}
   .hero .txt{max-width:none}
-  .hero .slot{position:static;transform:none;width:auto;max-width:300px;aspect-ratio:4/3;margin-top:30px}
+  .hero .slot{position:relative;transform:none;width:auto;max-width:300px;aspect-ratio:4/3;margin-top:30px}
 }
 
 /* pasek instytucji */
@@ -202,6 +202,13 @@ body.locked #gate{display:flex}
 #gate .err{min-height:20px;margin-top:12px;font-size:15px;color:#B3261E;opacity:0;transition:.2s}
 #gate.bad .err{opacity:1}
 
+@media (max-width:700px){
+  header{top:33px}
+  .bar{padding:7px 16px;gap:10px}
+  .bar b{font-size:9.5px}
+  .bar span{font-size:10.5px}
+  .bar button{display:none}
+}
 @media (max-width:900px){
   .wrap{padding-inline:20px}
   .story .wrap,.creed .wrap,.stance .wrap,.hate .wrap,.letter .wrap{grid-template-columns:minmax(0,1fr);gap:28px}
