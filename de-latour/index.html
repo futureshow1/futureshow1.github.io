@@ -155,7 +155,10 @@ h1 em{font-style:italic;color:var(--acc)}
 
 /* ——— credo ——— */
 .creed{background:var(--c1);color:#fff}
-.creed .wrap{padding-block:76px;display:grid;grid-template-columns:repeat(2,1fr);gap:54px}
+.creed .wrap{padding-block:76px;display:grid;grid-template-columns:1.25fr .75fr;gap:60px;align-items:end}
+.creed .wrap>div:first-child p{font-size:clamp(25px,3.1vw,37px);line-height:1.22;font-weight:400}
+.creed .wrap>div:last-child p{font-size:clamp(16.5px,1.6vw,19px);line-height:1.6;font-weight:400;
+  opacity:.82;border-left:2px solid rgba(255,255,255,.4);padding-left:20px;padding-block:2px}
 .creed p{font-family:var(--disp);font-variation-settings:"SOFT" 50,"WONK" 1;font-weight:300;
   font-size:clamp(21px,2.5vw,27px);line-height:1.38;letter-spacing:-.018em}
 .creed small{display:block;font-family:var(--body);font-size:12px;font-weight:600;letter-spacing:.14em;
