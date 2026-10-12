@@ -1,7 +1,8 @@
 Zdjęcia Agaty — jej własny materiał, przekazany przez Jana 12.10.2026.
 Zastąpiły wcześniejsze zdjęcia zastępcze ze StockSnap (CC0), które usunięto.
 
-portret.jpg       portret (selfie)
+portret.jpg       portret — czytanie, ciepłe światło (główny, hero)
+portret-selfie.jpg  wcześniejszy portret-selfie, zapasowy
 training.jpg      prowadzenie sesji, widok z wnętrza grupy — warsztat, maj 2023
 facilitation.jpg  wykład „Compétences interculturelles" przy slajdzie
 advisory.jpg      grupa przed budynkiem, zakończenie cyklu
