@@ -8,7 +8,7 @@
 <link rel="icon" href="icon/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="icon/favicon-180.png">
 <meta name="theme-color" content="#2B36C9">
-<title>Agata de Latour — kolor</title>
+<title>Agata de Latour — biały</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..500&family=Karla:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
@@ -68,12 +68,12 @@ header{border-bottom:1px solid var(--rule)}
 header .wrap{display:flex;align-items:center;gap:30px;padding-block:24px}
 .mark{font-family:var(--disp);font-size:25px;letter-spacing:-.015em;font-weight:500}
 .mark i{font-style:normal;color:var(--acc)}
-nav{margin-left:auto;display:flex;gap:26px;font-size:15px;color:var(--soft)}
+nav{margin-left:auto;display:flex;gap:30px;font-size:17px;font-weight:500;letter-spacing:-.005em;color:var(--ink)}
 nav a{position:relative;padding-bottom:2px}
 nav a::after{content:'';position:absolute;inset:auto 0 0 0;height:1.5px;background:var(--acc);
   transform:scaleX(0);transform-origin:left;transition:transform .26s cubic-bezier(.4,0,.2,1)}
 nav a:hover::after{transform:scaleX(1)}
-.lang{display:flex;gap:9px;font-size:11.5px;font-weight:600;letter-spacing:.14em;color:var(--soft)}
+.lang{display:flex;gap:10px;font-size:13px;font-weight:600;letter-spacing:.12em;color:var(--soft)}
 .lang s{text-decoration:none;opacity:.4}
 
 /* ——— slot na zdjęcie ——— */
@@ -128,7 +128,7 @@ h1 em{font-style:italic;color:var(--acc)}
 /* ——— pasek instytucji ——— */
 .topics{border-bottom:1px solid var(--rule);background:var(--paper)}
 .topics .wrap{display:flex;gap:30px;flex-wrap:wrap;padding-block:17px}
-.topics span{position:relative;padding-left:17px;font-size:14px;font-weight:600;letter-spacing:.015em}
+.topics span{position:relative;padding-left:18px;font-size:15px;font-weight:600;letter-spacing:.01em}
 .topics span::before{content:'';position:absolute;left:0;top:.52em;width:9px;height:9px;border-radius:50%}
 .topics span:nth-child(1)::before{background:var(--c1)}
 .topics span:nth-child(2)::before{background:var(--c2)}
@@ -181,17 +181,6 @@ h1 em{font-style:italic;color:var(--acc)}
   text-transform:uppercase;opacity:.6;margin-top:18px}
 
 /* ——— stanowisko ——— */
-.hate{border-block:1px solid var(--rule)}
-.hate .wrap{padding-block:80px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:start}
-.hate h2{font-family:var(--disp);font-variation-settings:"SOFT" 60,"WONK" 1;font-style:italic;font-weight:400;
-  font-size:clamp(30px,4.4vw,52px);line-height:1.04;letter-spacing:-.03em;color:var(--acc);max-width:11ch}
-.hate .gloss{font-size:11.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);margin-top:20px}
-.hate ul{list-style:none}
-.hate li{font-family:var(--disp);font-variation-settings:"SOFT" 40;font-weight:400;
-  font-size:clamp(19px,2.1vw,25px);line-height:1.46;letter-spacing:-.016em}
-.hate li+li{margin-top:2px}
-.hate .after{margin-top:28px;font-size:16.5px;line-height:1.74;color:var(--soft);max-width:44ch}
-.hate .src{margin-top:22px;font-size:11px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--soft)}
 
 /* ——— bramka ——— */
 body.locked{overflow:hidden}
@@ -292,8 +281,7 @@ footer .nm{font-family:var(--disp);font-size:18px;color:#E8EAF0}
   .hero .wrap,.story .wrap,.creed .wrap,.stance .wrap,.letter .wrap{grid-template-columns:minmax(0,1fr);gap:30px}
   .hero .wrap{padding-block:46px 40px}
   .hero .slot{aspect-ratio:4/3;max-width:360px}
-  .cards,.steps,.clients ul,.hate .wrap{grid-template-columns:minmax(0,1fr)}
-  .hate .wrap{padding-block:52px;gap:28px}
+  .cards,.steps,.clients ul{grid-template-columns:minmax(0,1fr)}
   nav{display:none}
   .story .lab{padding-top:0}
   .work,.story,.method{padding-block:54px}
@@ -317,7 +305,7 @@ footer .nm{font-family:var(--disp);font-size:18px;color:#E8EAF0}
 </div>
 
 <div class="bar">
-  <b>Agata de Latour</b><span style="opacity:.8;font-size:11.5px">kolor · <a href="pop.html" style="color:#E8EAF0">pop →</a></span>
+  <b>Agata de Latour</b><span style="opacity:.8;font-size:11.5px">biały · <a href="pop.html" style="color:#E8EAF0">pop →</a></span>
   <div class="sp"></div>
   <button id="bPhone">Telefon</button>
 </div>
@@ -351,11 +339,9 @@ footer .nm{font-family:var(--disp);font-size:18px;color:#E8EAF0}
 
 <div class="topics">
   <div class="wrap">
-    <span>Intercultural relations</span><span>Inclusive leadership</span><span>Active listening</span><span>Countering hate speech</span>
+    <span>Intercultural relations</span><span>Inclusive leadership</span><span>Active listening</span><span>Working through conflict</span>
   </div>
 </div>
-
-<div class="band-wide"><img src="img/scena.jpg" alt="" style="object-position:center 38%"></div>
 
 <section class="work" id="work">
   <div class="wrap">
@@ -396,7 +382,7 @@ footer .nm{font-family:var(--disp);font-size:18px;color:#E8EAF0}
       <p>Living between Polish and French, I spent years noticing what travels between two cultures and what quietly does not. What came of that is adaptability — not a talent, a habit built from observation, comparison and a great deal of being wrong. I made a profession of it: first as a journalist and translator in Brussels, then as a sworn interpreter in courtrooms — where a sentence is not finished until someone has said it again in the other language and both sides accept that this is what was said.</p>
       <p>That is where the real work turned out to be. Not vocabulary: knowing what a person meant, what they said instead, and which of the two to carry across.</p>
         <p>Then I stopped describing Europe and started working inside it — European projects at <strong>Pour la Solidarité</strong> in Brussels and later at <strong>ALDA</strong>, intercultural education with the <strong>Ligue de l'enseignement</strong>, and the “Making peace” programme at <strong>Lieu d'Europe</strong> in Strasbourg.</p>
-      <p>In 2016 the Council of Europe asked me to research and edit its handbook on answering hate speech. I spent a year reading the worst things people say to each other, and the best replies anyone had found. The most useful thing I learned was not what to say back. It was when not to.</p>
+      <p>In 2016 the Council of Europe asked me to research and edit its handbook on <strong>answering hate speech</strong>. I spent a year reading the worst things people say to each other, and the best replies anyone had found. The most useful thing I learned was not what to say back. It was when not to.</p>
       <p>Since then I have worked with teams receiving refugees — <strong>SINGA</strong>, <strong>KODIKO</strong> — with the <strong>City of Strasbourg</strong> at its day centre, La T'Rêve, with departments whose forms nobody returns, and with organisations where something was said in a meeting two years ago and has not been mentioned since. Working with people who travelled much further than I did — from the Middle East, from Central and South Asia — has widened all of it again.</p>
       <p>I do not make the difference disappear. I make it workable — and worth having.</p>
     </div>
@@ -412,26 +398,6 @@ footer .nm{font-family:var(--disp);font-size:18px;color:#E8EAF0}
     </div>
     <div>
       <p>The problem is not necessarily the conflict. It is the hatred that comes with it, and the fantasies that feed it.</p>
-    </div>
-  </div>
-</section>
-
-<section class="hate">
-  <div class="wrap">
-    <div>
-      <h2>Comment haïr moins&nbsp;?</h2>
-      <p class="gloss">How do we hate less?</p>
-    </div>
-    <div>
-      <ul>
-        <li>Talk about facts.</li>
-        <li>About daily reality.</li>
-        <li>About the impact.</li>
-        <li>About emotions.</li>
-        <li>Step out of the fantasies.</li>
-        <li>Step out of the pictures we carry of each other.</li>
-      </ul>
-      <p class="after">And little by little, when people really meet, something changes. Often they discover that there is suffering on both sides.</p>
     </div>
   </div>
 </section>
