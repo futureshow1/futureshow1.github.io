@@ -141,10 +141,11 @@ h1 em{font-style:italic;color:var(--acc)}
 .work .lab{color:var(--acc);display:block;margin-bottom:10px}
 .work h2{font-family:var(--disp);font-weight:400;font-size:clamp(27px,3.4vw,38px);
   letter-spacing:-.025em;max-width:24ch;margin-bottom:44px}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:26px}
 .card{display:flex;flex-direction:column;--c:var(--c1);--cs:var(--c1s);--ct:#fff}
 .card.c2{--c:var(--c2);--cs:var(--c2s)}
 .card.c3{--c:var(--c3);--cs:var(--c3s);--ct:var(--ink)}
+.card.c4{--c:var(--c4);--cs:var(--c4s)}
 .card .slot{border-top:10px solid var(--c)}
 .card h3{color:var(--c)}
 .card .slot{aspect-ratio:4/3;margin-bottom:20px}
@@ -305,7 +306,7 @@ footer .nm{font-family:var(--disp);font-size:18px;color:#E8EAF0}
 </div>
 
 <div class="bar">
-  <b>Agata de Latour</b><span style="opacity:.8;font-size:11.5px">biały · <a href="pop.html" style="color:#E8EAF0">pop →</a></span>
+  <b>Agata de Latour</b>
   <div class="sp"></div>
   <button id="bPhone">Telefon</button>
 </div>
@@ -346,24 +347,31 @@ footer .nm{font-family:var(--disp);font-size:18px;color:#E8EAF0}
 <section class="work" id="work">
   <div class="wrap">
     <span class="lab">Work with Agata</span>
-    <h2>Three ways we can work together.</h2>
+    <h2>Four ways we can work together.</h2>
     <div class="cards">
 
       <article class="card c1">
-        <figure class="slot ph"><img src="img/training.jpg" alt="" style="object-position:62% center"></figure>
-        <h3>Training</h3>
-        <p>Your team already has the material. It is the three or four incidents nobody brings up: the client who would not deal with a woman, the meeting where the interpreter softened something, the colleague who stopped speaking up in March. I collect them anonymously two weeks beforehand, and we spend the day on those.</p>
-        <div class="who"><b>For</b>organisations working with newcomers, local government, schools, multinational teams</div>
+        <figure class="slot"><span>one to one<br>interior, two chairs, daylight</span></figure>
+        <h3>Coaching</h3>
+        <p>One to one, usually over a few months. For people who cross a difference every day: a manager in a multinational team, someone who has just landed inside a French institution, a leader whose authority reads differently to everyone in the room. We work on what you will actually say on Monday, not on who you are.</p>
+        <div class="who"><b>For</b>managers, team leads, people starting again in a new country</div>
       </article>
 
       <article class="card c2">
-        <figure class="slot ph"><img src="img/facilitation.jpg" alt="" style="object-position:center 30%"></figure>
-        <h3>Facilitation</h3>
-        <p>Some meetings cannot be chaired, only held. Consultations where the decision is already resented, a team meeting after a conflict, two sides at one table who each believe the other has already won. I prepare with each side separately, run the day, and write the note afterwards in language both sides can sign.</p>
-        <div class="who"><b>For</b>public institutions, organisations in crisis, teams after a change</div>
+        <figure class="slot ph"><img src="img/training.jpg" alt="" style="object-position:62% center"></figure>
+        <h3>Training</h3>
+        <p>There is almost no lecture. What people leave with comes out of the group itself and out of simulations. Two weeks beforehand I collect, anonymously, the incidents your team already knows — the client who would not deal with a woman, the meeting where the interpreter softened something, the colleague who stopped speaking up in March — and we spend the day practising on those.</p>
+        <div class="who"><b>For</b>organisations working with newcomers, local government, schools, multinational teams</div>
       </article>
 
       <article class="card c3">
+        <figure class="slot ph"><img src="img/facilitation.jpg" alt="" style="object-position:center 30%"></figure>
+        <h3>Facilitation</h3>
+        <p>Here I do not bring a programme. I join a process that is already running and stay with it: consultations where the decision is already resented, a team meeting after a conflict, two sides at one table who each believe the other has already won. I prepare with each side separately, hold the day itself, and write the note afterwards in language both sides can sign.</p>
+        <div class="who"><b>For</b>public institutions, organisations in crisis, teams after a change</div>
+      </article>
+
+      <article class="card c4">
         <figure class="slot ph"><img src="img/advisory.jpg" alt=""></figure>
         <h3>Advisory</h3>
         <p>Your form is the first conversation your institution has with a person. Very often it is also the last. I go through the materials, the language, the procedures and the whole path someone takes to reach you, and come back with a list of what turns people away and what can be changed inside a month.</p>
@@ -455,8 +463,8 @@ footer .nm{font-family:var(--disp);font-size:18px;color:#E8EAF0}
 <section class="letter" id="contact">
   <div class="wrap">
     <div>
-      <h3>A letter once a month</h3>
-      <p>One situation, one question, one thing to try. I write when I have something worth saying, which is roughly monthly. No offers.</p>
+      <h3>A letter, now and then</h3>
+      <p>One situation, one question, one thing to try. I write when I have something worth saying. No offers.</p>
     </div>
     <div class="field"><input placeholder="your email address" id="mail"><button>Subscribe</button></div>
   </div>
