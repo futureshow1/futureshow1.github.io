@@ -52,14 +52,6 @@ nav.solid{background:var(--panel);backdrop-filter:blur(14px);
 .offer-btn{flex:none;background:var(--cyan);color:#05131c;border-color:var(--cyan);font-weight:600;white-space:nowrap}
 .offer-btn:hover{filter:brightness(1.1)}
 @media(max-width:700px){.offer{gap:14px}.offer-btn{width:100%;text-align:center}}
-.claim{position:absolute;top:66px;left:0;right:0;z-index:6;text-align:center;
-  padding:10px 4vw;pointer-events:none}
-.claim b{display:block;font-size:clamp(17px,2.2vw,23px);font-weight:800;
-  letter-spacing:.01em;text-shadow:0 2px 18px rgba(0,0,0,.95),0 0 40px rgba(0,0,0,.6)}
-.claim span{display:block;margin-top:5px;font-family:var(--mono);
-  font-size:clamp(10.5px,1.2vw,12.5px);letter-spacing:.06em;color:var(--dim);
-  text-shadow:0 2px 14px rgba(0,0,0,.95)}
-@media(max-width:640px){.claim{top:58px}.claim span{display:none}}
 .logo span{color:var(--cyan)}
 .navlinks{display:flex;gap:18px;font-size:13.5px;color:var(--dim)}
 .navlinks a{white-space:nowrap}
@@ -361,7 +353,6 @@ footer a{color:var(--dim)} footer a:hover{color:var(--ink)}
 </nav>
 
 <header class="hero" id="hero"></header>
-<div class="claim"><b data-i="claim1"></b><span data-i="claim2"></span></div>
 <section class="offer" id="offer">
   <div class="offer-txt"><b data-i="of_title"></b><span data-i="of_lede"></span></div>
   <a class="btn offer-btn" href="studio/" data-i="of_cta"></a>
@@ -988,11 +979,9 @@ const FEATURED = ["awangarda", "sejm", "sluchowiska", "hinton", "kinonieme", "po
                   "futuretalk", "sheldrake", "mondrian", "przyluski"];
 
 const UI = {
- pl:{claim1:"Zamieniamy trudne tematy w rzeczy do klikania.",
-  claim2:"Studio FutureShow: portale wiedzy, śledztwa, symulatory i gry. Bez reklam i bez kont.",
-  logodesc:"portal wiedzy i zabawy",
-  of_title:"Robimy to na zamówienie.",
-  of_lede:"Interaktywne portale wiedzy, wizualizacje danych, symulatory i gry edukacyjne — dla muzeów, mediów, instytucji kultury i organizacji. Poniżej projekty, które zbudowaliśmy.",
+ pl:{  logodesc:"portal wiedzy i zabawy",
+  of_title:"Zamieniamy trudne tematy w rzeczy do klikania.",
+  of_lede:"Robimy to na zamówienie: portale wiedzy, śledztwa, wizualizacje danych, symulatory i gry edukacyjne — dla muzeów, mediów, instytucji kultury i organizacji. Bez reklam i bez kont. Poniżej projekty, które zbudowaliśmy.",
   of_cta:"Zamówienia →",
   nav_home:"O nas",nav_apps:"Aplikacje",nav_new:"Nowości",nav_data:"Śledztwa",nav_know:"Wiedza",nav_stream:"Streaming",nav_sim:"Symulatory",nav_games:"Gry",nav_films:"Filmy",nav_hidden:"Niepubliczne",
   nav_studio:"Zamówienia",nav_contact:"Kontakt",nav_order:"Zamówienia",search:"szukaj projektu…",
@@ -1004,11 +993,9 @@ const UI = {
   s_cta1:"✉ Napisz do nas",s_cta2:"Zacznij projekt →",
   f_priv:"Bez cookies. Jedyny pomiar to bezcookiesowy licznik odwiedzin (GoatCounter).",
   trust:["nominacja EFA 2009","„Persona” Krystiana Lupy","nagroda MKiDN 2007","wykłady: Praga · Bezalel"]},
- en:{claim1:"We turn hard subjects into things you can click.",
-  claim2:"FutureShow studio: knowledge portals, investigations, simulators and games. No ads, no accounts.",
-  logodesc:"knowledge & play",
-  of_title:"We build these to order.",
-  of_lede:"Interactive knowledge portals, data visualisations, simulators and educational games — for museums, media, cultural institutions and NGOs. Below: the projects we have built.",
+ en:{  logodesc:"knowledge & play",
+  of_title:"We turn hard subjects into things you can click.",
+  of_lede:"We build them to order: knowledge portals, investigations, data visualisations, simulators and educational games — for museums, media, cultural institutions and NGOs. No ads, no accounts. Below: the projects we have built.",
   of_cta:"Commissions →",
   nav_home:"About us",nav_apps:"Apps",nav_new:"New",nav_data:"Investigations",nav_know:"Knowledge",nav_stream:"Streaming",nav_sim:"Simulators",nav_games:"Games",nav_films:"Films",nav_hidden:"Non-public",
   nav_studio:"Commissions",nav_contact:"Contact",nav_order:"Commissions",search:"search projects…",
