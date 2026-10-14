@@ -1225,7 +1225,9 @@ const POSTER = {sluchowiska:1,kinonieme:1,futurepilot:1,klimat:1,psychedelic:1,p
 /* zdjecia pionowe / kadry filmowe, ktore dobrze znosza przyciecie do 2:3 — reszta pokazuje sie jako pasek 16:9 */
 const FULL = {mnemo:1,mondrian:1,schizogra:1,przyluski:1,hinton:1,switkowski:1,sejm:1,nbody:1,awangarda:1,dobranocki:1};
 Object.keys(VID).forEach(k=>{ FULL[k]=1; });   // filmy: miniatura na całą kartę
-const posterImg = k => POSTER[k] ? ASSET+k+"-p.jpg" : (gal(k)[0]||null);
+/* kafelki bez własnego plakatu dostają lekką miniaturę -c.jpg zamiast pełnego zdjęcia z galerii */
+const CARD = {awangarda:1,dobranocki:1,mnemo:1,hinton:1,sheldrake:1,mondrian:1,nbody:1,sejm:1,switkowski:1,przyluski:1,futureform:1};
+const posterImg = k => POSTER[k] ? ASSET+k+"-p.jpg" : (CARD[k] ? ASSET+k+"-c.jpg" : (gal(k)[0]||null));
 
 function posterHTML(key){
  const p=P[key];
@@ -1326,7 +1328,7 @@ function renderHero(){
  const slides=FEATURED.map((k,ix)=>{
   const p=P[k], g=gal(k);
   const imgs=g.length
-   ? g.map((u,j)=>`<img src="${u}" ${j?`loading="lazy"`:""} class="${j===0?"cur":""}" alt="">`).join("")
+   ? g.map((u,j)=>`<img data-src="${u}" decoding="async" class="${j===0?"cur":""}" alt="">`).join("")
    : `<div style="position:absolute;inset:0;background:
       radial-gradient(ellipse 75% 90% at 78% 10%, ${p.pal.acc}26, transparent 60%),
       linear-gradient(160deg,#0a0e17 0%,#05070c 70%)"></div>`;
@@ -1351,13 +1353,28 @@ function renderHero(){
   <button class="h-arr h-arr--r" data-hnav="1" aria-label="następny">›</button>
   <div class="h-dots">${FEATURED.map((_,ix)=>
    `<button class="h-dot ${ix===heroIx?"on":""}" data-goto="${ix}" aria-label="slajd ${ix+1}"></button>`).join("")}</div>`;
+ heroZaladuj(heroIx);
+}
+/* Zdjęcia hero wiszą w data-src i startują dopiero przy swoim slajdzie:
+   pierwsze wejście pobiera jeden slajd zamiast wszystkich dwudziestu. */
+function heroZaladuj(ix){
+ const n=FEATURED.length;
+ [[ix,"wszystkie"],[(ix+1)%n,"pierwsze"]].forEach(([i,ile])=>{
+  const sl=document.querySelector(`.h-slide[data-ix="${i}"]`); if(!sl)return;
+  const imgs=[...sl.querySelectorAll("img[data-src]")];
+  (ile==="wszystkie"?imgs:imgs.slice(0,1)).forEach((im,j)=>{
+   if(i===ix&&j===0)im.setAttribute("fetchpriority","high");
+   im.src=im.dataset.src; im.removeAttribute("data-src");
+  });
+ });
 }
 function heroGo(ix){
  heroIx=(ix+FEATURED.length)%FEATURED.length;
  const tr=document.getElementById("htrack");
  if(tr)tr.style.transform=`translateX(-${heroIx*100}%)`;
  document.querySelectorAll(".h-slide").forEach(b=>b.classList.toggle("act",+b.dataset.ix===heroIx));
- document.querySelectorAll(".h-dot").forEach(b=>b.classList.toggle("on",+b.dataset.goto===heroIx));}
+ document.querySelectorAll(".h-dot").forEach(b=>b.classList.toggle("on",+b.dataset.goto===heroIx));
+ heroZaladuj(heroIx);}
 function heroSwipe(){
  const tr=document.getElementById("htrack"); if(!tr||tr.dataset.swipe)return;
  tr.dataset.swipe="1";
@@ -1624,7 +1641,7 @@ openFromHash();
    document.getElementById("anList").innerHTML=APPS.map(k=>{
      const p=P[k]; if(!p) return "";
      const opis=ss(p).slice(0,2).join(" · ");
-     const foto=gal(k)[0]||"";
+     const foto=posterImg(k)||gal(k)[0]||"";   // miniatura, nie pełne zdjęcie
      return `<a class="an-item" href="${p.link}" target="_blank" rel="noopener" data-app="${k}">
        ${foto?`<img class="an-thumb" src="${foto}" alt="" loading="lazy">`:`<span class="an-dot" style="background:${p.pal.acc}"></span>`}
        <span class="an-txt"><b>${tt(p)}</b><span>${opis}</span></span>
