@@ -1226,7 +1226,7 @@ const POSTER = {sluchowiska:1,kinonieme:1,futurepilot:1,klimat:1,psychedelic:1,p
 const FULL = {mnemo:1,mondrian:1,schizogra:1,przyluski:1,hinton:1,switkowski:1,sejm:1,nbody:1,awangarda:1,dobranocki:1};
 Object.keys(VID).forEach(k=>{ FULL[k]=1; });   // filmy: miniatura na całą kartę
 /* kafelki bez własnego plakatu dostają lekką miniaturę -c.jpg zamiast pełnego zdjęcia z galerii */
-const CARD = {awangarda:1,dobranocki:1,mnemo:1,hinton:1,sheldrake:1,mondrian:1,nbody:1,sejm:1,switkowski:1,przyluski:1,futureform:1};
+const CARD = {awangarda:1,dobranocki:1,mnemo:1,hinton:1,sheldrake:1,mondrian:1,nbody:1,sejm:1,switkowski:1,przyluski:1,futureform:1,janweb:1,futuretalk:1};
 const posterImg = k => POSTER[k] ? ASSET+k+"-p.jpg" : (CARD[k] ? ASSET+k+"-c.jpg" : (gal(k)[0]||null));
 
 function posterHTML(key){
