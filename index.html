@@ -982,12 +982,10 @@ const ROWS = [
 ];
 
 /* kolejność ustalona ręcznie przez Jana (5.10): najpierw nowości, potem przemieszane rodzaje */
-const FEATURED = ["sluchowiska", "hinton", "kinonieme", "pokedex", "futurepilot", "historia", "klimat", "dobranocki", "sectio", "oilgas",
-                  "awangarda", "cardiosim", "polskijazz", "matryca", "mnemo", "futuretalk", "sheldrake",
-                  "mondrian", "przyluski"];
-/* 7.10.2026: AI, Explained na 1. pozycji — premiera edycji cyberpunk */
-/* Symulator Sejmu wchodzi na 2. pozycję w dniu premiery (6.10.2026) i nie wymaga wgrywania zmian */
-if(new Date() >= new Date(2026,9,6) && !FEATURED.includes("sejm")) FEATURED.splice(1,0,"sejm");
+/* kolejność ustalona ręcznie (14.10): Kino Awangardy otwiera, Sejm po premierze zostaje na 2. pozycji */
+const FEATURED = ["awangarda", "sejm", "sluchowiska", "hinton", "kinonieme", "pokedex", "futurepilot", "historia", "klimat",
+                  "dobranocki", "sectio", "oilgas", "cardiosim", "polskijazz", "matryca", "mnemo",
+                  "futuretalk", "sheldrake", "mondrian", "przyluski"];
 
 const UI = {
  pl:{claim1:"Zamieniamy trudne tematy w rzeczy do klikania.",
