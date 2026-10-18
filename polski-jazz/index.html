@@ -189,25 +189,34 @@ footer .fx{font-family:var(--mono);letter-spacing:.15em;color:var(--gold);margin
 .langbtn:hover{color:var(--gold);border-color:var(--gold)}
 .langbtn.active{background:var(--cream);border-color:var(--cream);color:var(--bg);font-weight:500}
 
-/* ---------- ODTWARZACZ CIĄGŁY ---------- */
-#player{position:fixed;right:1.2rem;bottom:1.2rem;z-index:260;width:342px;max-width:calc(100vw - 2rem);background:var(--card);border:1px solid var(--gold);border-radius:12px;box-shadow:0 18px 60px rgba(0,0,0,.72);overflow:hidden;display:none}
+/* ---------- ODTWARZACZ CIĄGŁY: pasek u góry, pod nawigacją ---------- */
+:root{--navh:56px}
+#player{position:sticky;top:var(--navh);z-index:99;display:none;background:rgba(17,16,19,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--gold);box-shadow:0 14px 40px rgba(0,0,0,.5)}
 #player.on{display:block}
-.pl-head{display:flex;align-items:center;gap:.5rem;padding:.55rem .7rem;border-bottom:1px solid var(--line);background:var(--bg2)}
-.pl-kicker{font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;color:var(--gold);text-transform:uppercase}
-.pl-pos{font-family:var(--mono);font-size:.62rem;color:var(--cream-dim);margin-left:auto}
-.pl-x{background:none;border:none;color:var(--cream-dim);cursor:pointer;font-size:.9rem;line-height:1;padding:0 .15rem}
-.pl-x:hover{color:var(--red)}
-.pl-video{position:relative;width:100%;aspect-ratio:16/9;background:#000}
+.pl-bar{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:.9rem;align-items:center;padding:.55rem 1.2rem}
+.pl-video{position:relative;width:128px;aspect-ratio:16/9;background:#000;border-radius:6px;overflow:hidden;cursor:pointer;flex:none;transition:width .25s}
 .pl-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.pl-body{padding:.6rem .75rem .75rem}
-.pl-title{font-size:.85rem;font-weight:700;line-height:1.3;margin-bottom:.15rem}
-.pl-sub{font-family:var(--mono);font-size:.66rem;color:var(--gold);margin-bottom:.55rem}
-.pl-ctrl{display:flex;align-items:center;gap:.4rem}
-.pl-btn{flex:1;font-family:var(--mono);font-size:.7rem;letter-spacing:.05em;padding:.35rem .3rem;border-radius:6px;border:1px solid var(--line);background:transparent;color:var(--cream-dim);cursor:pointer;transition:all .2s}
+.pl-video::after{content:"⤢";position:absolute;right:4px;bottom:3px;font-size:11px;color:#fff;background:rgba(0,0,0,.55);padding:1px 5px;border-radius:4px;pointer-events:none}
+#player.big .pl-bar{grid-template-columns:auto minmax(0,1fr) auto}
+#player.big .pl-video{width:min(480px,60vw)}
+#player.big .pl-video::after{content:"⤡"}
+.pl-meta{min-width:0}
+.pl-kicker{font-family:var(--mono);font-size:.6rem;letter-spacing:.16em;color:var(--gold);text-transform:uppercase}
+.pl-title{font-size:.95rem;font-weight:700;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pl-sub{font-family:var(--mono);font-size:.66rem;color:var(--cream-dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pl-prog{display:flex;align-items:center;gap:.5rem;margin-top:.35rem}
+.pl-time{font-family:var(--mono);font-size:.6rem;color:var(--cream-dim);min-width:34px}
+.pl-track{flex:1;height:4px;background:rgba(255,255,255,.12);border-radius:2px;cursor:pointer;position:relative}
+.pl-fill{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--gold);border-radius:2px}
+.pl-ctrl{display:flex;align-items:center;gap:.35rem;flex-wrap:nowrap}
+.pl-btn{font-family:var(--mono);font-size:.68rem;letter-spacing:.05em;padding:.4rem .55rem;border-radius:6px;border:1px solid var(--line);background:transparent;color:var(--cream-dim);cursor:pointer;transition:all .2s;white-space:nowrap}
 .pl-btn:hover{border-color:var(--gold);color:var(--gold)}
 .pl-btn.act{border-color:var(--red);color:var(--red)}
-#player.min .pl-video,#player.min .pl-body{display:none}
-@media(max-width:640px){#player{right:.6rem;left:.6rem;bottom:.6rem;width:auto}}
+.pl-btn.pp{font-size:.9rem;padding:.3rem .7rem;border-color:var(--gold);color:var(--gold)}
+.pl-pos{font-family:var(--mono);font-size:.62rem;color:var(--cream-dim);padding:0 .3rem}
+.pl-x{background:none;border:none;color:var(--cream-dim);cursor:pointer;font-size:.95rem;line-height:1;padding:0 .25rem}
+.pl-x:hover{color:var(--red)}
+@media(max-width:760px){.pl-bar{grid-template-columns:auto minmax(0,1fr);gap:.6rem;padding:.5rem .7rem}.pl-video{width:96px}.pl-ctrl{grid-column:1/-1;justify-content:space-between}.pl-btn{padding:.35rem .45rem}.pl-prev-txt,.pl-next-txt{display:none}#player.big .pl-video{width:100%;grid-column:1/-1}}
 
 @media(max-width:640px){
   .hero-stats{gap:1.4rem}
@@ -451,20 +460,20 @@ nav.open .nav-burger span:nth-child(3){transform:translateY(-6px) rotate(-45deg)
 </div>
 
 <div id="player">
-  <div class="pl-head">
-    <span class="pl-kicker" data-i18n="pl.kicker">Słuchasz ciągiem</span>
-    <span class="pl-pos" id="pl-pos"></span>
-    <button class="pl-x" id="pl-min" title="—">—</button>
-    <button class="pl-x" id="pl-close" title="✕">✕</button>
-  </div>
-  <div class="pl-video" id="pl-video"></div>
-  <div class="pl-body">
-    <div class="pl-title" id="pl-title"></div>
-    <div class="pl-sub" id="pl-sub"></div>
+  <div class="pl-bar">
+    <div class="pl-video" id="pl-video" title="powiększ / zmniejsz"></div>
+    <div class="pl-meta">
+      <div class="pl-kicker"><span data-i18n="pl.kicker">Słuchasz ciągiem</span> · <span id="pl-pos"></span></div>
+      <div class="pl-title" id="pl-title"></div>
+      <div class="pl-sub" id="pl-sub"></div>
+      <div class="pl-prog"><span class="pl-time" id="pl-cur">0:00</span><div class="pl-track" id="pl-track"><div class="pl-fill" id="pl-fill"></div></div><span class="pl-time" id="pl-dur">–:––</span></div>
+    </div>
     <div class="pl-ctrl">
-      <button class="pl-btn" id="pl-prev" data-i18n="pl.prev">◀ POPRZEDNIA</button>
-      <button class="pl-btn" id="pl-next" data-i18n="pl.next">NASTĘPNA ▶</button>
-      <button class="pl-btn" id="pl-shuf" data-i18n="pl.shuffle" style="flex:0 0 auto;padding:.35rem .6rem">LOSOWO</button>
+      <button class="pl-btn" id="pl-prev" title="poprzednia">◀<span class="pl-prev-txt"> <span data-i18n="pl.prevshort">POPRZ.</span></span></button>
+      <button class="pl-btn pp" id="pl-pp" title="pauza / graj">❚❚</button>
+      <button class="pl-btn" id="pl-next" title="następna"><span class="pl-next-txt"><span data-i18n="pl.nextshort">NAST.</span> </span>▶</button>
+      <button class="pl-btn" id="pl-shuf" data-i18n="pl.shuffle">LOSOWO</button>
+      <button class="pl-x" id="pl-close" title="zamknij">✕</button>
     </div>
   </div>
 </div>
@@ -566,7 +575,7 @@ const T={
   'modal.yt':'otwórz na YouTube ↗','modal.close':'zamknij ✕',
   'card.listen':'▶ SŁUCHAJ','card.search':'SZUKAJ NA YOUTUBE ↗','card.pillar':'★ FILAR KANONU','card.must':'★ MUST-SEE','card.plink':'Kopiuj link do płyty','modal.share':'🔗 kopiuj link',
   'typ.dokument':'dokument','typ.koncert':'koncert','typ.archiwum':'archiwum','typ.wyklad':'wykład/rozmowa','typ.album':'album',
-  'pl.kicker':'Słuchasz ciągiem','pl.prev':'◀ POPRZEDNIA','pl.next':'NASTĘPNA ▶','pl.shuffle':'LOSOWO',
+  'pl.kicker':'Słuchasz ciągiem','pl.prev':'◀ POPRZEDNIA','pl.next':'NASTĘPNA ▶','pl.shuffle':'LOSOWO','pl.prevshort':'POPRZ.','pl.nextshort':'NAST.',
   'toast.copied':'Link skopiowany: ','toast.prompt':'Skopiuj link:','pl.empty':'Brak płyt z nagraniem w tym filtrze.',
   'footer':'Portal edukacyjny — nagrania osadzone z publicznych kanałów YouTube, prawa przy ich właścicielach.<br>Kanon zbudowany na podstawie opracowań (Brodacki, Pietraszewski, Lewenstein i in.) · 2026'
  },
@@ -605,7 +614,7 @@ const T={
   'modal.yt':'open on YouTube ↗','modal.close':'close ✕',
   'card.listen':'▶ LISTEN','card.search':'SEARCH ON YOUTUBE ↗','card.pillar':'★ PILLAR OF THE CANON','card.must':'★ MUST-SEE','card.plink':'Copy link to this record','modal.share':'🔗 copy link',
   'typ.dokument':'documentary','typ.koncert':'concert','typ.archiwum':'archival','typ.wyklad':'lecture/interview','typ.album':'album',
-  'pl.kicker':'Playing all','pl.prev':'◀ PREVIOUS','pl.next':'NEXT ▶','pl.shuffle':'SHUFFLE',
+  'pl.kicker':'Playing all','pl.prev':'◀ PREVIOUS','pl.next':'NEXT ▶','pl.shuffle':'SHUFFLE','pl.prevshort':'PREV','pl.nextshort':'NEXT',
   'toast.copied':'Link copied: ','toast.prompt':'Copy this link:','pl.empty':'No records with a recording in this filter.',
   'footer':'An educational portal — recordings embedded from public YouTube channels; all rights remain with their owners.<br>Canon compiled from the standard works (Brodacki, Pietraszewski, Lewenstein and others) · 2026'
  }
@@ -873,7 +882,7 @@ function startQueue(fromKey){
   if(!queue.length){toast(t('pl.empty'));return;}
   qi=Math.max(0,queue.indexOf(fromKey));
   PLAYER.classList.add('on');
-  PLAYER.classList.remove('min');
+  PLAYER.classList.remove('big');
   playerLabels();
   loadYTAPI();
   playCurrent();
@@ -893,7 +902,35 @@ document.getElementById('pl-next').addEventListener('click',nextTrack);
 document.getElementById('pl-prev').addEventListener('click',prevTrack);
 document.getElementById('pl-shuf').addEventListener('click',()=>{shuffleOn=!shuffleOn;playerLabels();});
 document.getElementById('pl-close').addEventListener('click',stopQueue);
-document.getElementById('pl-min').addEventListener('click',()=>PLAYER.classList.toggle('min'));
+/* pasek odtwarzacza siedzi bezpośrednio pod nawigacją i przykleja się razem z nią */
+(function(){
+  const nav=document.querySelector('nav'); nav.insertAdjacentElement('afterend',PLAYER);
+  const setNavH=()=>document.documentElement.style.setProperty('--navh',nav.offsetHeight+'px');
+  setNavH(); addEventListener('resize',setNavH);
+})();
+document.getElementById('pl-video').addEventListener('click',()=>PLAYER.classList.toggle('big'));
+document.getElementById('pl-pp').addEventListener('click',()=>{
+  if(!ytPlayer||!ytPlayer.getPlayerState)return;
+  const st=ytPlayer.getPlayerState();
+  if(st===YT.PlayerState.PLAYING)ytPlayer.pauseVideo(); else ytPlayer.playVideo();
+});
+document.getElementById('pl-track').addEventListener('click',e=>{
+  if(!ytPlayer||!ytPlayer.getDuration)return;
+  const r=e.currentTarget.getBoundingClientRect(); const f=(e.clientX-r.left)/r.width;
+  ytPlayer.seekTo(f*ytPlayer.getDuration(),true);
+});
+const fmt=s=>{s=Math.max(0,Math.floor(s||0));return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')};
+setInterval(()=>{
+  if(!PLAYER.classList.contains('on')||!ytPlayer||!ytPlayer.getCurrentTime)return;
+  try{
+    const cur=ytPlayer.getCurrentTime(), dur=ytPlayer.getDuration();
+    document.getElementById('pl-cur').textContent=fmt(cur);
+    document.getElementById('pl-dur').textContent=dur?fmt(dur):'–:––';
+    document.getElementById('pl-fill').style.width=dur?(100*cur/dur)+'%':'0%';
+    const st=ytPlayer.getPlayerState();
+    document.getElementById('pl-pp').textContent=(st===YT.PlayerState.PLAYING||st===YT.PlayerState.BUFFERING)?'❚❚':'▶';
+  }catch(e){}
+},500);
 
 /* ============ KLIKNIĘCIA KART ============ */
 document.addEventListener('click',e=>{
