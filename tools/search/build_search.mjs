@@ -29,7 +29,7 @@ for (const p of PORTALS) {
     const title = clean(f.film) + (f.year ? ` (${f.year})` : "");
     await add({
       url: p.url + p.hash + encodeURIComponent(f.id),
-      content: [f.film, f.artist, f.section, f.year, f.channel, f.note, f.country, f.type === "fragment" ? "fragment" : f.type === "documentary" ? "dokument documentary" : ""].map(clean).filter(Boolean).join(". "),
+      content: [f.film, f.artist, f.section, f.year, f.note, f.country, f.type === "fragment" ? "fragment" : f.type === "documentary" ? "dokument documentary" : ""].map(clean).filter(Boolean).join(". "),
       meta: { title, portal: p.name, portal_en: p.name_en, creator: clean(f.artist), section: clean(f.section), year: String(f.year || ""), image: f.thumbnail || "", url_en: p.url + "en/" + p.hash + encodeURIComponent(f.id) },
       filters: { portal: [p.name], typ: [p.typ] },
       sort: { year: String(f.year || 9999) },
@@ -62,7 +62,7 @@ for (const p of PORTALS) {
     const sec = secs[i.section] || {};
     await add({
       url: "https://futureshow.pl/sluchowiska/#" + encodeURIComponent(i.section || ""),
-      content: [i.title, i.title_en, i.author, i.director, Array.isArray(i.performers) ? i.performers.join(", ") : (i.performers || ""), i.source, sec.title, i.note, i.note_en, i.age ? `wiek ${i.age}` : "", i.lang].map(clean).filter(Boolean).join(". "),
+      content: [i.title, i.title_en, i.author, i.director, Array.isArray(i.performers) ? i.performers.join(", ") : (i.performers || ""), sec.title, i.note, i.note_en, i.age ? `wiek ${i.age}` : "", i.lang].map(clean).filter(Boolean).join(". "),
       meta: { title: clean(i.title) + (i.year ? ` (${i.year})` : ""), portal: "Słuchowiska dla dzieci", portal_en: "Audio stories for children", creator: clean(i.author), section: clean(sec.title || ""), year: String(i.year || ""), image: i.cover || "", url_en: "https://futureshow.pl/sluchowiska/en/#" + encodeURIComponent(i.section || "") },
       filters: { portal: ["Słuchowiska"], typ: ["audio"] }, sort: { year: String(i.year || 9999) },
     });

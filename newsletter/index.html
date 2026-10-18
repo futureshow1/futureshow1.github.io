@@ -69,18 +69,18 @@ footer{color:var(--faint);font-family:var(--mono);font-size:11px;text-align:cent
 const UI={
  pl:{kick:"List · raz w miesiącu",h1:"Nowy rozdział",
   lede:"Krótki list z futureshow.pl, zawsze w tym samym układzie. Bez reklam, bez mierzenia otwarć i kliknięć. Wypisanie jednym kliknięciem, od razu.",
-  what:[["Co nowego","Nowe portale, rozdziały i aktualizacje z ostatniego miesiąca, w trzech akapitach."],["Jeden rozdział na dziś wieczór","Jedna rzecz do obejrzenia albo posłuchania, z krótkim wprowadzeniem: dlaczego warto i ile to zajmie."],["Zza kulis","Jedna sprawa z warsztatu: skąd bierzemy filmy, jak sprawdzamy źródła, co się zepsuło i jak to naprawiliśmy."]],
+  what:[["Co nowego","Nowe portale, rozdziały i aktualizacje z ostatniego miesiąca, w trzech akapitach."],["Jeden rozdział na dziś wieczór","Jedna rzecz do obejrzenia albo posłuchania, z krótkim wprowadzeniem: dlaczego warto i ile to zajmie."],["Z pracowni","Jedna rzecz, która właśnie powstaje: nowy rozdział, nowa funkcja albo nagranie odnalezione w archiwach, zanim trafi na stronę."]],
   label:"Twój e-mail",btn:"Zapisz mnie",langq:"Wersja listu:",
   fine:"Adres trafia prosto do nas i służy wyłącznie do wysyłki tego listu. Pierwszy numer wychodzi pod koniec października 2026. Zgodę możesz cofnąć w każdym liście (link na dole) albo mailem na futureshow@proton.me.",
   ok:"Dziękujemy. Jesteś na liście; pierwszy list przyjdzie pod koniec miesiąca.",err:"Nie udało się zapisać. Spróbuj jeszcze raz albo napisz na futureshow@proton.me.",bad:"Wpisz poprawny adres e-mail.",
-  i_t:"Numer 1, październik 2026",i_b:"Premiera Sejm Symulatora, Słuchowiska dla dzieci, Kino nieme, wszystko po angielsku, rozdział o polskim kinie niemym na wieczór i rejestr 2 800 źródeł zza kulis.",back:"← futureshow.pl"},
+  i_t:"Numer 1, październik 2026",i_b:"Premiera Sejm Symulatora, Słuchowiska dla dzieci, Kino nieme, wszystko po angielsku, rozdział o polskim kinie niemym na wieczór i nowa wyszukiwarka po 2 800 filmach i nagraniach.",back:"← futureshow.pl"},
  en:{kick:"Letter · once a month",h1:"New Chapter",
   lede:"A short letter from futureshow.pl, always in the same shape. No ads, no open or click tracking. Unsubscribe with one click, instantly.",
-  what:[["What's new","New portals, chapters and updates from the past month, in three paragraphs."],["One chapter for tonight","One thing to watch or listen to, with a short introduction: why it matters and how long it takes."],["Behind the scenes","One matter from the workshop: where the films come from, how we check sources, what broke and how we fixed it."]],
+  what:[["What's new","New portals, chapters and updates from the past month, in three paragraphs."],["One chapter for tonight","One thing to watch or listen to, with a short introduction: why it matters and how long it takes."],["From the studio","One thing in the making: a new chapter, a new feature or a recording found in the archives, before it goes live."]],
   label:"Your e-mail",btn:"Sign me up",langq:"Letter language:",
   fine:"Your address goes straight to us and is used only to send this letter. The first issue goes out at the end of October 2026. Withdraw consent in any letter (link at the bottom) or by e-mail to futureshow@proton.me.",
   ok:"Thank you. You are on the list; the first letter arrives at the end of the month.",err:"Sign-up failed. Please try again or write to futureshow@proton.me.",bad:"Please enter a valid e-mail address.",
-  i_t:"Issue 1, October 2026",i_b:"Sejm Simulator launch, audio stories for children, Silent Cinema, everything in English, the Polish School of animation for tonight, and a register of 2,800 sources from behind the scenes.",back:"← futureshow.pl/en/"}
+  i_t:"Issue 1, October 2026",i_b:"Sejm Simulator launch, audio stories for children, Silent Cinema, everything in English, the Polish School of animation for tonight, and a new search across 2,800 films and recordings.",back:"← futureshow.pl/en/"}
 };
 const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
 let LANG=(new URLSearchParams(location.search).get("lang"))||store.get("fs-lang")||store.get("lang")||"pl"; if(LANG!=="en")LANG="pl";
