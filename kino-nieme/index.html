@@ -575,7 +575,7 @@
     .nav-btn .cur { max-width: 120px; }
   }
 </style>
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"><link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="canonical" href="https://futureshow.pl/kino-nieme/">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"><link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="canonical" href="https://futureshow.pl/kino-nieme/"><link rel="alternate" hreflang="pl" href="https://futureshow.pl/kino-nieme/"><link rel="alternate" hreflang="en" href="https://futureshow.pl/kino-nieme/en/"><link rel="alternate" hreflang="x-default" href="https://futureshow.pl/kino-nieme/">
 </head>
 <body>
 <script>try{if((localStorage.getItem("kn-motyw")||"dark")==="light")document.body.classList.add("light")}catch(e){}</script>
@@ -1055,7 +1055,7 @@ document.getElementById('themeBtn').addEventListener('click', () => {
   document.body.classList.toggle('light', theme === 'light');
 });
 document.getElementById('langBtn').addEventListener('click', () => {
-  lang = lang === 'pl' ? 'en' : 'pl';
+  lang = lang === 'pl' ? 'en' : 'pl'; /*FS_EN_NAV*/ if(lang==='en'&&!/\/en\/?$/.test(location.pathname)){try{localStorage.setItem('kn-lang','en')}catch(e){}location.href='en/'+location.hash;return;} if(lang==='pl'&&/\/en\/?$/.test(location.pathname)){try{localStorage.setItem('kn-lang','pl')}catch(e){}location.href='../'+location.hash;return;}
   localStorage.setItem('kn-lang', lang);
   applyI18n();
 });

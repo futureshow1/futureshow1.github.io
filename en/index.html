@@ -465,7 +465,7 @@ const P = {
   stats:["33 sprawy","480+ źródeł","PL"],
   d:{pl:"Największe przekręty Big Techu w jednym miejscu: 33 udokumentowane sprawy — od Cambridge Analytiki po Clearview. Kto, komu, ile i czy poniósł konsekwencje. Każde twierdzenie ze źródłem; baza dla dziennikarzy, prawników i obywateli.",
      en:"Big Tech's biggest scams in one place: 33 documented cases — from Cambridge Analytica to Clearview. Who did what to whom, how much it cost and whether anyone paid for it. Every claim sourced; built for journalists, lawyers and citizens."},
-  link:"https://matryca.tech/"},
+  link:"https://matryca.tech/", link_en:"https://futureshow.pl/kino-nieme/en/"},
  sejm:{
   t:"Sejm Symulator", kick:{pl:"Dane · polityka",en:"Data · politics"},
   badge:{pl:"PREMIERA · 19 PAŹDZIERNIKA",en:"PREMIERE · 19 OCTOBER"},
@@ -523,7 +523,7 @@ const P = {
   stats:["564 filmy","119 artystów","30 rozdziałów"],
   d:{pl:"Sto lat kina eksperymentalnego — od dadaistów, przez Mayę Deren i Fluxus, po sztukę post-internetową. 564 filmy z YouTube, oglądane na miejscu.",
      en:"A century of experimental cinema — Dadaists, Maya Deren, Fluxus, post-internet art. 564 films from YouTube, watched in place."},
-  link:"https://futureshow.pl/kino-awangardy/"},
+  link:"https://futureshow.pl/kino-awangardy/", link_en:"https://futureshow.pl/kino-awangardy/en/"},
  sluchowiska:{
   t:"Słuchowiska dla dzieci", kick:{pl:"Streaming · bajki audio",en:"Streaming · audio stories"},
   badge:{pl:"NOWOŚĆ",en:"NEW"},
@@ -532,7 +532,7 @@ const P = {
   stats:["452 nagrania","750 godzin","PL · EN · UK"],
   d:{pl:"Kilkaset godzin bajek do słuchania za darmo: słuchowiska Teatru Polskiego Radia i Radia Dzieciom, bajki muzyczne z winyli Polskich Nagrań, baśnie czytane przez aktorów, teatry lalkowe, Wolne Lektury, LibriVox i stare amerykańskie radio. Gra na stronie, także przy zgaszonym ekranie.",
      en:"Hundreds of hours of free audio stories: Polish Radio dramas, musical fairy tales from vintage vinyls, classics read by actors, puppet theatres, public-domain audiobooks, LibriVox and golden-age American radio. Plays on the page, even with the screen off."},
-  link:"https://futureshow.pl/sluchowiska/"},
+  link:"https://futureshow.pl/sluchowiska/", link_en:"https://futureshow.pl/sluchowiska/en/"},
  kinonieme:{
   t:"Kino Nieme", kick:{pl:"Streaming · kino nieme",en:"Streaming · silent cinema"},
   year:"2026", tag:{pl:"portal filmowy",en:"film portal"}, font:"serif",
@@ -548,7 +548,7 @@ const P = {
   stats:["430 filmów","231 twórców","1833 → dziś"],
   d:{pl:"Cała światowa historia animacji według kanonu Bendazziego — od zabawek optycznych po Pixara i pokolenie internetu. Polska szkoła w samym środku.",
      en:"The entire world history of animation after Bendazzi's canon — from optical toys to Pixar and the internet generation. The Polish school at its heart."},
-  link:"https://futureshow.pl/historia-animacji/"},
+  link:"https://futureshow.pl/historia-animacji/", link_en:"https://futureshow.pl/historia-animacji/en/"},
  dobranocki:{
   t:"Legendarne Dobranocki", kick:{pl:"Streaming · nostalgia",en:"Streaming · nostalgia"},
   year:"2026", tag:{pl:"portal filmowy",en:"film portal"}, font:"disp",
@@ -556,7 +556,7 @@ const P = {
   stats:["326 odcinków","53 bajki","1980–2000"],
   d:{pl:"Kreskówki, które przez dwie dekady kładły Polskę spać — od Bolka i Lolka po Muminki. Każda bajka to gotowa playlista: oglądaj ciągiem.",
      en:"The cartoons that put Poland to sleep for two decades — Bolek i Lolek to the Moomins. Every series is a ready playlist: binge away."},
-  link:"https://futureshow.pl/dobranocki/"},
+  link:"https://futureshow.pl/dobranocki/", link_en:"https://futureshow.pl/dobranocki/en/"},
  mondrian:{
   t:"Mondrian / Malewicz", kick:{pl:"Sztuka · 3D",en:"Art · 3D"},
   year:"2026", tag:{pl:"doświadczenie",en:"experience"}, font:"sans",
@@ -717,7 +717,7 @@ kind:"site", t:"Jan Przyłuski", kick:{pl:"Strona · autor",en:"Site · author"}
   stats:["200 płyt","Polish Jazz vol. 1–89","40 filmów"],
   d:{pl:"Historia polskiego jazzu opowiedziana płytami: cała seria Polish Jazz i reszta kanonu z okładkami, linkami do nagrań, filmoteką i opracowaniami.",
      en:"The history of Polish jazz told through records: the whole Polish Jazz series and the rest of the canon with covers, links to recordings, a film library and essays."},
-  link:BASE+"polski-jazz/"},
+  link:BASE+"polski-jazz/", link_en:BASE+"polski-jazz/?lang=en"},
  futureform:{
 kind:"app", t:"FutureForm", kick:{pl:"Aplikacja · trening",en:"App · training"},
   year:"2026", tag:{pl:"wersja mobilna · za darmo",en:"mobile version · free"}, font:"sans",
@@ -948,6 +948,7 @@ Object.keys(P).forEach(k=>{
  else if(p.kind==="video") p.stats_en=(p.stats||[]).map(x=>TOOL_EN[x]||x);
 });
 const tt=p=>(LANG==="en"&&p.t_en)?p.t_en:p.t;
+const lk=p=>(LANG==="en"&&p.link_en)?p.link_en:p.link;
 const ss=p=>(LANG==="en"&&p.stats_en)?p.stats_en:(p.stats||[]);
 
 
@@ -1334,7 +1335,7 @@ function renderHero(){
     <div class="h-stats">${ss(p).map(x=>`<span class="h-stat">${x}</span>`).join("")}</div>
     <div class="h-ctas">
      ${p.link
-      ?`<a class="btn btn-play" href="${p.link}" target="_blank" rel="noopener">${openLabel(p)}</a>`
+      ?`<a class="btn btn-play" href="${lk(p)}" target="_blank" rel="noopener">${openLabel(p)}</a>`
       :`<a class="btn btn-play" href="mailto:futureshow@proton.me?subject=${encodeURIComponent(p.mailSubject||tt(p))}">${UI[LANG].demo}</a>`}
      <button class="btn btn-info" data-open="${k}">${UI[LANG].more}</button>
     </div>
@@ -1498,7 +1499,7 @@ function openModal(k){
    <div class="m-stats">${ss(p).map(s=>`<span class="m-stat">${s}</span>`).join("")}</div>
    <div class="m-ctas">
     ${p.link
-     ?`<a class="btn btn-play" href="${p.link}" target="_blank" rel="noopener">${openLabel(p)}</a>`
+     ?`<a class="btn btn-play" href="${lk(p)}" target="_blank" rel="noopener">${openLabel(p)}</a>`
      :`<a class="btn btn-play" href="mailto:futureshow@proton.me?subject=${encodeURIComponent(p.mailSubject||tt(p))}">${UI[LANG].demo}</a>`}
     <button class="btn btn-info" id="mclose2" style="backdrop-filter:none;background:rgba(233,237,245,.08)">${UI[LANG].close}</button>
    </div>${contact}${credit}
@@ -1637,7 +1638,7 @@ openFromHash();
      const p=P[k]; if(!p) return "";
      const opis=ss(p).slice(0,2).join(" · ");
      const foto=posterImg(k)||gal(k)[0]||"";   // miniatura, nie pełne zdjęcie
-     return `<a class="an-item" href="${p.link}" target="_blank" rel="noopener" data-app="${k}">
+     return `<a class="an-item" href="${lk(p)}" target="_blank" rel="noopener" data-app="${k}">
        ${foto?`<img class="an-thumb" src="${foto}" alt="" loading="lazy">`:`<span class="an-dot" style="background:${p.pal.acc}"></span>`}
        <span class="an-txt"><b>${tt(p)}</b><span>${opis}</span></span>
        <span class="an-go">→</span></a>`;

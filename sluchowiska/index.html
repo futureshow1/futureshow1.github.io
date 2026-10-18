@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SŁUCHOWISKA DLA DZIECI — darmowe bajki audio, słuchowiska radiowe i audiobooki online</title>
 <meta name="description" content="Zgromadziliśmy dla Ciebie kilkaset godzin darmowych bajek do słuchania: słuchowiska Polskiego Radia, bajki muzyczne z dawnych winyli, baśnie czytane przez aktorów, podcasty, LibriVox i stare amerykańskie radio. Gra na stronie, bez logowania i bez opłat.">
+<link rel="canonical" href="https://futureshow.pl/sluchowiska/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="SŁUCHOWISKA DLA DZIECI — darmowe bajki audio online">
 <meta property="og:description" content="Zgromadziliśmy dla Ciebie kilkaset godzin bajek do słuchania za darmo: słuchowiska radiowe, bajki muzyczne z winyli, baśnie czytane przez aktorów, podcasty. Gra na stronie, bez logowania.">
@@ -186,6 +187,7 @@
   .ft-src { display: flex; flex-wrap: wrap; justify-content: center; gap: .4rem; margin: 1rem 0; }
   .ft-src a { font-family: var(--body); font-weight: 700; font-size: .72rem; background: var(--bg-card); border-radius: 999px; padding: .3rem .7rem; text-decoration: none; color: var(--ink-dim); box-shadow: 0 3px 10px var(--shadow); }
 </style>
+<link rel="alternate" hreflang="pl" href="https://futureshow.pl/sluchowiska/"><link rel="alternate" hreflang="en" href="https://futureshow.pl/sluchowiska/en/"><link rel="alternate" hreflang="x-default" href="https://futureshow.pl/sluchowiska/">
 </head>
 <body>
 
@@ -459,7 +461,7 @@ function applyLang() {
   document.getElementById('titleBot').textContent = lang === 'pl' ? 'DLA DZIECI' : 'FOR KIDS';
   buildChips(); render(); nowRender();
 }
-document.getElementById('langBtn').onclick = () => { lang = lang === 'pl' ? 'en' : 'pl'; localStorage.setItem('sl-lang', lang); applyLang(); };
+document.getElementById('langBtn').onclick = () => { lang = lang === 'pl' ? 'en' : 'pl'; /*FS_EN_NAV*/ if(lang==='en'&&!/\/en\/?$/.test(location.pathname)){try{localStorage.setItem('sl-lang','en')}catch(e){}location.href='en/'+location.hash;return;} if(lang==='pl'&&/\/en\/?$/.test(location.pathname)){try{localStorage.setItem('sl-lang','pl')}catch(e){}location.href='../'+location.hash;return;} localStorage.setItem('sl-lang', lang); applyLang(); };
 const setTheme = th => { document.documentElement.classList.toggle('dark', th === 'dark'); document.getElementById('themeBtn').textContent = th === 'dark' ? '☀' : '☾'; localStorage.setItem('sl-theme', th); };
 setTheme(localStorage.getItem('sl-theme') || 'light');
 document.getElementById('themeBtn').onclick = () => setTheme(document.documentElement.classList.contains('dark') ? 'light' : 'dark');
