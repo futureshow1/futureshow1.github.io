@@ -279,6 +279,7 @@ nav.open .nav-burger span:nth-child(3){transform:translateY(-6px) rotate(-45deg)
 }
 </style>
 <meta name="description" content="Historia polskiego jazzu opowiedziana płytami: kompletna seria Polish Jazz vol. 1–89, Komeda, Stańko, Namysłowski — 200 albumów z okładkami i nagraniami, filmoteka i opracowania.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"><link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="canonical" href="https://futureshow.pl/polski-jazz/">
 </head>
 <body>
@@ -472,6 +473,7 @@ nav.open .nav-burger span:nth-child(3){transform:translateY(-6px) rotate(-45deg)
       <button class="pl-btn" id="pl-prev" title="poprzednia">◀<span class="pl-prev-txt"> <span data-i18n="pl.prevshort">POPRZ.</span></span></button>
       <button class="pl-btn pp" id="pl-pp" title="pauza / graj">❚❚</button>
       <button class="pl-btn" id="pl-next" title="następna"><span class="pl-next-txt"><span data-i18n="pl.nextshort">NAST.</span> </span>▶</button>
+      <button class="pl-btn" id="pl-cont" data-i18n="pl.cont" title="po płycie graj następną">CIĄGŁE</button>
       <button class="pl-btn" id="pl-shuf" data-i18n="pl.shuffle">LOSOWO</button>
       <button class="pl-x" id="pl-close" title="zamknij">✕</button>
     </div>
@@ -575,7 +577,7 @@ const T={
   'modal.yt':'otwórz na YouTube ↗','modal.close':'zamknij ✕',
   'card.listen':'▶ SŁUCHAJ','card.search':'SZUKAJ NA YOUTUBE ↗','card.pillar':'★ FILAR KANONU','card.must':'★ MUST-SEE','card.plink':'Kopiuj link do płyty','modal.share':'🔗 kopiuj link',
   'typ.dokument':'dokument','typ.koncert':'koncert','typ.archiwum':'archiwum','typ.wyklad':'wykład/rozmowa','typ.album':'album',
-  'pl.kicker':'Słuchasz ciągiem','pl.prev':'◀ POPRZEDNIA','pl.next':'NASTĘPNA ▶','pl.shuffle':'LOSOWO','pl.prevshort':'POPRZ.','pl.nextshort':'NAST.',
+  'pl.kicker':'Słuchasz ciągiem','pl.prev':'◀ POPRZEDNIA','pl.next':'NASTĘPNA ▶','pl.shuffle':'LOSOWO','pl.prevshort':'POPRZ.','pl.nextshort':'NAST.','pl.cont':'CIĄGŁE',
   'toast.copied':'Link skopiowany: ','toast.prompt':'Skopiuj link:','pl.empty':'Brak płyt z nagraniem w tym filtrze.',
   'footer':'Portal edukacyjny — nagrania osadzone z publicznych kanałów YouTube, prawa przy ich właścicielach.<br>Kanon zbudowany na podstawie opracowań (Brodacki, Pietraszewski, Lewenstein i in.) · 2026'
  },
@@ -614,7 +616,7 @@ const T={
   'modal.yt':'open on YouTube ↗','modal.close':'close ✕',
   'card.listen':'▶ LISTEN','card.search':'SEARCH ON YOUTUBE ↗','card.pillar':'★ PILLAR OF THE CANON','card.must':'★ MUST-SEE','card.plink':'Copy link to this record','modal.share':'🔗 copy link',
   'typ.dokument':'documentary','typ.koncert':'concert','typ.archiwum':'archival','typ.wyklad':'lecture/interview','typ.album':'album',
-  'pl.kicker':'Playing all','pl.prev':'◀ PREVIOUS','pl.next':'NEXT ▶','pl.shuffle':'SHUFFLE','pl.prevshort':'PREV','pl.nextshort':'NEXT',
+  'pl.kicker':'Playing all','pl.prev':'◀ PREVIOUS','pl.next':'NEXT ▶','pl.shuffle':'SHUFFLE','pl.prevshort':'PREV','pl.nextshort':'NEXT','pl.cont':'CONTINUOUS',
   'toast.copied':'Link copied: ','toast.prompt':'Copy this link:','pl.empty':'No records with a recording in this filter.',
   'footer':'An educational portal — recordings embedded from public YouTube channels; all rights remain with their owners.<br>Canon compiled from the standard works (Brodacki, Pietraszewski, Lewenstein and others) · 2026'
  }
@@ -813,6 +815,7 @@ function toast(msg){
 /* ============ ODTWARZACZ CIĄGŁY ============ */
 const PLAYER=document.getElementById('player');
 let queue=[], qi=0, shuffleOn=false, ytPlayer=null, apiReady=false, pendingPlay=false;
+let contOn=true; try{contOn=localStorage.getItem('pj-cont')!=='0';}catch(e){}
 const byKey={};
 ALBUMS.forEach(a=>byKey[a.k]=a);
 
@@ -834,6 +837,7 @@ function buildQueue(){
 }
 function playerLabels(){
   document.getElementById('pl-shuf').classList.toggle('act',shuffleOn);
+  document.getElementById('pl-cont').classList.toggle('act',contOn);
   const btn=document.getElementById('playall');
   btn.classList.toggle('on',PLAYER.classList.contains('on'));
   btn.querySelector('span').textContent=PLAYER.classList.contains('on')?t('nav.stopall'):t('nav.playall');
@@ -862,7 +866,7 @@ function playCurrent(){
     playerVars:{autoplay:1,rel:0,playsinline:1},
     events:{
       onReady:e=>e.target.playVideo(),
-      onStateChange:e=>{ if(e.data===YT.PlayerState.ENDED) nextTrack(); },
+      onStateChange:e=>{ if(e.data===YT.PlayerState.ENDED){ if(contOn) nextTrack(); } },
       onError:()=>nextTrack()
     }
   });
@@ -901,6 +905,7 @@ document.getElementById('playall').addEventListener('click',()=>{
 document.getElementById('pl-next').addEventListener('click',nextTrack);
 document.getElementById('pl-prev').addEventListener('click',prevTrack);
 document.getElementById('pl-shuf').addEventListener('click',()=>{shuffleOn=!shuffleOn;playerLabels();});
+document.getElementById('pl-cont').addEventListener('click',()=>{contOn=!contOn;try{localStorage.setItem('pj-cont',contOn?'1':'0');}catch(e){}playerLabels();});
 document.getElementById('pl-close').addEventListener('click',stopQueue);
 /* pasek odtwarzacza siedzi bezpośrednio pod nawigacją i przykleja się razem z nią */
 (function(){
@@ -947,7 +952,7 @@ document.addEventListener('click',e=>{
   const ac=e.target.closest('.acard');
   if(ac){
     if(!ac.dataset.yt){ window.open('https://www.youtube.com/results?search_query='+ac.dataset.q,'_blank'); return; }
-    if(PLAYER.classList.contains('on')) startQueue(ac.dataset.k);
+    if(PLAYER.classList.contains('on')||contOn) startQueue(ac.dataset.k);
     else openVideo(ac.dataset.yt, decodeURIComponent(ac.dataset.t));
     return;
   }
