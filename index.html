@@ -6,6 +6,9 @@
 <title>FutureShow — portal wiedzy i zabawy: portale, gry, śledztwa</title>
 <meta name="description" content="Portal wiedzy i zabawy dla ciekawych świata: interaktywne portale, gry i śledztwa — kino, historia, nauka, dane. Bez reklam i bez kont.">
 <link rel="canonical" href="https://futureshow.pl/">
+<link rel="alternate" hreflang="pl" href="https://futureshow.pl/">
+<link rel="alternate" hreflang="en" href="https://futureshow.pl/en/">
+<link rel="alternate" hreflang="x-default" href="https://futureshow.pl/">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"><link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="description" content="Katalog interaktywnych portali, symulacji i śledztw studia FutureShow — przeglądaj jak w serwisie streamingowym.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2305070c'/%3E%3Ctext x='32' y='42' font-family='Helvetica' font-size='26' font-weight='800' fill='%236fd6ff' text-anchor='middle'%3EFS%3C/text%3E%3C/svg%3E">
@@ -914,7 +917,7 @@ const T_EN = {
  v_gutt:"Wiktor Gutt — The Wildness of a Child", v_instytut:"Institute of Time Transformation"
 };
 const STATS_EN = {
- matryca:["33 cases","480+ sources","PL"], sejm:["1.76M decisions","3,834 votes","1,979 careers"],
+ matryca:["33 cases","480+ sources","PL"], sejm:["3,125 word↔vote pairs","48 verified splits","4,941 votes"],
  cardiosim:["10 drugs","8 scenarios","real-time"], oilgas:["240+ sites","90+ pipelines","6 regions"],
  mnemo:["14 chapters","9 trainers","since Cicero"], hinton:["15 sections","cyberpunk edition","PL · EN"],
  sheldrake:["Rupert Sheldrake","10 dogmas of science","morphic resonance"],
@@ -1011,6 +1014,7 @@ const UI = {
 const openLabel=p=>UI[LANG].openFull[p.kind||"portal"];
 const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},
  set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+const EN_HOME="en/", PL_HOME="../";
 let LANG = store.get("lang") || store.get("fs-lang") || "pl";
 
 /* ================= poster motifs (inline SVG) ================= */
@@ -1556,7 +1560,10 @@ document.querySelectorAll('#nav .navlinks a').forEach(a=>a.addEventListener('cli
  });
 })();
 document.getElementById("langbtn").onclick=()=>{
- LANG=LANG==="pl"?"en":"pl";store.set("fs-lang",LANG);store.set("lang",LANG);renderAll();};
+ LANG=LANG==="pl"?"en":"pl";store.set("fs-lang",LANG);store.set("lang",LANG);
+ if(LANG==="en"&&!location.pathname.startsWith("/en/")){location.href=EN_HOME+location.hash;return;}
+ if(LANG==="pl"&&location.pathname.startsWith("/en/")){location.href=PL_HOME+location.hash;return;}
+ renderAll();};
 document.getElementById("q").addEventListener("input",e=>{
  const q=bezOgonkow(e.target.value.trim());
  /* krótkie hasła szukamy po całych słowach — inaczej „rodo" trafia w „międzynarodowej" */
