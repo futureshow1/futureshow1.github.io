@@ -350,7 +350,7 @@ f.addEventListener('submit',function(e){e.preventDefault();if(f.pomysl.value.tri
 var b=f.querySelector('[type=submit]');b.disabled=true;fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Accept':'application/json'},body:new FormData(f)}).then(function(r){return r.json()}).then(function(d){if(!d.success)throw 0;m.className='ntf__msg ok';m.textContent=pl()?'Dziękujemy — pomysł doszedł.':'Thank you — the idea is in.';f.reset()}).catch(function(){m.className='ntf__msg err';m.textContent=pl()?'Nie udało się wysłać. Napisz na futureshow@proton.me.':'Could not send. Write to futureshow@proton.me.'}).finally(function(){b.disabled=false})});})();
 </script>
 <script src="assets/wired.js"></script>
-<script src="cookie-consent.js"></script>
+<script src="cookie-consent.js?v=2"></script>
 <script data-goatcounter="https://futureshow.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="/assets/fs-home.js" defer></script>
 </body>

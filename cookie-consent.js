@@ -24,7 +24,7 @@ var GA_ID = 'G-RNDL66P478';
   'use strict';
 
   var STORAGE_KEY = 'fs_cookie_consent';
-  var CONSENT_VERSION = 1;
+  var CONSENT_VERSION = 2;
 
   // ---- State ----
   var state = load();
@@ -52,25 +52,33 @@ var GA_ID = 'G-RNDL66P478';
   var style = document.createElement('style');
   style.textContent = [
     '#fs-cookie-overlay{display:none}',
-    '#fs-cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:999999;font-family:"JetBrains Mono","Inter",system-ui,monospace;transform:translateY(100%);transition:transform .35s ease;pointer-events:none}',
+    '#fs-cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:999999;font-family:"Inter",system-ui,sans-serif;transform:translateY(110%);transition:transform .35s ease;pointer-events:none}',
     '#fs-cookie-banner.fs-show{transform:translateY(0);pointer-events:auto}',
-    '#fs-cookie-inner{margin:0;padding:10px 36px;background:#0a0a0a;border-top:1px solid #ff2d00;color:#fafaf7;font-size:0.7rem;letter-spacing:0.04em;line-height:1.5;display:flex;align-items:center;gap:18px;flex-wrap:wrap}',
+    '#fs-cookie-inner{margin:0;padding:16px 36px;background:#0a0a0a;border-top:2px solid #ff2d00;color:#fafaf7;font-size:0.92rem;line-height:1.5;display:flex;align-items:center;gap:22px;flex-wrap:wrap}',
     '#fs-cookie-inner h3{display:none}',
-    '#fs-cookie-inner p{margin:0;flex:1;min-width:240px;color:rgba(250,250,247,0.75)}',
-    '.fs-cookie-cats{display:flex;gap:14px;margin:0}',
-    '.fs-cookie-cat{display:flex;align-items:center;gap:6px;font-size:0.66rem;text-transform:uppercase;letter-spacing:0.12em;color:rgba(250,250,247,0.75);cursor:pointer}',
-    '.fs-cookie-cat input[type=checkbox]{appearance:none;-webkit-appearance:none;width:14px;height:14px;border:1px solid rgba(250,250,247,0.5);background:transparent;cursor:pointer;position:relative;flex-shrink:0}',
+    '#fs-cookie-inner p{margin:0;flex:1;min-width:260px;color:rgba(250,250,247,0.85)}',
+    '#fs-cookie-inner p b{color:#fafaf7}',
+    '.fs-cookie-btns{display:flex;gap:14px;align-items:center;margin:0}',
+    '.fs-cookie-btn{font-family:inherit;cursor:pointer;transition:all .15s}',
+    '.fs-cookie-btn--accept{font-size:0.95rem;font-weight:800;letter-spacing:0.02em;padding:14px 28px;border:0;background:#ff2d00;color:#fafaf7;border-radius:0;box-shadow:0 0 0 0 rgba(255,45,0,.5)}',
+    '.fs-cookie-btn--accept:hover{background:#f0ff00;color:#0a0a0a}',
+    '.fs-cookie-btn--reject{font-size:0.8rem;font-weight:500;padding:14px 6px;border:0;background:transparent;color:rgba(250,250,247,0.6);text-decoration:underline;text-underline-offset:3px}',
+    '.fs-cookie-btn--reject:hover{color:#fafaf7}',
+    '.fs-cookie-more{font-family:"JetBrains Mono",monospace;font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(250,250,247,0.45);background:none;border:0;cursor:pointer;padding:0}',
+    '.fs-cookie-more:hover{color:#fafaf7}',
+    '.fs-cookie-cats{display:none;width:100%;gap:18px;align-items:center;padding-top:12px;border-top:1px solid rgba(250,250,247,0.12);margin:0}',
+    '.fs-cookie-cats.fs-open{display:flex;flex-wrap:wrap}',
+    '.fs-cookie-cat{display:flex;align-items:center;gap:8px;font-family:"JetBrains Mono",monospace;font-size:0.66rem;text-transform:uppercase;letter-spacing:0.12em;color:rgba(250,250,247,0.8);cursor:pointer}',
+    '.fs-cookie-cat small{text-transform:none;letter-spacing:0;color:rgba(250,250,247,0.5);font-family:"Inter",system-ui,sans-serif;font-size:0.75rem}',
+    '.fs-cookie-cat input[type=checkbox]{appearance:none;-webkit-appearance:none;width:15px;height:15px;border:1px solid rgba(250,250,247,0.5);background:transparent;cursor:pointer;position:relative;flex-shrink:0}',
     '.fs-cookie-cat input[type=checkbox]:checked{background:#ff2d00;border-color:#ff2d00}',
     '.fs-cookie-cat input[type=checkbox]:disabled{opacity:.5;cursor:default}',
-    '.fs-cookie-btns{display:flex;gap:8px;margin:0}',
-    '.fs-cookie-btn{font-family:inherit;font-size:0.64rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;padding:8px 14px;border:1px solid rgba(250,250,247,0.5);background:transparent;color:#fafaf7;cursor:pointer;transition:all .15s}',
-    '.fs-cookie-btn:hover{background:#fafaf7;color:#0a0a0a}',
-    '.fs-cookie-btn--accept{background:#ff2d00;border-color:#ff2d00}',
-    '.fs-cookie-btn--accept:hover{background:#f0ff00;border-color:#f0ff00;color:#0a0a0a}',
+    '.fs-cookie-btn--save{font-family:"JetBrains Mono",monospace;font-size:0.64rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;padding:8px 14px;border:1px solid rgba(250,250,247,0.5);background:transparent;color:#fafaf7}',
+    '.fs-cookie-btn--save:hover{background:#fafaf7;color:#0a0a0a}',
     '.fs-cookie-reopen{position:fixed;bottom:14px;left:14px;z-index:999997;width:34px;height:34px;border-radius:0;background:#0a0a0a;border:1px solid rgba(250,250,247,0.35);color:#fafaf7;font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;opacity:0;pointer-events:none}',
     '.fs-cookie-reopen.fs-show{opacity:.7;pointer-events:auto}',
     '.fs-cookie-reopen:hover{border-color:#ff2d00;color:#ff2d00;opacity:1}',
-    '@media(max-width:700px){#fs-cookie-inner{padding:10px 16px;gap:10px}.fs-cookie-cats{width:100%}.fs-cookie-btns{width:100%}.fs-cookie-btn{flex:1;text-align:center}}'
+    '@media(max-width:700px){#fs-cookie-inner{padding:14px 16px;gap:12px;font-size:0.88rem}.fs-cookie-btns{width:100%;justify-content:space-between}.fs-cookie-btn--accept{flex:1;text-align:center}}'
   ].join('\n');
   document.head.appendChild(style);
 
@@ -92,32 +100,31 @@ var GA_ID = 'G-RNDL66P478';
   function render(){
     var inner = document.createElement('div');
     inner.id = 'fs-cookie-inner';
-    inner.innerHTML = '<h3>' + t('Cookie settings','Ustawienia cookies') + '</h3>'
+    inner.innerHTML = '<h3>' + t('Cookies','Cookies') + '</h3>'
       + '<p>' + t(
-        'We use cookies to analyze site traffic and optimize your experience. You can choose which categories to allow.',
-        'Używamy cookies do analizy ruchu na stronie i optymalizacji doświadczenia. Możesz wybrać, które kategorie dopuścić.'
-      ) + '</p>'
-      + '<div class="fs-cookie-cats">'
-      + '<label class="fs-cookie-cat"><input type="checkbox" checked disabled data-cat="necessary"> ' + t('Necessary','Niezbędne') + '</label>'
-      + '<label class="fs-cookie-cat"><input type="checkbox" data-cat="analytics" id="fs-cb-analytics"> ' + t('Analytics','Analityka') + '</label>'
-      + '<label class="fs-cookie-cat"><input type="checkbox" data-cat="marketing" id="fs-cb-marketing"> ' + t('Marketing','Marketing') + '</label>'
-      + '</div>'
+        '<b>No ads here.</b> One anonymous counter tells us which portals you enjoy, so we can make more of them. OK?',
+        '<b>Tu nie ma reklam.</b> Jeden anonimowy licznik pokazuje nam, które portale lubicie, żebyśmy robili ich więcej. Zgoda?'
+      ) + ' <button type="button" class="fs-cookie-more" id="fs-btn-more">' + t('Settings','Ustawienia') + '</button></p>'
       + '<div class="fs-cookie-btns">'
-      + '<button class="fs-cookie-btn fs-btn-accept" id="fs-btn-all">' + t('Accept all','Akceptuj wszystkie') + '</button>'
-      + '<button class="fs-cookie-btn fs-btn-save" id="fs-btn-save">' + t('Save preferences','Zapisz wybrane') + '</button>'
-      + '<button class="fs-cookie-btn fs-btn-reject" id="fs-btn-reject">' + t('Reject optional','Odrzuć opcjonalne') + '</button>'
+      + '<button class="fs-cookie-btn fs-cookie-btn--reject" id="fs-btn-reject">' + t('No, thanks','Nie, dziękuję') + '</button>'
+      + '<button class="fs-cookie-btn fs-cookie-btn--accept" id="fs-btn-all">' + t('Yes, I agree','Tak, zgadzam się') + '</button>'
+      + '</div>'
+      + '<div class="fs-cookie-cats" id="fs-cookie-cats">'
+      + '<label class="fs-cookie-cat"><input type="checkbox" checked disabled data-cat="necessary"> ' + t('Necessary','Niezbędne') + ' <small>' + t('language and theme, stored only on your device','język i motyw, tylko na Twoim urządzeniu') + '</small></label>'
+      + '<label class="fs-cookie-cat"><input type="checkbox" checked data-cat="analytics" id="fs-cb-analytics"> ' + t('Analytics','Analityka') + ' <small>' + t('anonymous visit statistics (Google Analytics, IP anonymised)','anonimowa statystyka odwiedzin (Google Analytics, IP anonimizowane)') + '</small></label>'
+      + '<button class="fs-cookie-btn fs-cookie-btn--save" id="fs-btn-save">' + t('Save','Zapisz') + '</button>'
       + '</div>';
     banner.innerHTML = '';
     banner.appendChild(inner);
 
+    document.getElementById('fs-btn-more').addEventListener('click', function(){
+      document.getElementById('fs-cookie-cats').classList.toggle('fs-open');
+    });
     document.getElementById('fs-btn-all').addEventListener('click', function(){
-      accept({analytics:true, marketing:true});
+      accept({analytics:true, marketing:false});
     });
     document.getElementById('fs-btn-save').addEventListener('click', function(){
-      accept({
-        analytics: document.getElementById('fs-cb-analytics').checked,
-        marketing: document.getElementById('fs-cb-marketing').checked
-      });
+      accept({ analytics: document.getElementById('fs-cb-analytics').checked, marketing:false });
     });
     document.getElementById('fs-btn-reject').addEventListener('click', function(){
       accept({analytics:false, marketing:false});
