@@ -1,3 +1,4 @@
 *.DS_Store
 node_modules/
 projects/jan-lubicz-website/assets/showreel.fdash-video-5651.mp4
+tools/search/node_modules/
