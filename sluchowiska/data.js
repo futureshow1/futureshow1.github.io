@@ -1,5 +1,5 @@
-// Wygenerowane 2026-10-11 przez tools/build_data.py — 439 pozycji, 14 rozdziałów.
-window.GENERATED = "2026-10-11";
+// Wygenerowane 2026-10-18 przez tools/build_data.py — 452 pozycji, 14 rozdziałów.
+window.GENERATED = "2026-10-18";
 window.SECTIONS = [
  {
   "id": "polskie-radio",
@@ -4258,7 +4258,7 @@ window.ITEMS = [
  },
  {
   "section": "sluchowiska-wspolczesne",
-  "title": "Legendy: Syrena, Bazyliszek, Zbójcy, Wyrwidąb i Waligóra, Miecz Janosika",
+  "title": "Legendy: Syrena, Złota Kaczka, Bazyliszek, Zbójcy, Wyrwidąb i Waligóra, Miecz Janosika",
   "author": "Bajkowisko.pl",
   "source": "Bajkowisko",
   "type": "sluchowisko",
@@ -4267,13 +4267,14 @@ window.ITEMS = [
   "lang": "pl",
   "url": "https://www.youtube.com/watch?v=VubCpPqFNPM",
   "cover": "https://i.ytimg.com/vi/VubCpPqFNPM/hqdefault.jpg",
-  "duration": 7139,
-  "parts": 5,
+  "duration": 8838,
+  "parts": 6,
   "play": {
    "kind": "yt",
    "src": "VubCpPqFNPM",
    "ids": [
     "VubCpPqFNPM",
+    "WFOCPSWVVvE",
     "AtS1_Q5kprQ",
     "v6M-sQ3AM5E",
     "4DzcWbN8m5Q",
@@ -4281,6 +4282,7 @@ window.ITEMS = [
    ],
    "names": [
     "SYRENA - Bajkowisko - bajki dla dzieci – słuchowisko dla dzieci",
+    "ZŁOTA KACZKA - legendy warszawskie - Bajkowisko - bajki dla dzieci, ba",
     "BAZYLISZEK – Bajkowisko - bajki dla dzieci",
     "ZBÓJCY – legendy warszawskie - Bajkowisko - bajki dla dzieci bajki do ",
     "WYRWIDĄB I WALIGÓRA – Bajkowisko - bajki dla dzieci – słuchowisko – ba",
@@ -4322,7 +4324,7 @@ window.ITEMS = [
  },
  {
   "section": "sluchowiska-wspolczesne",
-  "title": "Cudaczek-Wyśmiewaczek / Dziadek do orzechów",
+  "title": "Cudaczek-Wyśmiewaczek / Dziadek do orzechów (po 2 części)",
   "author": "Julia Duszyńska; E. T. A. Hoffmann / Bajkowisko.pl",
   "source": "Bajkowisko",
   "type": "czytanie",
@@ -4331,20 +4333,22 @@ window.ITEMS = [
   "lang": "pl",
   "url": "https://www.youtube.com/watch?v=Xe3B8tGjKXE",
   "cover": "https://i.ytimg.com/vi/Xe3B8tGjKXE/hqdefault.jpg",
-  "duration": 9485,
-  "parts": 3,
+  "duration": 13305,
+  "parts": 4,
   "play": {
    "kind": "yt",
    "src": "Xe3B8tGjKXE",
    "ids": [
     "Xe3B8tGjKXE",
     "oluP6vCQYx0",
-    "0oAmOXf9nXY"
+    "0oAmOXf9nXY",
+    "dhgHIUR97Uo"
    ],
    "names": [
     "CUDACZEK WYŚMIEWACZEK cz.1 – Bajkowisko - bajki dla dzieci,  bajki do ",
     "CUDACZEK WYŚMIEWACZEK cz.2 – Bajkowisko - bajki dla dzieci, bajki do s",
-    "DZIADEK DO ORZECHÓW cz.1 - Bajkowisko - bajki dla dzieci po polsku"
+    "DZIADEK DO ORZECHÓW cz.1 - Bajkowisko - bajki dla dzieci po polsku",
+    "DZIADEK DO ORZECHÓW cz.2 - Bajkowisko - bajki dla dzieci po polsku"
    ]
   },
   "official": true
@@ -4422,6 +4426,479 @@ window.ITEMS = [
    ],
    "names": [
     "Jeżyk Franek mówi Dzień Dobry! ☀️"
+   ]
+  },
+  "official": true
+ },
+ {
+  "section": "sluchowiska-wspolczesne",
+  "title": "Hermes 9:10",
+  "author": "Ewa Karwan-Jastrzębska",
+  "source": "Bajkowisko",
+  "type": "czytanie",
+  "age": "7-12",
+  "performers": "Artur Kaczmarski",
+  "note": "Baśń o Feliksie, który w dniu urodzin wyrusza na tajemniczą wyprawę. 6 części, ponad 3 godziny; wydanie audio Bajkowiska.",
+  "id": "yt-zkn5Yx3wYss",
+  "lang": "pl",
+  "url": "https://www.youtube.com/watch?v=zkn5Yx3wYss",
+  "cover": "https://i.ytimg.com/vi/zkn5Yx3wYss/hqdefault.jpg",
+  "duration": 11230,
+  "parts": 6,
+  "play": {
+   "kind": "yt",
+   "src": "zkn5Yx3wYss",
+   "ids": [
+    "zkn5Yx3wYss",
+    "R6o0qJ_BBeY",
+    "aI6vTjwcDPI",
+    "Sd-ISPZ59ss",
+    "JN2QzbPWR80",
+    "nXyxfELEqQw"
+   ],
+   "names": [
+    "HERMES 9.10, CZĘŚĆ 1 - Bajkowisko - bajki dla dzieci",
+    "HERMES 9.10, CZĘŚĆ 2 - Bajkowisko - bajki dla dzieci",
+    "HERMES 9.10, CZĘŚĆ 3 - Bajkowisko - bajki dla dzieci",
+    "HERMES 9.10, CZĘŚĆ 4 - Bajkowisko - bajki dla dzieci",
+    "HERMES 9.10, CZĘŚĆ 5 - Bajkowisko - bajki dla dzieci",
+    "HERMES 9.10, CZĘŚĆ 6 - Bajkowisko - bajki dla dzieci"
+   ]
+  },
+  "official": true
+ },
+ {
+  "section": "sluchowiska-wspolczesne",
+  "title": "Z pamiętnika Wilka Antoniego",
+  "author": "Bajkowisko",
+  "source": "Bajkowisko",
+  "type": "czytanie",
+  "age": "6-10",
+  "note": "4 części, łącznie 2,5 godziny.",
+  "id": "yt-_-SGa19xJ3Y",
+  "lang": "pl",
+  "url": "https://www.youtube.com/watch?v=_-SGa19xJ3Y",
+  "cover": "https://i.ytimg.com/vi/_-SGa19xJ3Y/hqdefault.jpg",
+  "duration": 9364,
+  "parts": 4,
+  "play": {
+   "kind": "yt",
+   "src": "_-SGa19xJ3Y",
+   "ids": [
+    "_-SGa19xJ3Y",
+    "OCHaylKEN9k",
+    "yBaBqQUh5_I",
+    "Ct9h2b-Yigc"
+   ],
+   "names": [
+    "Z PAMIĘTNIKA WILKA ANTONIEGO, CZĘŚĆ 1 - Bajkowisko - bajki dla dzieci",
+    "Z PAMIĘTNIKA WILKA ANTONIEGO, CZĘŚĆ 2 - Bajkowisko - bajki dla dzieci",
+    "Z PAMIĘTNIKA WILKA ANTONIEGO, CZĘŚĆ 3 – Bajkowisko - bajki dla dzieci",
+    "Z PAMIĘTNIKA WILKA ANTONIEGO, CZĘŚĆ 4 - Bajkowisko - bajki dla dzieci"
+   ]
+  },
+  "official": true
+ },
+ {
+  "section": "sluchowiska-wspolczesne",
+  "title": "Przygody Smoka Alberta",
+  "author": "Bajkowisko",
+  "source": "Bajkowisko",
+  "type": "czytanie",
+  "age": "5-10",
+  "note": "6 części: Smocza łuska, Jankienalia, Prawo zasiedzenia, Poszukiwacze skarbów, Święty Mikołaj, Garść złotych monet.",
+  "id": "yt-p6KAKAqOehM",
+  "lang": "pl",
+  "url": "https://www.youtube.com/watch?v=p6KAKAqOehM",
+  "cover": "https://i.ytimg.com/vi/p6KAKAqOehM/hqdefault.jpg",
+  "duration": 11531,
+  "parts": 6,
+  "play": {
+   "kind": "yt",
+   "src": "p6KAKAqOehM",
+   "ids": [
+    "p6KAKAqOehM",
+    "dsRLyPGbiwo",
+    "-wmp2eE8JMI",
+    "P2MEJJvUfQ8",
+    "oiJHQlVIyUs",
+    "INiZiyKyb4c"
+   ],
+   "names": [
+    "PRZYGODY SMOKA ALBERTA, CZĘŚĆ 1: SMOCZA ŁUSKA -  Bajkowisko - bajki dl",
+    "PRZYGODY SMOKA ALBERTA, CZĘŚĆ 2: JANKIENALIA - Bajkowisko - bajki dla ",
+    "PRZYGODY SMOKA ALBERTA, CZĘŚĆ 3: PRAWO ZASIEDZENIA - Bajkowisko - bajk",
+    "PRZYGODY SMOKA ALBERTA, CZĘŚĆ 4: POSZUKIWACZE SKARBÓW - Bajkowisko - b",
+    "PRZYGODY SMOKA ALBERTA, CZĘŚĆ 5: Święty Mikołaj - Bajkowisko - bajki d",
+    "PRZYGODY SMOKA ALBERTA, CZĘŚĆ 6: Garść złotych monet - Bajkowisko - ba"
+   ]
+  },
+  "official": true
+ },
+ {
+  "section": "sluchowiska-wspolczesne",
+  "title": "Morskie i lądowe przygody Wojtka Kwioka i niedźwiadka Tutu",
+  "author": "Bajkowisko",
+  "source": "Bajkowisko",
+  "type": "czytanie",
+  "age": "5-9",
+  "id": "yt-TQFb6HFYp-Q",
+  "lang": "pl",
+  "url": "https://www.youtube.com/watch?v=TQFb6HFYp-Q",
+  "cover": "https://i.ytimg.com/vi/TQFb6HFYp-Q/hqdefault.jpg",
+  "duration": 4208,
+  "parts": 2,
+  "play": {
+   "kind": "yt",
+   "src": "TQFb6HFYp-Q",
+   "ids": [
+    "TQFb6HFYp-Q",
+    "8cVsYW4OMhk"
+   ],
+   "names": [
+    "MORSKIE PRZYGODY WOJTKA KWIOKA I NIEDŹWIADKA TUTU – Bajkowisko - bajki",
+    "LĄDOWE PRZYGODY WOJTKA KWIOKA I NIEDŹWIADKA TUTU – Bajkowisko - bajki "
+   ]
+  },
+  "official": true
+ },
+ {
+  "section": "sluchowiska-wspolczesne",
+  "title": "Z życia małych dzieci",
+  "author": "Bajkowisko",
+  "source": "Bajkowisko",
+  "type": "sluchowisko",
+  "age": "3-7",
+  "note": "6 części, półtorej godziny.",
+  "id": "yt-x5QoTcDBzEU",
+  "lang": "pl",
+  "url": "https://www.youtube.com/watch?v=x5QoTcDBzEU",
+  "cover": "https://i.ytimg.com/vi/x5QoTcDBzEU/hqdefault.jpg",
+  "duration": 5653,
+  "parts": 6,
+  "play": {
+   "kind": "yt",
+   "src": "x5QoTcDBzEU",
+   "ids": [
+    "x5QoTcDBzEU",
+    "I2ANL2KKeyM",
+    "yibpqtj2r90",
+    "Q5tSjpm2wUo",
+    "F4GJIwcSl3w",
+    "8JbeWn_C0Ec"
+   ],
+   "names": [
+    "Z ŻYCIA MAŁYCH DZIECI CZ. 1 – Bajkowisko - bajki dla dzieci – słuchowi",
+    "Z ŻYCIA MAŁYCH DZIECI CZ. 2 – Bajkowisko - bajki dla dzieci – słuchowi",
+    "Z ŻYCIA MAŁYCH DZIECI CZ. 3 – Bajkowisko - bajki dla dzieci – słuchowi",
+    "Z ŻYCIA MAŁYCH DZIECI CZ. 4  –Bajkowisko - bajki dla dzieci – słuchowi",
+    "Z ŻYCIA MAŁYCH DZIECI CZ. 5 – Bajkowisko - bajki dla dzieci – słuchowi",
+    "Z ŻYCIA MAŁYCH DZIECI CZ. 6 – Bajkowisko - bajki dla dzieci – słuchowi"
+   ]
+  },
+  "official": true
+ },
+ {
+  "section": "sluchowiska-wspolczesne",
+  "title": "Przygody ciekawskiej Jadzi i innych dzieciaków",
+  "author": "Bajkowisko",
+  "source": "Bajkowisko",
+  "type": "sluchowisko",
+  "age": "4-8",
+  "id": "yt-CPgbBTMPDPY",
+  "lang": "pl",
+  "url": "https://www.youtube.com/watch?v=CPgbBTMPDPY",
+  "cover": "https://i.ytimg.com/vi/CPgbBTMPDPY/hqdefault.jpg",
+  "duration": 2401,
+  "parts": 2,
+  "play": {
+   "kind": "yt",
+   "src": "CPgbBTMPDPY",
+   "ids": [
+    "CPgbBTMPDPY",
+    "M_47Owtzwro"
+   ],
+   "names": [
+    "PRZYGODY CIEKAWSKIEJ JADZI I INNYCH DZIECIAKÓW CZ. 1 – Bajkowisko - ba",
+    "PRZYGODY CIEKAWSKIEJ JADZI I INNYCH DZIECIAKÓW CZ. 2 – Bajkowisko - ba"
+   ]
+  },
+  "official": true
+ },
+ {
+  "section": "sluchowiska-wspolczesne",
+  "title": "Co słonko widziało",
+  "author": "Maria Konopnicka / Bajkowisko",
+  "source": "Bajkowisko",
+  "type": "czytanie",
+  "age": "4-8",
+  "id": "yt-zEnLODXoxIY",
+  "lang": "pl",
+  "url": "https://www.youtube.com/watch?v=zEnLODXoxIY",
+  "cover": "https://i.ytimg.com/vi/zEnLODXoxIY/hqdefault.jpg",
+  "duration": 3296,
+  "parts": 2,
+  "play": {
+   "kind": "yt",
+   "src": "zEnLODXoxIY",
+   "ids": [
+    "zEnLODXoxIY",
+    "ic1lxkPd_Ks"
+   ],
+   "names": [
+    "CO SŁONKO WIDZIAŁO CZ.1 - Bajkowisko - bajki dla dzieci po polsku",
+    "CO SŁONKO WIDZIAŁO CZ.2 - Bajkowisko - bajki dla dzieci po polsku"
+   ]
+  },
+  "official": true
+ },
+ {
+  "section": "sluchowiska-wspolczesne",
+  "title": "Cień / Czarownik ptaków / Księżniczka Solniczka",
+  "author": "Bajkowisko",
+  "source": "Bajkowisko",
+  "type": "sluchowisko",
+  "age": "5-10",
+  "note": "Trzy dłuższe słuchowiska w całości.",
+  "id": "yt-MpBzQHuLYDc",
+  "lang": "pl",
+  "url": "https://www.youtube.com/watch?v=MpBzQHuLYDc",
+  "cover": "https://i.ytimg.com/vi/MpBzQHuLYDc/hqdefault.jpg",
+  "duration": 7240,
+  "parts": 3,
+  "play": {
+   "kind": "yt",
+   "src": "MpBzQHuLYDc",
+   "ids": [
+    "MpBzQHuLYDc",
+    "1KmABmo2prg",
+    "1xklgWIccuI"
+   ],
+   "names": [
+    "CIEŃ cała bajka – Bajkowisko - bajki dla dzieci – słuchowisko dla dzie",
+    "CZAROWNIK PTAKÓW cała bajka – Bajkowisko - bajki dla dzieci – słuchowi",
+    "KSIĘŻNICZKA SOLNICZKA cała bajka – Bajkowisko - bajki dla dzieci – słu"
+   ]
+  },
+  "official": true
+ },
+ {
+  "section": "sluchowiska-wspolczesne",
+  "title": "Leśne opowieści / Opowieści niezwykłe / Sprawiedliwa rózga",
+  "author": "Bajkowisko",
+  "source": "Bajkowisko",
+  "type": "sluchowisko",
+  "age": "5-10",
+  "note": "Opowieści niezwykłe mają ponad 2 mln odsłuchań.",
+  "id": "yt-cs706BU_7wU",
+  "lang": "pl",
+  "url": "https://www.youtube.com/watch?v=cs706BU_7wU",
+  "cover": "https://i.ytimg.com/vi/cs706BU_7wU/hqdefault.jpg",
+  "duration": 6882,
+  "parts": 3,
+  "play": {
+   "kind": "yt",
+   "src": "cs706BU_7wU",
+   "ids": [
+    "cs706BU_7wU",
+    "QyDBLj3P2Y8",
+    "nZTbJjiDLuU"
+   ],
+   "names": [
+    "LEŚNE OPOWIEŚCI cała bajka – Bajkowisko - bajki dla dzieci – słuchowis",
+    "OPOWIEŚCI NIEZWYKŁE cała bajka – Bajkowisko - bajki dla dzieci – słuch",
+    "SPRAWIEDLIWA RÓZGA cała bajka – Bajkowisko - bajki dla dzieci – słucho"
+   ]
+  },
+  "official": true
+ },
+ {
+  "section": "sluchowiska-wspolczesne",
+  "title": "U Freda w ogrodzie / Złota książeczka / Złota przędza",
+  "author": "Bajkowisko",
+  "source": "Bajkowisko",
+  "type": "sluchowisko",
+  "age": "5-10",
+  "id": "yt-c6unkBt9f1A",
+  "lang": "pl",
+  "url": "https://www.youtube.com/watch?v=c6unkBt9f1A",
+  "cover": "https://i.ytimg.com/vi/c6unkBt9f1A/hqdefault.jpg",
+  "duration": 6912,
+  "parts": 3,
+  "play": {
+   "kind": "yt",
+   "src": "c6unkBt9f1A",
+   "ids": [
+    "c6unkBt9f1A",
+    "LkT1NHGNM8Y",
+    "Y46fZ4zyRRE"
+   ],
+   "names": [
+    "U FREDA W OGRODZIE cała bajka – Bajkowisko - bajki dla dzieci – słucho",
+    "ZŁOTA KSIĄŻECZKA cała bajka – Bajkowisko - bajki dla dzieci – słuchowi",
+    "ZŁOTA PRZĘDZA cała bajka – Bajkowisko - bajki dla dzieci"
+   ]
+  },
+  "official": true
+ },
+ {
+  "section": "sluchowiska-wspolczesne",
+  "title": "Baśnie klasyczne Bajkowiska: Kopciuszek, Kot w butach, Czerwony Kapturek, Białośnieżka, Stoliczku nakryj się…",
+  "author": "Grimm, Perrault, Puszkin",
+  "source": "Bajkowisko",
+  "type": "sluchowisko",
+  "age": "3-8",
+  "note": "16 krótszych baśni: także Białośnieżka i Różanka, Chata w lesie, O czterech muzykantach, Trzej bracia, Złota rybka, Wydeptane trzewiki, Czapka niewidka, Cudowna kłódka, Król Bartek, Złote jabłka i dziewięć pawic, Złote źródło.",
+  "id": "yt-v32F4zGIHSM",
+  "lang": "pl",
+  "url": "https://www.youtube.com/watch?v=v32F4zGIHSM",
+  "cover": "https://i.ytimg.com/vi/v32F4zGIHSM/hqdefault.jpg",
+  "duration": 12394,
+  "parts": 16,
+  "play": {
+   "kind": "yt",
+   "src": "v32F4zGIHSM",
+   "ids": [
+    "v32F4zGIHSM",
+    "iLY1ewQsvrA",
+    "O5jDrGG3Zvw",
+    "e-V49MfSyI0",
+    "UZy5IUjjaWA",
+    "K7F0TrTVuRY",
+    "PJgVx0dVx8A",
+    "dtlT9Ie_N-0",
+    "TJVpVYMpxgg",
+    "Hf57ddFwL2Q",
+    "kMe9DTBy5vs",
+    "KSvS7Pc5f9E",
+    "JMkFZjkSkPM",
+    "IVxUMfyuEgw",
+    "hChMiCBzrAY",
+    "6wKgER7hHsE"
+   ],
+   "names": [
+    "KOPCIUSZEK – Bajkowisko - bajki dla dzieci – słuchowisko – bajka dla d",
+    "KOT W BUTACH – Bajkowisko - bajki dla dzieci – słuchowisko – bajka dla",
+    "CZERWONY KAPTUREK - Bajkowisko - bajki dla dzieci po polsku",
+    "BIAŁOŚNIEŻKA - Bajkowisko - bajki dla dzieci – słuchowisko – bajka dla",
+    "BIAŁOŚNIEŻKA I RÓŻANKA – Bajkowisko - bajki dla dzieci – słuchowisko –",
+    "CHATA W LESIE - Bajkowisko - bajki dla dzieci – słuchowisko – bajka dl",
+    "O CZTERECH MUZYKANTACH – Bajkowisko - bajki dla dzieci – słuchowisko –",
+    "TRZEJ BRACIA – Bajkowisko - bajki dla dzieci – słuchowisko – bajka dla",
+    "STOLICZKU, NAKRYJ SIĘ  - Bajkowisko - bajki dla dzieci po polsku, opow",
+    "ZŁOTA RYBKA - Bajkowisko - bajki dla dzieci po polsku",
+    "WYDEPTANE TRZEWIKI – Bajkowisko - bajki dla dzieci – słuchowisko – baj",
+    "CZAPKA NIEWIDKA – Bajkowisko - bajki dla dzieci – słuchowisko – bajka ",
+    "CUDOWNA KŁÓDKA – Bajkowisko - bajki dla dzieci – słuchowisko – bajka d",
+    "KRÓL BARTEK – Bajkowisko - bajki dla dzieci – słuchowisko – bajka dla ",
+    "ZŁOTE JABŁKA I 9 PAWIC – Bajkowisko - bajki dla dzieci – słuchowisko –",
+    "ZŁOTE ŹRÓDŁO  - Bajkowisko - bajki dla dzieci – słuchowisko – bajka dl"
+   ]
+  },
+  "official": true
+ },
+ {
+  "section": "sluchowiska-wspolczesne",
+  "title": "Andersen w Bajkowisku: Calineczka, Len, Motylek, Ropucha, Błędny ognik, Kwiaty Idalki, Żaba, Bąk i piłka",
+  "author": "Hans Christian Andersen",
+  "source": "Bajkowisko",
+  "type": "sluchowisko",
+  "age": "4-9",
+  "note": "Także Dziewczynka, która chodziła we śnie i Krasnoludek.",
+  "id": "yt-iqLgYvtD2zY",
+  "lang": "pl",
+  "url": "https://www.youtube.com/watch?v=iqLgYvtD2zY",
+  "cover": "https://i.ytimg.com/vi/iqLgYvtD2zY/hqdefault.jpg",
+  "duration": 12833,
+  "parts": 10,
+  "play": {
+   "kind": "yt",
+   "src": "iqLgYvtD2zY",
+   "ids": [
+    "iqLgYvtD2zY",
+    "xBDB26mKb20",
+    "dNSKOc5_Y2w",
+    "22_5vNAmRbA",
+    "diQIfIhlOfo",
+    "4NVOeg37nq0",
+    "NjE7RuBjvrc",
+    "3ecF9SNoLVc",
+    "shpLfMy83Rk",
+    "mpuoZPHbAz0"
+   ],
+   "names": [
+    "CALINECZKA - Bajkowisko - bajki dla dzieci – słuchowisko – bajka dla d",
+    "LEN – Bajkowisko - bajki dla dzieci – słuchowisko",
+    "MOTYLEK – HANS CHRISTIAN ANDERSEN dla Bajkowisko - bajki dla dzieci – ",
+    "ROPUCHA – Bajkowisko - bajki dla dzieci – słuchowisko – bajka dla dzie",
+    "BŁĘDNY OGNIK – Bajkowisko - bajki dla dzieci – słuchowisko – bajka dla",
+    "KWIATY IDALKI – Bajkowisko - bajki dla dzieci",
+    "ŻABA – Bajkowisko - bajki dla dzieci – słuchowisko – bajka dla dzieci",
+    "BĄK I PIŁKA– Bajkowisko - bajki dla dzieci – słuchowisko – bajka dla d",
+    "DZIEWCZYNKA, KTÓRA CHODZIŁA WE ŚNIE - Bajkowisko - bajki dla dzieci",
+    "KRASNOLUDEK – Bajkowisko - bajki dla dzieci – słuchowisko – bajka dla "
+   ]
+  },
+  "official": true
+ },
+ {
+  "section": "sluchowiska-wspolczesne",
+  "title": "Opowieści Bajkowiska: Grześ Niedorajda, Franek, Majka, Dudek, Jutrzenka, Nieszczęścia Andzi, Julka Pająk…",
+  "author": "różni autorzy",
+  "source": "Bajkowisko",
+  "type": "sluchowisko",
+  "age": "4-9",
+  "note": "19 opowieści: także Angliczek, Brzoza i sosna, Droga do szczęścia, Kraina dobrego ducha, Lalka dobrze wychowana, Pomyślny dzionek, Wieszczka okruszyn, Gałązka nieśmiertelnego drzewa brzoskwini, Historia małej Nefry, Niezwykłe przygody Kacpra i Bibusia, Przygody Świerszczyka, Czerwona czapeczka.",
+  "id": "yt-gdp20xHH8zk",
+  "lang": "pl",
+  "url": "https://www.youtube.com/watch?v=gdp20xHH8zk",
+  "cover": "https://i.ytimg.com/vi/gdp20xHH8zk/hqdefault.jpg",
+  "duration": 25241,
+  "parts": 19,
+  "play": {
+   "kind": "yt",
+   "src": "gdp20xHH8zk",
+   "ids": [
+    "gdp20xHH8zk",
+    "LdKDbVor0Qk",
+    "mNPLDwb9_ww",
+    "pQGecXPk33E",
+    "WLejhbha7u4",
+    "h4rmz68gZ6o",
+    "o5DyHwterbk",
+    "M63deT3JyrE",
+    "O19D5IqlRBQ",
+    "6PuTmPYYNXw",
+    "i-9ITbSuEY8",
+    "s1j2jR4BmEM",
+    "IhcgSIsmk-Q",
+    "DFJjnAPmvtI",
+    "TIvejNnH0yc",
+    "h8iViAjT3k0",
+    "I3gNKjVeKjA",
+    "UOqlHC2vZV8",
+    "YoRWgIa2vek"
+   ],
+   "names": [
+    "GRZEŚ NIEDORAJDA - Bajkowisko - bajki dla dzieci – słuchowisko – bajka",
+    "FRANEK – Bajkowisko - bajki dla dzieci – słuchowisko – bajka dla dziec",
+    "MAJKA – Bajkowisko - bajki dla dzieci – słuchowisko – bajka dla dzieci",
+    "DUDEK – Bajkowisko - bajki dla dzieci – słuchowisko – bajka dla dzieci",
+    "JUTRZENKA – Bajkowisko - bajki dla dzieci – słuchowisko – bajka dla dz",
+    "NIESZCZĘŚCIA ANDZI – Bajkowisko - bajki dla dzieci – słuchowisko – baj",
+    "JULKA PAJĄK I ATRAKCJE – Bajkowisko - bajki dla dzieci słuchowisko – b",
+    "ANGLICZEK – Bajkowisko - bajki dla dzieci – słuchowisko – bajka dla dz",
+    "BRZOZA I SOSNA – Bajkowisko - bajki dla dzieci – słuchowisko – bajka d",
+    "DROGA DO SZCZĘŚCIA – Bajkowisko - bajki dla dzieci – słuchowisko – baj",
+    "KRAINA DOBREGO DUCHA - Bajkowisko - bajki dla dzieci po polsku",
+    "LALKA DOBRZE WYCHOWANA – Bajkowisko - bajki dla dzieci",
+    "POMYŚLNY DZIONEK – Bajkowisko - bajki dla dzieci – słuchowisko – bajka",
+    "WIESZCZKA OKRUSZYN – Bajkowisko - bajki dla dzieci – słuchowisko – baj",
+    "GAŁĄZKA NIEŚMIERTELNEGO DRZEWA BRZOSKWINI - Bajkowisko - bajki dla dzi",
+    "HISTORIA MAŁEJ NEFRY I JEJ ULUBIEŃCA PEPA – Bajkowisko - bajki dla dzi",
+    "NIEZWYKŁE PRZYGODY KACPRA I BIBUSIA – Bajkowisko - bajki dla dzieci",
+    "PRZYGODY ŚWIERSZCZYKA",
+    "CZERWONA CZAPECZKA - Bajkowisko - bajki dla dzieci – słuchowisko – baj"
    ]
   },
   "official": true
