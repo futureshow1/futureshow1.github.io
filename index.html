@@ -468,7 +468,7 @@ const P = {
   link:"https://matryca.tech/", link_en:"https://futureshow.pl/kino-nieme/en/"},
  sejm:{
   t:"Sejm Symulator", kick:{pl:"Dane · polityka",en:"Data · politics"},
-  badge:{pl:"PREMIERA · 19 PAŹDZIERNIKA",en:"PREMIERE · 19 OCTOBER"},
+  badge:{pl:"NOWOŚĆ",en:"NEW"},
   year:"2026", tag:{pl:"baza danych",en:"database"}, font:"sans",
   pal:{bg:"#0d1120",ink:"#e9edf5",acc:"#f2c94c"}, motif:"hemi",
   stats:["3 125 par słowo↔głos","48 rozjazdów","4 941 głosowań"],
@@ -954,10 +954,8 @@ const ss=p=>(LANG==="en"&&p.stats_en)?p.stats_en:(p.stats||[]);
 
 
 const ROWS = [
- {id:"r-start", t:{pl:"Zacznij tutaj — trzy pewniaki",en:"Start here — three sure bets"},
-  items:["dobranocki","historia","klimat"]},
  {id:"r-new", t:{pl:"Nowości i aktualizacje",en:"New & updated"},
-  items:["sluchowiska","kinonieme","futurepilot","klimat","futuretalk","futureform","matryca","polskijazz","pokedex","cardiosim"]},
+  items:["sejm","sluchowiska","kinonieme","futurepilot","klimat","futuretalk","futureform","matryca","polskijazz","pokedex","cardiosim"]},
  {id:"r-know", t:{pl:"Portale wiedzy — czytaj, klikaj, sprawdzaj się",en:"Knowledge portals — read, explore, test yourself"},
   items:["klimat","hinton","pokedex","sheldrake","mondrian","swidzinski","switkowski","ghykakomp","przyluski"]},
  {id:"r-film", t:{pl:"Streaming — kino, animacja, dobranocki, jazz",en:"Streaming — cinema, animation, cartoons, jazz"},
@@ -979,8 +977,8 @@ const ROWS = [
 ];
 
 /* kolejność ustalona ręcznie przez Jana (5.10): najpierw nowości, potem przemieszane rodzaje */
-/* kolejność ustalona ręcznie (14.10): Kino Awangardy otwiera, Sejm po premierze zostaje na 2. pozycji */
-const FEATURED = ["awangarda", "sejm", "sluchowiska", "hinton", "kinonieme", "pokedex", "futurepilot", "historia", "klimat",
+/* kolejność ustalona ręcznie (19.10): dzień premiery Sejm Symulatora — otwiera slideshow */
+const FEATURED = ["sejm", "awangarda", "sluchowiska", "hinton", "kinonieme", "pokedex", "futurepilot", "historia", "klimat",
                   "dobranocki", "sectio", "oilgas", "cardiosim", "polskijazz", "matryca", "mnemo",
                   "futuretalk", "sheldrake", "mondrian", "przyluski"];
 
