@@ -568,3 +568,12 @@ footer{border-top:0;background:var(--red);padding:24px 22px;text-align:center;
 .genlink:hover{color:var(--red2);border-bottom-color:var(--red2)}
 .genc--hi{animation:gencHi 2.2s ease-out}
 @keyframes gencHi{0%,55%{box-shadow:0 0 0 6px var(--yellow),var(--shadow)}100%{box-shadow:0 0 0 0 transparent,var(--shadow)}}
+
+/* wyszukiwarka na ekranie zgadywania — bez niej nie dało się dojść do Pokémona
+   spoza pierwszych kilkudziesięciu kandydatów */
+.qfind{width:100%;margin-bottom:14px;padding:11px 16px;font-family:inherit;font-size:16px;
+  color:var(--ink);background:var(--cream);border:3px solid #e8dfae;border-radius:16px;outline:none}
+.qfind:focus{border-color:var(--red2);background:var(--white)}
+.qfind::placeholder{color:var(--dim)}
+.qruled{margin-top:12px;background:var(--pink);color:#a33a6c;border-radius:14px;padding:11px 15px;font-size:15px;line-height:1.45}
+.qmore{margin-top:12px;font-size:14px;color:var(--dim);line-height:1.45}

@@ -145,6 +145,15 @@ const UI = {
   askBool: { pl: 'Zadaj pytanie tak/nie', en: 'Ask a yes/no question' },
   guessBtn: { pl: '🎯 Już wiem — zgaduję!', en: '🎯 I know it — let me guess!' },
   guessWho: { pl: 'Który to Pokémon?', en: 'Which Pokémon is it?' },
+  findLbl: { pl: 'Wpisz nazwę, żeby go znaleźć…', en: 'Type a name to find it…' },
+  moreHint: { pl: 'Pokazujemy {N} z {ALL}. Wpisz nazwę w okienku wyżej albo zadaj więcej pytań.',
+              en: 'Showing {N} of {ALL}. Type a name above, or ask more questions.' },
+  ruledOut1: { pl: '{N} — tego Pokémona wykluczyły już Twoje odpowiedzi.',
+               en: '{N} — your answers have already ruled it out.' },
+  ruledOutN: { pl: '{N} — tych Pokémonów wykluczyły już Twoje odpowiedzi.',
+               en: '{N} — your answers have already ruled them out.' },
+  noSuch: { pl: 'Nie ma w bazie Pokémona o takiej nazwie.', en: 'No Pokémon by that name in the database.' },
+  nothingFound: { pl: 'Nic nie pasuje do wpisanej nazwy.', en: 'Nothing matches what you typed.' },
   backToQ: { pl: '← wracam do pytań', en: '← back to questions' },
   log: { pl: 'Co już wiemy', en: 'What we know' },
   yes: { pl: 'tak', en: 'yes' },
@@ -254,7 +263,7 @@ const S = {
   pool: 'all',         // kanto | all
   hints: true,
   cand: [], asked: [], used: new Set(), skipped: new Set(),
-  secret: null, start: 0, result: null, pending: null, cat: 'all', note: '', played: false
+  secret: null, start: 0, result: null, pending: null, cat: 'all', note: '', played: false, q: ''
 };
 const LIMIT = 20;
 const BEST = 'pp-20q-best';
@@ -264,7 +273,7 @@ function pool() { return S.pool === 'kanto' ? MON.filter(m => m.gen === 1) : MON
 function begin() {
   S.cand = pool(); S.asked = []; S.used = new Set(); S.skipped = new Set();
   S.result = null; S.pending = null; S.note = ''; S.start = S.cand.length;
-  S.screen = 'play'; S.cat = 'all'; S.played = false;
+  S.screen = 'play'; S.cat = 'all'; S.played = false; S.q = '';
   SND.begin();
   if (S.mode === 'you') S.secret = S.cand[Math.floor(Math.random() * S.cand.length)];
   else { S.secret = null; nextAppQuestion(); }
@@ -385,7 +394,7 @@ window.ppToDex = function (id) {
 };
 window.ppBegin = begin;
 window.ppMenu = function () { S.screen = 'menu'; S.note = ''; render(); };
-window.ppToGuess = function () { S.screen = 'guess'; S.note = ''; render(); };
+window.ppToGuess = function () { S.screen = 'guess'; S.note = ''; S.q = ''; render(); };
 window.ppToPlay = function () { S.screen = 'play'; render(); };
 window.ppAskOpen = function (qid) { const q = byId[qid]; askAs(q.val, t(q.q), qid, q.lab); };
 window.ppAskBool = function (qid, i) {
@@ -477,15 +486,45 @@ function questionsHTML() {
     <div class="qcats">${tabs}</div><div class="qasks">${body}</div></div>`;
 }
 
-function candHTML(clickable) {
-  const list = S.cand.slice(0, 60);
+const LIST_MAX = 72;
+/* Kandydaci alfabetycznie — tak samo jak w Pokédeksie, bo po imieniu szuka się łatwiej
+   niż po numerze. Przy dłuższej liście pokazujemy część, a resztę znajduje wyszukiwarka. */
+function candSorted() {
+  return S.cand.slice().sort((a, b) => a.name.localeCompare(b.name));
+}
+function candListHTML(clickable) {
+  const q = (S.q || '').trim().toLowerCase();
+  const all = candSorted();
+  const hit = q ? all.filter(m => m.name.includes(q)) : all;
+  const list = hit.slice(0, LIST_MAX);
+  let msg = '';
+  if (q && !hit.length) {
+    // nazwa istnieje, ale została już wykluczona — to warto powiedzieć wprost
+    const gone = MON.filter(m => m.name.includes(q));
+    if (gone.length) {
+      const names = gone.slice(0, 3).map(m => cap(m.name));
+      const txt = t(gone.length === 1 ? UI.ruledOut1 : UI.ruledOutN)
+        .replace('{N}', names.join(', ') + (gone.length > 3 ? '…' : ''));
+      msg = `<p class="qruled">${esc(txt)}</p>`;
+    } else {
+      msg = `<p class="qruled">${t(UI.noSuch)}</p>`;
+    }
+  } else if (hit.length > LIST_MAX) {
+    msg = `<p class="qmore">${t(UI.moreHint).replace('{N}', LIST_MAX).replace('{ALL}', hit.length)}</p>`;
+  }
   return `<div class="qcands">${list.map(m => `
     <button class="qcand" ${clickable ? `onclick="ppGuess(${m.id})"` : 'disabled'}>
       <img loading="lazy" src="${img(m)}" alt="${esc(m.name)}">
       <span>${esc(cap(m.name))}</span>
-    </button>`).join('')}
-    ${S.cand.length > 60 ? `<p class="qmore">+ ${S.cand.length - 60}</p>` : ''}</div>`;
+    </button>`).join('')}</div>${msg}`;
 }
+function candHTML(clickable) { return `<div id="qcandbox">${candListHTML(clickable)}</div>`; }
+/* przerysowujemy samą listę, żeby pisanie w okienku nie traciło kursora */
+window.ppFind = function (v) {
+  S.q = v;
+  const box = $('qcandbox');
+  if (box) box.innerHTML = candListHTML(true);
+};
 
 function appAskHTML() {
   const p = S.pending;
@@ -559,7 +598,10 @@ function render() {
     h = statsBar();
     if (S.note) h += `<p class="qnote qnote--warn">${esc(S.note)}</p>`;
     if (S.mode === 'app') h += appAskHTML();
-    else if (S.screen === 'guess') h += `<div class="qpick"><h4>${t(UI.guessWho)}</h4>${candHTML(true)}
+    else if (S.screen === 'guess') h += `<div class="qpick"><h4>${t(UI.guessWho)}</h4>
+      <input type="search" class="qfind" id="qfind" autocomplete="off" placeholder="${t(UI.findLbl)}"
+        value="${esc(S.q || '')}" oninput="ppFind(this.value)">
+      ${candHTML(true)}
       <button class="qalt" onclick="ppToPlay()">${t(UI.backToQ)}</button></div>`;
     else {
       h += `<div class="qbtns"><button class="qgo" onclick="ppToGuess()">${t(UI.guessBtn)}</button>
