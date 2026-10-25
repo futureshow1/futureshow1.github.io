@@ -188,12 +188,21 @@ rarityGuide: {
  ],
  famous: {
   title:{pl:"Najsłynniejsze białe kruki", en:"Legendary grails"},
+  // obrazki: mamy tylko te karty, które istnieją w oficjalnym katalogu — Pikachu Illustrator
+  // i japońskie trofea nigdy do niego nie trafiły, więc zamiast podstawiać cokolwiek,
+  // pokazujemy zaślepkę i mówimy wprost, dlaczego jej nie ma
   items:[
-   {name:"Pikachu Illustrator (1998)", pl:"nagroda w konkursie rysunkowym, ~40 egzemplarzy; egzemplarz Logana Paula: 5,3 mln $ — najdroższa karta świata", en:"a drawing-contest prize, ~40 copies; Logan Paul's copy: $5.3M — the priciest card on Earth"},
-   {name:"Charizard Base Set 1st Edition (1999)", pl:"święty Graal zwykłych śmiertelników; w stanie PSA 10 — setki tysięcy dolarów", en:"the everyman's holy grail; six figures in PSA 10"},
-   {name:"Trophy Kangaskhan, No. 1–3 Trainer", pl:"karty-trofea z japońskich turniejów lat 90.", en:"trophy cards from 1990s Japanese tournaments"},
-   {name:"Moonbreon (Umbreon VMAX alt art, 2021)", pl:"najsłynniejsza droga karta ery współczesnej", en:"the most famous modern-era chase card"}
-  ]
+   {name:"Pikachu Illustrator (1998)", why:{pl:"nie ma jej w żadnym oficjalnym katalogu kart",en:"absent from every official card catalogue"},
+    pl:"nagroda w konkursie rysunkowym, ~40 egzemplarzy; egzemplarz Logana Paula: 5,3 mln $ — najdroższa karta świata", en:"a drawing-contest prize, ~40 copies; Logan Paul's copy: $5.3M — the priciest card on Earth"},
+   {name:"Charizard Base Set 1st Edition (1999)", img:"images/famous/charizard-base1.webp",
+    pl:"święty Graal zwykłych śmiertelników; w stanie PSA 10 — setki tysięcy dolarów", en:"the everyman's holy grail; six figures in PSA 10"},
+   {name:"Trophy Kangaskhan, No. 1–3 Trainer", why:{pl:"japońskie karty turniejowe, poza katalogiem",en:"Japanese tournament cards, outside the catalogue"},
+    pl:"karty-trofea z japońskich turniejów lat 90.", en:"trophy cards from 1990s Japanese tournaments"},
+   {name:"Moonbreon (Umbreon VMAX alt art, 2021)", img:"images/famous/moonbreon.webp",
+    pl:"najsłynniejsza droga karta ery współczesnej", en:"the most famous modern-era chase card"}
+  ],
+  imgNote:{pl:"Zdjęcia pokazujemy tam, gdzie karta istnieje w oficjalnym katalogu. Dwie pozostałe są tak osobliwe, że nie ma ich nawet tam — i to samo w sobie mówi coś o ich rzadkości.",
+           en:"We show photos where the card exists in the official catalogue. The other two are so obscure they are not even there — which says something about their rarity in itself."}
  }
 },
 
@@ -691,6 +700,126 @@ cardLabels: {
   "Metal":"Metalowa", "Colorless":"Bezbarwna", "Fairy":"Wróżkowa",
   "Dragon":"Smocza", "Free":"bez kosztu"
  }
+},
+
+// ---------- WARTOŚĆ I SYMBOLE RZADKOŚCI ----------
+// Symbole zweryfikowane u CGC (firma gradingowa) i TCGplayer, X 2026 — nie z pamięci.
+// Ceny liczone z data/prices.json (Cardmarket = rynek europejski, w euro).
+cardValue: {
+ intro: {
+  pl: "Rzadkość karty jest wydrukowana w jej rogu — ale symbol czyta się dopiero wtedy, gdy się wie, że liczy się <b>kształt, kolor i liczba</b> znaczków. Złota gwiazdka znaczy co innego niż srebrna, a dwie złote co innego niż jedna. Niżej masz pełny rozszyfrowany zestaw, a przy każdym poziomie <b>realne ceny policzone z naszych {CARDS} kart</b>.",
+  en: "A card's rarity is printed in its corner — but the symbol only makes sense once you know that <b>shape, colour and count</b> all matter. A gold star means something different from a silver one, and two gold stars from one. Below is the full decoded set, with <b>real prices computed from our {CARDS} cards</b> at every tier."
+ },
+ symTitle: { pl: "Co znaczy znaczek w rogu", en: "What the corner symbol means" },
+ symNote: {
+  pl: "<b>Kliknij dowolny kafelek, żeby zobaczyć wszystkie karty z tym symbolem w naszej bazie.</b> Pierwsze cztery symbole są w użyciu od zawsze. Pięć kolejnych wprowadzono dopiero w erze Scarlet &amp; Violet (2023), żeby nazwać oficjalnie to, co gracze i tak już rozróżniali. Dwa ostatnie to nowość ery Mega-ewolucji.",
+  en: "<b>Click any tile to see every card with that symbol in our database.</b> The first four symbols have always been in use. Five more arrived with the Scarlet &amp; Violet era (2023), to give official names to what players already distinguished anyway. The last two are new to the Mega Evolution era."
+ },
+ symbols: [
+  { k:"Common", tone:"black", g:"circle", n:1, era:{pl:"od 1996",en:"since 1996"},
+    pl:["Pospolita","Jedno czarne kółko. Trzon każdego boostera i pierwszych wymian na podwórku."],
+    en:["Common","A single black circle. The backbone of every booster and every playground trade."] },
+  { k:"Uncommon", tone:"black", g:"diamond", n:1, era:{pl:"od 1996",en:"since 1996"},
+    pl:["Niezbyt pospolita","Czarny romb. Trzy na booster."],
+    en:["Uncommon","A black diamond. Three per booster."] },
+  { k:"Rare", tone:"black", g:"star", n:1, era:{pl:"od 1996",en:"since 1996"},
+    pl:["Rzadka","Czarna gwiazdka. Jedna gwarantowana na booster — ale sama gwiazdka nie znaczy jeszcze, że karta jest cenna."],
+    en:["Rare","A black star. One guaranteed per booster — but a star alone does not make a card valuable."] },
+  { k:"Promo", tone:"black", g:"star", n:1, promo:1, era:{pl:"od 1996",en:"since 1996"},
+    pl:["Promocyjna","Czarna gwiazdka z napisem PROMO. Takich kart nie ma w zwykłych boosterach — rozdawano je na premierach filmów, w zestawach, na turniejach. Część bywa bardzo poszukiwana."],
+    en:["Promo","A black star with the word PROMO. These never come from ordinary boosters — they were given out at film premieres, in box sets, at tournaments. Some are heavily sought after."] },
+  { k:"Double Rare", tone:"black", g:"star", n:2, era:{pl:"od 2023",en:"since 2023"},
+    pl:["Podwójnie rzadka","Dwie czarne gwiazdki. To zwykłe karty <b>ex</b> — mocne w grze, ale kilka wpada na każdy karton."],
+    en:["Double Rare","Two black stars. These are ordinary <b>ex</b> cards — strong in play, but several come in every box."] },
+  { k:"Ultra Rare", tone:"silver", g:"star", n:2, era:{pl:"od 2023",en:"since 2023"},
+    pl:["Ultra rzadka","Dwie <b>srebrne</b> gwiazdki. Karty pełnoformatowe (full art): ilustracja rozlewa się na całą kartę, a nie siedzi w ramce."],
+    en:["Ultra Rare","Two <b>silver</b> stars. Full-art cards: the illustration spills across the whole card instead of sitting in a frame."] },
+  { k:"Illustration Rare", tone:"gold", g:"star", n:1, era:{pl:"od 2023",en:"since 2023"},
+    pl:["Rzadka ilustrowana (IR)","<b>Jedna złota</b> gwiazdka. Zwykły Pokémon, ale narysowany jak scenka z jego życia — tu zaczyna się półka kolekcjonerska."],
+    en:["Illustration Rare (IR)","<b>One gold</b> star. An ordinary Pokémon drawn as a little scene from its life — this is where the collector shelf begins."] },
+  { k:"Special Illustration Rare", tone:"gold", g:"star", n:2, era:{pl:"od 2023",en:"since 2023"},
+    pl:["Specjalna rzadka ilustrowana (SIR)","<b>Dwie złote</b> gwiazdki. Malarskie, pełnoformatowe ex i Trenerzy. Dziś najbardziej rozchwytywane trafienia."],
+    en:["Special Illustration Rare (SIR)","<b>Two gold</b> stars. Painterly full-art ex and Trainers. Today's most chased pulls."] },
+  { k:"Hyper Rare", tone:"gold", g:"star", n:3, era:{pl:"od 2023",en:"since 2023"},
+    pl:["Hiper rzadka","<b>Trzy złote</b> gwiazdki. Karty ze złotym tłem i złotymi napisami. Szczyt zwykłej piramidy."],
+    en:["Hyper Rare","<b>Three gold</b> stars. Cards with gold backgrounds and gold lettering. The top of the ordinary pyramid."] },
+  { k:"Mega Hyper Rare", tone:"gold", g:"mega", n:1, era:{pl:"2025–26",en:"2025–26"},
+    pl:["Mega hiper rzadka","Własny symbol, wprowadzony dla kart Mega-ewolucji tłoczonych w całości złotem. Trafienie bywa rzadsze niż <b>1 na 1260 boosterów</b>."],
+    en:["Mega Hyper Rare","Its own symbol, created for the fully gold-embossed Mega Evolution cards. Pull rates go as low as <b>1 in 1,260 boosters</b>."] },
+  { k:"Mega Attack Rare", tone:"pastel", g:"star", n:2, era:{pl:"od I 2026",en:"since Jan 2026"},
+    pl:["Mega atak","Dwie pastelowe gwiazdki — <b>różowa i zielona</b>. Najnowszy wariant: Mega-Pokémon z kanji swojego popisowego ataku. Debiut w secie Ascended Heroes."],
+    en:["Mega Attack Rare","Two pastel stars — <b>one pink, one green</b>. The newest variant: Mega Pokémon adorned with the kanji of their signature attack. Debuted in Ascended Heroes."] }
+ ],
+ extraTitle: { pl: "Trzy rzeczy, których symbol nie powie", en: "Three things the symbol will not tell you" },
+ extra: [
+  { pl:["Holo czy reverse holo","Dwie karty z tym samym symbolem i numerem mogą być warte zupełnie co innego. <b>Holo</b> błyszczy tylko w ramce z ilustracją i jest trudne do trafienia. <b>Reverse holo</b> błyszczy wszędzie <i>poza</i> ilustracją i ma je prawie każda karta w secie — jest dużo mniej warte."],
+    en:["Holo or reverse holo","Two cards with the same symbol and number can be worth wildly different amounts. A <b>holo</b> shines only inside the art box and is hard to pull. A <b>reverse holo</b> shines everywhere <i>except</i> the art box, and nearly every card in a set has one — worth much less."] },
+  { pl:["Numer wyższy niż set","Jeśli karta ma numer 224/198, to nie błąd: numery powyżej wielkości setu to <b>sekretne rzadkości</b>, najtrudniejsze do wyciągnięcia z boosterów."],
+    en:["A number higher than the set","If a card reads 224/198, that is not a misprint: numbers above the set size mark <b>secret rares</b>, the hardest cards to pull."] },
+  { pl:["1. edycja i shadowless","Karty z ery Wizards of the Coast wychodziły falami. Pierwszy nakład ma stempel <b>1st Edition</b> i bywa wart więcej niż współczesne złote karty. Dwa pierwsze nakłady Base Set nie miały też cienia przy ramce ilustracji — takie <b>shadowless</b> też chodzą drożej."],
+    en:["1st Edition and shadowless","Wizards of the Coast-era cards shipped in waves. The first print run carries a <b>1st Edition</b> stamp and can be worth more than modern gold cards. The first two Base Set runs also lacked the drop shadow beside the art box — those <b>shadowless</b> copies command a premium too."] }
+ ],
+ factorsTitle: { pl: "Od czego naprawdę zależy cena", en: "What the price actually depends on" },
+ factors: [
+  { em:"🔍", pl:["Stan","Najważniejsze po samej rzadkości. Rysy na holo, przytarte rogi i krzywe cięcie zbijają cenę wielokrotnie. Dlatego cenne karty wysyła się do oceny (grading) w CGC albo PSA, gdzie dostają ocenę 1–10 i zostają zatopione w plastiku."],
+      en:["Condition","The biggest factor after rarity itself. Scratched holo, worn corners and off-centre cuts cut the price many times over. That is why valuable cards go to CGC or PSA for grading, come back with a 1–10 grade and get sealed in plastic."] },
+  { em:"📅", pl:["Wiek","Stara karta o niskiej rzadkości potrafi być warta więcej niż nowa złota. CGC podaje przykład z jednej aukcji: Venusaur holo z Base Set w ocenie 7 poszedł za 86 dolarów, a Charizard ex z Obsidian Flames w lepszej ocenie 9 — za 62."],
+      en:["Age","An old low-rarity card can beat a new gold one. CGC cites one auction where a Base Set Venusaur holo graded 7 sold for $86, while an Obsidian Flames Charizard ex graded 9 fetched $62."] },
+  { em:"⭐", pl:["Kto jest na karcie","Charizard, Pikachu i Eevee są droższe od równie rzadkich kart z Pokémonem, którego nikt nie kocha. To czysta popularność, nie rzadkość."],
+      en:["Who is on the card","Charizard, Pikachu and Eevee cost more than equally rare cards showing a Pokémon nobody loves. That is popularity, not scarcity."] },
+  { em:"♟️", pl:["Przydatność w grze","Karta, którą gra się na turniejach, ma stały popyt — nawet jeśli jest tylko „podwójnie rzadka”. Gdy wypada z rotacji, cena potrafi runąć."],
+      en:["Tournament playability","A card people actually play holds steady demand — even at mere Double Rare. When it rotates out of the format, the price can collapse."] },
+  { em:"🏆", pl:["Promocje i stemple turniejowe","Karty wręczane na turniejach mają stempel z nazwą i rokiem imprezy. Potrafią być warte setki dolarów."],
+      en:["Promos and tournament stamps","Cards handed out at tournaments carry a stamp with the event name and year. They can be worth hundreds of dollars."] },
+  { em:"✂️", pl:["Błędy druku","Krzywo przycięta, źle opisana albo przesunięta w druku karta bywa cenniejsza od poprawnej — bo takich jest mniej."],
+      en:["Misprints","A miscut, mislabelled or misaligned card can be worth more than a correct one — simply because there are fewer of them."] }
+ ],
+ caveat: {
+  pl: "<b>Uczciwe zastrzeżenie:</b> nadrukowana rzadkość nie zawsze odpowiada faktycznej dostępności, a dostępność nie zawsze cenie. Symbol w rogu mówi, jak trudno było tę kartę wyciągnąć z boostera w danym secie — i tyle. Resztę robi rynek.",
+  en: "<b>An honest caveat:</b> printed rarity does not always match actual scarcity, and scarcity does not always match price. The corner symbol tells you how hard that card was to pull from a booster in that set — and nothing more. The market does the rest."
+ },
+ ladderTitle: { pl: "Ile faktycznie kosztują — nasze karty w liczbach", en: "What they actually cost — our cards in numbers" },
+ ladderNote: {
+  pl: "Mediana i widełki policzone z cen Cardmarketu (największa europejska giełda kart, ceny w euro) dla naszych {CARDS} kart. <b>Mediana, nie średnia</b> — bo jedna droga karta potrafi zawyżyć średnią całego poziomu. Kolumna „w tym z ceną” mówi, z ilu kart faktycznie policzono dany wiersz: najnowsze sety bywają jeszcze nienotowane i wtedy nie zgadujemy. Stan cen: {DATE}.",
+  en: "Median and range computed from Cardmarket prices (Europe's largest card exchange, in euro) across our {CARDS} cards. <b>Median, not mean</b> — one expensive card can drag a whole tier's average upwards. The “of those priced” column says how many cards a row was actually computed from: the newest sets are often not listed yet, and we do not guess. Prices as of {DATE}."
+ },
+ hiTop: { pl: "najdroższa karta w kolekcji", en: "priciest card in the collection" },
+ hiPlain: { pl: "najdroższa karta pospolita", en: "priciest plain card" },
+ hiPriced: { pl: "kart ma notowanie", en: "cards have a listing" },
+ hiPricedSub: { pl: "najnowsze sety jeszcze nienotowane", en: "newest sets not listed yet" },
+ ladderFlip: {
+  pl: "<b>Zwróć uwagę na kolejność w tej tabeli — nie zgadza się z drukowaną drabinką rzadkości.</b> Stara „rzadka holo” z Base Set bije ceną współczesną „ultra rzadką”, a pospolita karta z 1999 roku potrafi kosztować więcej niż dzisiejsza karta ex. Wiek i to, kto jest na karcie, ważą tu więcej niż liczba gwiazdek w rogu.",
+  en: "<b>Look at the order in this table — it does not match the printed rarity ladder.</b> An old Base Set “rare holo” outprices a modern “ultra rare”, and a common from 1999 can cost more than today's ex card. Age and who is pictured weigh more here than the number of stars in the corner."
+ },
+ cmpTitle: { pl: "Porównaj dwie karty", en: "Compare two cards" },
+ cmpNote: { pl: "Wybierz dwie dowolne karty z naszej kolekcji i zobacz je obok siebie: symbol, poziom rzadkości i aktualną cenę.",
+            en: "Pick any two cards from our collection and see them side by side: symbol, rarity tier and current price." },
+ cmpPick: { pl: "Wpisz nazwę karty…", en: "Type a card name…" },
+ cmpEmpty: { pl: "Wybierz kartę", en: "Pick a card" },
+ cmpClear: { pl: "zmień", en: "change" },
+ noPrice: { pl: "brak notowania", en: "no listing" },
+ showCards: { pl: "▸ pokaż te karty ({N})", en: "▸ show these cards ({N})" },
+ hideCards: { pl: "▾ ukryj karty", en: "▾ hide cards" },
+ showAll: { pl: "Pokaż wszystkie ({N})", en: "Show all ({N})" },
+ close: { pl: "zamknij", en: "close" },
+ tapHint: { pl: "Kliknij dowolny poziom — pokażemy wszystkie karty z tym symbolem, od najdroższej.",
+            en: "Click any tier — we will show every card with that symbol, priciest first." },
+ colMed: { pl: "mediana", en: "median" },
+ colRange: { pl: "widełki", en: "range" },
+ colCount: { pl: "naszych kart", en: "our cards" },
+ colPriced: { pl: "w tym z ceną", en: "of those priced" },
+ eurTrend: { pl: "trend", en: "trend" },
+ cmpPrices: {
+  pl: "Co znaczą te liczby: <b>średnia sprzedaż</b> to przeciętna cena faktycznie zawartych transakcji — i to ona jest tu najbliżej prawdy. <b>Od</b> to najtańsza oferta w obrocie. <b>Trend</b> potrafi wystrzelić po jednej spektakularnej transakcji, więc traktuj go z rezerwą. Uwaga: Cardmarket zlicza razem wszystkie stany i warianty tej samej karty — przy starych setach wchodzą w to także egzemplarze ocenione przez PSA i te z 1. edycji, więc „średnia” starej karty bywa zawyżona względem tego, co kupisz w zwykłym stanie.",
+  en: "What these numbers mean: <b>average sale</b> is the mean of transactions that actually closed — the figure closest to reality here. <b>From</b> is the cheapest offer on the market. <b>Trend</b> can spike after a single spectacular sale, so treat it with caution. Note that Cardmarket pools all conditions and variants of the same card — for older sets that includes PSA-graded and 1st Edition copies, so an old card's “average” can run well above what an ordinary copy costs."
+ },
+ eurLow: { pl: "od", en: "from" },
+ eurAvg: { pl: "średnia sprzedaż", en: "average sale" },
+ usdMarket: { pl: "rynek USA", en: "US market" },
+ verdictSame: { pl: "Obie karty są na tym samym poziomie rzadkości.", en: "Both cards sit at the same rarity tier." },
+ verdictRarer: { pl: "{A} jest na wyższym poziomie rzadkości niż {B}.", en: "{A} sits at a higher rarity tier than {B}." },
+ verdictCheaper: { pl: "Mimo to jest tańsza — dobra ilustracja tego, że symbol w rogu to jeszcze nie cena.", en: "Yet it is the cheaper one — a neat illustration that the corner symbol is not the price." },
+ verdictMatches: { pl: "Cena idzie w parze z rzadkością.", en: "Here price tracks rarity." }
 },
 
 // ---------- TYPY ----------

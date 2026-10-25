@@ -8,7 +8,24 @@ const startHash=location.hash;
 
 /* ---------- udostępnianie: #pokemon=<numer>, #karta=<id>, #dzial=<sekcja> ---------- */
 const SHARE={pl:{btn:'🔗 Kopiuj link',ok:'✓ Skopiowano'},en:{btn:'🔗 Copy link',ok:'✓ Copied'}};
-function setHash(h){try{history.replaceState(null,'',h||location.pathname+location.search)}catch(e){}}
+/* Historia przeglądania wewnątrz portalu.
+   Wcześniej adres zmieniał się przez replaceState, więc przycisk „wstecz" w przeglądarce
+   nie działał w obrębie Poképedii — wyrzucał ze strony. Teraz każde przejście użytkownika
+   dokłada wpis do historii (pushState), a cofanie obsługuje popstate. */
+let histDepth=0, silent=0, scrollPrzedOknem=null;
+function setHash(h){try{history.replaceState({d:histDepth},'',h||location.pathname+location.search)}catch(e){}}
+function pushHash(h){
+ if(silent) return setHash(h);
+ const cur=location.hash||'';
+ if(h===cur) return;                       // to samo miejsce — nie dubluj wpisu
+ try{history.pushState({d:++histDepth},'',h);}catch(e){setHash(h);}
+ updateBack();
+}
+function updateBack(){
+ const b=document.getElementById('btn-back');
+ if(b) b.hidden = histDepth<=0;
+}
+window.goBack=function(){ if(histDepth>0) history.back(); };
 function shareBtn(cel){
  const box=$('modal-box'); if(!box) return;
  const b=document.createElement('button');
@@ -83,12 +100,13 @@ const UI={
   desc:{pl:'Dwie epoki karcianki: kultowy Base Set z 1999 roku (całe 102 karty!) oraz 488 kart z najnowszych setów 2025–2026, w które grają dzisiejsi gracze. Karty ułożone od najrzadszych do najpospolitszych. Kliknij kartę, aby ją powiększyć i przeczytać ataki.',
         en:'Two eras of the TCG: the iconic 1999 Base Set (all 102 cards!) and 488 cards from the newest 2025–2026 sets today\'s players use. Cards are ordered rarest to most common. Click a card to enlarge it and read its attacks.'},
   tabs:{anatomy:{pl:'🔎 Jak czytać kartę',en:'🔎 How to read a card'},base:{pl:'Base Set (1999)',en:'Base Set (1999)'},modern:{pl:'Współczesne (2025–26)',en:'Modern (2025–26)'},
-        rarity:{pl:'Ranking rzadkości',en:'Rarity ranking'}},
+        rarity:{pl:'Ranking rzadkości',en:'Rarity ranking'},
+        value:{pl:'💰 Ile to warte',en:'💰 What it is worth'}},
   baseNote:{pl:'<b>Base Set</b> — pierwszy zachodni set kart Pokémon (styczeń 1999, Wizards of the Coast). 102 karty, z których zaczęła się cała karciana mania. Najcenniejsza: holograficzny <b>Charizard 4/102</b> — egzemplarze z 1. edycji osiągają dziś ceny domów.',
             en:'<b>Base Set</b> — the first Western Pokémon card set (January 1999, Wizards of the Coast). The 102 cards that started the entire craze. Crown jewel: the holographic <b>Charizard 4/102</b> — 1st Edition copies now sell for house money.'},
   modernNote:{pl:'Najnowsze sety, w które gra się <b>teraz</b>: <b>Pitch Black</b> (lipiec 2026) i <b>Mega Evolution</b> (wrzesień 2025) z obecnej ery Mega, oraz <b>Prismatic Evolutions</b> (styczeń 2025) — słynny „set Eevee", rozchwytywany przez kolekcjonerów. Inne sety z ostatnich 2 lat: Destined Rivals, Journey Together, Surging Sparks, Stellar Crown, Twilight Masquerade, Black Bolt / White Flare, Phantasmal Flames, Ascended Heroes, Perfect Order, Chaos Rising.',
               en:'The sets played <b>right now</b>: <b>Pitch Black</b> (July 2026) and <b>Mega Evolution</b> (September 2025) from the current Mega era, plus <b>Prismatic Evolutions</b> (January 2025) — the famous “Eevee set” collectors chase. Other sets of the last 2 years: Destined Rivals, Journey Together, Surging Sparks, Stellar Crown, Twilight Masquerade, Black Bolt / White Flare, Phantasmal Flames, Ascended Heroes, Perfect Order, Chaos Rising.'},
-  allSets:{pl:'Wszystkie 3 sety',en:'All 3 sets'},
+  allSets:{pl:'Wszystkie sety',en:'All sets'},
   cardsWord:{pl:'kart',en:'cards'},
   hp:'HP',attacks:{pl:'Ataki',en:'Attacks'},ability:{pl:'Zdolność',en:'Ability'},
   cost:{pl:'koszt',en:'cost'},artist:{pl:'Ilustracja',en:'Illustration'},
@@ -126,13 +144,16 @@ const fillNums=s=>typeof s==='string'?s.replace(/\{(MON|CARDS|CARDS_PL_PHRASE)\}
 const T=o=>fillNums(typeof o==='string'?o:(o[lang]||o.pl||o.en));
 
 /* ---------- rzadkość ---------- */
-const RARITY_ORDER=['Mega Hyper Rare','Hyper Rare','Special Illustration Rare','Illustration Rare',
- 'Ultra Rare','ACE SPEC Rare','Double Rare','Rare Holo','Rare','Uncommon','Common',''];
-const RARITY_PL={'Mega Hyper Rare':'Mega Hyper Rare (złote mega)','Hyper Rare':'Hyper Rare (złota)',
+const RARITY_ORDER=['Mega Hyper Rare','Mega Attack Rare','Hyper Rare','Special Illustration Rare','Illustration Rare',
+ 'Ultra Rare','ACE SPEC Rare','Rare Secret','Rare Ultra','Rare Rainbow','Amazing Rare','LEGEND','Rare Prime','Rare BREAK',
+ 'Futuristic Rare','Pikachu Rare','Shiny Ultra Rare','Shiny Rare','Rare Shiny','Radiant Rare','Trainer Gallery Rare Holo',
+ 'Rare Holo LV.X','Rare Holo EX','Rare Holo ex','Rare Holo GX','Holo Rare VSTAR','Holo Rare VMAX','Holo Rare V',
+ 'Rare Holo VSTAR','Rare Holo VMAX','Rare Holo V','Double Rare','Rare Holo','Rare','Promo','Uncommon','Common',''];
+const RARITY_PL={'Rare Secret':'Rare Secret (sekretna)','Rare Ultra':'Rare Ultra','Rare Rainbow':'Rare Rainbow (tęczowa)','Amazing Rare':'Amazing Rare (tęczowy rozbłysk)','LEGEND':'LEGEND (karta z dwóch połówek)','Rare Prime':'Rare Prime','Rare BREAK':'Rare BREAK (drukowana w poziomie)','Futuristic Rare':'Futuristic Rare (futurystyczna)','Pikachu Rare':'Pikachu Rare (rocznicowa, same Pikachu)','Shiny Ultra Rare':'Shiny Ultra Rare (lśniąca)','Shiny Rare':'Shiny Rare (lśniąca)','Rare Shiny':'Rare Shiny (lśniąca)','Radiant Rare':'Radiant Rare (promienna)','Trainer Gallery Rare Holo':'Trainer Gallery (galeria Trenerów)','Rare Holo LV.X':'Rare Holo LV.X','Rare Holo EX':'Rare Holo EX','Rare Holo ex':'Rare Holo ex','Rare Holo GX':'Rare Holo GX','Holo Rare VSTAR':'Holo Rare VSTAR','Holo Rare VMAX':'Holo Rare VMAX','Holo Rare V':'Holo Rare V','Rare Holo VSTAR':'Rare Holo VSTAR','Rare Holo VMAX':'Rare Holo VMAX','Rare Holo V':'Rare Holo V','Promo':'Promo (spoza boosterów)','Mega Hyper Rare':'Mega Hyper Rare (złote mega)','Mega Attack Rare':'Mega Attack Rare (różowa i zielona gwiazdka)','Hyper Rare':'Hyper Rare (złota)',
  'Special Illustration Rare':'Special Illustration Rare (SIR)','Illustration Rare':'Illustration Rare (IR)',
  'Ultra Rare':'Ultra Rare (full art)','ACE SPEC Rare':'ACE SPEC (różowa, 1 na talię)',
  'Double Rare':'Double Rare (ex)','Rare Holo':'Rare Holo ★ (błyszcząca)','Rare':'Rare ★','Uncommon':'Uncommon ◆','Common':'Common ●','':'—'};
-const RARITY_EN={'Mega Hyper Rare':'Mega Hyper Rare (gold mega)','Hyper Rare':'Hyper Rare (gold)',
+const RARITY_EN={'Rare Secret':'Rare Secret','Rare Ultra':'Rare Ultra','Rare Rainbow':'Rare Rainbow','Amazing Rare':'Amazing Rare','LEGEND':'LEGEND (two-halves card)','Rare Prime':'Rare Prime','Rare BREAK':'Rare BREAK (printed sideways)','Futuristic Rare':'Futuristic Rare','Pikachu Rare':'Pikachu Rare (anniversary, Pikachu only)','Shiny Ultra Rare':'Shiny Ultra Rare','Shiny Rare':'Shiny Rare','Rare Shiny':'Rare Shiny','Radiant Rare':'Radiant Rare','Trainer Gallery Rare Holo':'Trainer Gallery Rare Holo','Rare Holo LV.X':'Rare Holo LV.X','Rare Holo EX':'Rare Holo EX','Rare Holo ex':'Rare Holo ex','Rare Holo GX':'Rare Holo GX','Holo Rare VSTAR':'Holo Rare VSTAR','Holo Rare VMAX':'Holo Rare VMAX','Holo Rare V':'Holo Rare V','Rare Holo VSTAR':'Rare Holo VSTAR','Rare Holo VMAX':'Rare Holo VMAX','Rare Holo V':'Rare Holo V','Promo':'Promo (not from boosters)','Mega Hyper Rare':'Mega Hyper Rare (gold mega)','Mega Attack Rare':'Mega Attack Rare (pink and green star)','Hyper Rare':'Hyper Rare (gold)',
  'Special Illustration Rare':'Special Illustration Rare (SIR)','Illustration Rare':'Illustration Rare (IR)',
  'Ultra Rare':'Ultra Rare (full art)','ACE SPEC Rare':'ACE SPEC (pink, 1 per deck)',
  'Double Rare':'Double Rare (ex)','Rare Holo':'Rare Holo ★ (holofoil)','Rare':'Rare ★','Uncommon':'Uncommon ◆','Common':'Common ●','':'—'};
@@ -157,12 +178,15 @@ const genTitle=n=>{const g=GEN[n];
 /* ---------- nawigacja ---------- */
 let curSec='start';
 window.go=function(sec){
+ const zmiana = curSec!==sec;      // dopiero przejście do INNEJ sekcji przewija na górę
  curSec=sec;
- setHash('#dzial='+sec);
+ // okienko Pokémona/karty nie może zostać otwarte nad inną sekcją
+ const md=$('modal'); if(md&&md.classList.contains('on')) md.classList.remove('on');
+ pushHash('#dzial='+sec);
  document.querySelectorAll('.sec').forEach(s=>s.classList.remove('on'));
  $('sec-'+sec).classList.add('on');
  document.querySelectorAll('#mainnav button').forEach(b=>b.classList.toggle('on',b.dataset.sec===sec));
- window.scrollTo({top:0});
+ if(zmiana) window.scrollTo({top:0});
 };
 document.querySelectorAll('#mainnav button').forEach(b=>b.onclick=()=>go(b.dataset.sec));
 
@@ -263,13 +287,15 @@ window.openMon=function(id){
       <div style="height:100%;width:${Math.max(pct,3)}%;background:linear-gradient(90deg,#ee1515,#ffcb05,#4caf50);border-radius:5px"></div></div></div>
     ${evoH}${cardsH}
    </div></div>`;
+ if(!$('modal').classList.contains('on')) scrollPrzedOknem=window.scrollY;
  $('modal').classList.add('on');
- setHash('#pokemon='+m.id);
+ pushHash('#pokemon='+m.id);
  shareBtn('#pokemon='+m.id);
 };
 
 /* ---------- karty ---------- */
 function cardImg(c){
+ if(c.img)return c.img;          // jawna ścieżka — gdy numer karty koliduje z inną w tym samym secie
  if(c.fill)return `images/cards/fill-${c.id}.webp`;
  return c.set?`images/cards/${c.set}-${String(c.number).replace(/[^A-Za-z0-9]/g,'')}.webp`:`images/cards/base1-${c.number}.webp`;
 }
@@ -281,10 +307,12 @@ function renderCards(){
  document.querySelectorAll('#card-tabs button').forEach(b=>{
   b.textContent=T(UI.cards.tabs[b.dataset.tab]);
   b.classList.toggle('on',b.dataset.tab===cardTab);
-  b.onclick=()=>{cardTab=b.dataset.tab;renderCards();};});
+  b.onclick=()=>{cardTab=b.dataset.tab;pushHash('#karty='+cardTab);renderCards();};});
  const body=$('cards-body');
- if(cardTab==='rarity'){body.innerHTML=rarityGuideHTML();return;}
- if(cardTab==='anatomy'){body.innerHTML=anatomyHTML();wireAnatomy();return;}
+ if(cardTab==='rarity'){body.innerHTML=rarityGuideHTML();body.dataset.v='';return;}
+ // dekoder symboli + porównywarka cen żyją w osobnym module (wartosc.js)
+ if(cardTab==='value'){body.dataset.v='1';if(window.renderWartosc)window.renderWartosc(lang);return;}
+ if(cardTab==='anatomy'){body.innerHTML=anatomyHTML();body.dataset.v='';wireAnatomy();return;}
  let cards, note;
  if(cardTab==='base'){cards=BASE;note=T(UI.cards.baseNote);}
  else{
@@ -294,11 +322,13 @@ function renderCards(){
  const groups={};
  cards.forEach(c=>{(groups[c.rarity]=groups[c.rarity]||[]).push(c)});
  const keys=Object.keys(groups).sort((a,b)=>rIdx(a)-rIdx(b));
- const setNames={me5:'Pitch Black (VII 2026)',me1:'Mega Evolution (IX 2025)','sv8pt5':'Prismatic Evolutions (I 2025)'};
+ const setNames={me5:'Pitch Black (VII 2026)',me1:'Mega Evolution (IX 2025)','sv8pt5':'Prismatic Evolutions (I 2025)',
+  me2pt5:'Ascended Heroes (I 2026)', me55:'30th Celebration (IX 2026)', me55c:'Classic Collection (IX 2026)'};
  const pick=cardTab==='modern'?`<div class="setpick">
    <button class="${modernSet==='all'?'on':''}" onclick="setModern('all')">${T(UI.cards.allSets)}</button>
-   ${['me5','me1','sv8pt5'].map(s=>`<button class="${modernSet===s?'on':''}" onclick="setModern('${s}')">${setNames[s]}</button>`).join('')}
+   ${['me55','me55c','me5','me1','sv8pt5','me2pt5'].map(s=>`<button class="${modernSet===s?'on':''}" onclick="setModern('${s}')">${setNames[s]}</button>`).join('')}
   </div>`:'';
+ body.dataset.v='';
  body.innerHTML=`<div class="setsnote">${note}</div>${pick}`+
   keys.map(k=>`
    <div class="rarhead"><h3>${rarLabel(k)}</h3><span>${groups[k].length} ${cardsWord(groups[k].length)}</span></div>
@@ -344,8 +374,9 @@ window.openCard=function(id){
     ${c.flavor?bi(c.flavor,tr(c.flavor),'flav'):''}
     ${c.artist?`<p style="margin-top:10px;color:var(--dim);font-size:13.5px">🖌 ${T(UI.cards.artist)}: <b>${c.artist}</b></p>`:''}
    </div></div>`;
+ if(!$('modal').classList.contains('on')) scrollPrzedOknem=window.scrollY;
  $('modal').classList.add('on');
- setHash('#karta='+c.id);
+ pushHash('#karta='+c.id);
  shareBtn('#karta='+c.id);
  // hires tylko gdy CDN naprawdę ją ma (404 zwraca rewers karty, który <img> i tak by wyświetlił)
  fetch(hires,{method:'HEAD'}).then(r=>{
@@ -443,8 +474,14 @@ function rarityGuideHTML(){
   <div class="rarityladder">${g.modern.map((r,i)=>`
    <div class="rung"><div class="rank">${i+1}</div>
     <div><h4>${r.name} <span class="freq">${r.freq}</span></h4><p>${T(r)}</p></div></div>`).join('')}</div>
-  <div class="famous"><h3>💎 ${T(g.famous.title)}</h3><ul>
-   ${g.famous.items.map(f=>`<li><b>${f.name}</b> — ${T(f)}</li>`).join('')}</ul></div>`;
+  <div class="famous"><h3>💎 ${T(g.famous.title)}</h3>
+   <div class="grails">${g.famous.items.map(f=>`
+    <figure class="grail">
+     ${f.img?`<img loading="lazy" src="${f.img}" alt="${f.name}">`
+            :`<div class="grail-none"><span>?</span><i>${T(f.why)}</i></div>`}
+     <figcaption><b>${f.name}</b><span>${T(f)}</span></figcaption>
+    </figure>`).join('')}</div>
+   <p class="grails-note">${T(g.famous.imgNote)}</p></div>`;
 }
 
 /* ---------- historia ---------- */
@@ -520,9 +557,14 @@ function renderPlay(){
 }
 
 /* ---------- modal ---------- */
-window.closeModal=function(){
+window.closeModal=function(quiet){
  $('modal').classList.remove('on');
- if(/^#(pokemon|karta)=/.test(location.hash)) setHash(curSec?'#dzial='+curSec:'');
+ if(quiet) return;
+ // okienko otwarto wpisem w historii — zamykamy je cofnięciem, żeby „wstecz" nie wracało do niego
+ if(/^#(pokemon|karta)=/.test(location.hash)){
+  if(histDepth>0) history.back();
+  else setHash(curSec?'#dzial='+curSec:'');
+ }
 };
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
 
@@ -533,6 +575,9 @@ function renderAll(){
  $('btn-en').classList.toggle('on',lang==='en');
  document.documentElement.lang=lang;
  $('foot-note').textContent=T(UI.foot);
+ const bb=$('btn-back');
+ if(bb){ bb.querySelector('b').textContent=lang==='pl'?'Wstecz':'Back';
+  bb.title=bb.ariaLabel=lang==='pl'?'Wróć do poprzednio oglądanej strony':'Back to the previous page'; }
  // powrót na stronę główną studia — pastylka w pasku i zdanie w stopce
  $('fs-home').title=$('fs-home').ariaLabel=lang==='pl'?'Wróć na stronę główną FutureShow':'Back to the FutureShow home page';
  $('fs-foot').textContent=lang==='pl'?'Poképedia to projekt FutureShow — zobacz nasze pozostałe projekty na futureshow.pl →':'Poképedia is a FutureShow project — see our other work at futureshow.pl →';
@@ -540,15 +585,36 @@ function renderAll(){
  if(window.renderTrening)window.renderTrening(lang);
 }
 renderAll();
-go('start');
+silent++; go('start'); silent--;   // pierwszy ekran nie jest miejscem, z którego się cofa
 
+/* Odtwarza widok z adresu. silent=1 na czas odtwarzania, żeby samo odtwarzanie
+   nie dokładało nowych wpisów do historii (inaczej cofanie wpadłoby w pętlę). */
 function openFromHash(h){
  h=h||location.hash;
- let m;
- if((m=h.match(/^#pokemon=(\d+)$/))){ go('dex'); openMon(+m[1]); }
- else if((m=h.match(/^#karta=(.+)$/))){ go('cards'); openCard(decodeURIComponent(m[1])); }
- else if((m=h.match(/^#dzial=([a-z]+)$/))){ if($('sec-'+m[1])) go(m[1]); }
+ const byloOkno=$('modal').classList.contains('on');
+ silent++;
+ try{
+  let m;
+  if((m=h.match(/^#pokemon=(\d+)$/))){ go('dex'); openMon(+m[1]); }
+  else if((m=h.match(/^#karta=(.+)$/))){ go('cards'); openCard(decodeURIComponent(m[1])); }
+  else if((m=h.match(/^#karty=([a-z]+)$/))){ closeModal(1); if(UI.cards.tabs[m[1]]){ cardTab=m[1]; go('cards'); renderCards(); } }
+  else if((m=h.match(/^#dzial=([a-z]+)$/))){ closeModal(1); if($('sec-'+m[1])) go(m[1]); }
+  else closeModal(1);
+ } finally { silent--; }
+ setHash(h);
+ // wracamy spod okienka — oddajemy stronę dokładnie tam, gdzie była
+ if(byloOkno && !$('modal').classList.contains('on') && scrollPrzedOknem!=null){
+  const y=scrollPrzedOknem; scrollPrzedOknem=null;
+  const wroc=()=>window.scrollTo({top:y,behavior:'auto'});
+  wroc(); requestAnimationFrame(wroc);     // druga próba po przebudowie listy
+ }
 }
+addEventListener('popstate',e=>{
+ histDepth=(e.state&&e.state.d)||0;
+ openFromHash();
+ updateBack();
+});
 addEventListener('hashchange',()=>openFromHash());
 openFromHash(startHash);
+updateBack();
 })();

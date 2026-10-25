@@ -577,3 +577,179 @@ footer{border-top:0;background:var(--red);padding:24px 22px;text-align:center;
 .qfind::placeholder{color:var(--dim)}
 .qruled{margin-top:12px;background:var(--pink);color:#a33a6c;border-radius:14px;padding:11px 15px;font-size:15px;line-height:1.45}
 .qmore{margin-top:12px;font-size:14px;color:var(--dim);line-height:1.45}
+
+/* ======================================================================
+   WARTOŚĆ KART — dekoder symboli rzadkości + porównywarka
+   ====================================================================== */
+.vwrap{max-width:1000px;margin:0 auto}
+.vintro{background:var(--white);border:3px solid var(--outline);border-radius:var(--radius);
+  padding:18px 22px;box-shadow:var(--shadow);font-size:16px;line-height:1.55;margin-bottom:22px}
+.vh{font-size:22px;margin:26px 0 8px}
+.vnote{font-size:15px;color:var(--dim);line-height:1.5;margin-bottom:14px}
+
+/* --- symbole --- */
+.vsyms{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.vsymcard{background:var(--white);border:3px solid var(--outline);border-radius:22px;
+  padding:14px 16px;box-shadow:var(--shadow)}
+.vsym-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px}
+.vsymcard h4{font-size:17px;line-height:1.25}
+.vsym-en{font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--dim);margin-bottom:7px}
+.vsym-en span{text-transform:none;letter-spacing:0}
+.vsymcard p{font-size:14.5px;line-height:1.5}
+.vsym{display:inline-flex;align-items:center;gap:2px;line-height:1}
+.vg{font-style:normal;font-size:26px;line-height:1}
+.vg--black{color:#2b2b33}
+.vg--silver{background:linear-gradient(160deg,#f2f4f7 10%,#9aa3af 55%,#cfd5dd 90%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 1px 0 rgba(0,0,0,.35))}
+.vg--gold{background:linear-gradient(160deg,#ffe9a3 10%,#f5b301 55%,#c98a00 90%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 1px 0 rgba(0,0,0,.28))}
+.vg--pink{color:#ff8fc0}.vg--green{color:#78c850}
+.vpromo{font-style:normal;font-size:9px;font-weight:800;letter-spacing:.08em;background:#2b2b33;
+  color:#fff;border-radius:4px;padding:2px 5px;margin-left:5px}
+.vsym-price{flex:none;font-size:13px;font-weight:700;color:var(--red2);background:var(--pink);
+  border:2px solid var(--red2);border-radius:999px;padding:2px 10px;white-space:nowrap}
+
+/* --- czego symbol nie powie --- */
+.vextras{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:12px}
+.vextra{background:var(--sky2);border:3px solid var(--outline);border-radius:20px;padding:14px 16px}
+.vextra h4{font-size:16px;margin-bottom:5px}
+.vextra p{font-size:14.5px;line-height:1.5}
+
+/* --- drabinka cen --- */
+.vtable-wrap{overflow-x:auto;background:var(--white);border:3px solid var(--outline);
+  border-radius:22px;box-shadow:var(--shadow)}
+.vtable{width:100%;border-collapse:collapse;font-size:15px;min-width:460px}
+.vtable th{text-align:left;font-family:'Fredoka',sans-serif;font-size:12px;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--dim);padding:12px 16px;border-bottom:3px dashed var(--sky)}
+.vtable td{padding:10px 16px;border-bottom:1px solid #e8edf7}
+.vtable tr:last-child td{border-bottom:0}
+.vtable tbody tr:hover{background:var(--cream)}
+.vnum{text-align:right;white-space:nowrap}
+.vtable .vnum b{color:var(--red2);font-size:16px}
+.vdash{color:var(--dim);font-size:13px}
+
+/* --- porównywarka --- */
+.vcmp{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:start}
+.vvs{align-self:center;font-family:'Fredoka',sans-serif;font-size:19px;color:var(--dim)}
+.vslot{position:relative;background:var(--white);border:3px solid var(--outline);border-radius:22px;
+  padding:16px;box-shadow:var(--shadow);text-align:center;min-height:200px}
+.vslot--empty{display:flex;flex-direction:column;background:var(--cream);border-color:#e8dfae}
+.vslot-x{position:absolute;top:10px;right:10px;cursor:pointer;font-family:inherit;font-size:12px;
+  background:var(--white);color:var(--dim);border:2px solid var(--outline);border-radius:999px;padding:2px 10px}
+.vslot-x:hover{background:var(--pink);color:#a33a6c;border-color:var(--red2)}
+.vslot-img{width:150px;max-width:70%;border-radius:10px;cursor:pointer;
+  box-shadow:0 6px 16px rgba(122,127,201,.3);transition:transform .15s}
+.vslot-img:hover{transform:translateY(-3px)}
+.vslot h4{font-size:19px;margin:10px 0 4px}
+.vslot-r{display:flex;align-items:center;justify-content:center;gap:8px;font-size:14px;color:var(--dim);margin-bottom:10px}
+.vslot-hint{margin-top:auto;font-size:14px;color:var(--dim)}
+.vfind{width:100%;padding:10px 14px;font-family:inherit;font-size:15px;color:var(--ink);
+  background:var(--white);border:3px solid #e8dfae;border-radius:14px;outline:none;margin-bottom:10px}
+.vfind:focus{border-color:var(--red2)}
+.vres{display:flex;flex-direction:column;gap:6px;max-height:260px;overflow-y:auto;text-align:left}
+.vres button{display:flex;align-items:center;gap:9px;cursor:pointer;font-family:inherit;text-align:left;
+  background:var(--white);border:2px solid var(--outline);border-radius:12px;padding:5px 8px;color:var(--ink)}
+.vres button:hover{background:var(--yellow);border-color:var(--gold)}
+.vres img{width:30px;border-radius:3px;flex:none}
+.vres span{font-size:14px;line-height:1.2}
+.vres i{display:block;font-style:normal;font-size:11px;color:var(--dim)}
+.vnothing{font-size:14px;color:var(--dim);padding:6px 2px}
+.vprices{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.vprice{background:var(--sky2);border:2px solid var(--outline);border-radius:14px;padding:7px 13px}
+.vprice b{display:block;font-family:'Fredoka',sans-serif;font-size:17px;color:var(--navy);line-height:1}
+.vprice span{font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--dim)}
+.vprice--big{background:var(--yellow);border-color:var(--gold)}
+.vprice--big b{font-size:24px;color:#8a6a00}
+.vnoprice{background:var(--pink);color:#a33a6c;border-radius:12px;padding:8px 14px;font-size:14px}
+.vverdict{margin-top:14px;background:var(--sky2);border:3px solid var(--outline);border-radius:18px;
+  padding:13px 18px;font-size:16px;line-height:1.5}
+
+/* --- czynniki ceny + zastrzeżenie --- */
+.vfactors{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:12px}
+.vfactor{display:flex;gap:12px;background:var(--white);border:3px solid var(--outline);
+  border-radius:20px;padding:14px 16px;box-shadow:var(--shadow)}
+.vem{font-size:26px;flex:none;line-height:1.1}
+.vfactor h4{font-size:16px;margin-bottom:4px}
+.vfactor p{font-size:14.5px;line-height:1.5}
+.vcaveat{margin:22px 0 10px;background:var(--cream);border:3px dashed #e8dfae;border-radius:18px;
+  padding:14px 18px;font-size:15px;line-height:1.55}
+
+@media(max-width:700px){
+  .vcmp{grid-template-columns:1fr}
+  .vvs{justify-self:center}
+  .vsyms,.vfactors,.vextras{grid-template-columns:1fr}
+  .vh{font-size:19px}
+}
+.vnote--small{font-size:13.5px;margin-top:12px;background:var(--cream);border-radius:14px;padding:11px 15px}
+.vpart{color:var(--red2);font-weight:700}
+.vtiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin-bottom:14px}
+.vtile{background:var(--white);border:3px solid var(--outline);border-radius:20px;padding:14px 16px;
+  box-shadow:var(--shadow);text-align:center}
+.vtile b{display:block;font-family:'Fredoka',sans-serif;font-size:27px;color:var(--red2);line-height:1.05}
+.vtile span{display:block;font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--dim);margin-top:3px}
+.vtile i{display:block;font-style:normal;font-size:13px;color:var(--ink);margin-top:6px;line-height:1.3}
+.vflip{background:var(--pink);border:3px solid var(--red2);border-radius:18px;padding:13px 18px;
+  font-size:15px;line-height:1.55;color:#7e2a52;margin-bottom:16px}
+
+/* --- klikalne poziomy rzadkości: pokaż karty z danym symbolem --- */
+.vsymcard--click{cursor:pointer;transition:transform .14s,border-color .14s,background .14s}
+.vsymcard--click:hover{transform:translateY(-3px);border-color:var(--red2)}
+.vsymcard.on{background:var(--pink);border-color:var(--red2)}
+.vsym-show{margin-top:9px;font-size:13px;font-weight:700;color:var(--red2)}
+.vrow{cursor:pointer}
+.vrow:hover td{background:var(--cream)}
+.vrow.on td{background:var(--pink)}
+.vcards{grid-column:1/-1;margin-top:14px;background:var(--white);border:3px solid var(--red2);
+  border-radius:22px;padding:16px;box-shadow:var(--shadow)}
+.vcards-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px;
+  padding-bottom:10px;border-bottom:3px dashed var(--sky)}
+.vcards-t{display:flex;align-items:center;gap:8px}
+.vcards-t b{font-family:'Fredoka',sans-serif;font-size:19px;color:var(--navy)}
+.vcards-sum{font-size:13px;color:var(--dim)}
+.vcards-x{margin-left:auto;cursor:pointer;font-family:inherit;font-size:13px;background:var(--white);
+  color:var(--dim);border:2px solid var(--outline);border-radius:999px;padding:3px 13px}
+.vcards-x:hover{background:var(--pink);color:#a33a6c;border-color:var(--red2)}
+.vcardgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(108px,1fr));gap:10px}
+.vcard{cursor:pointer;font-family:inherit;background:var(--sky2);border:2px solid var(--outline);
+  border-radius:12px;padding:6px;display:flex;flex-direction:column;align-items:center;gap:4px;
+  transition:transform .12s,background .12s}
+.vcard:hover{transform:translateY(-3px);background:var(--yellow);border-color:var(--gold)}
+.vcard img{width:100%;border-radius:5px;display:block}
+.vcard-n{font-size:12px;line-height:1.2;text-align:center;color:var(--ink)}
+.vcard-p{font-size:12px;font-weight:700;color:var(--red2);background:#fff;border-radius:999px;padding:1px 8px}
+.vcard-p--none{color:var(--dim);font-weight:400}
+.vmoreall{display:block;margin:14px auto 0;cursor:pointer;font-family:'Fredoka',sans-serif;font-size:15px;
+  background:var(--navy);color:#fff;border:3px solid var(--outline);border-radius:999px;padding:8px 22px}
+.vmoreall:hover{background:var(--red2)}
+@media(max-width:700px){.vcardgrid{grid-template-columns:repeat(auto-fill,minmax(92px,1fr))}}
+
+/* przycisk „wstecz" — widoczny dopiero, gdy jest dokąd wracać wewnątrz portalu */
+.backbtn{display:inline-flex;align-items:center;gap:6px;flex:none;cursor:pointer;
+  font-family:'Fredoka',sans-serif;font-size:14px;color:var(--ink);background:var(--white);
+  border:3px solid var(--outline);border-radius:999px;padding:5px 14px 5px 11px;
+  box-shadow:0 3px 0 var(--outline);transition:transform .12s,box-shadow .12s,background .12s}
+.backbtn[hidden]{display:none}
+.backbtn span{font-size:16px;line-height:1;color:var(--red2)}
+.backbtn:hover{background:var(--yellow);transform:translateY(-1px);box-shadow:0 4px 0 var(--outline)}
+.backbtn:active{transform:translateY(2px);box-shadow:0 1px 0 var(--outline)}
+@media(max-width:620px){.backbtn b{display:none}.backbtn{padding:5px 11px}}
+
+/* --- białe kruki: galeria z obrazkami --- */
+.grails{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;margin-top:14px}
+.grail{display:flex;flex-direction:column;align-items:center;gap:10px;background:var(--white);
+  border:3px solid var(--outline);border-radius:20px;padding:14px;box-shadow:var(--shadow)}
+.grail img{width:100%;max-width:175px;border-radius:9px;display:block;
+  box-shadow:0 8px 20px rgba(122,127,201,.34)}
+.grail-none{width:100%;max-width:175px;aspect-ratio:733/1024;border-radius:9px;
+  background:repeating-linear-gradient(135deg,var(--cream) 0 12px,#f6edd0 12px 24px);
+  border:3px dashed #d9c98c;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:8px;padding:12px;text-align:center}
+.grail-none span{font-family:'Fredoka',sans-serif;font-size:42px;color:#c9b267;line-height:1}
+.grail-none i{font-style:normal;font-size:12px;line-height:1.35;color:#9c8a4e}
+.grail figcaption{text-align:center}
+.grail figcaption b{display:block;font-family:'Fredoka',sans-serif;font-size:15px;
+  line-height:1.25;color:var(--navy);margin-bottom:4px}
+.grail figcaption span{font-size:13.5px;line-height:1.45;color:var(--ink)}
+.grails-note{margin-top:14px;font-size:14px;color:var(--dim);line-height:1.5}
