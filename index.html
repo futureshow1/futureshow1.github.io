@@ -324,6 +324,23 @@ footer a{color:var(--dim)} footer a:hover{color:var(--ink)}
 @media(max-width:560px){.an-box{padding:26px 20px 22px}.an-box h3{font-size:26px}
   .an-thumb{width:66px;height:46px;flex-basis:66px}}
 @media(prefers-reduced-motion:reduce){.an-item{transition:none}}
+/* wiadomosci:band */
+.brief-band{margin:14px 4vw 0;padding:16px 22px;display:none;align-items:center;gap:18px;flex-wrap:wrap;background:linear-gradient(90deg,rgba(242,201,76,.12),rgba(242,201,76,.02));border:1px solid rgba(242,201,76,.38);border-radius:14px}
+.brief-band.on{display:flex}
+.brief-band__txt{flex:1;min-width:260px}
+.brief-band__kick{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--yellow)}
+.brief-band__kick time{color:var(--faint);letter-spacing:.08em;margin-left:10px}
+.brief-band__title{display:block;font-size:16.5px;font-weight:800;letter-spacing:-.01em;margin-top:6px;color:var(--ink)}
+.brief-band__title:hover{color:var(--yellow)}
+.brief-band__lede{display:block;margin-top:5px;color:var(--dim);font-size:13.5px;line-height:1.5;max-width:70ch}
+.brief-band__btns{display:flex;gap:10px;flex:none;align-items:center}
+.brief-band .btn{padding:11px 18px;font-size:14px}
+.brief-band__play{background:var(--yellow);color:#1a1300;border:none;cursor:pointer}
+.brief-band__play:hover{filter:brightness(1.08)}
+.brief-band__read{border:1px solid var(--line);color:var(--ink)}
+.brief-band__skip{border:1px solid var(--line);color:var(--dim);background:transparent;cursor:pointer;font-family:var(--mono);font-size:12px;padding:11px 12px}.brief-band__skip:hover{color:var(--ink)}
+.brief-band audio{display:none}
+@media(max-width:700px){.brief-band{padding:14px 16px;gap:12px}.brief-band__btns{width:100%}.brief-band .btn{flex:1;justify-content:center}}
 </style>
 <meta property="og:type" content="website">
 <meta property="og:title" content="FutureShow — portal wiedzy i zabawy">
@@ -337,6 +354,7 @@ footer a{color:var(--dim)} footer a:hover{color:var(--ink)}
 <nav id="nav">
   <div class="brand"><a class="logo" href="./">FUTURE<span>SHOW</span></a><small class="logo-desc" data-i="logodesc"></small></div>
   <div class="navlinks">
+    <!-- wiadomosci:nav --><a href="wiadomosci/" style="color:var(--yellow);font-weight:700">Wiadomości</a>
     <a href="#r-new" data-i="nav_new"></a>
     <a href="#r-know" data-i="nav_know"></a>
     <a href="#r-film" data-i="nav_stream"></a>
@@ -357,10 +375,43 @@ footer a{color:var(--dim)} footer a:hover{color:var(--ink)}
 </nav>
 
 <header class="hero" id="hero"></header>
-<section class="offer" id="offer">
-  <div class="offer-txt"><b data-i="of_title"></b><span data-i="of_lede"></span></div>
-  <a class="btn offer-btn" href="studio/" data-i="of_cta"></a>
+<!-- wiadomosci:band -->
+<section class="brief-band" id="briefBand" aria-live="polite">
+  <div class="brief-band__txt">
+    <div class="brief-band__kick">Wiadomości · <span id="bbLabel"></span><time id="bbDate"></time></div>
+    <a class="brief-band__title" id="bbTitle" href="wiadomosci/"></a>
+    <span class="brief-band__lede" id="bbLede"></span>
+  </div>
+  <div class="brief-band__btns">
+    <button class="btn brief-band__skip" id="bbBack" type="button" hidden aria-label="Cofnij 15 sekund">↺ 15</button>
+    <button class="btn brief-band__play" id="bbPlay" type="button">▶ Posłuchaj</button>
+    <button class="btn brief-band__skip" id="bbFwd" type="button" hidden aria-label="Przewiń 30 sekund">30 ↻</button>
+    <a class="btn brief-band__read" id="bbRead" href="wiadomosci/">Czytaj</a>
+    <audio id="bbAudio" preload="none"></audio>
+  </div>
 </section>
+<script>
+(()=>{const band=document.getElementById('briefBand');if(!band)return;
+fetch('wiadomosci/latest.json',{cache:'no-store'}).then(r=>r.json()).then(d=>{
+  document.getElementById('bbLabel').textContent=d.label.toLowerCase();
+  const t=document.getElementById('bbDate');t.textContent=d.date_pl;t.setAttribute('datetime',d.date);
+  const a=document.getElementById('bbTitle');a.textContent=d.title;a.href=d.url;
+  document.getElementById('bbLede').textContent=d.lead;
+  document.getElementById('bbRead').href=d.url;
+  const au=document.getElementById('bbAudio'),b=document.getElementById('bbPlay');
+  if(d.audio){au.src=d.audio;b.textContent='▶ Posłuchaj · '+d.dur+' min';
+    const save=()=>{try{localStorage.setItem('fsNewsAudio',JSON.stringify({id:d.id,t:au.currentTime,playing:!au.paused,at:Date.now()}))}catch(e){}};
+    const bk=document.getElementById('bbBack'),fw=document.getElementById('bbFwd');
+    b.addEventListener('click',()=>{if(au.paused){au.play();b.textContent='❚❚ Pauza · '+d.dur+' min';bk.hidden=fw.hidden=false}else{au.pause();b.textContent='▶ Posłuchaj · '+d.dur+' min'}save()});
+    bk.addEventListener('click',()=>{au.currentTime=Math.max(0,au.currentTime-15);save()});
+    fw.addEventListener('click',()=>{au.currentTime=Math.min(au.duration||1e9,au.currentTime+30);save()});
+    au.addEventListener('timeupdate',save);au.addEventListener('pause',save);au.addEventListener('play',save);
+    au.addEventListener('ended',()=>{b.textContent='▶ Posłuchaj jeszcze raz';try{localStorage.removeItem('fsNewsAudio')}catch(e){}});
+    try{const st=JSON.parse(localStorage.getItem('fsNewsAudio')||'null');if(st&&st.id===d.id&&st.t>3&&Date.now()-st.at<3600e3){au.currentTime=st.t;b.textContent='▶ Kontynuuj od '+Math.floor(st.t/60)+':'+String(Math.floor(st.t%60)).padStart(2,'0')}}catch(e){}
+  }else b.style.display='none';
+  band.classList.add('on');
+}).catch(()=>{});})();
+</script>
 
 <main id="rails"></main>
 
@@ -458,6 +509,15 @@ const CREDIT={
 };
 
 const P = {
+ wiadomosci:{
+  t:"Wiadomości", kick:{pl:"W 5 minut · rano i wieczorem",en:"News in 5 minutes · twice a day"},
+  badge:{pl:"CODZIENNIE",en:"DAILY"},
+  year:"2026", tag:{pl:"serwis informacyjny",en:"news"}, font:"disp",
+  pal:{bg:"#0b1220",ink:"#e9edf5",acc:"#f2c94c"}, motif:"feed",
+  stats:["2 wydania dziennie","5 minut","tekst + audio"],
+  d:{pl:"Świat, Polska, technologia, nauka, społeczeństwo: krótki przegląd najważniejszych wydarzeń z interpretacją, dwa razy dziennie. Do przeczytania w pięć minut albo do posłuchania w drodze; każda informacja ma link do źródła. Także jako podcast (RSS).",
+     en:"World, Poland, technology, science, society: a short, interpreted digest of the day's most important events, twice a day. Five minutes to read or listen on the go; every item links to its source. Also available as a podcast (RSS)."},
+  link:"wiadomosci/", link_en:"wiadomosci/"},
  matryca:{
   t:"Matryca", kick:{pl:"Śledztwo · Big Tech",en:"Investigation · Big Tech"},
   year:"2026", tag:{pl:"śledztwo",en:"investigation"}, font:"serif",
@@ -972,7 +1032,7 @@ const ss=p=>(LANG==="en"&&p.stats_en)?p.stats_en:(p.stats||[]);
 
 const ROWS = [
  {id:"r-new", t:{pl:"Nowości i aktualizacje",en:"New & updated"},
-  items:["sejm","sluchowiska","kinonieme","futurepilot","klimat","futuretalk","futureform","matryca","polskijazz","pokedex","cardiosim"]},
+  items:["wiadomosci","sejm","sluchowiska","kinonieme","futurepilot","klimat","futuretalk","futureform","matryca","polskijazz","pokedex","cardiosim"]},
  {id:"r-know", t:{pl:"Portale wiedzy — czytaj, klikaj, sprawdzaj się",en:"Knowledge portals — read, explore, test yourself"},
   items:["klimat","hinton","pokedex","sheldrake","mondrian","swidzinski","switkowski","ghykakomp","przyluski"]},
  {id:"r-film", t:{pl:"Streaming — kino, animacja, dobranocki, jazz",en:"Streaming — cinema, animation, cartoons, jazz"},
