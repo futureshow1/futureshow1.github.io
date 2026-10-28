@@ -5,7 +5,7 @@
   <link>https://futureshow.pl/wiadomosci/</link>
   <atom:link href="https://futureshow.pl/wiadomosci/feed.xml" rel="self" type="application/rss+xml"/>
   <language>pl</language>
-  <description>Dwa razy dziennie, rano i wieczorem: świat, Polska, technologia, nauka, społeczeństwo. Krótki przegląd z interpretacją, do czytania i do słuchania.</description>
+  <description>Wiadomości bez algorytmu. Dwa razy dziennie, rano i wieczorem: świat, Polska, technologia, nauka, społeczeństwo. Automatyczny przegląd z publicznych źródeł według jawnych reguł, bez personalizacji; każda informacja z linkiem do źródła. Pięć minut do czytania albo słuchania.</description>
   <itunes:author>FutureShow Studio</itunes:author>
   <itunes:explicit>false</itunes:explicit>
   <itunes:category text="News"/>
