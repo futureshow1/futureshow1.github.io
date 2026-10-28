@@ -416,6 +416,7 @@ fetch('wiadomosci/latest.json',{cache:'no-store'}).then(r=>r.json()).then(d=>{
 <!-- /wiadomosci:band -->
 <!-- /wiadomosci:band -->
 <!-- /wiadomosci:band -->
+<!-- /wiadomosci:band -->
 
 <main id="rails"></main>
 
@@ -1294,7 +1295,7 @@ const fontFor = f => f==="disp"?"var(--disp)":f==="serif"?"var(--serif)":"var(--
 const wFor = f => f==="disp"?"400":f==="serif"?"600":"800";
 const gal = k => (GALLERY[k]||[]).map(f=>ASSET+f+".jpg");
 /* pionowe plakaty dla kart (hero i modal uzywaja galerii 16:9) */
-const POSTER = {sluchowiska:1,kinonieme:1,futurepilot:1,klimat:1,psychedelic:1,pokedex:1,polskijazz:1,chamczyk:1,zem:1,emfazy:1,matryca:1,oilgas:1,habermas:1,cardiosim:1,afery:1,panama:1,historia:1,cambridge:1,sectio:1,ghykakomp:1,swidzinski:1,schizogra:1};
+const POSTER = {wiadomosci:1,sluchowiska:1,kinonieme:1,futurepilot:1,klimat:1,psychedelic:1,pokedex:1,polskijazz:1,chamczyk:1,zem:1,emfazy:1,matryca:1,oilgas:1,habermas:1,cardiosim:1,afery:1,panama:1,historia:1,cambridge:1,sectio:1,ghykakomp:1,swidzinski:1,schizogra:1};
 /* zdjecia pionowe / kadry filmowe, ktore dobrze znosza przyciecie do 2:3 — reszta pokazuje sie jako pasek 16:9 */
 const FULL = {mnemo:1,mondrian:1,schizogra:1,przyluski:1,hinton:1,switkowski:1,sejm:1,nbody:1,awangarda:1,dobranocki:1};
 Object.keys(VID).forEach(k=>{ FULL[k]=1; });   // filmy: miniatura na całą kartę
