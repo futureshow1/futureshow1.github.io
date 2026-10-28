@@ -403,15 +403,17 @@ fetch('wiadomosci/latest.json',{cache:'no-store'}).then(r=>r.json()).then(d=>{
     const save=()=>{try{localStorage.setItem('fsNewsAudio',JSON.stringify({id:d.id,t:au.currentTime,playing:!au.paused,at:Date.now()}))}catch(e){}};
     const bk=document.getElementById('bbBack'),fw=document.getElementById('bbFwd');
     b.addEventListener('click',()=>{if(au.paused){au.play();b.textContent='❚❚ Pauza · '+d.dur+' min';bk.hidden=fw.hidden=false}else{au.pause();b.textContent='▶ Posłuchaj · '+d.dur+' min'}save()});
-    bk.addEventListener('click',()=>{au.currentTime=Math.max(0,au.currentTime-15);save()});
-    fw.addEventListener('click',()=>{au.currentTime=Math.min(au.duration||1e9,au.currentTime+30);save()});
+    const seek=t=>{const go=()=>{try{au.currentTime=Math.max(0,Math.min(au.duration||1e9,t))}catch(e){}save()};if(au.readyState>=1)go();else{au.addEventListener('loadedmetadata',go,{once:true});au.load();}};
+    bk.addEventListener('click',()=>seek(au.currentTime-15));
+    fw.addEventListener('click',()=>seek(au.currentTime+30));
     au.addEventListener('timeupdate',save);au.addEventListener('pause',save);au.addEventListener('play',save);
     au.addEventListener('ended',()=>{b.textContent='▶ Posłuchaj jeszcze raz';try{localStorage.removeItem('fsNewsAudio')}catch(e){}});
-    try{const st=JSON.parse(localStorage.getItem('fsNewsAudio')||'null');if(st&&st.id===d.id&&st.t>3&&Date.now()-st.at<3600e3){au.currentTime=st.t;b.textContent='▶ Kontynuuj od '+Math.floor(st.t/60)+':'+String(Math.floor(st.t%60)).padStart(2,'0')}}catch(e){}
+    try{const st=JSON.parse(localStorage.getItem('fsNewsAudio')||'null');if(st&&st.id===d.id&&st.t>3&&Date.now()-st.at<3600e3){seek(st.t);b.textContent='▶ Kontynuuj od '+Math.floor(st.t/60)+':'+String(Math.floor(st.t%60)).padStart(2,'0')}}catch(e){}
   }else b.style.display='none';
   band.classList.add('on');
 }).catch(()=>{});})();
 </script>
+<!-- /wiadomosci:band -->
 
 <main id="rails"></main>
 
@@ -517,7 +519,7 @@ const P = {
   stats:["2 wydania dziennie","5 minut","tekst + audio"],
   d:{pl:"Świat, Polska, technologia, nauka, społeczeństwo: krótki przegląd najważniejszych wydarzeń z interpretacją, dwa razy dziennie. Do przeczytania w pięć minut albo do posłuchania w drodze; każda informacja ma link do źródła. Także jako podcast (RSS).",
      en:"World, Poland, technology, science, society: a short, interpreted digest of the day's most important events, twice a day. Five minutes to read or listen on the go; every item links to its source. Also available as a podcast (RSS)."},
-  link:"wiadomosci/", link_en:"wiadomosci/"},
+  link:"wiadomosci/", link_en:"wiadomosci/", direct:true},
  matryca:{
   t:"Matryca", kick:{pl:"Śledztwo · Big Tech",en:"Investigation · Big Tech"},
   year:"2026", tag:{pl:"śledztwo",en:"investigation"}, font:"serif",
@@ -1614,7 +1616,7 @@ document.addEventListener("click",e=>{
   const m=document.getElementById("modal");const j=+dotm.dataset.mgoto;
   [...m.querySelectorAll(".m-banner img")].forEach((im,x)=>im.classList.toggle("cur",x===j));
   [...m.querySelectorAll(".m-dot")].forEach((d,x)=>d.classList.toggle("on",x===j));return}
- const card=e.target.closest(".card");if(card){openModal(card.dataset.k);return}
+ const card=e.target.closest(".card");if(card){const pk=P[card.dataset.k];/* wiadomosci:direct */if(pk&&pk.direct){location.href=lk(pk);return}openModal(card.dataset.k);return}
  const info=e.target.closest("[data-open]");if(info){openModal(info.dataset.open);return}
  const dot=e.target.closest("[data-goto]");if(dot){heroGo(+dot.dataset.goto);heroAuto();return}
  const hn=e.target.closest("[data-hnav]");if(hn){heroGo(heroIx + +hn.dataset.hnav);heroAuto();return}
