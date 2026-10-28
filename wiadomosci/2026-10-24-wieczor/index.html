@@ -87,7 +87,7 @@ footer a{color:var(--dim)}footer a:hover{color:var(--ink)}
   
   
   <p class="ed__lede">Dwa wydarzenia pokazują, jak miasto i satelity stają się narzędziami presji politycznej: Izrael zburzył dzielnicę Hebronu w odwecie za atak na punkt kontrolny, a na Ukrainie Starlink znowu działa pełną prędkością. Do tego kryzys w partii koalicyjnej, protesty we Francji i Włoszech oraz wyniki szczepionki przeciw czerniakowi.</p>
-  <div class="player" data-id="2026-10-24-wieczor"><div class="player__label">Posłuchaj<small>5:42 min · lektor AI</small></div><div class="player__ctl"><button type="button" class="skip" data-skip="-15" aria-label="Cofnij 15 sekund">↺ 15</button><audio controls preload="none" src="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-10-24-wieczor.mp3"></audio><button type="button" class="skip" data-skip="30" aria-label="Przewiń 30 sekund do przodu">30 ↻</button></div></div>
+  <div class="player" data-id="2026-10-24-wieczor"><div class="player__label">Posłuchaj<small>5:42 min · lektor AI</small></div><div class="player__ctl"><button type="button" class="skip" data-skip="-15" aria-label="Cofnij 15 sekund">↺ 15</button><audio controls preload="metadata" src="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-10-24-wieczor.mp3"></audio><button type="button" class="skip" data-skip="30" aria-label="Przewiń 30 sekund do przodu">30 ↻</button></div></div>
 <div class="resume" id="resume-2026-10-24-wieczor" hidden><button type="button" class="pill pill--cyan"></button><span></span></div>
   <div class="art"><h2>Świat</h2>
 <p><strong>Hebron.</strong> Po piątkowym ataku na izraelski punkt kontrolny w&nbsp;Hebronie, w&nbsp;którym zginęło dwóch żołnierzy, a&nbsp;obaj napastnicy zostali zabici, armia 24 października zburzyła dzielnicę Ein Deir Baha. Zniszczono lub oznaczono do rozbiórki około 35 hektarów zabudowy, a&nbsp;liczące 250 tysięcy mieszkańców miasto zamknięto; obowiązuje też blokada całego Zachodniego Brzegu. Premier Benjamin Netanyahu zapowiedział, że Izrael „zniszczy to miejsce”. Liczba wysiedlonych jest niejasna: gmina podaje około 1500 osób, burmistrz Hebronu 2200, agencja Wafa 2500 (<a href="https://www.theguardian.com/world/2026/oct/24/israel-soldiers-raze-west-bank-neighbourhood-hebron-families-from-homes" target="_blank" rel="noopener">The Guardian</a>, <a href="https://www.aljazeera.com/news/2026/10/24/more-than-2000-forced-from-homes-in-hebron-amid-israels-west-bank-raids?traffic_source=rss" target="_blank" rel="noopener">Al Jazeera</a>).</p>
@@ -125,17 +125,17 @@ footer a{color:var(--dim)}footer a:hover{color:var(--ink)}
 </footer>
 <script>
 (()=>{const K='fsNewsAudio';let st=null;try{st=JSON.parse(localStorage.getItem(K)||'null')}catch(e){}
+const seek=(au,t,then)=>{const go=()=>{try{au.currentTime=Math.max(0,Math.min(au.duration||1e9,t))}catch(e){}if(then)then()};if(au.readyState>=1)go();else{au.addEventListener('loadedmetadata',go,{once:true});au.load();}};
 document.querySelectorAll('.player[data-id]').forEach(p=>{const id=p.dataset.id,au=p.querySelector('audio');const box=document.getElementById('resume-'+id);
-  p.querySelectorAll('.skip').forEach(b=>b.addEventListener('click',()=>{au.currentTime=Math.max(0,Math.min((au.duration||1e9),au.currentTime+Number(b.dataset.skip)));if(au.paused)au.play().catch(()=>{});}));
+  p.querySelectorAll('.skip').forEach(b=>b.addEventListener('click',()=>{seek(au,au.currentTime+Number(b.dataset.skip),()=>{if(au.paused)au.play().catch(()=>{})});}));
   const save=()=>{try{localStorage.setItem(K,JSON.stringify({id,t:au.currentTime,playing:!au.paused,at:Date.now()}))}catch(e){}};
   au.addEventListener('timeupdate',save);au.addEventListener('pause',save);au.addEventListener('play',save);
   au.addEventListener('ended',()=>{try{localStorage.removeItem(K)}catch(e){}});
   if(!st||st.id!==id||!(st.t>3)||Date.now()-st.at>3600e3)return;
   const mm=Math.floor(st.t/60)+':'+String(Math.floor(st.t%60)).padStart(2,'0');
-  au.currentTime=st.t;
-  const go=()=>{au.currentTime=st.t;au.play().then(()=>{box.hidden=true}).catch(()=>{});};
-  if(st.playing){au.play().then(()=>{}).catch(()=>{box.hidden=false;box.querySelector('button').textContent='▶ Kontynuuj od '+mm;box.querySelector('span').textContent='Słuchałeś na stronie głównej, odtwarzacz zatrzymał się przy zmianie strony.';box.querySelector('button').addEventListener('click',go);});}
-  else{box.hidden=false;box.querySelector('button').textContent='▶ Kontynuuj od '+mm;box.querySelector('span').textContent='';box.querySelector('button').addEventListener('click',go);}
+  const go=()=>{seek(au,st.t,()=>{au.play().then(()=>{box.hidden=true}).catch(()=>{})});};
+  if(st.playing){seek(au,st.t,()=>{au.play().then(()=>{}).catch(()=>{box.hidden=false;box.querySelector('button').textContent='▶ Kontynuuj od '+mm;box.querySelector('span').textContent='Słuchałeś na stronie głównej, odtwarzacz zatrzymał się przy zmianie strony.';box.querySelector('button').addEventListener('click',go);})});}
+  else{seek(au,st.t);box.hidden=false;box.querySelector('button').textContent='▶ Kontynuuj od '+mm;box.querySelector('span').textContent='';box.querySelector('button').addEventListener('click',go);}
 });})();
 </script>
 <script src="../../cookie-consent.js?v=2"></script>

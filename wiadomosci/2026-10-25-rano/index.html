@@ -87,7 +87,7 @@ footer a{color:var(--dim)}footer a:hover{color:var(--ink)}
   
   
   <p class="ed__lede">W niedzielę 25 października Brazylia wybiera prezydenta w drugiej turze, Serbia parlament, a Bułgaria prezydenta. Przez Europę przeszła fala protestów przeciw kosztom życia, we Francji policja zatrzymała blisko tysiąc osób. Wspólnym mianownikiem jest drożyzna i zaufanie do instytucji.</p>
-  <div class="player" data-id="2026-10-25-rano"><div class="player__label">Posłuchaj<small>6:24 min · lektor AI</small></div><div class="player__ctl"><button type="button" class="skip" data-skip="-15" aria-label="Cofnij 15 sekund">↺ 15</button><audio controls preload="none" src="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-10-25-rano.mp3"></audio><button type="button" class="skip" data-skip="30" aria-label="Przewiń 30 sekund do przodu">30 ↻</button></div></div>
+  <div class="player" data-id="2026-10-25-rano"><div class="player__label">Posłuchaj<small>6:24 min · lektor AI</small></div><div class="player__ctl"><button type="button" class="skip" data-skip="-15" aria-label="Cofnij 15 sekund">↺ 15</button><audio controls preload="metadata" src="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-10-25-rano.mp3"></audio><button type="button" class="skip" data-skip="30" aria-label="Przewiń 30 sekund do przodu">30 ↻</button></div></div>
 <div class="resume" id="resume-2026-10-25-rano" hidden><button type="button" class="pill pill--cyan"></button><span></span></div>
   <div class="art"><h2>Świat</h2>
 <p><strong>Protesty we Francji.</strong> W sobotę 24 października przez francuskie miasta przeszły demonstracje przeciw kosztom życia i warunkom w szkołach; Ministerstwo Spraw Wewnętrznych podało 410 tys. uczestników, związki około 800 tys., a policja zatrzymała blisko tysiąc osób. Do starć doszło w Marsylii, Bordeaux i Lyonie, dwie osoby są ciężko ranne. Ruch zaczął się 17 września strajkiem w liceum Saint-Exupéry w Créteil; organizatorzy żądają 250 tys. miejsc pracy w oświacie, likwidacji platformy Parcoursup i podwyżki 200 euro. W niedzielę rano portugalska policja użyła pałek i paralizatorów wobec demonstrantów w Lizbonie i Porto. (<a href="https://www.bbc.co.uk/news/articles/c95ynd587ynzo" target="_blank" rel="noopener">BBC</a>, <a href="https://www.theguardian.com/world/2026/oct/24/hundreds-of-thousands-march-across-france-in-protests-over-schools-and-policing" target="_blank" rel="noopener">Guardian</a>)</p>
@@ -122,17 +122,17 @@ footer a{color:var(--dim)}footer a:hover{color:var(--ink)}
 </footer>
 <script>
 (()=>{const K='fsNewsAudio';let st=null;try{st=JSON.parse(localStorage.getItem(K)||'null')}catch(e){}
+const seek=(au,t,then)=>{const go=()=>{try{au.currentTime=Math.max(0,Math.min(au.duration||1e9,t))}catch(e){}if(then)then()};if(au.readyState>=1)go();else{au.addEventListener('loadedmetadata',go,{once:true});au.load();}};
 document.querySelectorAll('.player[data-id]').forEach(p=>{const id=p.dataset.id,au=p.querySelector('audio');const box=document.getElementById('resume-'+id);
-  p.querySelectorAll('.skip').forEach(b=>b.addEventListener('click',()=>{au.currentTime=Math.max(0,Math.min((au.duration||1e9),au.currentTime+Number(b.dataset.skip)));if(au.paused)au.play().catch(()=>{});}));
+  p.querySelectorAll('.skip').forEach(b=>b.addEventListener('click',()=>{seek(au,au.currentTime+Number(b.dataset.skip),()=>{if(au.paused)au.play().catch(()=>{})});}));
   const save=()=>{try{localStorage.setItem(K,JSON.stringify({id,t:au.currentTime,playing:!au.paused,at:Date.now()}))}catch(e){}};
   au.addEventListener('timeupdate',save);au.addEventListener('pause',save);au.addEventListener('play',save);
   au.addEventListener('ended',()=>{try{localStorage.removeItem(K)}catch(e){}});
   if(!st||st.id!==id||!(st.t>3)||Date.now()-st.at>3600e3)return;
   const mm=Math.floor(st.t/60)+':'+String(Math.floor(st.t%60)).padStart(2,'0');
-  au.currentTime=st.t;
-  const go=()=>{au.currentTime=st.t;au.play().then(()=>{box.hidden=true}).catch(()=>{});};
-  if(st.playing){au.play().then(()=>{}).catch(()=>{box.hidden=false;box.querySelector('button').textContent='▶ Kontynuuj od '+mm;box.querySelector('span').textContent='Słuchałeś na stronie głównej, odtwarzacz zatrzymał się przy zmianie strony.';box.querySelector('button').addEventListener('click',go);});}
-  else{box.hidden=false;box.querySelector('button').textContent='▶ Kontynuuj od '+mm;box.querySelector('span').textContent='';box.querySelector('button').addEventListener('click',go);}
+  const go=()=>{seek(au,st.t,()=>{au.play().then(()=>{box.hidden=true}).catch(()=>{})});};
+  if(st.playing){seek(au,st.t,()=>{au.play().then(()=>{}).catch(()=>{box.hidden=false;box.querySelector('button').textContent='▶ Kontynuuj od '+mm;box.querySelector('span').textContent='Słuchałeś na stronie głównej, odtwarzacz zatrzymał się przy zmianie strony.';box.querySelector('button').addEventListener('click',go);})});}
+  else{seek(au,st.t);box.hidden=false;box.querySelector('button').textContent='▶ Kontynuuj od '+mm;box.querySelector('span').textContent='';box.querySelector('button').addEventListener('click',go);}
 });})();
 </script>
 <script src="../../cookie-consent.js?v=2"></script>

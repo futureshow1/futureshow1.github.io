@@ -87,7 +87,7 @@ footer a{color:var(--dim)}footer a:hover{color:var(--ink)}
   
   
   <p class="ed__lede">Zamach pod Paryżem i strzelanina w jordańskiej cerkwi pozostają bez znanego motywu, a rozejm w Ołeszkach ogłosił Biały Dom, nie strony walczące. W Polsce dymisja w koalicji odsłoniła arytmetykę większości. Rekordowa kara dla Mety pokazuje, że o prywatności rozstrzyga sąd, nie regulator.</p>
-  <div class="player" data-id="2026-10-23-wieczor"><div class="player__label">Posłuchaj<small>6:26 min · lektor AI</small></div><div class="player__ctl"><button type="button" class="skip" data-skip="-15" aria-label="Cofnij 15 sekund">↺ 15</button><audio controls preload="none" src="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-10-23-wieczor.mp3"></audio><button type="button" class="skip" data-skip="30" aria-label="Przewiń 30 sekund do przodu">30 ↻</button></div></div>
+  <div class="player" data-id="2026-10-23-wieczor"><div class="player__label">Posłuchaj<small>6:26 min · lektor AI</small></div><div class="player__ctl"><button type="button" class="skip" data-skip="-15" aria-label="Cofnij 15 sekund">↺ 15</button><audio controls preload="metadata" src="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-10-23-wieczor.mp3"></audio><button type="button" class="skip" data-skip="30" aria-label="Przewiń 30 sekund do przodu">30 ↻</button></div></div>
 <div class="resume" id="resume-2026-10-23-wieczor" hidden><button type="button" class="pill pill--cyan"></button><span></span></div>
   <div class="art"><h2>Świat</h2>
 <p>Jedna osoba zginęła, pięć jest rannych, w&nbsp;tym 12-letnia dziewczynka, w&nbsp;strzelaninie na południowy zachód od Paryża. Sprawca strzelał z&nbsp;samochodu w&nbsp;kilku miejscach; policja zatrzymała podejrzanego, a&nbsp;prokuratura antyterrorystyczna bada motyw. Część redakcji mówi o&nbsp;możliwym ataku islamofobicznym. Na sobotę rząd zapowiedział 70 tys. policjantów, w&nbsp;tym 10 tys. dodatkowych. Od 17 października zatrzymano lub skazano 217 osób, a&nbsp;w&nbsp;Limoges spłonął ratusz; zamach i&nbsp;protesty o&nbsp;koszty życia nakładają się na siebie, a&nbsp;zaostrzone środki trafią wobec demonstrantów. (<a href="https://www.bbc.co.uk/news/articles/c6ev38dj1g8zo" target="_blank" rel="noopener">BBC</a>, <a href="https://www.nytimes.com/2026/10/23/world/europe/france-shooting.html" target="_blank" rel="noopener">NYT</a>, <a href="https://www.theguardian.com/world/2026/oct/23/france-police-demonstrations-civil-unrest" target="_blank" rel="noopener">Guardian</a>)</p>
@@ -122,17 +122,17 @@ footer a{color:var(--dim)}footer a:hover{color:var(--ink)}
 </footer>
 <script>
 (()=>{const K='fsNewsAudio';let st=null;try{st=JSON.parse(localStorage.getItem(K)||'null')}catch(e){}
+const seek=(au,t,then)=>{const go=()=>{try{au.currentTime=Math.max(0,Math.min(au.duration||1e9,t))}catch(e){}if(then)then()};if(au.readyState>=1)go();else{au.addEventListener('loadedmetadata',go,{once:true});au.load();}};
 document.querySelectorAll('.player[data-id]').forEach(p=>{const id=p.dataset.id,au=p.querySelector('audio');const box=document.getElementById('resume-'+id);
-  p.querySelectorAll('.skip').forEach(b=>b.addEventListener('click',()=>{au.currentTime=Math.max(0,Math.min((au.duration||1e9),au.currentTime+Number(b.dataset.skip)));if(au.paused)au.play().catch(()=>{});}));
+  p.querySelectorAll('.skip').forEach(b=>b.addEventListener('click',()=>{seek(au,au.currentTime+Number(b.dataset.skip),()=>{if(au.paused)au.play().catch(()=>{})});}));
   const save=()=>{try{localStorage.setItem(K,JSON.stringify({id,t:au.currentTime,playing:!au.paused,at:Date.now()}))}catch(e){}};
   au.addEventListener('timeupdate',save);au.addEventListener('pause',save);au.addEventListener('play',save);
   au.addEventListener('ended',()=>{try{localStorage.removeItem(K)}catch(e){}});
   if(!st||st.id!==id||!(st.t>3)||Date.now()-st.at>3600e3)return;
   const mm=Math.floor(st.t/60)+':'+String(Math.floor(st.t%60)).padStart(2,'0');
-  au.currentTime=st.t;
-  const go=()=>{au.currentTime=st.t;au.play().then(()=>{box.hidden=true}).catch(()=>{});};
-  if(st.playing){au.play().then(()=>{}).catch(()=>{box.hidden=false;box.querySelector('button').textContent='▶ Kontynuuj od '+mm;box.querySelector('span').textContent='Słuchałeś na stronie głównej, odtwarzacz zatrzymał się przy zmianie strony.';box.querySelector('button').addEventListener('click',go);});}
-  else{box.hidden=false;box.querySelector('button').textContent='▶ Kontynuuj od '+mm;box.querySelector('span').textContent='';box.querySelector('button').addEventListener('click',go);}
+  const go=()=>{seek(au,st.t,()=>{au.play().then(()=>{box.hidden=true}).catch(()=>{})});};
+  if(st.playing){seek(au,st.t,()=>{au.play().then(()=>{}).catch(()=>{box.hidden=false;box.querySelector('button').textContent='▶ Kontynuuj od '+mm;box.querySelector('span').textContent='Słuchałeś na stronie głównej, odtwarzacz zatrzymał się przy zmianie strony.';box.querySelector('button').addEventListener('click',go);})});}
+  else{seek(au,st.t);box.hidden=false;box.querySelector('button').textContent='▶ Kontynuuj od '+mm;box.querySelector('span').textContent='';box.querySelector('button').addEventListener('click',go);}
 });})();
 </script>
 <script src="../../cookie-consent.js?v=2"></script>

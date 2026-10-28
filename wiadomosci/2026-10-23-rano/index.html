@@ -87,7 +87,7 @@ footer a{color:var(--dim)}footer a:hover{color:var(--ink)}
   
   
   <p class="ed__lede">Deklaracja Władimira Putina o gotowości do rozmów padła w tej samej dobie, w której rosyjskie drony uderzyły w ukraińską energetykę. Spory o Starlink i o lukę w PHP pokazują, że o infrastrukturze krytycznej decydują dziś firmy, nie państwa.</p>
-  <div class="player" data-id="2026-10-23-rano"><div class="player__label">Posłuchaj<small>8:57 min · lektor AI</small></div><div class="player__ctl"><button type="button" class="skip" data-skip="-15" aria-label="Cofnij 15 sekund">↺ 15</button><audio controls preload="none" src="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-10-23-rano.mp3"></audio><button type="button" class="skip" data-skip="30" aria-label="Przewiń 30 sekund do przodu">30 ↻</button></div></div>
+  <div class="player" data-id="2026-10-23-rano"><div class="player__label">Posłuchaj<small>8:57 min · lektor AI</small></div><div class="player__ctl"><button type="button" class="skip" data-skip="-15" aria-label="Cofnij 15 sekund">↺ 15</button><audio controls preload="metadata" src="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-10-23-rano.mp3"></audio><button type="button" class="skip" data-skip="30" aria-label="Przewiń 30 sekund do przodu">30 ↻</button></div></div>
 <div class="resume" id="resume-2026-10-23-rano" hidden><button type="button" class="pill pill--cyan"></button><span></span></div>
   <div class="art"><h2>Świat</h2>
 <p>Według ukraińskich sił powietrznych Rosja wystrzeliła w&nbsp;nocy 176 dronów, z&nbsp;których 140 zestrzelono; tych liczb nie potwierdzono niezależnie. Uderzono między innymi w&nbsp;elektrownię cieplną DTEK, co zatrzymało generację, oraz w&nbsp;Sumy, gdzie są ranni. Rządowe Centrum Bezpieczeństwa wysłało alerty dla województw lubelskiego i&nbsp;podkarpackiego, a&nbsp;polskie myśliwce wyszły w&nbsp;powietrze. Po spotkaniu z&nbsp;wysłannikiem Trumpa Steve'em Witkoffem Putin ogłosił gotowość do trójstronnych rozmów USA–Ukraina–Rosja o&nbsp;bezpieczeństwie europejskim. Zełenski ostrzega, że bez pocisków Patriot Rosja może zwiększyć ataki balistyczne. Rozmowy służą kupowaniu czasu przed zimą, a&nbsp;uderzenia mają degradować energetykę, zanim ten czas zostanie wykorzystany. (<a href="https://www.pravda.com.ua/eng/news/2026/10/23/8059345/" target="_blank" rel="noopener">Ukrainska Prawda</a>, <a href="https://www.bbc.co.uk/news/videos/c9146p1vx888o" target="_blank" rel="noopener">BBC</a>, <a href="https://tvn24.pl/polska/alert-rcb-w-zwiazku-z-rosyjskim-atakiem-na-ukrainie-st9301632?source=rss" target="_blank" rel="noopener">TVN24</a>)</p>
@@ -121,17 +121,17 @@ footer a{color:var(--dim)}footer a:hover{color:var(--ink)}
 </footer>
 <script>
 (()=>{const K='fsNewsAudio';let st=null;try{st=JSON.parse(localStorage.getItem(K)||'null')}catch(e){}
+const seek=(au,t,then)=>{const go=()=>{try{au.currentTime=Math.max(0,Math.min(au.duration||1e9,t))}catch(e){}if(then)then()};if(au.readyState>=1)go();else{au.addEventListener('loadedmetadata',go,{once:true});au.load();}};
 document.querySelectorAll('.player[data-id]').forEach(p=>{const id=p.dataset.id,au=p.querySelector('audio');const box=document.getElementById('resume-'+id);
-  p.querySelectorAll('.skip').forEach(b=>b.addEventListener('click',()=>{au.currentTime=Math.max(0,Math.min((au.duration||1e9),au.currentTime+Number(b.dataset.skip)));if(au.paused)au.play().catch(()=>{});}));
+  p.querySelectorAll('.skip').forEach(b=>b.addEventListener('click',()=>{seek(au,au.currentTime+Number(b.dataset.skip),()=>{if(au.paused)au.play().catch(()=>{})});}));
   const save=()=>{try{localStorage.setItem(K,JSON.stringify({id,t:au.currentTime,playing:!au.paused,at:Date.now()}))}catch(e){}};
   au.addEventListener('timeupdate',save);au.addEventListener('pause',save);au.addEventListener('play',save);
   au.addEventListener('ended',()=>{try{localStorage.removeItem(K)}catch(e){}});
   if(!st||st.id!==id||!(st.t>3)||Date.now()-st.at>3600e3)return;
   const mm=Math.floor(st.t/60)+':'+String(Math.floor(st.t%60)).padStart(2,'0');
-  au.currentTime=st.t;
-  const go=()=>{au.currentTime=st.t;au.play().then(()=>{box.hidden=true}).catch(()=>{});};
-  if(st.playing){au.play().then(()=>{}).catch(()=>{box.hidden=false;box.querySelector('button').textContent='▶ Kontynuuj od '+mm;box.querySelector('span').textContent='Słuchałeś na stronie głównej, odtwarzacz zatrzymał się przy zmianie strony.';box.querySelector('button').addEventListener('click',go);});}
-  else{box.hidden=false;box.querySelector('button').textContent='▶ Kontynuuj od '+mm;box.querySelector('span').textContent='';box.querySelector('button').addEventListener('click',go);}
+  const go=()=>{seek(au,st.t,()=>{au.play().then(()=>{box.hidden=true}).catch(()=>{})});};
+  if(st.playing){seek(au,st.t,()=>{au.play().then(()=>{}).catch(()=>{box.hidden=false;box.querySelector('button').textContent='▶ Kontynuuj od '+mm;box.querySelector('span').textContent='Słuchałeś na stronie głównej, odtwarzacz zatrzymał się przy zmianie strony.';box.querySelector('button').addEventListener('click',go);})});}
+  else{seek(au,st.t);box.hidden=false;box.querySelector('button').textContent='▶ Kontynuuj od '+mm;box.querySelector('span').textContent='';box.querySelector('button').addEventListener('click',go);}
 });})();
 </script>
 <script src="../../cookie-consent.js?v=2"></script>

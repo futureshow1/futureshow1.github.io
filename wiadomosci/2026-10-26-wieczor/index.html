@@ -87,7 +87,7 @@ footer a{color:var(--dim)}footer a:hover{color:var(--ink)}
   
   
   <p class="ed__lede">Luiz Inácio Lula da Silva wygrał wybory w Brazylii, a Studencka Lista odsunęła od władzy serbską partię rządzącą — dwie niespodzianki w jeden weekend. Więcej mówi jednak dokument złożony w poniedziałek w amerykańskiej komisji papierów wartościowych: firma, która sama pisze, że jej produkt może być „katastroficznym ryzykiem dla ludzkości”, wystawia go na publiczny rynek.</p>
-  <div class="player" data-id="2026-10-26-wieczor"><div class="player__label">Posłuchaj<small>6:25 min · lektor AI</small></div><div class="player__ctl"><button type="button" class="skip" data-skip="-15" aria-label="Cofnij 15 sekund">↺ 15</button><audio controls preload="none" src="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-10-26-wieczor.mp3"></audio><button type="button" class="skip" data-skip="30" aria-label="Przewiń 30 sekund do przodu">30 ↻</button></div></div>
+  <div class="player" data-id="2026-10-26-wieczor"><div class="player__label">Posłuchaj<small>6:25 min · lektor AI</small></div><div class="player__ctl"><button type="button" class="skip" data-skip="-15" aria-label="Cofnij 15 sekund">↺ 15</button><audio controls preload="metadata" src="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-10-26-wieczor.mp3"></audio><button type="button" class="skip" data-skip="30" aria-label="Przewiń 30 sekund do przodu">30 ↻</button></div></div>
 <div class="resume" id="resume-2026-10-26-wieczor" hidden><button type="button" class="pill pill--cyan"></button><span></span></div>
   <div class="art"><h2>Świat</h2>
 <p><strong>Brazylia.</strong> Luiz Inácio Lula da Silva wygrał w&nbsp;niedzielę 25 października drugą turę wyborów prezydenckich w&nbsp;Brazylii i&nbsp;zdobył czwartą kadencję z&nbsp;wynikiem 51,79 proc. Flávio Bolsonaro, najstarszy syn byłego prezydenta Jaira Bolsonaro, dostał 48,21 proc., czyli o&nbsp;4,4 mln głosów mniej. W pierwszej turze 4 października prowadził 47 do 45 proc., ale 33 mln uprawnionych wtedy nie głosowało. Bolsonaro nie uznał porażki i&nbsp;domaga się unieważnienia głosowania; eksperci oceniają te szanse jako znikome. Inwestorzy obstawili zwycięstwo prawicy, więc giełda w&nbsp;São Paulo zanotowała w&nbsp;poniedziałek historyczny spadek. (<a href="https://www.bbc.co.uk/news/articles/ckm23y3mg1yyo" target="_blank" rel="noopener">BBC</a>) (<a href="https://www.bankier.pl/wiadomosc/Czarny-poniedzialek-na-gieldzie-w-Sao-Paulo-Historyczny-krach-po-wyborach-w-Brazylii-9218456.html" target="_blank" rel="noopener">Bankier</a>)</p>
@@ -120,17 +120,17 @@ footer a{color:var(--dim)}footer a:hover{color:var(--ink)}
 </footer>
 <script>
 (()=>{const K='fsNewsAudio';let st=null;try{st=JSON.parse(localStorage.getItem(K)||'null')}catch(e){}
+const seek=(au,t,then)=>{const go=()=>{try{au.currentTime=Math.max(0,Math.min(au.duration||1e9,t))}catch(e){}if(then)then()};if(au.readyState>=1)go();else{au.addEventListener('loadedmetadata',go,{once:true});au.load();}};
 document.querySelectorAll('.player[data-id]').forEach(p=>{const id=p.dataset.id,au=p.querySelector('audio');const box=document.getElementById('resume-'+id);
-  p.querySelectorAll('.skip').forEach(b=>b.addEventListener('click',()=>{au.currentTime=Math.max(0,Math.min((au.duration||1e9),au.currentTime+Number(b.dataset.skip)));if(au.paused)au.play().catch(()=>{});}));
+  p.querySelectorAll('.skip').forEach(b=>b.addEventListener('click',()=>{seek(au,au.currentTime+Number(b.dataset.skip),()=>{if(au.paused)au.play().catch(()=>{})});}));
   const save=()=>{try{localStorage.setItem(K,JSON.stringify({id,t:au.currentTime,playing:!au.paused,at:Date.now()}))}catch(e){}};
   au.addEventListener('timeupdate',save);au.addEventListener('pause',save);au.addEventListener('play',save);
   au.addEventListener('ended',()=>{try{localStorage.removeItem(K)}catch(e){}});
   if(!st||st.id!==id||!(st.t>3)||Date.now()-st.at>3600e3)return;
   const mm=Math.floor(st.t/60)+':'+String(Math.floor(st.t%60)).padStart(2,'0');
-  au.currentTime=st.t;
-  const go=()=>{au.currentTime=st.t;au.play().then(()=>{box.hidden=true}).catch(()=>{});};
-  if(st.playing){au.play().then(()=>{}).catch(()=>{box.hidden=false;box.querySelector('button').textContent='▶ Kontynuuj od '+mm;box.querySelector('span').textContent='Słuchałeś na stronie głównej, odtwarzacz zatrzymał się przy zmianie strony.';box.querySelector('button').addEventListener('click',go);});}
-  else{box.hidden=false;box.querySelector('button').textContent='▶ Kontynuuj od '+mm;box.querySelector('span').textContent='';box.querySelector('button').addEventListener('click',go);}
+  const go=()=>{seek(au,st.t,()=>{au.play().then(()=>{box.hidden=true}).catch(()=>{})});};
+  if(st.playing){seek(au,st.t,()=>{au.play().then(()=>{}).catch(()=>{box.hidden=false;box.querySelector('button').textContent='▶ Kontynuuj od '+mm;box.querySelector('span').textContent='Słuchałeś na stronie głównej, odtwarzacz zatrzymał się przy zmianie strony.';box.querySelector('button').addEventListener('click',go);})});}
+  else{seek(au,st.t);box.hidden=false;box.querySelector('button').textContent='▶ Kontynuuj od '+mm;box.querySelector('span').textContent='';box.querySelector('button').addEventListener('click',go);}
 });})();
 </script>
 <script src="../../cookie-consent.js?v=2"></script>
