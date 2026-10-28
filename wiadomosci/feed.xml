@@ -9,7 +9,17 @@
   <itunes:author>FutureShow Studio</itunes:author>
   <itunes:explicit>false</itunes:explicit>
   <itunes:category text="News"/>
-  <lastBuildDate>Wed, 28 Oct 2026 06:30:00 +0100</lastBuildDate>
+  <lastBuildDate>Wed, 28 Oct 2026 18:30:00 +0100</lastBuildDate>
+  <item>
+    <title>Pod Toledo zginęło co najmniej 68 osób, a śledczy pytają, dlaczego system nie zatrzymał pociągu</title>
+    <link>https://futureshow.pl/wiadomosci/2026-10-28-wieczor/</link>
+    <guid isPermaLink="true">https://futureshow.pl/wiadomosci/2026-10-28-wieczor/</guid>
+    <pubDate>Wed, 28 Oct 2026 18:30:00 +0100</pubDate>
+    <description>Katastrofa kolejowa pod Toledo to najtragiczniejszy wypadek kolejowy w Hiszpanii od lat; liczba ofiar rosła do co najmniej 68. W Izraelu blok Benjamina Netanjahu nie ma większości, a rozmowy o Ukrainie toczą się bez Europy. W Polsce zatrzymano podejrzanego o podpalenie rumuńskiej fabryki zbrojeniowej, a gaz zdrożał do 100 euro za megawatogodzinę.</description>
+    <enclosure url="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-10-28-wieczor.mp3" length="3226604" type="audio/mpeg"/>
+    <itunes:duration>383</itunes:duration>
+    <itunes:episodeType>full</itunes:episodeType>
+  </item>
   <item>
     <title>Waszyngton handluje sankcjami, a wybory w Izraelu nie dały zwycięzcy</title>
     <link>https://futureshow.pl/wiadomosci/2026-10-28-rano/</link>

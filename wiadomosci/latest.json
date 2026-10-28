@@ -1,14 +1,14 @@
 {
- "id": "2026-10-28-rano",
- "title": "Waszyngton handluje sankcjami, a wybory w Izraelu nie dały zwycięzcy",
- "label": "Wydanie poranne",
- "edition": "rano",
+ "id": "2026-10-28-wieczor",
+ "title": "Pod Toledo zginęło co najmniej 68 osób, a śledczy pytają, dlaczego system nie zatrzymał pociągu",
+ "label": "Wydanie wieczorne",
+ "edition": "wieczor",
  "date": "2026-10-28",
  "date_pl": "środa, 28 października 2026",
- "dur": "6:22",
- "secs": 382,
- "lead": "Dwa wydarzenia z nocy układają się w jedną historię: w Izraelu wybory nie dały zwycięzcy, a Waszyngton rozważa zniesienie sankcji na rosyjski fundusz inwestycyjny i ogłasza rozejm wokół okupowanych Ołeszek. Administracja Donalda Trumpa zamienia sankcje w walutę przetargową, a Unia Europejska nie mówi jednym głosem.",
- "url": "https://futureshow.pl/wiadomosci/2026-10-28-rano/",
- "audio": "https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-10-28-rano.mp3",
- "generated": "2026-10-28T06:30:00+01:00"
+ "dur": "6:23",
+ "secs": 383,
+ "lead": "Katastrofa kolejowa pod Toledo to najtragiczniejszy wypadek kolejowy w Hiszpanii od lat; liczba ofiar rosła do co najmniej 68. W Izraelu blok Benjamina Netanjahu nie ma większości, a rozmowy o Ukrainie toczą się bez Europy. W Polsce zatrzymano podejrzanego o podpalenie rumuńskiej fabryki zbrojeniowej, a gaz zdrożał do 100 euro za megawatogodzinę.",
+ "url": "https://futureshow.pl/wiadomosci/2026-10-28-wieczor/",
+ "audio": "https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-10-28-wieczor.mp3",
+ "generated": "2026-10-28T18:30:00+01:00"
 }
