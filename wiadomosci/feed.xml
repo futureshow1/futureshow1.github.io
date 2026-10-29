@@ -9,7 +9,17 @@
   <itunes:author>FutureShow Studio</itunes:author>
   <itunes:explicit>false</itunes:explicit>
   <itunes:category text="News"/>
-  <lastBuildDate>Wed, 28 Oct 2026 18:30:00 +0100</lastBuildDate>
+  <lastBuildDate>Thu, 29 Oct 2026 06:30:00 +0100</lastBuildDate>
+  <item>
+    <title>Hiszpania liczy ofiary katastrofy kolejowej, a Moskwa podaje liczbę dronów, której nikt nie sprawdzi</title>
+    <link>https://futureshow.pl/wiadomosci/2026-10-29-rano/</link>
+    <guid isPermaLink="true">https://futureshow.pl/wiadomosci/2026-10-29-rano/</guid>
+    <pubDate>Thu, 29 Oct 2026 06:30:00 +0100</pubDate>
+    <description>Co najmniej 68 osób zginęło w zderzeniu pociągów pod Toledo, a w Madrycie doszło do starć przed ministerstwem transportu. Rosja podała tej nocy liczbę 613 strąconych dronów, której nie da się sprawdzić. Ministerstwo Obrony Narodowej potwierdza przekazanie Ukrainie dwóch MiG-29, a Jarosław Kaczyński mówi w Krynicy o rokowaniach w sprawie wyjścia z Unii.</description>
+    <enclosure url="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-10-29-rano.mp3" length="3592628" type="audio/mpeg"/>
+    <itunes:duration>372</itunes:duration>
+    <itunes:episodeType>full</itunes:episodeType>
+  </item>
   <item>
     <title>Pod Toledo zginęło co najmniej 68 osób, a śledczy pytają, dlaczego system nie zatrzymał pociągu</title>
     <link>https://futureshow.pl/wiadomosci/2026-10-28-wieczor/</link>
