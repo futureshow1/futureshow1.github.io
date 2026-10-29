@@ -1,14 +1,14 @@
 {
- "id": "2026-10-29-rano",
- "title": "Hiszpania liczy ofiary katastrofy kolejowej, a Moskwa podaje liczbę dronów, której nikt nie sprawdzi",
- "label": "Wydanie poranne",
- "edition": "rano",
+ "id": "2026-10-29-wieczor",
+ "title": "Dzień dwóch bilansów ofiar i maszyn, których nikt nie rozliczy",
+ "label": "Wydanie wieczorne",
+ "edition": "wieczor",
  "date": "2026-10-29",
  "date_pl": "czwartek, 29 października 2026",
- "dur": "6:12",
- "secs": 372,
- "lead": "Co najmniej 68 osób zginęło w zderzeniu pociągów pod Toledo, a w Madrycie doszło do starć przed ministerstwem transportu. Rosja podała tej nocy liczbę 613 strąconych dronów, której nie da się sprawdzić. Ministerstwo Obrony Narodowej potwierdza przekazanie Ukrainie dwóch MiG-29, a Jarosław Kaczyński mówi w Krynicy o rokowaniach w sprawie wyjścia z Unii.",
- "url": "https://futureshow.pl/wiadomosci/2026-10-29-rano/",
- "audio": "https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-10-29-rano.mp3",
- "generated": "2026-10-29T06:30:00+01:00"
+ "dur": "6:05",
+ "secs": 365,
+ "lead": "Czwartek przyniósł dwa bilanse ofiar — 14 zabitych w Dnieprze i 74 pod Toledo. Obok nich dwie liczby, których nikt nie policzył: bilion parametrów modelu i tysiące akcji agentów AI.",
+ "url": "https://futureshow.pl/wiadomosci/2026-10-29-wieczor/",
+ "audio": "https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-10-29-wieczor.mp3",
+ "generated": "2026-10-29T18:30:00+01:00"
 }

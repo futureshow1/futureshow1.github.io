@@ -9,7 +9,17 @@
   <itunes:author>FutureShow Studio</itunes:author>
   <itunes:explicit>false</itunes:explicit>
   <itunes:category text="News"/>
-  <lastBuildDate>Thu, 29 Oct 2026 06:30:00 +0100</lastBuildDate>
+  <lastBuildDate>Thu, 29 Oct 2026 18:30:00 +0100</lastBuildDate>
+  <item>
+    <title>Dzień dwóch bilansów ofiar i maszyn, których nikt nie rozliczy</title>
+    <link>https://futureshow.pl/wiadomosci/2026-10-29-wieczor/</link>
+    <guid isPermaLink="true">https://futureshow.pl/wiadomosci/2026-10-29-wieczor/</guid>
+    <pubDate>Thu, 29 Oct 2026 18:30:00 +0100</pubDate>
+    <description>Czwartek przyniósł dwa bilanse ofiar — 14 zabitych w Dnieprze i 74 pod Toledo. Obok nich dwie liczby, których nikt nie policzył: bilion parametrów modelu i tysiące akcji agentów AI.</description>
+    <enclosure url="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-10-29-wieczor.mp3" length="3492332" type="audio/mpeg"/>
+    <itunes:duration>365</itunes:duration>
+    <itunes:episodeType>full</itunes:episodeType>
+  </item>
   <item>
     <title>Hiszpania liczy ofiary katastrofy kolejowej, a Moskwa podaje liczbę dronów, której nikt nie sprawdzi</title>
     <link>https://futureshow.pl/wiadomosci/2026-10-29-rano/</link>
