@@ -832,6 +832,43 @@ types: {
  dark:{pl:"Mroczny",color:"#705848"}, steel:{pl:"Stalowy",color:"#B8B8D0"}, fairy:{pl:"Wróżka",color:"#EE99AC"}
 },
 
+// ---------- SETY ROCZNICOWE: 30 LAT KARCIANKI ----------
+// Daty pierwszego pojawienia się każdej mechaniki wyliczone z dat setów w API,
+// nie z pamięci. „Duże EX" wg CGC debiutowało w Next Destinies (II 2012).
+anniversary: {
+ title: { pl: "30 lat karcianki", en: "30 years of the card game" },
+ intro: {
+  pl: "Pierwsze karty Pokémon trafiły do sklepów w Japonii w październiku 1996 roku. Na trzydziestolecie wyszły dwa sety, które nie są zwykłym dodatkiem do gry — to <b>podsumowanie trzech dekad</b>. Jeden zbiera trzydziestu różnych Pikachu, drugi w trzydziestu kartach przechodzi przez wszystkie mechaniki, jakie karcianka miała przez ten czas.",
+  en: "The first Pokémon cards reached Japanese shops in October 1996. For the 30th anniversary two sets appeared that are not ordinary expansions — they are <b>a summary of three decades</b>. One gathers thirty different Pikachu; the other walks through every mechanic the game has had, in thirty cards."
+ },
+ pikaTitle: { pl: "Trzydziestu Pikachu na trzydzieści lat", en: "Thirty Pikachu for thirty years" },
+ pikaNote: {
+  pl: "W secie <b>30th Celebration</b> jest dokładnie <b>30 kart Pikachu</b> o własnej rzadkości „Pikachu Rare” (numery 23–52) — i każdą narysował <b>kto inny</b>. Są wśród nich Ken Sugimori, który zaprojektował oryginalne Pokémony, oraz James Turner i Tomokazu Komiya. Cały set to 161 kart autorstwa 125 różnych ilustratorów. Osobna ciekawostka: dwie karty mają rzadkość „Futuristic Rare”, której nie ma nigdzie indziej — to Mewtwo ex i Mew ex w futurystycznej oprawie YOSHIROTTENA.",
+  en: "The <b>30th Celebration</b> set contains exactly <b>30 Pikachu cards</b> with their own “Pikachu Rare” rarity (numbers 23–52) — and each was drawn by a <b>different artist</b>. Among them Ken Sugimori, who designed the original Pokémon, plus James Turner and Tomokazu Komiya. The full set runs to 161 cards by 125 different illustrators. A separate curiosity: two cards carry a “Futuristic Rare” rarity found nowhere else — Mewtwo ex and Mew ex in YOSHIROTTEN's futuristic treatment."
+ },
+ classicTitle: { pl: "Trzydzieści kart, trzydzieści lat pomysłów", en: "Thirty cards, thirty years of ideas" },
+ classicNote: {
+  pl: "<b>Classic Collection</b> ma tylko 30 kart, ale to najciekawszy set w całej naszej bazie: niemal każda karta reprezentuje <b>inną mechanikę z innej epoki</b>. Widać to po samych symbolach rzadkości — nigdzie indziej nie znajdziesz obok siebie LV.X, Prime, LEGEND, BREAK, GX, V, VMAX i VSTAR. Niżej oś czasu tych pomysłów, a pod nią wszystkie karty setu.",
+  en: "<b>Classic Collection</b> holds only 30 cards, but it is the most interesting set in our whole database: nearly every card stands for <b>a different mechanic from a different era</b>. You can see it in the rarity symbols alone — nowhere else will you find LV.X, Prime, LEGEND, BREAK, GX, V, VMAX and VSTAR side by side. Below is a timeline of those ideas, and under it the full set."
+ },
+ timelineTitle: { pl: "Oś czasu mechanik", en: "Timeline of mechanics" },
+ timeline: [
+  { y:"1999", k:{pl:"Base Set",en:"Base Set"}, pl:"Pierwsze karty na Zachodzie. Zwykły Pokémon, atak, słabość — i nic więcej.", en:"The first Western cards. A plain Pokémon, an attack, a weakness — nothing more." },
+  { y:"2003", k:{pl:"ex",en:"ex"}, pl:"Małe „ex” po nazwie: mocniejszy Pokémon, za którego przeciwnik bierze dwie Nagrody. Debiut w secie Sandstorm.", en:"A lowercase “ex” after the name: a stronger Pokémon that hands your opponent two Prizes. Debut in Sandstorm." },
+  { y:"2007", k:{pl:"LV.X",en:"LV.X"}, pl:"Karta dokładana na Pokémona, żeby podnieść mu poziom. Debiut w Diamond & Pearl.", en:"A card laid on top of a Pokémon to level it up. Debut in Diamond & Pearl." },
+  { y:"2010", k:{pl:"Prime i LEGEND",en:"Prime and LEGEND"}, pl:"Prime to wzmocnione karty ze złotym napisem, a LEGEND składa się z <b>dwóch kart</b>, które trzeba mieć obie, żeby zagrać jednym Pokémonem. Oba debiutują w HeartGold & SoulSilver.", en:"Prime are beefed-up cards with gold lettering; a LEGEND is made of <b>two cards</b> you must hold both of to play one Pokémon. Both debut in HeartGold & SoulSilver." },
+  { y:"2012", k:{pl:"EX",en:"EX"}, pl:"Wielkie „EX” — kolejne podejście do mocnych kart, tym razem pełnoformatowych. Debiut w Next Destinies.", en:"Uppercase “EX” — another take on powerful cards, this time full-art. Debut in Next Destinies." },
+  { y:"2015", k:{pl:"BREAK",en:"BREAK"}, pl:"Jedyne karty drukowane <b>w poziomie</b>, nakładane na kartę pod spodem. Debiut w BREAKthrough.", en:"The only cards printed <b>sideways</b>, laid over the card beneath. Debut in BREAKthrough." },
+  { y:"2017", k:{pl:"GX",en:"GX"}, pl:"Atak GX, którego wolno użyć <b>raz na całą grę</b>. Debiut w Sun & Moon.", en:"The GX attack, usable <b>once per entire game</b>. Debut in Sun & Moon." },
+  { y:"2020", k:{pl:"V, VMAX i Amazing Rare",en:"V, VMAX and Amazing Rare"}, pl:"V zastępuje GX, a VMAX to jego olbrzymia forma. W tym samym roku pojawia się Amazing Rare — karta rozbryzgana tęczowymi plamami.", en:"V replaces GX, and VMAX is its gigantic form. The same year brings Amazing Rare — a card splashed with rainbow blots." },
+  { y:"2022", k:{pl:"VSTAR",en:"VSTAR"}, pl:"Moc VSTAR, znów raz na grę. Debiut w Brilliant Stars.", en:"VSTAR Power, again once per game. Debut in Brilliant Stars." },
+  { y:"2023", k:{pl:"ex wraca",en:"ex returns"}, pl:"Małe „ex” wraca po dwudziestu latach — i tak gra się dzisiaj.", en:"The lowercase “ex” returns after twenty years — and that is how the game is played today." }
+ ],
+ setA: { pl: "30th Celebration", en: "30th Celebration" },
+ setB: { pl: "Classic Collection", en: "Classic Collection" },
+ cardsWord: { pl: "kart", en: "cards" }
+},
+
 // ---------- KATEGORIE KLASYFIKACYJNE (tryb Trening / klucz do oznaczania) ----------
 // Oficjalne pola z PokéAPI: kolor (10), kształt ciała (14), grupa jajowa (15), tempo wzrostu (6).
 // Nazwy PL pisane pod dziecko — opisowo, nie encyklopedycznie.

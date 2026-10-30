@@ -97,9 +97,10 @@ const UI={
  },
  cards:{
   title:{pl:'Karty Pokémon TCG',en:'Pokémon TCG Cards'},
-  desc:{pl:'Dwie epoki karcianki: kultowy Base Set z 1999 roku (całe 102 karty!) oraz 488 kart z najnowszych setów 2025–2026, w które grają dzisiejsi gracze. Karty ułożone od najrzadszych do najpospolitszych. Kliknij kartę, aby ją powiększyć i przeczytać ataki.',
-        en:'Two eras of the TCG: the iconic 1999 Base Set (all 102 cards!) and 488 cards from the newest 2025–2026 sets today\'s players use. Cards are ordered rarest to most common. Click a card to enlarge it and read its attacks.'},
+  desc:{pl:'Dwie epoki karcianki: kultowy Base Set z 1999 roku (całe 102 karty!) oraz {MODERN} kart z najnowszych setów, w które grają dzisiejsi gracze — plus osobna zakładka z setami na trzydziestolecie. Karty ułożone od najrzadszych do najpospolitszych. Kliknij kartę, aby ją powiększyć i przeczytać ataki.',
+        en:'Two eras of the TCG: the iconic 1999 Base Set (all 102 cards!) and {MODERN} cards from the newest sets today\'s players use — plus a separate tab for the 30th-anniversary sets. Cards are ordered rarest to most common. Click a card to enlarge it and read its attacks.'},
   tabs:{anatomy:{pl:'🔎 Jak czytać kartę',en:'🔎 How to read a card'},base:{pl:'Base Set (1999)',en:'Base Set (1999)'},modern:{pl:'Współczesne (2025–26)',en:'Modern (2025–26)'},
+        anniv:{pl:'🎂 30-lecie',en:'🎂 30 years'},
         rarity:{pl:'Ranking rzadkości',en:'Rarity ranking'},
         value:{pl:'💰 Ile to warte',en:'💰 What it is worth'}},
   baseNote:{pl:'<b>Base Set</b> — pierwszy zachodni set kart Pokémon (styczeń 1999, Wizards of the Coast). 102 karty, z których zaczęła się cała karciana mania. Najcenniejsza: holograficzny <b>Charizard 4/102</b> — egzemplarze z 1. edycji osiągają dziś ceny domów.',
@@ -137,10 +138,12 @@ const UI={
        en:'POKÉPEDIA — a home knowledge base. Data: PokéAPI & Pokémon TCG API. Pokémon © Nintendo / Creatures / GAME FREAK / The Pokémon Company. A non-commercial, educational project.'}
 };
 const NUM={MON:()=>MON.length, CARDS:()=>BASE.length+REC.length+FILL.length,
+ MODERN:()=>REC.filter(c=>c.set!=='me55'&&c.set!=='me55c').length,
+ ANNIV:()=>REC.filter(c=>c.set==='me55'||c.set==='me55c').length,
  // „1332 prawdziwe karty" vs „1000 prawdziwych kart" — polska odmiana liczebnika
  CARDS_PL_PHRASE:()=>{const n=BASE.length+REC.length+FILL.length, d=n%10, h=n%100;
   return (d>=2&&d<=4&&!(h>=12&&h<=14))?`${n} prawdziwe karty`:`${n} prawdziwych kart`;}};
-const fillNums=s=>typeof s==='string'?s.replace(/\{(MON|CARDS|CARDS_PL_PHRASE)\}/g,(_,k)=>NUM[k]()):s;
+const fillNums=s=>typeof s==='string'?s.replace(/\{(MON|CARDS|CARDS_PL_PHRASE|MODERN|ANNIV)\}/g,(_,k)=>NUM[k]()):s;
 const T=o=>fillNums(typeof o==='string'?o:(o[lang]||o.pl||o.en));
 
 /* ---------- rzadkość ---------- */
@@ -294,6 +297,7 @@ window.openMon=function(id){
 };
 
 /* ---------- karty ---------- */
+const ANNIV_SETS=new Set(['me55','me55c']);
 function cardImg(c){
  if(c.img)return c.img;          // jawna ścieżka — gdy numer karty koliduje z inną w tym samym secie
  if(c.fill)return `images/cards/fill-${c.id}.webp`;
@@ -310,6 +314,7 @@ function renderCards(){
   b.onclick=()=>{cardTab=b.dataset.tab;pushHash('#karty='+cardTab);renderCards();};});
  const body=$('cards-body');
  if(cardTab==='rarity'){body.innerHTML=rarityGuideHTML();body.dataset.v='';return;}
+ if(cardTab==='anniv'){body.innerHTML=annivHTML();body.dataset.v='';return;}
  // dekoder symboli + porównywarka cen żyją w osobnym module (wartosc.js)
  if(cardTab==='value'){body.dataset.v='1';if(window.renderWartosc)window.renderWartosc(lang);return;}
  if(cardTab==='anatomy'){body.innerHTML=anatomyHTML();body.dataset.v='';wireAnatomy();return;}
@@ -317,7 +322,9 @@ function renderCards(){
  if(cardTab==='base'){cards=BASE;note=T(UI.cards.baseNote);}
  else{
   note=T(UI.cards.modernNote);
-  cards=modernSet==='all'?REC:REC.filter(c=>c.set===modernSet);
+  // sety rocznicowe mają osobną zakładkę — tutaj pokazujemy tylko karty do gry
+  const grywalne=REC.filter(c=>!ANNIV_SETS.has(c.set));
+  cards=modernSet==='all'?grywalne:grywalne.filter(c=>c.set===modernSet);
  }
  const groups={};
  cards.forEach(c=>{(groups[c.rarity]=groups[c.rarity]||[]).push(c)});
@@ -326,7 +333,7 @@ function renderCards(){
   me2pt5:'Ascended Heroes (I 2026)', me55:'30th Celebration (IX 2026)', me55c:'Classic Collection (IX 2026)'};
  const pick=cardTab==='modern'?`<div class="setpick">
    <button class="${modernSet==='all'?'on':''}" onclick="setModern('all')">${T(UI.cards.allSets)}</button>
-   ${['me55','me55c','me5','me1','sv8pt5','me2pt5'].map(s=>`<button class="${modernSet===s?'on':''}" onclick="setModern('${s}')">${setNames[s]}</button>`).join('')}
+   ${['me5','me1','sv8pt5','me2pt5'].map(s=>`<button class="${modernSet===s?'on':''}" onclick="setModern('${s}')">${setNames[s]}</button>`).join('')}
   </div>`:'';
  body.dataset.v='';
  body.innerHTML=`<div class="setsnote">${note}</div>${pick}`+
@@ -482,6 +489,43 @@ function rarityGuideHTML(){
      <figcaption><b>${f.name}</b><span>${T(f)}</span></figcaption>
     </figure>`).join('')}</div>
    <p class="grails-note">${T(g.famous.imgNote)}</p></div>`;
+}
+
+/* ---------- sety na trzydziestolecie ----------
+   Osobna zakładka, bo to nie są karty „do grania teraz", tylko podsumowanie trzech dekad:
+   30 Pikachu od 30 ilustratorów i 30 kart przechodzących przez wszystkie mechaniki gry. */
+function annivGrid(sid){
+ const cards=REC.filter(c=>c.set===sid);
+ const groups={};
+ cards.forEach(c=>{(groups[c.rarity]=groups[c.rarity]||[]).push(c)});
+ return Object.keys(groups).sort((x,y)=>rIdx(x)-rIdx(y)).map(k=>`
+  <div class="rarhead"><h3>${rarLabel(k)}</h3><span>${groups[k].length} ${cardsWord(groups[k].length)}</span></div>
+  <div class="cardgrid">${groups[k].map(c=>`
+    <div class="tcg" onclick="openCard('${c.id}')">
+     <img loading="lazy" src="${cardImg(c)}" alt="${c.name}">
+     <p>${c.name}</p>
+    </div>`).join('')}</div>`).join('');
+}
+function annivHTML(){
+ const A=C.anniversary;
+ const nA=REC.filter(c=>c.set==='me55').length, nB=REC.filter(c=>c.set==='me55c').length;
+ return `<div class="anniv">
+  <div class="setsnote">${T(A.intro)}</div>
+
+  <div class="annivhead"><h3>🎉 ${T(A.pikaTitle)}</h3>
+   <span class="annivcount">${T(A.setA)} · ${nA} ${T(A.cardsWord)}</span></div>
+  <p class="annivnote">${T(A.pikaNote)}</p>
+  ${annivGrid('me55')}
+
+  <div class="annivhead annivhead--mt"><h3>🗂️ ${T(A.classicTitle)}</h3>
+   <span class="annivcount">${T(A.setB)} · ${nB} ${T(A.cardsWord)}</span></div>
+  <p class="annivnote">${T(A.classicNote)}</p>
+  <h4 class="annivth">${T(A.timelineTitle)}</h4>
+  <div class="mechtl">${A.timeline.map(t=>`
+    <div class="mech"><span class="mechy">${t.y}</span>
+     <div><b>${T(t.k)}</b><p>${T(t)}</p></div></div>`).join('')}</div>
+  ${annivGrid('me55c')}
+ </div>`;
 }
 
 /* ---------- historia ---------- */
