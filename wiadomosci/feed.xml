@@ -9,7 +9,17 @@
   <itunes:author>FutureShow Studio</itunes:author>
   <itunes:explicit>false</itunes:explicit>
   <itunes:category text="News"/>
-  <lastBuildDate>Thu, 29 Oct 2026 18:30:00 +0100</lastBuildDate>
+  <lastBuildDate>Fri, 30 Oct 2026 18:30:00 +0100</lastBuildDate>
+  <item>
+    <title>Spór o Trybunał Konstytucyjny wychodzi z sal prawniczych na ulicę</title>
+    <link>https://futureshow.pl/wiadomosci/2026-10-30-wieczor/</link>
+    <guid isPermaLink="true">https://futureshow.pl/wiadomosci/2026-10-30-wieczor/</guid>
+    <pubDate>Fri, 30 Oct 2026 18:30:00 +0100</pubDate>
+    <description>W piątek policja weszła do siedziby Trybunału Konstytucyjnego, a zastępująca prezesa sędzia odsunęła jego i wiceprezesa od czynności; prezydent przerwał podróż do Afryki. Ropa Brent zbliża się do 117 dolarów za baryłkę, bo ryzyko wojny z Iranem stało się argumentem rynkowym, a w Rosji zamyka się ostatnia duża niezależna redakcja.</description>
+    <enclosure url="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-10-30-wieczor.mp3" length="3647396" type="audio/mpeg"/>
+    <itunes:duration>378</itunes:duration>
+    <itunes:episodeType>full</itunes:episodeType>
+  </item>
   <item>
     <title>Dzień dwóch bilansów ofiar i maszyn, których nikt nie rozliczy</title>
     <link>https://futureshow.pl/wiadomosci/2026-10-29-wieczor/</link>
