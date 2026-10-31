@@ -9,7 +9,17 @@
   <itunes:author>FutureShow Studio</itunes:author>
   <itunes:explicit>false</itunes:explicit>
   <itunes:category text="News"/>
-  <lastBuildDate>Sat, 31 Oct 2026 06:30:00 +0100</lastBuildDate>
+  <lastBuildDate>Sat, 31 Oct 2026 18:30:00 +0100</lastBuildDate>
+  <item>
+    <title>Orędzie premiera zamyka drogę do kompromisu w sporze o Trybunał Konstytucyjny</title>
+    <link>https://futureshow.pl/wiadomosci/2026-10-31-wieczor/</link>
+    <guid isPermaLink="true">https://futureshow.pl/wiadomosci/2026-10-31-wieczor/</guid>
+    <pubDate>Sat, 31 Oct 2026 18:30:00 +0100</pubDate>
+    <description>Kryzys wokół Trybunału Konstytucyjnego przestał być sporem o budynek i stał się wyścigiem terminów: po sobotnim orędziu premiera i zwołaniu przez Sąd Najwyższy nadzwyczajnego zgromadzenia na 3 listopada obie strony mają daty, których nie da się przesunąć. W piątek zakończyła się pierwsza od 2022 roku duża ewakuacja cywilów z okupowanego miasta na Chersońszczyźnie.</description>
+    <enclosure url="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-10-31-wieczor.mp3" length="3637323" type="audio/mpeg"/>
+    <itunes:duration>406</itunes:duration>
+    <itunes:episodeType>full</itunes:episodeType>
+  </item>
   <item>
     <title>Prezydent wszedł siłą do Trybunału Konstytucyjnego, a świat patrzy na polski kryzys instytucjonalny</title>
     <link>https://futureshow.pl/wiadomosci/2026-10-31-rano/</link>
