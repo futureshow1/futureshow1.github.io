@@ -9,7 +9,17 @@
   <itunes:author>FutureShow Studio</itunes:author>
   <itunes:explicit>false</itunes:explicit>
   <itunes:category text="News"/>
-  <lastBuildDate>Fri, 30 Oct 2026 18:30:00 +0100</lastBuildDate>
+  <lastBuildDate>Sat, 31 Oct 2026 06:30:00 +0100</lastBuildDate>
+  <item>
+    <title>Sędzia ogłasza przejęcie Trybunału, a prezydent wchodzi do gmachu po północy</title>
+    <link>https://futureshow.pl/wiadomosci/2026-10-31-rano/</link>
+    <guid isPermaLink="true">https://futureshow.pl/wiadomosci/2026-10-31-rano/</guid>
+    <pubDate>Sat, 31 Oct 2026 06:30:00 +0100</pubDate>
+    <description>W nocy z piątku na sobotę sędzia Anna Korwin-Piotrowska ogłosiła w Trybunale Konstytucyjnym, że przejmuje kierowanie instytucją, i zawiesiła w czynnościach prezesa Bogdana Święczkowskiego, a prezydent Karol Nawrocki wszedł do gmachu w Warszawie, przepychając się przez sędziów. Na rynkach uwagę przykuwają dwie rzeczy: ropa powyżej 110 dolarów za baryłkę po doniesieniach o dyplomacji USA–Iran, których nie udało się potwierdzić, oraz przyspieszająca wyprzedaż akcji spółek związanych ze sztuczną inteligencją.</description>
+    <enclosure url="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-10-31-rano.mp3" length="3724844" type="audio/mpeg"/>
+    <itunes:duration>386</itunes:duration>
+    <itunes:episodeType>full</itunes:episodeType>
+  </item>
   <item>
     <title>Spór o Trybunał Konstytucyjny wychodzi z sal prawniczych na ulicę</title>
     <link>https://futureshow.pl/wiadomosci/2026-10-30-wieczor/</link>
