@@ -9,7 +9,17 @@
   <itunes:author>FutureShow Studio</itunes:author>
   <itunes:explicit>false</itunes:explicit>
   <itunes:category text="News"/>
-  <lastBuildDate>Sat, 31 Oct 2026 18:30:00 +0100</lastBuildDate>
+  <lastBuildDate>Sun, 01 Nov 2026 18:30:00 +0100</lastBuildDate>
+  <item>
+    <title>Tusk odrzuca kompromis w sporze o Trybunał, a Zatoka czeka na odpowiedź Waszyngtonu</title>
+    <link>https://futureshow.pl/wiadomosci/2026-11-01-wieczor/</link>
+    <guid isPermaLink="true">https://futureshow.pl/wiadomosci/2026-11-01-wieczor/</guid>
+    <pubDate>Sun, 01 Nov 2026 18:30:00 +0100</pubDate>
+    <description>Premier Donald Tusk powiedział w orędziu, że w sporze o Trybunał Konstytucyjny „nie może być kompromisu”, a kancelaria prezydenta Karola Nawrockiego zapowiada zawiadomienia do prokuratury przeciwko trojgu sędziów. Ważny będzie wtorek, gdy zbierze się zgromadzenie sędziów Trybunału. Tego samego dnia Amerykanie głosują w wyborach do Kongresu, a państwa Zatoki czekają na odpowiedź Waszyngtonu w sprawie cieśniny Ormuz. Piszemy też o rekordowej kradzieży z giełdy Binance i o tym, jak trudno miastom pozbyć się kamer firmy Flock. To jedyne dzisiejsze wydanie i obejmuje cały dzień.</description>
+    <enclosure url="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-01-wieczor.mp3" length="3224955" type="audio/mpeg"/>
+    <itunes:duration>359</itunes:duration>
+    <itunes:episodeType>full</itunes:episodeType>
+  </item>
   <item>
     <title>Orędzie premiera zamyka drogę do kompromisu w sporze o Trybunał Konstytucyjny</title>
     <link>https://futureshow.pl/wiadomosci/2026-10-31-wieczor/</link>
