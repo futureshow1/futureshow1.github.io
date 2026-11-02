@@ -1,14 +1,14 @@
 {
- "id": "2026-11-02-rano",
- "title": "Amerykanie głosują w cieniu wojny, a sędziowie TK muszą zdecydować, kto nim kieruje",
- "label": "Wydanie poranne",
- "edition": "rano",
+ "id": "2026-11-02-wieczor",
+ "title": "Drugi atak na sklepowe chłodnie w Europie i pięć zawiadomień w sprawie Trybunału",
+ "label": "Wydanie wieczorne",
+ "edition": "wieczor",
  "date": "2026-11-02",
  "date_pl": "poniedziałek, 2 listopada 2026",
- "dur": "5:42",
- "secs": 342,
- "lead": "We wtorek Amerykanie wybierają Kongres w trakcie wojny z Iranem, a sędziowie Trybunału Konstytucyjnego rozstrzygają, kto nim kieruje. W nocy Ukraińcy dostali fałszywe alerty o ataku jądrowym, a Rosja doniosła o cyberataku na własną aplikację. W tle pozostaje katastrofa pod Toledo, gdzie bilans ofiar wciąż się zmienia.",
- "url": "https://futureshow.pl/wiadomosci/2026-11-02-rano/",
- "audio": "https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-02-rano.mp3",
- "generated": "2026-11-02T06:30:00+01:00"
+ "dur": "6:25",
+ "secs": 385,
+ "lead": "W nocy z niedzieli na poniedziałek ktoś po raz drugi w trzy tygodnie zaatakował chłodnie w europejskich sklepach, a w Polsce spór o Trybunał Konstytucyjny wszedł do prokuratury przed Radą Bezpieczeństwa Narodowego. Piszemy też o cieśninie Ormuz, giełdzie Binance i prospekcie Anthropica.",
+ "url": "https://futureshow.pl/wiadomosci/2026-11-02-wieczor/",
+ "audio": "https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-02-wieczor.mp3",
+ "generated": "2026-11-02T18:30:00+01:00"
 }

@@ -9,7 +9,17 @@
   <itunes:author>FutureShow Studio</itunes:author>
   <itunes:explicit>false</itunes:explicit>
   <itunes:category text="News"/>
-  <lastBuildDate>Mon, 02 Nov 2026 06:30:00 +0100</lastBuildDate>
+  <lastBuildDate>Mon, 02 Nov 2026 18:30:00 +0100</lastBuildDate>
+  <item>
+    <title>Drugi atak na sklepowe chłodnie w Europie i pięć zawiadomień w sprawie Trybunału</title>
+    <link>https://futureshow.pl/wiadomosci/2026-11-02-wieczor/</link>
+    <guid isPermaLink="true">https://futureshow.pl/wiadomosci/2026-11-02-wieczor/</guid>
+    <pubDate>Mon, 02 Nov 2026 18:30:00 +0100</pubDate>
+    <description>W nocy z niedzieli na poniedziałek ktoś po raz drugi w trzy tygodnie zaatakował chłodnie w europejskich sklepach, a w Polsce spór o Trybunał Konstytucyjny wszedł do prokuratury przed Radą Bezpieczeństwa Narodowego. Piszemy też o cieśninie Ormuz, giełdzie Binance i prospekcie Anthropica.</description>
+    <enclosure url="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-02-wieczor.mp3" length="3445011" type="audio/mpeg"/>
+    <itunes:duration>385</itunes:duration>
+    <itunes:episodeType>full</itunes:episodeType>
+  </item>
   <item>
     <title>Amerykanie głosują w cieniu wojny, a sędziowie TK muszą zdecydować, kto nim kieruje</title>
     <link>https://futureshow.pl/wiadomosci/2026-11-02-rano/</link>
