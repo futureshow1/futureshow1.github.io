@@ -9,7 +9,17 @@
   <itunes:author>FutureShow Studio</itunes:author>
   <itunes:explicit>false</itunes:explicit>
   <itunes:category text="News"/>
-  <lastBuildDate>Sun, 01 Nov 2026 18:30:00 +0100</lastBuildDate>
+  <lastBuildDate>Mon, 02 Nov 2026 06:30:00 +0100</lastBuildDate>
+  <item>
+    <title>Amerykanie głosują w cieniu wojny, a sędziowie TK muszą zdecydować, kto nim kieruje</title>
+    <link>https://futureshow.pl/wiadomosci/2026-11-02-rano/</link>
+    <guid isPermaLink="true">https://futureshow.pl/wiadomosci/2026-11-02-rano/</guid>
+    <pubDate>Mon, 02 Nov 2026 06:30:00 +0100</pubDate>
+    <description>We wtorek Amerykanie wybierają Kongres w trakcie wojny z Iranem, a sędziowie Trybunału Konstytucyjnego rozstrzygają, kto nim kieruje. W nocy Ukraińcy dostali fałszywe alerty o ataku jądrowym, a Rosja doniosła o cyberataku na własną aplikację. W tle pozostaje katastrofa pod Toledo, gdzie bilans ofiar wciąż się zmienia.</description>
+    <enclosure url="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-02-rano.mp3" length="3087795" type="audio/mpeg"/>
+    <itunes:duration>342</itunes:duration>
+    <itunes:episodeType>full</itunes:episodeType>
+  </item>
   <item>
     <title>Tusk odrzuca kompromis w sporze o Trybunał, a Zatoka czeka na odpowiedź Waszyngtonu</title>
     <link>https://futureshow.pl/wiadomosci/2026-11-01-wieczor/</link>
