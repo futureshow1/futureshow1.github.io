@@ -9,7 +9,17 @@
   <itunes:author>FutureShow Studio</itunes:author>
   <itunes:explicit>false</itunes:explicit>
   <itunes:category text="News"/>
-  <lastBuildDate>Mon, 02 Nov 2026 18:30:00 +0100</lastBuildDate>
+  <lastBuildDate>Tue, 03 Nov 2026 06:30:00 +0100</lastBuildDate>
+  <item>
+    <title>Eskalacja w Ormuz i w Ukrainie, a w Polsce próba sił w Trybunale Konstytucyjnym</title>
+    <link>https://futureshow.pl/wiadomosci/2026-11-03-rano/</link>
+    <guid isPermaLink="true">https://futureshow.pl/wiadomosci/2026-11-03-rano/</guid>
+    <pubDate>Tue, 03 Nov 2026 06:30:00 +0100</pubDate>
+    <description>Dzień przed wyborami do Kongresu USA uderzyły na irańską wyspę Keszm w cieśninie Ormuz, a rosyjski nalot zabił co najmniej 26 osób w szkole w obwodzie zaporoskim. W Polsce o 15.30 zbiera się Zgromadzenie Ogólne Sędziów Trybunału Konstytucyjnego, które ma zatwierdzić budżet i wylosować składy do postępowań wobec jego kierownictwa. Eskalacja i próba instytucjonalnego rozstrzygnięcia biegną dziś równolegle.</description>
+    <enclosure url="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-03-rano.mp3" length="3375939" type="audio/mpeg"/>
+    <itunes:duration>375</itunes:duration>
+    <itunes:episodeType>full</itunes:episodeType>
+  </item>
   <item>
     <title>Drugi atak na sklepowe chłodnie w Europie i pięć zawiadomień w sprawie Trybunału</title>
     <link>https://futureshow.pl/wiadomosci/2026-11-02-wieczor/</link>
