@@ -9,7 +9,17 @@
   <itunes:author>FutureShow Studio</itunes:author>
   <itunes:explicit>false</itunes:explicit>
   <itunes:category text="News"/>
-  <lastBuildDate>Tue, 03 Nov 2026 06:30:00 +0100</lastBuildDate>
+  <lastBuildDate>Tue, 03 Nov 2026 18:30:00 +0100</lastBuildDate>
+  <item>
+    <title>Trump kończy finansowanie broni dla Izraela, a spór o Trybunał przenosi się do prokuratury</title>
+    <link>https://futureshow.pl/wiadomosci/2026-11-03-wieczor/</link>
+    <guid isPermaLink="true">https://futureshow.pl/wiadomosci/2026-11-03-wieczor/</guid>
+    <pubDate>Tue, 03 Nov 2026 18:30:00 +0100</pubDate>
+    <description>W dniu wyborów do Kongresu Donald Trump zapowiada koniec pomocy wojskowej dla Izraela, a parlament Grenlandii ratyfikuje umowę o amerykańskich bazach. W Polsce ośmioro sędziów Trybunału Konstytucyjnego uznaje się za kworum, prokuratura wszczyna śledztwo w sprawie napaści na sędziów, a Google odcina szkoły od wyszukiwarki, jeśli nie zgodzą się na funkcje AI.</description>
+    <enclosure url="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-03-wieczor.mp3" length="3482739" type="audio/mpeg"/>
+    <itunes:duration>388</itunes:duration>
+    <itunes:episodeType>full</itunes:episodeType>
+  </item>
   <item>
     <title>Eskalacja w Ormuz i w Ukrainie, a w Polsce próba sił w Trybunale Konstytucyjnym</title>
     <link>https://futureshow.pl/wiadomosci/2026-11-03-rano/</link>

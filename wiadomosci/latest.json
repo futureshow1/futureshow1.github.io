@@ -1,14 +1,14 @@
 {
- "id": "2026-11-03-rano",
- "title": "Eskalacja w Ormuz i w Ukrainie, a w Polsce próba sił w Trybunale Konstytucyjnym",
- "label": "Wydanie poranne",
- "edition": "rano",
+ "id": "2026-11-03-wieczor",
+ "title": "Trump kończy finansowanie broni dla Izraela, a spór o Trybunał przenosi się do prokuratury",
+ "label": "Wydanie wieczorne",
+ "edition": "wieczor",
  "date": "2026-11-03",
  "date_pl": "wtorek, 3 listopada 2026",
- "dur": "6:15",
- "secs": 375,
- "lead": "Dzień przed wyborami do Kongresu USA uderzyły na irańską wyspę Keszm w cieśninie Ormuz, a rosyjski nalot zabił co najmniej 26 osób w szkole w obwodzie zaporoskim. W Polsce o 15.30 zbiera się Zgromadzenie Ogólne Sędziów Trybunału Konstytucyjnego, które ma zatwierdzić budżet i wylosować składy do postępowań wobec jego kierownictwa. Eskalacja i próba instytucjonalnego rozstrzygnięcia biegną dziś równolegle.",
- "url": "https://futureshow.pl/wiadomosci/2026-11-03-rano/",
- "audio": "https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-03-rano.mp3",
- "generated": "2026-11-03T06:30:00+01:00"
+ "dur": "6:28",
+ "secs": 388,
+ "lead": "W dniu wyborów do Kongresu Donald Trump zapowiada koniec pomocy wojskowej dla Izraela, a parlament Grenlandii ratyfikuje umowę o amerykańskich bazach. W Polsce ośmioro sędziów Trybunału Konstytucyjnego uznaje się za kworum, prokuratura wszczyna śledztwo w sprawie napaści na sędziów, a Google odcina szkoły od wyszukiwarki, jeśli nie zgodzą się na funkcje AI.",
+ "url": "https://futureshow.pl/wiadomosci/2026-11-03-wieczor/",
+ "audio": "https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-03-wieczor.mp3",
+ "generated": "2026-11-03T18:30:00+01:00"
 }
