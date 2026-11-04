@@ -1,14 +1,14 @@
 {
- "id": "2026-11-04-rano",
- "title": "Demokraci odzyskują Kongres, a Rosja uderza w ukraińską energetykę",
- "label": "Wydanie poranne",
- "edition": "rano",
+ "id": "2026-11-04-wieczor",
+ "title": "Waszyngton rozlicza wyborczą klęskę, a Bruksela wyznacza daty rozszerzenia",
+ "label": "Wydanie wieczorne",
+ "edition": "wieczor",
  "date": "2026-11-04",
  "date_pl": "środa, 4 listopada 2026",
- "dur": "6:43",
- "secs": 403,
- "lead": "Wybory połówkowe w USA odbierają Donaldowi Trumpowi kontrolę nad Kongresem, a tej samej nocy Rosja zabiła w Ukrainie co najmniej 38 osób, uderzając w energetykę. W Polsce ośmioro sędziów Trybunału Konstytucyjnego przejęło zgromadzenie ogólne, a rząd wzmacnia granicę z obwodem kaliningradzkim.",
- "url": "https://futureshow.pl/wiadomosci/2026-11-04-rano/",
- "audio": "https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-04-rano.mp3",
- "generated": "2026-11-04T06:30:00+01:00"
+ "dur": "6:40",
+ "secs": 400,
+ "lead": "Dzień po wyborach Republikanie szukają przyczyn klęski, a wiceprezydent J.D. Vance wskazuje wojnę z Iranem. Bruksela wyznaczyła Czarnogórze datę wejścia do Unii na 2028 r., a ukraiński cel uzależniła od reform. W kraju Trybunał Konstytucyjny szykuje kolejne zgromadzenie, a prezydent podpisał ustawę o traktacie z Wielką Brytanią.",
+ "url": "https://futureshow.pl/wiadomosci/2026-11-04-wieczor/",
+ "audio": "https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-04-wieczor.mp3",
+ "generated": "2026-11-04T18:30:00+01:00"
 }

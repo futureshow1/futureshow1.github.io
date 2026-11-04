@@ -9,7 +9,17 @@
   <itunes:author>FutureShow Studio</itunes:author>
   <itunes:explicit>false</itunes:explicit>
   <itunes:category text="News"/>
-  <lastBuildDate>Wed, 04 Nov 2026 06:30:00 +0100</lastBuildDate>
+  <lastBuildDate>Wed, 04 Nov 2026 18:30:00 +0100</lastBuildDate>
+  <item>
+    <title>Waszyngton rozlicza wyborczą klęskę, a Bruksela wyznacza daty rozszerzenia</title>
+    <link>https://futureshow.pl/wiadomosci/2026-11-04-wieczor/</link>
+    <guid isPermaLink="true">https://futureshow.pl/wiadomosci/2026-11-04-wieczor/</guid>
+    <pubDate>Wed, 04 Nov 2026 18:30:00 +0100</pubDate>
+    <description>Dzień po wyborach Republikanie szukają przyczyn klęski, a wiceprezydent J.D. Vance wskazuje wojnę z Iranem. Bruksela wyznaczyła Czarnogórze datę wejścia do Unii na 2028 r., a ukraiński cel uzależniła od reform. W kraju Trybunał Konstytucyjny szykuje kolejne zgromadzenie, a prezydent podpisał ustawę o traktacie z Wielką Brytanią.</description>
+    <enclosure url="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-04-wieczor.mp3" length="3596619" type="audio/mpeg"/>
+    <itunes:duration>400</itunes:duration>
+    <itunes:episodeType>full</itunes:episodeType>
+  </item>
   <item>
     <title>Demokraci odzyskują Kongres, a Rosja uderza w ukraińską energetykę</title>
     <link>https://futureshow.pl/wiadomosci/2026-11-04-rano/</link>
