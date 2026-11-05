@@ -1,14 +1,14 @@
 {
- "id": "2026-11-05-rano",
- "title": "Demokraci odzyskują Kongres i zaczynają spór o przyszłość partii",
- "label": "Wydanie poranne",
- "edition": "rano",
+ "id": "2026-11-05-wieczor",
+ "title": "Upadek banku cyfrowego obala prezydenta, a alarmy bombowe paraliżują loty w Europie",
+ "label": "Wydanie wieczorne",
+ "edition": "wieczor",
  "date": "2026-11-05",
  "date_pl": "czwartek, 5 listopada 2026",
- "dur": "6:41",
- "secs": 401,
- "lead": "Demokraci zdobyli w wyborach śródokresowych większość w Izbie Reprezentantów i Senacie pierwszy raz od 2011 roku, a wiceprezydent JD Vance obwinił wojnę z Iranem o porażkę. W partii republikańskiej rozpoczęła się już walka o nominację w 2028 roku.",
- "url": "https://futureshow.pl/wiadomosci/2026-11-05-rano/",
- "audio": "https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-05-rano.mp3",
- "generated": "2026-11-05T06:30:00+01:00"
+ "dur": "6:25",
+ "secs": 385,
+ "lead": "Upadek cyfrowego banku ueno kosztował w czwartek prezydenta Paragwaju Santiago Peñę urząd, a w Europie co najmniej 15 samolotów pasażerskich otrzymało alarmy bombowe. W kraju umowa z Palantirem wciąż nie ma oceny bezpieczeństwa ABW, a sąd aresztował posła Koalicji Obywatelskiej Wojciecha Króla.",
+ "url": "https://futureshow.pl/wiadomosci/2026-11-05-wieczor/",
+ "audio": "https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-05-wieczor.mp3",
+ "generated": "2026-11-05T18:30:00+01:00"
 }

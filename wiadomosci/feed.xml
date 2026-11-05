@@ -9,7 +9,17 @@
   <itunes:author>FutureShow Studio</itunes:author>
   <itunes:explicit>false</itunes:explicit>
   <itunes:category text="News"/>
-  <lastBuildDate>Thu, 05 Nov 2026 06:30:00 +0100</lastBuildDate>
+  <lastBuildDate>Thu, 05 Nov 2026 18:30:00 +0100</lastBuildDate>
+  <item>
+    <title>Upadek banku cyfrowego obala prezydenta, a alarmy bombowe paraliżują loty w Europie</title>
+    <link>https://futureshow.pl/wiadomosci/2026-11-05-wieczor/</link>
+    <guid isPermaLink="true">https://futureshow.pl/wiadomosci/2026-11-05-wieczor/</guid>
+    <pubDate>Thu, 05 Nov 2026 18:30:00 +0100</pubDate>
+    <description>Upadek cyfrowego banku ueno kosztował w czwartek prezydenta Paragwaju Santiago Peñę urząd, a w Europie co najmniej 15 samolotów pasażerskich otrzymało alarmy bombowe. W kraju umowa z Palantirem wciąż nie ma oceny bezpieczeństwa ABW, a sąd aresztował posła Koalicji Obywatelskiej Wojciecha Króla.</description>
+    <enclosure url="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-05-wieczor.mp3" length="3462795" type="audio/mpeg"/>
+    <itunes:duration>385</itunes:duration>
+    <itunes:episodeType>full</itunes:episodeType>
+  </item>
   <item>
     <title>Demokraci odzyskują Kongres i zaczynają spór o przyszłość partii</title>
     <link>https://futureshow.pl/wiadomosci/2026-11-05-rano/</link>
