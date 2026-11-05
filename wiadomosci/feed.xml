@@ -9,7 +9,17 @@
   <itunes:author>FutureShow Studio</itunes:author>
   <itunes:explicit>false</itunes:explicit>
   <itunes:category text="News"/>
-  <lastBuildDate>Wed, 04 Nov 2026 18:30:00 +0100</lastBuildDate>
+  <lastBuildDate>Thu, 05 Nov 2026 06:30:00 +0100</lastBuildDate>
+  <item>
+    <title>Demokraci odzyskują Kongres i zaczynają spór o przyszłość partii</title>
+    <link>https://futureshow.pl/wiadomosci/2026-11-05-rano/</link>
+    <guid isPermaLink="true">https://futureshow.pl/wiadomosci/2026-11-05-rano/</guid>
+    <pubDate>Thu, 05 Nov 2026 06:30:00 +0100</pubDate>
+    <description>Demokraci zdobyli w wyborach śródokresowych większość w Izbie Reprezentantów i Senacie pierwszy raz od 2011 roku, a wiceprezydent JD Vance obwinił wojnę z Iranem o porażkę. W partii republikańskiej rozpoczęła się już walka o nominację w 2028 roku.</description>
+    <enclosure url="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-05-rano.mp3" length="3603627" type="audio/mpeg"/>
+    <itunes:duration>401</itunes:duration>
+    <itunes:episodeType>full</itunes:episodeType>
+  </item>
   <item>
     <title>Waszyngton rozlicza wyborczą klęskę, a Bruksela wyznacza daty rozszerzenia</title>
     <link>https://futureshow.pl/wiadomosci/2026-11-04-wieczor/</link>
