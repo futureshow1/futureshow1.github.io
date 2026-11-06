@@ -9,7 +9,17 @@
   <itunes:author>FutureShow Studio</itunes:author>
   <itunes:explicit>false</itunes:explicit>
   <itunes:category text="News"/>
-  <lastBuildDate>Thu, 05 Nov 2026 18:30:00 +0100</lastBuildDate>
+  <lastBuildDate>Fri, 06 Nov 2026 06:30:00 +0100</lastBuildDate>
+  <item>
+    <title>Rachunki za energię stały się po wyborach w USA walutą polityczną</title>
+    <link>https://futureshow.pl/wiadomosci/2026-11-06-rano/</link>
+    <guid isPermaLink="true">https://futureshow.pl/wiadomosci/2026-11-06-rano/</guid>
+    <pubDate>Fri, 06 Nov 2026 06:30:00 +0100</pubDate>
+    <description>Dzień po porażce republikanów w wyborach połówkowych w USA osią sporu stała się cena energii. Trump grozi Iranowi, Rosja uderza w ukraińską energetykę przed zimą, a polski rząd zapowiada tarczę gazową.</description>
+    <enclosure url="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-06-rano.mp3" length="5318811" type="audio/mpeg"/>
+    <itunes:duration>591</itunes:duration>
+    <itunes:episodeType>full</itunes:episodeType>
+  </item>
   <item>
     <title>Upadek banku cyfrowego obala prezydenta, a alarmy bombowe paraliżują loty w Europie</title>
     <link>https://futureshow.pl/wiadomosci/2026-11-05-wieczor/</link>
