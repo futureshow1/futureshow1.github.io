@@ -775,3 +775,12 @@ footer{border-top:0;background:var(--red);padding:24px 22px;text-align:center;
 .mech p b{display:inline;font-family:inherit;font-size:inherit;color:inherit}
 .mech p{font-size:14px;line-height:1.45}
 @media(max-width:700px){.annivhead h3{font-size:20px}.mechtl{grid-template-columns:1fr}}
+
+/* --- zakładka V i VMAX --- */
+.vmaxbox{background:var(--white);border:3px solid var(--outline);border-radius:22px;
+  padding:16px 20px;box-shadow:var(--shadow);margin-bottom:14px}
+.vmaxbox--warn{background:var(--cream);border-color:#e8dfae}
+.vmaxbox--mt{margin-top:26px}
+.vmaxbox h4{font-size:17px;margin-bottom:6px}
+.vmaxbox p{font-size:15.5px;line-height:1.55}
+.tcghp{display:block;font-size:12px;color:var(--red2);font-weight:700}

@@ -100,6 +100,7 @@ const UI={
   desc:{pl:'Dwie epoki karcianki: kultowy Base Set z 1999 roku (całe 102 karty!) oraz {MODERN} kart z najnowszych setów, w które grają dzisiejsi gracze — plus osobna zakładka z setami na trzydziestolecie. Karty ułożone od najrzadszych do najpospolitszych. Kliknij kartę, aby ją powiększyć i przeczytać ataki.',
         en:'Two eras of the TCG: the iconic 1999 Base Set (all 102 cards!) and {MODERN} cards from the newest sets today\'s players use — plus a separate tab for the 30th-anniversary sets. Cards are ordered rarest to most common. Click a card to enlarge it and read its attacks.'},
   tabs:{anatomy:{pl:'🔎 Jak czytać kartę',en:'🔎 How to read a card'},base:{pl:'Base Set (1999)',en:'Base Set (1999)'},modern:{pl:'Współczesne (2025–26)',en:'Modern (2025–26)'},
+        vmax:{pl:'⚡ V i VMAX',en:'⚡ V and VMAX'},
         anniv:{pl:'🎂 30-lecie',en:'🎂 30 years'},
         rarity:{pl:'Ranking rzadkości',en:'Rarity ranking'},
         value:{pl:'💰 Ile to warte',en:'💰 What it is worth'}},
@@ -298,6 +299,7 @@ window.openMon=function(id){
 
 /* ---------- karty ---------- */
 const ANNIV_SETS=new Set(['me55','me55c']);
+const isVmax=c=>(c.subtypes||[]).indexOf('VMAX')>=0;
 function cardImg(c){
  if(c.img)return c.img;          // jawna ścieżka — gdy numer karty koliduje z inną w tym samym secie
  if(c.fill)return `images/cards/fill-${c.id}.webp`;
@@ -315,6 +317,7 @@ function renderCards(){
  const body=$('cards-body');
  if(cardTab==='rarity'){body.innerHTML=rarityGuideHTML();body.dataset.v='';return;}
  if(cardTab==='anniv'){body.innerHTML=annivHTML();body.dataset.v='';return;}
+ if(cardTab==='vmax'){body.innerHTML=vmaxHTML();body.dataset.v='';return;}
  // dekoder symboli + porównywarka cen żyją w osobnym module (wartosc.js)
  if(cardTab==='value'){body.dataset.v='1';if(window.renderWartosc)window.renderWartosc(lang);return;}
  if(cardTab==='anatomy'){body.innerHTML=anatomyHTML();body.dataset.v='';wireAnatomy();return;}
@@ -323,7 +326,7 @@ function renderCards(){
  else{
   note=T(UI.cards.modernNote);
   // sety rocznicowe mają osobną zakładkę — tutaj pokazujemy tylko karty do gry
-  const grywalne=REC.filter(c=>!ANNIV_SETS.has(c.set));
+  const grywalne=REC.filter(c=>!ANNIV_SETS.has(c.set)&&!isVmax(c));
   cards=modernSet==='all'?grywalne:grywalne.filter(c=>c.set===modernSet);
  }
  const groups={};
@@ -489,6 +492,43 @@ function rarityGuideHTML(){
      <figcaption><b>${f.name}</b><span>${T(f)}</span></figcaption>
     </figure>`).join('')}</div>
    <p class="grails-note">${T(g.famous.imgNote)}</p></div>`;
+}
+
+/* ---------- era V i VMAX (Miecz i Tarcza) ----------
+   Osobna zakładka: to ani karty do gry dzisiaj, ani sety rocznicowe, tylko zamknięta
+   epoka 2020–22. Karty grupujemy po Pokémonie, bo wiele z nich ma wersję zwykłą
+   i tęczową o identycznej treści. */
+function vmaxHTML(){
+ const V=C.vmax;
+ const cards=REC.filter(isVmax);
+ const byMon={};
+ cards.forEach(c=>{(byMon[c.name]=byMon[c.name]||[]).push(c)});
+ const nazwy=Object.keys(byMon).sort((x,y)=>x.localeCompare(y));
+ const hp=c=>parseInt(c.hp,10)||0;
+ // po jednym egzemplarzu na Pokémona — inaczej wersja tęczowa dublowałaby zwykłą
+ const widziane=new Set();
+ const naj=cards.slice().sort((x,y)=>hp(y)-hp(x))
+   .filter(c=>{if(widziane.has(c.name))return false;widziane.add(c.name);return true;}).slice(0,6);
+ return `<div class="anniv">
+  <div class="setsnote">${T(V.intro).replace('{N}',cards.length).replace('{P}',nazwy.length)}</div>
+  <div class="vmaxbox vmaxbox--warn"><h4>⚠️ ${T(V.trapTitle)}</h4><p>${T(V.trap)}</p></div>
+  <div class="vmaxbox"><h4>💥 ${T(V.priceTitle)}</h4><p>${T(V.price)}</p></div>
+  <h4 class="annivth">${T(V.topTitle)}</h4>
+  <div class="cardgrid">${naj.map(c=>`
+    <div class="tcg" onclick="openCard('${c.id}')">
+     <img loading="lazy" src="${cardImg(c)}" alt="${c.name}">
+     <p>${c.name}<span class="tcghp">${c.hp} ${T(V.hpWord)}</span></p>
+    </div>`).join('')}</div>
+  <p class="annivnote">${T(V.rainbowNote)}</p>
+  ${nazwy.map(n=>`
+   <div class="rarhead"><h3>${n}</h3><span>${byMon[n].length} ${cardsWord(byMon[n].length)}</span></div>
+   <div class="cardgrid">${byMon[n].map(c=>`
+     <div class="tcg" onclick="openCard('${c.id}')">
+      <img loading="lazy" src="${cardImg(c)}" alt="${c.name}">
+      <p>${c.setName||c.set}</p>
+     </div>`).join('')}</div>`).join('')}
+  <div class="vmaxbox vmaxbox--mt"><h4>➡️ ${T(V.afterTitle)}</h4><p>${T(V.after)}</p></div>
+ </div>`;
 }
 
 /* ---------- sety na trzydziestolecie ----------

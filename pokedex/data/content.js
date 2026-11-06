@@ -869,6 +869,38 @@ anniversary: {
  cardsWord: { pl: "kart", en: "cards" }
 },
 
+// ---------- ERA V i VMAX (Miecz i Tarcza, 2020–2022) ----------
+// Reguły Nagród odczytane z pola `rules` na samych kartach w API: V = 2 Nagrody,
+// VMAX = 3 Nagrody. Daty debiutu mechanik wyliczone z dat setów.
+vmax: {
+ title: { pl: "V i VMAX", en: "V and VMAX" },
+ intro: {
+  pl: "W 2020 roku karcianka wymieniła silnik: zamiast kart GX pojawiły się <b>V</b>, a z nich wyrastały gigantyczne <b>VMAX</b> — odpowiednik Dynamaxu z gier na Nintendo Switch. Mamy w bazie <b>{N}</b> kart VMAX z tamtej ery, przedstawiających <b>{P}</b> różnych Pokémonów.",
+  en: "In 2020 the card game swapped engines: GX cards gave way to <b>V</b>, and out of those grew the gigantic <b>VMAX</b> — the card equivalent of Dynamax from the Nintendo Switch games. Our database holds <b>{N}</b> VMAX cards from that era, showing <b>{P}</b> different Pokémon."
+ },
+ trapTitle: { pl: "Pułapka: VMAX nie ewoluuje z tego, z czego myślisz", en: "The trap: VMAX does not evolve from what you think" },
+ trap: {
+  pl: "To najczęstsze nieporozumienie przy tych kartach. W grach Cinderace ewoluuje z Raboota, a ten ze Scorbunny'ego. <b>W karciance jest inaczej:</b> Cinderace VMAX kładzie się wyłącznie na <b>Cinderace V</b> — kartę podstawową, która sama z niczego nie ewoluuje. Raboot w tym łańcuchu w ogóle nie występuje. Tak samo działa każde inne VMAX: zawsze szuka swojego V, nigdy formy ze świata gier.",
+  en: "This is the commonest misunderstanding about these cards. In the video games Cinderace evolves from Raboot, which evolves from Scorbunny. <b>The card game works differently:</b> Cinderace VMAX is placed only on <b>Cinderace V</b> — a Basic card that evolves from nothing itself. Raboot never appears in that chain. Every other VMAX behaves the same way: it looks for its own V, never for the video-game stage."
+ },
+ priceTitle: { pl: "Czym się płaci za te 300 HP", en: "What those 300 HP cost you" },
+ price: {
+  pl: "VMAX-y mają najwyższe HP w swojej epoce — potrafią przyjąć trzysta kilkadziesiąt obrażeń. Płaci się za to jednak słono i jest to napisane wprost na karcie. Zwykły Pokémon oddaje przeciwnikowi po znokautowaniu <b>jedną Nagrodę</b>, karta <b>V — dwie</b>, a <b>VMAX — aż trzy</b>. Przy sześciu Nagrodach do zdobycia jeden przegrany VMAX to <b>połowa partii</b>. Stąd cała taktyka tamtej ery: olbrzym, którego nie wolno stracić.",
+  en: "VMAX cards carry the highest HP of their era — some absorb well over three hundred damage. The price is steep and printed right on the card. An ordinary Pokémon hands your opponent <b>one Prize card</b> when knocked out, a <b>V — two</b>, and a <b>VMAX — three</b>. With six Prizes to take, losing one VMAX is <b>half the game</b>. Hence the whole tactic of that era: a giant you cannot afford to lose."
+ },
+ afterTitle: { pl: "Co było potem", en: "What came next" },
+ after: {
+  pl: "Era V i VMAX trwała od 2020 roku, w 2022 doszły do niej karty <b>VSTAR</b> z mocą do użycia raz na grę, a w 2023 wszystko zastąpiło powracające małe <b>ex</b> — i tak gra się dzisiaj. Pełną oś czasu mechanik znajdziesz w zakładce 30-lecia.",
+  en: "The V and VMAX era ran from 2020; in 2022 it gained <b>VSTAR</b> cards with a once-per-game power, and in 2023 everything was replaced by the returning lowercase <b>ex</b> — which is how the game is played today. The full timeline of mechanics is in the 30th-anniversary tab."
+ },
+ rainbowNote: {
+  pl: "Uwaga przy przeglądaniu: wiele VMAX-ów występuje w dwóch wersjach — zwykłej i <b>tęczowej</b> (Rare Rainbow), o tej samej treści, ale rzadszej i droższej. Dlatego ten sam Pokémon potrafi pojawić się na liście kilka razy.",
+  en: "A note while browsing: many VMAX cards come in two versions — the standard one and a <b>rainbow</b> (Rare Rainbow) print with identical text but rarer and pricier. That is why the same Pokémon can appear on the list more than once."
+ },
+ topTitle: { pl: "Najwytrzymalsze z nich", en: "The toughest of them" },
+ hpWord: { pl: "HP", en: "HP" }
+},
+
 // ---------- KATEGORIE KLASYFIKACYJNE (tryb Trening / klucz do oznaczania) ----------
 // Oficjalne pola z PokéAPI: kolor (10), kształt ciała (14), grupa jajowa (15), tempo wzrostu (6).
 // Nazwy PL pisane pod dziecko — opisowo, nie encyklopedycznie.
