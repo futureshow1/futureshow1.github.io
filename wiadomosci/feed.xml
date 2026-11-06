@@ -9,7 +9,17 @@
   <itunes:author>FutureShow Studio</itunes:author>
   <itunes:explicit>false</itunes:explicit>
   <itunes:category text="News"/>
-  <lastBuildDate>Fri, 06 Nov 2026 06:30:00 +0100</lastBuildDate>
+  <lastBuildDate>Fri, 06 Nov 2026 18:30:00 +0100</lastBuildDate>
+  <item>
+    <title>Giełdy zwątpiły w sztuczną inteligencję, a Trybunał Konstytucyjny staje przed głosowaniem o immunitecie</title>
+    <link>https://futureshow.pl/wiadomosci/2026-11-06-wieczor/</link>
+    <guid isPermaLink="true">https://futureshow.pl/wiadomosci/2026-11-06-wieczor/</guid>
+    <pubDate>Fri, 06 Nov 2026 18:30:00 +0100</pubDate>
+    <description>Czwartkowa sesja na Wall Street była dla Nasdaqa najgorsza od 19 miesięcy, a w piątek rynki częściowo odrobiły straty. Senat przyjął dwie ustawy aborcyjne, a Trybunał Konstytucyjny zwołał na 17 listopada zgromadzenie, które zdecyduje o immunitecie prezesa.</description>
+    <enclosure url="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-06-wieczor.mp3" length="3522963" type="audio/mpeg"/>
+    <itunes:duration>391</itunes:duration>
+    <itunes:episodeType>full</itunes:episodeType>
+  </item>
   <item>
     <title>Rachunki za energię stały się po wyborach w USA walutą polityczną</title>
     <link>https://futureshow.pl/wiadomosci/2026-11-06-rano/</link>

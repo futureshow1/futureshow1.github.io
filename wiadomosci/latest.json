@@ -1,14 +1,14 @@
 {
- "id": "2026-11-06-rano",
- "title": "Rachunki za energię stały się po wyborach w USA walutą polityczną",
- "label": "Wydanie poranne",
- "edition": "rano",
+ "id": "2026-11-06-wieczor",
+ "title": "Giełdy zwątpiły w sztuczną inteligencję, a Trybunał Konstytucyjny staje przed głosowaniem o immunitecie",
+ "label": "Wydanie wieczorne",
+ "edition": "wieczor",
  "date": "2026-11-06",
  "date_pl": "piątek, 6 listopada 2026",
- "dur": "9:51",
- "secs": 591,
- "lead": "Dzień po porażce republikanów w wyborach połówkowych w USA osią sporu stała się cena energii. Trump grozi Iranowi, Rosja uderza w ukraińską energetykę przed zimą, a polski rząd zapowiada tarczę gazową.",
- "url": "https://futureshow.pl/wiadomosci/2026-11-06-rano/",
- "audio": "https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-06-rano.mp3",
- "generated": "2026-11-06T06:30:00+01:00"
+ "dur": "6:31",
+ "secs": 391,
+ "lead": "Czwartkowa sesja na Wall Street była dla Nasdaqa najgorsza od 19 miesięcy, a w piątek rynki częściowo odrobiły straty. Senat przyjął dwie ustawy aborcyjne, a Trybunał Konstytucyjny zwołał na 17 listopada zgromadzenie, które zdecyduje o immunitecie prezesa.",
+ "url": "https://futureshow.pl/wiadomosci/2026-11-06-wieczor/",
+ "audio": "https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-06-wieczor.mp3",
+ "generated": "2026-11-06T18:30:00+01:00"
 }
