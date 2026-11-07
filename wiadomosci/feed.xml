@@ -9,7 +9,17 @@
   <itunes:author>FutureShow Studio</itunes:author>
   <itunes:explicit>false</itunes:explicit>
   <itunes:category text="News"/>
-  <lastBuildDate>Sat, 07 Nov 2026 06:30:00 +0100</lastBuildDate>
+  <lastBuildDate>Sat, 07 Nov 2026 18:30:00 +0100</lastBuildDate>
+  <item>
+    <title>Po strzelaninie w Krakowie i decyzji S&amp;P państwo staje przed podwójnym testem</title>
+    <link>https://futureshow.pl/wiadomosci/2026-11-07-wieczor/</link>
+    <guid isPermaLink="true">https://futureshow.pl/wiadomosci/2026-11-07-wieczor/</guid>
+    <pubDate>Sat, 07 Nov 2026 18:30:00 +0100</pubDate>
+    <description>Uzbrojony 25-latek zabił w sobotę po południu sześć osób na Rynku Głównym w Krakowie. Tego samego dnia agencja S&amp;P obniżyła perspektywę ratingu Polski do negatywnej. Oba wydarzenia ustawią agendę polityczną na najbliższe dni i sprawdzą, czy państwo potrafi działać bez podgrzewania paniki.</description>
+    <enclosure url="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-07-wieczor.mp3" length="3260715" type="audio/mpeg"/>
+    <itunes:duration>363</itunes:duration>
+    <itunes:episodeType>full</itunes:episodeType>
+  </item>
   <item>
     <title>Upadek banku w Paragwaju obalił prezydenta, a OpenAI wyceniono na 1,25 biliona dolarów</title>
     <link>https://futureshow.pl/wiadomosci/2026-11-07-rano/</link>
