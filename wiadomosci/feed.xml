@@ -9,7 +9,17 @@
   <itunes:author>FutureShow Studio</itunes:author>
   <itunes:explicit>false</itunes:explicit>
   <itunes:category text="News"/>
-  <lastBuildDate>Fri, 06 Nov 2026 18:30:00 +0100</lastBuildDate>
+  <lastBuildDate>Sat, 07 Nov 2026 06:30:00 +0100</lastBuildDate>
+  <item>
+    <title>Upadek banku w Paragwaju obalił prezydenta, a OpenAI wyceniono na 1,25 biliona dolarów</title>
+    <link>https://futureshow.pl/wiadomosci/2026-11-07-rano/</link>
+    <guid isPermaLink="true">https://futureshow.pl/wiadomosci/2026-11-07-rano/</guid>
+    <pubDate>Sat, 07 Nov 2026 06:30:00 +0100</pubDate>
+    <description>Senat Paragwaju usunął w nocy prezydenta Santiago Peñę po upadku Ueno Bank, w którym ulokowano setki milionów dolarów. W piątek OpenAI pozyskało 11 mld USD przy wycenie 1,25 bln USD; to dwa skrajne przykłady tego, jak prywatne ryzyko przenosi się na państwo, a kontrola publiczna nie nadąża za kapitałem.</description>
+    <enclosure url="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-07-rano.mp3" length="3350931" type="audio/mpeg"/>
+    <itunes:duration>372</itunes:duration>
+    <itunes:episodeType>full</itunes:episodeType>
+  </item>
   <item>
     <title>Giełdy zwątpiły w sztuczną inteligencję, a Trybunał Konstytucyjny staje przed głosowaniem o immunitecie</title>
     <link>https://futureshow.pl/wiadomosci/2026-11-06-wieczor/</link>
