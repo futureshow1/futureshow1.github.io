@@ -1,14 +1,14 @@
 {
- "id": "2026-11-08-rano",
- "title": "Po zamachu w Krakowie państwo staje przed testem odporności",
- "label": "Wydanie poranne",
- "edition": "rano",
+ "id": "2026-11-08-wieczor",
+ "title": "Prokuratura bada krakowski zamach jako akt terroru, a Kreml w trzy godziny zrobił ze sprawcy ukraińskiego najemnika",
+ "label": "Wydanie wieczorne",
+ "edition": "wieczor",
  "date": "2026-11-08",
  "date_pl": "niedziela, 8 listopada 2026",
- "dur": "6:54",
- "secs": 414,
- "lead": "Dziewięć osób zginęło w sobotnim zamachu w Krakowie, trwa dwudniowa żałoba narodowa, a w sieci krążą fałszywe tropy o sprawcy. Najbliższe dni będą testem nie tylko dla policji, ale i dla odporności państwa. W tym wydaniu także izraelska próba sformowania rządu bez Benjamina Netanjahu i sekrety wyciekłe z agenta kodującego firmy Anthropic.",
- "url": "https://futureshow.pl/wiadomosci/2026-11-08-rano/",
- "audio": "https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-08-rano.mp3",
- "generated": "2026-11-08T06:30:00+01:00"
+ "dur": "6:23",
+ "secs": 383,
+ "lead": "Dzień po zamachu w Krakowie prokuratura prowadzi śledztwo w kwalifikacji terrorystycznej, a w tle trwa kampania dezinformacyjna, która próbowała zrobić ze sprawcy ukraińskiego najemnika. Do tego dochodzą rosyjskie uderzenia w ukraińską energetykę przed rozmowami w Abu Zabi i konferencja ITU w Doha, która może przesunąć władzę nad internetem do rządów.",
+ "url": "https://futureshow.pl/wiadomosci/2026-11-08-wieczor/",
+ "audio": "https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-08-wieczor.mp3",
+ "generated": "2026-11-08T18:30:00+01:00"
 }

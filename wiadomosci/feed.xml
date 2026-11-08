@@ -9,7 +9,17 @@
   <itunes:author>FutureShow Studio</itunes:author>
   <itunes:explicit>false</itunes:explicit>
   <itunes:category text="News"/>
-  <lastBuildDate>Sun, 08 Nov 2026 06:30:00 +0100</lastBuildDate>
+  <lastBuildDate>Sun, 08 Nov 2026 18:30:00 +0100</lastBuildDate>
+  <item>
+    <title>Prokuratura bada krakowski zamach jako akt terroru, a Kreml w trzy godziny zrobił ze sprawcy ukraińskiego najemnika</title>
+    <link>https://futureshow.pl/wiadomosci/2026-11-08-wieczor/</link>
+    <guid isPermaLink="true">https://futureshow.pl/wiadomosci/2026-11-08-wieczor/</guid>
+    <pubDate>Sun, 08 Nov 2026 18:30:00 +0100</pubDate>
+    <description>Dzień po zamachu w Krakowie prokuratura prowadzi śledztwo w kwalifikacji terrorystycznej, a w tle trwa kampania dezinformacyjna, która próbowała zrobić ze sprawcy ukraińskiego najemnika. Do tego dochodzą rosyjskie uderzenia w ukraińską energetykę przed rozmowami w Abu Zabi i konferencja ITU w Doha, która może przesunąć władzę nad internetem do rządów.</description>
+    <enclosure url="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-08-wieczor.mp3" length="3448107" type="audio/mpeg"/>
+    <itunes:duration>383</itunes:duration>
+    <itunes:episodeType>full</itunes:episodeType>
+  </item>
   <item>
     <title>Po zamachu w Krakowie państwo staje przed testem odporności</title>
     <link>https://futureshow.pl/wiadomosci/2026-11-08-rano/</link>
