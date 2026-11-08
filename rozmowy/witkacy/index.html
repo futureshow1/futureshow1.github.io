@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Witkacy odpowiada własnymi słowami — Rozmowy z Wielkimi (demo)</title>
+<meta name="description" content="Zadaj pytanie, a odpowiedzią będą wyłącznie zdania, które Stanisław Ignacy Witkiewicz naprawdę napisał: z „Szewców”, „Nienasycenia”, „Pożegnania jesieni”, „Narkotyków”, „Niemytych dusz” i pism o Czystej Formie. Każdy cytat ma źródło. Nic nie jest generowane.">
+<link rel="canonical" href="https://futureshow.pl/rozmowy/witkacy/">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b0906;--bg2:#15110b;--ink:#efe7d6;--dim:#b9ad96;--faint:#7d745f;--acc:#e0a33b;--line:rgba(239,231,214,.12);--sans:'Inter',sans-serif;--mono:'JetBrains Mono',monospace;--serif:'Source Serif 4',Georgia,serif}
+*{margin:0;padding:0;box-sizing:border-box}
+.inst{display:none;background:var(--acc);color:#140f08;font-family:var(--mono);font-size:12px;letter-spacing:.04em;padding:9px 4vw;line-height:1.5}.inst a{color:#140f08;text-decoration:underline}.inst.on{display:block}
+
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;min-height:100vh}
+a{color:var(--acc);text-decoration:none}a:hover{text-decoration:underline;text-underline-offset:3px}
+nav{display:flex;align-items:center;gap:14px;padding:16px 4vw;border-bottom:1px solid var(--line)}
+.logo{font-weight:800;font-size:17px;letter-spacing:.04em;color:var(--ink)}.logo span{color:var(--acc)}
+.logo-desc{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;color:var(--dim);text-transform:uppercase}
+main{max-width:820px;margin:0 auto;padding:44px 4vw 90px}
+.kick{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--acc);margin-bottom:12px}
+h1{font-family:var(--serif);font-size:clamp(30px,5vw,48px);font-weight:600;letter-spacing:-.01em;line-height:1.05}
+.lede{color:var(--dim);margin:16px 0 8px;line-height:1.6;font-size:16px}
+.notice{border:1px solid var(--line);border-left:3px solid var(--acc);border-radius:10px;padding:12px 14px;margin:18px 0 26px;font-size:13.5px;color:var(--dim);line-height:1.55;background:var(--bg2)}
+.notice b{color:var(--ink)}
+form{display:flex;gap:10px;margin-bottom:12px}
+input{flex:1;background:#1b1610;border:1px solid var(--line);border-radius:12px;color:var(--ink);font:inherit;font-size:16px;padding:14px 16px}
+input:focus{outline:none;border-color:var(--acc)}
+button.ask{background:var(--acc);color:#1a1206;border:0;border-radius:12px;font:inherit;font-weight:800;font-size:15px;padding:14px 20px;cursor:pointer}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 30px}
+.chips button{font-family:var(--mono);font-size:11px;letter-spacing:.04em;padding:7px 11px;border:1px solid var(--line);border-radius:999px;background:transparent;color:var(--dim);cursor:pointer}
+.chips button:hover{border-color:var(--acc);color:var(--ink)}
+.thread{display:grid;gap:18px}
+.you{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--faint);padding-left:2px}
+.you b{color:var(--dim);font-weight:500}
+.reply{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:20px 22px}
+.reply blockquote{font-family:var(--serif);font-size:clamp(17px,2.2vw,20px);line-height:1.55;color:var(--ink)}
+.reply blockquote mark{background:rgba(224,163,59,.22);color:var(--ink);border-radius:3px;padding:0 2px}
+.cite{margin-top:12px;font-family:var(--mono);font-size:11.5px;color:var(--dim);line-height:1.6;display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline}
+.cite .sp{color:var(--acc)}
+.more{display:flex;gap:10px;align-items:center;margin-top:6px}
+.more button{font-family:var(--mono);font-size:11px;letter-spacing:.06em;padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:transparent;color:var(--dim);cursor:pointer}
+.more button:hover{border-color:var(--acc);color:var(--ink)}
+.empty{color:var(--dim);font-size:14.5px;line-height:1.6;padding:14px 0}
+.status{font-family:var(--mono);font-size:11px;color:var(--faint);min-height:1.4em;margin-bottom:8px}
+.about{margin-top:54px;padding-top:24px;border-top:1px solid var(--line);color:var(--dim);font-size:14.5px;line-height:1.65}
+.about h2{font-family:var(--serif);font-size:20px;color:var(--ink);margin-bottom:8px;font-weight:600}
+.about ul{padding-left:18px;margin:8px 0}
+footer{color:var(--faint);font-family:var(--mono);font-size:11px;text-align:center;padding:30px 4vw;border-top:1px solid var(--line)}
+footer a{color:var(--dim)}
+</style>
+</head>
+<body>
+<div class="inst" id="inst">Wersja pokazowa dla instytucji. Ten sam moduł budujemy dla postaci z Państwa zbiorów w 3–4 tygodnie od otrzymania tekstów. Kontakt: <a href="mailto:przyluskijan@gmail.com">przyluskijan@gmail.com</a> · +48 731 034 256</div>
+<nav><a class="logo" href="../../">FUTURE<span>SHOW</span></a><span class="logo-desc">Rozmowy z Wielkimi · demo</span></nav>
+<main>
+  <div class="kick">Stanisław Ignacy Witkiewicz · 1885–1939</div>
+  <h1>Witkacy odpowiada własnymi słowami</h1>
+  <p class="lede">Zadaj pytanie. W odpowiedzi dostaniesz wyłącznie zdania, które Witkacy naprawdę napisał: w powieściach, dramatach i esejach. Każde ma źródło, rok i miejsce w tekście. Jeśli o coś nie pisał, powiemy, że nie pisał.</p>
+  <div class="notice"><b>Jak to działa.</b> To nie jest sztuczna inteligencja udająca pisarza ani czat. Program przeszukuje 7 813 fragmentów z 14 utworów Witkacego (teksty z Wolnych Lektur, domena publiczna) i pokazuje te, które najlepiej pasują do Twojego pytania. Nic nie jest dopisywane ani parafrazowane. Dobór cytatów robi algorytm wyszukiwania, więc bywa dosłowny lub zaskakujący: traktuj go jak bibliotekarza, nie jak medium.</div>
+  <form id="f"><input id="q" placeholder="np. Czym jest Czysta Forma? Czego się pan boi? Po co teatr?" autocomplete="off" autofocus><button class="ask" type="submit">Zapytaj</button></form>
+  <div class="chips" id="chips"></div>
+  <div class="status" id="status"></div>
+  <div class="thread" id="thread"></div>
+  <div class="about">
+    <h2>O tym demie</h2>
+    <p>To prototyp formatu „Rozmowy z Wielkimi” studia FutureShow dla muzeów i instytucji literackich: zamiast generować nowe wypowiedzi zmarłego autora, oddajemy mu głos jego własnymi, opublikowanymi zdaniami z przypisem. Format spełnia wymogi art. 50 AI Act (nie ma tu systemu generatywnego, o czym informujemy wprost) i unika zarzutu „wkładania słów w usta zmarłym”.</p>
+    <ul>
+      <li><b>Źródła:</b> Wolne Lektury, wydania w domenie publicznej: „O Czystej Formie” (1921), „W małym dworku” (1921), „Mątwa” (1922), „Janulka, córka Fizdejki” (1923), „Matka” (1924), „Sonata Belzebuba” (1925), „Tumor Mózgowicz” (1920), „Pożegnanie jesieni” (1927), „Nienasycenie” (1930), „Narkotyki” (1932), „Szewcy” (1934), „Pojęcia i twierdzenia implikowane przez pojęcie istnienia” (1935), „Niemyte dusze” (1936).</li>
+      <li><b>Czego tu nie ma:</b> listów, „622 upadków Bunga”, „Jedynego wyjścia” i pism estetycznych spoza Wolnych Lektur. Dla muzeum zestaw rozszerzamy o teksty z jego zbiorów.</li>
+      <li><b>Technika:</b> wyszukiwarka działa w przeglądarce, bez serwera i bez wysyłania pytań gdziekolwiek.</li>
+    </ul>
+    <p>Taki moduł dla innej postaci (Kopernik, Chopin, Skłodowska-Curie, Malewicz, Strzemiński) powstaje w 3–4 tygodnie od otrzymania korpusu tekstów. Kontakt: <a href="mailto:futureshow@proton.me">futureshow@proton.me</a>.</p>
+  </div>
+</main>
+<footer><a href="../../">← futureshow.pl</a> · teksty: <a href="https://wolnelektury.pl/autor/stanislaw-ignacy-witkiewicz/" target="_blank" rel="noopener">wolnelektury.pl</a></footer>
+<script type="module">
+const SUG=["Czym jest Czysta Forma?","Czego pan się boi?","Po co jest teatr?","Co pan sądzi o Polsce i Polakach?","Jak znieść nudę?","Co z kobietami?","Po co narkotyki?","Czy istnieje Bóg?","Co to jest istnienie?","Co pan myśli o tłumie i mechanizacji?","Czym jest uczucie metafizyczne?","Jak umierać?"];
+const STOP=new Set("co czym czego czy jak jaki jaka jakie jest są był była było być pan pana panu pani się sie o z ze w we na do od po i a ale lub albo to tę ten ta te tego tej tym nie tak że żeby by bo dla przez przy nad pod u ma mam masz mamy macie mają chce chcesz chciał myśli myślisz sądzi sądzisz uważa uważasz powiedz mów mi mnie ci ciebie nam was ich im je go jej mu też także jeszcze już tylko bardzo może można trzeba warto właściwie naprawdę w ogóle".split(/\s+/));
+const EXP={"boi":"strach lęk przerażenie trwoga","boję":"strach lęk","strach":"strach lęk przerażenie","umierać":"śmierć umrzeć umieranie","śmierć":"śmierć umrzeć","polsce":"Polska Polacy polski naród","polakach":"Polacy polski naród","polska":"Polska Polacy","polacy":"Polacy Polska","sztucznej":"maszyna mechanizacja automat","inteligencji":"maszyna mechanizacja inteligencja","maszyny":"maszyna mechanizacja","kobietami":"kobieta kobiety baba","kobiety":"kobieta kobiety","kobieta":"kobieta kobiety","miłość":"miłość kochać kobieta","bóg":"Bóg religia wiara","boga":"Bóg religia wiara","religia":"religia Bóg wiara","nudę":"nuda nudzić znudzenie","nuda":"nuda nudzić","teatr":"teatr scena sztuka","teatru":"teatr scena","sztuka":"sztuka artysta forma","sztuce":"sztuka artysta forma","istnienie":"istnienie byt Istnienie Poszczególne","metafizyczne":"metafizyczny metafizyka Tajemnica Istnienia","tłumie":"tłum masa mechanizacja","tłum":"tłum masa","mechanizacji":"mechanizacja maszyna tłum","narkotyki":"narkotyki kokaina peyotl morfina alkohol","szczęście":"szczęście szczęśliwy","samotność":"samotność samotny","przyszłość":"przyszłość ludzkość","ludzkość":"ludzkość przyszłość","filozofia":"filozofia filozof","malarstwo":"malarstwo obraz malarz","muzyka":"muzyka kompozytor","pieniądze":"pieniądze bogactwo bieda","władza":"władza rządzić dyktator","wolność":"wolność wolny","demokracja":"demokracja tłum","rewolucja":"rewolucja","praca":"praca pracować","alkohol":"alkohol pijaństwo wódka","sen":"sen śnić","dziecko":"dziecko dzieci","matka":"matka","ojciec":"ojciec"};
+const $=id=>document.getElementById(id); const thread=$("thread"), status=$("status");
+$("chips").innerHTML=SUG.map(s=>`<button type="button">${s}</button>`).join("");
+$("chips").querySelectorAll("button").forEach(b=>b.onclick=()=>{$("q").value=b.textContent;ask(b.textContent)});
+let pf=null, MAP=null, RECS=null; async function init(){ if(pf) return pf; const [m,r]=await Promise.all([fetch("./pagefind-map.json").then(x=>x.json()),fetch("./records.json").then(x=>x.json())]); MAP=m; RECS=r; pf=await import("./pagefind/pagefind.js"); await pf.options({baseUrl:"./pagefind/"}); await pf.init(); return pf; }
+function rec(id){ const i=MAP[id]; const x=RECS[i]; return {content:x.q, meta:{id:String(i),title:x.w,year:x.y,kind:x.k,speaker:x.sp,n:x.n,slug:x.slug}}; }
+const esc=s=>(s??"").toString().replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+function words(q){const base=q.toLowerCase().replace(/[^a-ząćęłńóśźż\s]/g," ").split(/\s+/).filter(w=>w.length>2&&!STOP.has(w)); const out=[]; base.forEach(w=>{(EXP[w]?EXP[w].split(" "):[w]).forEach(x=>{if(!out.includes(x))out.push(x)})}); return out;}
+const shown=new Set(); let lastQ="", lastPool=[], lastIdx=0;
+async function search(q){
+  const p=await init(); const ws=words(q); const terms=ws.length?ws.join(" "):q;
+  async function orSearch(filters){ const seen=new Map();
+    for(const w of ws.length?ws:[q]){const r=await p.search(w,filters?{filters}:{}); r.results.slice(0,30).forEach((x,i)=>{const s=(seen.get(x.id)||{x,score:0});s.score+=x.score+(30-i)/30;seen.set(x.id,s)})}
+    return [...seen.values()].sort((a,b)=>b.score-a.score).map(s=>s.x); }
+  // 1) własnym głosem: eseje i rozprawa; 2) powieści i dramaty (słowa postaci)
+  const essays=await orSearch({rodzaj:{any:["esej","rozprawa"]}});
+  const rest=await orSearch({rodzaj:{any:["powieść","dramat"]}});
+  const ids=new Set(essays.map(x=>x.id));
+  return essays.slice(0,25).concat(rest.filter(x=>!ids.has(x.id)).slice(0,25));
+}
+function highlight(text,ws){ if(!ws.length) return esc(text); const re=new RegExp("("+ws.map(w=>w.slice(0,Math.max(4,w.length-2)).replace(/[.*+?^${}()|[\]\\]/g,"\\$&")).join("|")+")[a-ząćęłńóśźż]*","gi"); return esc(text).replace(re,m=>`<mark>${m}</mark>`); }
+async function render(q,n=3){
+  const ws=words(q); const picks=[];
+  while(picks.length<n&&lastIdx<lastPool.length){const r=lastPool[lastIdx++]; const d=rec(r.id); if(shown.has(d.meta.id)) continue; shown.add(d.meta.id); picks.push(d);}
+  if(!picks.length){thread.insertAdjacentHTML("beforeend",`<div class="empty">O tym Witkacy w dostępnych tekstach nie pisał wprost. Spróbuj innego słowa: zamiast „miłość” może „kobieta”, zamiast „sztuczna inteligencja” może „mechanizacja” albo „maszyna”.</div>`);return;}
+  for(const d of picks){
+    const m=d.meta; const who=m.kind==="dramat"&&m.speaker?`<span class="sp">${esc(m.speaker)}</span> (postać) w `:(m.kind==="powieść"?`<span class="sp">narrator lub postać</span> w `:`<span class="sp">własnym głosem</span> w `);
+    thread.insertAdjacentHTML("beforeend",`<div class="reply"><blockquote>${highlight(d.content,ws)}</blockquote><div class="cite">${who}<span>S. I. Witkiewicz, „${esc(m.title)}” (${esc(m.year)}), ${esc(m.kind)}, fragment ${esc(m.n)}</span><a href="https://wolnelektury.pl/katalog/lektura/${esc(m.slug)}.html" target="_blank" rel="noopener">cały tekst w Wolnych Lekturach ↗</a></div></div>`);
+  }
+  if(lastIdx<lastPool.length) thread.insertAdjacentHTML("beforeend",`<div class="more"><button type="button" id="more">jeszcze trzy cytaty na ten temat</button></div>`), $("more").onclick=e=>{e.target.parentElement.remove();render(lastQ,3)};
+  thread.lastElementChild.scrollIntoView({behavior:"smooth",block:"end"});
+}
+async function ask(q){
+  q=q.trim(); if(!q) return; status.textContent="szukam w 7 813 fragmentach…";
+  thread.insertAdjacentHTML("beforeend",`<div class="you">Pytasz: <b>${esc(q)}</b></div>`);
+  try{ lastQ=q; lastPool=await search(q); lastIdx=0; await render(q,3); status.textContent=lastPool.length?`${lastPool.length} pasujących fragmentów`:""; }
+  catch(e){ status.textContent="Nie udało się wczytać indeksu (strona musi działać z serwera, nie z pliku)."; console.error(e); }
+}
+$("f").onsubmit=e=>{e.preventDefault();ask($("q").value)};
+const q0=new URLSearchParams(location.search).get("q"); if(q0){$("q").value=q0;ask(q0)}
+</script>
+<script>
+(function(){var d=new URLSearchParams(location.search).get("dla");
+if(d){document.getElementById("inst").classList.add("on");
+window.goatcounter={path:location.pathname+"?dla="+encodeURIComponent(d)};}})();
+</script>
+<script data-goatcounter="https://futureshow.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
