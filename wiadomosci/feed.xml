@@ -9,7 +9,17 @@
   <itunes:author>FutureShow Studio</itunes:author>
   <itunes:explicit>false</itunes:explicit>
   <itunes:category text="News"/>
-  <lastBuildDate>Sat, 07 Nov 2026 18:30:00 +0100</lastBuildDate>
+  <lastBuildDate>Sun, 08 Nov 2026 06:30:00 +0100</lastBuildDate>
+  <item>
+    <title>Po zamachu w Krakowie państwo staje przed testem odporności</title>
+    <link>https://futureshow.pl/wiadomosci/2026-11-08-rano/</link>
+    <guid isPermaLink="true">https://futureshow.pl/wiadomosci/2026-11-08-rano/</guid>
+    <pubDate>Sun, 08 Nov 2026 06:30:00 +0100</pubDate>
+    <description>Dziewięć osób zginęło w sobotnim zamachu w Krakowie, trwa dwudniowa żałoba narodowa, a w sieci krążą fałszywe tropy o sprawcy. Najbliższe dni będą testem nie tylko dla policji, ale i dla odporności państwa. W tym wydaniu także izraelska próba sformowania rządu bez Benjamina Netanjahu i sekrety wyciekłe z agenta kodującego firmy Anthropic.</description>
+    <enclosure url="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-08-rano.mp3" length="3736611" type="audio/mpeg"/>
+    <itunes:duration>414</itunes:duration>
+    <itunes:episodeType>full</itunes:episodeType>
+  </item>
   <item>
     <title>Po strzelaninie w Krakowie i decyzji S&amp;P państwo staje przed podwójnym testem</title>
     <link>https://futureshow.pl/wiadomosci/2026-11-07-wieczor/</link>
