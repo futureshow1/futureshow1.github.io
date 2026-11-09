@@ -9,7 +9,17 @@
   <itunes:author>FutureShow Studio</itunes:author>
   <itunes:explicit>false</itunes:explicit>
   <itunes:category text="News"/>
-  <lastBuildDate>Sun, 08 Nov 2026 18:30:00 +0100</lastBuildDate>
+  <lastBuildDate>Mon, 09 Nov 2026 06:30:00 +0100</lastBuildDate>
+  <item>
+    <title>Żałoba w Polsce i rozmowy o Ukrainie bez potwierdzonego miejsca dla Europy</title>
+    <link>https://futureshow.pl/wiadomosci/2026-11-09-rano/</link>
+    <guid isPermaLink="true">https://futureshow.pl/wiadomosci/2026-11-09-rano/</guid>
+    <pubDate>Mon, 09 Nov 2026 06:30:00 +0100</pubDate>
+    <description>Polska jest w żałobie po masakrze na Rynku Głównym w Krakowie, w której zginęło sześć osób; sprawca wcześniej zamordował trzy osoby ze swojej rodziny. We wtorek i środę w Abu Zabi rozpoczną się rozmowy USA–Ukraina–Rosja, do których Europa nie została zaproszona. Piszemy też o wojnie USA–Iran, sabotażu w Europie i śledztwie wokół szefa Nvidii.</description>
+    <enclosure url="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-09-rano.mp3" length="3420315" type="audio/mpeg"/>
+    <itunes:duration>382</itunes:duration>
+    <itunes:episodeType>full</itunes:episodeType>
+  </item>
   <item>
     <title>Prokuratura bada krakowski zamach jako akt terroru, a Kreml w trzy godziny zrobił ze sprawcy ukraińskiego najemnika</title>
     <link>https://futureshow.pl/wiadomosci/2026-11-08-wieczor/</link>
