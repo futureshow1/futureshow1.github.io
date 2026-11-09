@@ -14,7 +14,7 @@
 :root{--paper:#efe3c8;--paper2:#e6d6b4;--ink:#1d150d;--dim:#5b4c3a;--acc:#d9572b;--teal:#24635e;--white:#fffaf0;--serif:'Source Serif 4',Georgia,serif;--mono:'JetBrains Mono',monospace;--hand:'Patrick Hand',cursive;--display:'Abril Fatface',Georgia,serif;--sans:'Inter',sans-serif}
 *{margin:0;padding:0;box-sizing:border-box}
 html{background:var(--paper)}
-body{color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;min-height:100vh;
+body{overflow-x:hidden;color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;min-height:100vh;
   background-color:var(--paper);
   background-image:radial-gradient(rgba(29,21,13,.09) 1px,transparent 1.4px),linear-gradient(180deg,rgba(255,255,255,.25),rgba(0,0,0,.04));
   background-size:7px 7px,100% 100%}
@@ -78,7 +78,8 @@ footer a{color:var(--ink)}
   .wrap{grid-template-columns:1fr;gap:10px;padding-top:0}
   .stage{position:sticky;top:0;z-index:5;background:var(--paper);display:flex;align-items:center;gap:14px;padding:8px 0 8px;border-bottom:3px solid var(--ink);margin:0 -4vw;padding-left:4vw;padding-right:4vw}
   .head{width:96px;flex:none}
-  .plate{margin:0 0 6px;font-size:17px}
+  .plate{margin:0 0 6px;font-size:17px;width:auto;flex:1;min-width:0}
+  .plate small{white-space:normal;line-height:1.35}
   .bubble{margin-left:0;margin-top:18px}
   .bubble::before{left:34px;top:-29px;border:14px solid transparent;border-bottom:26px solid var(--ink);border-top:0}
   .bubble::after{left:38px;top:-20px;border:10px solid transparent;border-bottom:20px solid var(--white);border-top:0}
