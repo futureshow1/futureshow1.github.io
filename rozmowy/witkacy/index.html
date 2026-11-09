@@ -25,10 +25,10 @@ nav{display:flex;align-items:center;gap:14px;padding:14px 4vw;border-bottom:3px 
 .logo-desc{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--dim);text-transform:uppercase}
 .wrap{max-width:1180px;margin:0 auto;padding:30px 4vw 80px;display:grid;grid-template-columns:minmax(260px,400px) 1fr;gap:44px;align-items:start}
 .stage{position:sticky;top:18px}
-.head{--open:28;position:relative;aspect-ratio:720/975;transform-origin:50% 90%;cursor:pointer}
+.head{--open:22;position:relative;aspect-ratio:720/990;transform-origin:50% 90%;cursor:pointer}
 .head img{position:absolute;display:block;user-select:none;-webkit-user-drag:none}
 .glowa{inset:0;width:100%;height:100%;filter:drop-shadow(7px 9px 0 rgba(29,21,13,.55))}
-.szczeka{left:30.972%;top:60.513%;width:38.194%;filter:drop-shadow(0 4px 0 rgba(29,21,13,.45));transform-origin:50% 0}
+.szczeka{left:17.917%;top:67.374%;width:45.278%;filter:drop-shadow(0 4px 0 rgba(29,21,13,.45));transform-origin:50% 0}
 .head.talk .szczeka{animation:chomp .42s steps(1,end) infinite}
 .head.talk,.head.speak{animation:bob .84s steps(1,end) infinite}
 .head.speak .szczeka{transition:transform .07s steps(2,end)}
@@ -95,8 +95,8 @@ footer a{color:var(--ink)}
 <nav><a class="logo" href="../../">FUTURE<span>SHOW</span></a><span class="logo-desc">Rozmowy z Wielkimi · demo</span></nav>
 <div class="wrap">
   <aside class="stage">
-    <div class="head" id="head" title="Zaczepić Witkacego"><img class="glowa" src="img/witkacy-glowa.webp?v=3" alt="Autoportret Witkacego z 1931 roku, z ruchomą szczęką"><img class="szczeka" src="img/witkacy-szczeka.webp?v=3" alt=""></div>
-    <div class="plate">S. I. Witkiewicz<small>1885–1939 · autoportret 1931</small></div>
+    <div class="head" id="head" title="Zaczepić Witkacego"><img class="glowa" id="glowa" src="img/witkacy-papieros-glowa.webp?v=1" alt="Fotograficzny autoportret Witkacego z ruchomą szczęką"><img class="szczeka" id="szczeka" src="img/witkacy-papieros-szczeka.webp?v=1" alt=""></div>
+    <div class="plate">S. I. Witkiewicz<small id="plateSmall">1885–1939 · autoportret fotograficzny</small></div>
   </aside>
   <section class="talkcol">
     <h1>Witkacy odpowiada <em>własnymi</em> słowami</h1>
@@ -111,7 +111,7 @@ footer a{color:var(--ink)}
       <p><b>To nie jest sztuczna inteligencja udająca pisarza ani czat.</b> Program przeszukuje 7 813 fragmentów z 14 utworów Witkacego (Wolne Lektury, domena publiczna) i pokazuje ten, który najlepiej pasuje do pytania. Nic nie jest dopisywane ani parafrazowane, a ruchoma szczęka to jedyna rzecz, którą Witkacemu dorobiliśmy. Dobór cytatów robi wyszukiwarka, więc bywa dosłowny albo zaskakujący: traktuj ją jak bibliotekarza, nie jak medium.</p>
       <ul>
         <li><b>Źródła:</b> „O Czystej Formie” (1921), „W małym dworku” (1921), „Mątwa” (1922), „Janulka, córka Fizdejki” (1923), „Matka” (1924), „Sonata Belzebuba” (1925), „Tumor Mózgowicz” (1920), „Pożegnanie jesieni” (1927), „Nienasycenie” (1930), „Narkotyki” (1932), „Szewcy” (1934), „Pojęcia i twierdzenia implikowane przez pojęcie istnienia” (1935), „Niemyte dusze” (1936).</li>
-        <li><b>Portret:</b> autoportret pastelowy z 1931 roku, domena publiczna (Wikimedia Commons).</li>
+        <li><b>Portrety:</b> trzy fotograficzne autoportrety Witkacego (z papierosem, z zegarkiem z 1931 roku, z dłońmi przy twarzy) i autoportret pastelowy z 1931 roku, domena publiczna (Wikimedia Commons). Portret zmienia się w zależności od tematu pytania.</li>
         <li><b>Technika:</b> wyszukiwarka działa w przeglądarce, bez serwera i bez wysyłania pytań gdziekolwiek.</li>
       </ul>
       <p>To prototyp formatu „Rozmowy z Wielkimi” studia FutureShow dla muzeów i instytucji literackich. Taki moduł dla innej postaci powstaje w 3–4 tygodnie od otrzymania tekstów. Kontakt: <a href="mailto:przyluskijan@gmail.com">przyluskijan@gmail.com</a>.</p>
@@ -189,6 +189,26 @@ function speak(bubble,text,ws){
 }
 function cite(m){ const who=m.kind==="dramat"&&m.speaker?`<span class="sp">${esc(m.speaker)}</span> (postać) w`:(m.kind==="powieść"?`<span class="sp">narrator lub postać</span> w`:`<span class="sp">własnym głosem</span> w`);
   return `<div class="cite">${who}<span>„${esc(m.title)}” (${esc(m.year)}), ${esc(m.kind)}, fragment ${esc(m.n)}</span><a href="https://wolnelektury.pl/katalog/lektura/${esc(m.slug)}.html" target="_blank" rel="noopener">cały tekst ↗</a></div>`; }
+const PORT={
+  papieros:{g:"img/witkacy-papieros-glowa.webp?v=1",s:"img/witkacy-papieros-szczeka.webp?v=1",ar:"720/990",jaw:[17.917,67.374,45.278],open:22,cap:"1885–1939 · autoportret fotograficzny"},
+  zegarek:{g:"img/witkacy-zegarek-glowa.webp?v=1",s:"img/witkacy-zegarek-szczeka.webp?v=1",ar:"720/965",jaw:[55.972,45.907,23.056],open:30,cap:"1885–1939 · autoportret fotograficzny, 1931"},
+  rece:{g:"img/witkacy-rece-glowa.webp?v=1",s:"img/witkacy-rece-szczeka.webp?v=1",ar:"720/1049",jaw:[40.278,68.351,22.361],open:30,cap:"1885–1939 · autoportret fotograficzny"},
+  pastel:{g:"img/witkacy-glowa.webp?v=3",s:"img/witkacy-szczeka.webp?v=3",ar:"720/975",jaw:[30.972,60.513,38.194],open:28,cap:"1885–1939 · autoportret, pastel 1931"}
+};
+Object.values(PORT).forEach(x=>{[x.g,x.s].forEach(u=>{const i=new Image();i.src=u;});});
+const T_ART=/sztuk|form[aąęyie]|malar|obraz|teatr|artyst|muzy|dramat|powie[śs]ć|estety|pięk|poez|liter|krytyk|scen|aktor|kompoz|styl|rysun|portret|twórcz|forma/;
+const T_META=/metafiz|istnien|tajemn|bóg|boga|bogu|wiar[ayę]|religi|śmier|umier|umrz|nud|strach|boi|boję|lęk|samotn|sens|dusz|nicoś|narkot|peyotl|kokain|szale|obłęd|niepok|przeraż|rozpacz|cierpi|ból|nieskończ|absolut|sen |śni/;
+const T_PEOPLE=/ludz|człowie|kobiet|mężczyzn|tłum|pola[ck]|polsk|naród|społecz|przyjaci|żon|matk|ojc|dzieci|dziec|mechaniz|mas[ayie]|rodzin|miłoś|kocha|zakopan|chłop|robotni|polity|demokrac|rewoluc|bolszew|faszy|góral/;
+let curP="papieros", rot=0; const ROT=["pastel","zegarek","papieros","rece"];
+function topic(q){ const t=" "+q.toLowerCase()+" "; if(T_ART.test(t)) return "papieros"; if(T_META.test(t)) return "rece"; if(T_PEOPLE.test(t)) return "zegarek"; return ROT[(rot++)%ROT.length]; }
+function setPortrait(k){
+  if(k===curP) return Promise.resolve(); curP=k; const x=PORT[k];
+  const swap=()=>{ $("glowa").src=x.g; $("szczeka").src=x.s; head.style.aspectRatio=x.ar; head.style.setProperty("--open",x.open);
+    const j=$("szczeka").style; j.left=x.jaw[0]+"%"; j.top=x.jaw[1]+"%"; j.width=x.jaw[2]+"%"; $("plateSmall").textContent=x.cap; };
+  if(RM){ swap(); return Promise.resolve(); }
+  return new Promise(r=>{ const a=head.animate([{transform:"scaleX(1)"},{transform:"scaleX(.04) rotate(-3deg)"}],{duration:140,easing:"steps(3,end)",fill:"forwards"});
+    a.onfinish=()=>{ swap(); const b=head.animate([{transform:"scaleX(.04) rotate(3deg)"},{transform:"scaleX(1)"}],{duration:160,easing:"steps(3,end)",fill:"none"}); b.onfinish=()=>{a.cancel(); r();}; }; });
+}
 async function render(q){
   const ws=words(q); let d=null;
   while(lastIdx<lastPool.length){const r=lastPool[lastIdx++]; const x=rec(r.id); if(shown.has(x.meta.id)) continue; shown.add(x.meta.id); d=x; break;}
@@ -206,6 +226,7 @@ async function ask(q){
   q=q.trim(); if(!q) return; finish(); status.textContent="Witkacy przegląda swoje 7 813 fragmentów…";
   const old=$("more"); if(old) old.parentElement.remove();
   thread.insertAdjacentHTML("beforeend",`<div class="you">${esc(q)}</div>`);
+  await setPortrait(topic(q));
   try{ lastQ=q; lastPool=await search(q); lastIdx=0; status.textContent=lastPool.length?`${lastPool.length} pasujących fragmentów · kliknij dymek, żeby nie czekać`:""; await render(q); }
   catch(e){ status.textContent="Nie udało się wczytać indeksu (strona musi działać z serwera, nie z pliku)."; console.error(e); }
   $("q").value="";
