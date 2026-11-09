@@ -1,14 +1,14 @@
 {
- "id": "2026-11-09-rano",
- "title": "Żałoba w Polsce i rozmowy o Ukrainie bez potwierdzonego miejsca dla Europy",
- "label": "Wydanie poranne",
- "edition": "rano",
+ "id": "2026-11-09-wieczor",
+ "title": "Sprawca krakowskiej masakry zmarł, więc motyw ustalą zapiski i sieć",
+ "label": "Wydanie wieczorne",
+ "edition": "wieczor",
  "date": "2026-11-09",
  "date_pl": "poniedziałek, 9 listopada 2026",
- "dur": "6:22",
- "secs": 382,
- "lead": "Polska jest w żałobie po masakrze na Rynku Głównym w Krakowie, w której zginęło sześć osób; sprawca wcześniej zamordował trzy osoby ze swojej rodziny. We wtorek i środę w Abu Zabi rozpoczną się rozmowy USA–Ukraina–Rosja, do których Europa nie została zaproszona. Piszemy też o wojnie USA–Iran, sabotażu w Europie i śledztwie wokół szefa Nvidii.",
- "url": "https://futureshow.pl/wiadomosci/2026-11-09-rano/",
- "audio": "https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-09-rano.mp3",
- "generated": "2026-11-09T06:30:00+01:00"
+ "dur": "6:32",
+ "secs": 392,
+ "lead": "Michał Oksiński, sprawca sobotniej masakry w Krakowie, zmarł w poniedziałek w szpitalu od ran postrzałowych, a śledztwo musi wyjaśnić motyw bez jego zeznań. W tle Francja oskarża irańską Gwardię Rewolucyjną o cyberatak na sklepowe chłodnie, a Niemcy grożą blokadą unijnego budżetu.",
+ "url": "https://futureshow.pl/wiadomosci/2026-11-09-wieczor/",
+ "audio": "https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-09-wieczor.mp3",
+ "generated": "2026-11-09T18:30:00+01:00"
 }
