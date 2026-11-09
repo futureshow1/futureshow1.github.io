@@ -35,6 +35,12 @@ nav{display:flex;align-items:center;gap:14px;padding:14px 4vw;border-bottom:3px 
 @keyframes bob{0%{transform:rotate(0)}50%{transform:rotate(-1.6deg) translateY(-3px)}}
 .plate{margin:18px auto 0;width:max-content;max-width:100%;background:var(--ink);color:var(--paper);font-family:var(--display);font-size:20px;padding:6px 16px 8px;transform:rotate(-2deg);box-shadow:4px 4px 0 var(--acc)}
 .plate small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#d8c7a5;margin-top:2px}
+.voice{margin:16px auto 0;max-width:100%;text-align:center}
+.voice button{font-family:var(--hand);font-size:19px;line-height:1.2;padding:8px 16px;border:3px solid var(--ink);border-radius:14px;background:var(--white);color:var(--ink);cursor:pointer;box-shadow:4px 4px 0 var(--ink)}
+.voice button.on{background:var(--acc);color:var(--white)}
+.voice small{display:block;margin-top:8px;font-family:var(--mono);font-size:10.5px;letter-spacing:.03em;color:var(--dim);line-height:1.5}
+.voice small a{color:var(--dim)}
+@media (max-width:860px){.stage{display:grid!important;grid-template-columns:96px 1fr;column-gap:14px;row-gap:8px;align-items:center}.stage .head{grid-row:span 2}.stage .plate{margin:0;justify-self:start}.voice{margin:0;text-align:left}.voice button{font-size:15px;padding:4px 10px;box-shadow:3px 3px 0 var(--ink)}.voice small{display:none}}
 .talkcol{min-width:0}
 h1{font-family:var(--display);font-weight:400;font-size:clamp(36px,5.4vw,64px);line-height:1;letter-spacing:.005em}
 h1 em{font-style:normal;color:var(--acc)}
@@ -96,6 +102,7 @@ footer a{color:var(--ink)}
   <aside class="stage">
     <div class="head" id="head" title="Zaczepić Marszałka"><img class="glowa" src="img/pilsudski-glowa.webp?v=2" alt="Portret Józefa Piłsudskiego pędzla Wojciecha Kossaka z 1928 roku, z ruchomą szczęką"><img class="szczeka" src="img/pilsudski-szczeka.webp?v=2" alt=""></div>
     <div class="plate">Józef Piłsudski<small>1867–1935 · portret W. Kossaka, 1928</small></div>
+    <div class="voice"><button type="button" id="glos">▶ Posłuchaj prawdziwego głosu Marszałka</button><small>Belweder, 1924, nagranie firmy Rudzki, archiwum Polskiego Radia · <a href="https://www.polskieradio.pl/350/6824/artykul/2206289,jozef-pilsudski" target="_blank" rel="noopener">całe nagranie ↗</a></small><audio id="glosA" preload="none" src="https://static.prsa.pl/f8b329b5-a5ed-430c-9298-e6a311eff18f.mp3"></audio></div>
   </aside>
   <section class="talkcol">
     <h1>Piłsudski odpowiada <em>własnymi</em> słowami</h1>
@@ -176,6 +183,11 @@ async function ask(q){
   catch(e){ status.textContent="Nie udało się wczytać indeksu (strona musi działać z serwera, nie z pliku)."; console.error(e); }
   $("q").value="";
 }
+const glos=$("glos"), glosA=$("glosA");
+glos.onclick=()=>{ if(glosA.paused){ finish(); glosA.currentTime=0; glosA.play(); } else { glosA.pause(); } };
+glosA.onplay=()=>{ head.classList.add("talk"); glos.classList.add("on"); glos.textContent="■ Zatrzymaj"; };
+const stopG=()=>{ head.classList.remove("talk"); glos.classList.remove("on"); glos.textContent="▶ Posłuchaj prawdziwego głosu Marszałka"; };
+glosA.onpause=stopG; glosA.onended=stopG;
 head.onclick=()=>{ const q=SUG[Math.floor(Math.random()*SUG.length)]; $("q").value=q; ask(q); };
 $("f").onsubmit=e=>{e.preventDefault();ask($("q").value)};
 const q0=new URLSearchParams(location.search).get("q"); if(q0){$("q").value=q0;ask(q0)}
