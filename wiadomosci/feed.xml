@@ -9,7 +9,17 @@
   <itunes:author>FutureShow Studio</itunes:author>
   <itunes:explicit>false</itunes:explicit>
   <itunes:category text="News"/>
-  <lastBuildDate>Tue, 10 Nov 2026 06:30:00 +0100</lastBuildDate>
+  <lastBuildDate>Tue, 10 Nov 2026 18:30:00 +0100</lastBuildDate>
+  <item>
+    <title>Izrael ma nowy parlament, a Netanjahu pierwszego od lat rywala z mandatem na rząd</title>
+    <link>https://futureshow.pl/wiadomosci/2026-11-10-wieczor/</link>
+    <guid isPermaLink="true">https://futureshow.pl/wiadomosci/2026-11-10-wieczor/</guid>
+    <pubDate>Tue, 10 Nov 2026 18:30:00 +0100</pubDate>
+    <description>Nowy Kneset został zaprzysiężony, a misję tworzenia rządu dostał Gadi Eisenkot — pierwszy od lat polityk spoza obozu Benjamina Netanjahu z takim mandatem. W Abu Zabi rozmowy o Ukrainie trwają bez porozumienia, a wieczorem doszły spór o pieniądze dla Kijowa w budżecie Unii i zarzuty dla wiceszefa polskiego MSZ.</description>
+    <enclosure url="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-10-wieczor.mp3" length="3482643" type="audio/mpeg"/>
+    <itunes:duration>389</itunes:duration>
+    <itunes:episodeType>full</itunes:episodeType>
+  </item>
   <item>
     <title>Szef Nvidii pod lupą FBI, a w Abu Zabi startują rozmowy o Ukrainie</title>
     <link>https://futureshow.pl/wiadomosci/2026-11-10-rano/</link>

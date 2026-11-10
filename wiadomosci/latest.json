@@ -1,14 +1,14 @@
 {
- "id": "2026-11-10-rano",
- "title": "Szef Nvidii pod lupą FBI, a w Abu Zabi startują rozmowy o Ukrainie",
- "label": "Wydanie poranne",
- "edition": "rano",
+ "id": "2026-11-10-wieczor",
+ "title": "Izrael ma nowy parlament, a Netanjahu pierwszego od lat rywala z mandatem na rząd",
+ "label": "Wydanie wieczorne",
+ "edition": "wieczor",
  "date": "2026-11-10",
  "date_pl": "wtorek, 10 listopada 2026",
- "dur": "7:00",
- "secs": 420,
- "lead": "Dwa tematy ważą dziś najwięcej: skandal wokół szefa Nvidii oraz pierwsze od lutego trójstronne rozmowy o Ukrainie w Abu Zabi. W tle trzecia doba żałoby po zamachu w Krakowie i pytanie o szczelność systemu pozwoleń na broń — sprawca kupił ją legalnie.",
- "url": "https://futureshow.pl/wiadomosci/2026-11-10-rano/",
- "audio": "https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-10-rano.mp3",
- "generated": "2026-11-10T06:30:00+01:00"
+ "dur": "6:29",
+ "secs": 389,
+ "lead": "Nowy Kneset został zaprzysiężony, a misję tworzenia rządu dostał Gadi Eisenkot — pierwszy od lat polityk spoza obozu Benjamina Netanjahu z takim mandatem. W Abu Zabi rozmowy o Ukrainie trwają bez porozumienia, a wieczorem doszły spór o pieniądze dla Kijowa w budżecie Unii i zarzuty dla wiceszefa polskiego MSZ.",
+ "url": "https://futureshow.pl/wiadomosci/2026-11-10-wieczor/",
+ "audio": "https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-10-wieczor.mp3",
+ "generated": "2026-11-10T18:30:00+01:00"
 }
