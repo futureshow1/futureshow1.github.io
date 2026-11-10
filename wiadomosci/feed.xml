@@ -9,7 +9,17 @@
   <itunes:author>FutureShow Studio</itunes:author>
   <itunes:explicit>false</itunes:explicit>
   <itunes:category text="News"/>
-  <lastBuildDate>Mon, 09 Nov 2026 18:30:00 +0100</lastBuildDate>
+  <lastBuildDate>Tue, 10 Nov 2026 06:30:00 +0100</lastBuildDate>
+  <item>
+    <title>Szef Nvidii pod lupą FBI, a w Abu Zabi startują rozmowy o Ukrainie</title>
+    <link>https://futureshow.pl/wiadomosci/2026-11-10-rano/</link>
+    <guid isPermaLink="true">https://futureshow.pl/wiadomosci/2026-11-10-rano/</guid>
+    <pubDate>Tue, 10 Nov 2026 06:30:00 +0100</pubDate>
+    <description>Zaufanie do Nvidii, najważniejszej firmy świata sztucznej inteligencji, i do formatu rozmów o Ukrainie to dwa tematy, które dziś ważą najwięcej. W tle trzecia doba żałoby po zamachu w Krakowie i pytanie o sito w systemie pozwoleń na broń, którą sprawca kupił legalnie.</description>
+    <enclosure url="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-10-rano.mp3" length="3345099" type="audio/mpeg"/>
+    <itunes:duration>372</itunes:duration>
+    <itunes:episodeType>full</itunes:episodeType>
+  </item>
   <item>
     <title>Sprawca krakowskiej masakry zmarł, więc motyw ustalą zapiski i sieć</title>
     <link>https://futureshow.pl/wiadomosci/2026-11-09-wieczor/</link>
