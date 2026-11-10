@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pawlikowska-Jasnorzewska odpowiada własnymi wierszami — Rozmowy z Wielkimi (demo)</title>
+<meta name="description" content="Zadaj pytanie, a odpowiedzią będą wyłącznie wersy, które Maria Pawlikowska-Jasnorzewska naprawdę napisała, i kwestie z jej dramatu „Baba-dziwo”. Każdy cytat ma źródło. Nic nie jest generowane.">
+<link rel="canonical" href="https://futureshow.pl/rozmowy/pawlikowska/">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Patrick+Hand&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#efe3c8;--paper2:#e6d6b4;--ink:#1d150d;--dim:#5b4c3a;--acc:#b83b6b;--teal:#3d5a80;--white:#fffaf0;--serif:'Source Serif 4',Georgia,serif;--mono:'JetBrains Mono',monospace;--hand:'Patrick Hand',cursive;--display:'Abril Fatface',Georgia,serif;--sans:'Inter',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+html{background:var(--paper)}
+body{overflow-x:hidden;color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;min-height:100vh;
+  background-color:var(--paper);
+  background-image:radial-gradient(rgba(29,21,13,.09) 1px,transparent 1.4px),linear-gradient(180deg,rgba(255,255,255,.25),rgba(0,0,0,.04));
+  background-size:7px 7px,100% 100%}
+a{color:var(--acc)}
+.inst{display:none;background:var(--ink);color:var(--paper);font-family:var(--mono);font-size:12px;letter-spacing:.03em;padding:9px 4vw;line-height:1.5}.inst a{color:#ffb38a}.inst.on{display:block}
+nav{display:flex;align-items:center;gap:14px;padding:14px 4vw;border-bottom:3px solid var(--ink);background:var(--paper2)}
+.logo{font-weight:800;font-size:17px;letter-spacing:.04em;color:var(--ink);text-decoration:none}.logo span{color:var(--acc)}
+.logo-desc{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--dim);text-transform:uppercase}
+.wrap{max-width:1180px;margin:0 auto;padding:30px 4vw 80px;display:grid;grid-template-columns:minmax(260px,400px) 1fr;gap:44px;align-items:start}
+.stage{position:sticky;top:18px}
+.head{--open:26;position:relative;aspect-ratio:720/850;transform-origin:50% 90%;cursor:pointer}
+.head img{position:absolute;display:block;user-select:none;-webkit-user-drag:none}
+.glowa{inset:0;width:100%;height:100%;filter:drop-shadow(7px 9px 0 rgba(29,21,13,.55))}
+.szczeka{left:26.944%;top:59.765%;width:28.194%;filter:drop-shadow(0 4px 0 rgba(29,21,13,.45));transform-origin:50% 0}
+.head.talk .szczeka{animation:chomp .42s steps(1,end) infinite}
+.head.talk,.head.speak{animation:bob .84s steps(1,end) infinite}
+.head.speak .szczeka{transition:transform .07s steps(2,end)}
+@keyframes chomp{0%{transform:translateY(0)}25%{transform:translateY(24%)}50%{transform:translateY(6%)}75%{transform:translateY(30%) rotate(-2deg)}}
+@keyframes bob{0%{transform:rotate(0)}50%{transform:rotate(-1.6deg) translateY(-3px)}}
+.plate{margin:18px auto 0;width:max-content;max-width:100%;background:var(--ink);color:var(--paper);font-family:var(--display);font-size:20px;padding:6px 16px 8px;transform:rotate(-2deg);box-shadow:4px 4px 0 var(--acc)}
+.plate small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#d8c7a5;margin-top:2px}
+.talkcol{min-width:0}
+h1{font-family:var(--display);font-weight:400;font-size:clamp(36px,5.4vw,64px);line-height:1;letter-spacing:.005em}
+h1 em{font-style:normal;color:var(--acc)}
+.stamp{display:inline-block;margin:16px 0 4px;font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);border:2.5px solid var(--acc);padding:5px 10px;transform:rotate(-3deg)}
+.lede{color:var(--dim);margin:14px 0 6px;line-height:1.6;font-size:16.5px;max-width:640px}
+form{display:flex;gap:10px;margin:22px 0 12px}
+input{flex:1;min-width:0;background:var(--white);border:3px solid var(--ink);border-radius:14px;color:var(--ink);font-family:var(--hand);font-size:22px;padding:10px 16px;box-shadow:4px 4px 0 var(--ink)}
+input:focus{outline:none;border-color:var(--acc)}
+button.ask{background:var(--acc);color:var(--white);border:3px solid var(--ink);border-radius:14px;font-family:var(--display);font-size:20px;padding:8px 20px;cursor:pointer;box-shadow:4px 4px 0 var(--ink)}
+button.ask:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:9px;margin:8px 0 26px}
+.chips button{font-family:var(--hand);font-size:17px;padding:3px 12px;border:2px solid var(--ink);border-radius:4px;background:var(--paper2);color:var(--ink);cursor:pointer;box-shadow:2px 2px 0 var(--ink)}
+.chips button:nth-child(3n){transform:rotate(-1.5deg)}.chips button:nth-child(3n+1){transform:rotate(1deg)}
+.chips button:hover{background:var(--white)}
+.status{font-family:var(--mono);font-size:11px;color:var(--dim);min-height:1.4em;margin-bottom:6px}
+.thread{display:grid;gap:22px}
+.you{justify-self:end;max-width:80%;position:relative;background:var(--teal);color:var(--white);font-family:var(--hand);font-size:21px;line-height:1.25;padding:10px 18px;border:3px solid var(--ink);border-radius:22px;box-shadow:4px 4px 0 var(--ink)}
+.you::after{content:"";position:absolute;right:26px;bottom:-17px;border:9px solid transparent;border-top:14px solid var(--ink)}
+.bubble{position:relative;background:var(--white);border:3px solid var(--ink);border-radius:30px;padding:20px 24px 16px;box-shadow:6px 6px 0 var(--ink);margin-left:20px;cursor:pointer}
+.bubble::before{content:"";position:absolute;left:-30px;top:30px;border:15px solid transparent;border-right:28px solid var(--ink);border-left:0}
+.bubble::after{content:"";position:absolute;left:-22px;top:34px;border:11px solid transparent;border-right:22px solid var(--white);border-left:0}
+.bubble blockquote{white-space:pre-line;font-family:var(--serif);font-size:clamp(17.5px,2vw,20.5px);line-height:1.55;color:var(--ink);min-height:1.5em}
+.bubble blockquote mark{background:#ffd9a8;color:var(--ink);padding:0 2px}
+.bubble.typing blockquote::after{content:"▍";color:var(--acc);animation:blink .6s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.cite{margin-top:12px;padding-top:10px;border-top:2px dashed rgba(29,21,13,.25);font-family:var(--mono);font-size:11.5px;color:var(--dim);line-height:1.6;display:flex;flex-wrap:wrap;gap:4px 14px;align-items:baseline;opacity:0;transition:opacity .3s}
+.bubble.done .cite{opacity:1}
+.cite .sp{color:var(--acc);font-weight:500}
+.cite a{color:var(--teal)}
+.more{display:flex;gap:10px;align-items:center;margin-left:20px}
+.more button{font-family:var(--hand);font-size:19px;padding:5px 14px;border:2px solid var(--ink);border-radius:999px;background:var(--paper2);color:var(--ink);cursor:pointer;box-shadow:3px 3px 0 var(--ink)}
+.empty{font-family:var(--hand);font-size:20px;color:var(--dim);line-height:1.4}
+.how{margin-top:46px;padding:18px 20px;border:3px solid var(--ink);background:var(--paper2);box-shadow:5px 5px 0 var(--ink);font-size:14.5px;line-height:1.6;color:var(--dim)}
+.how h2{font-family:var(--display);font-weight:400;font-size:24px;color:var(--ink);margin-bottom:8px}
+.how b{color:var(--ink)}
+.how ul{padding-left:18px;margin:8px 0}
+.how p+p{margin-top:8px}
+footer{color:var(--dim);font-family:var(--mono);font-size:11px;text-align:center;padding:26px 4vw;border-top:3px solid var(--ink);background:var(--paper2)}
+footer a{color:var(--ink)}
+@media (max-width:860px){
+  .wrap{grid-template-columns:1fr;gap:10px;padding-top:0}
+  .stage{position:sticky;top:0;z-index:5;background:var(--paper);display:flex;align-items:center;gap:14px;padding:8px 0 8px;border-bottom:3px solid var(--ink);margin:0 -4vw;padding-left:4vw;padding-right:4vw}
+  .head{width:96px;flex:none}
+  .plate{margin:0 0 6px;font-size:17px;width:auto;flex:1;min-width:0}
+  .plate small{white-space:normal;line-height:1.35}
+  .bubble{margin-left:0;margin-top:18px}
+  .bubble::before{left:34px;top:-29px;border:14px solid transparent;border-bottom:26px solid var(--ink);border-top:0}
+  .bubble::after{left:38px;top:-20px;border:10px solid transparent;border-bottom:20px solid var(--white);border-top:0}
+  .more{margin-left:0}
+  h1{margin-top:14px}
+}
+@media (prefers-reduced-motion:reduce){.head.talk,.head.speak,.head.talk .szczeka{animation:none}.bubble.typing blockquote::after{display:none}}
+</style>
+</head>
+<body>
+<div class="inst" id="inst">Wersja pokazowa dla instytucji. Ten sam moduł budujemy dla postaci z Państwa zbiorów w 3–4 tygodnie od otrzymania tekstów. Kontakt: <a href="mailto:przyluskijan@gmail.com">przyluskijan@gmail.com</a> · +48 731 034 256</div>
+<nav><a class="logo" href="../../">FUTURE<span>SHOW</span></a><span class="logo-desc">Rozmowy z Wielkimi · demo</span></nav>
+<div class="wrap">
+  <aside class="stage">
+    <div class="head" id="head" title="Zaczepić poetkę"><img class="glowa" id="glowa" src="img/pawlikowska-witkacy-glowa.webp?v=1" alt="Portret Marii Pawlikowskiej-Jasnorzewskiej z ruchomą szczęką"><img class="szczeka" id="szczeka" src="img/pawlikowska-witkacy-szczeka.webp?v=1" alt=""></div>
+    <div class="plate">M. Pawlikowska-Jasnorzewska<small id="plateSmall">1891–1945 · portret pędzla Witkacego, 1924</small></div>
+  </aside>
+  <section class="talkcol">
+    <h1>Pawlikowska-Jasnorzewska odpowiada <em>własnymi</em> wierszami</h1>
+    <div class="stamp">100% cytatów · 0% zmyśleń</div>
+    <p class="lede">Zadaj pytanie. Poetka odpowie wyłącznie wersami, które naprawdę napisała, albo kwestiami z jej dramatu „Baba-dziwo”. Każdy cytat ma tytuł i źródło. Jeśli o czymś nie pisała, przemilczy.</p>
+    <form id="f"><input id="q" placeholder="Czym jest miłość?" autocomplete="off"><button class="ask" type="submit">Pytam!</button></form>
+    <div class="chips" id="chips"></div>
+    <div class="status" id="status"></div>
+    <div class="thread" id="thread"></div>
+    <div class="how">
+      <h2>Jak to działa</h2>
+      <p><b>To nie jest sztuczna inteligencja udająca poetkę ani czat.</b> Program przeszukuje 734 fragmenty ze 164 utworów Marii Pawlikowskiej-Jasnorzewskiej i pokazuje ten, który najlepiej pasuje do pytania. Nic nie jest dopisywane ani parafrazowane, a ruchoma szczęka to jedyna rzecz, którą poetce dorobiliśmy. Dobór cytatów robi wyszukiwarka, więc bywa dosłowny albo zaskakujący: traktuj ją jak bibliotekarza, nie jak medium.</p>
+      <ul>
+        <li><b>Źródła:</b> 163 wiersze, m.in. z tomów „Pocałunki” (1926) i „Dancing” (1927), oraz dramat „Baba-dziwo” (1938).</li>
+        <li><b>Portrety:</b> portret pędzla Witkacego (1924), fotografia z 1933 roku i rysunek jej ojca, Wojciecha Kossaka (1939), domena publiczna (Wikimedia Commons). Portret zmienia się w zależności od tematu pytania.</li>
+        <li><b>Technika:</b> wyszukiwarka działa w przeglądarce, bez serwera i bez wysyłania pytań gdziekolwiek.</li>
+      </ul>
+      <p>To prototyp formatu „Rozmowy z Wielkimi” studia FutureShow dla muzeów i instytucji. Inne dema: <a href="../witkacy/">Witkacy</a> i <a href="../pilsudski/">Józef Piłsudski</a>. Taki moduł dla innej postaci powstaje w 3–4 tygodnie od otrzymania tekstów. Kontakt: <a href="mailto:przyluskijan@gmail.com">przyluskijan@gmail.com</a>.</p>
+    </div>
+  </section>
+</div>
+<footer><a href="../../">← futureshow.pl</a></footer>
+<script type="module">
+const SUG=["Czym jest miłość?","Co robić z tęsknotą?","Jacy są mężczyźni?","Co to znaczy być kobietą?","Czy warto czekać?","Czym jest pocałunek?","Jak pachnie wiosna?","Czego uczy morze?","Co pani sądzi o wojnie?","Czy boi się pani starości?","Czym jest szczęście?","Co pani lubi w Paryżu?"];
+const STOP=new Set("co czym czego czy jak jaki jaka jakie jest są był była było być pan pana panu pani się sie o z ze w we na do od po i a ale lub albo to tę ten ta te tego tej tym nie tak że żeby by bo dla przez przy nad pod u ma mam masz mamy macie mają chce chcesz chciał myśli myślisz sądzi sądzisz uważa uważasz powiedz mów mi mnie ci ciebie nam was ich im je go jej mu też także jeszcze już tylko bardzo może można trzeba warto właściwie naprawdę w ogóle".split(/\s+/));
+const EXP={"miłość":"miłość kochać kochanie serce","miłości":"miłość kochać serce","tęsknotą":"tęsknota tęsknić czekać","tęsknota":"tęsknota tęsknić","mężczyźni":"mężczyzna mężczyźni on","mężczyzna":"mężczyzna on","kobietą":"kobieta kobiety ona","kobieta":"kobieta kobiety","czekać":"czekać czeka czekanie","pocałunek":"pocałunek całować usta wargi","wiosna":"wiosna kwiaty bzy","morze":"morze fala fale","wojnie":"wojna wojny bomba samolot","wojna":"wojna samolot","starości":"starość stara lata zmarszczki","szczęście":"szczęście szczęśliwa radość","paryżu":"Paryż Paryża","śmierć":"śmierć umrzeć","serce":"serce","łzy":"łzy płacz","smutek":"smutek smutna żal"};
+const $=id=>document.getElementById(id); const thread=$("thread"), status=$("status");
+$("chips").innerHTML=SUG.map(s=>`<button type="button">${s}</button>`).join("");
+$("chips").querySelectorAll("button").forEach(b=>b.onclick=()=>{$("q").value=b.textContent;ask(b.textContent)});
+let pf=null, MAP=null, RECS=null; async function init(){ if(pf) return pf; const [m,r]=await Promise.all([fetch("./pagefind-map.json").then(x=>x.json()),fetch("./records.json").then(x=>x.json())]); MAP=m; RECS=r; pf=await import("./pagefind/pagefind.js"); await pf.options({baseUrl:"./pagefind/"}); await pf.init(); return pf; }
+function rec(id){ const i=MAP[id]; const x=RECS[i]; return {content:x.q, meta:{id:String(i),title:x.w,year:x.y,kind:x.k,speaker:x.sp,n:x.n,slug:x.slug,tom:x.t}}; }
+const esc=s=>(s??"").toString().replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+function words(q){const base=q.toLowerCase().replace(/[^a-ząćęłńóśźż\s]/g," ").split(/\s+/).filter(w=>w.length>2&&!STOP.has(w)); const out=[]; base.forEach(w=>{(EXP[w]?EXP[w].split(" "):[w]).forEach(x=>{if(!out.includes(x))out.push(x)})}); return out;}
+const shown=new Set(); let lastQ="", lastPool=[], lastIdx=0;
+async function search(q){
+  const p=await init(); const ws=words(q); const terms=ws.length?ws.join(" "):q;
+  async function orSearch(filters){ const seen=new Map();
+    for(const w of ws.length?ws:[q]){const r=await p.search(w,filters?{filters}:{}); r.results.slice(0,30).forEach((x,i)=>{const s=(seen.get(x.id)||{x,score:0});s.score+=x.score+(30-i)/30;seen.set(x.id,s)})}
+    return [...seen.values()].sort((a,b)=>b.score-a.score).map(s=>s.x); }
+  // 1) własnym głosem: eseje i rozprawa; 2) powieści i dramaty (słowa postaci)
+  const essays=await orSearch({rodzaj:{any:["wiersz"]}});
+  const rest=await orSearch({rodzaj:{any:["dramat"]}});
+  const ids=new Set(essays.map(x=>x.id));
+  return essays.slice(0,25).concat(rest.filter(x=>!ids.has(x.id)).slice(0,25));
+}
+function highlight(text,ws){ if(!ws.length) return esc(text); const re=new RegExp("("+ws.map(w=>w.slice(0,Math.max(4,w.length-2)).replace(/[.*+?^${}()|[\]\\]/g,"\\$&")).join("|")+")[a-ząćęłńóśźż]*","gi"); return esc(text).replace(re,m=>`<mark>${m}</mark>`); }
+const head=$("head"); const RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
+let speaking=null;
+function finish(){ if(speaking){ speaking.skip=true; } }
+const VOW="aąeęioóuy";
+const LET=/[A-Za-zĄĆĘŁŃÓŚŹŻąćęłńóśźż]/;
+function nuclei(lw){ const n=[]; for(let i=0;i<lw.length;i++){ const c=lw[i]; if(!VOW.includes(c)) continue;
+  if(c==="i"&&i+1<lw.length&&VOW.includes(lw[i+1])) continue;
+  if(i>0&&(lw[i-1]+c==="au"||lw[i-1]+c==="eu")) continue;
+  n.push(i);} return n; }
+function units(s){ const out=[]; let i=0; const D=["ch","cz","dz","dż","dź","rz","sz"];
+  while(i<s.length){ const two=s.slice(i,i+2).toLowerCase(); if(D.includes(two)){out.push(s.slice(i,i+2));i+=2;} else {out.push(s[i]);i++;} } return out; }
+function syl(w){ const lw=w.toLowerCase(); const n=nuclei(lw); if(n.length<2) return [w];
+  const cuts=[]; for(let k=0;k<n.length-1;k++){ let a=n[k]+1, b=n[k+1];
+    if(b-1>=a&&lw[b-1]==="i"&&VOW.includes(lw[b])) b--; // zmiękczające i należy do następnej sylaby
+    const u=units(w.slice(a,b)); const keep=u.length<=1?0:u[0].length; cuts.push(a+keep); }
+  const out=[]; let p=0; for(const c of cuts){ out.push(w.slice(p,c)); p=c; } out.push(w.slice(p)); return out; }
+function openness(s){ const lw=s.toLowerCase(); const n=nuclei(lw); const c=n.length?lw[n[0]]:""; return "aąoóu".includes(c)?1:("eę".includes(c)?.72:(c?.5:0)); }
+function plan(text){ const items=[]; const BASE=125;
+  for(const tok of text.split(/(\s+)/)){ if(!tok) continue;
+    if(/^\s+$/.test(tok)){ if(items.length) items[items.length-1].t+=tok; else items.push({t:tok,v:0,d:0}); continue; }
+    const m=tok.match(/^([^A-Za-zĄĆĘŁŃÓŚŹŻąćęłńóśźż]*)(.*?)([^A-Za-zĄĆĘŁŃÓŚŹŻąćęłńóśźż]*)$/);
+    const lead=m[1], core=m[2], trail=m[3];
+    if(!core){ items.push({t:tok,v:0,d:/[.!?…]/.test(tok)?320:(/[,;:—–]/.test(tok)?200:60)}); continue; }
+    const ss=syl(core);
+    ss.forEach((s,i)=>items.push({t:(i===0?lead:"")+s+(i===ss.length-1?trail:""),v:openness(s),d:BASE}));
+    if(/[.!?…]/.test(trail)) items.push({t:"",v:0,d:360}); else if(/[,;:—–)]/.test(trail)) items.push({t:"",v:0,d:210});
+  } return items; }
+function speak(bubble,text,ws){
+  return new Promise(res=>{
+    const bq=bubble.querySelector("blockquote"); const jaw=head.querySelector(".szczeka");
+    const max=parseFloat(getComputedStyle(head).getPropertyValue("--open"))||30;
+    const items=plan(text); const total=items.reduce((a,x)=>a+x.d,0); const sc=total>14000?Math.max(.45,14000/total):1;
+    const job={skip:false}; speaking=job; bubble.classList.add("typing"); head.classList.add("speak");
+    let i=0; const end=()=>{ bq.innerHTML=highlight(text,ws); bubble.classList.remove("typing"); bubble.classList.add("done"); head.classList.remove("speak"); jaw.style.transform=""; if(speaking===job) speaking=null; res(); };
+    const tick=()=>{
+      if(job.skip||RM||i>=items.length) return end();
+      const it=items[i++]; bq.textContent+=it.t; const d=it.d*sc;
+      if(it.v>0){ jaw.style.transform=`translateY(${(max*it.v).toFixed(1)}%)`; setTimeout(()=>{ if(!job.skip) jaw.style.transform="translateY(0)"; }, d*.55); }
+      else jaw.style.transform="translateY(0)";
+      setTimeout(tick,d);
+    }; tick();
+    bubble.onclick=()=>{job.skip=true};
+  });
+}
+function cite(m){ const src=m.kind==="dramat"?`<span class="sp">${esc(m.speaker||"postać")}</span> (postać) w <span>„Baba-dziwo” (1938), kwestia ${esc(m.n)}</span>`:`<span class="sp">wiersz</span><span>„${esc(m.title)}”${m.tom?`, z tomu „${esc(m.tom)}”`:""}${m.year?` (${esc(m.year)})`:""}</span>`;
+  return `<div class="cite">${src}<a href="https://wolnelektury.pl/katalog/lektura/${esc(m.slug)}.html" target="_blank" rel="noopener">cały tekst ↗</a></div>`; }
+const PORT={
+  witkacy:{g:"img/pawlikowska-witkacy-glowa.webp?v=1",s:"img/pawlikowska-witkacy-szczeka.webp?v=1",ar:"720/850",jaw:[26.944,59.765,28.194],open:26,cap:"1891–1945 · portret pędzla Witkacego, 1924"},
+  beret:{g:"img/pawlikowska-beret-glowa.webp?v=1",s:"img/pawlikowska-beret-szczeka.webp?v=1",ar:"720/992",jaw:[52.5,68.851,19.722],open:40,cap:"1891–1945 · fotografia, 1933"},
+  profil:{g:"img/pawlikowska-profil-glowa.webp?v=1",s:"img/pawlikowska-profil-szczeka.webp?v=1",ar:"720/721",jaw:[20.694,63.523,18.75],open:38,cap:"1891–1945 · rysunek Wojciecha Kossaka, 1939"}
+};
+Object.values(PORT).forEach(x=>{[x.g,x.s].forEach(u=>{const i=new Image();i.src=u;});});
+const T_ART=/miłoś|kocha|serc|łz|płacz|smut|tęskn|rozsta|pocałun|całow|usta|warg|żal|śmier|umier|szczęś|czeka|samotn/;
+const T_META=/kobiet|mężczy|mąż|męż|żon|małżeń|moda|sukni|miast|paryż|dancing|taniec|tańcz|samolot|aeroplan|wojn|bomb|kino|telefon|nowocze|staroś|lat |młodoś/;
+const T_PEOPLE=/kwiat|róż|bz|ogród|las|drzew|morz|fal|niebo|ptak|motyl|deszcz|wiosn|jesie|zim|lato|lata|księżyc|gwiazd|słońc|chmur|wiatr|ziemi|przyrod/;
+let curP="witkacy", rot=0; const ROT=["profil","beret","witkacy"];
+function topic(q){ const t=" "+q.toLowerCase()+" "; if(T_ART.test(t)) return "witkacy"; if(T_META.test(t)) return "beret"; if(T_PEOPLE.test(t)) return "profil"; return ROT[(rot++)%ROT.length]; }
+function setPortrait(k){
+  if(k===curP) return Promise.resolve(); curP=k; const x=PORT[k];
+  const swap=()=>{ $("glowa").src=x.g; $("szczeka").src=x.s; head.style.aspectRatio=x.ar; head.style.setProperty("--open",x.open);
+    const j=$("szczeka").style; j.left=x.jaw[0]+"%"; j.top=x.jaw[1]+"%"; j.width=x.jaw[2]+"%"; $("plateSmall").textContent=x.cap; };
+  if(RM){ swap(); return Promise.resolve(); }
+  return new Promise(r=>{ const a=head.animate([{transform:"scaleX(1)"},{transform:"scaleX(.04) rotate(-3deg)"}],{duration:140,easing:"steps(3,end)",fill:"forwards"});
+    a.onfinish=()=>{ swap(); const b=head.animate([{transform:"scaleX(.04) rotate(3deg)"},{transform:"scaleX(1)"}],{duration:160,easing:"steps(3,end)",fill:"none"}); b.onfinish=()=>{a.cancel(); r();}; }; });
+}
+async function render(q){
+  const ws=words(q); let d=null;
+  while(lastIdx<lastPool.length){const r=lastPool[lastIdx++]; const x=rec(r.id); if(shown.has(x.meta.id)) continue; shown.add(x.meta.id); d=x; break;}
+  const old=$("more"); if(old) old.parentElement.remove();
+  if(!d){
+    thread.insertAdjacentHTML("beforeend",`<div class="bubble done"><blockquote>…</blockquote></div><div class="empty">Poetka milczy: w dostępnych tekstach nie pisała o tym wprost. Spróbuj innego słowa, na przykład „serce”, „kwiaty”, „morze” albo „mężczyzna”.</div>`);
+    head.classList.add("talk"); setTimeout(()=>head.classList.remove("talk"),500); return;
+  }
+  thread.insertAdjacentHTML("beforeend",`<div class="bubble"><blockquote></blockquote>${cite(d.meta)}</div>`);
+  const bubble=thread.lastElementChild; bubble.scrollIntoView({behavior:"smooth",block:"center"});
+  await speak(bubble,d.content,ws);
+  if(lastIdx<lastPool.length){ thread.insertAdjacentHTML("beforeend",`<div class="more"><button type="button" id="more">Niech powie coś jeszcze na ten temat</button></div>`); $("more").onclick=()=>render(lastQ); }
+}
+async function ask(q){
+  q=q.trim(); if(!q) return; finish(); status.textContent="Poetka przegląda swoje 734 fragmenty…";
+  const old=$("more"); if(old) old.parentElement.remove();
+  thread.insertAdjacentHTML("beforeend",`<div class="you">${esc(q)}</div>`);
+  await setPortrait(topic(q));
+  try{ lastQ=q; lastPool=await search(q); lastIdx=0; status.textContent=lastPool.length?`${lastPool.length} pasujących fragmentów · kliknij dymek, żeby nie czekać`:""; await render(q); }
+  catch(e){ status.textContent="Nie udało się wczytać indeksu (strona musi działać z serwera, nie z pliku)."; console.error(e); }
+  $("q").value="";
+}
+head.onclick=()=>{ const q=SUG[Math.floor(Math.random()*SUG.length)]; $("q").value=q; ask(q); };
+$("f").onsubmit=e=>{e.preventDefault();ask($("q").value)};
+const q0=new URLSearchParams(location.search).get("q"); if(q0){$("q").value=q0;ask(q0)}
+</script>
+<script>
+(function(){var d=new URLSearchParams(location.search).get("dla");
+if(d){document.getElementById("inst").classList.add("on");
+window.goatcounter={path:location.pathname+"?dla="+encodeURIComponent(d)};}})();
+</script>
+<script data-goatcounter="https://futureshow.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
