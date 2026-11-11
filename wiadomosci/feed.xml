@@ -9,7 +9,17 @@
   <itunes:author>FutureShow Studio</itunes:author>
   <itunes:explicit>false</itunes:explicit>
   <itunes:category text="News"/>
-  <lastBuildDate>Tue, 10 Nov 2026 18:30:00 +0100</lastBuildDate>
+  <lastBuildDate>Wed, 11 Nov 2026 06:30:00 +0100</lastBuildDate>
+  <item>
+    <title>Polska obchodzi 108. rocznicę niepodległości w cieniu zamachu w Krakowie</title>
+    <link>https://futureshow.pl/wiadomosci/2026-11-11-rano/</link>
+    <guid isPermaLink="true">https://futureshow.pl/wiadomosci/2026-11-11-rano/</guid>
+    <pubDate>Wed, 11 Nov 2026 06:30:00 +0100</pubDate>
+    <description>Święto niepodległości przypada cztery dni po zamachu na Rynku Głównym w Krakowie, w którym zginęło sześć osób. Tego samego dnia rząd odpowiada na pytania o cyberatak na ePUAP i o stałą bazę wojsk USA, a w Abu Zabi trwają rozmowy USA–Ukraina–Rosja.</description>
+    <enclosure url="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-11-rano.mp3" length="3645699" type="audio/mpeg"/>
+    <itunes:duration>407</itunes:duration>
+    <itunes:episodeType>full</itunes:episodeType>
+  </item>
   <item>
     <title>Izrael ma nowy parlament, a Netanjahu pierwszego od lat rywala z mandatem na rząd</title>
     <link>https://futureshow.pl/wiadomosci/2026-11-10-wieczor/</link>
