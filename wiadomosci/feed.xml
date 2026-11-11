@@ -9,7 +9,17 @@
   <itunes:author>FutureShow Studio</itunes:author>
   <itunes:explicit>false</itunes:explicit>
   <itunes:category text="News"/>
-  <lastBuildDate>Wed, 11 Nov 2026 06:30:00 +0100</lastBuildDate>
+  <lastBuildDate>Wed, 11 Nov 2026 18:30:00 +0100</lastBuildDate>
+  <item>
+    <title>Abu Zabi bez przełomu, a Kreml mówi wprost o nowej Jałcie i Poczdamie</title>
+    <link>https://futureshow.pl/wiadomosci/2026-11-11-wieczor/</link>
+    <guid isPermaLink="true">https://futureshow.pl/wiadomosci/2026-11-11-wieczor/</guid>
+    <pubDate>Wed, 11 Nov 2026 18:30:00 +0100</pubDate>
+    <description>Rozmowy USA, Ukrainy i Rosji w Abu Zabi zakończyły się 11 listopada bez porozumienia — poza przygotowaniami do wymiany jeńców. W czwartek wysłannicy Donalda Trumpa lecą do Moskwy, a rosyjski negocjator zapowiada, że „każdy cal” spornej ziemi wróci do Rosji. W Warszawie Marsz Niepodległości zgromadził według policji ćwierć miliona osób, a w Waszyngtonie Polska i USA podpisały deklarację intencji o współpracy przemysłów obronnych.</description>
+    <enclosure url="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-11-wieczor.mp3" length="3899811" type="audio/mpeg"/>
+    <itunes:duration>436</itunes:duration>
+    <itunes:episodeType>full</itunes:episodeType>
+  </item>
   <item>
     <title>Polska obchodzi 108. rocznicę niepodległości w cieniu zamachu w Krakowie</title>
     <link>https://futureshow.pl/wiadomosci/2026-11-11-rano/</link>
