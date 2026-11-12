@@ -1,14 +1,14 @@
 {
- "id": "2026-11-12-rano",
- "title": "Zarząd Nvidii rozważa odwołanie swojego szefa, a Izrael i Iran podnoszą temperaturę przed możliwym atakiem",
- "label": "Wydanie poranne",
- "edition": "rano",
+ "id": "2026-11-12-wieczor",
+ "title": "Nvidia traci założyciela, a Ukraina oskarża USA o dławienie wojskowego internetu",
+ "label": "Wydanie wieczorne",
+ "edition": "wieczor",
  "date": "2026-11-12",
  "date_pl": "czwartek, 12 listopada 2026",
- "dur": "7:39",
- "secs": 459,
- "lead": "Zarząd Nvidii, do niedawna najcenniejszej spółki świata, rozważa odwołanie Jensena Huanga po doniesieniach o jego romansie z podwładną; kilka dni wcześniej Huang przyznał się do romansu z menedżerką, którą amerykański wywiad podejrzewa o pracę dla Chin. Izrael według doniesień przyspiesza przygotowania do ataku na Iran, a Teheran grozi uderzeniem w amerykańskie bazy, także w Europie, jeśli zostaną użyte do ataku na Iran.",
- "url": "https://futureshow.pl/wiadomosci/2026-11-12-rano/",
- "audio": "https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-12-rano.mp3",
- "generated": "2026-11-12T06:30:00+01:00"
+ "dur": "7:41",
+ "secs": 461,
+ "lead": "Dwie najważniejsze sprawy dnia dotyczą amerykańskich firm technologicznych. Ukraińscy urzędnicy podejrzewają, że Waszyngton celowo ogranicza wojskowy internet satelitarny Ukrainy w trakcie negocjacji pokojowych, a z Nvidii po aferze szpiegowskiej odchodzi jej współzałożyciel i wieloletni szef. W Polsce: zarzuty dla wiceministra spraw zagranicznych i druga tura roszczeń wobec tak zwanych neosędziów.",
+ "url": "https://futureshow.pl/wiadomosci/2026-11-12-wieczor/",
+ "audio": "https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-12-wieczor.mp3",
+ "generated": "2026-11-12T18:30:00+01:00"
 }

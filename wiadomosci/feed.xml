@@ -9,7 +9,17 @@
   <itunes:author>FutureShow Studio</itunes:author>
   <itunes:explicit>false</itunes:explicit>
   <itunes:category text="News"/>
-  <lastBuildDate>Thu, 12 Nov 2026 06:30:00 +0100</lastBuildDate>
+  <lastBuildDate>Thu, 12 Nov 2026 18:30:00 +0100</lastBuildDate>
+  <item>
+    <title>Nvidia traci założyciela, a Ukraina oskarża USA o dławienie wojskowego internetu</title>
+    <link>https://futureshow.pl/wiadomosci/2026-11-12-wieczor/</link>
+    <guid isPermaLink="true">https://futureshow.pl/wiadomosci/2026-11-12-wieczor/</guid>
+    <pubDate>Thu, 12 Nov 2026 18:30:00 +0100</pubDate>
+    <description>Dwie najważniejsze sprawy dnia dotyczą amerykańskich firm technologicznych. Ukraińscy urzędnicy podejrzewają, że Waszyngton celowo ogranicza wojskowy internet satelitarny Ukrainy w trakcie negocjacji pokojowych, a z Nvidii po aferze szpiegowskiej odchodzi jej współzałożyciel i wieloletni szef. W Polsce: zarzuty dla wiceministra spraw zagranicznych i druga tura roszczeń wobec tak zwanych neosędziów.</description>
+    <enclosure url="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-12-wieczor.mp3" length="4144899" type="audio/mpeg"/>
+    <itunes:duration>461</itunes:duration>
+    <itunes:episodeType>full</itunes:episodeType>
+  </item>
   <item>
     <title>Zarząd Nvidii rozważa odwołanie swojego szefa, a Izrael i Iran podnoszą temperaturę przed możliwym atakiem</title>
     <link>https://futureshow.pl/wiadomosci/2026-11-12-rano/</link>
