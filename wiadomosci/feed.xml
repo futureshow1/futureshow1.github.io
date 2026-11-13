@@ -9,7 +9,17 @@
   <itunes:author>FutureShow Studio</itunes:author>
   <itunes:explicit>false</itunes:explicit>
   <itunes:category text="News"/>
-  <lastBuildDate>Thu, 12 Nov 2026 18:30:00 +0100</lastBuildDate>
+  <lastBuildDate>Fri, 13 Nov 2026 06:30:00 +0100</lastBuildDate>
+  <item>
+    <title>Szef Nvidii odchodzi po skandalu, a Waszyngton przyspiesza prace nad kontrolą eksportu chipów</title>
+    <link>https://futureshow.pl/wiadomosci/2026-11-13-rano/</link>
+    <guid isPermaLink="true">https://futureshow.pl/wiadomosci/2026-11-13-rano/</guid>
+    <pubDate>Fri, 13 Nov 2026 06:30:00 +0100</pubDate>
+    <description>Jensen Huang zrezygnował w czwartek ze wszystkich stanowisk w Nvidii po ujawnieniu romansów, w tym z menedżerką, którą „New York Times” podejrzewa o współpracę z chińskim wywiadem. Wartość firmy spadła w pięć dni o około 550 mld dolarów, a w Kongresie leżą już trzy projekty ustaw zaostrzających kontrolę eksportu chipów. Po rozmowach w Moskwie wysłannik Donalda Trumpa ogłosił, że Rosja i Ukraina zgodziły się dopuścić Europę do negocjacji, ale Unia wciąż nie wie, kto ma za nią mówić.</description>
+    <enclosure url="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-13-rano.mp3" length="3624243" type="audio/mpeg"/>
+    <itunes:duration>403</itunes:duration>
+    <itunes:episodeType>full</itunes:episodeType>
+  </item>
   <item>
     <title>Nvidia traci założyciela, a Ukraina oskarża USA o dławienie wojskowego internetu</title>
     <link>https://futureshow.pl/wiadomosci/2026-11-12-wieczor/</link>
