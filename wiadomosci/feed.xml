@@ -9,7 +9,17 @@
   <itunes:author>FutureShow Studio</itunes:author>
   <itunes:explicit>false</itunes:explicit>
   <itunes:category text="News"/>
-  <lastBuildDate>Fri, 13 Nov 2026 06:30:00 +0100</lastBuildDate>
+  <lastBuildDate>Fri, 13 Nov 2026 18:30:00 +0100</lastBuildDate>
+  <item>
+    <title>Awaria Microsoftu i weto prezydenta pokazują, że sieć jest dziś polityką</title>
+    <link>https://futureshow.pl/wiadomosci/2026-11-13-wieczor/</link>
+    <guid isPermaLink="true">https://futureshow.pl/wiadomosci/2026-11-13-wieczor/</guid>
+    <pubDate>Fri, 13 Nov 2026 18:30:00 +0100</pubDate>
+    <description>Trwająca od czwartku awaria usług Microsoftu zakłóciła pracę urzędów i szpitali w wielu krajach, a prezydent Polski Karol Nawrocki zawetował ustawę o blokowaniu nielegalnych treści w internecie.</description>
+    <enclosure url="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-13-wieczor.mp3" length="3782691" type="audio/mpeg"/>
+    <itunes:duration>421</itunes:duration>
+    <itunes:episodeType>full</itunes:episodeType>
+  </item>
   <item>
     <title>Szef Nvidii odchodzi po skandalu, a Waszyngton przyspiesza prace nad kontrolą eksportu chipów</title>
     <link>https://futureshow.pl/wiadomosci/2026-11-13-rano/</link>

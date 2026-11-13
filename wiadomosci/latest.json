@@ -1,14 +1,14 @@
 {
- "id": "2026-11-13-rano",
- "title": "Szef Nvidii odchodzi po skandalu, a Waszyngton przyspiesza prace nad kontrolą eksportu chipów",
- "label": "Wydanie poranne",
- "edition": "rano",
+ "id": "2026-11-13-wieczor",
+ "title": "Awaria Microsoftu i weto prezydenta pokazują, że sieć jest dziś polityką",
+ "label": "Wydanie wieczorne",
+ "edition": "wieczor",
  "date": "2026-11-13",
  "date_pl": "piątek, 13 listopada 2026",
- "dur": "6:43",
- "secs": 403,
- "lead": "Jensen Huang zrezygnował w czwartek ze wszystkich stanowisk w Nvidii po ujawnieniu romansów, w tym z menedżerką, którą „New York Times” podejrzewa o współpracę z chińskim wywiadem. Wartość firmy spadła w pięć dni o około 550 mld dolarów, a w Kongresie leżą już trzy projekty ustaw zaostrzających kontrolę eksportu chipów. Po rozmowach w Moskwie wysłannik Donalda Trumpa ogłosił, że Rosja i Ukraina zgodziły się dopuścić Europę do negocjacji, ale Unia wciąż nie wie, kto ma za nią mówić.",
- "url": "https://futureshow.pl/wiadomosci/2026-11-13-rano/",
- "audio": "https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-13-rano.mp3",
- "generated": "2026-11-13T06:30:00+01:00"
+ "dur": "7:01",
+ "secs": 421,
+ "lead": "Trwająca od czwartku awaria usług Microsoftu zakłóciła pracę urzędów i szpitali w wielu krajach, a prezydent Polski Karol Nawrocki zawetował ustawę o blokowaniu nielegalnych treści w internecie.",
+ "url": "https://futureshow.pl/wiadomosci/2026-11-13-wieczor/",
+ "audio": "https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-13-wieczor.mp3",
+ "generated": "2026-11-13T18:30:00+01:00"
 }
