@@ -9,7 +9,17 @@
   <itunes:author>FutureShow Studio</itunes:author>
   <itunes:explicit>false</itunes:explicit>
   <itunes:category text="News"/>
-  <lastBuildDate>Sat, 14 Nov 2026 06:30:00 +0100</lastBuildDate>
+  <lastBuildDate>Sat, 14 Nov 2026 18:30:00 +0100</lastBuildDate>
+  <item>
+    <title>Trump, Putin i Xi siądą do jednego stołu w Shenzhen, a Waszyngton po raz pierwszy pyta Kijów o Donbas</title>
+    <link>https://futureshow.pl/wiadomosci/2026-11-14-wieczor/</link>
+    <guid isPermaLink="true">https://futureshow.pl/wiadomosci/2026-11-14-wieczor/</guid>
+    <pubDate>Sat, 14 Nov 2026 18:30:00 +0100</pubDate>
+    <description>Biały Dom i Kreml potwierdziły pierwsze w historii trójstronne spotkanie przywódców USA, Rosji i Chin, zaplanowane na 19 listopada w Shenzhen. Według Wołodymyra Zełenskiego Amerykanie po raz pierwszy zapytali Ukrainę, czy odda Donbas za członkostwo w NATO, a w Polsce prezydent znów zawetował przepisy o platformach internetowych.</description>
+    <enclosure url="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-14-wieczor.mp3" length="3228507" type="audio/mpeg"/>
+    <itunes:duration>358</itunes:duration>
+    <itunes:episodeType>full</itunes:episodeType>
+  </item>
   <item>
     <title>Dwa systemy, na których stoi amerykańska gospodarka, padły tego samego dnia</title>
     <link>https://futureshow.pl/wiadomosci/2026-11-14-rano/</link>

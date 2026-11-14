@@ -1,14 +1,14 @@
 {
- "id": "2026-11-14-rano",
- "title": "Dwa systemy, na których stoi amerykańska gospodarka, padły tego samego dnia",
- "label": "Wydanie poranne",
- "edition": "rano",
+ "id": "2026-11-14-wieczor",
+ "title": "Trump, Putin i Xi siądą do jednego stołu w Shenzhen, a Waszyngton po raz pierwszy pyta Kijów o Donbas",
+ "label": "Wydanie wieczorne",
+ "edition": "wieczor",
  "date": "2026-11-14",
  "date_pl": "sobota, 14 listopada 2026",
- "dur": "6:49",
- "secs": 409,
- "lead": "W piątek 13 listopada w ciągu kilku godzin padły dwa systemy, na których stoi amerykańska gospodarka: kontrola ruchu lotniczego i chmura Microsoftu. Tego samego dnia rynek stracił szefa Nvidii, a Biały Dom potwierdził pierwszy trójstronny szczyt Donalda Trumpa, Xi Jinpinga i Władimira Putina.",
- "url": "https://futureshow.pl/wiadomosci/2026-11-14-rano/",
- "audio": "https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-14-rano.mp3",
- "generated": "2026-11-14T06:30:00+01:00"
+ "dur": "5:58",
+ "secs": 358,
+ "lead": "Biały Dom i Kreml potwierdziły pierwsze w historii trójstronne spotkanie przywódców USA, Rosji i Chin, zaplanowane na 19 listopada w Shenzhen. Według Wołodymyra Zełenskiego Amerykanie po raz pierwszy zapytali Ukrainę, czy odda Donbas za członkostwo w NATO, a w Polsce prezydent znów zawetował przepisy o platformach internetowych.",
+ "url": "https://futureshow.pl/wiadomosci/2026-11-14-wieczor/",
+ "audio": "https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-14-wieczor.mp3",
+ "generated": "2026-11-14T18:30:00+01:00"
 }
