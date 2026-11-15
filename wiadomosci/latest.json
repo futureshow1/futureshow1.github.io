@@ -1,14 +1,14 @@
 {
- "id": "2026-11-15-rano",
- "title": "Prezydent wetuje cyfrowe prawo, a Waszyngton pyta Kijów o Donbas",
- "label": "Wydanie poranne",
- "edition": "rano",
+ "id": "2026-11-15-wieczor",
+ "title": "Drugi atak na amerykańską bazę w Bahrajnie kruszy porozumienie z Iranem",
+ "label": "Wydanie wieczorne",
+ "edition": "wieczor",
  "date": "2026-11-15",
  "date_pl": "niedziela, 15 listopada 2026",
- "dur": "6:07",
- "secs": 367,
- "lead": "Prezydent Karol Nawrocki zawetował ustawę, która miała wdrożyć unijny Akt o usługach cyfrowych, i po raz drugi zatrzymał krajowe reguły wobec wielkich platform. W tym samym czasie Waszyngton po raz pierwszy zapytał Kijów, czy wycofałby się z Donbasu w zamian za członkostwo w NATO, a agencja Bloomberg podała, że Pentagon łagodzi plany cięć wojsk w Europie.",
- "url": "https://futureshow.pl/wiadomosci/2026-11-15-rano/",
- "audio": "https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-15-rano.mp3",
- "generated": "2026-11-15T06:30:00+01:00"
+ "dur": "8:33",
+ "secs": 513,
+ "lead": "Iran po raz drugi w trzy dni uderzył dronami w amerykańską bazę w Bahrajnie, a rozmowy z Waszyngtonem stoją w miejscu. To najpoważniejszy sygnał, że czerwcowe porozumienie o zawieszeniu ognia się kruszy, a stawka jest wysoka, bo przez Cieśninę Ormuz płynie około jednej piątej światowej ropy i gazu. W wydaniu też sabotaż w Estonii, spór o liczby po zamachu w Krakowie i koreańskie oszustwo egzaminacyjne.",
+ "url": "https://futureshow.pl/wiadomosci/2026-11-15-wieczor/",
+ "audio": "https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-15-wieczor.mp3",
+ "generated": "2026-11-15T18:30:00+01:00"
 }

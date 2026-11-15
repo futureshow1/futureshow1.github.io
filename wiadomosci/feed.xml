@@ -9,7 +9,17 @@
   <itunes:author>FutureShow Studio</itunes:author>
   <itunes:explicit>false</itunes:explicit>
   <itunes:category text="News"/>
-  <lastBuildDate>Sun, 15 Nov 2026 06:30:00 +0100</lastBuildDate>
+  <lastBuildDate>Sun, 15 Nov 2026 18:30:00 +0100</lastBuildDate>
+  <item>
+    <title>Drugi atak na amerykańską bazę w Bahrajnie kruszy porozumienie z Iranem</title>
+    <link>https://futureshow.pl/wiadomosci/2026-11-15-wieczor/</link>
+    <guid isPermaLink="true">https://futureshow.pl/wiadomosci/2026-11-15-wieczor/</guid>
+    <pubDate>Sun, 15 Nov 2026 18:30:00 +0100</pubDate>
+    <description>Iran po raz drugi w trzy dni uderzył dronami w amerykańską bazę w Bahrajnie, a rozmowy z Waszyngtonem stoją w miejscu. To najpoważniejszy sygnał, że czerwcowe porozumienie o zawieszeniu ognia się kruszy, a stawka jest wysoka, bo przez Cieśninę Ormuz płynie około jednej piątej światowej ropy i gazu. W wydaniu też sabotaż w Estonii, spór o liczby po zamachu w Krakowie i koreańskie oszustwo egzaminacyjne.</description>
+    <enclosure url="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-15-wieczor.mp3" length="4622115" type="audio/mpeg"/>
+    <itunes:duration>513</itunes:duration>
+    <itunes:episodeType>full</itunes:episodeType>
+  </item>
   <item>
     <title>Prezydent wetuje cyfrowe prawo, a Waszyngton pyta Kijów o Donbas</title>
     <link>https://futureshow.pl/wiadomosci/2026-11-15-rano/</link>
