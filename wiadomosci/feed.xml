@@ -9,7 +9,17 @@
   <itunes:author>FutureShow Studio</itunes:author>
   <itunes:explicit>false</itunes:explicit>
   <itunes:category text="News"/>
-  <lastBuildDate>Sat, 14 Nov 2026 18:30:00 +0100</lastBuildDate>
+  <lastBuildDate>Sun, 15 Nov 2026 06:30:00 +0100</lastBuildDate>
+  <item>
+    <title>Prezydent wetuje cyfrowe prawo, a Waszyngton pyta Kijów o Donbas</title>
+    <link>https://futureshow.pl/wiadomosci/2026-11-15-rano/</link>
+    <guid isPermaLink="true">https://futureshow.pl/wiadomosci/2026-11-15-rano/</guid>
+    <pubDate>Sun, 15 Nov 2026 06:30:00 +0100</pubDate>
+    <description>Prezydent Karol Nawrocki zawetował ustawę, która miała wdrożyć unijny Akt o usługach cyfrowych, i po raz drugi zatrzymał krajowe reguły wobec wielkich platform. W tym samym czasie Waszyngton po raz pierwszy zapytał Kijów, czy wycofałby się z Donbasu w zamian za członkostwo w NATO, a agencja Bloomberg podała, że Pentagon łagodzi plany cięć wojsk w Europie.</description>
+    <enclosure url="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-15-rano.mp3" length="3307419" type="audio/mpeg"/>
+    <itunes:duration>367</itunes:duration>
+    <itunes:episodeType>full</itunes:episodeType>
+  </item>
   <item>
     <title>Trump, Putin i Xi siądą do jednego stołu w Shenzhen, a Waszyngton po raz pierwszy pyta Kijów o Donbas</title>
     <link>https://futureshow.pl/wiadomosci/2026-11-14-wieczor/</link>
