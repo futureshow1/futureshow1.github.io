@@ -647,13 +647,15 @@ function copyLink(frag){const url=location.origin+location.pathname+frag;if(navi
 
 /* ============ ODTWARZACZ CIĄGŁY (YouTube + Bandcamp) ============ */
 const PLAYER=document.getElementById('player');
-let queue=[],qi=0,shuffleOn=false,ytPlayer=null,apiReady=false,pendingPlay=false;
+let queue=[],qi=0,shuffleOn=false,ytPlayer=null,apiReady=false,pendingPlay=false,apiFail=false,apiTimer=null;
 let contOn=true;try{contOn=localStorage.getItem('ind-cont')!=='0';}catch(e){}
 function loadYTAPI(){
   if(window.YT&&window.YT.Player){apiReady=true;return;}
   if(document.getElementById('ytapi'))return;
-  window.onYouTubeIframeAPIReady=function(){apiReady=true;if(pendingPlay){pendingPlay=false;playCurrent();}};
-  const sc=document.createElement('script');sc.id='ytapi';sc.src='https://www.youtube.com/iframe_api';document.head.appendChild(sc);
+  window.onYouTubeIframeAPIReady=function(){apiReady=true;apiFail=false;clearTimeout(apiTimer);if(pendingPlay){pendingPlay=false;playCurrent();}};
+  const fail=()=>{if(apiReady)return;apiFail=true;if(pendingPlay){pendingPlay=false;playCurrent();}};
+  apiTimer=setTimeout(fail,3500);
+  const sc=document.createElement('script');sc.id='ytapi';sc.src='https://www.youtube.com/iframe_api';sc.onerror=fail;document.head.appendChild(sc);
 }
 function buildQueue(){return [...document.querySelectorAll('.acard')].filter(c=>c.style.display!=='none'&&(c.dataset.yt||c.dataset.bc)).map(c=>c.dataset.k);}
 function playerLabels(){
@@ -682,6 +684,7 @@ function playCurrent(){
     host.innerHTML=`<iframe src="${bcSrc(a.bc,PLAYER.classList.contains('big')?'large':'small')}" seamless></iframe>`;return;
   }
   host.classList.remove('bc');document.getElementById('pl-prog').style.visibility='';document.getElementById('pl-fs').style.display='';
+  if(!apiReady&&apiFail){killYT();host.innerHTML=`<iframe src="https://www.youtube.com/embed/${a.yt}?autoplay=1&rel=0&fs=1&playsinline=1" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>`;document.getElementById('pl-prog').style.visibility='hidden';return;}
   if(!apiReady){pendingPlay=true;loadYTAPI();return;}
   if(ytPlayer&&ytPlayer.loadVideoById){ytPlayer.loadVideoById(a.yt);return;}
   host.innerHTML='<div id="pl-frame"></div>';
