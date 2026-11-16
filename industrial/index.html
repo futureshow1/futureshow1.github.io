@@ -88,6 +88,10 @@ h3.sub{font-family:var(--head);font-weight:700;font-size:clamp(1.3rem,3vw,1.8rem
 .adesc{font-size:.83rem;color:var(--cream-dim);font-weight:300;line-height:1.5;flex:1}
 .apol{font-family:var(--mono);font-size:.7rem;color:var(--cream-dim);border-left:2px solid var(--red);padding-left:.55rem;line-height:1.4}
 .apol b{color:var(--cream);font-weight:500}
+.apol .srow{display:block;margin-top:.25rem}
+.srcl{font:inherit;color:var(--gold);background:none;border:0;border-bottom:1px solid rgba(232,183,26,.4);padding:0;cursor:pointer;text-decoration:none;text-align:left}
+.srcl:hover{color:var(--cream);border-bottom-color:var(--cream)}
+.srcn{color:var(--cream-dim)}
 .alisten{margin-top:.3rem;font-family:var(--mono);font-size:.72rem;color:var(--red);letter-spacing:.08em}
 .alisten.bc{color:#62b0c4}
 .star{color:var(--gold);font-size:.7rem;font-family:var(--mono);letter-spacing:.05em}
@@ -148,7 +152,7 @@ section.film-era h2{font-size:clamp(1.4rem,3.4vw,2rem);color:var(--cream)}
 /* MODAL */
 .modal{position:fixed;inset:0;z-index:200;background:rgba(8,8,7,.95);display:none;align-items:center;justify-content:center;padding:2rem}
 .modal.open{display:flex}
-.modal-box{width:min(1000px,100%);position:relative}
+.modal-box{width:min(1400px,100%,calc((100vh - 9rem)*16/9));position:relative}
 .modal-frame{aspect-ratio:16/9;width:100%;background:#000;border-radius:4px;overflow:hidden;box-shadow:0 20px 80px rgba(0,0,0,.7)}
 .modal-frame.bcf{aspect-ratio:auto;height:min(560px,75vh);max-width:700px;margin:0 auto;background:var(--bg2)}
 .modal-frame iframe{width:100%;height:100%;border:0}
@@ -196,7 +200,9 @@ footer .fx{font-family:var(--head);font-weight:900;font-size:1.2rem;letter-spaci
 .pl-video{position:relative;width:128px;aspect-ratio:16/9;background:#000;border-radius:3px;overflow:hidden;cursor:pointer;flex:none;transition:width .25s}
 .pl-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .pl-video.bc{width:340px;aspect-ratio:auto;height:120px;cursor:default}
-#player.big .pl-video:not(.bc){width:min(480px,60vw)}
+#player.big .pl-bar{grid-template-columns:minmax(0,1fr) auto}
+#player.big .pl-video:not(.bc){grid-column:1/-1;width:min(1100px,100%,calc((100vh - var(--navh) - 9rem)*16/9));margin:0 auto;cursor:default}
+.pl-video:fullscreen{width:100%!important;height:100%;border-radius:0}
 .pl-meta{min-width:0}
 .pl-kicker{font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;color:var(--gold);text-transform:uppercase}
 .pl-title{font-size:.95rem;font-weight:700;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -397,6 +403,8 @@ header>*:not(.hslides){position:relative;z-index:2}
       <button class="pl-btn" id="pl-prev">◀<span class="pl-prev-txt"> <span data-i18n="pl.prevshort">POPRZ.</span></span></button>
       <button class="pl-btn pp" id="pl-pp">❚❚</button>
       <button class="pl-btn" id="pl-next"><span class="pl-next-txt"><span data-i18n="pl.nextshort">NAST.</span> </span>▶</button>
+      <button class="pl-btn" id="pl-big">⤢ DUŻE</button>
+      <button class="pl-btn" id="pl-fs" data-i18n="pl.fs">⛶ PEŁNY EKRAN</button>
       <button class="pl-btn" id="pl-cont" data-i18n="pl.cont">CIĄGŁE</button>
       <button class="pl-btn" id="pl-shuf" data-i18n="pl.shuffle">LOSOWO</button>
       <button class="pl-x" id="pl-close">✕</button>
@@ -457,7 +465,7 @@ const T={
   'lib.title':'Biblioteka','lib.desc':'Książki, pisma i serwisy, na których opiera się kanon: od podręcznika RE/Search z 1983 roku po polskie „Glissando”, „Dwutygodnik” i „Meakulturę”.',
   'lib.more':'więcej ↗',
   'modal.yt':'otwórz na YouTube ↗','modal.bc':'otwórz w Bandcampie ↗','modal.close':'zamknij ✕','modal.share':'🔗 kopiuj link',
-  'card.album':'▶ SŁUCHAJ PŁYTY','card.track':'▶ UTWÓR Z PŁYTY','card.other':'▶ NAGRANIE WYKONAWCY','card.bc':'▶ BANDCAMP','card.search':'SZUKAJ NA YOUTUBE ↗',
+  'card.album':'▶ SŁUCHAJ PŁYTY','card.track':'▶ UTWÓR Z PŁYTY','card.other':'▶ NAGRANIE WYKONAWCY','card.bc':'▶ BANDCAMP','card.search':'SZUKAJ NA YOUTUBE ↗','card.ext':'↗ SŁUCHAJ NA YOUTUBE','src.listen':'Posłuchaj audycji','src.read':'Przeczytaj tekst','pl.big':'⤢ DUŻE','pl.small':'⤡ MAŁE','pl.fs':'⛶ PEŁNY EKRAN',
   'card.star':'★ OD TEGO ZACZNIJ','card.must':'★ WARTO ZACZĄĆ','card.pol':'Mówi o niej','card.pols':'Mówią o niej','card.plink':'Kopiuj link do płyty',
   'typ.dokument':'dokument','typ.archiwum':'archiwum','typ.wyklad':'rozmowa / wykład',
   'pl.kicker':'Słuchasz ciągiem','pl.prevshort':'POPRZ.','pl.nextshort':'NAST.','pl.cont':'CIĄGŁE','pl.shuffle':'LOSOWO','pl.bcnote':'Bandcamp: następna płyta po kliknięciu NAST.',
@@ -486,7 +494,7 @@ const T={
   'lib.title':'Library','lib.desc':'The books, magazines and sites the canon rests on: from the 1983 RE/Search handbook to the Polish magazines Glissando, Dwutygodnik and Meakultura.',
   'lib.more':'more ↗',
   'modal.yt':'open on YouTube ↗','modal.bc':'open on Bandcamp ↗','modal.close':'close ✕','modal.share':'🔗 copy link',
-  'card.album':'▶ PLAY THE ALBUM','card.track':'▶ TRACK FROM THE ALBUM','card.other':'▶ ARTIST RECORDING','card.bc':'▶ BANDCAMP','card.search':'SEARCH ON YOUTUBE ↗',
+  'card.album':'▶ PLAY THE ALBUM','card.track':'▶ TRACK FROM THE ALBUM','card.other':'▶ ARTIST RECORDING','card.bc':'▶ BANDCAMP','card.search':'SEARCH ON YOUTUBE ↗','card.ext':'↗ LISTEN ON YOUTUBE','src.listen':'Listen to the programme','src.read':'Read the text','pl.big':'⤢ LARGE','pl.small':'⤡ SMALL','pl.fs':'⛶ FULL SCREEN',
   'card.star':'★ START HERE','card.must':'★ GOOD START','card.pol':'Discussed by','card.pols':'Discussed by','card.plink':'Copy link to this record',
   'typ.dokument':'documentary','typ.archiwum':'archival','typ.wyklad':'talk / lecture',
   'pl.kicker':'Playing all','pl.prevshort':'PREV','pl.nextshort':'NEXT','pl.cont':'CONTINUOUS','pl.shuffle':'SHUFFLE','pl.bcnote':'Bandcamp: press NEXT for the next record.',
@@ -521,8 +529,17 @@ function buildSections(){
 function coverErr(img,yt){img.onerror=null;if(yt){img.src='https://i.ytimg.com/vi/'+yt+'/hqdefault.jpg';}else{img.closest('.cover').classList.add('noimg');img.remove();}}
 function listenLabel(a){
   if(a.rt==='bc')return `<div class="alisten bc">${t('card.bc')}</div>`;
+  if(a.rt==='ext')return `<div class="alisten">${t('card.ext')}</div>`;
   if(a.yt)return `<div class="alisten">${t('card.'+(a.rt||'album'))}</div>`;
   return `<div class="alisten" style="color:var(--cream-dim)">${t('card.search')}</div>`;
+}
+function srcHtml(a){
+  const G=[];const by={};
+  (a.src||a.pol.map(p=>[p,'brak','',''])).forEach(([p,k,tg,l])=>{const key=k+'|'+tg+'|'+l;if(!by[key]){by[key]={k,tg,l,who:[]};G.push(by[key]);}by[key].who.push(POLNAME[p]||p);});
+  return G.map(g=>{const who=`<b>${g.who.join(', ')}</b>`;
+    if(g.k==='yt')return `<span class="srow">${who} <button class="srcl" data-syt="${g.tg}" data-sl="${encodeURIComponent(g.l)}" title="${t('src.listen')}">▶ ${g.l}</button></span>`;
+    if(g.k==='url')return `<span class="srow">${who} <a class="srcl" href="${g.tg}" target="_blank" rel="noopener" title="${t('src.read')}">${g.l} ↗</a></span>`;
+    return `<span class="srow">${who}${g.l?` <span class="srcn">${EN()&&g.l==='wpisy na Facebooku'?'Facebook posts':g.l}</span>`:''}</span>`;}).join('');
 }
 function acard(a){
   const n=NBY[a.n];const pl=a.n==='PL';
@@ -530,10 +547,10 @@ function acard(a){
   const src=a.cover?`covers/${a.k}.jpg`:(a.yt?`https://i.ytimg.com/vi/${a.yt}/hqdefault.jpg`:'');
   const img=src?`<img loading="lazy" src="${src}" onerror="coverErr(this,'${a.yt||''}')" alt="${a.a} — ${a.t}">`:'';
   const desc=(EN()&&a.desc_en)?a.desc_en:(a.desc||'');
-  const pol=a.pol?`<div class="apol">${a.pol.length>1?t('card.pols'):t('card.pol')}: <b>${a.pol.map(p=>POLNAME[p]||p).join(', ')}</b></div>`:'';
+  const pol=a.pol?`<div class="apol">${a.pol.length>1?t('card.pols'):t('card.pol')}:${srcHtml(a)}</div>`:'';
   const meta=[a.y,a.c,a.label].filter(Boolean).join(' · ');
   const hay=norm(`${a.a} ${a.t} ${a.y} ${n.short} ${n.short_en} ${a.c} ${a.label||''} ${(a.pol||[]).map(p=>POLNAME[p]||p).join(' ')}`);
-  return `<article class="acard" id="a-${a.k}" data-k="${a.k}" data-yt="${a.yt||''}" data-bc="${a.bc||''}" data-star="${a.star?1:0}" data-pol="${a.pol?1:0}" data-pl="${pl?1:0}" data-hay="${hay}" data-q="${encodeURIComponent(a.a+' '+a.t)}">
+  return `<article class="acard" id="a-${a.k}" data-k="${a.k}" data-yt="${a.rt==='ext'?'':(a.yt||'')}" data-bc="${a.bc||''}" data-star="${a.star?1:0}" data-pol="${a.pol?1:0}" data-pl="${pl?1:0}" data-hay="${hay}" data-q="${encodeURIComponent(a.a+' '+a.t)}">
     <div class="cover${img?'':' noimg'}">${img}${badge}
       <button class="plink" title="${t('card.plink')}">#</button>
       <span class="wtip"><b>${a.t}</b><span>${a.a} · ${a.y}</span></span>
@@ -605,7 +622,7 @@ function openModal(html,title,link,linkLabel,share,isBc){
   frame.classList.toggle('bcf',!!isBc);frame.innerHTML=html;mtitle.textContent=title;
   myt.href=link;myt.textContent=linkLabel;modal.classList.add('open');document.body.style.overflow='hidden';curShare=share;
 }
-function openVideo(id,title){openModal(`<iframe src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`,title,`https://www.youtube.com/watch?v=${id}`,t('modal.yt'),'#film='+id);try{history.replaceState(null,'','#film='+id)}catch(e){}}
+function openVideo(id,title){openModal(`<iframe src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>`,title,`https://www.youtube.com/watch?v=${id}`,t('modal.yt'),'#film='+id);try{history.replaceState(null,'','#film='+id)}catch(e){}}
 function openBandcamp(a){openModal(`<iframe src="${bcSrc(a.bc)}" seamless></iframe>`,`${a.a} — ${a.t}`,a.bcu,t('modal.bc'),'#a-'+a.k,true);}
 function closeModal(){modal.classList.remove('open');frame.innerHTML='';document.body.style.overflow='';curShare=null;if(location.hash.indexOf('#film=')===0){try{history.replaceState(null,'',location.pathname+location.search)}catch(e){}}}
 document.getElementById('modal-share').addEventListener('click',()=>{if(curShare)copyLink(curShare);});
@@ -631,6 +648,8 @@ function playerLabels(){
   document.getElementById('pl-shuf').classList.toggle('act',shuffleOn);
   document.getElementById('pl-cont').classList.toggle('act',contOn);
   const btn=document.getElementById('playall');const on=PLAYER.classList.contains('on');
+  document.getElementById('pl-big').textContent=PLAYER.classList.contains('big')?t('pl.small'):t('pl.big');
+  document.getElementById('pl-fs').style.display=document.getElementById('pl-video').classList.contains('bc')?'none':'';
   btn.classList.toggle('on',on);btn.querySelector('span').textContent=on?t('nav.stopall'):t('nav.playall');btn.title=t('nav.playtitle');
 }
 function renderNowPlaying(){
@@ -647,21 +666,21 @@ function playCurrent(){
   renderNowPlaying();
   const host=document.getElementById('pl-video');
   if(!a.yt&&a.bc){
-    killYT();host.classList.add('bc');document.getElementById('pl-prog').style.visibility='hidden';
+    killYT();host.classList.add('bc');setBig(false);document.getElementById('pl-fs').style.display='none';document.getElementById('pl-prog').style.visibility='hidden';
     host.innerHTML=`<iframe src="${bcSrc(a.bc,'small')}" seamless></iframe>`;return;
   }
-  host.classList.remove('bc');document.getElementById('pl-prog').style.visibility='';
+  host.classList.remove('bc');document.getElementById('pl-prog').style.visibility='';document.getElementById('pl-fs').style.display='';
   if(!apiReady){pendingPlay=true;loadYTAPI();return;}
   if(ytPlayer&&ytPlayer.loadVideoById){ytPlayer.loadVideoById(a.yt);return;}
   host.innerHTML='<div id="pl-frame"></div>';
-  ytPlayer=new YT.Player('pl-frame',{videoId:a.yt,playerVars:{autoplay:1,rel:0,playsinline:1},
+  ytPlayer=new YT.Player('pl-frame',{videoId:a.yt,playerVars:{autoplay:1,rel:0,playsinline:1,fs:1},
     events:{onReady:e=>e.target.playVideo(),onStateChange:e=>{if(e.data===YT.PlayerState.ENDED&&contOn)nextTrack();},onError:()=>nextTrack()}});
 }
 function nextTrack(){if(!queue.length)return;qi=shuffleOn?Math.floor(Math.random()*queue.length):(qi+1)%queue.length;playCurrent();}
 function prevTrack(){if(!queue.length)return;qi=(qi-1+queue.length)%queue.length;playCurrent();}
 function startQueue(fromKey){
   queue=buildQueue();if(!queue.length){toast(t('pl.empty'));return;}
-  qi=Math.max(0,queue.indexOf(fromKey));PLAYER.classList.add('on');PLAYER.classList.remove('big');playerLabels();loadYTAPI();playCurrent();
+  qi=Math.max(0,queue.indexOf(fromKey));PLAYER.classList.add('on');setBig(false);playerLabels();loadYTAPI();playCurrent();
 }
 function stopQueue(){PLAYER.classList.remove('on');killYT();pendingPlay=false;const h=document.getElementById('pl-video');h.innerHTML='';h.classList.remove('bc');document.querySelectorAll('.acard.playing').forEach(c=>c.classList.remove('playing'));playerLabels();}
 document.getElementById('playall').addEventListener('click',()=>{PLAYER.classList.contains('on')?stopQueue():startQueue();});
@@ -671,7 +690,10 @@ document.getElementById('pl-shuf').addEventListener('click',()=>{shuffleOn=!shuf
 document.getElementById('pl-cont').addEventListener('click',()=>{contOn=!contOn;try{localStorage.setItem('ind-cont',contOn?'1':'0');}catch(e){}playerLabels();});
 document.getElementById('pl-close').addEventListener('click',stopQueue);
 (function(){const nav=document.querySelector('nav');nav.insertAdjacentElement('afterend',PLAYER);const s=()=>document.documentElement.style.setProperty('--navh',nav.offsetHeight+'px');s();addEventListener('resize',s);})();
-document.getElementById('pl-video').addEventListener('click',e=>{if(!e.currentTarget.classList.contains('bc'))PLAYER.classList.toggle('big');});
+function setBig(on){PLAYER.classList.toggle('big',on);document.getElementById('pl-big').textContent=on?t('pl.small'):t('pl.big');}
+document.getElementById('pl-video').addEventListener('click',e=>{if(!e.currentTarget.classList.contains('bc')&&!PLAYER.classList.contains('big'))setBig(true);});
+document.getElementById('pl-big').addEventListener('click',()=>setBig(!PLAYER.classList.contains('big')));
+document.getElementById('pl-fs').addEventListener('click',()=>{const h=document.getElementById('pl-video');const f=h.requestFullscreen||h.webkitRequestFullscreen;if(document.fullscreenElement){document.exitFullscreen();}else if(f){f.call(h);}});
 document.getElementById('pl-pp').addEventListener('click',()=>{if(!ytPlayer||!ytPlayer.getPlayerState)return;ytPlayer.getPlayerState()===YT.PlayerState.PLAYING?ytPlayer.pauseVideo():ytPlayer.playVideo();});
 document.getElementById('pl-track').addEventListener('click',e=>{if(!ytPlayer||!ytPlayer.getDuration)return;const r=e.currentTarget.getBoundingClientRect();ytPlayer.seekTo((e.clientX-r.left)/r.width*ytPlayer.getDuration(),true);});
 const fmt=s=>{s=Math.max(0,Math.floor(s||0));return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')};
@@ -681,11 +703,14 @@ setInterval(()=>{if(!PLAYER.classList.contains('on')||!ytPlayer||!ytPlayer.getCu
 document.addEventListener('click',e=>{
   const pl=e.target.closest('.plink');
   if(pl){e.stopPropagation();copyLink('#a-'+pl.closest('.acard').dataset.k);return;}
+  const sl=e.target.closest('.srcl');
+  if(sl){e.stopPropagation();if(sl.dataset.syt){e.preventDefault();openVideo(sl.dataset.syt,decodeURIComponent(sl.dataset.sl));}return;}
   const ac=e.target.closest('.acard');
   if(ac){
     const a=byKey[ac.dataset.k];
+    if(a.rt==='ext'){window.open('https://www.youtube.com/watch?v='+a.yt,'_blank','noopener');return;}
     if(!a.yt&&!a.bc){window.open('https://www.youtube.com/results?search_query='+ac.dataset.q,'_blank');return;}
-    if(PLAYER.classList.contains('on')||contOn){startQueue(a.k);return;}
+    if(PLAYER.classList.contains('on')){const i=queue.indexOf(a.k);if(i>=0){qi=i;playCurrent();}else startQueue(a.k);return;}
     if(a.yt)openVideo(a.yt,`${a.a} — ${a.t}`);else openBandcamp(a);
     return;
   }
