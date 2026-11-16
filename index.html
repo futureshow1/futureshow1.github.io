@@ -527,6 +527,7 @@ const GALLERY={
  swidzinski:["swidzinski-1"],
  przyluski:["przyluski-1","przyluski-2","przyluski-4","przyluski-3"],
  klimat:["klimat-2","klimat-1","klimat-3"], psychedelic:["psychedelic-1"], pokedex:["pokedex-1","pokedex-2","pokedex-3"],
+ industrial:["industrial-2","industrial-1","industrial-4","industrial-3","industrial-5"],
  polskijazz:["polskijazz-9","polskijazz-10","polskijazz-11","polskijazz-12","polskijazz-1","polskijazz-3"],
  futureform:["futureform-1"], futurepilot:["futurepilot-1","futurepilot-2","futurepilot-3","futurepilot-4"], futuretalk:["futuretalk-2","futuretalk-5","futuretalk-3","futuretalk-6","futuretalk-4","futuretalk-1"], chamczyk:["chamczyk-1"], zem:["zem-1"], emfazy:["emfazy-1"]
 };
@@ -547,6 +548,7 @@ const CREDIT={
  mnemo:{pl:"ryciny: Ars magna Llulla · Ars memoriae Fludda, 1617 (domena publiczna)",en:"plates: Llull's Ars magna · Fludd's Ars memoriae, 1617 (public domain)"},
  mondrian:{pl:"obrazy: Piet Mondrian (domena publiczna)",en:"paintings: Piet Mondrian (public domain)"},
  sheldrake:{pl:"tablice: Ernst Haeckel, „Kunstformen der Natur”, 1904 (domena publiczna) · zrzut portalu",en:"plates: Ernst Haeckel, “Kunstformen der Natur”, 1904 (public domain) · portal screenshot"},
+ industrial:{pl:"mozaiki okładek z katalogu portalu · fot. Matthias Flodström (CC BY 3.0), Carsten Stiller (CC BY 2.0), Wojciech Pędzich (CC BY 4.0) — Wikimedia Commons",en:"cover mosaics from the portal catalogue · photos Matthias Flodström (CC BY 3.0), Carsten Stiller (CC BY 2.0), Wojciech Pędzich (CC BY 4.0), Wikimedia Commons"},
  polskijazz:{pl:"okładki: „Astigmatic” Komedy (Polskie Nagrania, proj. Rosław Szaybo), „Fusion III” Urbaniaka (Columbia), „Miłość” (Gowi), „Transit” Skalpela (Ninja Tune) · kolaże okładek z katalogu portalu",en:"covers: Komeda’s “Astigmatic” (Polskie Nagrania, design Rosław Szaybo), Urbaniak’s “Fusion III” (Columbia), “Miłość” (Gowi), Skalpel’s “Transit” (Ninja Tune) · cover collages from the portal catalogue"},
  klimat:{pl:"mapy: NASA GISS/Scientific Visualization Studio, NASA Earth Observatory (domena publiczna)",en:"maps: NASA GISS/Scientific Visualization Studio, NASA Earth Observatory (public domain)"},
  sectio:{pl:"zdjęcia: aloes spiralny, romanesco — domena publiczna · zrzuty portalu",en:"photos: spiral aloe, romanesco — public domain · portal screenshots"},
@@ -821,6 +823,14 @@ kind:"site", t:"Jan Przyłuski", kick:{pl:"Strona · autor",en:"Site · author"}
   d:{pl:"Dwujęzyczna baza wiedzy o Pokémonach: komplet 1025 stworzeń z dziewięciu generacji, 1530 kart TCG według rzadkości, historia gier i anime oraz gry poza ekranem. Nowość: rozszyfrowane symbole rzadkości ze złotymi i srebrnymi gwiazdkami, realne ceny i porównywarka dwóch kart. Plus tryb Trening — klucz do oznaczania jak w botanice, w którym cztery dobre pytania wystarczą, żeby z 1025 stworzeń zostało jedno.",
      en:"A bilingual Pokémon knowledge base: the complete 1,025 creatures across nine generations, 1,530 TCG cards by rarity, the history of the games and the anime, and the games played offline. New: the rarity symbols decoded — gold and silver stars explained — with real prices and a two-card comparator. Plus Training mode, a botanist's identification key where four good questions get you from 1,025 creatures down to one."},
   link:BASE+"pokedex/"},
+ industrial:{
+  t:"Industrial", kick:{pl:"Streaming · muzyka",en:"Streaming · music"}, badge:{pl:"NOWOŚĆ",en:"NEW"},
+  year:"2026", tag:{pl:"katalog płyt",en:"record catalogue"}, font:"disp",
+  pal:{bg:"#0d0d0c",ink:"#e6e2d6",acc:"#e8b71a"}, motif:"hazard",
+  stats:["248 płyt","85 z polskiej sceny","51 filmów i rozmów"],
+  d:{pl:"Historia muzyki industrialnej opowiedziana płytami: od Throbbing Gristle, SPK i Einstürzende Neubauten przez EBM, dark ambient i neofolk po nową falę. Osobna część o polskiej scenie, od Obuha i Księżyca po Zoharum i Zamilską, a do tego filmoteka dokumentów i rozmów oraz biblioteka.",
+     en:"The history of industrial music told through records: from Throbbing Gristle, SPK and Einstürzende Neubauten through EBM, dark ambient and neofolk to the new wave. A separate part on the Polish scene, from Obuh and Księżyc to Zoharum and Zamilska, plus a cinematheque of documentaries and interviews and a library."},
+  link:BASE+"industrial/", link_en:BASE+"industrial/?lang=en"},
  polskijazz:{
   t:"Polski Jazz", kick:{pl:"Streaming · muzyka",en:"Streaming · music"},
   year:"2026", tag:{pl:"katalog płyt",en:"record catalogue"}, font:"serif",
@@ -1034,7 +1044,7 @@ const T_EN = {v_yoshimoto:"Bacteria Called Butoh — Daisuke Yoshimoto", v_butoh
  futurepilot:"FuturePilot: learn to fly a drone", futureform:"FutureForm: your workout app", futuretalk:"FutureTalk: learn to speak well",
  schizogra:"Schizoanalysis: The Game", schizoraport:"Schizoanalysis: The Report",
  ghykakomp:"The Golden Number", switkowski:"Occultism and Magic (1939)",
- klimat:"Climate — an educational portal", polskijazz:"Polish Jazz", afery:"40 Polish Scandals",
+ klimat:"Climate — an educational portal", polskijazz:"Polish Jazz", industrial:"Industrial", afery:"40 Polish Scandals",
  aferymock:"40 Scandals: Covers", matrycamock:"Matryca: Covers", sheldrake:"Resonance",
  emfazy:"EMFAZY — archive",
  v_gniew:"Wrath (The Iliad)", v_emfazy:"Emfazy and Psychotronics", v_dzik:"The Legend of the Black Boar",
@@ -1059,7 +1069,7 @@ const STATS_EN = {
  sectio:["dodecahedron","7 chambers","badge system"], swidzinski:["contextual art","12-point manifesto","1923–2014"],
  ghykakomp:["Matila Ghyka","compendium","with appendices"], switkowski:["Świtkowski","1939","compendium"],
  klimat:["9 chapters","map of 239 countries","NASA · NOAA · GCB"], psychedelic:["7 substances","dose levels","2 versions"],
- pokedex:["1025 Pokémon","1332 TCG cards","PL · EN"], polskijazz:["210 records","Polish Jazz vol. 1–89","40 films"],
+ pokedex:["1025 Pokémon","1332 TCG cards","PL · EN"], polskijazz:["210 records","Polish Jazz vol. 1–89","40 films"], industrial:["248 records","85 from Poland","51 films and talks"],
  przyluski:["poet and playwright","1905–1980","London emigration"],
  aferymock:["second series","dashboard","work in progress"], matrycamock:["v3","proposals","behind the scenes"],
  janweb:["director","mediator","art historian"], futureform:["workout app","army fitness norms 1:1","free"],
@@ -1083,11 +1093,11 @@ const ss=p=>(LANG==="en"&&p.stats_en)?p.stats_en:(p.stats||[]);
 
 const ROWS = [
  {id:"r-new", t:{pl:"Nowości i aktualizacje",en:"New & updated"},
-  items:["wiadomosci","sejm","sluchowiska","kinonieme","futurepilot","klimat","futuretalk","futureform","matryca","polskijazz","pokedex","cardiosim"]},
+  items:["wiadomosci","industrial","sejm","sluchowiska","kinonieme","futurepilot","klimat","futuretalk","futureform","matryca","polskijazz","pokedex","cardiosim"]},
  {id:"r-know", t:{pl:"Portale wiedzy — czytaj, klikaj, sprawdzaj się",en:"Knowledge portals — read, explore, test yourself"},
   items:["klimat","hinton","pokedex","sheldrake","mondrian","swidzinski","switkowski","ghykakomp","przyluski"]},
- {id:"r-film", t:{pl:"Streaming — kino, animacja, dobranocki, jazz",en:"Streaming — cinema, animation, cartoons, jazz"},
-  items:["kinonieme","sluchowiska","awangarda","historia","dobranocki","polskijazz"]},
+ {id:"r-film", t:{pl:"Streaming — kino, animacja, dobranocki, jazz, industrial",en:"Streaming — cinema, animation, cartoons, jazz, industrial"},
+  items:["kinonieme","sluchowiska","awangarda","historia","dobranocki","polskijazz","industrial"]},
  {id:"r-data", t:{pl:"Śledztwa i dane",en:"Investigations & data"},
   items:["matryca","afery","panama","cambridge","sejm","oilgas"]},
  {id:"r-sim", t:{pl:"Symulatory",en:"Simulators"},
@@ -1106,7 +1116,7 @@ const ROWS = [
 
 /* kolejność ustalona ręcznie przez Jana (5.10): najpierw nowości, potem przemieszane rodzaje */
 /* kolejność ustalona ręcznie (19.10): dzień premiery Sejm Symulatora — otwiera slideshow */
-const FEATURED = ["sejm", "awangarda", "sluchowiska", "hinton", "kinonieme", "pokedex", "futurepilot", "historia", "klimat",
+const FEATURED = ["industrial", "sejm", "awangarda", "sluchowiska", "hinton", "kinonieme", "pokedex", "futurepilot", "historia", "klimat",
                   "dobranocki", "sectio", "oilgas", "cardiosim", "polskijazz", "matryca", "mnemo",
                   "futuretalk", "sheldrake", "mondrian", "przyluski"];
 
@@ -1159,6 +1169,14 @@ function motif(k,pal){
   d+=`<circle cx="${cx}" cy="${cy}" r="9" fill="${a}"/>
    <circle cx="44" cy="74" r="2" fill="${i}" opacity=".45"/><circle cx="160" cy="96" r="2.4" fill="${i}" opacity=".3"/>
    <circle cx="72" cy="46" r="1.6" fill="${i}" opacity=".28"/><circle cx="138" cy="58" r="1.8" fill="${a}" opacity=".4"/>`;
+  return sv(d)}
+ if(k==="hazard"){let d=`<rect x="0" y="86" width="200" height="26" fill="${a}"/>`;
+  for(let x=-24;x<=210;x+=18)d+=`<polygon points="${x},112 ${x+9},112 ${x+22},86 ${x+13},86" fill="${pal.bg}"/>`;
+  const v=[0,-18,9,-34,22,-7,41,-26,13,-48,30,-12,52,-31,6,-22,37,-9,24,-44,15,-28,46,-5,-16,33,-39,11,-24,19,-6,0];
+  let pts="";v.forEach((y,j)=>{pts+=`${(14+j*5.75).toFixed(1)},${(166+y*.8).toFixed(1)} `});
+  d+=`<polyline points="${pts}" fill="none" stroke="${a}" stroke-width="2.6" stroke-linejoin="miter"/>
+   <polyline points="${pts}" fill="none" stroke="${i}" stroke-width=".8" opacity=".35" transform="translate(3 4)"/>
+   <rect x="14" y="214" width="172" height="3" fill="#d2491c"/><rect x="14" y="222" width="64" height="3" fill="${i}" opacity=".5"/>`;
   return sv(d)}
  if(k==="stripes"){let d="";const c=["#2b4a7d","#3f6ea8","#6fa3c9","#a9c8dd","#e6d7c3","#e8a06a","#d9663f","#b83521","#8c1c10"];
   for(let j=0;j<18;j++)d+=`<rect x="${8+j*10.5}" y="34" width="9.4" height="152" fill="${c[Math.min(8,Math.floor(j*9/18))]}"/>`;
@@ -1341,7 +1359,7 @@ const fontFor = f => f==="disp"?"var(--disp)":f==="serif"?"var(--serif)":"var(--
 const wFor = f => f==="disp"?"400":f==="serif"?"600":"800";
 const gal = k => (GALLERY[k]||[]).map(f=>ASSET+f+".jpg");
 /* pionowe plakaty dla kart (hero i modal uzywaja galerii 16:9) */
-const POSTER = {wiadomosci:1,sluchowiska:1,kinonieme:1,futurepilot:1,klimat:1,psychedelic:1,pokedex:1,polskijazz:1,chamczyk:1,zem:1,emfazy:1,matryca:1,oilgas:1,habermas:1,cardiosim:1,afery:1,panama:1,historia:1,cambridge:1,sectio:1,ghykakomp:1,swidzinski:1,schizogra:1};
+const POSTER = {wiadomosci:1,sluchowiska:1,kinonieme:1,futurepilot:1,klimat:1,psychedelic:1,pokedex:1,polskijazz:1,industrial:1,chamczyk:1,zem:1,emfazy:1,matryca:1,oilgas:1,habermas:1,cardiosim:1,afery:1,panama:1,historia:1,cambridge:1,sectio:1,ghykakomp:1,swidzinski:1,schizogra:1};
 /* zdjecia pionowe / kadry filmowe, ktore dobrze znosza przyciecie do 2:3 — reszta pokazuje sie jako pasek 16:9 */
 const FULL = {mnemo:1,mondrian:1,schizogra:1,przyluski:1,hinton:1,switkowski:1,sejm:1,nbody:1,awangarda:1,dobranocki:1};
 Object.keys(VID).forEach(k=>{ FULL[k]=1; });   // filmy: miniatura na całą kartę
@@ -1402,6 +1420,7 @@ const KEYS = {
  psychedelic:"lsd psylocybina dmt mdma ketamina mózg neuronauka brain neuroscience",
  pokedex:"pokemon pokémon karty tcg gry anime cards games",
  polskijazz:"jazz płyty muzyka komeda stańko winyl trąbka records music vinyl",
+ industrial:"industrial noise ebm dark ambient neofolk płyty muzyka throbbing gristle laibach neubauten coil current 93 obuh zamilska records music",
  futureform:"kalistenika trening mon sprawność wojsko ćwiczenia fitness training army",
  futuretalk:"retoryka charyzma wystąpienia mowa perswazja rozmowa rhetoric speaking persuasion",
  futurepilot:"dron drony pilot lot latanie operator trening uav fpv drone flying trainer",
