@@ -9,7 +9,17 @@
   <itunes:author>FutureShow Studio</itunes:author>
   <itunes:explicit>false</itunes:explicit>
   <itunes:category text="News"/>
-  <lastBuildDate>Mon, 16 Nov 2026 06:30:00 +0100</lastBuildDate>
+  <lastBuildDate>Mon, 16 Nov 2026 18:30:00 +0100</lastBuildDate>
+  <item>
+    <title>Pięć państw UE wyśle odrzuconych azylantów do Rwandy, a NBP zablokował rachunki Trybunału Konstytucyjnego</title>
+    <link>https://futureshow.pl/wiadomosci/2026-11-16-wieczor/</link>
+    <guid isPermaLink="true">https://futureshow.pl/wiadomosci/2026-11-16-wieczor/</guid>
+    <pubDate>Mon, 16 Nov 2026 18:30:00 +0100</pubDate>
+    <description>Pięć państw Unii Europejskiej podpisało z Rwandą porozumienie o ośrodku dla odrzuconych azylantów, których nie da się wydalić do kraju pochodzenia. W Polsce Narodowy Bank Polski wstrzymał wszystkie zlecenia płatnicze z rachunków Trybunału Konstytucyjnego. W wydaniu także rosyjska kampania przeciw ukraińskiej energetyce, projekt COP31 i kryzys wokół Nvidii.</description>
+    <enclosure url="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-16-wieczor.mp3" length="3775635" type="audio/mpeg"/>
+    <itunes:duration>422</itunes:duration>
+    <itunes:episodeType>full</itunes:episodeType>
+  </item>
   <item>
     <title>Trzy mocarstwa spotkają się w Shenzhen, a Europy przy tym stole nie będzie</title>
     <link>https://futureshow.pl/wiadomosci/2026-11-16-rano/</link>
