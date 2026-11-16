@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>INDUSTRIAL — kanon muzyki industrialnej, Polska i świat</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Space+Grotesk:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta name="description" content="Historia muzyki industrialnej opowiedziana płytami: 248 albumów od Throbbing Gristle i SPK po polski Obuh, Księżyca i Zamilską. Okładki, nagrania, filmoteka rozmów i biblioteka opracowań.">
+<link rel="canonical" href="https://futureshow.pl/industrial/">
+<style>
+:root{
+  --bg:#0d0d0c;--bg2:#161614;--card:#1b1b18;
+  --cream:#e6e2d6;--cream-dim:#a29d90;
+  --red:#d2491c;--gold:#e8b71a;--line:#34332e;
+  --mono:'IBM Plex Mono',monospace;--head:'Big Shoulders Display',sans-serif;
+  --navh:56px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:auto}
+body{background:var(--bg);color:var(--cream);font-family:'Space Grotesk',sans-serif;line-height:1.6}
+::selection{background:var(--gold);color:var(--bg)}
+a{color:inherit}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(13,13,12,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;gap:1.2rem;padding:.7rem 1.5rem;overflow-x:auto}
+.nav-logo{font-family:var(--head);font-weight:900;font-size:1.35rem;letter-spacing:.06em;color:var(--cream);text-decoration:none;white-space:nowrap}
+.nav-logo span{color:var(--gold)}
+nav a.lnk{color:var(--cream-dim);text-decoration:none;font-size:.82rem;text-transform:uppercase;letter-spacing:.08em;white-space:nowrap;transition:color .2s}
+nav a.lnk:hover{color:var(--gold)}
+nav a.lnk.main{color:var(--cream);font-weight:700}
+
+/* HERO */
+header{position:relative;padding:5.5rem 1.5rem 4rem;text-align:center;background:
+  radial-gradient(ellipse 80% 60% at 50% 0%,rgba(210,73,28,.14),transparent 60%),var(--bg);overflow:hidden}
+.hazard{height:10px;background:repeating-linear-gradient(-45deg,var(--gold) 0 14px,#111 14px 28px);opacity:.85}
+.hero-eyebrow{font-family:var(--mono);color:var(--gold);font-size:.85rem;letter-spacing:.35em;text-transform:uppercase;margin-bottom:1.2rem}
+h1{font-family:var(--head);font-weight:900;font-size:clamp(3.6rem,13vw,10rem);line-height:.88;letter-spacing:.02em;text-transform:uppercase}
+h1 .r{color:var(--red)}
+.hero-sub{max-width:720px;margin:1.8rem auto 0;color:var(--cream-dim);font-size:1.05rem;font-weight:300}
+.hero-sub b{color:var(--cream);font-weight:500}
+.hero-stats{display:flex;justify-content:center;gap:2.5rem;margin-top:2.5rem;flex-wrap:wrap}
+.hero-stats div{font-family:var(--mono);font-size:.8rem;color:var(--cream-dim);letter-spacing:.05em}
+.hero-stats b{display:block;font-size:1.6rem;color:var(--cream);font-weight:500}
+
+/* SEKCJE */
+main{max-width:1280px;margin:0 auto;padding:0 1.5rem}
+section.era{padding:4.5rem 0 2rem;border-top:1px solid var(--line)}
+section.era.pl-head{border-top:3px solid var(--red)}
+.era-head{display:flex;align-items:baseline;gap:1.2rem;flex-wrap:wrap;margin-bottom:.8rem}
+.era-num{font-family:var(--mono);color:var(--red);font-size:.9rem;letter-spacing:.2em}
+h2{font-family:var(--head);font-weight:900;font-size:clamp(2rem,5vw,3.2rem);letter-spacing:.01em;text-transform:uppercase;line-height:1}
+h3.sub{font-family:var(--head);font-weight:700;font-size:clamp(1.3rem,3vw,1.8rem);text-transform:uppercase;letter-spacing:.02em;margin:2.6rem 0 1.2rem;color:var(--gold)}
+.era-years{font-family:var(--mono);color:var(--gold);font-size:1rem}
+.era-desc{max-width:840px;color:var(--cream-dim);font-weight:300;margin-bottom:2.2rem;font-size:.98rem}
+.era-desc b{color:var(--cream);font-weight:500}
+
+/* KARTY PŁYT */
+.agrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:1.5rem}
+.acard{background:var(--card);border:1px solid var(--line);border-radius:4px;overflow:hidden;cursor:pointer;transition:transform .2s,border-color .2s,box-shadow .2s;display:flex;flex-direction:column}
+.acard:hover{transform:translateY(-5px);border-color:var(--gold);box-shadow:0 14px 40px rgba(0,0,0,.55)}
+.cover{position:relative;aspect-ratio:1/1;background:#000;overflow:hidden}
+.cover img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s;filter:saturate(.92)}
+.acard:hover .cover img{transform:scale(1.05);filter:none}
+.cover .aplay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(13,13,12,0);transition:background .25s}
+.acard:hover .cover .aplay{background:rgba(13,13,12,.35)}
+.cover .aplay::after{content:'';width:64px;height:64px;border-radius:50%;background:rgba(232,183,26,.95);opacity:0;transform:scale(.7);transition:all .25s}
+.acard:hover .cover .aplay::after{opacity:1;transform:scale(1)}
+.cover .aplay svg{position:absolute;width:24px;height:24px;fill:var(--bg);z-index:2;margin-left:4px;opacity:0;transition:opacity .25s}
+.acard:hover .cover .aplay svg{opacity:1}
+.vol{position:absolute;top:10px;left:10px;font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;padding:.25rem .55rem;border-radius:2px;background:var(--gold);color:var(--bg);text-transform:uppercase;font-weight:500;box-shadow:0 2px 10px rgba(0,0,0,.5)}
+.vol.pl{background:var(--red);color:var(--cream)}
+.cover.noimg{background:repeating-linear-gradient(-45deg,#1f1f1b 0 18px,#171714 18px 36px);display:flex;align-items:center;justify-content:center}
+.cover.noimg::before{content:'⚙';font-size:3.5rem;color:var(--line);position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.plink{position:absolute;top:8px;right:8px;z-index:4;width:28px;height:28px;border-radius:50%;border:1px solid rgba(230,226,214,.35);background:rgba(0,0,0,.65);color:var(--cream);font-family:var(--mono);font-size:.85rem;cursor:pointer;opacity:0;transition:opacity .2s,border-color .2s;line-height:1}
+.acard:hover .plink{opacity:1}
+.plink:hover{border-color:var(--gold);color:var(--gold)}
+@keyframes hlpulse{0%,60%{outline:3px solid var(--gold);outline-offset:3px}100%{outline:3px solid transparent;outline-offset:3px}}
+.acard.hl{border-color:var(--gold);animation:hlpulse 2.4s ease-out 1}
+.acard.playing{border-color:var(--red);box-shadow:0 0 0 1px var(--red)}
+.acard.playing .alisten::after{content:' ● ';color:var(--red)}
+.abody{padding:1.05rem 1.15rem 1.2rem;display:flex;flex-direction:column;gap:.45rem;flex:1}
+.artist{font-family:var(--mono);font-size:.72rem;color:var(--gold);letter-spacing:.06em;text-transform:uppercase}
+.atitle{font-size:1.12rem;font-weight:700;line-height:1.25;letter-spacing:-.01em}
+.ayear{font-family:var(--mono);font-size:.72rem;color:var(--cream-dim)}
+.adesc{font-size:.83rem;color:var(--cream-dim);font-weight:300;line-height:1.5;flex:1}
+.apol{font-family:var(--mono);font-size:.7rem;color:var(--cream-dim);border-left:2px solid var(--red);padding-left:.55rem;line-height:1.4}
+.apol b{color:var(--cream);font-weight:500}
+.alisten{margin-top:.3rem;font-family:var(--mono);font-size:.72rem;color:var(--red);letter-spacing:.08em}
+.alisten.bc{color:#62b0c4}
+.star{color:var(--gold);font-size:.7rem;font-family:var(--mono);letter-spacing:.05em}
+
+/* ŚCIANA OKŁADEK */
+.wtip{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:1.6rem .55rem .5rem;background:linear-gradient(transparent,rgba(8,8,7,.95));opacity:0;transition:opacity .2s;pointer-events:none;display:none}
+.wtip b{display:block;font-size:.74rem;line-height:1.25;font-weight:700}
+.wtip span{font-family:var(--mono);font-size:.7rem;color:var(--gold)}
+body.wall .era-desc{display:none}
+body.wall .agrid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:.7rem}
+body.wall .abody{display:none}
+body.wall .acard:hover{transform:none;box-shadow:0 8px 24px rgba(0,0,0,.6)}
+body.wall .vol{display:none}
+body.wall .wtip{display:block}
+body.wall .acard:hover .wtip{opacity:1}
+body.wall .cover .aplay::after{width:44px;height:44px}
+body.wall .cover .aplay svg{width:17px;height:17px}
+body.wall section.era{padding:3rem 0 1.2rem}
+@media(max-width:640px){body.wall .agrid{grid-template-columns:repeat(auto-fill,minmax(105px,1fr));gap:.45rem}}
+
+/* FILTRY */
+.filters{padding:1.2rem 0 .4rem}
+.filters-inner{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
+.chip{font-family:var(--mono);font-size:.75rem;letter-spacing:.05em;padding:.35rem .9rem;border:1px solid var(--line);border-radius:2px;background:transparent;color:var(--cream-dim);cursor:pointer;transition:all .2s;text-decoration:none}
+.chip:hover{border-color:var(--gold);color:var(--gold)}
+.chip.active{background:var(--gold);border-color:var(--gold);color:var(--bg)}
+.nurtbar{display:flex;gap:.4rem;overflow-x:auto;padding:.6rem 0 .2rem;scrollbar-width:thin}
+.nurtbar a{flex:none;font-size:.7rem;padding:.25rem .65rem}
+.nurtbar a.plc{border-color:var(--red);color:var(--red)}
+.count-info{margin-left:auto;font-family:var(--mono);font-size:.72rem;color:var(--cream-dim)}
+#asearch{font-family:var(--mono);font-size:.78rem;padding:.4rem .9rem;border:1px solid var(--line);border-radius:2px;background:var(--bg2);color:var(--cream);min-width:230px;outline:none;transition:border-color .2s}
+#asearch:focus{border-color:var(--gold)}
+#asearch::placeholder{color:var(--cream-dim);opacity:.6}
+
+/* FILMOTEKA */
+#filmoteka-intro{padding:5rem 0 0;border-top:3px solid var(--gold)}
+#filmoteka-intro .era-head h2{color:var(--gold)}
+section.film-era{padding:3rem 0 1.5rem;border-top:1px dashed var(--line)}
+section.film-era h2{font-size:clamp(1.4rem,3.4vw,2rem);color:var(--cream)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.2rem}
+.vcard{background:var(--bg2);border:1px solid var(--line);border-radius:4px;overflow:hidden;cursor:pointer;transition:transform .2s,border-color .2s;display:flex;flex-direction:column}
+.vcard:hover{transform:translateY(-4px);border-color:var(--gold)}
+.thumb{position:relative;aspect-ratio:16/9;background:#000;overflow:hidden}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block;opacity:.85;transition:opacity .2s,transform .3s}
+.vcard:hover .thumb img{opacity:1;transform:scale(1.04)}
+.play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.play::after{content:'';width:48px;height:48px;border-radius:50%;background:rgba(210,73,28,.92);display:block}
+.play svg{position:absolute;width:18px;height:18px;fill:var(--cream);z-index:2;margin-left:3px}
+.dur{position:absolute;bottom:8px;right:8px;background:rgba(0,0,0,.8);font-family:var(--mono);font-size:.7rem;padding:.15rem .45rem;border-radius:2px;color:var(--cream)}
+.badge-lang{position:absolute;top:8px;left:8px;font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;padding:.18rem .5rem;border-radius:2px;background:rgba(0,0,0,.75);color:var(--gold);border:1px solid rgba(232,183,26,.4)}
+.badge-lang.en{color:#7fd4c1;border-color:rgba(127,212,193,.4)}
+.vbody{padding:.9rem 1rem 1rem;display:flex;flex-direction:column;gap:.4rem;flex:1}
+.vtitle{font-size:.92rem;font-weight:500;line-height:1.35}
+.vmeta{font-family:var(--mono);font-size:.7rem;color:var(--cream-dim);margin-top:auto;display:flex;gap:.8rem;flex-wrap:wrap}
+.vtype{color:var(--gold)}
+.vnote{font-size:.78rem;color:var(--cream-dim);font-weight:300;line-height:1.45}
+
+/* MODAL */
+.modal{position:fixed;inset:0;z-index:200;background:rgba(8,8,7,.95);display:none;align-items:center;justify-content:center;padding:2rem}
+.modal.open{display:flex}
+.modal-box{width:min(1000px,100%);position:relative}
+.modal-frame{aspect-ratio:16/9;width:100%;background:#000;border-radius:4px;overflow:hidden;box-shadow:0 20px 80px rgba(0,0,0,.7)}
+.modal-frame.bcf{aspect-ratio:auto;height:min(560px,75vh);max-width:700px;margin:0 auto;background:var(--bg2)}
+.modal-frame iframe{width:100%;height:100%;border:0}
+.modal-title{margin-top:1rem;font-size:1rem;color:var(--cream)}
+.modal-close,.modal-share,.modal-yt{position:absolute;top:-2.6rem;background:none;border:1px solid var(--line);color:var(--cream-dim);font-family:var(--mono);font-size:.8rem;padding:.3rem .9rem;border-radius:2px;cursor:pointer;text-decoration:none}
+.modal-close{right:0;color:var(--cream)}
+.modal-share{right:6.6rem}
+.modal-yt{left:0}
+.modal-close:hover{border-color:var(--red);color:var(--red)}
+.modal-share:hover,.modal-yt:hover{color:var(--gold);border-color:var(--gold)}
+@media(max-width:640px){.modal-yt,.modal-share,.modal-close{top:-2.4rem;font-size:.7rem;padding:.25rem .6rem}.modal-share{right:5.2rem}}
+
+/* BIBLIOTEKA */
+#biblioteka{padding:5rem 0 3rem;border-top:3px solid var(--red)}
+.book-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1.3rem;margin-top:2.2rem}
+.book{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:1.4rem 1.5rem;display:flex;flex-direction:column;gap:.6rem;transition:border-color .2s}
+.book:hover{border-color:var(--gold)}
+.book-rank{font-family:var(--head);font-weight:900;font-size:2rem;color:var(--red);line-height:1}
+.book h3{font-size:1.05rem;font-weight:700;line-height:1.35}
+.book .author{font-family:var(--mono);font-size:.78rem;color:var(--gold);letter-spacing:.04em}
+.book p{font-size:.85rem;color:var(--cream-dim);font-weight:300;flex:1}
+.book .tags{display:flex;gap:.4rem;flex-wrap:wrap}
+.book .tag{font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;padding:.14rem .5rem;border-radius:2px;border:1px solid var(--line);color:var(--cream-dim)}
+.book .tag.hot{border-color:var(--red);color:var(--red)}
+.book a{color:var(--gold);font-size:.78rem;font-family:var(--mono);text-decoration:none}
+.book a:hover{text-decoration:underline}
+
+footer{border-top:1px solid var(--line);margin-top:4rem;padding:2.5rem 1.5rem 3rem;text-align:center;color:var(--cream-dim);font-size:.8rem;font-weight:300}
+footer .fx{font-family:var(--head);font-weight:900;font-size:1.2rem;letter-spacing:.15em;color:var(--gold);margin-bottom:.6rem}
+
+/* PASEK: SŁUCHAJ CIĄGIEM + JĘZYK */
+#playall{display:inline-flex;align-items:center;gap:.45rem;font-family:var(--mono);font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;padding:.35rem .85rem;border-radius:2px;border:1px solid var(--gold);background:var(--gold);color:var(--bg);cursor:pointer;white-space:nowrap;font-weight:500}
+#playall:hover{filter:brightness(1.1)}
+#playall svg{width:12px;height:12px;fill:currentColor}
+#playall.on{background:transparent;color:var(--gold)}
+.langsw{margin-left:auto;display:flex;gap:.25rem;flex-shrink:0}
+.langbtn{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;padding:.25rem .55rem;border-radius:2px;border:1px solid var(--line);background:transparent;color:var(--cream-dim);cursor:pointer}
+.langbtn:hover{color:var(--gold);border-color:var(--gold)}
+.langbtn.active{background:var(--cream);border-color:var(--cream);color:var(--bg);font-weight:500}
+
+/* ODTWARZACZ */
+#player{position:sticky;top:var(--navh);z-index:99;display:none;background:rgba(13,13,12,.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--gold);box-shadow:0 14px 40px rgba(0,0,0,.5)}
+#player.on{display:block}
+.pl-bar{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:.9rem;align-items:center;padding:.55rem 1.2rem}
+.pl-video{position:relative;width:128px;aspect-ratio:16/9;background:#000;border-radius:3px;overflow:hidden;cursor:pointer;flex:none;transition:width .25s}
+.pl-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.pl-video.bc{width:340px;aspect-ratio:auto;height:120px;cursor:default}
+#player.big .pl-video:not(.bc){width:min(480px,60vw)}
+.pl-meta{min-width:0}
+.pl-kicker{font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;color:var(--gold);text-transform:uppercase}
+.pl-title{font-size:.95rem;font-weight:700;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pl-sub{font-family:var(--mono);font-size:.7rem;color:var(--cream-dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pl-prog{display:flex;align-items:center;gap:.5rem;margin-top:.35rem}
+.pl-time{font-family:var(--mono);font-size:.7rem;color:var(--cream-dim);min-width:34px}
+.pl-track{flex:1;height:4px;background:rgba(255,255,255,.12);border-radius:2px;cursor:pointer;position:relative}
+.pl-fill{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--gold);border-radius:2px}
+.pl-ctrl{display:flex;align-items:center;gap:.35rem;flex-wrap:nowrap}
+.pl-btn{font-family:var(--mono);font-size:.7rem;letter-spacing:.05em;padding:.4rem .55rem;border-radius:2px;border:1px solid var(--line);background:transparent;color:var(--cream-dim);cursor:pointer;white-space:nowrap}
+.pl-btn:hover{border-color:var(--gold);color:var(--gold)}
+.pl-btn.act{border-color:var(--red);color:var(--red)}
+.pl-btn.pp{font-size:.9rem;padding:.3rem .7rem;border-color:var(--gold);color:var(--gold)}
+.pl-x{background:none;border:none;color:var(--cream-dim);cursor:pointer;font-size:.95rem;line-height:1;padding:0 .25rem}
+.pl-x:hover{color:var(--red)}
+@media(max-width:760px){.pl-bar{grid-template-columns:auto minmax(0,1fr);gap:.6rem;padding:.5rem .7rem}.pl-video{width:96px}.pl-video.bc{width:100%;grid-column:1/-1}.pl-ctrl{grid-column:1/-1;justify-content:space-between}.pl-prev-txt,.pl-next-txt{display:none}#player.big .pl-video{width:100%;grid-column:1/-1}}
+#toast{position:fixed;left:50%;bottom:2rem;transform:translateX(-50%) translateY(20px);background:var(--card);border:1px solid var(--gold);color:var(--cream);font-family:var(--mono);font-size:.8rem;padding:.6rem 1.2rem;border-radius:2px;opacity:0;pointer-events:none;transition:all .3s;z-index:300}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+@media(max-width:640px){.hero-stats{gap:1.4rem}.agrid{grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem}}
+
+/* ikony, hamburger, wyszukiwarka */
+.nav-icon{background:none;border:1px solid var(--line);border-radius:3px;width:38px;height:38px;flex:0 0 38px;cursor:pointer;align-items:center;justify-content:center;padding:0}
+.nav-search-btn{display:inline-flex;margin-left:auto}
+.nav-burger{display:none;flex-direction:column;gap:4px}
+.nav-icon svg{width:19px;height:19px;fill:none;stroke:var(--cream);stroke-width:2;stroke-linecap:round}
+.nav-burger span{display:block;width:17px;height:2px;background:var(--cream);border-radius:2px;transition:.25s}
+nav.open .nav-burger span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+nav.open .nav-burger span:nth-child(2){opacity:0}
+nav.open .nav-burger span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+.searchov{position:fixed;inset:0;z-index:400;background:rgba(8,8,7,.95);backdrop-filter:blur(6px);overflow-y:auto;padding:4.5rem 1rem 3rem}
+.searchov[hidden]{display:none}
+.searchov-inner{max-width:760px;margin:0 auto}
+.searchov-bar{display:flex;align-items:center;gap:.7rem;background:var(--bg2);border:1px solid var(--line);border-radius:4px;padding:.7rem 1rem}
+.searchov-bar:focus-within{border-color:var(--gold)}
+.so-ico{width:19px;height:19px;flex:0 0 19px;fill:none;stroke:var(--cream-dim);stroke-width:2;stroke-linecap:round}
+#gsearch{flex:1;min-width:0;background:none;border:none;outline:none;color:var(--cream);font-family:var(--mono);font-size:.95rem}
+#gsearch::placeholder{color:var(--cream-dim);opacity:.65}
+.so-close{background:none;border:none;color:var(--cream-dim);font-size:1.1rem;cursor:pointer;padding:.2rem .4rem}
+.so-close:hover{color:var(--gold)}
+.searchov-hint{color:var(--cream-dim);font-size:.8rem;margin:.9rem .2rem;font-family:var(--mono)}
+.gs-group{margin-top:1.6rem}
+.gs-group h4{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:0 0 .6rem;padding-bottom:.4rem;border-bottom:1px solid var(--line)}
+.gs-hit{display:flex;gap:.85rem;align-items:center;width:100%;text-align:left;background:none;border:none;border-bottom:1px solid rgba(255,255,255,.05);padding:.65rem .3rem;cursor:pointer;color:inherit}
+.gs-hit:hover,.gs-hit:focus-visible{background:rgba(232,183,26,.09)}
+.gs-hit img{width:46px;height:46px;flex:0 0 46px;object-fit:cover;border-radius:3px;background:#000}
+.gs-hit .gs-txt{min-width:0}
+.gs-hit b{display:block;color:var(--cream);font-size:.9rem;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.gs-hit span{display:block;color:var(--cream-dim);font-size:.76rem;font-family:var(--mono);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.gs-none{color:var(--cream-dim);font-size:.85rem;margin-top:1.4rem}
+@media(max-width:860px){
+  .nav-burger{display:inline-flex}
+  .nav-inner{overflow:visible;gap:.6rem;padding:.6rem .9rem;flex-wrap:wrap}
+  .nav-logo{flex:1}
+  nav #playall,nav a.lnk,nav .langsw{display:none}
+  nav.open #playall,nav.open a.lnk,nav.open .langsw{display:flex}
+  nav.open a.lnk{display:block;width:100%;padding:.7rem .2rem;font-size:.9rem;border-bottom:1px solid rgba(255,255,255,.06)}
+  nav.open #playall{width:100%;justify-content:center;margin-top:.6rem;order:99}
+  nav.open .langsw{width:100%;justify-content:center;margin-top:.5rem;order:100}
+}
+
+/* O PORTALU */
+#o-portalu{max-width:880px;margin:70px auto 30px;padding:0 22px;line-height:1.65;color:var(--cream-dim)}
+#o-portalu h2{font-size:2rem;color:var(--cream);margin:0 0 14px}
+#o-portalu h3{font-size:1.05rem;color:var(--gold);margin:26px 0 6px}
+#o-portalu p{margin:0 0 13px}
+#o-portalu b{color:var(--cream);font-weight:600}
+html[lang="en"] .op-pl{display:none}
+html:not([lang="en"]) .op-en{display:none}
+
+/* SLIDESHOW W NAGŁÓWKU: tylko zdjęcia muzyków (Wikimedia Commons, CC BY / CC BY-SA, bez kadrowania) */
+.hslides{position:absolute;inset:0;z-index:0;overflow:hidden;background:var(--bg)}
+.hslides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;opacity:0;transition:opacity 1.1s ease;filter:grayscale(1) contrast(1.2) brightness(.5);transform:scale(1.04)}
+.hslides img.on{opacity:1;animation:hkb 6.5s linear forwards}
+@keyframes hkb{from{transform:scale(1.03)}to{transform:scale(1.13)}}
+header::before{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(13,13,12,.55) 0%,rgba(13,13,12,.35) 45%,rgba(13,13,12,.92) 100%),radial-gradient(ellipse 80% 60% at 50% 0%,rgba(210,73,28,.16),transparent 60%)}
+header>*:not(.hslides){position:relative;z-index:2}
+.hcredit{position:absolute!important;right:14px;bottom:10px;z-index:3!important;max-width:min(560px,80vw);text-align:right;font-family:var(--mono);font-size:.7rem;color:var(--cream-dim);line-height:1.35}
+.hcredit a{color:var(--cream-dim);text-decoration:underline;text-decoration-color:rgba(162,157,144,.4)}
+.hcredit a:hover{color:var(--gold)}
+@media(prefers-reduced-motion:reduce){.hslides img.on{animation:none}.hslides img{transition:none}}
+@media(max-width:640px){.hcredit{left:14px;right:14px;max-width:none;text-align:left}}
+#o-portalu ul.foto{margin:0 0 13px 1.1rem;font-size:.85rem}
+</style>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="#top">INDUSTRIAL<span>▚</span></a>
+    <button class="nav-icon nav-search-btn" id="searchBtn" aria-label="Szukaj">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.2-4.2"/></svg>
+    </button>
+    <button class="nav-icon nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <button id="playall"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><span data-i18n="nav.playall">Słuchaj ciągiem</span></button>
+    <a class="lnk main" href="#n-P0" data-i18n="nav.world">Kanon: świat</a>
+    <a class="lnk main" href="#n-PL" style="color:var(--red)" data-i18n="nav.poland">Polska scena</a>
+    <a class="lnk" href="#filmoteka-intro" style="color:var(--gold)" data-i18n="nav.films">Filmoteka</a>
+    <a class="lnk" href="#biblioteka" data-i18n="nav.books">Biblioteka</a>
+    <div class="langsw"><button class="langbtn active" data-lang="pl">PL</button><button class="langbtn" data-lang="en">EN</button></div>
+  </div>
+</nav>
+<div class="hazard"></div>
+
+<header id="top">
+  <div class="hslides" id="hslides" aria-hidden="true"></div>
+  <div class="hero-eyebrow" data-i18n="hero.eyebrow">kanon płyt · filmoteka · biblioteka</div>
+  <h1>Indus<span class="r">trial</span></h1>
+  <p class="hero-sub" data-i18n-html="hero.sub"></p>
+  <div class="hero-stats">
+    <div><b id="stat-albums">—</b><span data-i18n="hero.s1">płyt w kanonie</span></div>
+    <div><b id="stat-pl">—</b><span data-i18n="hero.s2">z polskiej sceny</span></div>
+    <div><b id="stat-videos">—</b><span data-i18n="hero.s3">filmów i rozmów</span></div>
+    <div><b>14</b><span data-i18n="hero.s4">nurtów</span></div>
+  </div>
+  <div class="hcredit" id="hcredit"></div>
+</header>
+
+<main>
+<div class="filters" id="cat-filters" style="padding-top:2.2rem">
+  <div class="filters-inner" style="margin-bottom:.5rem">
+    <span style="font-family:var(--mono);font-size:.72rem;color:var(--cream-dim);letter-spacing:.08em" data-i18n="view.label">WIDOK:</span>
+    <button class="chip vchip active" data-view="catalog" data-i18n="view.catalog">Katalog</button>
+    <button class="chip vchip" data-view="wall" data-i18n="view.wall">Ściana okładek</button>
+  </div>
+  <div class="filters-inner">
+    <button class="chip cchip active" data-cf="all" data-i18n="cf.all">Wszystkie płyty</button>
+    <button class="chip cchip" data-cf="star" data-i18n="cf.star">★ Od tego zacznij</button>
+    <button class="chip cchip" data-cf="pol" data-i18n="cf.pol">Omawiane w rozmowach</button>
+    <button class="chip cchip" data-cf="pl" data-i18n="cf.pl">Polska</button>
+    <button class="chip cchip" data-cf="world" data-i18n="cf.world">Świat</button>
+    <input id="asearch" type="search" placeholder="szukaj: wykonawca, płyta, nurt, wytwórnia…" data-i18n-ph="cf.search" autocomplete="off">
+    <span class="count-info" id="acount-info"></span>
+  </div>
+  <div class="nurtbar" id="nurtbar"></div>
+</div>
+
+<div id="kanon"></div>
+
+<section id="filmoteka-intro">
+  <div class="era-head"><span class="era-num" style="color:var(--gold)" data-i18n="fm.kicker">NIĆ BOCZNA</span><h2 data-i18n="fm.title">Filmoteka i rozmowy</h2></div>
+  <p class="era-desc" data-i18n="fm.desc"></p>
+  <div class="filters"><div class="filters-inner">
+    <button class="chip active" data-f="all" data-i18n="ff.all">Wszystko</button>
+    <button class="chip" data-f="dokument" data-i18n="ff.doc">Dokumenty</button>
+    <button class="chip" data-f="archiwum" data-i18n="ff.arch">Archiwalia</button>
+    <button class="chip" data-f="wyklad" data-i18n="ff.lect">Rozmowy i wykłady</button>
+    <button class="chip" data-f="pl" data-i18n="ff.pl">Po polsku</button>
+    <span class="count-info" id="count-info"></span>
+  </div></div>
+</section>
+<section class="film-era" id="era1"><div class="era-head"><span class="era-num">F·01</span><h2 data-i18n="f1"></h2></div><div class="grid" data-era="1"></div></section>
+<section class="film-era" id="era2"><div class="era-head"><span class="era-num">F·02</span><h2 data-i18n="f2"></h2></div><div class="grid" data-era="2"></div></section>
+<section class="film-era" id="era3"><div class="era-head"><span class="era-num">F·03</span><h2 data-i18n="f3"></h2></div><div class="grid" data-era="3"></div></section>
+<section class="film-era" id="era4"><div class="era-head"><span class="era-num">F·04</span><h2 data-i18n="f4"></h2></div><p class="era-desc" data-i18n="f4d" style="margin-bottom:1.4rem"></p><div class="grid" data-era="4"></div></section>
+<section class="film-era" id="era5"><div class="era-head"><span class="era-num">F·05</span><h2 data-i18n="f5"></h2></div><p class="era-desc" data-i18n="f5d" style="margin-bottom:1.4rem"></p><div class="grid" data-era="5"></div></section>
+
+<section id="biblioteka">
+  <div class="era-head"><span class="era-num">◆</span><h2 data-i18n="lib.title">Biblioteka</h2></div>
+  <p class="era-desc" data-i18n="lib.desc"></p>
+  <div class="book-grid" id="book-grid"></div>
+</section>
+</main>
+
+<div class="searchov" id="searchOv" hidden>
+  <div class="searchov-inner">
+    <div class="searchov-bar">
+      <svg class="so-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.2-4.2"/></svg>
+      <input id="gsearch" type="search" autocomplete="off" spellcheck="false" placeholder="szukaj w całym portalu" data-i18n-ph="gs.ph">
+      <button class="so-close" id="searchClose" aria-label="Zamknij">✕</button>
+    </div>
+    <div class="searchov-hint" id="gsHint" data-i18n="gs.hint"></div>
+    <div id="gsRes"></div>
+  </div>
+</div>
+
+<div class="modal" id="modal">
+  <div class="modal-box">
+    <a class="modal-yt" id="modal-yt" href="#" target="_blank" rel="noopener" data-i18n="modal.yt">otwórz na YouTube ↗</a>
+    <button class="modal-share" id="modal-share" data-i18n="modal.share">🔗 kopiuj link</button>
+    <button class="modal-close" id="modal-close" data-i18n="modal.close">zamknij ✕</button>
+    <div class="modal-frame" id="modal-frame"></div>
+    <div class="modal-title" id="modal-title"></div>
+  </div>
+</div>
+
+<div id="player">
+  <div class="pl-bar">
+    <div class="pl-video" id="pl-video"></div>
+    <div class="pl-meta">
+      <div class="pl-kicker"><span data-i18n="pl.kicker">Słuchasz ciągiem</span> · <span id="pl-pos"></span></div>
+      <div class="pl-title" id="pl-title"></div>
+      <div class="pl-sub" id="pl-sub"></div>
+      <div class="pl-prog" id="pl-prog"><span class="pl-time" id="pl-cur">0:00</span><div class="pl-track" id="pl-track"><div class="pl-fill" id="pl-fill"></div></div><span class="pl-time" id="pl-dur">–:––</span></div>
+    </div>
+    <div class="pl-ctrl">
+      <button class="pl-btn" id="pl-prev">◀<span class="pl-prev-txt"> <span data-i18n="pl.prevshort">POPRZ.</span></span></button>
+      <button class="pl-btn pp" id="pl-pp">❚❚</button>
+      <button class="pl-btn" id="pl-next"><span class="pl-next-txt"><span data-i18n="pl.nextshort">NAST.</span> </span>▶</button>
+      <button class="pl-btn" id="pl-cont" data-i18n="pl.cont">CIĄGŁE</button>
+      <button class="pl-btn" id="pl-shuf" data-i18n="pl.shuffle">LOSOWO</button>
+      <button class="pl-x" id="pl-close">✕</button>
+    </div>
+  </div>
+</div>
+<div id="toast"></div>
+
+<section id="o-portalu">
+<div class="op-pl"><h2>O portalu</h2>
+<p><b>Industrial</b> opowiada historię muzyki industrialnej przez płyty: od taśm i oscylatorów prekursorów, przez Throbbing Gristle, Cabaret Voltaire i SPK, po power electronics, EBM, dark ambient, neofolk i nową falę po 2000 roku. Osobną, równorzędną część tworzy <b>polska scena</b>: Studio Eksperymentalne Polskiego Radia, Obuh Records Wojcka Czerna, kasetowy noise lat 90., Neurobot, Wrocław Industrial Festival, Zoharum i Okultura.</p>
+<p>Kanon zbudowano na podstawie rozmów i opracowań: podcastu „Muzyka z oddali” Bocian Records, cyklu NOISECAST „Podaj dyskografię”, wpisów Jacka Staniszewskiego oraz książek Reeda, RE/Search i Forda. Przy płytach widać, kto z rozmówców i autorów mówi o nich w źródłach. Lata wydań sprawdzono w MusicBrainz i Discogs.</p>
+<h3>Od której płyty zacząć?</h3>
+<p>Filtr „Od tego zacznij” pokazuje płyty-bramy: „The Second Annual Report” i „20 Jazz Funk Greats” Throbbing Gristle, „Information Overload Unit” SPK, „Kollaps” Einstürzende Neubauten, „Horse Rotorvator” Coil, a z polskich „Muzykę jakiej świat nie widzi” Za Siódmą Górą i „Księżyca”.</p>
+<h3>Gdzie posłuchać tych płyt?</h3>
+<p>Karty prowadzą do nagrań z publicznych kanałów YouTube i do oficjalnych stron w Bandcampie. Prawa pozostają przy ich właścicielach, a portal pełni rolę przewodnika.</p>
+<h3>Uwaga o treściach</h3>
+<p>Część nurtów, zwłaszcza power electronics, martial industrial i neofolk, celowo sięga po drastyczne lub dwuznaczne politycznie motywy. Portal opisuje je jako zjawiska historyczne, nie jako rekomendację ideową.</p>
+<h3>Zdjęcia w nagłówku</h3>
+<p>Zdjęcia muzyków pochodzą z Wikimedia Commons i są udostępnione na wolnych licencjach. Pokazujemy je zmniejszone, w odcieniach szarości.</p>
+<ul class="foto"><li>Genesis P-Orridge (Throbbing Gristle, Psychic TV) · fot. Seth Tisue, <a href="https://creativecommons.org/licenses/by-sa/2.0" target="_blank" rel="noopener">CC BY-SA 2.0</a>, <a href="https://commons.wikimedia.org/wiki/File:Genesis_P-Orridge.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></li><li>Blixa Bargeld, Lipsk 2018 · fot. Mr. Rossi, <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a>, <a href="https://commons.wikimedia.org/wiki/File:Blixa_Bargeld_Wave-Gotik-Treffen_2018_01.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></li><li>Chris & Cosey, czyli Chris Carter i Cosey Fanni Tutti z Throbbing Gristle, 2014 · fot. Carsten Stiller, <a href="https://creativecommons.org/licenses/by/2.0" target="_blank" rel="noopener">CC BY 2.0</a>, <a href="https://commons.wikimedia.org/wiki/File:Chris_%26_Cosey_2014.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></li><li>Einstürzende Neubauten w sztokholmskim Berns, 2008 · fot. Matthias Flodström, <a href="https://creativecommons.org/licenses/by/3.0" target="_blank" rel="noopener">CC BY 3.0</a>, <a href="https://commons.wikimedia.org/wiki/File:EN_Berns.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></li><li>David Tibet z Current 93, Heidelberg 2014 · fot. Zinnmann, <a href="https://creativecommons.org/licenses/by-sa/3.0" target="_blank" rel="noopener">CC BY-SA 3.0</a>, <a href="https://commons.wikimedia.org/wiki/File:20140424_-_Current93_-_live_in_Heidelberg_02.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></li><li>Merzbow przy swoim zestawie, Nowy Jork 2010 · fot. Seth Tisue, <a href="https://creativecommons.org/licenses/by-sa/2.0" target="_blank" rel="noopener">CC BY-SA 2.0</a>, <a href="https://commons.wikimedia.org/wiki/File:Merzbow_at_Issue_Room_Project_2.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></li><li>Godflesh na Roadburn Festival w Tilburgu, 2018 · fot. Grywnn, <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a>, <a href="https://commons.wikimedia.org/wiki/File:Godflesh_@_Roadburn_Festival_2018-04-20_002.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></li><li>Nine Inch Nails w Las Vegas, 2013 · fot. swimfinfan, <a href="https://creativecommons.org/licenses/by-sa/2.0" target="_blank" rel="noopener">CC BY-SA 2.0</a>, <a href="https://commons.wikimedia.org/wiki/File:Nine_Inch_Nails_-_Las_Vegas_-_2013_09.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></li><li>Zamilska, Drizzly Grizzly w Gdańsku, 2024 · fot. Wojciech Pędzich, <a href="https://creativecommons.org/licenses/by/4.0" target="_blank" rel="noopener">CC BY 4.0</a>, <a href="https://commons.wikimedia.org/wiki/File:Zamilska,_Drizzly_Grizzly,_05.10.2024_02.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></li><li>Merzbow i Balázs Pándi, Nowy Jork 2010 · fot. Seth Tisue, <a href="https://creativecommons.org/licenses/by-sa/2.0" target="_blank" rel="noopener">CC BY-SA 2.0</a>, <a href="https://commons.wikimedia.org/wiki/File:Merzbow_%2B_Balazs_Pandi_at_Le_Poisson_Rouge.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></li><li>KMFDM w Halifaksie, 2005 · fot. Alejandro the Great, <a href="https://creativecommons.org/licenses/by/2.0" target="_blank" rel="noopener">CC BY 2.0</a>, <a href="https://commons.wikimedia.org/wiki/File:KMFDM1.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></li><li>Front 242 na festiwalu Tinitus, 2006 · fot. Pelle Sten, <a href="https://creativecommons.org/licenses/by/2.0" target="_blank" rel="noopener">CC BY 2.0</a>, <a href="https://commons.wikimedia.org/wiki/File:Front_242_3.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></li><li>Godflesh na Maryland Deathfest, 2018 · fot. CBradler, <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a>, <a href="https://commons.wikimedia.org/wiki/File:Godflesh_MDF_05-28-18.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></li><li>Skinny Puppy w londyńskiej Astorii, 2005 · fot. zimpenfish, <a href="https://creativecommons.org/licenses/by-sa/2.0" target="_blank" rel="noopener">CC BY-SA 2.0</a>, <a href="https://commons.wikimedia.org/wiki/File:Skinny_Puppy_live_at_London_Astoria,_August_10_2005_2.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></li></ul></div>
+<div class="op-en"><h2>About</h2>
+<p><b>Industrial</b> tells the history of industrial music through records: from the tapes and oscillators of the precursors, through Throbbing Gristle, Cabaret Voltaire and SPK, to power electronics, EBM, dark ambient, neofolk and the new wave after 2000. A separate, equal part covers the <b>Polish scene</b>: the Polish Radio Experimental Studio, Wojcek Czern's Obuh Records, 1990s cassette noise, Neurobot, the Wrocław Industrial Festival, Zoharum and Okultura.</p>
+<p>The canon draws on interviews and literature: Bocian Records' podcast Muzyka z oddali, the NOISECAST series, Jacek Staniszewski's writing and the books by Reed, RE/Search and Ford. Each record shows which commentators discuss it in the sources. Release years were checked against MusicBrainz and Discogs. Some currents deliberately use extreme or politically ambiguous imagery; the portal describes them as history, not endorsement.</p>
+<h3>Header photos</h3>
+<p>Photos of the musicians come from Wikimedia Commons under free licences, shown downscaled and in greyscale.</p>
+<ul class="foto"><li>Genesis P-Orridge (Throbbing Gristle, Psychic TV) · photo Seth Tisue, <a href="https://creativecommons.org/licenses/by-sa/2.0" target="_blank" rel="noopener">CC BY-SA 2.0</a>, <a href="https://commons.wikimedia.org/wiki/File:Genesis_P-Orridge.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></li><li>Blixa Bargeld, Leipzig, 2018 · photo Mr. Rossi, <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a>, <a href="https://commons.wikimedia.org/wiki/File:Blixa_Bargeld_Wave-Gotik-Treffen_2018_01.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></li><li>Chris & Cosey: Chris Carter and Cosey Fanni Tutti of Throbbing Gristle, 2014 · photo Carsten Stiller, <a href="https://creativecommons.org/licenses/by/2.0" target="_blank" rel="noopener">CC BY 2.0</a>, <a href="https://commons.wikimedia.org/wiki/File:Chris_%26_Cosey_2014.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></li><li>Einstürzende Neubauten at Berns, Stockholm, 2008 · photo Matthias Flodström, <a href="https://creativecommons.org/licenses/by/3.0" target="_blank" rel="noopener">CC BY 3.0</a>, <a href="https://commons.wikimedia.org/wiki/File:EN_Berns.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></li><li>David Tibet of Current 93, Heidelberg, 2014 · photo Zinnmann, <a href="https://creativecommons.org/licenses/by-sa/3.0" target="_blank" rel="noopener">CC BY-SA 3.0</a>, <a href="https://commons.wikimedia.org/wiki/File:20140424_-_Current93_-_live_in_Heidelberg_02.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></li><li>Merzbow at his rig, New York, 2010 · photo Seth Tisue, <a href="https://creativecommons.org/licenses/by-sa/2.0" target="_blank" rel="noopener">CC BY-SA 2.0</a>, <a href="https://commons.wikimedia.org/wiki/File:Merzbow_at_Issue_Room_Project_2.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></li><li>Godflesh at Roadburn Festival, Tilburg, 2018 · photo Grywnn, <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a>, <a href="https://commons.wikimedia.org/wiki/File:Godflesh_@_Roadburn_Festival_2018-04-20_002.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></li><li>Nine Inch Nails in Las Vegas, 2013 · photo swimfinfan, <a href="https://creativecommons.org/licenses/by-sa/2.0" target="_blank" rel="noopener">CC BY-SA 2.0</a>, <a href="https://commons.wikimedia.org/wiki/File:Nine_Inch_Nails_-_Las_Vegas_-_2013_09.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></li><li>Zamilska at Drizzly Grizzly, Gdańsk, 2024 · photo Wojciech Pędzich, <a href="https://creativecommons.org/licenses/by/4.0" target="_blank" rel="noopener">CC BY 4.0</a>, <a href="https://commons.wikimedia.org/wiki/File:Zamilska,_Drizzly_Grizzly,_05.10.2024_02.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></li><li>Merzbow and Balázs Pándi, New York, 2010 · photo Seth Tisue, <a href="https://creativecommons.org/licenses/by-sa/2.0" target="_blank" rel="noopener">CC BY-SA 2.0</a>, <a href="https://commons.wikimedia.org/wiki/File:Merzbow_%2B_Balazs_Pandi_at_Le_Poisson_Rouge.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></li><li>KMFDM in Halifax, 2005 · photo Alejandro the Great, <a href="https://creativecommons.org/licenses/by/2.0" target="_blank" rel="noopener">CC BY 2.0</a>, <a href="https://commons.wikimedia.org/wiki/File:KMFDM1.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></li><li>Front 242 at Tinitus festival, 2006 · photo Pelle Sten, <a href="https://creativecommons.org/licenses/by/2.0" target="_blank" rel="noopener">CC BY 2.0</a>, <a href="https://commons.wikimedia.org/wiki/File:Front_242_3.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></li><li>Godflesh at Maryland Deathfest, 2018 · photo CBradler, <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a>, <a href="https://commons.wikimedia.org/wiki/File:Godflesh_MDF_05-28-18.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></li><li>Skinny Puppy at the London Astoria, 2005 · photo zimpenfish, <a href="https://creativecommons.org/licenses/by-sa/2.0" target="_blank" rel="noopener">CC BY-SA 2.0</a>, <a href="https://commons.wikimedia.org/wiki/File:Skinny_Puppy_live_at_London_Astoria,_August_10_2005_2.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></li></ul></div>
+</section>
+
+<footer>
+  <div class="fx">INDUSTRIAL ▚</div>
+  <p data-i18n-html="footer"></p>
+</footer>
+
+<script src="data.js"></script>
+<script>
+/* ============ I18N ============ */
+const T={
+ pl:{
+  'doc.title':'INDUSTRIAL — kanon muzyki industrialnej, Polska i świat',
+  'nav.playall':'Słuchaj ciągiem','nav.stopall':'Zatrzymaj','nav.playtitle':'Odtwarzaj po kolei wszystkie widoczne płyty',
+  'nav.world':'Kanon: świat','nav.poland':'Polska scena','nav.films':'Filmoteka','nav.books':'Biblioteka',
+  'hero.eyebrow':'kanon płyt · filmoteka · biblioteka',
+  'hero.sub':'Historia muzyki industrialnej opowiedziana <b>płytami</b>: od Throbbing Gristle, Cabaret Voltaire i SPK przez power electronics, EBM, dark ambient i neofolk po nową falę. Osobną częścią jest <b>polska scena</b>, od Obuha i Księżyca po Zoharum i Zamilską. Okładki, nagrania, a obok <b>filmoteka</b> dokumentów i rozmów oraz <b>biblioteka</b>.',
+  'hero.s1':'płyt w kanonie','hero.s2':'z polskiej sceny','hero.s3':'filmów i rozmów','hero.s4':'nurtów',
+  'view.label':'WIDOK:','view.catalog':'Katalog','view.wall':'Ściana okładek',
+  'cf.all':'Wszystkie płyty','cf.star':'★ Od tego zacznij','cf.pol':'Omawiane w rozmowach','cf.pl':'Polska','cf.world':'Świat',
+  'cf.search':'szukaj: wykonawca, płyta, nurt, wytwórnia…',
+  'gs.ph':'szukaj w całym portalu: płyty, filmy, książki…','gs.hint':'Wpisz wykonawcę, tytuł, nurt, wytwórnię albo rok.',
+  'gs.albums':'Płyty','gs.videos':'Filmy i rozmowy','gs.books':'Biblioteka','gs.none':'Nic nie znaleziono.','gs.more':'…i jeszcze {n}',
+  'era.num':'NURT','era.pl':'POLSKA',
+  'fm.kicker':'NIĆ BOCZNA','fm.title':'Filmoteka i rozmowy',
+  'fm.desc':'Dokumenty, archiwalia i długie rozmowy: komentarz do kanonu płyt. Po polsku przede wszystkim podcast „Muzyka z oddali” Bocian Records i cykl NOISECAST „Podaj dyskografię”.',
+  'ff.all':'Wszystko','ff.doc':'Dokumenty','ff.arch':'Archiwalia','ff.lect':'Rozmowy i wykłady','ff.pl':'Po polsku',
+  'f1':'Pierwsza fala: Hull, Sheffield, Sydney','f2':'Berlin, Lublana, Londyn: metal, władza, praca','f3':'Post-industrial, noise i dalej',
+  'f4':'„Muzyka z oddali” – rozmowy Bocian Records','f4d':'Podcast Grzegorza Tyszkiewicza z wytwórni Bocian Records. Wybraliśmy odcinki o industrialu, noise i polskiej scenie niezależnej.',
+  'f5':'NOISECAST – „Podaj dyskografię”','f5d':'Cykl „Noise Magazine”: płyta po płycie przez dyskografie zespołów, z polskimi gośćmi.',
+  'lib.title':'Biblioteka','lib.desc':'Książki, pisma i serwisy, na których opiera się kanon: od podręcznika RE/Search z 1983 roku po polskie „Glissando”, „Dwutygodnik” i „Meakulturę”.',
+  'lib.more':'więcej ↗',
+  'modal.yt':'otwórz na YouTube ↗','modal.bc':'otwórz w Bandcampie ↗','modal.close':'zamknij ✕','modal.share':'🔗 kopiuj link',
+  'card.album':'▶ SŁUCHAJ PŁYTY','card.track':'▶ UTWÓR Z PŁYTY','card.other':'▶ NAGRANIE WYKONAWCY','card.bc':'▶ BANDCAMP','card.search':'SZUKAJ NA YOUTUBE ↗',
+  'card.star':'★ OD TEGO ZACZNIJ','card.must':'★ WARTO ZACZĄĆ','card.pol':'Mówi o niej','card.pols':'Mówią o niej','card.plink':'Kopiuj link do płyty',
+  'typ.dokument':'dokument','typ.archiwum':'archiwum','typ.wyklad':'rozmowa / wykład',
+  'pl.kicker':'Słuchasz ciągiem','pl.prevshort':'POPRZ.','pl.nextshort':'NAST.','pl.cont':'CIĄGŁE','pl.shuffle':'LOSOWO','pl.bcnote':'Bandcamp: następna płyta po kliknięciu NAST.',
+  'toast.copied':'Link skopiowany: ','toast.prompt':'Skopiuj link:','pl.empty':'Brak płyt z nagraniem w tym filtrze.',
+  'footer':'Portal edukacyjny. Nagrania osadzone z publicznych kanałów YouTube i oficjalnych stron Bandcamp, prawa przy ich właścicielach.<br>Kanon na podstawie rozmów i opracowań (Misiuna, Frelik, Drenda, Tyszkiewicz, Staniszewski; Reed, RE/Search, Ford) · 2026'
+ },
+ en:{
+  'doc.title':'INDUSTRIAL — the canon of industrial music, Poland and the world',
+  'nav.playall':'Play all','nav.stopall':'Stop','nav.playtitle':'Play every visible record in sequence',
+  'nav.world':'Canon: world','nav.poland':'Polish scene','nav.films':'Cinematheque','nav.books':'Library',
+  'hero.eyebrow':'record canon · cinematheque · library',
+  'hero.sub':'The history of industrial music told through <b>records</b>: from Throbbing Gristle, Cabaret Voltaire and SPK through power electronics, EBM, dark ambient and neofolk to the new wave. A separate part covers the <b>Polish scene</b>, from Obuh and Księżyc to Zoharum and Zamilska. Sleeves and recordings, with a <b>cinematheque</b> of documentaries and interviews and a <b>library</b> alongside.',
+  'hero.s1':'records in the canon','hero.s2':'from the Polish scene','hero.s3':'films and talks','hero.s4':'currents',
+  'view.label':'VIEW:','view.catalog':'Catalogue','view.wall':'Wall of sleeves',
+  'cf.all':'All records','cf.star':'★ Start here','cf.pol':'Discussed by commentators','cf.pl':'Poland','cf.world':'World',
+  'cf.search':'search: artist, album, current, label…',
+  'gs.ph':'search the whole portal: records, films, books…','gs.hint':'Type an artist, a title, a current, a label or a year.',
+  'gs.albums':'Records','gs.videos':'Films and talks','gs.books':'Library','gs.none':'Nothing found.','gs.more':'…and {n} more',
+  'era.num':'CURRENT','era.pl':'POLAND',
+  'fm.kicker':'SIDE THREAD','fm.title':'Cinematheque and talks',
+  'fm.desc':'Documentaries, archival footage and long conversations: a commentary on the canon. In Polish, mainly Bocian Records\' podcast Muzyka z oddali and the NOISECAST series.',
+  'ff.all':'Everything','ff.doc':'Documentaries','ff.arch':'Archival','ff.lect':'Talks and lectures','ff.pl':'In Polish',
+  'f1':'The first wave: Hull, Sheffield, Sydney','f2':'Berlin, Ljubljana, London: metal, power, labour','f3':'Post-industrial, noise and beyond',
+  'f4':'Muzyka z oddali: Bocian Records talks','f4d':'Grzegorz Tyszkiewicz\'s podcast from the Bocian Records label (in Polish). Episodes on industrial, noise and the Polish independent scene.',
+  'f5':'NOISECAST: Podaj dyskografię','f5d':'Noise Magazine\'s series working record by record through band discographies with Polish guests (in Polish, plus English interviews).',
+  'lib.title':'Library','lib.desc':'The books, magazines and sites the canon rests on: from the 1983 RE/Search handbook to the Polish magazines Glissando, Dwutygodnik and Meakultura.',
+  'lib.more':'more ↗',
+  'modal.yt':'open on YouTube ↗','modal.bc':'open on Bandcamp ↗','modal.close':'close ✕','modal.share':'🔗 copy link',
+  'card.album':'▶ PLAY THE ALBUM','card.track':'▶ TRACK FROM THE ALBUM','card.other':'▶ ARTIST RECORDING','card.bc':'▶ BANDCAMP','card.search':'SEARCH ON YOUTUBE ↗',
+  'card.star':'★ START HERE','card.must':'★ GOOD START','card.pol':'Discussed by','card.pols':'Discussed by','card.plink':'Copy link to this record',
+  'typ.dokument':'documentary','typ.archiwum':'archival','typ.wyklad':'talk / lecture',
+  'pl.kicker':'Playing all','pl.prevshort':'PREV','pl.nextshort':'NEXT','pl.cont':'CONTINUOUS','pl.shuffle':'SHUFFLE','pl.bcnote':'Bandcamp: press NEXT for the next record.',
+  'toast.copied':'Link copied: ','toast.prompt':'Copy this link:','pl.empty':'No records with a recording in this filter.',
+  'footer':'An educational portal. Recordings embedded from public YouTube channels and official Bandcamp pages; all rights remain with their owners.<br>Canon compiled from interviews and literature (Misiuna, Frelik, Drenda, Tyszkiewicz, Staniszewski; Reed, RE/Search, Ford) · 2026'
+ }
+};
+const POLNAME={Misiuna:'Dariusz Misiuna',Frelik:'Paweł Frelik',Szudek:'Anna Szudek',Drenda:'Olga Drenda',Weltrowski:'Piotr Weltrowski',Księżyk:'Rafał Księżyk',Tyszkiewicz:'Grzegorz Tyszkiewicz',Staniszewski:'Jacek Staniszewski',Czern:'Wojcek Czern',Tkacz:'Piotr Tkacz',Orzeszek:'Jakub Orzeszek',Kozak:'Łukasz Kozak',Felicki:'Filip Felicki',Kochan:'Rafał Kochan',Mendyk:'Michał Mendyk',Lerch:'Arek Lerch',Sroczyński:'Mateusz Sroczyński',Nihil:'Nihil (Furia)',Cieślak:'Bartek Cieślak',Dunaj:'Łukasz Dunaj',Zamilska:'Natalia Zamilska',Maccomb:'Jessica Maccomb',Lechnio:'Maciek Lechnio',Żaglewski:'Piotr Żaglewski',Chaciński:'Bartek Chaciński',Kowalczyk:'Dominik Kowalczyk'};
+let LANG='pl';
+function t(k){return (T[LANG]&&T[LANG][k])||T.pl[k]||k;}
+const EN=()=>LANG==='en';
+function norm(s){return String(s||'').toLowerCase().replace(/ł/g,'l').normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9 ]/g,' ').replace(/\s+/g,' ').trim();}
+const NBY={};NURTY.forEach(n=>NBY[n.k]=n);
+const byKey={};ALBUMS.forEach(a=>byKey[a.k]=a);
+
+/* ============ KANON: sekcje z danych ============ */
+function buildSections(){
+  const host=document.getElementById('kanon');let h='',i=0;
+  NURTY.forEach(n=>{
+    i++;
+    const pl=n.k==='PL';
+    h+=`<section class="era${pl?' pl-head':''}" id="n-${n.k}">
+      <div class="era-head"><span class="era-num">${pl?t('era.pl'):t('era.num')+' · '+String(i).padStart(2,'0')}</span><h2>${EN()?n.name_en:n.name}</h2><span class="era-years">${EN()?n.years_en:n.years}</span></div>
+      <p class="era-desc">${EN()?n.desc_en:n.desc}</p>`;
+    if(pl){ n.subs.forEach(s=>{h+=`<div class="plsub" id="n-${s.k}"><h3 class="sub">${EN()?s.name_en:s.name}</h3><div class="agrid" data-n="PL" data-s="${s.k}"></div></div>`;}); }
+    else h+=`<div class="agrid" data-n="${n.k}"></div>`;
+    h+='</section>';
+  });
+  host.innerHTML=h;
+  document.getElementById('nurtbar').innerHTML=NURTY.map(n=>`<a class="chip${n.k==='PL'?' plc':''}" href="#n-${n.k}">${EN()?n.short_en:n.short}</a>`).join('');
+}
+function coverErr(img,yt){img.onerror=null;if(yt){img.src='https://i.ytimg.com/vi/'+yt+'/hqdefault.jpg';}else{img.closest('.cover').classList.add('noimg');img.remove();}}
+function listenLabel(a){
+  if(a.rt==='bc')return `<div class="alisten bc">${t('card.bc')}</div>`;
+  if(a.yt)return `<div class="alisten">${t('card.'+(a.rt||'album'))}</div>`;
+  return `<div class="alisten" style="color:var(--cream-dim)">${t('card.search')}</div>`;
+}
+function acard(a){
+  const n=NBY[a.n];const pl=a.n==='PL';
+  const badge=`<span class="vol${pl?' pl':''}">${pl?'PL':(EN()?n.short_en:n.short)}</span>`;
+  const src=a.cover?`covers/${a.k}.jpg`:(a.yt?`https://i.ytimg.com/vi/${a.yt}/hqdefault.jpg`:'');
+  const img=src?`<img loading="lazy" src="${src}" onerror="coverErr(this,'${a.yt||''}')" alt="${a.a} — ${a.t}">`:'';
+  const desc=(EN()&&a.desc_en)?a.desc_en:(a.desc||'');
+  const pol=a.pol?`<div class="apol">${a.pol.length>1?t('card.pols'):t('card.pol')}: <b>${a.pol.map(p=>POLNAME[p]||p).join(', ')}</b></div>`:'';
+  const meta=[a.y,a.c,a.label].filter(Boolean).join(' · ');
+  const hay=norm(`${a.a} ${a.t} ${a.y} ${n.short} ${n.short_en} ${a.c} ${a.label||''} ${(a.pol||[]).map(p=>POLNAME[p]||p).join(' ')}`);
+  return `<article class="acard" id="a-${a.k}" data-k="${a.k}" data-yt="${a.yt||''}" data-bc="${a.bc||''}" data-star="${a.star?1:0}" data-pol="${a.pol?1:0}" data-pl="${pl?1:0}" data-hay="${hay}" data-q="${encodeURIComponent(a.a+' '+a.t)}">
+    <div class="cover${img?'':' noimg'}">${img}${badge}
+      <button class="plink" title="${t('card.plink')}">#</button>
+      <span class="wtip"><b>${a.t}</b><span>${a.a} · ${a.y}</span></span>
+      <span class="aplay"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div>
+    <div class="abody">
+      <div class="artist">${a.a}</div><div class="atitle">${a.t}</div><div class="ayear">${meta}</div>
+      ${a.star?`<span class="star">${t('card.star')}</span>`:''}
+      <div class="adesc">${desc}</div>${pol}${listenLabel(a)}
+    </div></article>`;
+}
+function renderAlbums(){
+  buildSections();
+  document.querySelectorAll('.agrid').forEach(g=>{
+    const n=g.dataset.n,s=g.dataset.s;
+    g.innerHTML=ALBUMS.filter(a=>a.n===n&&(!s||a.s===s)).sort((x,y)=>(x.y||0)-(y.y||0)).map(acard).join('');
+  });
+  document.getElementById('stat-albums').textContent=ALBUMS.length;
+  document.getElementById('stat-pl').textContent=ALBUMS.filter(a=>a.n==='PL').length;
+}
+function albumMatches(c,f){
+  if(f==='star')return c.dataset.star==='1';
+  if(f==='pol')return c.dataset.pol==='1';
+  if(f==='pl')return c.dataset.pl==='1';
+  if(f==='world')return c.dataset.pl!=='1';
+  return true;
+}
+function applyCatalog(){
+  const f=(document.querySelector('.cchip.active')||{dataset:{cf:'all'}}).dataset.cf;
+  const q=norm(document.getElementById('asearch').value);
+  let shown=0;
+  document.querySelectorAll('.acard').forEach(c=>{const ok=albumMatches(c,f)&&(!q||q.split(' ').every(w=>c.dataset.hay.includes(w)));c.style.display=ok?'':'none';if(ok)shown++;});
+  document.getElementById('acount-info').textContent=`${shown} / ${ALBUMS.length}`;
+  document.querySelectorAll('.plsub').forEach(s=>{s.style.display=[...s.querySelectorAll('.acard')].some(c=>c.style.display!=='none')?'':'none';});
+  document.querySelectorAll('section.era').forEach(s=>{s.style.display=[...s.querySelectorAll('.acard')].some(c=>c.style.display!=='none')?'':'none';});
+}
+document.querySelectorAll('.cchip').forEach(ch=>ch.addEventListener('click',()=>{document.querySelectorAll('.cchip').forEach(c=>c.classList.remove('active'));ch.classList.add('active');applyCatalog();}));
+document.getElementById('asearch').addEventListener('input',applyCatalog);
+
+/* ============ FILMY I KSIĄŻKI ============ */
+function vcard(v){
+  const title=EN()&&v.t_en?v.t_en:v.t, note=EN()&&v.note_en?v.note_en:v.note;
+  return `<article class="vcard" id="v-${v.id}" data-typ="${v.typ}" data-lang="${v.lang}" data-id="${v.id}" data-t="${encodeURIComponent(title)}">
+    <div class="thumb"><img loading="lazy" src="https://i.ytimg.com/vi/${v.id}/hqdefault.jpg" alt=""><span class="badge-lang ${v.lang}">${v.lang==='en'?'EN':'PL'}</span><span class="dur">${v.dur}</span><span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div>
+    <div class="vbody"><div class="vtitle">${title}</div><div class="vnote">${note}</div><div class="vmeta"><span class="vtype">${t('typ.'+v.typ)}</span>${v.star?`<span class="star">${t('card.must')}</span>`:''}</div></div></article>`;
+}
+function renderVideos(){
+  document.querySelectorAll('.grid').forEach(g=>{g.innerHTML=VIDEOS.filter(v=>v.era===+g.dataset.era).map(vcard).join('');});
+  document.getElementById('stat-videos').textContent=VIDEOS.length;
+}
+function renderBooks(){
+  document.getElementById('book-grid').innerHTML=BOOKS.map((b,i)=>{
+    const y=EN()&&b.y_en?b.y_en:b.y,d=EN()&&b.d_en?b.d_en:b.d,tags=EN()&&b.tags_en?b.tags_en:b.tags;
+    return `<div class="book" id="b-${i}"><div class="book-rank">${String(i+1).padStart(2,'0')}</div><div class="author">${b.a}</div><h3>${b.t}</h3><div class="author" style="color:var(--cream-dim)">${y}</div><p>${d}</p><div class="tags">${tags.map((x,j)=>`<span class="tag${b.hot&&j===0?' hot':''}">${x}</span>`).join('')}</div><a href="${b.url}" target="_blank" rel="noopener">${t('lib.more')}</a></div>`;
+  }).join('');
+}
+function applyFilter(f){
+  let shown=0;
+  document.querySelectorAll('.vcard').forEach(c=>{const ok=f==='all'||(f==='pl'?c.dataset.lang==='pl':c.dataset.typ===f);c.style.display=ok?'':'none';if(ok)shown++;});
+  document.getElementById('count-info').textContent=`${shown} / ${VIDEOS.length}`;
+  document.querySelectorAll('section.film-era').forEach(s=>{s.style.display=[...s.querySelectorAll('.vcard')].some(c=>c.style.display!=='none')?'':'none';});
+}
+document.querySelectorAll('.chip[data-f]').forEach(ch=>ch.addEventListener('click',()=>{document.querySelectorAll('.chip[data-f]').forEach(c=>c.classList.remove('active'));ch.classList.add('active');applyFilter(ch.dataset.f);}));
+
+/* ============ MODAL ============ */
+let curShare=null;
+const modal=document.getElementById('modal'),frame=document.getElementById('modal-frame'),mtitle=document.getElementById('modal-title'),myt=document.getElementById('modal-yt');
+const bcSrc=(id,size)=>`https://bandcamp.com/EmbeddedPlayer/album=${id}/size=large/bgcol=161614/linkcol=e8b71a/${size==='small'?'tracklist=false/artwork=small':'tracklist=true/artwork=small'}/transparent=true/`;
+function openModal(html,title,link,linkLabel,share,isBc){
+  frame.classList.toggle('bcf',!!isBc);frame.innerHTML=html;mtitle.textContent=title;
+  myt.href=link;myt.textContent=linkLabel;modal.classList.add('open');document.body.style.overflow='hidden';curShare=share;
+}
+function openVideo(id,title){openModal(`<iframe src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`,title,`https://www.youtube.com/watch?v=${id}`,t('modal.yt'),'#film='+id);try{history.replaceState(null,'','#film='+id)}catch(e){}}
+function openBandcamp(a){openModal(`<iframe src="${bcSrc(a.bc)}" seamless></iframe>`,`${a.a} — ${a.t}`,a.bcu,t('modal.bc'),'#a-'+a.k,true);}
+function closeModal(){modal.classList.remove('open');frame.innerHTML='';document.body.style.overflow='';curShare=null;if(location.hash.indexOf('#film=')===0){try{history.replaceState(null,'',location.pathname+location.search)}catch(e){}}}
+document.getElementById('modal-share').addEventListener('click',()=>{if(curShare)copyLink(curShare);});
+document.getElementById('modal-close').addEventListener('click',closeModal);
+modal.addEventListener('click',e=>{if(e.target===modal)closeModal();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+let toastTimer=null;
+function toast(m){const el=document.getElementById('toast');el.textContent=m;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),2200);}
+function copyLink(frag){const url=location.origin+location.pathname+frag;if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(url).then(()=>toast(t('toast.copied')+frag),()=>toast(url));}else prompt(t('toast.prompt'),url);}
+
+/* ============ ODTWARZACZ CIĄGŁY (YouTube + Bandcamp) ============ */
+const PLAYER=document.getElementById('player');
+let queue=[],qi=0,shuffleOn=false,ytPlayer=null,apiReady=false,pendingPlay=false;
+let contOn=true;try{contOn=localStorage.getItem('ind-cont')!=='0';}catch(e){}
+function loadYTAPI(){
+  if(window.YT&&window.YT.Player){apiReady=true;return;}
+  if(document.getElementById('ytapi'))return;
+  window.onYouTubeIframeAPIReady=function(){apiReady=true;if(pendingPlay){pendingPlay=false;playCurrent();}};
+  const sc=document.createElement('script');sc.id='ytapi';sc.src='https://www.youtube.com/iframe_api';document.head.appendChild(sc);
+}
+function buildQueue(){return [...document.querySelectorAll('.acard')].filter(c=>c.style.display!=='none'&&(c.dataset.yt||c.dataset.bc)).map(c=>c.dataset.k);}
+function playerLabels(){
+  document.getElementById('pl-shuf').classList.toggle('act',shuffleOn);
+  document.getElementById('pl-cont').classList.toggle('act',contOn);
+  const btn=document.getElementById('playall');const on=PLAYER.classList.contains('on');
+  btn.classList.toggle('on',on);btn.querySelector('span').textContent=on?t('nav.stopall'):t('nav.playall');btn.title=t('nav.playtitle');
+}
+function renderNowPlaying(){
+  const a=byKey[queue[qi]];if(!a)return;
+  document.getElementById('pl-title').textContent=a.t;
+  document.getElementById('pl-sub').textContent=a.bc&&!a.yt?`${a.a} · ${a.y} · ${t('pl.bcnote')}`:`${a.a} · ${a.y} · ${EN()?NBY[a.n].short_en:NBY[a.n].short}`;
+  document.getElementById('pl-pos').textContent=`${qi+1} / ${queue.length}`;
+  document.querySelectorAll('.acard.playing').forEach(c=>c.classList.remove('playing'));
+  const card=document.getElementById('a-'+a.k);if(card)card.classList.add('playing');
+}
+function killYT(){if(ytPlayer&&ytPlayer.destroy){try{ytPlayer.destroy();}catch(e){}}ytPlayer=null;}
+function playCurrent(){
+  const a=byKey[queue[qi]];if(!a)return;
+  renderNowPlaying();
+  const host=document.getElementById('pl-video');
+  if(!a.yt&&a.bc){
+    killYT();host.classList.add('bc');document.getElementById('pl-prog').style.visibility='hidden';
+    host.innerHTML=`<iframe src="${bcSrc(a.bc,'small')}" seamless></iframe>`;return;
+  }
+  host.classList.remove('bc');document.getElementById('pl-prog').style.visibility='';
+  if(!apiReady){pendingPlay=true;loadYTAPI();return;}
+  if(ytPlayer&&ytPlayer.loadVideoById){ytPlayer.loadVideoById(a.yt);return;}
+  host.innerHTML='<div id="pl-frame"></div>';
+  ytPlayer=new YT.Player('pl-frame',{videoId:a.yt,playerVars:{autoplay:1,rel:0,playsinline:1},
+    events:{onReady:e=>e.target.playVideo(),onStateChange:e=>{if(e.data===YT.PlayerState.ENDED&&contOn)nextTrack();},onError:()=>nextTrack()}});
+}
+function nextTrack(){if(!queue.length)return;qi=shuffleOn?Math.floor(Math.random()*queue.length):(qi+1)%queue.length;playCurrent();}
+function prevTrack(){if(!queue.length)return;qi=(qi-1+queue.length)%queue.length;playCurrent();}
+function startQueue(fromKey){
+  queue=buildQueue();if(!queue.length){toast(t('pl.empty'));return;}
+  qi=Math.max(0,queue.indexOf(fromKey));PLAYER.classList.add('on');PLAYER.classList.remove('big');playerLabels();loadYTAPI();playCurrent();
+}
+function stopQueue(){PLAYER.classList.remove('on');killYT();pendingPlay=false;const h=document.getElementById('pl-video');h.innerHTML='';h.classList.remove('bc');document.querySelectorAll('.acard.playing').forEach(c=>c.classList.remove('playing'));playerLabels();}
+document.getElementById('playall').addEventListener('click',()=>{PLAYER.classList.contains('on')?stopQueue():startQueue();});
+document.getElementById('pl-next').addEventListener('click',nextTrack);
+document.getElementById('pl-prev').addEventListener('click',prevTrack);
+document.getElementById('pl-shuf').addEventListener('click',()=>{shuffleOn=!shuffleOn;playerLabels();});
+document.getElementById('pl-cont').addEventListener('click',()=>{contOn=!contOn;try{localStorage.setItem('ind-cont',contOn?'1':'0');}catch(e){}playerLabels();});
+document.getElementById('pl-close').addEventListener('click',stopQueue);
+(function(){const nav=document.querySelector('nav');nav.insertAdjacentElement('afterend',PLAYER);const s=()=>document.documentElement.style.setProperty('--navh',nav.offsetHeight+'px');s();addEventListener('resize',s);})();
+document.getElementById('pl-video').addEventListener('click',e=>{if(!e.currentTarget.classList.contains('bc'))PLAYER.classList.toggle('big');});
+document.getElementById('pl-pp').addEventListener('click',()=>{if(!ytPlayer||!ytPlayer.getPlayerState)return;ytPlayer.getPlayerState()===YT.PlayerState.PLAYING?ytPlayer.pauseVideo():ytPlayer.playVideo();});
+document.getElementById('pl-track').addEventListener('click',e=>{if(!ytPlayer||!ytPlayer.getDuration)return;const r=e.currentTarget.getBoundingClientRect();ytPlayer.seekTo((e.clientX-r.left)/r.width*ytPlayer.getDuration(),true);});
+const fmt=s=>{s=Math.max(0,Math.floor(s||0));return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')};
+setInterval(()=>{if(!PLAYER.classList.contains('on')||!ytPlayer||!ytPlayer.getCurrentTime)return;try{const c=ytPlayer.getCurrentTime(),d=ytPlayer.getDuration();document.getElementById('pl-cur').textContent=fmt(c);document.getElementById('pl-dur').textContent=d?fmt(d):'–:––';document.getElementById('pl-fill').style.width=d?(100*c/d)+'%':'0%';const st=ytPlayer.getPlayerState();document.getElementById('pl-pp').textContent=(st===1||st===3)?'❚❚':'▶';}catch(e){}},500);
+
+/* ============ KLIKNIĘCIA ============ */
+document.addEventListener('click',e=>{
+  const pl=e.target.closest('.plink');
+  if(pl){e.stopPropagation();copyLink('#a-'+pl.closest('.acard').dataset.k);return;}
+  const ac=e.target.closest('.acard');
+  if(ac){
+    const a=byKey[ac.dataset.k];
+    if(!a.yt&&!a.bc){window.open('https://www.youtube.com/results?search_query='+ac.dataset.q,'_blank');return;}
+    if(PLAYER.classList.contains('on')||contOn){startQueue(a.k);return;}
+    if(a.yt)openVideo(a.yt,`${a.a} — ${a.t}`);else openBandcamp(a);
+    return;
+  }
+  const vc=e.target.closest('.vcard');
+  if(vc)openVideo(vc.dataset.id,decodeURIComponent(vc.dataset.t));
+});
+
+/* ============ WIDOK + JĘZYK ============ */
+function setView(v){document.body.classList.toggle('wall',v==='wall');document.querySelectorAll('.vchip').forEach(c=>c.classList.toggle('active',c.dataset.view===v));try{localStorage.setItem('ind-view',v);}catch(e){}}
+document.querySelectorAll('.vchip').forEach(ch=>ch.addEventListener('click',()=>setView(ch.dataset.view)));
+function applyLang(lang,rerender){
+  LANG=lang==='en'?'en':'pl';document.documentElement.lang=LANG;document.title=t('doc.title');
+  document.querySelectorAll('[data-i18n]').forEach(el=>{el.textContent=t(el.dataset.i18n);});
+  document.querySelectorAll('[data-i18n-html]').forEach(el=>{el.innerHTML=t(el.dataset.i18nHtml);});
+  document.querySelectorAll('[data-i18n-ph]').forEach(el=>{el.placeholder=t(el.dataset.i18nPh);});
+  document.querySelectorAll('.langbtn').forEach(b=>b.classList.toggle('active',b.dataset.lang===LANG));
+  if(rerender){renderAlbums();renderVideos();renderBooks();applyCatalog();applyFilter((document.querySelector('.chip[data-f].active')||{dataset:{f:'all'}}).dataset.f);if(PLAYER.classList.contains('on'))renderNowPlaying();}
+  playerLabels();try{localStorage.setItem('ind-lang',LANG);}catch(e){}
+}
+document.querySelectorAll('.langbtn').forEach(b=>b.addEventListener('click',()=>applyLang(b.dataset.lang,true)));
+
+/* ============ START ============ */
+(function(){
+  const qp=new URLSearchParams(location.search);
+  let lang=qp.get('lang');
+  if(lang!=='en'&&lang!=='pl'){try{lang=localStorage.getItem('ind-lang');}catch(e){}}
+  if(lang!=='en'&&lang!=='pl')lang=(navigator.language||'pl').toLowerCase().startsWith('pl')?'pl':'en';
+  let v=qp.get('widok')||qp.get('view');v=(v==='sciana'||v==='wall')?'wall':(v==='katalog'||v==='catalog')?'catalog':null;
+  if(!v){try{v=localStorage.getItem('ind-view');}catch(e){}}
+  applyLang(lang,true);if(v==='wall')setView('wall');
+  const mf=location.hash.match(/^#film=([\w-]+)$/);
+  if(mf){const vv=VIDEOS.find(x=>x.id===mf[1]);if(vv)setTimeout(()=>openVideo(vv.id,EN()&&vv.t_en?vv.t_en:vv.t),200);}
+  const m=location.hash.match(/^#a-([a-z0-9]+)$/i);
+  if(m){const el=document.getElementById('a-'+m[1]);if(el)setTimeout(()=>{el.scrollIntoView({block:'center'});el.classList.add('hl');setTimeout(()=>el.classList.remove('hl'),2600);},150);}
+  const mn=location.hash.match(/^#n-(\w+)$/);
+  if(mn){const el=document.getElementById('n-'+mn[1]);if(el)setTimeout(()=>el.scrollIntoView(),100);}
+})();
+
+
+/* ============ SLIDESHOW MUZYKÓW W NAGŁÓWKU ============ */
+const HERO=[{"f": "h01.jpg", "c": "Genesis P-Orridge (Throbbing Gristle, Psychic TV)", "c_en": "Genesis P-Orridge (Throbbing Gristle, Psychic TV)", "a": "Seth Tisue", "l": "CC BY-SA 2.0", "lu": "https://creativecommons.org/licenses/by-sa/2.0"}, {"f": "h02.jpg", "c": "Blixa Bargeld, Lipsk 2018", "c_en": "Blixa Bargeld, Leipzig, 2018", "a": "Mr. Rossi", "l": "CC BY-SA 4.0", "lu": "https://creativecommons.org/licenses/by-sa/4.0"}, {"f": "h03.jpg", "c": "Chris & Cosey, czyli Chris Carter i Cosey Fanni Tutti z Throbbing Gristle, 2014", "c_en": "Chris & Cosey: Chris Carter and Cosey Fanni Tutti of Throbbing Gristle, 2014", "a": "Carsten Stiller", "l": "CC BY 2.0", "lu": "https://creativecommons.org/licenses/by/2.0"}, {"f": "h04.jpg", "c": "Einstürzende Neubauten w sztokholmskim Berns, 2008", "c_en": "Einstürzende Neubauten at Berns, Stockholm, 2008", "a": "Matthias Flodström", "l": "CC BY 3.0", "lu": "https://creativecommons.org/licenses/by/3.0"}, {"f": "h05.jpg", "c": "David Tibet z Current 93, Heidelberg 2014", "c_en": "David Tibet of Current 93, Heidelberg, 2014", "a": "Zinnmann", "l": "CC BY-SA 3.0", "lu": "https://creativecommons.org/licenses/by-sa/3.0"}, {"f": "h06.jpg", "c": "Merzbow przy swoim zestawie, Nowy Jork 2010", "c_en": "Merzbow at his rig, New York, 2010", "a": "Seth Tisue", "l": "CC BY-SA 2.0", "lu": "https://creativecommons.org/licenses/by-sa/2.0"}, {"f": "h07.jpg", "c": "Godflesh na Roadburn Festival w Tilburgu, 2018", "c_en": "Godflesh at Roadburn Festival, Tilburg, 2018", "a": "Grywnn", "l": "CC BY-SA 4.0", "lu": "https://creativecommons.org/licenses/by-sa/4.0"}, {"f": "h08.jpg", "c": "Nine Inch Nails w Las Vegas, 2013", "c_en": "Nine Inch Nails in Las Vegas, 2013", "a": "swimfinfan", "l": "CC BY-SA 2.0", "lu": "https://creativecommons.org/licenses/by-sa/2.0"}, {"f": "h09.jpg", "c": "Zamilska, Drizzly Grizzly w Gdańsku, 2024", "c_en": "Zamilska at Drizzly Grizzly, Gdańsk, 2024", "a": "Wojciech Pędzich", "l": "CC BY 4.0", "lu": "https://creativecommons.org/licenses/by/4.0"}, {"f": "h10.jpg", "c": "Merzbow i Balázs Pándi, Nowy Jork 2010", "c_en": "Merzbow and Balázs Pándi, New York, 2010", "a": "Seth Tisue", "l": "CC BY-SA 2.0", "lu": "https://creativecommons.org/licenses/by-sa/2.0"}, {"f": "h11.jpg", "c": "KMFDM w Halifaksie, 2005", "c_en": "KMFDM in Halifax, 2005", "a": "Alejandro the Great", "l": "CC BY 2.0", "lu": "https://creativecommons.org/licenses/by/2.0"}, {"f": "h12.jpg", "c": "Front 242 na festiwalu Tinitus, 2006", "c_en": "Front 242 at Tinitus festival, 2006", "a": "Pelle Sten", "l": "CC BY 2.0", "lu": "https://creativecommons.org/licenses/by/2.0"}, {"f": "h13.jpg", "c": "Godflesh na Maryland Deathfest, 2018", "c_en": "Godflesh at Maryland Deathfest, 2018", "a": "CBradler", "l": "CC BY-SA 4.0", "lu": "https://creativecommons.org/licenses/by-sa/4.0"}, {"f": "h14.jpg", "c": "Skinny Puppy w londyńskiej Astorii, 2005", "c_en": "Skinny Puppy at the London Astoria, 2005", "a": "zimpenfish", "l": "CC BY-SA 2.0", "lu": "https://creativecommons.org/licenses/by-sa/2.0"}];
+(function(){
+  const host=document.getElementById('hslides'),cr=document.getElementById('hcredit');if(!host)return;
+  const imgs=HERO.map((h,i)=>{const im=new Image();im.alt='';im.decoding='async';if(i===0)im.src='hero/'+h.f;host.appendChild(im);return im;});
+  let cur=0;
+  const credit=()=>{const h=HERO[cur];cr.innerHTML=`${EN()?h.c_en:h.c} · ${EN()?'photo':'fot.'} ${h.a}, <a href="${h.lu}" target="_blank" rel="noopener">${h.l}</a>`;};
+  const show=i=>{const im=imgs[i];const go=()=>{imgs.forEach(x=>{if(x!==im)x.classList.remove('on');});im.classList.add('on');cur=i;credit();const n=imgs[(i+1)%imgs.length];if(!n.src)n.src='hero/'+HERO[(i+1)%imgs.length].f;};im.complete&&im.naturalWidth?go():im.addEventListener('load',go,{once:true});};
+  show(0);
+  const slow=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  setInterval(()=>{if(document.hidden)return;show((cur+1)%imgs.length);},slow?9000:5000);
+  document.querySelectorAll('.langbtn').forEach(b=>b.addEventListener('click',()=>setTimeout(credit,0)));
+})();
+
+/* ============ MENU MOBILNE + WYSZUKIWARKA ============ */
+(function(){
+  const nav=document.querySelector('nav'),burger=document.getElementById('navBurger');
+  burger.addEventListener('click',()=>{const o=nav.classList.toggle('open');burger.setAttribute('aria-expanded',o?'true':'false');});
+  nav.addEventListener('click',e=>{if(e.target.closest('a.lnk,#playall,.langbtn')){nav.classList.remove('open');burger.setAttribute('aria-expanded','false');}});
+  const ov=document.getElementById('searchOv'),inp=document.getElementById('gsearch'),res=document.getElementById('gsRes'),hint=document.getElementById('gsHint');
+  function openSearch(){ov.hidden=false;document.body.style.overflow='hidden';nav.classList.remove('open');inp.value='';res.innerHTML='';hint.hidden=false;setTimeout(()=>inp.focus(),40);}
+  function closeSearch(){ov.hidden=true;document.body.style.overflow='';}
+  document.getElementById('searchBtn').addEventListener('click',openSearch);
+  document.getElementById('searchClose').addEventListener('click',closeSearch);
+  ov.addEventListener('click',e=>{if(e.target===ov)closeSearch();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!ov.hidden)closeSearch();else if((e.key==='/'||((e.metaKey||e.ctrlKey)&&e.key==='k'))&&ov.hidden&&!/^(INPUT|TEXTAREA)$/.test(document.activeElement.tagName)){e.preventDefault();openSearch();}});
+  const esc=x=>String(x==null?'':x).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  const LIM=8;
+  function render(q){
+    const n=norm(q);if(n.length<2){hint.hidden=false;res.innerHTML='';return;}hint.hidden=true;
+    const W=n.split(' '),match=h=>W.every(w=>h.indexOf(w)>=0);
+    const A=ALBUMS.filter(a=>match(norm([a.a,a.t,a.y,NBY[a.n].short,NBY[a.n].short_en,a.label,(a.pol||[]).map(p=>POLNAME[p]||p).join(' ')].join(' '))));
+    const V=VIDEOS.filter(v=>match(norm([v.t,v.t_en,v.note].join(' '))));
+    const Bk=BOOKS.filter(b=>match(norm([b.a,b.t,b.y,b.tags.join(' ')].join(' '))));
+    let h='';const more=k=>`<div class="gs-none">${t('gs.more').replace('{n}',k)}</div>`;
+    if(A.length){h+=`<div class="gs-group"><h4>${t('gs.albums')} · ${A.length}</h4>`;A.slice(0,LIM).forEach(a=>{const src=a.cover?`covers/${a.k}.jpg`:(a.yt?`https://i.ytimg.com/vi/${a.yt}/hqdefault.jpg`:'');h+=`<button class="gs-hit" data-go="a-${a.k}">${src?`<img src="${src}" alt="" loading="lazy">`:''}<span class="gs-txt"><b>${esc(a.a)} — ${esc(a.t)}</b><span>${esc([a.y,EN()?NBY[a.n].short_en:NBY[a.n].short].join(' · '))}</span></span></button>`;});if(A.length>LIM)h+=more(A.length-LIM);h+='</div>';}
+    if(V.length){h+=`<div class="gs-group"><h4>${t('gs.videos')} · ${V.length}</h4>`;V.slice(0,LIM).forEach(v=>{h+=`<button class="gs-hit" data-go="v-${v.id}"><img src="https://i.ytimg.com/vi/${v.id}/hqdefault.jpg" alt="" loading="lazy"><span class="gs-txt"><b>${esc(EN()&&v.t_en?v.t_en:v.t)}</b><span>${esc(v.dur)}</span></span></button>`;});if(V.length>LIM)h+=more(V.length-LIM);h+='</div>';}
+    if(Bk.length){h+=`<div class="gs-group"><h4>${t('gs.books')} · ${Bk.length}</h4>`;Bk.forEach(b=>{h+=`<button class="gs-hit" data-go="b-${BOOKS.indexOf(b)}"><span class="gs-txt"><b>${esc(b.t)}</b><span>${esc(b.a)}</span></span></button>`;});h+='</div>';}
+    res.innerHTML=h||`<div class="gs-none">${t('gs.none')}</div>`;
+  }
+  let deb=null;inp.addEventListener('input',()=>{clearTimeout(deb);deb=setTimeout(()=>render(inp.value),110);});
+  res.addEventListener('click',e=>{
+    const b=e.target.closest('[data-go]');if(!b)return;const id=b.dataset.go;closeSearch();
+    if(id.startsWith('a-')){if(document.body.classList.contains('wall'))setView('catalog');document.getElementById('asearch').value='';document.querySelectorAll('.cchip').forEach(c=>c.classList.toggle('active',c.dataset.cf==='all'));applyCatalog();}
+    else if(id.startsWith('v-')){document.querySelectorAll('.chip[data-f]').forEach(c=>c.classList.toggle('active',c.dataset.f==='all'));applyFilter('all');}
+    setTimeout(()=>{const el=document.getElementById(id);if(!el)return;window.scrollTo(0,Math.max(0,el.getBoundingClientRect().top+pageYOffset-innerHeight/2+el.offsetHeight/2));el.classList.remove('hl');void el.offsetWidth;el.classList.add('hl');},80);
+  });
+})();
+</script>
+<script data-goatcounter="https://futureshow.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script src="/assets/fs-home.js" defer></script>
+</body>
+</html>
