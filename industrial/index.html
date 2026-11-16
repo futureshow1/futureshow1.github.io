@@ -478,7 +478,7 @@ const T={
   'card.album':'▶ SŁUCHAJ PŁYTY','card.track':'▶ UTWÓR Z PŁYTY','card.other':'▶ NAGRANIE WYKONAWCY','card.bc':'▶ BANDCAMP','card.search':'SZUKAJ NA YOUTUBE ↗','card.ext':'↗ SŁUCHAJ NA YOUTUBE','src.listen':'Posłuchaj audycji','src.read':'Przeczytaj tekst','pl.big':'⤢ POWIĘKSZ','pl.small':'⤡ ZMNIEJSZ','pl.fs':'⛶ PEŁNY EKRAN',
   'card.star':'★ OD TEGO ZACZNIJ','card.must':'★ WARTO ZACZĄĆ','card.pol':'Mówi o niej','card.pols':'Mówią o niej','card.plink':'Kopiuj link do płyty',
   'typ.dokument':'dokument','typ.archiwum':'archiwum','typ.wyklad':'rozmowa / wykład',
-  'pl.kicker':'Słuchasz ciągiem','pl.prevshort':'POPRZ.','pl.nextshort':'NAST.','pl.cont':'CIĄGŁE','pl.shuffle':'LOSOWO','pl.bcnote':'Bandcamp: następna płyta po kliknięciu NAST.',
+  'pl.kicker':'Słuchasz ciągiem','pl.prevshort':'POPRZ.','pl.nextshort':'NAST.','pl.cont':'CIĄGŁE','pl.fail':'YouTube nie pozwala teraz odtworzyć tego nagrania na stronie.','pl.shuffle':'LOSOWO','pl.bcnote':'Bandcamp: następna płyta po kliknięciu NAST.',
   'toast.copied':'Link skopiowany: ','toast.prompt':'Skopiuj link:','pl.empty':'Brak płyt z nagraniem w tym filtrze.',
   'footer':'Portal edukacyjny. Nagrania osadzone z publicznych kanałów YouTube i oficjalnych stron Bandcamp, prawa przy ich właścicielach.<br>Kanon na podstawie rozmów i opracowań (Misiuna, Frelik, Drenda, Tyszkiewicz, Staniszewski; Reed, RE/Search, Ford) · 2026'
  },
@@ -507,7 +507,7 @@ const T={
   'card.album':'▶ PLAY THE ALBUM','card.track':'▶ TRACK FROM THE ALBUM','card.other':'▶ ARTIST RECORDING','card.bc':'▶ BANDCAMP','card.search':'SEARCH ON YOUTUBE ↗','card.ext':'↗ LISTEN ON YOUTUBE','src.listen':'Listen to the programme','src.read':'Read the text','pl.big':'⤢ ENLARGE','pl.small':'⤡ SHRINK','pl.fs':'⛶ FULL SCREEN',
   'card.star':'★ START HERE','card.must':'★ GOOD START','card.pol':'Discussed by','card.pols':'Discussed by','card.plink':'Copy link to this record',
   'typ.dokument':'documentary','typ.archiwum':'archival','typ.wyklad':'talk / lecture',
-  'pl.kicker':'Playing all','pl.prevshort':'PREV','pl.nextshort':'NEXT','pl.cont':'CONTINUOUS','pl.shuffle':'SHUFFLE','pl.bcnote':'Bandcamp: press NEXT for the next record.',
+  'pl.kicker':'Playing all','pl.prevshort':'PREV','pl.nextshort':'NEXT','pl.cont':'CONTINUOUS','pl.fail':'YouTube won\'t play this recording on the site right now.','pl.shuffle':'SHUFFLE','pl.bcnote':'Bandcamp: press NEXT for the next record.',
   'toast.copied':'Link copied: ','toast.prompt':'Copy this link:','pl.empty':'No records with a recording in this filter.',
   'footer':'An educational portal. Recordings embedded from public YouTube channels and official Bandcamp pages; all rights remain with their owners.<br>Canon compiled from interviews and literature (Misiuna, Frelik, Drenda, Tyszkiewicz, Staniszewski; Reed, RE/Search, Ford) · 2026'
  }
@@ -676,7 +676,7 @@ function renderNowPlaying(){
 }
 function killYT(){if(ytPlayer&&ytPlayer.destroy){try{ytPlayer.destroy();}catch(e){}}ytPlayer=null;}
 function playCurrent(){
-  const a=byKey[queue[qi]];if(!a)return;
+  const a=byKey[queue[qi]];if(!a)return;clearTimeout(failTimer);
   renderNowPlaying();
   const host=document.getElementById('pl-video');
   if(!a.yt&&a.bc){
@@ -689,7 +689,14 @@ function playCurrent(){
   if(ytPlayer&&ytPlayer.loadVideoById){ytPlayer.loadVideoById(a.yt);return;}
   host.innerHTML='<div id="pl-frame"></div>';
   ytPlayer=new YT.Player('pl-frame',{videoId:a.yt,playerVars:{autoplay:1,rel:0,playsinline:1,fs:1},
-    events:{onReady:e=>e.target.playVideo(),onStateChange:e=>{if(e.data===YT.PlayerState.ENDED&&contOn)nextTrack();},onError:()=>nextTrack()}});
+    events:{onReady:e=>e.target.playVideo(),onStateChange:e=>{if(e.data===YT.PlayerState.ENDED&&contOn)nextTrack();},onError:e=>ytFail(e.data)}});
+}
+let failTimer=null;
+function ytFail(code){
+  const a=byKey[queue[qi]];if(!a)return;clearTimeout(failTimer);
+  const sub=document.getElementById('pl-sub');
+  sub.innerHTML=`<span style="color:var(--red)">${t('pl.fail')}</span> <a href="https://www.youtube.com/watch?v=${a.yt}" target="_blank" rel="noopener" style="color:var(--gold)">${t('modal.yt')}</a>`;
+  if(contOn)failTimer=setTimeout(()=>{if(byKey[queue[qi]]===a)nextTrack();},6000);
 }
 function nextTrack(){if(!queue.length)return;qi=shuffleOn?Math.floor(Math.random()*queue.length):(qi+1)%queue.length;playCurrent();}
 function prevTrack(){if(!queue.length)return;qi=(qi-1+queue.length)%queue.length;playCurrent();}
