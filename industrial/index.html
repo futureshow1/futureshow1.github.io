@@ -157,12 +157,18 @@ section.film-era h2{font-size:clamp(1.4rem,3.4vw,2rem);color:var(--cream)}
 .modal-frame.bcf{aspect-ratio:auto;height:min(560px,75vh);max-width:700px;margin:0 auto;background:var(--bg2)}
 .modal-frame iframe{width:100%;height:100%;border:0}
 .modal-title{margin-top:1rem;font-size:1rem;color:var(--cream)}
-.modal-close,.modal-share,.modal-yt{position:absolute;top:-2.6rem;background:none;border:1px solid var(--line);color:var(--cream-dim);font-family:var(--mono);font-size:.8rem;padding:.3rem .9rem;border-radius:2px;cursor:pointer;text-decoration:none}
-.modal-close{right:0;color:var(--cream)}
-.modal-share{right:6.6rem}
-.modal-yt{left:0}
+.modal-bar{display:flex;gap:.5rem;align-items:center;margin-bottom:.7rem}
+.modal-bar .modal-yt{margin-right:auto}
+.modal.open.mini{inset:auto 1rem 1rem auto;width:min(400px,calc(100vw - 2rem));background:none;padding:0;display:block}
+.modal.mini .modal-box{width:100%;background:var(--bg2);border:1px solid var(--gold);padding:.5rem;box-shadow:0 14px 50px rgba(0,0,0,.7)}
+.modal.mini .modal-bar{margin-bottom:.4rem}
+.modal.mini .modal-share,.modal.mini .modal-yt{display:none}
+.modal.mini .modal-min{margin-left:auto}
+.modal.mini .modal-title{font-size:.78rem;margin-top:.4rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.modal-close,.modal-share,.modal-yt,.modal-min{background:none;border:1px solid var(--line);color:var(--cream-dim);font-family:var(--mono);font-size:.8rem;padding:.3rem .9rem;border-radius:2px;cursor:pointer;text-decoration:none}
+.modal-close{color:var(--cream)}
 .modal-close:hover{border-color:var(--red);color:var(--red)}
-.modal-share:hover,.modal-yt:hover{color:var(--gold);border-color:var(--gold)}
+.modal-share:hover,.modal-yt:hover,.modal-min:hover{color:var(--gold);border-color:var(--gold)}
 @media(max-width:640px){.modal-yt,.modal-share,.modal-close{top:-2.4rem;font-size:.7rem;padding:.25rem .6rem}.modal-share{right:5.2rem}}
 
 /* BIBLIOTEKA */
@@ -201,6 +207,7 @@ footer .fx{font-family:var(--head);font-weight:900;font-size:1.2rem;letter-spaci
 .pl-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .pl-video.bc{width:340px;aspect-ratio:auto;height:120px;cursor:default}
 #player.big .pl-bar{grid-template-columns:minmax(0,1fr) auto}
+#player.big .pl-video.bc{grid-column:1/-1;width:min(700px,100%);height:min(470px,calc(100vh - var(--navh) - 9rem));margin:0 auto}
 #player.big .pl-video:not(.bc){grid-column:1/-1;width:min(1100px,100%,calc((100vh - var(--navh) - 9rem)*16/9));margin:0 auto;cursor:default}
 .pl-video:fullscreen{width:100%!important;height:100%;border-radius:0}
 .pl-meta{min-width:0}
@@ -382,9 +389,12 @@ header>*:not(.hslides){position:relative;z-index:2}
 
 <div class="modal" id="modal">
   <div class="modal-box">
+    <div class="modal-bar">
     <a class="modal-yt" id="modal-yt" href="#" target="_blank" rel="noopener" data-i18n="modal.yt">otwórz na YouTube ↗</a>
     <button class="modal-share" id="modal-share" data-i18n="modal.share">🔗 kopiuj link</button>
+    <button class="modal-min" id="modal-min">⤡ zminimalizuj</button>
     <button class="modal-close" id="modal-close" data-i18n="modal.close">zamknij ✕</button>
+    </div>
     <div class="modal-frame" id="modal-frame"></div>
     <div class="modal-title" id="modal-title"></div>
   </div>
@@ -403,7 +413,7 @@ header>*:not(.hslides){position:relative;z-index:2}
       <button class="pl-btn" id="pl-prev">◀<span class="pl-prev-txt"> <span data-i18n="pl.prevshort">POPRZ.</span></span></button>
       <button class="pl-btn pp" id="pl-pp">❚❚</button>
       <button class="pl-btn" id="pl-next"><span class="pl-next-txt"><span data-i18n="pl.nextshort">NAST.</span> </span>▶</button>
-      <button class="pl-btn" id="pl-big">⤢ DUŻE</button>
+      <button class="pl-btn" id="pl-big">⤢ POWIĘKSZ</button>
       <button class="pl-btn" id="pl-fs" data-i18n="pl.fs">⛶ PEŁNY EKRAN</button>
       <button class="pl-btn" id="pl-cont" data-i18n="pl.cont">CIĄGŁE</button>
       <button class="pl-btn" id="pl-shuf" data-i18n="pl.shuffle">LOSOWO</button>
@@ -464,8 +474,8 @@ const T={
   'f5':'NOISECAST – „Podaj dyskografię”','f5d':'Cykl „Noise Magazine”: płyta po płycie przez dyskografie zespołów, z polskimi gośćmi.',
   'lib.title':'Biblioteka','lib.desc':'Książki, pisma i serwisy, na których opiera się kanon: od podręcznika RE/Search z 1983 roku po polskie „Glissando”, „Dwutygodnik” i „Meakulturę”.',
   'lib.more':'więcej ↗',
-  'modal.yt':'otwórz na YouTube ↗','modal.bc':'otwórz w Bandcampie ↗','modal.close':'zamknij ✕','modal.share':'🔗 kopiuj link',
-  'card.album':'▶ SŁUCHAJ PŁYTY','card.track':'▶ UTWÓR Z PŁYTY','card.other':'▶ NAGRANIE WYKONAWCY','card.bc':'▶ BANDCAMP','card.search':'SZUKAJ NA YOUTUBE ↗','card.ext':'↗ SŁUCHAJ NA YOUTUBE','src.listen':'Posłuchaj audycji','src.read':'Przeczytaj tekst','pl.big':'⤢ DUŻE','pl.small':'⤡ MAŁE','pl.fs':'⛶ PEŁNY EKRAN',
+  'modal.yt':'otwórz na YouTube ↗','modal.bc':'otwórz w Bandcampie ↗','modal.close':'zamknij ✕','modal.min':'⤡ zminimalizuj','modal.max':'⤢ powiększ','modal.share':'🔗 kopiuj link',
+  'card.album':'▶ SŁUCHAJ PŁYTY','card.track':'▶ UTWÓR Z PŁYTY','card.other':'▶ NAGRANIE WYKONAWCY','card.bc':'▶ BANDCAMP','card.search':'SZUKAJ NA YOUTUBE ↗','card.ext':'↗ SŁUCHAJ NA YOUTUBE','src.listen':'Posłuchaj audycji','src.read':'Przeczytaj tekst','pl.big':'⤢ POWIĘKSZ','pl.small':'⤡ ZMNIEJSZ','pl.fs':'⛶ PEŁNY EKRAN',
   'card.star':'★ OD TEGO ZACZNIJ','card.must':'★ WARTO ZACZĄĆ','card.pol':'Mówi o niej','card.pols':'Mówią o niej','card.plink':'Kopiuj link do płyty',
   'typ.dokument':'dokument','typ.archiwum':'archiwum','typ.wyklad':'rozmowa / wykład',
   'pl.kicker':'Słuchasz ciągiem','pl.prevshort':'POPRZ.','pl.nextshort':'NAST.','pl.cont':'CIĄGŁE','pl.shuffle':'LOSOWO','pl.bcnote':'Bandcamp: następna płyta po kliknięciu NAST.',
@@ -493,8 +503,8 @@ const T={
   'f5':'NOISECAST: Podaj dyskografię','f5d':'Noise Magazine\'s series working record by record through band discographies with Polish guests (in Polish, plus English interviews).',
   'lib.title':'Library','lib.desc':'The books, magazines and sites the canon rests on: from the 1983 RE/Search handbook to the Polish magazines Glissando, Dwutygodnik and Meakultura.',
   'lib.more':'more ↗',
-  'modal.yt':'open on YouTube ↗','modal.bc':'open on Bandcamp ↗','modal.close':'close ✕','modal.share':'🔗 copy link',
-  'card.album':'▶ PLAY THE ALBUM','card.track':'▶ TRACK FROM THE ALBUM','card.other':'▶ ARTIST RECORDING','card.bc':'▶ BANDCAMP','card.search':'SEARCH ON YOUTUBE ↗','card.ext':'↗ LISTEN ON YOUTUBE','src.listen':'Listen to the programme','src.read':'Read the text','pl.big':'⤢ LARGE','pl.small':'⤡ SMALL','pl.fs':'⛶ FULL SCREEN',
+  'modal.yt':'open on YouTube ↗','modal.bc':'open on Bandcamp ↗','modal.close':'close ✕','modal.min':'⤡ minimise','modal.max':'⤢ enlarge','modal.share':'🔗 copy link',
+  'card.album':'▶ PLAY THE ALBUM','card.track':'▶ TRACK FROM THE ALBUM','card.other':'▶ ARTIST RECORDING','card.bc':'▶ BANDCAMP','card.search':'SEARCH ON YOUTUBE ↗','card.ext':'↗ LISTEN ON YOUTUBE','src.listen':'Listen to the programme','src.read':'Read the text','pl.big':'⤢ ENLARGE','pl.small':'⤡ SHRINK','pl.fs':'⛶ FULL SCREEN',
   'card.star':'★ START HERE','card.must':'★ GOOD START','card.pol':'Discussed by','card.pols':'Discussed by','card.plink':'Copy link to this record',
   'typ.dokument':'documentary','typ.archiwum':'archival','typ.wyklad':'talk / lecture',
   'pl.kicker':'Playing all','pl.prevshort':'PREV','pl.nextshort':'NEXT','pl.cont':'CONTINUOUS','pl.shuffle':'SHUFFLE','pl.bcnote':'Bandcamp: press NEXT for the next record.',
@@ -620,15 +630,17 @@ const modal=document.getElementById('modal'),frame=document.getElementById('moda
 const bcSrc=(id,size)=>`https://bandcamp.com/EmbeddedPlayer/album=${id}/size=large/bgcol=161614/linkcol=e8b71a/${size==='small'?'tracklist=false/artwork=small':'tracklist=true/artwork=small'}/transparent=true/`;
 function openModal(html,title,link,linkLabel,share,isBc){
   frame.classList.toggle('bcf',!!isBc);frame.innerHTML=html;mtitle.textContent=title;
-  myt.href=link;myt.textContent=linkLabel;modal.classList.add('open');document.body.style.overflow='hidden';curShare=share;
+  myt.href=link;myt.textContent=linkLabel;modal.classList.add('open');setMini(false);curShare=share;
 }
-function openVideo(id,title){openModal(`<iframe src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>`,title,`https://www.youtube.com/watch?v=${id}`,t('modal.yt'),'#film='+id);try{history.replaceState(null,'','#film='+id)}catch(e){}}
+function openVideo(id,title){if(ytPlayer&&ytPlayer.pauseVideo){try{ytPlayer.pauseVideo();}catch(e){}}openModal(`<iframe src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>`,title,`https://www.youtube.com/watch?v=${id}`,t('modal.yt'),'#film='+id);try{history.replaceState(null,'','#film='+id)}catch(e){}}
 function openBandcamp(a){openModal(`<iframe src="${bcSrc(a.bc)}" seamless></iframe>`,`${a.a} — ${a.t}`,a.bcu,t('modal.bc'),'#a-'+a.k,true);}
-function closeModal(){modal.classList.remove('open');frame.innerHTML='';document.body.style.overflow='';curShare=null;if(location.hash.indexOf('#film=')===0){try{history.replaceState(null,'',location.pathname+location.search)}catch(e){}}}
+function setMini(on){modal.classList.toggle('mini',on);document.body.style.overflow=on?'':'hidden';document.getElementById('modal-min').textContent=on?t('modal.max'):t('modal.min');}
+function closeModal(){modal.classList.remove('open','mini');frame.innerHTML='';document.body.style.overflow='';curShare=null;if(location.hash.indexOf('#film=')===0){try{history.replaceState(null,'',location.pathname+location.search)}catch(e){}}}
 document.getElementById('modal-share').addEventListener('click',()=>{if(curShare)copyLink(curShare);});
 document.getElementById('modal-close').addEventListener('click',closeModal);
-modal.addEventListener('click',e=>{if(e.target===modal)closeModal();});
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+document.getElementById('modal-min').addEventListener('click',()=>setMini(!modal.classList.contains('mini')));
+modal.addEventListener('click',e=>{if(e.target===modal)setMini(true);});
+document.addEventListener('keydown',e=>{if(e.key!=='Escape')return;if(modal.classList.contains('open')&&!modal.classList.contains('mini'))setMini(true);else if(PLAYER.classList.contains('big'))setBig(false);});
 let toastTimer=null;
 function toast(m){const el=document.getElementById('toast');el.textContent=m;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),2200);}
 function copyLink(frag){const url=location.origin+location.pathname+frag;if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(url).then(()=>toast(t('toast.copied')+frag),()=>toast(url));}else prompt(t('toast.prompt'),url);}
@@ -666,8 +678,8 @@ function playCurrent(){
   renderNowPlaying();
   const host=document.getElementById('pl-video');
   if(!a.yt&&a.bc){
-    killYT();host.classList.add('bc');setBig(false);document.getElementById('pl-fs').style.display='none';document.getElementById('pl-prog').style.visibility='hidden';
-    host.innerHTML=`<iframe src="${bcSrc(a.bc,'small')}" seamless></iframe>`;return;
+    killYT();host.classList.add('bc');document.getElementById('pl-fs').style.display='none';document.getElementById('pl-prog').style.visibility='hidden';
+    host.innerHTML=`<iframe src="${bcSrc(a.bc,PLAYER.classList.contains('big')?'large':'small')}" seamless></iframe>`;return;
   }
   host.classList.remove('bc');document.getElementById('pl-prog').style.visibility='';document.getElementById('pl-fs').style.display='';
   if(!apiReady){pendingPlay=true;loadYTAPI();return;}
@@ -678,9 +690,9 @@ function playCurrent(){
 }
 function nextTrack(){if(!queue.length)return;qi=shuffleOn?Math.floor(Math.random()*queue.length):(qi+1)%queue.length;playCurrent();}
 function prevTrack(){if(!queue.length)return;qi=(qi-1+queue.length)%queue.length;playCurrent();}
-function startQueue(fromKey){
+function startQueue(fromKey,big){
   queue=buildQueue();if(!queue.length){toast(t('pl.empty'));return;}
-  qi=Math.max(0,queue.indexOf(fromKey));PLAYER.classList.add('on');setBig(false);playerLabels();loadYTAPI();playCurrent();
+  qi=Math.max(0,queue.indexOf(fromKey));PLAYER.classList.add('on');setBig(!!big);playerLabels();loadYTAPI();playCurrent();
 }
 function stopQueue(){PLAYER.classList.remove('on');killYT();pendingPlay=false;const h=document.getElementById('pl-video');h.innerHTML='';h.classList.remove('bc');document.querySelectorAll('.acard.playing').forEach(c=>c.classList.remove('playing'));playerLabels();}
 document.getElementById('playall').addEventListener('click',()=>{PLAYER.classList.contains('on')?stopQueue():startQueue();});
@@ -690,7 +702,8 @@ document.getElementById('pl-shuf').addEventListener('click',()=>{shuffleOn=!shuf
 document.getElementById('pl-cont').addEventListener('click',()=>{contOn=!contOn;try{localStorage.setItem('ind-cont',contOn?'1':'0');}catch(e){}playerLabels();});
 document.getElementById('pl-close').addEventListener('click',stopQueue);
 (function(){const nav=document.querySelector('nav');nav.insertAdjacentElement('afterend',PLAYER);const s=()=>document.documentElement.style.setProperty('--navh',nav.offsetHeight+'px');s();addEventListener('resize',s);})();
-function setBig(on){PLAYER.classList.toggle('big',on);document.getElementById('pl-big').textContent=on?t('pl.small'):t('pl.big');}
+function setBig(on){const was=PLAYER.classList.contains('big');PLAYER.classList.toggle('big',on);document.getElementById('pl-big').textContent=on?t('pl.small'):t('pl.big');
+  const h=document.getElementById('pl-video');if(was!==on&&h.classList.contains('bc')&&PLAYER.classList.contains('on'))playCurrent();}
 document.getElementById('pl-video').addEventListener('click',e=>{if(!e.currentTarget.classList.contains('bc')&&!PLAYER.classList.contains('big'))setBig(true);});
 document.getElementById('pl-big').addEventListener('click',()=>setBig(!PLAYER.classList.contains('big')));
 document.getElementById('pl-fs').addEventListener('click',()=>{const h=document.getElementById('pl-video');const f=h.requestFullscreen||h.webkitRequestFullscreen;if(document.fullscreenElement){document.exitFullscreen();}else if(f){f.call(h);}});
@@ -710,8 +723,9 @@ document.addEventListener('click',e=>{
     const a=byKey[ac.dataset.k];
     if(a.rt==='ext'){window.open('https://www.youtube.com/watch?v='+a.yt,'_blank','noopener');return;}
     if(!a.yt&&!a.bc){window.open('https://www.youtube.com/results?search_query='+ac.dataset.q,'_blank');return;}
-    if(PLAYER.classList.contains('on')){const i=queue.indexOf(a.k);if(i>=0){qi=i;playCurrent();}else startQueue(a.k);return;}
-    if(a.yt)openVideo(a.yt,`${a.a} — ${a.t}`);else openBandcamp(a);
+    if(modal.classList.contains('open'))closeModal();
+    if(PLAYER.classList.contains('on')){const i=queue.indexOf(a.k);if(i>=0){qi=i;playCurrent();}else startQueue(a.k,PLAYER.classList.contains('big'));}
+    else startQueue(a.k,true);
     return;
   }
   const vc=e.target.closest('.vcard');
