@@ -9,7 +9,17 @@
   <itunes:author>FutureShow Studio</itunes:author>
   <itunes:explicit>false</itunes:explicit>
   <itunes:category text="News"/>
-  <lastBuildDate>Sun, 15 Nov 2026 18:30:00 +0100</lastBuildDate>
+  <lastBuildDate>Mon, 16 Nov 2026 06:30:00 +0100</lastBuildDate>
+  <item>
+    <title>Trzy mocarstwa spotkają się w Shenzhen, a Europy przy tym stole nie będzie</title>
+    <link>https://futureshow.pl/wiadomosci/2026-11-16-rano/</link>
+    <guid isPermaLink="true">https://futureshow.pl/wiadomosci/2026-11-16-rano/</guid>
+    <pubDate>Mon, 16 Nov 2026 06:30:00 +0100</pubDate>
+    <description>W czwartek w Shenzhen po raz pierwszy spotkają się Donald Trump, Władimir Putin i Xi Jinping, ale według Białego Domu Ukrainy nie będzie w agendzie. Głównym tematem ma być redukcja broni jądrowej po wygaśnięciu w lutym układu New START. W kraju wciąż wraca sprawa strzelaniny w Krakowie, a spółka Autopay ujawniła nieautoryzowany dostęp do danych o płatnościach.</description>
+    <enclosure url="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-16-rano.mp3" length="3397851" type="audio/mpeg"/>
+    <itunes:duration>376</itunes:duration>
+    <itunes:episodeType>full</itunes:episodeType>
+  </item>
   <item>
     <title>Drugi atak na amerykańską bazę w Bahrajnie kruszy porozumienie z Iranem</title>
     <link>https://futureshow.pl/wiadomosci/2026-11-15-wieczor/</link>
