@@ -9,7 +9,17 @@
   <itunes:author>FutureShow Studio</itunes:author>
   <itunes:explicit>false</itunes:explicit>
   <itunes:category text="News"/>
-  <lastBuildDate>Tue, 17 Nov 2026 06:30:00 +0100</lastBuildDate>
+  <lastBuildDate>Tue, 17 Nov 2026 18:30:00 +0100</lastBuildDate>
+  <item>
+    <title>Most Krymski runął, a Trump leci na rozmowy z Putinem i Xi</title>
+    <link>https://futureshow.pl/wiadomosci/2026-11-17-wieczor/</link>
+    <guid isPermaLink="true">https://futureshow.pl/wiadomosci/2026-11-17-wieczor/</guid>
+    <pubDate>Tue, 17 Nov 2026 18:30:00 +0100</pubDate>
+    <description>Ukraina po raz pierwszy zwaliła łuk drogowy Mostu Krymskiego, jedynego lądowego połączenia Rosji z okupowanym Krymem. Donald Trump rozpoczął podróż po Azji, gdzie czeka go trójstronny szczyt z Władimirem Putinem i Xi Jinpingiem. W kraju trwa spór o Trybunał Konstytucyjny, a Sejm odrzucił wniosek o wotum nieufności.</description>
+    <enclosure url="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-17-wieczor.mp3" length="3431187" type="audio/mpeg"/>
+    <itunes:duration>382</itunes:duration>
+    <itunes:episodeType>full</itunes:episodeType>
+  </item>
   <item>
     <title>Rosyjskie rakiety uderzyły w mosty w Kijowie, Ukraina znów zaatakowała Most Krymski</title>
     <link>https://futureshow.pl/wiadomosci/2026-11-17-rano/</link>
