@@ -9,7 +9,17 @@
   <itunes:author>FutureShow Studio</itunes:author>
   <itunes:explicit>false</itunes:explicit>
   <itunes:category text="News"/>
-  <lastBuildDate>Wed, 18 Nov 2026 06:30:00 +0100</lastBuildDate>
+  <lastBuildDate>Wed, 18 Nov 2026 18:30:00 +0100</lastBuildDate>
+  <item>
+    <title>Trump, Xi i Putin spotykają się w Shenzhen, Iran ostrzeliwuje bazy w Zatoce, a Haga szykuje wyrok w sprawie ludobójstwa</title>
+    <link>https://futureshow.pl/wiadomosci/2026-11-18-wieczor/</link>
+    <guid isPermaLink="true">https://futureshow.pl/wiadomosci/2026-11-18-wieczor/</guid>
+    <pubDate>Wed, 18 Nov 2026 18:30:00 +0100</pubDate>
+    <description>W czwartek Trump, Xi i Putin spotkają się po raz pierwszy we trójkę, a Międzynarodowy Trybunał Sprawiedliwości w Hadze ogłosi wyrok w sprawie ludobójstwa Rohingów. W środę Iran ostrzelał amerykańską bazę w Kuwejcie i cele w Bahrajnie. W Polsce zgromadzenie sędziów Trybunału Konstytucyjnego uchyliło immunitety prezesowi i wiceprezesowi TK, a Sąd Najwyższy zajął stanowisko w sprawie orzeczeń trybunału.</description>
+    <enclosure url="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-18-wieczor.mp3" length="3244731" type="audio/mpeg"/>
+    <itunes:duration>363</itunes:duration>
+    <itunes:episodeType>full</itunes:episodeType>
+  </item>
   <item>
     <title>Ukraina zniszczyła przęsło Mostu Krymskiego, Kalifornia pozywa OpenAI za utratę kontroli nad agentami</title>
     <link>https://futureshow.pl/wiadomosci/2026-11-18-rano/</link>

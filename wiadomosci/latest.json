@@ -1,14 +1,14 @@
 {
- "id": "2026-11-18-rano",
- "title": "Ukraina zniszczyła przęsło Mostu Krymskiego, Kalifornia pozywa OpenAI za utratę kontroli nad agentami",
- "label": "Wydanie poranne",
- "edition": "rano",
+ "id": "2026-11-18-wieczor",
+ "title": "Trump, Xi i Putin spotykają się w Shenzhen, Iran ostrzeliwuje bazy w Zatoce, a Haga szykuje wyrok w sprawie ludobójstwa",
+ "label": "Wydanie wieczorne",
+ "edition": "wieczor",
  "date": "2026-11-18",
  "date_pl": "środa, 18 listopada 2026",
- "dur": "7:17",
- "secs": 437,
- "lead": "Ukraina uderzyła w Most Krymski nowymi rakietami dalekiego zasięgu, a prokurator generalny Kalifornii pozwał OpenAI za incydenty z autonomicznymi agentami sztucznej inteligencji. W tym wydaniu także spór o konta Trybunału Konstytucyjnego w NBP, obiecujące wyniki badań nad lekiem na Alzheimera i badanie, według którego co trzeci młody człowiek traktuje sztuczną inteligencję jako towarzysza.",
- "url": "https://futureshow.pl/wiadomosci/2026-11-18-rano/",
- "audio": "https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-18-rano.mp3",
- "generated": "2026-11-18T06:30:00+01:00"
+ "dur": "6:03",
+ "secs": 363,
+ "lead": "W czwartek Trump, Xi i Putin spotkają się po raz pierwszy we trójkę, a Międzynarodowy Trybunał Sprawiedliwości w Hadze ogłosi wyrok w sprawie ludobójstwa Rohingów. W środę Iran ostrzelał amerykańską bazę w Kuwejcie i cele w Bahrajnie. W Polsce zgromadzenie sędziów Trybunału Konstytucyjnego uchyliło immunitety prezesowi i wiceprezesowi TK, a Sąd Najwyższy zajął stanowisko w sprawie orzeczeń trybunału.",
+ "url": "https://futureshow.pl/wiadomosci/2026-11-18-wieczor/",
+ "audio": "https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-18-wieczor.mp3",
+ "generated": "2026-11-18T18:30:00+01:00"
 }
