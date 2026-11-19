@@ -9,7 +9,17 @@
   <itunes:author>FutureShow Studio</itunes:author>
   <itunes:explicit>false</itunes:explicit>
   <itunes:category text="News"/>
-  <lastBuildDate>Wed, 18 Nov 2026 18:30:00 +0100</lastBuildDate>
+  <lastBuildDate>Thu, 19 Nov 2026 06:30:00 +0100</lastBuildDate>
+  <item>
+    <title>Trump, Xi i Putin rozmawiają w Shenzhen, gdy Europa w Berlinie liczy 25 miliardów euro na obronę Ukrainy</title>
+    <link>https://futureshow.pl/wiadomosci/2026-11-19-rano/</link>
+    <guid isPermaLink="true">https://futureshow.pl/wiadomosci/2026-11-19-rano/</guid>
+    <pubDate>Thu, 19 Nov 2026 06:30:00 +0100</pubDate>
+    <description>W czwartek 19 listopada w Shenzhen po raz pierwszy dochodzi do trójstronnych rozmów USA, Chin i Rosji, w Berlinie europejscy sojusznicy Kijowa próbują domknąć finansowanie jego obrony, a na giełdzie Nasdaq debiutuje Anthropic, wyceniony nawet na 1,5 bln dolarów.</description>
+    <enclosure url="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-19-rano.mp3" length="4228803" type="audio/mpeg"/>
+    <itunes:duration>471</itunes:duration>
+    <itunes:episodeType>full</itunes:episodeType>
+  </item>
   <item>
     <title>Trump, Xi i Putin spotykają się w Shenzhen, Iran ostrzeliwuje bazy w Zatoce, a Haga szykuje wyrok w sprawie ludobójstwa</title>
     <link>https://futureshow.pl/wiadomosci/2026-11-18-wieczor/</link>
