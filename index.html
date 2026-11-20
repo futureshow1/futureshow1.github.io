@@ -227,6 +227,11 @@ footer a{color:var(--dim)} footer a:hover{color:var(--ink)}
 .m-banner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
   object-position:center 30%;opacity:0;transition:opacity .9s ease}
 .m-banner img.cur{opacity:1}
+/* baner z linkiem otwiera projekt tak jak przycisk */
+.m-banner.m-go{cursor:pointer}
+.m-banner.m-go img{transition:opacity .9s ease,filter .25s}
+.m-banner.m-go:hover img.cur{filter:brightness(1.12)}
+.m-banner.m-go:focus-visible{outline:2px solid var(--cyan);outline-offset:-2px}
 .m-shade{position:absolute;inset:0;background:
   linear-gradient(to top,rgba(6,8,14,.95) 6%,rgba(6,8,14,.2) 50%,rgba(6,8,14,.35) 100%)}
 .m-banner .p-title{font-size:40px;bottom:22px;left:30px;right:30px;
@@ -1662,6 +1667,12 @@ function openModal(k){
  try{history.replaceState(null,"","#m="+k)}catch(e){}
  document.getElementById("mclose").onclick=closeModal;
  document.getElementById("mclose2").onclick=closeModal;
+ if(p.link){
+  const b=m.querySelector(".m-banner"),go=()=>window.open(lk(p),"_blank","noopener");
+  b.classList.add("m-go");b.setAttribute("role","link");b.tabIndex=0;b.title=openLabel(p).replace(/^▶\s*/,"");
+  b.onclick=e=>{if(!e.target.closest(".m-close,[data-mgoto],a,button"))go();};
+  b.onkeydown=e=>{if(e.key==="Enter")go();};
+ }
  shareBtn(k);
  clearInterval(modalTimer);
  if(g.length>1 && !matchMedia("(prefers-reduced-motion: reduce)").matches){
