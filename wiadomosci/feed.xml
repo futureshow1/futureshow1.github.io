@@ -9,7 +9,17 @@
   <itunes:author>FutureShow Studio</itunes:author>
   <itunes:explicit>false</itunes:explicit>
   <itunes:category text="News"/>
-  <lastBuildDate>Thu, 19 Nov 2026 18:30:00 +0100</lastBuildDate>
+  <lastBuildDate>Fri, 20 Nov 2026 06:30:00 +0100</lastBuildDate>
+  <item>
+    <title>Giełda wyceniła Anthropic na dwa biliony dolarów, a nocny atak na Kijów przypomniał o sile rosyjskich rakiet</title>
+    <link>https://futureshow.pl/wiadomosci/2026-11-20-rano/</link>
+    <guid isPermaLink="true">https://futureshow.pl/wiadomosci/2026-11-20-rano/</guid>
+    <pubDate>Fri, 20 Nov 2026 06:30:00 +0100</pubDate>
+    <description>W czwartek 19 listopada Anthropic zadebiutował na giełdzie Nasdaq i w pierwszych godzinach handlu był wart około 2 bln dol. W nocy z czwartku na piątek rosyjskie rakiety spadły na Kijów, a mieszkańcy dwóch polskich województw dostali alert Rządowego Centrum Bezpieczeństwa.</description>
+    <enclosure url="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-20-rano.mp3" length="3811755" type="audio/mpeg"/>
+    <itunes:duration>423</itunes:duration>
+    <itunes:episodeType>full</itunes:episodeType>
+  </item>
   <item>
     <title>Haga po raz pierwszy uznaje państwo winnym ludobójstwa, a trzej przywódcy w Shenzhen pomijają Ukrainę</title>
     <link>https://futureshow.pl/wiadomosci/2026-11-19-wieczor/</link>
