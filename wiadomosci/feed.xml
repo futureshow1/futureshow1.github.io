@@ -9,7 +9,17 @@
   <itunes:author>FutureShow Studio</itunes:author>
   <itunes:explicit>false</itunes:explicit>
   <itunes:category text="News"/>
-  <lastBuildDate>Fri, 20 Nov 2026 06:30:00 +0100</lastBuildDate>
+  <lastBuildDate>Fri, 20 Nov 2026 18:30:00 +0100</lastBuildDate>
+  <item>
+    <title>Rosyjskie obiekty spadły w Polsce, a Tusk mówi o intencjonalnej prowokacji</title>
+    <link>https://futureshow.pl/wiadomosci/2026-11-20-wieczor/</link>
+    <guid isPermaLink="true">https://futureshow.pl/wiadomosci/2026-11-20-wieczor/</guid>
+    <pubDate>Fri, 20 Nov 2026 18:30:00 +0100</pubDate>
+    <description>Trzy rosyjskie obiekty spadły w piątek na pola na Podkarpaciu i Lubelszczyźnie, około 50 km od granicy; Donald Tusk mówi o „intencjonalnej prowokacji”, Moskwa o „bezpodstawnych oskarżeniach”. W nocy Rosja uderzyła na Ukrainę ponad 400 dronami i ponad 110 rakietami, a Władimir Putin odrzucił zimowy rozejm energetyczny. W Brukseli Unia i Wielka Brytania podpisały trzy umowy, a Trybunał w Hadze uznał ludobójstwo Rohingów.</description>
+    <enclosure url="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-20-wieczor.mp3" length="3823395" type="audio/mpeg"/>
+    <itunes:duration>424</itunes:duration>
+    <itunes:episodeType>full</itunes:episodeType>
+  </item>
   <item>
     <title>Giełda wyceniła Anthropic na dwa biliony dolarów, a nocny atak na Kijów przypomniał o sile rosyjskich rakiet</title>
     <link>https://futureshow.pl/wiadomosci/2026-11-20-rano/</link>

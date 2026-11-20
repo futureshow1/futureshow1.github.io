@@ -1,14 +1,14 @@
 {
- "id": "2026-11-20-rano",
- "title": "Giełda wyceniła Anthropic na dwa biliony dolarów, a nocny atak na Kijów przypomniał o sile rosyjskich rakiet",
- "label": "Wydanie poranne",
- "edition": "rano",
+ "id": "2026-11-20-wieczor",
+ "title": "Rosyjskie obiekty spadły w Polsce, a Tusk mówi o intencjonalnej prowokacji",
+ "label": "Wydanie wieczorne",
+ "edition": "wieczor",
  "date": "2026-11-20",
  "date_pl": "piątek, 20 listopada 2026",
- "dur": "7:03",
- "secs": 423,
- "lead": "W czwartek 19 listopada Anthropic zadebiutował na giełdzie Nasdaq i w pierwszych godzinach handlu był wart około 2 bln dol. W nocy z czwartku na piątek rosyjskie rakiety spadły na Kijów, a mieszkańcy dwóch polskich województw dostali alert Rządowego Centrum Bezpieczeństwa.",
- "url": "https://futureshow.pl/wiadomosci/2026-11-20-rano/",
- "audio": "https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-20-rano.mp3",
- "generated": "2026-11-20T06:30:00+01:00"
+ "dur": "7:04",
+ "secs": 424,
+ "lead": "Trzy rosyjskie obiekty spadły w piątek na pola na Podkarpaciu i Lubelszczyźnie, około 50 km od granicy; Donald Tusk mówi o „intencjonalnej prowokacji”, Moskwa o „bezpodstawnych oskarżeniach”. W nocy Rosja uderzyła na Ukrainę ponad 400 dronami i ponad 110 rakietami, a Władimir Putin odrzucił zimowy rozejm energetyczny. W Brukseli Unia i Wielka Brytania podpisały trzy umowy, a Trybunał w Hadze uznał ludobójstwo Rohingów.",
+ "url": "https://futureshow.pl/wiadomosci/2026-11-20-wieczor/",
+ "audio": "https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-20-wieczor.mp3",
+ "generated": "2026-11-20T18:30:00+01:00"
 }
