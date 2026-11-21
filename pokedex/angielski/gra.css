@@ -1,0 +1,1202 @@
+/* POKÉ ENGLISH — gra do nauki angielskiego dla dzieci 7–8 lat.
+   Paleta i fonty z Poképedii: róż, żółć, błękit, chmury, zaokrąglenia. */
+:root{
+  --pink:#ff6fae; --pink2:#f04f96; --pinkbg:#ffe0ef;
+  --yellow:#ffd94a; --gold:#f5b301;
+  --blue:#5fa8e8; --sky:#aadcff; --sky2:#d7f0ff;
+  --navy:#5b64c2; --ink:#454a7d; --dim:#8b90bd; --outline:#7a7fc9;
+  --cream:#fff9e0; --white:#fff; --green:#5bbf4a; --grass:#9be37f;
+  --r:28px; --shadow:0 10px 26px rgba(122,127,201,.25);
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{
+  font-family:'Baloo 2','Fredoka',system-ui,sans-serif;color:var(--ink);
+  background:linear-gradient(180deg,#bfe6ff 0%,#e3f4ff 48%,#ffe6f2 100%);
+  overflow-x:hidden;user-select:none;-webkit-user-select:none;
+}
+button{font-family:'Fredoka',sans-serif;cursor:pointer;border:0;color:inherit}
+h1,h2,h3{font-family:'Fredoka',sans-serif}
+
+/* ---------- niebo: chmury i słońce, które płyną ---------- */
+.sky{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.sun{position:absolute;top:-60px;right:-40px;width:220px;height:220px;border-radius:50%;
+  background:radial-gradient(circle,#fff6b8 0 35%,#ffe066 36% 60%,rgba(255,224,102,0) 61%);
+  animation:sunspin 30s linear infinite}
+@keyframes sunspin{to{transform:rotate(360deg)}}
+.cloud{position:absolute;background:#fff;border-radius:999px;opacity:.9;
+  box-shadow:40px -18px 0 6px #fff,82px 0 0 -4px #fff;animation:drift linear infinite}
+@keyframes drift{from{transform:translateX(-260px)}to{transform:translateX(calc(100vw + 260px))}}
+
+#app{position:relative;z-index:1;min-height:100dvh;display:flex;flex-direction:column}
+
+/* ---------- pasek górny ---------- */
+.hud{display:flex;align-items:center;gap:10px;padding:12px 16px;flex-wrap:wrap}
+.chip{display:inline-flex;align-items:center;gap:6px;white-space:nowrap;background:var(--white);
+  border:3px solid var(--outline);border-radius:999px;padding:4px 14px;
+  font-family:'Fredoka',sans-serif;font-size:18px;box-shadow:0 3px 0 var(--outline)}
+.hud .grow{flex:1}
+.iconbtn{width:52px;height:52px;border-radius:50%;background:var(--white);font-size:24px;
+  border:3px solid var(--outline);box-shadow:0 4px 0 var(--outline);display:grid;place-items:center;
+  transition:transform .12s}
+.iconbtn:active{transform:translateY(3px);box-shadow:0 1px 0 var(--outline)}
+.iconbtn.pl{font-size:15px;font-weight:700;color:var(--pink2)}
+
+/* ---------- ekran tytułowy ---------- */
+.title{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:18px;padding:24px;text-align:center}
+.logo{font-family:'Fredoka',sans-serif;font-weight:700;font-size:clamp(46px,10vw,92px);line-height:.95;
+  color:var(--yellow);-webkit-text-stroke:4px var(--navy);paint-order:stroke fill;
+  text-shadow:0 7px 0 var(--navy);letter-spacing:.02em}
+.logo small{display:block;font-size:.42em;color:var(--pink);-webkit-text-stroke:3px var(--navy);margin-top:10px}
+.hero{width:min(54vw,260px);animation:bob 2.4s ease-in-out infinite;filter:drop-shadow(0 18px 14px rgba(91,100,194,.25))}
+.bigplay{font-size:34px;font-weight:700;padding:18px 54px;border-radius:999px;color:#fff;
+  background:linear-gradient(180deg,#ff8fc0,var(--pink2));border:4px solid var(--navy);
+  box-shadow:0 8px 0 var(--navy);animation:pulse 1.6s ease-in-out infinite}
+.bigplay:active{transform:translateY(6px);box-shadow:0 2px 0 var(--navy)}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+.parentlink{position:fixed;left:14px;bottom:14px;z-index:5}
+
+/* ---------- mapa wysp ---------- */
+.map{flex:1;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(10px,2.4vh,24px) 18px;padding:6px 20px 70px;
+  max-width:980px;width:100%;margin:0 auto;align-content:center;justify-items:center}
+.isle{position:relative;width:min(100%,clamp(120px,30vh,250px));aspect-ratio:1/1;border-radius:46% 54% 50% 50%/55% 50% 50% 45%;
+  background:radial-gradient(ellipse at 50% 30%,#c8f5b0 0 45%,#8fd973 46% 70%,#f3dc9a 71%);
+  border:4px solid var(--outline);box-shadow:0 10px 0 #6fb7e8,0 16px 30px rgba(91,100,194,.25);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
+  animation:bob 3.2s ease-in-out infinite;transition:transform .15s}
+.isle:nth-child(2n){animation-delay:-1.1s}.isle:nth-child(3n){animation-delay:-2s}
+.isle:nth-child(3n+2){margin-top:28px}
+.isle .ic{font-size:clamp(34px,7vh,60px);filter:drop-shadow(0 4px 2px rgba(0,0,0,.15))}
+.isle b{font-family:'Fredoka',sans-serif;font-size:clamp(15px,2.6vh,23px);color:var(--navy);line-height:1.1;text-align:center}
+.isle .pl{font-size:13px;color:var(--ink);opacity:.75}
+.isle .stars{font-size:14px;letter-spacing:2px}
+.isle.locked{filter:grayscale(.9) brightness(.95);opacity:.75}
+.isle.locked::after{content:"🔒";position:absolute;top:6%;right:8%;font-size:clamp(24px,4vh,36px);filter:grayscale(0)}
+.isle .badge{position:absolute;top:-10px;right:-6px;width:58px;height:58px;border-radius:50%;
+  display:grid;place-items:center;font-size:30px;background:radial-gradient(circle,#fff6b8,#ffd94a 60%,#f5b301);
+  border:3px solid var(--navy);box-shadow:0 4px 0 var(--navy);overflow:hidden}
+.isle .badge::before{content:"";position:absolute;inset:-40%;background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.85) 50%,transparent 60%);
+  animation:shine 3s ease-in-out infinite}
+@keyframes shine{0%{transform:translateX(-80%)}60%,100%{transform:translateX(80%)}}
+.isle .due{position:absolute;bottom:-12px;background:var(--pink2);color:#fff;font-size:13px;
+  font-family:'Fredoka',sans-serif;border-radius:999px;padding:2px 12px;border:3px solid var(--navy);
+  animation:pulse 1.4s ease-in-out infinite}
+.isle .here{position:absolute;top:-34px;font-size:30px;animation:hop .8s ease-in-out infinite}
+@keyframes hop{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.isle:active:not(.locked){transform:scale(.95)}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-10px) rotate(1deg)}}
+
+/* ---------- ekran gry ---------- */
+.play{flex:1;display:flex;flex-direction:column;align-items:center;padding:4px 14px 18px;gap:12px;max-width:1000px;width:100%;margin:0 auto}
+.prompt{display:flex;align-items:center;gap:12px;background:var(--white);border:4px solid var(--outline);
+  border-radius:var(--r);padding:10px 14px;box-shadow:var(--shadow);width:100%;max-width:720px}
+.say{width:72px;height:72px;flex:none;border-radius:50%;font-size:34px;background:var(--yellow);
+  border:4px solid var(--navy);box-shadow:0 5px 0 var(--navy)}
+.say.talking{animation:talk .5s ease-in-out infinite}
+@keyframes talk{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+.prompt .txt{flex:1;font-family:'Fredoka',sans-serif;font-size:clamp(20px,3.6vw,30px);line-height:1.15;color:var(--navy)}
+.prompt .txt em{font-style:normal;color:var(--pink2)}
+.progress{display:flex;gap:6px;justify-content:center}
+.progress i{width:26px;height:26px;border-radius:50%;border:3px solid var(--outline);
+  background:linear-gradient(to bottom,#fff 0 45%,var(--outline) 45% 55%,#fff 55%);opacity:.45;transition:all .3s}
+.progress i.done{opacity:1;background:linear-gradient(to bottom,var(--pink2) 0 45%,var(--navy) 45% 55%,#fff 55%);transform:scale(1.1)}
+
+.arena{position:relative;width:100%;max-width:820px;min-height:clamp(240px,42vh,400px);
+  display:flex;align-items:flex-end;justify-content:space-around;gap:10px;padding:10px 6px 26px}
+.arena::before{content:"";position:absolute;left:4%;right:4%;bottom:0;height:70px;border-radius:50%;
+  background:radial-gradient(ellipse at 50% 40%,#b7f09a,#7fd062 70%);border:4px solid #63b148;z-index:0}
+.mon{position:relative;z-index:1;background:none;display:flex;flex-direction:column;align-items:center;
+  animation:popin .5s cubic-bezier(.3,1.6,.5,1) both}
+.mon img{display:block;width:clamp(110px,22vw,190px);height:auto;pointer-events:none;
+  filter:drop-shadow(0 10px 6px rgba(70,80,160,.25));animation:bob 2.6s ease-in-out infinite}
+.mon:nth-child(2) img{animation-delay:-.9s}.mon:nth-child(3) img{animation-delay:-1.7s}
+.mon.big img{width:clamp(200px,38vw,320px)}
+.mon.small img{width:clamp(70px,13vw,110px)}
+.mon.solo img{width:clamp(180px,36vw,290px)}
+.mon .shadow{width:60%;height:14px;border-radius:50%;background:rgba(40,90,40,.25);margin-top:-6px}
+@keyframes popin{from{transform:scale(0) translateY(40px);opacity:0}to{transform:scale(1);opacity:1}}
+.mon.wrong{animation:nope .5s ease-in-out}
+@keyframes nope{0%,100%{transform:translateX(0)}20%{transform:translateX(-14px) rotate(-6deg)}40%{transform:translateX(12px) rotate(5deg)}60%{transform:translateX(-8px)}80%{transform:translateX(6px)}}
+.mon.hint img{animation:glow 1s ease-in-out infinite}
+@keyframes glow{0%,100%{filter:drop-shadow(0 0 0 #ffd94a)}50%{filter:drop-shadow(0 0 22px #ffd94a) drop-shadow(0 0 8px #fff)}}
+.mon.gone{transition:transform .35s ease-in,opacity .35s,filter .2s;transform:scale(0);opacity:0;filter:brightness(4)}
+
+/* liczenie: dużo małych Pokémonów naraz */
+.counting{display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-end;gap:4px;width:100%;position:relative;z-index:1}
+.counting .mon img{width:clamp(56px,10vw,92px)}
+.counting .mon.counted img{animation:count .4s ease-out}
+@keyframes count{50%{transform:translateY(-26px) scale(1.15)}}
+
+/* opcje do wyboru: próbki kolorów, ikony, cyfry, ruchy */
+.options{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.opt{min-width:96px;height:96px;border-radius:26px;background:var(--white);border:4px solid var(--outline);
+  box-shadow:0 6px 0 var(--outline);font-size:48px;display:grid;place-items:center;padding:0 14px;
+  font-family:'Fredoka',sans-serif;font-weight:700;color:var(--navy);transition:transform .12s;animation:popin .4s both}
+.opt:nth-child(2){animation-delay:.06s}.opt:nth-child(3){animation-delay:.12s}.opt:nth-child(4){animation-delay:.18s}
+.opt:active{transform:translateY(4px);box-shadow:0 2px 0 var(--outline)}
+.opt.swatch{width:96px;padding:0;border-radius:50%}
+.opt.wrong{animation:nope .5s ease-in-out}
+.opt.right{background:var(--yellow);border-color:var(--gold);transform:scale(1.12)}
+.opt.hint{animation:glow2 1s ease-in-out infinite}
+@keyframes glow2{0%,100%{box-shadow:0 6px 0 var(--outline)}50%{box-shadow:0 6px 0 var(--outline),0 0 0 10px rgba(255,217,74,.8)}}
+
+/* ---------- ruchy Pokémona (TPR) ---------- */
+.mon.mon.act-jump img{animation:a-jump 1.6s ease-in-out}
+@keyframes a-jump{0%,100%{transform:translateY(0)}15%{transform:translateY(0) scaleY(.8)}30%{transform:translateY(-130px) scaleY(1.1)}45%{transform:translateY(0) scaleY(.85)}60%{transform:translateY(-90px)}75%{transform:translateY(0) scaleY(.9)}}
+.mon.mon.act-run img{animation:a-run 1.6s ease-in-out}
+@keyframes a-run{0%,100%{transform:translateX(0)}25%{transform:translateX(-140px) rotate(-8deg)}50%{transform:translateX(140px) rotate(8deg) scaleX(-1)}75%{transform:translateX(-60px) rotate(-6deg)}}
+.mon.mon.act-fly img{animation:a-fly 1.8s ease-in-out}
+@keyframes a-fly{0%,100%{transform:translateY(0)}30%{transform:translateY(-150px) rotate(-10deg)}50%{transform:translateY(-170px) translateX(60px) rotate(10deg)}70%{transform:translateY(-140px) translateX(-50px) rotate(-8deg)}}
+.mon.mon.act-swim img{animation:a-swim 1.8s ease-in-out}
+@keyframes a-swim{0%{transform:translate(0,8%)}12%{transform:translate(-30px,30%) rotate(-10deg)}30%{transform:translate(-80px,24%) rotate(-16deg)}48%{transform:translate(-20px,34%) rotate(6deg)}66%{transform:translate(70px,24%) rotate(14deg)}84%{transform:translate(30px,32%) rotate(-6deg)}100%{transform:translate(0,30%)}}
+.mon.mon.act-sleep img{animation:a-sleep 1.8s ease-in-out forwards}
+@keyframes a-sleep{30%,100%{transform:rotate(-20deg) translateY(14px) scaleY(.92);filter:brightness(.85) drop-shadow(0 10px 6px rgba(70,80,160,.25))}}
+.mon.mon.act-eat img{animation:a-eat 1.6s ease-in-out}
+@keyframes a-eat{40%,60%,80%{transform:scale(1.12,.9)}50%,70%,90%{transform:scale(.95,1.06)}}
+.mon.mon.act-dance img{animation:a-dance 1.6s ease-in-out}
+@keyframes a-dance{0%,100%{transform:rotate(0)}12%{transform:rotate(-18deg) translateY(-14px)}25%{transform:rotate(18deg)}37%{transform:rotate(-18deg) translateY(-14px)}50%{transform:rotate(18deg)}62%{transform:rotate(-18deg) translateY(-14px)}75%{transform:rotate(14deg)}}
+.mon.mon.act-spin img{animation:a-spin 1.4s cubic-bezier(.5,0,.5,1)}
+@keyframes a-spin{to{transform:rotate(720deg)}}
+/* pętla ruchu w grze „Who is…?" */
+.mon.loop img{animation-iteration-count:infinite!important}
+.mon.mon.loop.act-sleep img{animation:a-sleep-loop 2.4s ease-in-out infinite!important}
+@keyframes a-sleep-loop{0%,100%{transform:rotate(-20deg) translateY(14px) scaleY(.92)}50%{transform:rotate(-20deg) translateY(14px) scaleY(.98)}}
+.fx{position:absolute;z-index:3;font-size:34px;pointer-events:none}
+.zzz{animation:zzz 1.8s ease-out forwards}
+@keyframes zzz{from{transform:translate(0,0) scale(.6);opacity:0}30%{opacity:1}to{transform:translate(40px,-110px) scale(1.4);opacity:0}}
+.apple{animation:apple 1s ease-in forwards}
+@keyframes apple{from{transform:translate(-120px,-60px) scale(1)}to{transform:translate(0,0) scale(.1);opacity:0}}
+.bubble{animation:bubble 1.6s ease-out forwards}
+@keyframes bubble{from{transform:translateY(0) scale(.5);opacity:.9}to{transform:translateY(-140px) scale(1.2);opacity:0}}
+
+/* ---------- Poké Ball i łapanie ---------- */
+.ball{position:fixed;z-index:30;width:64px;height:64px;border-radius:50%;pointer-events:none;
+  background:linear-gradient(to bottom,#ff4d6d 0 45%,#2b2b33 45% 55%,#fff 55% 100%);
+  border:4px solid #2b2b33;box-shadow:inset -6px -6px 0 rgba(0,0,0,.12)}
+.ball::after{content:"";position:absolute;left:50%;top:50%;width:18px;height:18px;margin:-9px 0 0 -9px;
+  border-radius:50%;background:#fff;border:4px solid #2b2b33}
+.ball.shake{animation:shake .5s ease-in-out}
+@keyframes shake{0%,100%{transform:rotate(0)}25%{transform:rotate(-24deg)}75%{transform:rotate(24deg)}}
+.ball.clicked::after{background:#ffd94a;box-shadow:0 0 14px #ffd94a}
+.spark{position:fixed;z-index:31;font-size:26px;pointer-events:none;animation:spark .9s ease-out forwards}
+@keyframes spark{from{transform:translate(0,0) scale(.4);opacity:1}to{transform:translate(var(--dx),var(--dy)) scale(1.3);opacity:0}}
+.confetti{position:fixed;z-index:40;width:12px;height:18px;border-radius:3px;pointer-events:none;
+  animation:fall linear forwards}
+@keyframes fall{from{transform:translate(0,-20px) rotate(0)}to{transform:translate(var(--dx),110vh) rotate(var(--rot))}}
+
+/* ---------- karta nauki słowa ---------- */
+.learn{display:flex;flex-direction:column;align-items:center;gap:14px;background:var(--white);
+  border:4px solid var(--outline);border-radius:34px;padding:22px 22px 26px;box-shadow:var(--shadow);
+  width:100%;max-width:640px;animation:popin .5s both}
+.learn .word{font-family:'Fredoka',sans-serif;font-weight:700;font-size:clamp(52px,11vw,90px);line-height:1;
+  color:var(--pink2);-webkit-text-stroke:3px var(--navy);paint-order:stroke fill;letter-spacing:.03em}
+.learn .vis{display:flex;align-items:flex-end;justify-content:center;gap:12px;min-height:150px;flex-wrap:wrap}
+.learn .vis img{width:clamp(110px,22vw,160px);animation:bob 2.4s ease-in-out infinite}
+.learn .sw{width:120px;height:120px;border-radius:50%;border:5px solid var(--navy);box-shadow:0 6px 0 var(--navy)}
+.learn .big-ic{font-size:110px;line-height:1;animation:bob 2.4s ease-in-out infinite}
+.learn .digit{font-family:'Fredoka',sans-serif;font-size:130px;font-weight:700;line-height:1;color:var(--yellow);
+  -webkit-text-stroke:5px var(--navy);paint-order:stroke fill}
+.learn .balls{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;max-width:300px}
+.learn .balls i{width:26px;height:26px;border-radius:50%;border:3px solid #2b2b33;
+  background:linear-gradient(to bottom,#ff4d6d 0 45%,#2b2b33 45% 55%,#fff 55%)}
+.learn .sentence{font-size:clamp(18px,3vw,24px);color:var(--ink);text-align:center}
+.yourturn{display:flex;align-items:center;gap:12px;font-family:'Fredoka',sans-serif;font-size:22px;color:var(--navy);
+  background:var(--cream);border:3px dashed var(--gold);border-radius:999px;padding:8px 20px}
+.mic{font-size:30px;animation:talk .7s ease-in-out infinite}
+.next{font-size:28px;padding:12px 44px;border-radius:999px;background:var(--blue);color:#fff;
+  border:4px solid var(--navy);box-shadow:0 6px 0 var(--navy)}
+.next:active{transform:translateY(5px);box-shadow:0 1px 0 var(--navy)}
+
+/* ---------- nagroda i komunikaty ---------- */
+.banner{font-family:'Fredoka',sans-serif;font-weight:700;font-size:clamp(34px,7vw,60px);color:var(--yellow);
+  -webkit-text-stroke:3px var(--navy);paint-order:stroke fill;text-shadow:0 5px 0 var(--navy);text-align:center;
+  animation:popin .6s cubic-bezier(.3,1.6,.5,1) both}
+.wild{position:relative;display:flex;flex-direction:column;align-items:center;gap:14px}
+.wild .bush{font-size:70px;animation:rustle .3s ease-in-out infinite}
+@keyframes rustle{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+.throw{width:110px;height:110px;border-radius:50%;
+  background:linear-gradient(to bottom,#ff4d6d 0 45%,#2b2b33 45% 55%,#fff 55% 100%);
+  border:6px solid #2b2b33;position:relative;box-shadow:0 8px 0 #2b2b33;animation:pulse 1.2s ease-in-out infinite}
+.throw::after{content:"";position:absolute;left:50%;top:50%;width:30px;height:30px;margin:-15px 0 0 -15px;
+  border-radius:50%;background:#fff;border:6px solid #2b2b33}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:50;background:var(--navy);color:#fff;
+  font-family:'Fredoka',sans-serif;font-size:18px;padding:12px 22px;border-radius:20px;max-width:90vw;text-align:center;
+  box-shadow:0 8px 20px rgba(0,0,0,.25);animation:popin .35s both}
+
+/* ---------- kolekcja ---------- */
+.collection{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:12px;padding:6px 18px 30px;
+  max-width:1000px;width:100%;margin:0 auto}
+.slot{aspect-ratio:1/1;border-radius:24px;background:var(--white);border:3px solid var(--outline);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;padding:6px;box-shadow:0 4px 0 var(--outline)}
+.slot img{width:80%;height:auto}
+.slot span{font-family:'Fredoka',sans-serif;font-size:13px;color:var(--navy)}
+.slot.empty img{filter:brightness(0) opacity(.18)}
+.slot.empty span{opacity:.4}
+.head{display:flex;align-items:center;gap:12px;padding:6px 18px;max-width:1000px;width:100%;margin:0 auto}
+.head h2{font-size:clamp(24px,4vw,34px);color:var(--navy);flex:1}
+
+/* ---------- okienko (karta Pokémona, panel rodzica) ---------- */
+.modal{position:fixed;inset:0;z-index:60;background:rgba(69,74,125,.45);display:grid;place-items:center;padding:16px;
+  animation:fadein .2s both}
+@keyframes fadein{from{opacity:0}}
+.sheet{background:var(--white);border:4px solid var(--outline);border-radius:30px;padding:22px;max-width:620px;width:100%;
+  max-height:92dvh;overflow:auto;box-shadow:0 20px 50px rgba(0,0,0,.25);animation:popin .35s both;position:relative;user-select:text}
+.sheet .x{position:absolute;top:12px;right:12px}
+.sheet h3{font-size:24px;color:var(--navy);margin-bottom:8px}
+.sheet p{font-size:16px;line-height:1.5;margin-bottom:10px}
+.cardmon{text-align:center}
+.cardmon img{width:min(60vw,240px);animation:bob 2.4s ease-in-out infinite}
+.cardmon .desc{font-size:22px;line-height:1.45;color:var(--navy);margin-top:8px}
+
+/* panel rodzica */
+.parent h4{font-size:17px;color:var(--navy);margin:16px 0 6px}
+.parent ul{padding-left:20px;margin-bottom:8px}
+.parent li{font-size:15px;line-height:1.5;margin-bottom:6px}
+.parent table{width:100%;border-collapse:collapse;font-size:14px}
+.parent td{padding:4px 6px;border-bottom:1px solid #e8edf7}
+.parent .dots{letter-spacing:2px;color:var(--pink2)}
+.parent label{display:flex;align-items:center;gap:10px;margin:8px 0;font-size:15px}
+.parent select,.parent input[type=range]{flex:1;font-family:inherit;font-size:15px;padding:4px}
+.pbtn{font-size:15px;padding:8px 16px;border-radius:999px;background:var(--sky2);border:3px solid var(--outline);margin:4px 6px 4px 0}
+.pbtn.danger{background:var(--pinkbg);border-color:var(--pink2)}
+.hold{position:relative;overflow:hidden}
+.hold .ring{position:absolute;inset:0;border-radius:50%;background:conic-gradient(var(--pink2) var(--p,0%),transparent 0);opacity:.35}
+
+@media(max-width:640px){
+  .hud{gap:6px;padding:10px 10px;flex-wrap:nowrap}
+  .hud .chip,.chip{font-size:15px;padding:3px 9px;box-shadow:0 2px 0 var(--outline)}
+  .iconbtn{width:44px;height:44px;font-size:20px}
+  .progress{gap:3px}.progress i{width:18px;height:18px;border-width:2px}
+  .yourturn{font-size:18px;padding:8px 16px;text-align:center}
+  .map{grid-template-columns:repeat(2,1fr);gap:12px;padding:4px 14px 70px}
+  .isle{width:min(100%,clamp(120px,24vh,200px))}
+  .isle:nth-child(3n+2){margin-top:0}.isle:nth-child(2n){margin-top:30px}
+  .say{width:60px;height:60px;font-size:28px}
+  .opt{min-width:78px;height:78px;font-size:38px}.opt.swatch{width:78px}
+  .arena{min-height:250px}
+}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important}}
+
+/* w „Who is…?" trzy Pokémony ruszają się naraz — mniejszy zasięg, żeby na siebie nie wchodziły */
+.mon.mon.loop.act-run img{animation:a-run-s 1.4s ease-in-out infinite!important}
+@keyframes a-run-s{0%,100%{transform:translateX(0)}25%{transform:translateX(-30px) rotate(-8deg)}75%{transform:translateX(30px) rotate(8deg)}}
+.mon.mon.loop.act-fly img{animation:a-fly-s 2s ease-in-out infinite!important}
+@keyframes a-fly-s{0%,100%{transform:translateY(-30px) rotate(-6deg)}50%{transform:translateY(-70px) rotate(6deg)}}
+.mon.mon.loop.act-swim img{animation:a-swim-s 1.8s ease-in-out infinite!important}
+@keyframes a-swim-s{0%,100%{transform:translate(-22px,30%) rotate(-12deg)}25%{transform:translate(0,24%)}50%{transform:translate(22px,32%) rotate(10deg)}75%{transform:translate(0,26%)}}
+.mon.mon.loop.act-jump img{animation:a-jump 1.2s ease-in-out infinite!important}
+
+.banner.levelup{position:fixed;left:50%;top:38%;transform:translate(-50%,-50%);z-index:45;white-space:nowrap;
+  background:var(--white);border:4px solid var(--navy);border-radius:30px;padding:14px 30px;box-shadow:0 10px 0 var(--navy)}
+
+/* ======================================================================
+   WODA — pływający Pokémon jest zanurzony do połowy, fale płyną przed nim
+   ====================================================================== */
+.vis{position:relative}
+.mon .water{position:absolute;left:-26%;right:-26%;bottom:-34%;height:58%;z-index:3;pointer-events:none;overflow:hidden;
+  border-radius:12px 12px 48% 48%/12px 12px 30% 30%;
+  background:linear-gradient(180deg,rgba(140,215,255,.55) 0,rgba(64,150,235,.72) 40%,rgba(32,100,205,.88) 100%);
+  box-shadow:0 8px 18px rgba(32,100,205,.3);animation:water-in .35s ease-out both}
+.mon .water::before,.mon .water::after{content:"";position:absolute;left:-60px;right:-60px;top:-2px;height:22px;
+  background:radial-gradient(circle at 20px 0,transparent 11px,rgba(255,255,255,.85) 12px 15px,transparent 16px) 0 0/40px 22px repeat-x;
+  animation:waves 1.1s linear infinite}
+.mon .water::after{top:16px;opacity:.45;animation-duration:1.7s;animation-direction:reverse}
+.mon .water i{position:absolute;left:0;right:0;top:40%;height:5px;border-radius:9px;background:rgba(255,255,255,.35);
+  animation:waves 2.4s linear infinite;box-shadow:30px 18px 0 -1px rgba(255,255,255,.25)}
+.mon .water.out{animation:water-out .35s ease-in forwards}
+@keyframes water-in{from{transform:translateY(60%) scaleY(.3);opacity:0}to{transform:none;opacity:1}}
+@keyframes water-out{to{transform:translateY(50%) scaleY(.3);opacity:0}}
+@keyframes waves{from{transform:translateX(0)}to{transform:translateX(40px)}}
+.mon.wet .shadow{opacity:0}
+.learn .vis:has(.mon.wet){padding-bottom:60px}
+.vis{transition:padding .3s}
+.mon.wet img{position:relative;z-index:2}
+.drop{position:absolute;z-index:4;width:12px;height:16px;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;
+  background:#8fd4ff;border:2px solid #fff;pointer-events:none;animation:drop .8s ease-out forwards}
+@keyframes drop{0%{transform:translate(0,0) scale(.6)}40%{transform:translate(calc(var(--dx)*.6),-60px) scale(1)}100%{transform:translate(var(--dx),20px) scale(.5);opacity:0}}
+
+/* ======================================================================
+   MAPA: dwa światy
+   ====================================================================== */
+.world{padding-bottom:6px}
+.wtitle{display:flex;flex-direction:column;align-items:center;margin:4px auto 0;line-height:1;
+  font-family:'Fredoka',sans-serif;font-weight:700;color:#fff;-webkit-text-stroke:3px var(--navy);paint-order:stroke fill;
+  font-size:clamp(26px,4.4vw,38px);text-shadow:0 4px 0 var(--navy)}
+.wtitle small{font-size:15px;-webkit-text-stroke:0;text-shadow:none;color:var(--navy);margin-top:4px;opacity:.8}
+.world2{margin-top:10px;padding-top:14px;border-radius:40px 40px 0 0;
+  background:linear-gradient(180deg,rgba(155,95,201,.20),rgba(255,143,192,.14) 60%,rgba(255,255,255,0))}
+.world2 .map{grid-template-columns:repeat(3,1fr)}
+.world.closed .wtitle::after{content:"🔒 " attr(data-lock);font-size:15px;-webkit-text-stroke:0;text-shadow:none;color:var(--pink2);margin-top:6px}
+.isle.w2{background:radial-gradient(ellipse at 50% 32%,#fff 0 30%,#f1e4ff 31% 58%,#d9c2ff 59% 72%,#fff3fb 73%);
+  box-shadow:0 10px 0 #b79ce8,0 16px 30px rgba(155,95,201,.3)}
+.isle.w2::before{content:"";position:absolute;left:8%;right:8%;bottom:-16px;height:26px;border-radius:999px;background:#fff;
+  box-shadow:-24px -6px 0 -4px #fff,26px -4px 0 -2px #fff;opacity:.95;z-index:-1}
+.isle.w2 .ic{animation:float2 3s ease-in-out infinite}
+@keyframes float2{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px) rotate(4deg)}}
+
+/* ======================================================================
+   SCENY POGODY
+   ====================================================================== */
+.arena.bare::before{display:none}
+.arena.bare{align-items:center}
+.scene{position:relative;overflow:hidden;border-radius:26px;border:4px solid var(--outline);box-shadow:0 6px 0 var(--outline);
+  width:100%;aspect-ratio:16/10;background:linear-gradient(180deg,#8fd0ff,#d7f0ff)}
+.scene.big{max-width:560px}
+.learn .scene.big{max-width:420px}
+.scene i{position:absolute;pointer-events:none}
+.scene .ground{left:-5%;right:-5%;bottom:-8%;height:30%;border-radius:50% 50% 0 0;background:linear-gradient(#9be37f,#6fc256);z-index:1}
+.scene .mon{position:absolute;left:30%;width:40%;bottom:8%;z-index:2;animation:none}
+.scene .mon img{width:100%;animation:bob 2.4s ease-in-out infinite}
+/* słońce z obracającymi się promieniami */
+.wx-sunny{background:linear-gradient(180deg,#5cc4ff,#c9eeff)}
+.wx-sunny .l1{top:-14%;right:-8%;width:52%;aspect-ratio:1;border-radius:50%;
+  background:repeating-conic-gradient(rgba(255,226,90,.65) 0 10deg,transparent 10deg 24deg);animation:sunspin 12s linear infinite}
+.wx-sunny .l2{top:4%;right:8%;width:22%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#fff8c4,#ffd94a 60%,#ffb703);
+  box-shadow:0 0 40px #ffe066;animation:pulse 2s ease-in-out infinite}
+/* deszcz */
+.wx-rainy,.wx-stormy{background:linear-gradient(180deg,#7d8aa6,#c3cddd)}
+.wx-rainy .l1,.wx-stormy .l1{inset:-20% 0 0 0;z-index:3;
+  background:repeating-linear-gradient(105deg,transparent 0 14px,rgba(220,235,255,.7) 14px 16px,transparent 16px 40px);
+  background-size:100% 60px;animation:rain .35s linear infinite;opacity:.85}
+@keyframes rain{to{background-position:-16px 60px}}
+.wx-rainy .l2,.wx-stormy .l2,.wx-cloudy .l2{top:-6%;left:8%;width:46%;height:26%;border-radius:999px;background:#9aa3b5;
+  box-shadow:60px 8px 0 4px #8b94a8,140px -4px 0 0 #a3abbc;animation:drift2 8s ease-in-out infinite alternate}
+.wx-rainy .ground{background:linear-gradient(#7fc26a,#5aa548)}
+.wx-rainy .l3{left:18%;bottom:6%;width:64%;height:10%;border-radius:50%;background:rgba(120,170,230,.7);z-index:1;animation:pulse 1.4s ease-in-out infinite}
+@keyframes drift2{to{transform:translateX(30px)}}
+/* śnieg */
+.wx-snowy{background:linear-gradient(180deg,#b9d3ec,#eef6ff)}
+.wx-snowy .l1,.wx-snowy .l2{inset:-100% 0 0 0;z-index:3;
+  background-image:radial-gradient(circle,#fff 0 3px,transparent 4px),radial-gradient(circle,#fff 0 2px,transparent 3px);
+  background-size:46px 46px,30px 30px;background-position:0 0,15px 20px;animation:snow 4s linear infinite}
+.wx-snowy .l2{background-size:70px 70px,54px 54px;animation-duration:7s;opacity:.8}
+@keyframes snow{to{transform:translateY(50%) translateX(20px)}}
+.wx-snowy .ground{background:linear-gradient(#fff,#dfeaf6)}
+/* wiatr: smugi, liście, Pokémon się chwieje */
+.wx-windy{background:linear-gradient(180deg,#9fd8ff,#e3f6ff)}
+.wx-windy .l1{inset:0;z-index:3;background:
+  linear-gradient(90deg,transparent,rgba(255,255,255,.9),transparent) 0 22%/40% 4px no-repeat,
+  linear-gradient(90deg,transparent,rgba(255,255,255,.8),transparent) 0 46%/30% 3px no-repeat,
+  linear-gradient(90deg,transparent,rgba(255,255,255,.9),transparent) 0 64%/50% 4px no-repeat;animation:gust 1.2s linear infinite}
+@keyframes gust{from{background-position:-60% 22%,-40% 46%,-80% 64%}to{background-position:160% 22%,180% 46%,170% 64%}}
+.wx-windy .l2::before,.wx-windy .l2::after{content:"🍃";position:absolute;font-size:28px;animation:leaf 1.8s linear infinite}
+.wx-windy .l2{inset:0;z-index:3}
+.wx-windy .l2::before{top:30%}.wx-windy .l2::after{content:"🍂";top:58%;animation-delay:-.9s}
+@keyframes leaf{from{transform:translate(-40px,0) rotate(0)}50%{transform:translate(220px,-30px) rotate(200deg)}to{transform:translate(600px,10px) rotate(400deg)}}
+.wx-windy .mon img{animation:sway 1s ease-in-out infinite;transform-origin:50% 100%}
+@keyframes sway{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(9deg) translateX(8px)}}
+/* chmury */
+.wx-cloudy{background:linear-gradient(180deg,#a9b6c8,#dfe6ef)}
+.wx-cloudy .l1{top:20%;left:-30%;width:34%;height:18%;border-radius:999px;background:#eef2f7;
+  box-shadow:40px -14px 0 4px #eef2f7,80px 0 0 -2px #e3e8ef;animation:cloudpass 9s linear infinite;z-index:1}
+.wx-cloudy .l3{top:38%;left:-30%;width:26%;height:14%;border-radius:999px;background:#fff;
+  box-shadow:30px -10px 0 2px #fff;animation:cloudpass 13s linear infinite -6s;z-index:1}
+@keyframes cloudpass{to{transform:translateX(560%)}}
+/* burza: deszcz + błyskawice */
+.wx-stormy{background:linear-gradient(180deg,#3f4766,#7d86a3)}
+.wx-stormy .l2{background:#5c6480;box-shadow:60px 8px 0 4px #4d5470,140px -4px 0 0 #646c88}
+.wx-stormy .l3{inset:0;z-index:4;background:rgba(255,255,240,.9);opacity:0;animation:flash 3.2s linear infinite}
+.wx-stormy .l3::after{content:"⚡";position:absolute;top:8%;left:62%;font-size:54px;opacity:0;animation:inherit}
+@keyframes flash{0%,62%,68%,74%,100%{opacity:0}64%,71%{opacity:.85}}
+.wx-stormy .ground{background:linear-gradient(#5e9a4e,#46803a)}
+.scenes{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;width:100%;position:relative;z-index:1}
+.scenebtn{background:none;padding:0;border-radius:30px;transition:transform .15s;animation:popin .45s both}
+.scenebtn:nth-child(2){animation-delay:.08s}.scenebtn:nth-child(3){animation-delay:.16s}
+.scenebtn:active{transform:scale(.96)}
+.scenebtn.wrong{animation:nope .5s ease-in-out}
+.scenebtn.right .scene,.scenebtn.right .where{border-color:var(--gold);box-shadow:0 0 0 6px var(--yellow),0 6px 0 var(--gold)}
+.scenebtn.hint .scene,.scenebtn.hint .where{animation:glow2 1s ease-in-out infinite}
+
+/* ======================================================================
+   UCZUCIA — każdy Pokémon „gra" uczucie, nad głową dymek z buźką
+   ====================================================================== */
+.facebub{position:absolute;top:-14px;right:-6px;z-index:3;font-size:clamp(30px,5vw,44px);background:#fff;border:3px solid var(--outline);
+  border-radius:50%;width:1.5em;height:1.5em;display:grid;place-items:center;box-shadow:0 3px 0 var(--outline);animation:bob 2s ease-in-out infinite}
+.learn .facebub{top:-6px;right:-30px}
+.mon.feel-happy img{animation:f-happy .9s ease-in-out infinite!important}
+@keyframes f-happy{0%,100%{transform:translateY(0) scale(1)}40%{transform:translateY(-34px) scale(1.04) rotate(-5deg)}60%{transform:translateY(-34px) rotate(5deg)}80%{transform:translateY(0) scale(1.08,.92)}}
+.mon.feel-sad img{animation:f-sad 3s ease-in-out infinite!important;filter:saturate(.55) brightness(.92) drop-shadow(0 10px 6px rgba(70,80,160,.25))}
+@keyframes f-sad{0%,100%{transform:translateY(10px) rotate(-6deg) scale(.96)}50%{transform:translateY(16px) rotate(-9deg) scale(.94)}}
+.mon.feel-angry img{animation:f-angry .35s linear infinite!important;filter:drop-shadow(0 0 12px rgba(232,72,63,.8)) saturate(1.3)}
+@keyframes f-angry{0%,100%{transform:translateX(-4px) rotate(-2deg)}50%{transform:translateX(4px) rotate(2deg) scale(1.03)}}
+.mon.feel-scared img{animation:f-scared .18s linear infinite!important;filter:brightness(1.05) hue-rotate(-10deg) drop-shadow(0 10px 6px rgba(70,80,160,.25))}
+@keyframes f-scared{0%,100%{transform:translate(-3px,6px) scale(.9)}50%{transform:translate(3px,6px) scale(.88)}}
+.mon.feel-tired img{animation:f-tired 3.4s ease-in-out infinite!important;filter:brightness(.92) drop-shadow(0 10px 6px rgba(70,80,160,.25))}
+@keyframes f-tired{0%,100%{transform:rotate(0) translateY(6px)}40%,60%{transform:rotate(14deg) translateY(12px) scaleY(.94)}}
+.mon.feel-hungry img{animation:f-hungry 1.2s ease-in-out infinite!important}
+@keyframes f-hungry{0%,100%{transform:scale(1)}20%{transform:scale(1.05,.95) translateX(-4px)}40%{transform:scale(.96,1.04) translateX(4px)}}
+.heart{animation:heart 1.8s ease-out forwards}
+@keyframes heart{from{transform:translateY(10px) scale(.4);opacity:0}25%{opacity:1}to{transform:translateY(-110px) scale(1.3);opacity:0}}
+.tear{font-size:26px;animation:tear 1.6s ease-in forwards}
+@keyframes tear{from{transform:translateY(0) scale(.5);opacity:0}20%{opacity:1;transform:scale(1)}to{transform:translateY(90px) scale(.8);opacity:0}}
+.puff{animation:puff 1.2s ease-out forwards}
+@keyframes puff{from{transform:scale(.2);opacity:0}30%{transform:scale(1.4);opacity:1}to{transform:scale(1) translateY(-20px);opacity:0}}
+.sweat{font-size:26px;animation:sweat 1.2s ease-out forwards}
+@keyframes sweat{from{transform:translate(0,0) scale(.5);opacity:0}30%{opacity:1}to{transform:translate(0,50px) scale(1);opacity:0}}
+
+/* ======================================================================
+   JEDZENIE
+   ====================================================================== */
+.learn .food-big{font-size:110px;line-height:1;animation:bob 2s ease-in-out infinite}
+.flyfood{position:fixed;z-index:35;font-size:60px;line-height:60px;width:60px;text-align:center;pointer-events:none;
+  transition:transform .55s cubic-bezier(.3,-.3,.5,1)}
+.thought{position:absolute;top:2%;left:calc(50% + 60px);z-index:2;font-size:40px;background:#fff;border:3px solid var(--outline);
+  border-radius:50% 50% 50% 10%;padding:10px;box-shadow:0 4px 0 var(--outline);animation:bob 2.2s ease-in-out infinite}
+.opt.food{font-size:56px;border-radius:50%;width:104px;height:104px;min-width:0;padding:0;
+  background:radial-gradient(circle,#fff 0 55%,#f1f4ff 56% 64%,#fff 65%)}
+.picnic{position:relative;z-index:1;display:grid;grid-template-columns:repeat(2,1fr);gap:14px 26px;padding:24px 34px;border-radius:30px;
+  background:repeating-conic-gradient(#ff8a8a 0 25%,#fff 0 50%) 0 0/56px 56px;border:4px solid #e2615f;
+  box-shadow:0 8px 0 #c9504e;transform:perspective(600px) rotateX(18deg)}
+.foodbtn{width:clamp(84px,17vw,120px);aspect-ratio:1;border-radius:50%;background:#fff;border:4px solid var(--outline);
+  box-shadow:0 6px 0 var(--outline);font-size:clamp(44px,9vw,64px);display:grid;place-items:center;animation:popin .4s both}
+.foodbtn:nth-child(2){animation-delay:.07s}.foodbtn:nth-child(3){animation-delay:.14s}.foodbtn:nth-child(4){animation-delay:.21s}
+.foodbtn.wrong{animation:nope .5s ease-in-out}
+.foodbtn.right{background:var(--yellow);border-color:var(--gold);transform:scale(1.15)}
+.foodbtn.hint{animation:glow2 1s ease-in-out infinite}
+.picnicmon{position:relative;margin-left:8px}
+.picnicmon img{width:clamp(110px,20vw,170px)}
+
+/* ======================================================================
+   GDZIE? — stół i pudełko
+   ====================================================================== */
+.where{position:relative;width:100%;aspect-ratio:16/10;border-radius:26px;overflow:hidden;border:4px solid var(--outline);
+  box-shadow:0 6px 0 var(--outline);background:linear-gradient(180deg,#fff4d6,#ffe9b8)}
+.where.big{max-width:600px}
+.learn .where.big{max-width:440px}
+.where i{position:absolute;display:block}
+.where .wall{left:0;right:0;top:0;height:78%;background:repeating-linear-gradient(90deg,#fff4d6 0 38px,#ffefc9 38px 76px)}
+.where .floor{left:0;right:0;bottom:0;height:22%;background:linear-gradient(#d9a066,#b97d45);z-index:0}
+.where .tbl{position:absolute;left:22%;width:40%;bottom:18%;height:37%;z-index:3}
+.where .tbl .top{left:-4%;right:-4%;top:0;height:14%;border-radius:8px;background:linear-gradient(#c98a4b,#a96a32);border:3px solid #7a4a1e}
+.where .tbl .leg{top:12%;bottom:0;width:9%;background:#a96a32;border:3px solid #7a4a1e;border-top:0;border-radius:0 0 6px 6px}
+.where .tbl .leg.l{left:4%}.where .tbl .leg.r{right:4%}
+.where .box{position:absolute;left:69%;width:24%;bottom:16%;height:28%}
+.where .box .back{left:0;right:0;top:-14%;height:40%;background:#c58c4e;border:3px solid #7a4a1e;border-radius:6px 6px 0 0;z-index:1}
+.where .box .front{inset:0;background:repeating-linear-gradient(0deg,#e2a965 0 16%,#d39654 16% 19%);border:3px solid #7a4a1e;border-radius:4px;z-index:4}
+.wmon{position:absolute;width:15%;z-index:2;transition:left .6s cubic-bezier(.4,1.4,.5,1),bottom .6s cubic-bezier(.4,1.4,.5,1)}
+.wmon img{width:100%;display:block;filter:drop-shadow(0 6px 4px rgba(70,50,20,.25))}
+.wmon.hop img{animation:a-jump .7s ease-in-out}
+.wmon[data-at=start]{left:83%;bottom:62%}
+.wmon[data-at=on]{left:34.5%;bottom:54%}
+.wmon[data-at=under]{left:34.5%;bottom:17%}
+.wmon[data-at="next to"]{left:4%;bottom:17%}
+.wmon[data-at=in]{left:73.5%;bottom:30%}
+.wmon[data-at=start] img{animation:bob 2s ease-in-out infinite}
+.where .spot{position:absolute;width:15%;aspect-ratio:1;border-radius:50%;z-index:5;background:rgba(255,255,255,.25);
+  border:4px dashed var(--pink2);animation:pulse 1.4s ease-in-out infinite}
+.where .spot[data-at=on]{left:34.5%;bottom:55%}
+.where .spot[data-at=under]{left:34.5%;bottom:19%}
+.where .spot[data-at="next to"]{left:4%;bottom:19%}
+.where .spot[data-at=in]{left:73.5%;bottom:34%}
+.where .spot.wrong{animation:nope .5s}
+.where .spot.hint{background:rgba(255,217,74,.6);border-color:var(--gold)}
+.where .spot.used{opacity:0;pointer-events:none}
+.where.small{border-width:3px}
+
+/* ======================================================================
+   NAGRODY: NEW!, pasek albumu, zakładki albumów
+   ====================================================================== */
+.cardmon{position:relative}
+.newtag{position:absolute;top:8px;left:12px;z-index:2;background:var(--pink2);color:#fff;font-family:'Fredoka',sans-serif;font-weight:700;
+  font-size:22px;padding:4px 14px;border-radius:999px;border:3px solid var(--navy);transform:rotate(-10deg);animation:pulse 1.2s ease-in-out infinite}
+.albumbar{display:flex;align-items:center;gap:10px;width:100%;max-width:460px;font-family:'Fredoka',sans-serif;color:var(--navy);font-size:18px}
+.albumbar .bar{flex:1;height:22px;border-radius:999px;background:#eef0fb;border:3px solid var(--outline);overflow:hidden}
+.albumbar .bar i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,#ffd94a,#ff8fc0);transition:width 1.2s cubic-bezier(.3,1.3,.5,1)}
+.albumbar .medal{font-size:26px;min-width:28px}
+.albumbar.big{font-size:22px;max-width:620px}
+.albumhead{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;padding:4px 18px 10px;max-width:1000px;width:100%;margin:0 auto}
+.atabs{display:flex;gap:10px;overflow-x:auto;padding:6px 18px 12px;max-width:1000px;width:100%;margin:0 auto;scrollbar-width:thin}
+.atab{flex:none;display:flex;flex-direction:column;align-items:flex-start;gap:3px;min-width:118px;padding:8px 12px;border-radius:18px;
+  background:#fff;border:3px solid var(--outline);box-shadow:0 4px 0 var(--outline);text-align:left}
+.atab b{font-size:16px;color:var(--navy);white-space:nowrap}
+.atab small{font-size:13px;color:var(--ink)}
+.atab .mini{display:block;width:100%;height:8px;border-radius:9px;background:#eef0fb;overflow:hidden}
+.atab .mini i{display:block;height:100%;background:linear-gradient(90deg,#ffd94a,#ff8fc0)}
+.atab.on{background:var(--yellow);border-color:var(--navy);box-shadow:0 4px 0 var(--navy)}
+.target{font-size:15px}
+.slot{position:relative}
+.slot em{position:absolute;top:-8px;right:-6px;font-style:normal;background:var(--pink2);color:#fff;font-size:12px;font-family:'Fredoka',sans-serif;
+  padding:2px 8px;border-radius:999px;border:2px solid var(--navy);transform:rotate(8deg)}
+.slot.isnew{border-color:var(--pink2);box-shadow:0 4px 0 var(--pink2);animation:popin .5s both}
+.arena.legend::after{content:"";position:absolute;inset:0;z-index:0;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,236,140,.7),rgba(255,236,140,0) 65%);animation:pulse 2s ease-in-out infinite}
+
+@media(max-width:640px){
+  .world2 .map{grid-template-columns:repeat(2,1fr)}
+  .scenes{grid-template-columns:1fr 1fr 1fr;gap:6px}
+  .scenebtn .scene,.scenebtn .where{border-width:3px;border-radius:16px}
+  .opt.food{width:84px;height:84px;font-size:44px}
+  .picnic{padding:16px 20px;gap:10px 16px}
+  .thought{font-size:30px;left:calc(50% + 40px)}
+  .facebub{font-size:26px}
+  .wtitle small{font-size:13px}
+}
+/* karta nauki ma szerokość od zawartości — sceny dostają szerokość wprost */
+.learn .scene.big,.learn .where.big{width:min(440px,78vw)}
+.arena > .scene.big,.arena > .where.big{width:min(600px,100%)}
+/* małe sceny „Gdzie?" — Pokémon większy, żeby dziecko go od razu widziało */
+.where.small .wmon{width:21%}
+.where.small .wmon[data-at=on]{left:31.5%;bottom:54%}
+.where.small .wmon[data-at=under]{left:31.5%;bottom:17%}
+.where.small .wmon[data-at="next to"]{left:.5%;bottom:17%}
+.where.small .wmon[data-at=in]{left:70.5%;bottom:28%}
+
+/* ======================================================================
+   ŚWIAT 3 — Jungle Islands
+   ====================================================================== */
+.world3{margin-top:10px;padding-top:14px;border-radius:40px 40px 0 0;
+  background:linear-gradient(180deg,rgba(91,191,74,.22),rgba(255,217,74,.14) 60%,rgba(255,255,255,0))}
+.world3 .map{grid-template-columns:repeat(3,1fr)}
+.isle.w3{background:radial-gradient(ellipse at 50% 32%,#e9ffd9 0 32%,#a8e58a 33% 58%,#5fae4a 59% 70%,#f1d58c 71%);
+  box-shadow:0 10px 0 #3f8f3a,0 16px 30px rgba(63,143,58,.3)}
+.isle.w3::before{content:"🌴";position:absolute;left:4%;top:8%;font-size:clamp(20px,3.4vh,30px);transform:rotate(-12deg)}
+.isle.w3::after{content:"🌿";position:absolute;right:6%;bottom:12%;font-size:clamp(16px,2.8vh,24px)}
+.isle.w3.locked::after{content:"🔒";right:8%;top:6%;bottom:auto;font-size:clamp(24px,4vh,36px)}
+.learn .like{font-family:'Fredoka',sans-serif;font-size:56px;color:var(--navy);align-self:center}
+.picnic.toybox{background:repeating-linear-gradient(90deg,#c58c4e 0 46px,#b57a3e 46px 50px);border-color:#7a4a1e;box-shadow:0 8px 0 #5e3815}
+@media(max-width:640px){.world3 .map{grid-template-columns:repeat(2,1fr)}}
+
+/* ======================================================================
+   ŚWIATY 4–8 NA MAPIE
+   ====================================================================== */
+.world4,.world5,.world6,.world7,.world8,.world9,.world10,.world11,.world12,.world13,.world14{margin-top:10px;padding-top:14px;border-radius:40px 40px 0 0}
+.world4 .map,.world5 .map,.world6 .map,.world7 .map,.world8 .map,.world9 .map,.world10 .map,.world11 .map,.world12 .map,.world13 .map,.world14 .map{grid-template-columns:repeat(3,1fr)}
+.world4{background:linear-gradient(180deg,rgba(77,143,224,.26),rgba(170,220,255,.18) 60%,rgba(255,255,255,0))}
+.world5{background:linear-gradient(180deg,rgba(255,154,46,.22),rgba(255,217,74,.14) 60%,rgba(255,255,255,0))}
+.world6{background:linear-gradient(180deg,rgba(200,230,255,.55),rgba(255,255,255,.3) 60%,rgba(255,255,255,0))}
+.world7{background:linear-gradient(180deg,rgba(232,72,63,.24),rgba(255,154,46,.14) 60%,rgba(255,255,255,0))}
+.world8{background:linear-gradient(180deg,rgba(43,43,90,.42),rgba(155,95,201,.22) 60%,rgba(255,255,255,0))}
+.world8 .wtitle small{color:#fff;opacity:.95}
+.isle.w4{background:radial-gradient(ellipse at 50% 32%,#fff 0 30%,#bfe6ff 31% 56%,#4d8fe0 57% 70%,#ffe9a8 71%);box-shadow:0 10px 0 #2f6fbf,0 16px 30px rgba(47,111,191,.3)}
+.isle.w4::before{content:"🌊";position:absolute;left:5%;bottom:10%;font-size:clamp(18px,3vh,26px)}
+.isle.w5{background:radial-gradient(ellipse at 50% 32%,#fff 0 30%,#ffe3c2 31% 56%,#e8925a 57% 70%,#cfd6dc 71%);box-shadow:0 10px 0 #b0643a,0 16px 30px rgba(176,100,58,.3)}
+.isle.w5::before{content:"🏘️";position:absolute;left:5%;top:8%;font-size:clamp(16px,2.8vh,24px)}
+.isle.w6{background:radial-gradient(ellipse at 50% 32%,#fff 0 34%,#eaf6ff 35% 60%,#bcdcf5 61% 72%,#ffffff 73%);box-shadow:0 10px 0 #8fb4d6,0 16px 30px rgba(143,180,214,.4)}
+.isle.w6::before{content:"❄️";position:absolute;right:7%;top:8%;font-size:clamp(16px,2.8vh,24px);animation:sunspin 9s linear infinite}
+.isle.w7{background:radial-gradient(ellipse at 50% 32%,#fff3e0 0 30%,#ffb37a 31% 56%,#c9442f 57% 70%,#5a3a33 71%);box-shadow:0 10px 0 #7a2a1f,0 16px 30px rgba(122,42,31,.35)}
+.isle.w7::before{content:"🌋";position:absolute;left:5%;top:8%;font-size:clamp(16px,2.8vh,24px)}
+.isle.w8{background:radial-gradient(ellipse at 50% 32%,#fff 0 28%,#d8c8ff 29% 54%,#5b4bb0 55% 70%,#1f1d4a 71%);box-shadow:0 10px 0 #15133a,0 16px 30px rgba(31,29,74,.45)}
+.isle.w8 b,.isle.w8 .pl{position:relative}
+.isle.w8::before{content:"✨";position:absolute;right:7%;top:8%;font-size:clamp(16px,2.8vh,24px);animation:pulse 2s ease-in-out infinite}
+.isle.w4.locked::after,.isle.w5.locked::after,.isle.w6.locked::after,.isle.w7.locked::after,.isle.w8.locked::after,.isle.w9.locked::after,.isle.w10.locked::after,.isle.w11.locked::after,.isle.w12.locked::after,.isle.w13.locked::after,.isle.w14.locked::after{content:"🔒";position:absolute;right:8%;top:6%;font-size:clamp(24px,4vh,36px)}
+.more{text-align:center;font-family:'Fredoka',sans-serif;font-size:20px;color:var(--navy);opacity:.75;margin:14px 0 4px}
+@media(max-width:640px){.world4 .map,.world5 .map,.world6 .map,.world7 .map,.world8 .map,.world9 .map,.world10 .map,.world11 .map,.world12 .map,.world13 .map,.world14 .map{grid-template-columns:repeat(2,1fr)}}
+
+/* ======================================================================
+   KARTY Z ZNACZKIEM, UBIERANIE, PRZECIWIEŃSTWA
+   ====================================================================== */
+.ecard{position:relative;display:flex;align-items:flex-end;justify-content:center;gap:4px;width:100%;aspect-ratio:1/1;
+  border-radius:26px;border:4px solid var(--outline);box-shadow:0 6px 0 var(--outline);background:linear-gradient(180deg,#fff,#eef6ff);padding:8px;overflow:hidden}
+.ecard.big{max-width:340px;aspect-ratio:5/4}
+.learn .ecard.big{max-width:300px}
+.ecard .emo{font-size:clamp(46px,9vw,84px);line-height:1;align-self:center;filter:drop-shadow(0 4px 0 rgba(0,0,0,.08))}
+.ecard.big .emo{font-size:clamp(70px,13vw,120px)}
+.ecard .mon{animation:none}
+.ecard .mon img{width:clamp(64px,11vw,110px)}
+.ecard.big .mon img{width:clamp(110px,20vw,170px)}
+.ecard .prop{position:absolute;right:8%;top:8%;font-size:clamp(34px,6vw,58px);background:#fff;border:3px solid var(--outline);border-radius:50%;
+  width:1.5em;height:1.5em;display:grid;place-items:center;line-height:1}
+.ecard.big .prop{font-size:clamp(46px,8vw,70px)}
+.wearcard{align-items:center;background:linear-gradient(180deg,#fff7fb,#ffe6f2)}
+.mon.wear{position:relative}
+.mon.wear img{width:clamp(90px,16vw,140px)}
+.ecard.big .mon.wear img{width:clamp(150px,26vw,220px)}
+.wear .item{position:absolute;left:50%;transform:translateX(-50%);font-size:clamp(34px,6vw,54px);line-height:1;z-index:3;pointer-events:none}
+.ecard.big .wear .item{font-size:clamp(52px,9vw,80px)}
+.wear .item.at-head{top:-22%}
+.wear .item.at-face{top:22%}
+.wear .item.at-neck{top:52%}
+.wear .item.at-feet{bottom:-6%}
+.wear .item.pop{animation:popin .45s both}
+.scene.opp .mon{left:30%;width:40%}
+.scene.opp i{font-style:normal}
+.opp-hot{background:linear-gradient(180deg,#ffb347,#ffe08a)}
+.opp-hot .o-sun{right:6%;top:4%;font-size:clamp(40px,8vw,74px);animation:sunspin 12s linear infinite}
+.opp-hot .o-fx{left:62%;top:30%;font-size:clamp(22px,4vw,36px);animation:sweat 1.4s ease-in infinite;z-index:3}
+.opp-hot .mon img{animation:bob 1.2s ease-in-out infinite;filter:saturate(1.3)}
+.opp-cold{background:linear-gradient(180deg,#9fd3ff,#eaf6ff)}
+.opp-cold .ground,.ss-winter .ground{background:linear-gradient(#fff,#dbeeff)}
+.opp-cold .o-snow{left:12%;top:-10%;font-size:clamp(18px,3vw,30px);animation:fallsnow 3s linear infinite}
+.opp-cold .o-snow.s2{left:70%;animation-delay:-1.2s}.opp-cold .o-snow.s3{left:42%;animation-delay:-2.1s}
+.opp-cold .o-fx{left:8%;bottom:14%;font-size:clamp(26px,4vw,40px);z-index:3}
+.opp-cold .mon img{animation:shiver .18s linear infinite}
+.opp-fast{background:linear-gradient(180deg,#bfe6ff,#e3f4ff)}
+.opp-fast .o-lines{left:0;right:0;top:30%;height:40%;background:repeating-linear-gradient(180deg,rgba(255,255,255,.95) 0 4px,transparent 4px 18px);
+  animation:streak .35s linear infinite;z-index:1;opacity:.9}
+.opp-fast .o-fx{left:14%;top:44%;font-size:clamp(26px,4vw,40px);z-index:3}
+.opp-fast .mon{animation:zoom 1.1s ease-in-out infinite}
+.opp-slow{background:linear-gradient(180deg,#d9f2c9,#f4ffe9)}
+.opp-slow .o-fx{left:10%;bottom:12%;font-size:clamp(26px,4vw,40px);z-index:3;animation:creep 6s linear infinite}
+.opp-slow .mon{animation:creep 6s linear infinite}
+.opp-slow .mon img{animation:bob 3.6s ease-in-out infinite}
+.opp-up,.opp-down{background:linear-gradient(180deg,#8fd0ff,#e3f4ff)}
+.scene .o-tree{left:44%;width:12%;top:6%;bottom:14%;background:linear-gradient(90deg,#9a6a42,#7a4a2a);border-radius:10px;z-index:1}
+.scene .o-tree::before{content:"";position:absolute;left:-180%;right:-180%;top:-6%;height:34%;border-radius:50%;background:#5bbf4a;box-shadow:0 6px 0 #3f8f3a}
+.opp-up .mon{bottom:auto;top:-4%;width:30%;left:35%;z-index:3}
+.opp-up .o-fx{left:66%;top:6%;font-size:clamp(26px,4vw,40px);animation:bob 2s ease-in-out infinite;z-index:3}
+.opp-down .mon{bottom:2%;width:30%;left:58%;z-index:3}
+
+/* ======================================================================
+   POSTAĆ TRENERA (ciało), RAMKI LICZB, DOM, KALENDARZ
+   ====================================================================== */
+.kid{width:min(260px,62vw);height:auto;display:block;overflow:visible;position:relative;z-index:1}
+.kid.big{width:min(300px,66vw)}
+.learn .kid.big{width:min(220px,52vw)}
+.kid .part{cursor:pointer;transition:filter .2s}
+.kid .part.glow,.kid .part.glow *{filter:drop-shadow(0 0 6px #ffd94a) drop-shadow(0 0 3px #f5b301)}
+.kid .part.glow{animation:partglow 1s ease-in-out infinite}
+.kid .part.hint{animation:partglow .7s ease-in-out infinite}
+@keyframes partglow{0%,100%{opacity:1}50%{opacity:.55}}
+.frames{display:flex;flex-direction:column;gap:12px;align-items:center;position:relative;z-index:1}
+.frame{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;padding:10px;background:#fff;border:4px solid var(--outline);border-radius:20px;box-shadow:0 6px 0 var(--outline)}
+.frame i{width:clamp(30px,6.5vw,46px);aspect-ratio:1;border-radius:50%;border:3px dashed #c9cdf0;background:none}
+.frame i.on{border:3px solid #2b2b33;background:linear-gradient(180deg,#e8483f 0 46%,#2b2b33 46% 54%,#fff 54%);animation:popin .4s both}
+.frame.counted{box-shadow:0 0 0 6px var(--yellow),0 6px 0 var(--gold)}
+.frame i.counted{transform:translateY(-8px) scale(1.12);transition:transform .2s}
+.house{position:relative;z-index:1;width:min(560px,94vw);aspect-ratio:16/10;display:grid;grid-template-columns:1fr 1fr .8fr;grid-template-rows:1fr 1fr;
+  gap:6px;padding:10px;margin-top:8%;background:#c58c4e;border:4px solid var(--outline);border-radius:10px 10px 22px 22px;box-shadow:0 6px 0 var(--outline)}
+.learn .house{width:min(420px,84vw)}
+.house .roof{position:absolute;left:-3%;width:72%;top:-17%;height:19%;background:#e8483f;clip-path:polygon(50% 0,100% 100%,0 100%);border-radius:6px}
+.room{position:relative;border-radius:12px;display:flex;align-items:flex-start;justify-content:flex-end;padding:6px;border:3px solid rgba(0,0,0,.08);transition:box-shadow .2s}
+button.room{cursor:pointer}
+.room .furn{font-size:clamp(26px,5vw,44px);line-height:1}
+.rm-kitchen{background:#fff3c4}.rm-bathroom{background:#d6f1ff}.rm-bedroom{background:#ffe0ef}.rm-living-room{background:#e5f8d8}
+.rm-garden{grid-column:3;grid-row:1/3;background:linear-gradient(180deg,#bfe6ff 0 45%,#7fd36b 45%);align-items:flex-end;justify-content:center}
+.room.right{box-shadow:0 0 0 5px var(--yellow)}
+.room.hint{animation:glow2 1s ease-in-out infinite}
+.room.wrong{animation:nope .5s ease-in-out}
+.hmon{position:absolute;width:20%;z-index:3;transition:left .55s cubic-bezier(.3,1.4,.5,1),top .55s cubic-bezier(.3,1.4,.5,1);pointer-events:none}
+.hmon img{width:100%;display:block;animation:bob 2.4s ease-in-out infinite}
+.hmon[data-at="kitchen"]{left:6%;top:16%}.hmon[data-at="bathroom"]{left:42%;top:16%}
+.hmon[data-at="bedroom"]{left:6%;top:58%}.hmon[data-at="living room"]{left:42%;top:58%}.hmon[data-at="garden"]{left:76%;top:52%}
+.days{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;width:min(640px,94vw);position:relative;z-index:1}
+.day{aspect-ratio:3/4;border-radius:14px;background:var(--c);border:3px solid var(--outline);box-shadow:0 4px 0 var(--outline);
+  font-family:'Fredoka',sans-serif;font-weight:700;font-size:clamp(16px,3.6vw,26px);color:var(--navy);display:grid;place-items:center}
+.day.on{transform:translateY(-10px) scale(1.08);box-shadow:0 0 0 5px var(--yellow),0 6px 0 var(--gold)}
+button.day{cursor:pointer}
+.day.right{box-shadow:0 0 0 5px var(--yellow),0 6px 0 var(--gold)}.day.wrong{animation:nope .5s}.day.hint{animation:glow2 1s infinite}
+.opt.dayopt{background:var(--c);font-family:'Fredoka',sans-serif;font-size:30px;color:var(--navy)}
+.order{display:flex;flex-direction:column;gap:22px;align-items:center;position:relative;z-index:1;width:100%}
+.slots{display:flex;align-items:center;gap:8px}
+.slot2{width:clamp(72px,16vw,104px);aspect-ratio:1;border-radius:22px;border:4px dashed var(--outline);background:rgba(255,255,255,.6);
+  display:grid;place-items:center;font-size:clamp(36px,7vw,58px)}
+.slot2.full{border-style:solid;background:#fff;animation:popin .35s both}
+.slots .arr{font-style:normal;font-size:24px;color:var(--navy)}
+.otiles{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.otile{width:clamp(84px,18vw,116px);aspect-ratio:1;border-radius:24px;background:#fff;border:4px solid var(--outline);box-shadow:0 6px 0 var(--outline);
+  font-size:clamp(40px,8vw,62px);display:grid;place-items:center;animation:popin .45s both}
+.otile.used{opacity:.2;pointer-events:none}.otile.wrong{animation:nope .5s}.otile.hint{animation:glow2 1s infinite}
+.dl{display:grid;place-items:center;width:78%;height:78%;border-radius:16px;background:var(--c);font-family:'Fredoka',sans-serif;font-size:clamp(22px,4.4vw,32px);color:var(--navy)}
+
+/* ======================================================================
+   PORY ROKU, MÓJ DZIEŃ
+   ====================================================================== */
+.scene.season i,.scene.rt i{font-style:normal}
+.ss-spring{background:linear-gradient(180deg,#bfe6ff,#ffeaf4)}
+.ss-summer{background:linear-gradient(180deg,#5fb8ff,#fff1a8)}
+.ss-autumn{background:linear-gradient(180deg,#ffd29a,#ffeccf)}
+.ss-autumn .ground{background:linear-gradient(#e8a04a,#c57a2f)}
+.ss-winter{background:linear-gradient(180deg,#a9d6ff,#f2f9ff)}
+.season .s-fl{left:8%;bottom:12%;font-size:clamp(22px,4vw,38px);z-index:3}
+.season .s-fl.f2{left:auto;right:10%}.season .s-fl.f3{left:auto;right:28%;bottom:8%}
+.season .s-sky{left:14%;top:16%;font-size:clamp(20px,3.4vw,32px);animation:bob 2s ease-in-out infinite}
+.season .s-sun{right:6%;top:4%;font-size:clamp(36px,7vw,64px);animation:sunspin 14s linear infinite}
+.season .s-leaf{left:14%;top:-10%;font-size:clamp(20px,3.4vw,32px);animation:fallleaf 4s linear infinite}
+.season .s-leaf.l2{left:58%;animation-delay:-1.5s}.season .s-leaf.l3{left:82%;animation-delay:-2.7s}
+.season .s-snow{left:12%;top:-10%;font-size:clamp(16px,3vw,28px);animation:fallsnow 3.2s linear infinite}
+.season .s-snow.n2{left:48%;animation-delay:-1.1s}.season .s-snow.n3{left:76%;animation-delay:-2.2s}
+.rt .rt-sky{inset:0;z-index:0}
+.rt-morning{background:linear-gradient(180deg,#ffb38a,#ffe8c9)}
+.rt-day{background:linear-gradient(180deg,#5fb8ff,#d7f0ff)}
+.rt-evening{background:linear-gradient(180deg,#9b5fc9,#ffb38a)}
+.rt-night{background:linear-gradient(180deg,#1f1d4a,#4b4a8c)}
+.rt-night .ground{background:linear-gradient(#3f6a4a,#2d4d36)}
+.rt .rt-ic{position:absolute;right:8%;top:8%;font-size:clamp(34px,6.5vw,60px);z-index:3;background:#fff;border:3px solid var(--outline);border-radius:50%;
+  width:1.5em;height:1.5em;display:grid;place-items:center;line-height:1}
+
+/* ======================================================================
+   ZDANIA, PYTANIA, ROZMOWA, HISTORYJKI
+   ====================================================================== */
+.opt.yn{min-width:130px;height:110px;font-size:46px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0}
+.opt.yn small{font-family:'Fredoka',sans-serif;font-size:22px;color:var(--navy);line-height:1}
+.opt.sent{min-width:0;width:min(300px,88vw);height:auto;min-height:72px;padding:10px 16px;font-family:'Fredoka',sans-serif;font-size:clamp(17px,3.4vw,22px);
+  color:var(--navy);display:flex;align-items:center;gap:12px;text-align:left;line-height:1.15}
+.opt.sent i{font-style:normal;font-size:34px;line-height:1;flex:none;display:grid;place-items:center}
+.opt.sent i img{width:44px;height:44px;object-fit:contain}
+.monplus{display:flex;align-items:center;gap:6px;position:relative;z-index:1}
+.monplus .plus{font-size:clamp(46px,9vw,80px);line-height:1}
+.qmark{font-size:clamp(46px,8vw,72px);align-self:flex-start;animation:pulse 1.4s ease-in-out infinite}
+.tiles{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;position:relative;z-index:1;margin-top:12px}
+.tile{display:inline-flex;align-items:center;gap:6px;min-height:58px;padding:6px 14px;border-radius:18px;background:#fff;border:4px solid var(--outline);
+  box-shadow:0 5px 0 var(--outline);font-family:'Fredoka',sans-serif;font-size:clamp(19px,3.8vw,26px);color:var(--navy)}
+.tile i{font-style:normal;font-size:28px;display:grid;place-items:center}
+.tile i img{width:38px;height:38px;object-fit:contain}
+.tile.empty{min-width:90px;border-style:dashed;background:rgba(255,255,255,.55);box-shadow:none}
+.opt.tile{min-width:0;height:auto}
+.opt.tile.used{opacity:.2;pointer-events:none}
+.tiles.done .tile{animation:popin .4s both}
+.picnic.many{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;max-width:560px}
+.picnic.many .fitem{font-size:clamp(38px,7vw,58px);animation:popin .4s both;transition:transform .2s}
+.picnic.many .fitem.counted{transform:translateY(-10px) scale(1.15)}
+.learn .picnic{font-size:clamp(34px,6vw,50px);letter-spacing:4px;padding:12px 18px}
+.picnic.pencilcase{background:linear-gradient(180deg,#7cc7ff,#4d8fe0);border-color:#2f6fbf;box-shadow:0 8px 0 #1f4f8f}
+.chat{display:flex;justify-content:space-around;align-items:flex-end;gap:10px;width:100%;max-width:640px;position:relative;z-index:1;padding-top:70px}
+.cmon{position:relative;display:flex;flex-direction:column;align-items:center}
+.cmon img{width:clamp(100px,20vw,170px);animation:bob 2.4s ease-in-out infinite}
+.cmon.b img{transform:scaleX(-1)}
+.cmon.hop{animation:pulse .5s ease-in-out 2}
+.cmon.wrong{animation:nope .5s ease-in-out}
+.bub{position:absolute;bottom:100%;margin-bottom:6px;white-space:nowrap;background:#fff;border:3px solid var(--outline);border-radius:20px;padding:6px 14px;
+  font-family:'Fredoka',sans-serif;font-size:clamp(16px,3.2vw,22px);color:var(--navy);box-shadow:0 4px 0 var(--outline)}
+.bub.ans{background:#fff9c4}
+.cmon .cake{position:absolute;right:-24px;bottom:6px;font-size:44px;z-index:3}
+.cmon .cake b{position:absolute;left:0;right:0;top:-14px;text-align:center;font-family:'Fredoka',sans-serif;font-size:22px;color:var(--pink2)}
+.cmon .gift{position:absolute;left:-26px;bottom:10px;font-size:40px;animation:bob 1.6s ease-in-out infinite}
+.cmon .facebub{top:auto;bottom:62%}
+.story{display:flex;flex-direction:column;align-items:center;gap:8px;position:relative;z-index:1;width:100%}
+.stitle{font-family:'Fredoka',sans-serif;font-weight:700;font-size:clamp(20px,4vw,30px);color:var(--navy)}
+.panels{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;width:min(720px,96vw)}
+.panel{position:relative;aspect-ratio:3/4;border-radius:18px;background:linear-gradient(180deg,#fff,#eef6ff);border:4px solid var(--outline);
+  box-shadow:0 5px 0 var(--outline);display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:8px 4px;transition:transform .3s,opacity .3s}
+.panel .pemo{font-size:clamp(28px,6vw,48px);line-height:1}
+.panel .mon{animation:none}.panel .mon img{width:clamp(54px,11vw,96px)}
+.panel.on{transform:translateY(-8px) scale(1.05);box-shadow:0 0 0 5px var(--yellow),0 6px 0 var(--gold)}
+.panel.later{opacity:.25}
+@media(max-width:520px){.panels{grid-template-columns:repeat(2,1fr);width:min(320px,90vw)}.panel{aspect-ratio:1/1}}
+@keyframes fallsnow{from{transform:translateY(0) rotate(0)}to{transform:translateY(560%) rotate(180deg)}}
+@keyframes fallleaf{0%{transform:translate(0,0) rotate(0)}50%{transform:translate(30px,260%) rotate(160deg)}100%{transform:translate(-10px,560%) rotate(320deg)}}
+@keyframes shiver{0%,100%{transform:translateX(-2px)}50%{transform:translateX(2px)}}
+@keyframes streak{from{background-position:0 0}to{background-position:-60px 0}}
+@keyframes zoom{0%,100%{transform:translateX(-60%)}50%{transform:translateX(60%)}}
+@keyframes creep{from{transform:translateX(-30%)}to{transform:translateX(30%)}}
+
+/* poprawki po zrzutach z telefonu (13.11) */
+.wearcard{overflow:visible;padding-top:16%}
+.wear .item.at-head{top:-26%}
+.kid .part.glow{stroke:#ffd94a;stroke-width:7;paint-order:stroke}
+.kid .part.glow *{stroke:#ffd94a;stroke-width:5;paint-order:stroke}
+.kid .part.hint{stroke:#ff6fae;stroke-width:6}
+@media(max-width:560px){
+  .scenes{grid-template-columns:1fr;max-width:min(330px,88vw);margin:0 auto;gap:10px}
+  .scenes .ecard{aspect-ratio:16/10}
+  .scenes .ecard .mon img{width:clamp(70px,22vw,100px)}
+  .scenes .wearcard{padding-top:6%}
+  .scenes .wear .item.at-head{top:-14%}
+}
+.legal{position:relative;z-index:2;max-width:560px;margin:10px auto 18px;padding:0 16px;text-align:center;font-size:12px;line-height:1.4;color:var(--ink);opacity:.75}
+.legal a{color:var(--navy)}
+/* poprawki po zrzutach (2) */
+#arena:has(.slots3){flex-wrap:wrap;align-content:center}
+.tiles.slots3{width:100%;flex-basis:100%}
+.room .furn{font-size:clamp(30px,8vw,48px)}
+.kid .part.glow,.kid .part.glow *:not([fill=transparent]){fill:#ffd94a}
+@media(max-width:560px){.scenes .ecard .mon img{width:clamp(84px,27vw,120px)}.scenes .ecard .prop{font-size:30px}}
+@media(max-width:560px){.scenes .mon.wear img{width:clamp(100px,30vw,132px)}}
+
+/* ======================================================================
+   ŚWIAT 9: LITERY, LITEROWANIE, CZYTANIE + TRENING DNIA
+   ====================================================================== */
+.world9{background:linear-gradient(180deg,rgba(91,191,74,.22),rgba(255,217,74,.14) 60%,rgba(255,255,255,0))}
+.isle.w9{background:radial-gradient(ellipse at 50% 32%,#fff 0 30%,#fff6c9 31% 56%,#7cc66a 57% 70%,#f3e2b8 71%);box-shadow:0 10px 0 #4f9a3f,0 16px 30px rgba(79,154,63,.3)}
+.isle.w9::before{content:"📖";position:absolute;left:5%;top:8%;font-size:clamp(16px,2.8vh,24px)}
+.lbig{display:inline-flex;align-items:baseline;gap:.12em;font-family:'Fredoka',sans-serif;font-weight:700}
+.lbig small{font-size:.62em;color:var(--pink2)}
+.lmon img{width:clamp(110px,22vw,160px)}
+.abcwait{font-size:90px;opacity:.5;animation:bob 2.4s ease-in-out infinite}
+.opt.letter{font-family:'Fredoka',sans-serif;font-weight:700;font-size:48px;color:var(--navy);display:flex;align-items:baseline;justify-content:center;gap:4px}
+.opt.letter small{font-size:30px;color:var(--pink2)}
+#opts .opt.letter.otile{width:84px;min-width:84px;height:84px;aspect-ratio:auto;font-size:44px;color:var(--navy);align-items:center}
+.opt.letter.otile.used{opacity:.2;pointer-events:none}
+.spellbox{display:flex;flex-direction:column;align-items:center;gap:14px}
+.spellbox .food-big{font-size:96px;line-height:1;animation:bob 2s ease-in-out infinite}
+.spellw{display:flex;gap:10px;justify-content:center}
+.ltile{width:clamp(58px,13vw,78px);height:clamp(66px,15vw,88px);border-radius:18px;background:#fff;border:4px solid var(--outline);box-shadow:0 5px 0 var(--outline);
+  display:grid;place-items:center;font-family:'Fredoka',sans-serif;font-weight:700;font-size:clamp(36px,8vw,50px);color:var(--navy)}
+.ltile.blank{border-style:dashed;background:rgba(255,255,255,.6);color:var(--pink2)}
+.ltile.lit{animation:litup .55s ease-out;background:var(--yellow);border-color:var(--gold)}
+@keyframes litup{0%{transform:scale(1)}40%{transform:scale(1.18)}100%{transform:scale(1)}}
+.readw{font-family:'Fredoka',sans-serif;font-weight:700;color:var(--navy);letter-spacing:.04em}
+.readw.big{font-size:clamp(54px,13vw,96px);background:#fff;border:5px solid var(--outline);border-radius:30px;padding:10px 34px;box-shadow:0 8px 0 var(--outline)}
+.opt.sent.many{font-size:46px;letter-spacing:4px;justify-content:center;min-height:90px;line-height:1.1}
+#arena .lmon img{width:clamp(150px,38vw,220px)}
+.daily{display:flex;align-items:center;gap:14px;margin:8px auto 6px;width:min(560px,92%);padding:12px 20px;border-radius:26px;
+  background:linear-gradient(180deg,#fff7c9,var(--yellow));border:4px solid var(--gold);box-shadow:0 7px 0 var(--gold);text-align:left;
+  font-family:'Fredoka',sans-serif;color:var(--navy);animation:pulse 2.2s ease-in-out infinite}
+.daily .ic{font-size:40px}.daily b{font-size:24px;display:block}.daily small{display:block;font-size:14px;color:var(--ink);margin-top:2px}
+.daily{flex-wrap:wrap}.daily b{flex:1 1 auto}.daily small{flex:1 0 100%;margin-left:54px;margin-top:-6px}
+@media(max-width:560px){.opt.letter{font-size:40px}#opts .opt.letter.otile{width:70px;min-width:70px;height:70px;font-size:38px}.opt.sent.many{font-size:38px;min-height:76px}}
+
+/* ======================================================================
+   OPRAWA: tło ekranów gry w kolorach świata (body[data-w]) + gwiazdka do licznika
+   ====================================================================== */
+body,.sky::before,.sky::after{transition:background .6s}
+.sky::before,.sky::after{content:"";position:absolute;left:0;right:0;pointer-events:none}
+body[data-w="2"]{background:linear-gradient(180deg,#9fd0ff 0%,#d9ecff 50%,#f3e6ff 100%)}
+body[data-w="2"] .cloud{opacity:1;transform-origin:center}
+body[data-w="3"]{background:linear-gradient(180deg,#bdeccb 0%,#e6f8dd 50%,#d2efb9 100%)}
+body[data-w="3"] .sky::after{bottom:0;height:24vh;background:
+  radial-gradient(ellipse 22% 60% at 8% 100%,#5aa845 0 98%,transparent 100%),
+  radial-gradient(ellipse 26% 70% at 34% 100%,#6fbe55 0 98%,transparent 100%),
+  radial-gradient(ellipse 24% 55% at 66% 100%,#5aa845 0 98%,transparent 100%),
+  radial-gradient(ellipse 26% 75% at 94% 100%,#7ccc60 0 98%,transparent 100%);opacity:.55}
+body[data-w="4"]{background:linear-gradient(180deg,#a8dcff 0%,#cfeeff 45%,#7cc4f0 100%)}
+body[data-w="4"] .sky::after{bottom:0;height:120px;opacity:.5;
+  background:radial-gradient(circle at 50% 0,transparent 30px,#4d8fe0 31px) 0 0/80px 120px repeat-x;animation:waves 6s linear infinite}
+@keyframes waves{to{background-position:80px 0}}
+body[data-w="4"] .arena::before{background:radial-gradient(ellipse at 50% 40%,#fff3c4,#f1d68c 70%);border-color:#d8b765}
+body[data-w="5"]{background:linear-gradient(180deg,#ffe2bf 0%,#fff3e3 50%,#ffe9f2 100%)}
+body[data-w="5"] .sky::after{bottom:0;height:22vh;opacity:.22;background:
+  linear-gradient(#b0643a,#b0643a) 4% 100%/9% 60% no-repeat,linear-gradient(#b0643a,#b0643a) 15% 100%/7% 90% no-repeat,
+  linear-gradient(#b0643a,#b0643a) 26% 100%/11% 45% no-repeat,linear-gradient(#b0643a,#b0643a) 72% 100%/8% 80% no-repeat,
+  linear-gradient(#b0643a,#b0643a) 84% 100%/10% 55% no-repeat,linear-gradient(#b0643a,#b0643a) 96% 100%/7% 100% no-repeat}
+body[data-w="5"] .arena::before{background:radial-gradient(ellipse at 50% 40%,#e9eef2,#c9d2da 70%);border-color:#a9b4be}
+body[data-w="6"]{background:linear-gradient(180deg,#d6ecff 0%,#f2f9ff 55%,#ffffff 100%)}
+body[data-w="6"] .sun{opacity:.55}
+body[data-w="6"] .sky::before{top:-20%;height:120%;opacity:.8;
+  background:radial-gradient(circle,#fff 0 3px,transparent 4px) 0 0/90px 90px,radial-gradient(circle,#fff 0 2px,transparent 3px) 40px 30px/70px 70px;
+  filter:drop-shadow(0 0 2px #9cc4e8);animation:snow 9s linear infinite}
+@keyframes snow{to{background-position:30px 90px,70px 100px}}
+body[data-w="6"] .arena::before{background:radial-gradient(ellipse at 50% 40%,#fff,#e3f1fc 70%);border-color:#bcdcf5}
+body[data-w="7"]{background:linear-gradient(180deg,#ffd0a8 0%,#ffe9d6 50%,#ffd9cf 100%)}
+body[data-w="7"] .sky::after{bottom:0;height:26vh;opacity:.25;background:linear-gradient(135deg,transparent 49.5%,#7a2a1f 50%) 0 100%/30% 100% no-repeat,
+  linear-gradient(225deg,transparent 49.5%,#7a2a1f 50%) 30% 100%/30% 100% no-repeat,linear-gradient(135deg,transparent 49.5%,#7a2a1f 50%) 70% 100%/18% 70% no-repeat,
+  linear-gradient(225deg,transparent 49.5%,#7a2a1f 50%) 88% 100%/18% 70% no-repeat}
+body[data-w="7"] .arena::before{background:radial-gradient(ellipse at 50% 40%,#a98478,#7d5a50 70%);border-color:#5a3a33}
+body[data-w="8"]{background:linear-gradient(180deg,#2b2b5a 0%,#5b4bb0 55%,#a991e0 100%)}
+body[data-w="8"] .sun{display:none}
+body[data-w="8"] .cloud{opacity:.08}
+body[data-w="8"] .sky::before{inset:0;background:radial-gradient(circle,#fff 0 1.5px,transparent 2.5px) 0 0/110px 110px,
+  radial-gradient(circle,#fff6b8 0 2px,transparent 3px) 55px 40px/170px 150px;animation:twinkle 3s ease-in-out infinite}
+@keyframes twinkle{50%{opacity:.45}}
+body[data-w="8"] .arena::before{background:radial-gradient(ellipse at 50% 40%,#e3e1ef,#b9b5d1 70%);border-color:#8e89b5}
+body[data-w="8"] .storytitle,body[data-w="8"] .stitle{color:#fff}
+body[data-w="9"]{background:linear-gradient(180deg,#e9f7d8 0%,#fffbe6 50%,#fff1d6 100%)}
+body[data-w="9"] .sky::before{inset:0;opacity:.07;font:700 64px 'Fredoka',sans-serif;color:var(--navy);
+  content:"A  b  C  d  E  f  G  h  I  j  K  l  M  n  O  p  Q  r  S  t  U  v  W  x  Y  z  A  b  C  d  E  f  G  h  I  j  K  l  M";
+  word-spacing:60px;line-height:150px;padding:40px;overflow:hidden}
+body[data-w="10"]{background:linear-gradient(180deg,#ffe7c4 0%,#fff6e8 50%,#ffe6ef 100%)}
+body[data-w="10"] .sky::before{top:0;height:46px;opacity:.85;
+  background:repeating-linear-gradient(90deg,#ff6fae 0 60px,#fff 60px 120px);
+  -webkit-mask:radial-gradient(circle 30px at 30px 16px,#000 99%,transparent) 0 0/60px 46px repeat-x,linear-gradient(#000,#000) 0 0/100% 16px no-repeat;
+  mask:radial-gradient(circle 30px at 30px 16px,#000 99%,transparent) 0 0/60px 46px repeat-x,linear-gradient(#000,#000) 0 0/100% 16px no-repeat}
+body[data-w="10"] .arena::before{background:radial-gradient(ellipse at 50% 40%,#f3d7b0,#d9b07c 70%);border-color:#b98a4f}
+.flystar{position:fixed;z-index:40;font-size:44px;line-height:44px;width:44px;text-align:center;pointer-events:none;
+  transition:transform .62s cubic-bezier(.5,-0.4,.7,1);filter:drop-shadow(0 0 8px #ffd94a)}
+.starchip b{font-weight:inherit}
+.starchip.bump{animation:bumpc .45s ease-out}
+@keyframes bumpc{40%{transform:scale(1.3);background:#fff6b8}}
+
+/* ======================================================================
+   ŚWIAT 10: TARGOWISKO — sklep z Meowthem, monety, grzeczne słowa
+   ====================================================================== */
+.world10{background:linear-gradient(180deg,rgba(255,111,174,.18),rgba(255,217,74,.14) 60%,rgba(255,255,255,0))}
+.isle.w10{background:radial-gradient(ellipse at 50% 32%,#fff 0 30%,#ffe3ef 31% 56%,#f08a5d 57% 70%,#f3e2b8 71%);box-shadow:0 10px 0 #c0603a,0 16px 30px rgba(192,96,58,.3)}
+.isle.w10::before{content:"🎪";position:absolute;left:5%;top:8%;font-size:clamp(16px,2.8vh,24px)}
+.shopwrap{position:relative;z-index:1;display:flex;align-items:flex-end;justify-content:center;gap:clamp(10px,3vw,30px);width:100%;flex-wrap:wrap}
+.shop{position:relative;width:min(470px,74vw);border-radius:22px 22px 18px 18px;background:#fff8ec;border:4px solid #b98a4f;box-shadow:0 8px 0 #8a5f2c;
+  padding-top:44px;animation:popin .45s both}
+.awning{position:absolute;left:-12px;right:-12px;top:-18px;height:58px;border-radius:16px 16px 0 0;
+  background:repeating-linear-gradient(90deg,#ff6fae 0 40px,#fff 40px 80px);border:4px solid #c2457f;border-bottom:0;
+  -webkit-mask:linear-gradient(#000,#000) 0 0/100% 40px no-repeat,radial-gradient(circle 20px at 20px 0,#000 98%,transparent) 0 38px/40px 20px repeat-x;
+  mask:linear-gradient(#000,#000) 0 0/100% 40px no-repeat,radial-gradient(circle 20px at 20px 0,#000 98%,transparent) 0 38px/40px 20px repeat-x}
+.shelf{display:flex;justify-content:space-around;align-items:flex-end;gap:8px;padding:14px 12px 8px;margin:0 10px 74px;
+  border-bottom:12px solid #c58c4e;border-radius:0 0 6px 6px}
+.shopitem{position:relative;background:none;padding:0 4px;font-size:clamp(52px,10vw,76px);line-height:1;transition:transform .15s;animation:popin .45s both}
+.shopitem:nth-child(2){animation-delay:.08s}.shopitem:nth-child(3){animation-delay:.16s}
+.shopitem:active{transform:scale(.92)}
+.shopitem .emo{display:block;filter:drop-shadow(0 6px 4px rgba(120,80,30,.25))}
+.shopitem.wrong{animation:nope .5s ease-in-out}
+.shopitem.right .emo{animation:litup .6s ease-out}
+.shopitem.hint .emo{animation:glow 1s ease-in-out infinite}
+.shopitem .tag{position:absolute;right:-12px;top:-14px;font-family:'Fredoka',sans-serif;font-size:22px;min-width:42px;height:42px;line-height:36px;
+  border-radius:12px 22px 22px 12px;background:#fff6b8;border:3px solid var(--gold);color:var(--navy);transform:rotate(10deg);box-shadow:0 3px 0 var(--gold)}
+.shopitem.right .tag{background:var(--yellow);transform:rotate(0) scale(1.25)}
+.counter{position:relative;z-index:2;display:flex;align-items:center;justify-content:flex-end;min-height:96px;padding:0 16px 0 10px;
+  background:linear-gradient(180deg,#e2a868,#c58c4e);border-top:5px solid #8a5f2c;border-radius:0 0 14px 14px}
+.keeper{position:absolute;left:22px;bottom:46px;z-index:1}
+.keeper img{width:clamp(96px,17vw,130px);display:block;animation:bob 2.6s ease-in-out infinite;filter:drop-shadow(0 6px 4px rgba(90,60,20,.3))}
+.tray{display:flex;flex-wrap:wrap;gap:4px;justify-content:center;align-content:center;min-width:140px;max-width:58%;min-height:64px;margin:12px 0;padding:6px 10px;
+  border-radius:16px;background:#8a5f2c;box-shadow:inset 0 4px 0 rgba(0,0,0,.2)}
+.tray.wrong{animation:nope .5s ease-in-out}
+.tray .slot{width:30px;height:30px;border-radius:50%;border:3px dashed #ffd94a;opacity:.8}
+.cust{position:relative;display:flex;flex-direction:column;align-items:center;animation:popin .5s .2s both}
+.cust img{width:clamp(110px,20vw,170px);transform:scaleX(-1);animation:bob 2.4s ease-in-out infinite;filter:drop-shadow(0 10px 6px rgba(70,80,160,.25))}
+.cust.hop{animation:pulse .5s ease-in-out 2}
+.kidhand{font-size:clamp(80px,15vw,120px);line-height:1}
+.sbub{position:absolute;bottom:100%;left:50%;transform:translateX(-50%) scale(0);transform-origin:50% 100%;margin-bottom:6px;white-space:nowrap;
+  background:#fff;border:3px solid var(--outline);border-radius:20px;padding:6px 14px;font-family:'Fredoka',sans-serif;font-size:clamp(15px,3vw,21px);
+  color:var(--navy);box-shadow:0 4px 0 var(--outline);z-index:3;transition:transform .25s cubic-bezier(.3,1.6,.5,1)}
+.sbub:empty{display:none}
+.sbub.on{transform:translateX(-50%) scale(1)}
+.sbub.think{font-size:44px;padding:2px 14px;border-radius:30px}
+.keeper .sbub{left:92%;bottom:62%;transform:scale(0);transform-origin:0 100%}
+.keeper .sbub.on{transform:scale(1)}
+.coin{display:inline-block;width:30px;height:30px;border-radius:50%;vertical-align:middle;flex:none;
+  background:radial-gradient(circle at 35% 30%,#fff6b8 0 12%,#ffd94a 13% 58%,#f5b301 59% 72%,#c98a00 73%);
+  box-shadow:0 3px 0 #a87200,inset 0 0 0 3px #f5b301;position:relative}
+.coin::after{content:"★";position:absolute;inset:0;display:grid;place-items:center;font-size:15px;color:#c98a00}
+.coin.big{width:.8em;height:.8em}.coin.big::after{font-size:.42em}
+.coin.in{animation:popin .3s both}
+.coins{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;max-width:360px;margin-top:10px}
+.coins .coin{width:44px;height:44px}.coins .coin::after{font-size:22px}
+.coins .coin.counted{animation:count .4s ease-out;box-shadow:0 3px 0 #a87200,0 0 0 4px #fff6b8}
+.pricecard{position:relative;display:inline-block}.pricecard .tag{position:absolute;right:-30px;top:-6px;font-family:'Fredoka',sans-serif;font-size:30px;
+  min-width:54px;height:54px;line-height:48px;text-align:center;border-radius:14px 26px 26px 14px;background:#fff6b8;border:3px solid var(--gold);color:var(--navy);transform:rotate(10deg)}
+.purse{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:min(520px,94vw);padding:12px 16px;border-radius:26px;
+  background:linear-gradient(180deg,#ff8fc0,var(--pink2));border:4px solid var(--navy);box-shadow:0 6px 0 var(--navy)}
+.purse .cbtn{width:clamp(46px,9vw,58px);height:clamp(46px,9vw,58px);border:0;transition:transform .15s,opacity .2s}
+.purse .cbtn::after{font-size:clamp(20px,4vw,26px)}
+.purse .cbtn:active{transform:scale(.9)}
+.purse .cbtn.paid{opacity:.15;transform:scale(.6);pointer-events:none}
+.paybtn{align-self:center;font-size:30px;font-weight:700;padding:10px 34px;border-radius:999px;color:var(--navy);background:linear-gradient(180deg,#fff7c9,var(--yellow));
+  border:4px solid var(--gold);box-shadow:0 6px 0 var(--gold);animation:pulse 1.6s ease-in-out infinite}
+.paybtn:active{transform:translateY(4px);box-shadow:0 2px 0 var(--gold)}
+.opt.price{display:flex;align-items:center;gap:8px;font-size:44px}
+.opt.price .coin{width:38px;height:38px}
+.manners .mfx{position:absolute;left:-20px;top:20%;font-size:46px;z-index:3;animation:bob 1.4s ease-in-out infinite}
+@media(max-width:640px){.shop{width:min(470px,92vw)}.counter{min-height:80px}.tray{min-width:110px}.tray .slot,.tray .coin{width:24px;height:24px}
+  .tray .coin::after{font-size:12px}.opt.price{font-size:36px}}
+.moneyvis{display:flex;flex-direction:column;align-items:center;gap:6px}
+.prompt .coin{width:.9em;height:.9em}.prompt .coin::after{font-size:.5em}
+@media(max-width:640px){.keeper{left:10px;bottom:40px}.shelf{margin-bottom:62px}.keeper img{width:96px}}
+
+/* ======================================================================
+   ŚWIAT 11: PRZYGODA — skrzyżowanie dróg, porównania, zegar
+   ====================================================================== */
+.world11{background:linear-gradient(180deg,rgba(139,94,52,.2),rgba(124,198,106,.16) 60%,rgba(255,255,255,0))}
+.isle.w11{background:radial-gradient(ellipse at 50% 32%,#fff 0 30%,#f6e7c1 31% 56%,#6fae55 57% 70%,#d9b98a 71%);box-shadow:0 10px 0 #7a5a33,0 16px 30px rgba(122,90,51,.3)}
+.isle.w11::before{content:"🗺️";position:absolute;left:5%;top:8%;font-size:clamp(16px,2.8vh,24px)}
+body[data-w="11"]{background:linear-gradient(180deg,#d9f0c9 0%,#f6efd9 50%,#f1e2c2 100%)}
+body[data-w="11"] .sky::after{bottom:0;height:22vh;opacity:.35;background:
+  radial-gradient(ellipse 18% 70% at 6% 100%,#4f8f3a 0 98%,transparent 100%),radial-gradient(ellipse 14% 90% at 20% 100%,#3f7a2e 0 98%,transparent 100%),
+  radial-gradient(ellipse 16% 80% at 80% 100%,#3f7a2e 0 98%,transparent 100%),radial-gradient(ellipse 20% 60% at 96% 100%,#4f8f3a 0 98%,transparent 100%)}
+body[data-w="11"] .arena::before{background:radial-gradient(ellipse at 50% 40%,#c9e8a8,#93c96d 70%);border-color:#6fa64c}
+.cross{position:relative;z-index:1;width:min(420px,86vw);aspect-ratio:1/1;margin:0 auto}
+.cross .road{position:absolute;background:repeating-linear-gradient(90deg,#e8d3a6 0 18px,#dcc28e 18px 36px);border:4px solid #b9935a;border-radius:20px}
+.cross .road.h{left:10%;right:10%;top:39%;height:22%}
+.cross .road.v{top:10%;bottom:10%;left:39%;width:22%;background:repeating-linear-gradient(0deg,#e8d3a6 0 18px,#dcc28e 18px 36px)}
+.roadend{position:absolute;width:24%;aspect-ratio:1/1;border-radius:50%;background:#fff;border:4px solid var(--outline);box-shadow:0 5px 0 var(--outline);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;transition:transform .12s;animation:popin .4s both}
+.roadend:active{transform:scale(.92)}
+.roadend.e-straight{left:38%;top:0}.roadend.e-back{left:38%;bottom:0}.roadend.e-left{left:0;top:38%}.roadend.e-right{right:0;top:38%}
+.roadend .loot{font-size:clamp(28px,6vw,40px);line-height:1;transition:transform .4s,opacity .4s}
+.roadend .loot.got{transform:scale(1.6) translateY(-30px);opacity:0}
+.roadend .arrow{font-size:clamp(14px,3vw,20px);opacity:.75}
+.roadend.wrong{animation:nope .5s ease-in-out}
+.roadend.hint{animation:glow2 1s ease-in-out infinite}
+.roadend:disabled{opacity:1;cursor:default}
+.walker{position:absolute;left:34%;top:30%;width:32%;display:flex;justify-content:center;pointer-events:none;z-index:2;transition:transform .9s ease-in-out}
+.walker img{width:100%;max-width:120px;filter:drop-shadow(0 8px 5px rgba(80,60,20,.3));animation:bob 2.4s ease-in-out infinite}
+.walker.walking img{animation:walkbob .3s ease-in-out infinite}
+.walker.faceL img{transform:scaleX(-1)}
+@keyframes walkbob{50%{translate:0 -8px}}
+.cmprow{position:relative;z-index:1;display:flex;align-items:flex-end;justify-content:center;gap:clamp(20px,8vw,80px);width:100%}
+.cmprow.track{padding-bottom:10px;border-bottom:6px dashed rgba(255,255,255,.8)}
+.cmpmon{background:none;padding:0;display:flex;flex-direction:column;align-items:center;gap:6px}
+.cmpmon img{height:auto;filter:drop-shadow(0 10px 6px rgba(70,80,160,.25));animation:bob 2.6s ease-in-out infinite}
+.cmpmon .cname{font-family:'Fredoka',sans-serif;font-size:clamp(16px,3.4vw,22px);color:var(--navy);background:#fff;border:3px solid var(--outline);border-radius:999px;padding:2px 12px}
+.cmpmon.pick .cname{background:var(--yellow);border-color:var(--gold)}
+.cmpmon.hint img{animation:glow 1s ease-in-out infinite}
+.cmpmon.wrong{animation:nope .5s ease-in-out}
+.cmpmon:disabled{opacity:1;cursor:default}
+.cmpmon.run img{animation:race var(--dur,1s) ease-in forwards}
+@keyframes race{0%{transform:translateX(0)}70%{transform:translateX(38vw);opacity:1}71%{opacity:0}72%{transform:translateX(-38vw);opacity:0}100%{transform:translateX(0);opacity:1}}
+.learn .cmprow{align-items:flex-end}
+.clock{position:relative;width:150px;aspect-ratio:1/1;border-radius:50%;background:radial-gradient(circle,#fff 0 62%,#fff9e0 63%);border:6px solid var(--navy);box-shadow:0 6px 0 var(--outline)}
+.clock.big{width:clamp(200px,44vw,260px)}
+.clock .cn{position:absolute;left:50%;top:50%;width:2em;margin:-.6em 0 0 -1em;text-align:center;font-family:'Fredoka',sans-serif;font-weight:700;color:var(--navy);
+  font-size:clamp(13px,2.6vw,17px);transform:rotate(var(--a)) translateY(-300%) rotate(calc(-1 * var(--a)))}
+.clock.big .cn{font-size:clamp(17px,3.6vw,24px)}
+.clock .hand{position:absolute;left:50%;bottom:50%;transform-origin:50% 100%;border-radius:6px}
+.clock .hr{width:9px;height:26%;margin-left:-4.5px;background:var(--pink2)}
+.clock .mn{width:5px;height:38%;margin-left:-2.5px;background:var(--navy)}
+.clock .pin{position:absolute;left:50%;top:50%;width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;background:var(--navy)}
+.clockrow{position:relative;z-index:1;display:flex;gap:clamp(10px,3vw,26px);justify-content:center;flex-wrap:wrap}
+.clockbtn{background:none;padding:6px;border-radius:50%;transition:transform .12s;animation:popin .4s both}
+.clockbtn:nth-child(2){animation-delay:.08s}.clockbtn:nth-child(3){animation-delay:.16s}
+.clockbtn.right .clock{border-color:var(--gold);box-shadow:0 0 0 6px var(--yellow),0 6px 0 var(--gold)}
+.clockbtn.wrong{animation:nope .5s ease-in-out}
+.clockbtn.hint .clock{animation:glow2 1s ease-in-out infinite}
+.clockwrap{position:relative;z-index:1;display:flex;justify-content:center}
+.opt.hour{font-size:40px;min-width:120px}
+@media(max-width:640px){.clockrow .clock{width:104px}.clock .cn{font-size:12px}.opt.hour{font-size:32px;min-width:96px}}
+
+/* ======================================================================
+   ŚWIAT 12: HISTORYJKI — zdjęcia „z wczoraj", bajki, mikrofon
+   ====================================================================== */
+.world12{background:linear-gradient(180deg,rgba(91,75,176,.22),rgba(255,180,140,.16) 60%,rgba(255,255,255,0))}
+.isle.w12{background:radial-gradient(ellipse at 50% 32%,#fff 0 30%,#e6dcff 31% 56%,#8a6fd0 57% 70%,#ffd9b8 71%);box-shadow:0 10px 0 #5b4bb0,0 16px 30px rgba(91,75,176,.3)}
+.isle.w12::before{content:"🌙";position:absolute;left:5%;top:8%;font-size:clamp(16px,2.8vh,24px)}
+body[data-w="12"]{background:linear-gradient(180deg,#c9bdf2 0%,#efe3f7 50%,#ffe3cf 100%)}
+body[data-w="12"] .sun{background:radial-gradient(circle,#fffbe6 0 40%,#fff3b0 41% 55%,rgba(255,243,176,0) 56%);animation:none}
+body[data-w="12"] .sky::before{inset:0 0 55% 0;opacity:.7;background:radial-gradient(circle,#fff 0 1.5px,transparent 2.5px) 0 0/120px 110px;animation:twinkle 3.4s ease-in-out infinite}
+body[data-w="12"] .arena::before{background:radial-gradient(ellipse at 50% 40%,#e9e0ff,#c5b4f0 70%);border-color:#9d88dd}
+.photorow{position:relative;z-index:1;display:flex;gap:clamp(10px,3vw,26px);justify-content:center;flex-wrap:wrap}
+.photo{position:relative;background:#fffdf6;padding:12px 12px 34px;border-radius:8px;box-shadow:0 8px 18px rgba(80,60,40,.25),0 0 0 1px #e8dcc4;
+  transform:rotate(-3deg);transition:transform .15s;animation:popin .45s both}
+.photo:nth-child(2){transform:rotate(2deg);animation-delay:.08s}.photo:nth-child(3){transform:rotate(-1deg);animation-delay:.16s}
+.photo:active{transform:scale(.96)}
+.photo .mon{background:linear-gradient(180deg,#fdf2d8,#f1dfb6);border-radius:4px;width:clamp(120px,22vw,170px);aspect-ratio:1/1;justify-content:center;overflow:hidden;filter:sepia(.25)}
+.photo .mon img{width:78%}
+.photo.big .mon{width:clamp(180px,40vw,240px)}
+.photo .ptag{position:absolute;left:0;right:0;bottom:6px;text-align:center;font-family:'Fredoka',sans-serif;font-size:15px;color:#8a6a3a}
+.photo.right{box-shadow:0 0 0 6px var(--yellow),0 8px 18px rgba(80,60,40,.25)}
+.photo.wrong{animation:nope .5s ease-in-out}
+.photo.hint{animation:glow2 1s ease-in-out infinite}
+.photo:disabled{cursor:default}
+.saybox{position:relative;z-index:1;display:flex;align-items:flex-end;gap:20px}
+.micbtn{position:relative;width:110px;height:110px;border-radius:50%;font-size:52px;background:linear-gradient(180deg,#ff8fc0,var(--pink2));
+  border:5px solid var(--navy);box-shadow:0 8px 0 var(--navy);animation:pulse 1.6s ease-in-out infinite}
+.micbtn:disabled{animation:none;opacity:.85}
+.micbtn .ring{position:absolute;inset:-12px;border-radius:50%;border:6px solid #ff6fae;opacity:0}
+.micbtn.rec{background:linear-gradient(180deg,#ff6b6b,#d63031)}
+.micbtn.rec .ring{animation:micring 1s ease-out infinite}
+@keyframes micring{0%{transform:scale(.85);opacity:.9}100%{transform:scale(1.35);opacity:0}}
+.micbtn.think{background:linear-gradient(180deg,#ffe58a,var(--yellow))}
+.micbtn.think::after{content:"…";position:absolute;left:0;right:0;bottom:-46px;font-size:40px;color:var(--navy);animation:pulse 1s infinite}
+.saidbtn{font-size:30px;font-weight:700;padding:14px 36px;border-radius:999px;color:#fff;background:linear-gradient(180deg,#7fd36b,var(--green));
+  border:4px solid #3d8a2f;box-shadow:0 7px 0 #3d8a2f;animation:pulse 1.6s ease-in-out infinite}
+.photo .pact{position:absolute;right:14px;top:14px;z-index:3;font-size:clamp(26px,5vw,36px);filter:drop-shadow(0 2px 2px rgba(0,0,0,.2))}
+.saybox .big-ic{font-size:clamp(80px,16vw,120px);line-height:1}
+
+/* ======================================================================
+   DRUŻYNA POKÉMONÓW + RAPORT DLA RODZICA
+   ====================================================================== */
+.buddies{position:fixed;left:10px;bottom:10px;z-index:6;display:flex;gap:4px;pointer-events:none}
+.buddy{position:relative;width:clamp(54px,9vw,74px);background:rgba(255,255,255,.75);border:3px solid var(--outline);border-radius:18px;padding:3px 3px 14px;box-shadow:0 3px 0 var(--outline)}
+.buddy img{width:100%;display:block;animation:bob 2.6s ease-in-out infinite}
+.buddy:nth-child(2) img{animation-delay:-.8s}.buddy:nth-child(3) img{animation-delay:-1.6s}
+.buddy b{position:absolute;left:0;right:0;bottom:1px;text-align:center;font-family:'Fredoka',sans-serif;font-size:12px;color:var(--navy)}
+.buddy.cheer{animation:cheer .6s ease-out}
+@keyframes cheer{30%{transform:translateY(-22px) rotate(-6deg)}60%{transform:translateY(0) rotate(4deg)}}
+.teamchip{display:inline-flex;gap:2px;align-items:center;background:#fff;border:3px solid var(--outline);border-radius:999px;padding:2px 10px;box-shadow:0 3px 0 var(--outline)}
+.teamchip img{width:34px;height:34px;object-fit:contain}
+.teambar{display:flex;flex-wrap:wrap;align-items:center;gap:10px;max-width:1000px;width:100%;margin:4px auto 6px;padding:8px 18px;font-family:'Fredoka',sans-serif;color:var(--navy)}
+.teambar>b{font-size:20px}
+.teambar small{flex-basis:100%;color:var(--ink);opacity:.8;font-size:14px}
+.tslot{display:flex;flex-direction:column;align-items:center;width:92px;background:#fff;border:3px solid var(--gold);border-radius:18px;padding:4px;box-shadow:0 4px 0 var(--gold)}
+.tslot img{width:62px;height:62px;object-fit:contain}
+.tslot span{font-size:13px}.tslot em{font-style:normal;font-size:12px;color:var(--pink2)}
+.tslot.empty{justify-content:center;height:96px;font-size:34px;color:var(--dim);border-style:dashed;border-color:var(--outline);box-shadow:none;background:rgba(255,255,255,.5)}
+.teambtn{white-space:nowrap}
+.report{background:#f6f3ff;border:2px solid var(--outline);border-radius:18px;padding:10px 16px;margin:8px 0 14px}
+.report h4{margin-top:0}
+.report .small,.parent .small{font-size:.85em;opacity:.75}
+.rbars{display:flex;align-items:flex-end;gap:6px;height:60px;margin:6px 0}
+.rbars i{flex:1;background:linear-gradient(180deg,var(--pink),var(--navy));border-radius:6px 6px 2px 2px;min-height:3px}
+@media(max-width:640px){.buddy{width:50px}.buddies{bottom:6px;left:6px}}
+/* „Your turn!": mikrofon słucha / usłyszał */
+.yourturn.listening{border-color:#ff6b6b;background:#fff0f0}
+.yourturn.listening .mic{animation:pulse .6s ease-in-out infinite}
+.yourturn.heard{border-color:var(--green);background:#eaffe3}
+/* ewolucja */
+.evo img{width:clamp(180px,40vw,280px);filter:drop-shadow(0 12px 8px rgba(70,80,160,.3));animation:bob 2.4s ease-in-out infinite}
+.evo img.evolving{filter:brightness(0) invert(1) drop-shadow(0 0 22px #fff) drop-shadow(0 0 40px #ffd94a);animation:pulse .35s ease-in-out infinite}
+.evo img.evolved{animation:popin .6s cubic-bezier(.3,1.6,.5,1)}
+.opt.evochoice{flex-direction:column;height:auto;padding:8px;display:flex;align-items:center}
+.opt.evochoice img{width:80px;height:80px;object-fit:contain}.opt.evochoice small{font-size:14px}
+.evohint{font-family:'Fredoka',sans-serif;color:var(--pink2);font-size:17px;margin-top:6px}
+
+/* ======================================================================
+   ŚWIAT 13: PODRÓŻE — pojazdy, rodzina, liczba mnoga
+   ====================================================================== */
+.world13{background:linear-gradient(180deg,rgba(63,167,181,.22),rgba(247,215,148,.18) 60%,rgba(255,255,255,0))}
+.isle.w13{background:radial-gradient(ellipse at 50% 32%,#fff 0 30%,#d4f1f4 31% 56%,#3fa7b5 57% 70%,#f7d794 71%);box-shadow:0 10px 0 #2b7c87,0 16px 30px rgba(43,124,135,.3)}
+.isle.w13::before{content:"🧳";position:absolute;left:5%;top:8%;font-size:clamp(16px,2.8vh,24px)}
+body[data-w="13"]{background:linear-gradient(180deg,#bfe9ff 0%,#e8f7ff 50%,#ffe9b8 100%)}
+body[data-w="13"] .arena::before{background:radial-gradient(ellipse at 50% 40%,#d8f3f6,#9fd8de 70%);border-color:#5fb3bd}
+.ride{background:linear-gradient(180deg,#8fd0ff,#d7f0ff)}
+.ride .track{left:0;right:0;bottom:0;height:22%;z-index:1}
+.ride.way-road .track{background:linear-gradient(#7d7f8c,#5d5f6c);border-top:5px solid #7fcf63}
+.ride.way-road .track::after{content:"";position:absolute;left:0;right:0;top:45%;height:5px;background:repeating-linear-gradient(90deg,#fff 0 24px,transparent 24px 48px)}
+.ride.way-rails .track{height:15%;background:repeating-linear-gradient(90deg,#8a5a34 0 10px,transparent 10px 30px),linear-gradient(#c9b79c,#a8916f);border-top:6px solid #6d6f7a}
+.ride.way-water{background:linear-gradient(180deg,#9ad8ff,#d7f0ff)}
+.ride.way-water .track{height:30%;background:linear-gradient(#5ab3f0,#2f7fd0)}
+.ride.way-air{background:linear-gradient(180deg,#5cb8ff,#cdeeff)}
+.ride.way-air .track{display:none}
+.ride .cloud{font-size:clamp(22px,4vw,40px);opacity:.9;z-index:1}
+.ride .cloud.c1{left:8%;top:10%}.ride .cloud.c2{right:10%;top:22%}
+.ride .veh{position:absolute;left:0;right:0;bottom:12%;z-index:2;display:flex;flex-direction:column;align-items:center}
+.ride.way-water .veh{bottom:16%}.ride.way-air .veh{bottom:30%}
+.ride .vem{font-size:clamp(54px,9vw,90px);line-height:1;position:relative;z-index:2}
+.ride.big .vem{font-size:clamp(96px,17vw,150px)}
+.ride .rider img{width:clamp(40px,7vw,64px);margin-bottom:-22%;display:block;animation:bob 2.4s ease-in-out infinite}
+.ride.big .rider img{width:clamp(70px,12vw,104px)}
+.ride .veh.go{animation:drive 2.2s ease-in-out}
+@keyframes drive{0%{transform:translateX(0)}45%{transform:translateX(-120%)}46%{transform:translateX(120%)}100%{transform:translateX(0)}}
+.learn .scene.ride.big{max-width:420px}
+.famphoto{position:relative;z-index:1;display:flex;align-items:flex-end;justify-content:center;gap:clamp(4px,1.6vw,14px);flex-wrap:wrap;
+  background:#fffdf6;padding:16px 16px 20px;border-radius:12px;box-shadow:0 8px 18px rgba(80,60,40,.25),0 0 0 1px #e8dcc4;max-width:640px;transform:rotate(-1deg)}
+.fm{display:flex;flex-direction:column;align-items:center;background:none;border-radius:18px;padding:4px 6px;animation:none}
+.fm .fe{font-size:clamp(50px,9vw,88px);line-height:1}
+.famphoto.play .fm .fe{font-size:clamp(62px,11vw,100px)}
+.fm small{font-family:'Fredoka',sans-serif;font-size:16px;color:#8a6a3a}
+.fm.me img{width:clamp(66px,11vw,104px);animation:bob 2.4s ease-in-out infinite}
+.fm .metag{font-family:'Fredoka',sans-serif;font-size:14px;color:var(--pink2)}
+.fm:disabled{cursor:default}
+.famphoto:not(.play) .fm:not(.hi):not(.me){opacity:.4}
+.fm.hi{background:#fff3c4;box-shadow:0 0 0 4px var(--yellow)}
+.fm.hi .fe{animation:bob 1.6s ease-in-out infinite}
+.fm.right{background:#fff3c4;box-shadow:0 0 0 5px var(--yellow)}
+.fm.hint{animation:glow2 1s ease-in-out infinite}
+.grp{background:linear-gradient(180deg,#fffaf0,#ffeccc);display:flex;flex-wrap:wrap;align-content:center;justify-content:center;gap:2px 6px;padding:8px}
+.grp span{font-size:clamp(26px,4.6vw,44px);line-height:1.1;animation:popin .4s both}
+.grp span:nth-child(2){animation-delay:.07s}.grp span:nth-child(3){animation-delay:.14s}.grp span:nth-child(4){animation-delay:.21s}.grp span:nth-child(5){animation-delay:.28s}
+.grp.big{max-width:440px}.grp.big span{font-size:clamp(44px,8vw,74px)}
+.grp.one span{font-size:clamp(48px,8vw,74px)}
+.manyrow{position:relative;z-index:1;display:flex;align-items:center;gap:10px;width:100%;max-width:560px}
+.manyrow .grp{flex:1}.manyrow .grp.one{flex:0 0 30%;aspect-ratio:1/1}
+.manyrow .arr{font-size:clamp(28px,5vw,44px);color:var(--navy)}
+.manyrow .grp:not(.one) span{font-size:clamp(34px,6vw,58px)}
+
+/* ======================================================================
+   ŚWIAT 14: CUDOWNE WYSPY — domy Pokémonów, hobby, kształty
+   ====================================================================== */
+.world14{background:linear-gradient(180deg,rgba(255,143,184,.22),rgba(199,240,216,.2) 60%,rgba(255,255,255,0))}
+.isle.w14{background:radial-gradient(ellipse at 50% 32%,#fff 0 30%,#ffe0f0 31% 56%,#ff8fb8 57% 70%,#c7f0d8 71%);box-shadow:0 10px 0 #c95b8a,0 16px 30px rgba(201,91,138,.3)}
+.isle.w14::before{content:"🌈";position:absolute;left:5%;top:8%;font-size:clamp(16px,2.8vh,24px)}
+body[data-w="14"]{background:linear-gradient(180deg,#ffd6e8 0%,#fff4d6 40%,#d6f5e3 70%,#d6e8ff 100%)}
+body[data-w="14"] .arena::before{background:radial-gradient(ellipse at 50% 40%,#fff0f7,#f7c6dc 70%);border-color:#e391b6}
+.hab .hd{z-index:1;font-size:clamp(30px,6vw,56px);line-height:1}
+.scenes .hab .hd{font-size:clamp(20px,4vw,40px)}
+.hab-forest{background:linear-gradient(180deg,#bfe8ff 0 45%,#7ccf6a 46%,#4fa84a)}
+.hab-forest .t1{left:3%;bottom:26%}.hab-forest .t2{right:4%;bottom:30%}.hab-forest .t3{left:22%;bottom:48%;font-size:.7em}
+.hab-sea{background:linear-gradient(180deg,#9ad8ff 0 40%,#3aa0e8 41%,#1f6fc0)}
+.hab-sea .wave{left:-5%;right:-5%;bottom:0;height:30%;background:#2a7fd0;border-top:6px solid #8fd3ff;opacity:.85;z-index:3}
+.hab-sea .s1{right:7%;bottom:5%;z-index:4;font-size:.7em}
+.hab-mountains{background:linear-gradient(180deg,#cfe6ff,#e9f2ff 60%,#b9c3cf)}
+.hab-mountains .m1{left:0;bottom:4%;font-size:clamp(64px,13vw,124px)}.hab-mountains .m2{right:0;bottom:8%;font-size:clamp(52px,10vw,98px)}
+.scenes .hab-mountains .m1{font-size:clamp(40px,8vw,74px)}.scenes .hab-mountains .m2{font-size:clamp(34px,7vw,62px)}
+.hab-volcano{background:linear-gradient(180deg,#ffc29e,#ff8a64 55%,#8a4434)}
+.hab-volcano .v1{right:2%;bottom:4%;font-size:clamp(64px,13vw,124px)}.scenes .hab-volcano .v1{font-size:clamp(40px,8vw,74px)}
+.hab-volcano .s1{left:6%;bottom:6%}
+.hab-sky{background:linear-gradient(180deg,#4fb0ff,#bfe6ff)}
+.hab-sky .c1{left:4%;top:12%}.hab-sky .c2{right:6%;top:30%}.hab-sky .c3{left:34%;bottom:4%;font-size:1.3em}
+.hab-sky .mon{bottom:26%}
+.hab-snow{background:linear-gradient(180deg,#d4e9ff,#f1f8ff 55%,#fff)}
+.hab-snow .f1{left:7%;top:10%}.hab-snow .f2{right:12%;top:22%}.hab-snow .s1{right:5%;bottom:6%}
+.hab.pop{animation:popin .5s both}
+.learn .scene.hab.big{max-width:420px}
+.shapebox{background:#fff;display:flex;align-items:center;justify-content:center;gap:6%}
+.shp{display:block;filter:drop-shadow(0 4px 0 rgba(0,0,0,.08))}
+.shp.big{height:84%;width:auto}.shp.small{height:42%;width:auto}
+.shapebox.big{max-width:380px}
+.learn .shapebox.teach{max-width:420px}
+.scenes.four{grid-template-columns:repeat(4,1fr)}
+@media(max-width:640px){.scenes.four{grid-template-columns:repeat(2,1fr)}}
+/* poprawki po zrzutach 21.11 */
+.famphoto{width:min(640px,92vw);flex-direction:row}
+.learn .famphoto{width:min(560px,86vw)}
+.manyrow{width:min(540px,86vw)}
+.grp.big{width:min(440px,86vw)}
+.shapebox.big{width:min(380px,80vw)}
+.learn .shapebox.teach{width:min(420px,80vw)}
+.scenes .ride .vem{font-size:clamp(38px,6vw,62px)}
+.scenes .ride .rider img{width:clamp(28px,4.6vw,46px)}
+.ride.way-air .veh{bottom:20%}
+.ride.big.way-air .veh{bottom:26%}
+.learn .ecard.hob.big{width:min(300px,70vw)}
+.scenes .grp span{font-size:clamp(26px,4.4vw,46px)}
+.mon.solo + .qmark{margin-left:-30px}
+.learn .famphoto .fm .fe{font-size:clamp(40px,7vw,68px)}

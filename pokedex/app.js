@@ -54,7 +54,8 @@ const UI={
    {n:'9',pl:'generacji (1996–2026)',en:'generations (1996–2026)'},
    {n:'24',pl:'filmy kinowe',en:'theatrical movies'}],
   cta:[{pl:'Otwórz Pokédex →',en:'Open the Pokédex →',sec:'dex'},
-       {pl:'Zobacz karty',en:'Browse cards',sec:'cards',alt:1}],
+       {pl:'Zobacz karty',en:'Browse cards',sec:'cards',alt:1},
+       {pl:'🎮 Angielski z Pokémonami',en:'🎮 Learn English with Pokémon',href:'angielski/',alt:2}],
   blurbs:[
    {em:'📕',sec:'dex',pl:['Pokédex','Wszystkie {MON} Pokémonów: zdjęcia, opisy, statystyki, ewolucje i to, jak łatwo je złapać.'],
     en:['Pokédex','All {MON} Pokémon: pictures, descriptions, stats, evolutions and how easy they are to catch.']},
@@ -201,7 +202,7 @@ function renderStart(){
  $('hero-title').textContent=T(UI.hero.title);
  $('hero-sub').textContent=T(UI.hero.sub);
  $('hero-stats').innerHTML=UI.hero.stats.map(s=>`<div class="stat"><b>${fillNums(s.n)}</b><span>${T(s)}</span></div>`).join('');
- $('hero-cta').innerHTML=UI.hero.cta.map(c=>`<button class="${c.alt?'alt':''}" onclick="go('${c.sec}')">${T(c)}</button>`).join('');
+ $('hero-cta').innerHTML=UI.hero.cta.map(c=>c.href?`<a class="ctalink alt${c.alt}" href="${c.href}">${T(c)}</a>`:`<button class="${c.alt?'alt':''}" onclick="go('${c.sec}')">${T(c)}</button>`).join('');
  $('start-blurbs').innerHTML=UI.hero.blurbs.map(b=>{const t=b[lang]||b.pl;
   return `<div class="blurb" onclick="go('${b.sec}')"><span class="em">${b.em}</span><h3>${fillNums(t[0])}</h3><p>${fillNums(t[1])}</p></div>`}).join('');
 }
