@@ -9,7 +9,17 @@
   <itunes:author>FutureShow Studio</itunes:author>
   <itunes:explicit>false</itunes:explicit>
   <itunes:category text="News"/>
-  <lastBuildDate>Sat, 21 Nov 2026 18:30:00 +0100</lastBuildDate>
+  <lastBuildDate>Sun, 22 Nov 2026 06:30:00 +0100</lastBuildDate>
+  <item>
+    <title>Napięcia na Bałtyku i niepowodzenie szczytu COP31 na tle przełomowych badań medycznych i sporu dyplomatycznego</title>
+    <link>https://futureshow.pl/wiadomosci/2026-11-22-rano/</link>
+    <guid isPermaLink="true">https://futureshow.pl/wiadomosci/2026-11-22-rano/</guid>
+    <pubDate>Sun, 22 Nov 2026 06:30:00 +0100</pubDate>
+    <description>Ostatnia doba przyniosła napięcia wojskowe wokół Bałtyku oraz impas na szczycie klimatycznym COP31 w Antalyi w sprawie odchodzenia od paliw kopalnych. W Polsce zaostrzył się spór między szefem MSZ a prezydentem o nominacje ambasadorskie, a Sejm uchwalił limity zarobków lekarzy. Na świecie uwagę zwraca obiecujący wynik eksperymentalnej terapii nowotworu u dziecka oraz dymisja ministra edukacji Korei Południowej po skandalu z użyciem sztucznej inteligencji na egzaminach.</description>
+    <enclosure url="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-22-rano.mp3" length="3939939" type="audio/mpeg"/>
+    <itunes:duration>437</itunes:duration>
+    <itunes:episodeType>full</itunes:episodeType>
+  </item>
   <item>
     <title>Moskwa zapowiada odwet za atak na Most Krymski, a NATO zwołuje Radę Północnoatlantycką w sprawie rosyjskich obiektów nad Polską</title>
     <link>https://futureshow.pl/wiadomosci/2026-11-21-wieczor/</link>
