@@ -1,14 +1,14 @@
 {
- "id": "2026-11-22-rano",
- "title": "Napięcia na Bałtyku i niepowodzenie szczytu COP31 na tle przełomowych badań medycznych i sporu dyplomatycznego",
- "label": "Wydanie poranne",
- "edition": "rano",
+ "id": "2026-11-22-wieczor",
+ "title": "Szczyt klimatyczny kończy się fiaskiem, a prokuratura potwierdza trzy rosyjskie pociski manewrujące w Polsce",
+ "label": "Wydanie wieczorne",
+ "edition": "wieczor",
  "date": "2026-11-22",
  "date_pl": "niedziela, 22 listopada 2026",
- "dur": "7:17",
- "secs": 437,
- "lead": "Ostatnia doba przyniosła napięcia wojskowe wokół Bałtyku oraz impas na szczycie klimatycznym COP31 w Antalyi w sprawie odchodzenia od paliw kopalnych. W Polsce zaostrzył się spór między szefem MSZ a prezydentem o nominacje ambasadorskie, a Sejm uchwalił limity zarobków lekarzy. Na świecie uwagę zwraca obiecujący wynik eksperymentalnej terapii nowotworu u dziecka oraz dymisja ministra edukacji Korei Południowej po skandalu z użyciem sztucznej inteligencji na egzaminach.",
- "url": "https://futureshow.pl/wiadomosci/2026-11-22-rano/",
- "audio": "https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-22-rano.mp3",
- "generated": "2026-11-22T06:30:00+01:00"
+ "dur": "6:55",
+ "secs": 415,
+ "lead": "COP31 w tureckiej Antalyi zakończył się bez porozumienia, a prokuratura poinformowała, że według wstępnych ustaleń w Polsce spadły trzy rosyjskie pociski manewrujące Ch-101 z bieżącej produkcji. W tym wydaniu także korweta zniszczona w Bengazi, program mieszkaniowy PiS, rekordowe IPO Anthropic i hiszpańska ustawa o menopauzie.",
+ "url": "https://futureshow.pl/wiadomosci/2026-11-22-wieczor/",
+ "audio": "https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-22-wieczor.mp3",
+ "generated": "2026-11-22T18:30:00+01:00"
 }

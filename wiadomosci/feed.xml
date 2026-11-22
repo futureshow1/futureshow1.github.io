@@ -9,15 +9,25 @@
   <itunes:author>FutureShow Studio</itunes:author>
   <itunes:explicit>false</itunes:explicit>
   <itunes:category text="News"/>
-  <lastBuildDate>Sun, 22 Nov 2026 06:30:00 +0100</lastBuildDate>
+  <lastBuildDate>Sun, 22 Nov 2026 18:30:00 +0100</lastBuildDate>
+  <item>
+    <title>Szczyt klimatyczny kończy się fiaskiem, a prokuratura potwierdza trzy rosyjskie pociski manewrujące w Polsce</title>
+    <link>https://futureshow.pl/wiadomosci/2026-11-22-wieczor/</link>
+    <guid isPermaLink="true">https://futureshow.pl/wiadomosci/2026-11-22-wieczor/</guid>
+    <pubDate>Sun, 22 Nov 2026 18:30:00 +0100</pubDate>
+    <description>COP31 w tureckiej Antalyi zakończył się bez porozumienia, a prokuratura poinformowała, że według wstępnych ustaleń w Polsce spadły trzy rosyjskie pociski manewrujące Ch-101 z bieżącej produkcji. W tym wydaniu także korweta zniszczona w Bengazi, program mieszkaniowy PiS, rekordowe IPO Anthropic i hiszpańska ustawa o menopauzie.</description>
+    <enclosure url="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-22-wieczor.mp3" length="3747867" type="audio/mpeg"/>
+    <itunes:duration>415</itunes:duration>
+    <itunes:episodeType>full</itunes:episodeType>
+  </item>
   <item>
     <title>Napięcia na Bałtyku i niepowodzenie szczytu COP31 na tle przełomowych badań medycznych i sporu dyplomatycznego</title>
     <link>https://futureshow.pl/wiadomosci/2026-11-22-rano/</link>
     <guid isPermaLink="true">https://futureshow.pl/wiadomosci/2026-11-22-rano/</guid>
     <pubDate>Sun, 22 Nov 2026 06:30:00 +0100</pubDate>
-    <description>Ostatnia doba przyniosła napięcia wojskowe wokół Bałtyku oraz impas na szczycie klimatycznym COP31 w Antalyi w sprawie odchodzenia od paliw kopalnych. W Polsce zaostrzył się spór między szefem MSZ a prezydentem o nominacje ambasadorskie, a Sejm uchwalił limity zarobków lekarzy. Na świecie uwagę zwraca obiecujący wynik eksperymentalnej terapii nowotworu u dziecka oraz dymisja ministra edukacji Korei Południowej po skandalu z użyciem sztucznej inteligencji na egzaminach.</description>
-    <enclosure url="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-22-rano.mp3" length="3939939" type="audio/mpeg"/>
-    <itunes:duration>437</itunes:duration>
+    <description>Ostatnia doba przyniosła napięcia wojskowe wokół Bałtyku oraz fiasko szczytu klimatycznego COP31 w Antalyi, na którym spierano się o odchodzenie od paliw kopalnych. W Polsce zaostrzył się konflikt między MSZ a prezydentem o nominacje ambasadorskie, a Sejm uchwalił limity zarobków lekarzy. Na świecie uwagę zwraca obiecujący wynik eksperymentalnej terapii nowotworu u dziecka oraz dymisja ministra edukacji Korei Południowej po skandalu ze ściąganiem przy użyciu sztucznej inteligencji.</description>
+    <enclosure url="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-22-rano.mp3" length="4601163" type="audio/mpeg"/>
+    <itunes:duration>509</itunes:duration>
     <itunes:episodeType>full</itunes:episodeType>
   </item>
   <item>
