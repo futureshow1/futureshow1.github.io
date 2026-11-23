@@ -9,7 +9,27 @@
   <itunes:author>FutureShow Studio</itunes:author>
   <itunes:explicit>false</itunes:explicit>
   <itunes:category text="News"/>
-  <lastBuildDate>Sun, 22 Nov 2026 18:30:00 +0100</lastBuildDate>
+  <lastBuildDate>Mon, 23 Nov 2026 18:30:00 +0100</lastBuildDate>
+  <item>
+    <title>Trzy rosyjskie pociski spadły w Polsce, a w ich ślad poszła skoordynowana dezinformacja</title>
+    <link>https://futureshow.pl/wiadomosci/2026-11-23-wieczor/</link>
+    <guid isPermaLink="true">https://futureshow.pl/wiadomosci/2026-11-23-wieczor/</guid>
+    <pubDate>Mon, 23 Nov 2026 18:30:00 +0100</pubDate>
+    <description>W niedzielę 22 listopada Prokuratura Okręgowa w Lublinie potwierdziła, że trzy obiekty, które spadły w południowo-wschodniej Polsce, były rosyjskimi pociskami manewrującymi. W poniedziałek zebrała się Rada Północnoatlantycka, główny organ polityczny NATO, a Ministerstwo Cyfryzacji odnotowało kampanię dezinformacyjną, w tym deepfake&#x27;i ministrów.</description>
+    <enclosure url="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-23-wieczor.mp3" length="4082667" type="audio/mpeg"/>
+    <itunes:duration>455</itunes:duration>
+    <itunes:episodeType>full</itunes:episodeType>
+  </item>
+  <item>
+    <title>Szczyt klimatyczny bez porozumienia i trzy rosyjskie rakiety nad Polską</title>
+    <link>https://futureshow.pl/wiadomosci/2026-11-23-rano/</link>
+    <guid isPermaLink="true">https://futureshow.pl/wiadomosci/2026-11-23-rano/</guid>
+    <pubDate>Mon, 23 Nov 2026 06:30:00 +0100</pubDate>
+    <description>Najdłuższy w historii szczyt klimatyczny ONZ zakończył się w tureckiej Antalyi bez wspólnej deklaracji, a w nocy rosyjskie uderzenia zabiły kilkunastu mieszkańców obwodu kijowskiego. Prokuratura potwierdziła, że nad Polską przeleciały trzy rakiety, nie dwie. Dwa filary bezpieczeństwa — klimatyczny i wojskowy — osłabły w tym samym tygodniu.</description>
+    <enclosure url="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-23-rano.mp3" length="3463899" type="audio/mpeg"/>
+    <itunes:duration>385</itunes:duration>
+    <itunes:episodeType>full</itunes:episodeType>
+  </item>
   <item>
     <title>Szczyt klimatyczny kończy się fiaskiem, a prokuratura potwierdza trzy rosyjskie pociski manewrujące w Polsce</title>
     <link>https://futureshow.pl/wiadomosci/2026-11-22-wieczor/</link>
