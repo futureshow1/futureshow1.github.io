@@ -1,14 +1,14 @@
 {
- "id": "2026-11-24-rano",
- "title": "Zachodnie wywiady ostrzegają przed rosyjskim satelitą z głowicą jądrową, a nad Lubelszczyzną krążył rosyjski dron",
- "label": "Wydanie poranne",
- "edition": "rano",
+ "id": "2026-11-24-wieczor",
+ "title": "Polska wręcza Rosji notę za pociski, a agenci AI sami znajdują nieznaną lukę",
+ "label": "Wydanie wieczorne",
+ "edition": "wieczor",
  "date": "2026-11-24",
  "date_pl": "wtorek, 24 listopada 2026",
- "dur": "6:37",
- "secs": 397,
- "lead": "Według niemieckich mediów Rosja może w ciągu kilku tygodni wynieść na orbitę satelitę z bronią jądrową, a nad Polską po raz drugi w ciągu kilku dni pojawił się rosyjski obiekt wojskowy. W Waszyngtonie prezydent Donald Trump osobiście doprowadził do przywrócenia szefa Nvidii, a w matematyce dowód stworzony z pomocą sztucznej inteligencji przeszedł weryfikację maszynową, choć nikt go jeszcze nie rozumie.",
- "url": "https://futureshow.pl/wiadomosci/2026-11-24-rano/",
- "audio": "https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-24-rano.mp3",
- "generated": "2026-11-24T06:30:00+01:00"
+ "dur": "7:50",
+ "secs": 470,
+ "lead": "Ambasador Rosji usłyszał, co Polska sądzi o trzech pociskach manewrujących, które w piątek spadły na jej terytorium. Druga ważna wiadomość dotyczy bezpieczeństwa sieci: zespół Amazona opisał atak, w którym agenci sztucznej inteligencji sami znaleźli nieznaną lukę i przejęli kontrolę nad serwerem.",
+ "url": "https://futureshow.pl/wiadomosci/2026-11-24-wieczor/",
+ "audio": "https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-24-wieczor.mp3",
+ "generated": "2026-11-24T18:30:00+01:00"
 }

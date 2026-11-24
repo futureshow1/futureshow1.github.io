@@ -9,7 +9,17 @@
   <itunes:author>FutureShow Studio</itunes:author>
   <itunes:explicit>false</itunes:explicit>
   <itunes:category text="News"/>
-  <lastBuildDate>Tue, 24 Nov 2026 06:30:00 +0100</lastBuildDate>
+  <lastBuildDate>Tue, 24 Nov 2026 18:30:00 +0100</lastBuildDate>
+  <item>
+    <title>Polska wręcza Rosji notę za pociski, a agenci AI sami znajdują nieznaną lukę</title>
+    <link>https://futureshow.pl/wiadomosci/2026-11-24-wieczor/</link>
+    <guid isPermaLink="true">https://futureshow.pl/wiadomosci/2026-11-24-wieczor/</guid>
+    <pubDate>Tue, 24 Nov 2026 18:30:00 +0100</pubDate>
+    <description>Ambasador Rosji usłyszał, co Polska sądzi o trzech pociskach manewrujących, które w piątek spadły na jej terytorium. Druga ważna wiadomość dotyczy bezpieczeństwa sieci: zespół Amazona opisał atak, w którym agenci sztucznej inteligencji sami znaleźli nieznaną lukę i przejęli kontrolę nad serwerem.</description>
+    <enclosure url="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-24-wieczor.mp3" length="4215027" type="audio/mpeg"/>
+    <itunes:duration>470</itunes:duration>
+    <itunes:episodeType>full</itunes:episodeType>
+  </item>
   <item>
     <title>Zachodnie wywiady ostrzegają przed rosyjskim satelitą z głowicą jądrową, a nad Lubelszczyzną krążył rosyjski dron</title>
     <link>https://futureshow.pl/wiadomosci/2026-11-24-rano/</link>
