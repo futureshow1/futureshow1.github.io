@@ -9,7 +9,17 @@
   <itunes:author>FutureShow Studio</itunes:author>
   <itunes:explicit>false</itunes:explicit>
   <itunes:category text="News"/>
-  <lastBuildDate>Wed, 25 Nov 2026 06:30:00 +0100</lastBuildDate>
+  <lastBuildDate>Wed, 25 Nov 2026 18:30:00 +0100</lastBuildDate>
+  <item>
+    <title>Polska szykuje strefę zakazu lotów przy granicy, NATO nie popiera zestrzeliwania rosyjskich pocisków nad Ukrainą</title>
+    <link>https://futureshow.pl/wiadomosci/2026-11-25-wieczor/</link>
+    <guid isPermaLink="true">https://futureshow.pl/wiadomosci/2026-11-25-wieczor/</guid>
+    <pubDate>Wed, 25 Nov 2026 18:30:00 +0100</pubDate>
+    <description>Polska szykuje strefę zakazu lotów przy wschodniej granicy, a wiceminister obrony Cezary Tomczyk przyznał, że NATO nie popiera pomysłu zestrzeliwania rosyjskich pocisków nad Ukrainą. Waszyngton proponuje nowe cła na Unię Europejską, a na Wall Street spadają kursy spółek związanych ze sztuczną inteligencją.</description>
+    <enclosure url="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-25-wieczor.mp3" length="4204707" type="audio/mpeg"/>
+    <itunes:duration>466</itunes:duration>
+    <itunes:episodeType>full</itunes:episodeType>
+  </item>
   <item>
     <title>Wyciek z rosyjskiego urzędu statystycznego ujawnia skalę strat wojennych Moskwy, a polskie MSZ protestuje po upadku pocisków Ch-101</title>
     <link>https://futureshow.pl/wiadomosci/2026-11-25-rano/</link>

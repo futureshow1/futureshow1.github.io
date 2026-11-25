@@ -1,14 +1,14 @@
 {
- "id": "2026-11-25-rano",
- "title": "Wyciek z rosyjskiego urzędu statystycznego ujawnia skalę strat wojennych Moskwy, a polskie MSZ protestuje po upadku pocisków Ch-101",
- "label": "Wydanie poranne",
- "edition": "rano",
+ "id": "2026-11-25-wieczor",
+ "title": "Polska szykuje strefę zakazu lotów przy granicy, NATO nie popiera zestrzeliwania rosyjskich pocisków nad Ukrainą",
+ "label": "Wydanie wieczorne",
+ "edition": "wieczor",
  "date": "2026-11-25",
  "date_pl": "środa, 25 listopada 2026",
- "dur": "7:21",
- "secs": 441,
- "lead": "Analiza danych z rosyjskiego urzędu statystycznego wskazuje, że od początku inwazji zginęło co najmniej 490 tysięcy rosyjskich żołnierzy. Polska dyplomacja wystosowała notę protestacyjną po odnalezieniu na swoim terytorium szczątków trzech rosyjskich pocisków manewrujących, a w Waszyngtonie powrót Jensena Huanga na stanowisko prezesa Nvidii po naciskach Donalda Trumpa budzi pytania o bezpieczeństwo narodowe.",
- "url": "https://futureshow.pl/wiadomosci/2026-11-25-rano/",
- "audio": "https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-25-rano.mp3",
- "generated": "2026-11-25T06:30:00+01:00"
+ "dur": "7:46",
+ "secs": 466,
+ "lead": "Polska szykuje strefę zakazu lotów przy wschodniej granicy, a wiceminister obrony Cezary Tomczyk przyznał, że NATO nie popiera pomysłu zestrzeliwania rosyjskich pocisków nad Ukrainą. Waszyngton proponuje nowe cła na Unię Europejską, a na Wall Street spadają kursy spółek związanych ze sztuczną inteligencją.",
+ "url": "https://futureshow.pl/wiadomosci/2026-11-25-wieczor/",
+ "audio": "https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-25-wieczor.mp3",
+ "generated": "2026-11-25T18:30:00+01:00"
 }
