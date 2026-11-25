@@ -9,7 +9,17 @@
   <itunes:author>FutureShow Studio</itunes:author>
   <itunes:explicit>false</itunes:explicit>
   <itunes:category text="News"/>
-  <lastBuildDate>Tue, 24 Nov 2026 18:30:00 +0100</lastBuildDate>
+  <lastBuildDate>Wed, 25 Nov 2026 06:30:00 +0100</lastBuildDate>
+  <item>
+    <title>Wyciek z rosyjskiego urzędu statystycznego ujawnia skalę strat wojennych Moskwy, a polskie MSZ protestuje po upadku pocisków Ch-101</title>
+    <link>https://futureshow.pl/wiadomosci/2026-11-25-rano/</link>
+    <guid isPermaLink="true">https://futureshow.pl/wiadomosci/2026-11-25-rano/</guid>
+    <pubDate>Wed, 25 Nov 2026 06:30:00 +0100</pubDate>
+    <description>Analiza danych z rosyjskiego urzędu statystycznego wskazuje, że od początku inwazji zginęło co najmniej 490 tysięcy rosyjskich żołnierzy. Polska dyplomacja wystosowała notę protestacyjną po odnalezieniu na swoim terytorium szczątków trzech rosyjskich pocisków manewrujących, a w Waszyngtonie powrót Jensena Huanga na stanowisko prezesa Nvidii po naciskach Donalda Trumpa budzi pytania o bezpieczeństwo narodowe.</description>
+    <enclosure url="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-25-rano.mp3" length="3970947" type="audio/mpeg"/>
+    <itunes:duration>441</itunes:duration>
+    <itunes:episodeType>full</itunes:episodeType>
+  </item>
   <item>
     <title>Polska wręcza Rosji notę za pociski, a agenci AI sami znajdują nieznaną lukę</title>
     <link>https://futureshow.pl/wiadomosci/2026-11-24-wieczor/</link>
