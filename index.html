@@ -59,7 +59,6 @@ nav.solid{background:var(--panel);backdrop-filter:blur(14px);
 .navlinks{display:flex;gap:18px;font-size:13.5px;color:var(--dim)}
 .navlinks a{white-space:nowrap}
 @media(max-width:1440px){nav{gap:14px}.navlinks{gap:12px;font-size:13px}nav .search input{width:110px}}
-@media(min-width:1240px) and (max-width:1299px){.navlinks{gap:11px}}
 /* poniżej 1240 px wyszukiwarka zwija się do ikony i rozwija po kliknięciu */
 @media(max-width:1239px){
   nav .search{cursor:pointer}
@@ -330,24 +329,6 @@ footer a{color:var(--dim)} footer a:hover{color:var(--ink)}
 @media(max-width:560px){.an-box{padding:26px 20px 22px}.an-box h3{font-size:26px}
   .an-thumb{width:66px;height:46px;flex-basis:66px}}
 @media(prefers-reduced-motion:reduce){.an-item{transition:none}}
-.ctc{white-space:nowrap}
-.ctc.sup{background:var(--yellow);color:#1a1300;border-color:var(--yellow);font-weight:700;text-decoration:none;padding:8px 10px;letter-spacing:0}
-.ctc.sup{display:inline-flex;align-items:center;gap:5px}.ctc.sup::before,.nav-contact-m[href="wesprzyj/"]::before{content:"\2665  ";color:#e0182d;font-size:19px;line-height:0;font-family:Arial,sans-serif}
-/* janek: personal contact signup */
-.jn-home{margin:40px 4vw 0;padding:34px;border:1px solid var(--line);border-radius:20px;background:linear-gradient(120deg,rgba(111,214,255,.07),rgba(242,201,76,.04));display:grid;grid-template-columns:120px 1fr;gap:30px;align-items:center}
-.jn-photo{width:120px;height:120px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#14304a,#05070c 72%);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;overflow:hidden;font:400 60px/1 var(--disp);color:var(--ink)}
-.jn-photo img{width:100%;height:100%;object-fit:cover}
-.jn-kick{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--yellow)}
-.jn-title{font:400 clamp(30px,4vw,46px)/1 var(--disp);text-transform:uppercase;margin-top:8px}
-.jn-lede{color:var(--dim);font-size:17px;margin-top:10px;max-width:62ch}
-.jn-form{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px;max-width:620px}
-.jn-form input[type=email]{flex:1;min-width:220px;background:#0a0e17;border:1px solid rgba(233,237,245,.18);color:var(--ink);border-radius:12px;padding:14px 16px;font:500 15px var(--sans)}
-.jn-form input[type=email]:focus{outline:2px solid var(--cyan);outline-offset:1px}
-.jn-form button{background:var(--cyan);color:#05131c;border:none;border-radius:12px;padding:14px 20px;font:700 15px var(--sans);cursor:pointer}
-.jn-ok{display:none;color:var(--green);font-weight:700;margin-top:16px}
-.jn-note{display:block;color:var(--faint);font-size:12.5px;margin-top:12px}
-.jn-sup{display:inline-block;margin-top:14px;color:var(--yellow);font-size:14px;font-weight:600;text-decoration:none}.jn-sup:hover{text-decoration:underline}
-@media(max-width:700px){.jn-home{grid-template-columns:1fr;gap:16px;padding:24px 20px}.jn-photo{width:84px;height:84px;font-size:42px}}
 /* wiadomosci:band */
 .brief-band{margin:14px 4vw 0;padding:16px 22px;display:none;align-items:center;gap:18px;flex-wrap:wrap;background:linear-gradient(90deg,rgba(242,201,76,.12),rgba(242,201,76,.02));border:1px solid rgba(242,201,76,.38);border-radius:14px}
 .brief-band.on{display:flex}
@@ -390,13 +371,12 @@ footer a{color:var(--dim)} footer a:hover{color:var(--ink)}
     <a href="szukaj/" data-i="nav_search"></a>
     <a href="studio/" data-i="nav_home"></a>
     <a class="nav-contact-m" href="studio/#contact" data-i="nav_contact"></a>
-    <a class="nav-contact-m" href="wesprzyj/" data-i="nav_sup" style="color:var(--yellow)"></a>
   </div>
   <div class="spacer"></div>
   <button class="sburger" id="sburger" aria-label="Menu">☰</button>
   <div class="search">◉ <input id="q" autocomplete="off"></div>
   <button class="langbtn" id="langbtn">EN</button>
-  <a class="ctc sup" href="wesprzyj/" data-i="nav_sup"></a>
+  <a class="ctc" href="studio/#contact" data-i="nav_order"></a>
 </nav>
 
 <header class="hero" id="hero"></header>
@@ -508,35 +488,6 @@ fetch('wiadomosci/latest.json',{cache:'no-store'}).then(r=>r.json()).then(d=>{
 <!-- /wiadomosci:band -->
 
 <main id="rails"></main>
-
-<section class="jn-home" id="janek">
-  <!-- Photo slot: assets/janek.jpg replaces the monogram when present -->
-  <div class="jn-photo" id="jnPhoto">J</div>
-  <div>
-    <div class="jn-kick" data-i="jn_kick"></div>
-    <h2 class="jn-title" data-i="jn_title"></h2>
-    <p class="jn-lede" data-i="jn_lede"></p>
-    <form class="jn-form" id="jnForm">
-      <input type="hidden" name="access_key" value="41c76e7b-9154-4f68-a910-e76ae4d498f4">
-      <input type="hidden" name="subject" value="[LISTA] Janek — chcę być w kontakcie">
-      <input type="hidden" name="from_name" value="futureshow.pl — strona główna">
-      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
-      <input type="email" name="email" required placeholder="e-mail" aria-label="E-mail">
-      <button type="submit" data-i="jn_btn"></button>
-    </form>
-    <p class="jn-ok" id="jnOk" role="status" data-i="jn_ok"></p>
-    <small class="jn-note" data-i="jn_note"></small>
-    <a class="jn-sup" href="wesprzyj/" data-i="jn_sup"></a>
-  </div>
-</section>
-<script>
-(()=>{const f=document.getElementById('jnForm');if(!f)return;
-const im=new Image();im.onload=()=>{const p=document.getElementById('jnPhoto');p.textContent='';im.alt='Janek';p.appendChild(im)};im.src='assets/janek.jpg';
-f.addEventListener('submit',async e=>{e.preventDefault();const b=f.querySelector('button'),t=b.textContent;b.disabled=true;b.textContent='…';
-  try{const r=await fetch('https://api.web3forms.com/submit',{method:'POST',body:new FormData(f)});const j=await r.json();if(!j.success)throw 0;
-    f.style.display='none';document.getElementById('jnOk').style.display='block'}
-  catch(_){b.disabled=false;b.textContent=t}});})();
-</script>
 
 <section class="studio" id="studio">
   <div class="s-kick" data-i="s_kick"></div>
@@ -1196,12 +1147,11 @@ const UI = {
   of_title:"Zamieniamy trudne tematy w rzeczy do klikania.",
   of_lede:"Robimy to na zamówienie: portale wiedzy, śledztwa, wizualizacje danych, symulatory i gry edukacyjne — dla muzeów, mediów, instytucji kultury i organizacji. Bez reklam i bez kont. Poniżej projekty, które zbudowaliśmy.",
   of_cta:"Zamówienia →",
-  nav_home:"O mnie",nav_apps:"Aplikacje",nav_new:"Nowości",nav_data:"Śledztwa",nav_know:"Wiedza",nav_stream:"Streaming",nav_sim:"Symulatory",nav_games:"Gry",nav_films:"Filmy",nav_hidden:"Niepubliczne",
+  nav_home:"O nas",nav_apps:"Aplikacje",nav_new:"Nowości",nav_data:"Śledztwa",nav_know:"Wiedza",nav_stream:"Streaming",nav_sim:"Symulatory",nav_games:"Gry",nav_films:"Filmy",nav_hidden:"Niepubliczne",
   nav_search:"Szukaj",nav_studio:"Zamówienia",nav_contact:"Kontakt",nav_order:"Zamówienia",search:"szukaj projektu…",
   open:"▶ Otwórz",more:"ⓘ Szczegóły",openFull:{portal:"▶ Otwórz portal",site:"▶ Otwórz stronę",app:"▶ Otwórz aplikację"},
   demo:"✉ Demo na życzenie",close:"Zamknij",
   share:"🔗 Kopiuj link",shared:"✓ Skopiowano",
-  nav_sup:"Wesprzyj",jn_kick:"Bez pośredników",jn_title:"Cześć, tu Janek.",jn_lede:"Nie firma, nie podmiot, nie baza danych. Chcesz być w kontakcie — wpisz się.",jn_btn:"Wpisz mnie",jn_ok:"Dzięki! Odezwę się, kiedy powstanie coś nowego. — Janek",jn_note:"Adres trafi tylko do mojej skrzynki, nie do systemu mailingowego. Piszę rzadko. Wypisanie: odpisz „stop”.",jn_sup:"A jeśli chcesz, żeby portale zostały darmowe — wesprzyj →",
   s_kick:"Zamówienia",s_title:"Złożone idee, interaktywnie.",
   s_lede:"FutureShow buduje interaktywne śledztwa, portale wiedzy, symulacje i gry edukacyjne — dla muzeów, mediów, edukacji i NGO. Wszystko statyczne, bez reklam i kont, dwujęzyczne, budowane AI-natywnie.",
   s_cta1:"✉ Napisz do nas",s_cta2:"Zacznij projekt →",
@@ -1211,12 +1161,11 @@ const UI = {
   of_title:"We turn hard subjects into things you can click.",
   of_lede:"We build them to order: knowledge portals, investigations, data visualisations, simulators and educational games — for museums, media, cultural institutions and NGOs. No ads, no accounts. Below: the projects we have built.",
   of_cta:"Commissions →",
-  nav_home:"About me",nav_apps:"Apps",nav_new:"New",nav_data:"Investigations",nav_know:"Knowledge",nav_stream:"Streaming",nav_sim:"Simulators",nav_games:"Games",nav_films:"Films",nav_hidden:"Non-public",
+  nav_home:"About us",nav_apps:"Apps",nav_new:"New",nav_data:"Investigations",nav_know:"Knowledge",nav_stream:"Streaming",nav_sim:"Simulators",nav_games:"Games",nav_films:"Films",nav_hidden:"Non-public",
   nav_search:"Search",nav_studio:"Commissions",nav_contact:"Contact",nav_order:"Commissions",search:"search projects…",
   open:"▶ Open",more:"ⓘ Details",openFull:{portal:"▶ Open portal",site:"▶ Open site",app:"▶ Open app"},
   demo:"✉ Request a demo",close:"Close",
   share:"🔗 Copy link",shared:"✓ Copied",
-  nav_sup:"Support",jn_kick:"No middlemen",jn_title:"Hi, it’s Janek.",jn_lede:"Not a company, not an entity, not a database. Want to stay in touch? Leave your email.",jn_btn:"Count me in",jn_ok:"Thanks! I’ll write when something new is out. — Janek",jn_note:"Your address goes only to my inbox, not to a mailing system. I write rarely. To unsubscribe, reply “stop”.",jn_sup:"Want these portals to stay free? Support them →",
   s_kick:"Commissions",s_title:"Complex ideas, made interactive.",
   s_lede:"FutureShow builds interactive investigations, knowledge portals, simulations and educational games — for museums, media, education and NGOs. All static, no ads, no accounts, bilingual, built AI-natively.",
   s_cta1:"✉ Get in touch",s_cta2:"Start a project →",
