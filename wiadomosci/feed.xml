@@ -9,7 +9,17 @@
   <itunes:author>FutureShow Studio</itunes:author>
   <itunes:explicit>false</itunes:explicit>
   <itunes:category text="News"/>
-  <lastBuildDate>Wed, 25 Nov 2026 18:30:00 +0100</lastBuildDate>
+  <lastBuildDate>Thu, 26 Nov 2026 18:30:00 +0100</lastBuildDate>
+  <item>
+    <title>Bruksela spiera się o 45 miliardów euro dla Ukrainy, a rząd szuka pieniędzy dla Trybunału Konstytucyjnego poza bankiem centralnym</title>
+    <link>https://futureshow.pl/wiadomosci/2026-11-26-wieczor/</link>
+    <guid isPermaLink="true">https://futureshow.pl/wiadomosci/2026-11-26-wieczor/</guid>
+    <pubDate>Thu, 26 Nov 2026 18:30:00 +0100</pubDate>
+    <description>Na szczycie w Brukseli Unia targuje się o 45 mld euro pożyczki dla Ukrainy, a Waszyngton ostrzega ją przed podatkiem cyfrowym. W Polsce rząd kieruje pieniądze do Trybunału Konstytucyjnego przez Bank Gospodarstwa Krajowego, bo bank centralny zamroził jego konta, a w piątek MON podpisze umowę z Palantirem.</description>
+    <enclosure url="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-26-wieczor.mp3" length="4325427" type="audio/mpeg"/>
+    <itunes:duration>482</itunes:duration>
+    <itunes:episodeType>full</itunes:episodeType>
+  </item>
   <item>
     <title>Polska szykuje strefę zakazu lotów przy granicy, NATO nie popiera zestrzeliwania rosyjskich pocisków nad Ukrainą</title>
     <link>https://futureshow.pl/wiadomosci/2026-11-25-wieczor/</link>
