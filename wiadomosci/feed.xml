@@ -9,7 +9,17 @@
   <itunes:author>FutureShow Studio</itunes:author>
   <itunes:explicit>false</itunes:explicit>
   <itunes:category text="News"/>
-  <lastBuildDate>Fri, 27 Nov 2026 06:30:00 +0100</lastBuildDate>
+  <lastBuildDate>Fri, 27 Nov 2026 18:30:00 +0100</lastBuildDate>
+  <item>
+    <title>Biegli: katastrofa smoleńska była wypadkiem, a prezydent Nawrocki wetuje reformę PIT i CIT</title>
+    <link>https://futureshow.pl/wiadomosci/2026-11-27-wieczor/</link>
+    <guid isPermaLink="true">https://futureshow.pl/wiadomosci/2026-11-27-wieczor/</guid>
+    <pubDate>Fri, 27 Nov 2026 18:30:00 +0100</pubDate>
+    <description>Prokuratura Krajowa opublikowała w piątek opinię międzynarodowych biegłych, według której katastrofa smoleńska była wypadkiem, a wybuch jako przyczyna został wykluczony. Kancelaria Prezydenta uważa, że bez wraku nie można formułować zamkniętych wniosków. Tego samego dnia prezydent Karol Nawrocki zawetował rządową reformę PIT i CIT.</description>
+    <enclosure url="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-27-wieczor.mp3" length="3526827" type="audio/mpeg"/>
+    <itunes:duration>391</itunes:duration>
+    <itunes:episodeType>full</itunes:episodeType>
+  </item>
   <item>
     <title>Szczyt Unii zakończył się bez porozumienia w sprawie budżetu, a policja wiąże napisy na warszawskich pomnikach z rosyjskim wywiadem</title>
     <link>https://futureshow.pl/wiadomosci/2026-11-27-rano/</link>

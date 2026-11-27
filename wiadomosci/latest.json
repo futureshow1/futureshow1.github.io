@@ -1,14 +1,14 @@
 {
- "id": "2026-11-27-rano",
- "title": "Szczyt Unii zakończył się bez porozumienia w sprawie budżetu, a policja wiąże napisy na warszawskich pomnikach z rosyjskim wywiadem",
- "label": "Wydanie poranne",
- "edition": "rano",
+ "id": "2026-11-27-wieczor",
+ "title": "Biegli: katastrofa smoleńska była wypadkiem, a prezydent Nawrocki wetuje reformę PIT i CIT",
+ "label": "Wydanie wieczorne",
+ "edition": "wieczor",
  "date": "2026-11-27",
  "date_pl": "piątek, 27 listopada 2026",
- "dur": "6:34",
- "secs": 394,
- "lead": "Szczyt Unii o budżecie na lata 2028–2034 zakończył się w czwartek bez porozumienia, a cztery państwa wyszły z rozmów, więc o pieniądzach, od których zależą polskie fundusze spójności i wsparcie dla Ukrainy, Unia zdecyduje dopiero 17 grudnia albo później. W Warszawie policja podejrzewa, że sprawcy napisów „Slava UPA” na trzech pomnikach, opłaceni tysiącem złotych, mogli działać na rzecz rosyjskiego wywiadu. W technologii Microsoft ostrzega przed otwartym narzędziem AI, po które sięgają chińskie i północnokoreańskie grupy hakerskie.",
- "url": "https://futureshow.pl/wiadomosci/2026-11-27-rano/",
- "audio": "https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-27-rano.mp3",
- "generated": "2026-11-27T06:30:00+01:00"
+ "dur": "6:31",
+ "secs": 391,
+ "lead": "Prokuratura Krajowa opublikowała w piątek opinię międzynarodowych biegłych, według której katastrofa smoleńska była wypadkiem, a wybuch jako przyczyna został wykluczony. Kancelaria Prezydenta uważa, że bez wraku nie można formułować zamkniętych wniosków. Tego samego dnia prezydent Karol Nawrocki zawetował rządową reformę PIT i CIT.",
+ "url": "https://futureshow.pl/wiadomosci/2026-11-27-wieczor/",
+ "audio": "https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-27-wieczor.mp3",
+ "generated": "2026-11-27T18:30:00+01:00"
 }
