@@ -550,7 +550,7 @@ const GALLERY={
  switkowski:["switkowski-1","switkowski-2"], janweb:["janweb-1"],
  swidzinski:["swidzinski-1"],
  przyluski:["przyluski-1","przyluski-2","przyluski-4","przyluski-3"],
- klimat:["klimat-2","klimat-1","klimat-3"], psychedelic:["psychedelic-1"], pokedex:["pokedex-1","pokedex-2","pokedex-3"],
+ klimat:["klimat-2","klimat-1","klimat-3"], psychedelic:["psychedelic-1"], pokedex:["pokedex-1","pokedex-2","pokedex-3"], angielski:["angielski-1","angielski-2","angielski-3","angielski-4","angielski-5"],
  industrial:["industrial-2","industrial-1","industrial-4","industrial-3","industrial-5"],
  polskijazz:["polskijazz-9","polskijazz-10","polskijazz-11","polskijazz-12","polskijazz-1","polskijazz-3"],
  futureform:["futureform-1"], futurepilot:["futurepilot-1","futurepilot-2","futurepilot-3","futurepilot-4"], futuretalk:["futuretalk-2","futuretalk-5","futuretalk-3","futuretalk-6","futuretalk-4","futuretalk-1"], chamczyk:["chamczyk-1"], zem:["zem-1"], emfazy:["emfazy-1"]
@@ -581,6 +581,7 @@ const CREDIT={
  sejm:{pl:"grafika projektu (FutureShow) · fot. gmachu: Januszk57 (CC BY-SA 4.0), Adrian Grycuk (CC BY-SA 3.0 PL) · sala plenarna (domena publiczna)",en:"project graphic (FutureShow) · building photos: Januszk57 (CC BY-SA 4.0), Adrian Grycuk (CC BY-SA 3.0 PL) · plenary hall (public domain)"},
  switkowski:{pl:"rycina: seans Eusapii Palladino (domena publiczna)",en:"plate: Eusapia Palladino seance (public domain)"},
  pokedex:{pl:"grafiki Pokémonów © Nintendo / Creatures / GAME FREAK / The Pokémon Company",en:"Pokémon artwork © Nintendo / Creatures / GAME FREAK / The Pokémon Company"},
+ angielski:{pl:"grafiki Pokémonów © Nintendo / Creatures / GAME FREAK / The Pokémon Company · projekt fanowski, niekomercyjny",en:"Pokémon artwork © Nintendo / Creatures / GAME FREAK / The Pokémon Company · non-commercial fan project"},
  oilgas:{pl:"fot. Adigun Ampa (Unsplash) · rurociąg transalaskański: domena publiczna · Solitaire: CC BY 4.0",en:"photo: Adigun Ampa (Unsplash) · Trans-Alaska pipeline: public domain · Solitaire: CC BY 4.0"},
  przyluski:{pl:"fotografie: archiwum rodzinne",en:"photographs: family archive"}
 };
@@ -847,6 +848,14 @@ kind:"site", t:"Jan Przyłuski", kick:{pl:"Strona · autor",en:"Site · author"}
   d:{pl:"Dwujęzyczna baza wiedzy o Pokémonach: komplet 1025 stworzeń z dziewięciu generacji, 1530 kart TCG według rzadkości, historia gier i anime oraz gry poza ekranem. Nowość: rozszyfrowane symbole rzadkości ze złotymi i srebrnymi gwiazdkami, realne ceny i porównywarka dwóch kart. Plus tryb Trening — klucz do oznaczania jak w botanice, w którym cztery dobre pytania wystarczą, żeby z 1025 stworzeń zostało jedno.",
      en:"A bilingual Pokémon knowledge base: the complete 1,025 creatures across nine generations, 1,530 TCG cards by rarity, the history of the games and the anime, and the games played offline. New: the rarity symbols decoded — gold and silver stars explained — with real prices and a two-card comparator. Plus Training mode, a botanist's identification key where four good questions get you from 1,025 creatures down to one."},
   link:BASE+"pokedex/"},
+ angielski:{
+  t:"Angielski z Pokémonami", kick:{pl:"Gry · nauka angielskiego",en:"Games · learning English"}, badge:{pl:"NOWOŚĆ",en:"NEW"},
+  year:"2026", tag:{pl:"gra dla dzieci 6–9 lat",en:"game for kids aged 6–9"}, font:"disp",
+  pal:{bg:"#122a5c",ink:"#fff8e6",acc:"#ffd94a"}, motif:"ball",
+  stats:["24 światy","100 wysp","15 500 nagranych zdań"],
+  d:{pl:"Darmowa gra do nauki angielskiego dla dzieci 6–9 lat. Najpierw słuchanie, potem mówienie i czytanie: 24 światy i 100 wysp, od kolorów i liczb po pytanie o drogę, plany na jutro, własne historyjki i rozmowy. Powtórki w odstępach, Arena na słowach do utrwalenia, sprawdziany ze świadectwem i raport dla rodzica. Bez kont, reklam i zbierania danych.",
+     en:"A free game that teaches English to children aged 6–9. Listening first, then speaking and reading: 24 worlds and 100 islands, from colours and numbers to asking the way, plans for tomorrow, children's own stories and conversations. Spaced repetition, an Arena for words that need practice, tests with a certificate and a report for parents. No accounts, no ads, no data collection."},
+  link:BASE+"angielski/"},
  industrial:{
   t:"Industrial", kick:{pl:"Streaming · muzyka",en:"Streaming · music"}, badge:{pl:"NOWOŚĆ",en:"NEW"},
   year:"2026", tag:{pl:"katalog płyt",en:"record catalogue"}, font:"disp",
@@ -1068,7 +1077,7 @@ const T_EN = {v_yoshimoto:"Bacteria Called Butoh — Daisuke Yoshimoto", v_butoh
  futurepilot:"FuturePilot: learn to fly a drone", futureform:"FutureForm: your workout app", futuretalk:"FutureTalk: learn to speak well",
  schizogra:"Schizoanalysis: The Game", schizoraport:"Schizoanalysis: The Report",
  ghykakomp:"The Golden Number", switkowski:"Occultism and Magic (1939)",
- klimat:"Climate — an educational portal", polskijazz:"Polish Jazz", industrial:"Industrial", afery:"40 Polish Scandals",
+ klimat:"Climate — an educational portal", polskijazz:"Polish Jazz", industrial:"Industrial", angielski:"English with Pokémon", afery:"40 Polish Scandals",
  aferymock:"40 Scandals: Covers", matrycamock:"Matryca: Covers", sheldrake:"Resonance",
  emfazy:"EMFAZY — archive",
  v_gniew:"Wrath (The Iliad)", v_emfazy:"Emfazy and Psychotronics", v_dzik:"The Legend of the Black Boar",
@@ -1093,7 +1102,7 @@ const STATS_EN = {
  sectio:["dodecahedron","7 chambers","badge system"], swidzinski:["contextual art","12-point manifesto","1923–2014"],
  ghykakomp:["Matila Ghyka","compendium","with appendices"], switkowski:["Świtkowski","1939","compendium"],
  klimat:["9 chapters","map of 239 countries","NASA · NOAA · GCB"], psychedelic:["7 substances","dose levels","2 versions"],
- pokedex:["1025 Pokémon","1332 TCG cards","PL · EN"], polskijazz:["210 records","Polish Jazz vol. 1–89","40 films"], industrial:["248 records","85 from Poland","51 films and talks"],
+ pokedex:["1025 Pokémon","1332 TCG cards","PL · EN"], polskijazz:["210 records","Polish Jazz vol. 1–89","40 films"], industrial:["248 records","85 from Poland","51 films and talks"], angielski:["24 worlds","100 islands","15,500 recorded lines"],
  przyluski:["poet and playwright","1905–1980","London emigration"],
  aferymock:["second series","dashboard","work in progress"], matrycamock:["v3","proposals","behind the scenes"],
  janweb:["director","mediator","art historian"], futureform:["workout app","army fitness norms 1:1","free"],
@@ -1117,7 +1126,7 @@ const ss=p=>(LANG==="en"&&p.stats_en)?p.stats_en:(p.stats||[]);
 
 const ROWS = [
  {id:"r-new", t:{pl:"Nowości i aktualizacje",en:"New & updated"},
-  items:["wiadomosci","industrial","sejm","sluchowiska","kinonieme","futurepilot","klimat","futuretalk","futureform","matryca","polskijazz","pokedex","cardiosim"]},
+  items:["wiadomosci","angielski","industrial","sejm","sluchowiska","kinonieme","futurepilot","klimat","futuretalk","futureform","matryca","polskijazz","pokedex","cardiosim"]},
  {id:"r-know", t:{pl:"Portale wiedzy — czytaj, klikaj, sprawdzaj się",en:"Knowledge portals — read, explore, test yourself"},
   items:["klimat","hinton","pokedex","sheldrake","mondrian","swidzinski","switkowski","ghykakomp","przyluski"]},
  {id:"r-film", t:{pl:"Streaming — kino, animacja, dobranocki, jazz, industrial",en:"Streaming — cinema, animation, cartoons, jazz, industrial"},
@@ -1127,7 +1136,7 @@ const ROWS = [
  {id:"r-sim", t:{pl:"Symulatory",en:"Simulators"},
   items:["cardiosim","psychedelic","nbody","sejm"]},
  {id:"r-games", t:{pl:"Gry — graj i ucz się",en:"Games — play and learn"},
-  items:["sectio","habermas","mnemo","schizogra"]},
+  items:["angielski","sectio","habermas","mnemo","schizogra"]},
  {id:"r-apps", t:{pl:"Aplikacje — za darmo, gotowe",en:"Apps — free, ready"},
   items:["futurepilot","futureform","futuretalk"]},
  {id:"r-vid-ai", t:{pl:"Filmy — shorty AI",en:"Films — AI shorts"},
@@ -1140,7 +1149,7 @@ const ROWS = [
 
 /* kolejność ustalona ręcznie przez Jana (5.10): najpierw nowości, potem przemieszane rodzaje */
 /* kolejność ustalona ręcznie (19.10): dzień premiery Sejm Symulatora — otwiera slideshow */
-const FEATURED = ["sejm", "industrial", "awangarda", "sluchowiska", "hinton", "kinonieme", "pokedex", "futurepilot",
+const FEATURED = ["angielski", "sejm", "industrial", "awangarda", "sluchowiska", "hinton", "kinonieme", "pokedex", "futurepilot",
                   "historia", "klimat", "dobranocki", "sectio", "oilgas", "cardiosim", "polskijazz", "matryca", "mnemo", "futuretalk", "sheldrake", "mondrian", "przyluski"];
 
 const UI = {
@@ -1382,7 +1391,7 @@ const fontFor = f => f==="disp"?"var(--disp)":f==="serif"?"var(--serif)":"var(--
 const wFor = f => f==="disp"?"400":f==="serif"?"600":"800";
 const gal = k => (GALLERY[k]||[]).map(f=>ASSET+f+".jpg");
 /* pionowe plakaty dla kart (hero i modal uzywaja galerii 16:9) */
-const POSTER = {wiadomosci:1,sluchowiska:1,kinonieme:1,futurepilot:1,klimat:1,psychedelic:1,pokedex:1,polskijazz:1,industrial:1,chamczyk:1,zem:1,emfazy:1,matryca:1,oilgas:1,habermas:1,cardiosim:1,afery:1,panama:1,historia:1,cambridge:1,sectio:1,ghykakomp:1,swidzinski:1,schizogra:1};
+const POSTER = {angielski:1,wiadomosci:1,sluchowiska:1,kinonieme:1,futurepilot:1,klimat:1,psychedelic:1,pokedex:1,polskijazz:1,industrial:1,chamczyk:1,zem:1,emfazy:1,matryca:1,oilgas:1,habermas:1,cardiosim:1,afery:1,panama:1,historia:1,cambridge:1,sectio:1,ghykakomp:1,swidzinski:1,schizogra:1};
 /* zdjecia pionowe / kadry filmowe, ktore dobrze znosza przyciecie do 2:3 — reszta pokazuje sie jako pasek 16:9 */
 const FULL = {mnemo:1,mondrian:1,schizogra:1,przyluski:1,hinton:1,switkowski:1,sejm:1,nbody:1,awangarda:1,dobranocki:1};
 Object.keys(VID).forEach(k=>{ FULL[k]=1; });   // filmy: miniatura na całą kartę
@@ -1442,6 +1451,7 @@ const KEYS = {
  klimat:"ocieplenie co2 emisje nasa temperatura lodowce klimat climate warming emissions",
  psychedelic:"lsd psylocybina dmt mdma ketamina mózg neuronauka brain neuroscience",
  pokedex:"pokemon pokémon karty tcg gry anime cards games",
+ angielski:"angielski english nauka języka gra dla dzieci pokemon pokémon słówka lekcje learn english kids game",
  polskijazz:"jazz płyty muzyka komeda stańko winyl trąbka records music vinyl",
  industrial:"industrial noise ebm dark ambient neofolk płyty muzyka throbbing gristle laibach neubauten coil current 93 obuh zamilska records music",
  futureform:"kalistenika trening mon sprawność wojsko ćwiczenia fitness training army",
