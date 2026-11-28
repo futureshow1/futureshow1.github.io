@@ -9,7 +9,17 @@
   <itunes:author>FutureShow Studio</itunes:author>
   <itunes:explicit>false</itunes:explicit>
   <itunes:category text="News"/>
-  <lastBuildDate>Fri, 27 Nov 2026 18:30:00 +0100</lastBuildDate>
+  <lastBuildDate>Sat, 28 Nov 2026 06:30:00 +0100</lastBuildDate>
+  <item>
+    <title>Ukraiński atak w Libii zawraca rosyjski konwój, a Kushner dzieli sojuszników</title>
+    <link>https://futureshow.pl/wiadomosci/2026-11-28-rano/</link>
+    <guid isPermaLink="true">https://futureshow.pl/wiadomosci/2026-11-28-rano/</guid>
+    <pubDate>Sat, 28 Nov 2026 06:30:00 +0100</pubDate>
+    <description>Wojna Rosji z Ukrainą wychodzi poza Europę. Według Reutersa po zatopieniu rosyjskiej korwety w Bengazi zawrócił konwój ze sprzętem wojskowym, a amerykański negocjator Jared Kushner nazwał tę wojnę zastępczą, wywołując oburzenie w Kijowie i w Parlamencie Europejskim. W kraju zarzut w sprawie Pegasusa usłyszał były komendant główny Policji.</description>
+    <enclosure url="https://brief.przyluskijan.workers.dev/wiadomosci/audio/2026-11-28-rano.mp3" length="3717747" type="audio/mpeg"/>
+    <itunes:duration>413</itunes:duration>
+    <itunes:episodeType>full</itunes:episodeType>
+  </item>
   <item>
     <title>Biegli: katastrofa smoleńska była wypadkiem, a prezydent Nawrocki wetuje reformę PIT i CIT</title>
     <link>https://futureshow.pl/wiadomosci/2026-11-27-wieczor/</link>
