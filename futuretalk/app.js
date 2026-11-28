@@ -21,7 +21,7 @@ var I = window.ftIcon;
 var UI = {
 pl: {
   sub:'Trening komunikacji', tab_path:'Ścieżka', tab_train:'Trening', tab_cards:'Fiszki', tab_journal:'Dziennik', tab_progress:'Postęp',
-  install:'Zainstaluj', theme:'Zmień motyw', langTo:'EN', langLabel:'Switch to English',
+  install:'Zainstaluj', installTip:'Dodaj kurs do ekranu telefonu lub komputera — otwiera się jak aplikacja i działa bez internetu', theme:'Zmień motyw', langTo:'EN', langLabel:'Switch to English',
   heroStart:'Zacznij od wstępu', heroNext:'Następna lekcja', heroDone:'Cały kurs za Tobą',
   heroMsg0:'15 krótkich lekcji po ok. 5 minut. Plansze, pytania i jedno ćwiczenie do zrobienia w prawdziwym życiu.',
   heroMsgN:'Jedna lekcja dziennie wystarczy. Codzienność bije intensywność.',
@@ -69,7 +69,7 @@ pl: {
 },
 en: {
   sub:'Communication training', tab_path:'Path', tab_train:'Practice', tab_cards:'Cards', tab_journal:'Journal', tab_progress:'Progress',
-  install:'Install', theme:'Toggle theme', langTo:'PL', langLabel:'Przełącz na polski',
+  install:'Install', installTip:'Add the course to your phone or computer home screen — it opens like an app and works offline', theme:'Toggle theme', langTo:'PL', langLabel:'Przełącz na polski',
   heroStart:'Start with the intro', heroNext:'Next lesson', heroDone:'Course complete',
   heroMsg0:'15 short lessons, about 5 minutes each. Slides, questions and one exercise to do in real life.',
   heroMsgN:'One lesson a day is enough. Consistency beats intensity.',
@@ -782,6 +782,7 @@ function applyLang() {
   document.querySelectorAll('[data-t]').forEach(function (el) { el.textContent = t(el.dataset.t); });
   var lb = q('langbtn'); lb.textContent = t('langTo'); lb.setAttribute('aria-label', t('langLabel')); lb.title = t('langLabel');
   q('themebtn').setAttribute('aria-label', t('theme'));
+  q('installbtn').title = t('installTip');
   q('pclose').setAttribute('aria-label', t('close'));
 }
 function effectiveDark() { return state.theme ? state.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches; }

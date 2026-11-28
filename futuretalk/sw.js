@@ -1,5 +1,5 @@
 /* FutureTalk — service worker: działa offline po pierwszej wizycie. Zmień VERSION przy każdej publikacji. */
-var VERSION = 'ft-2.0.0';
+var VERSION = 'ft-2.0.1';
 var SHELL = ['./', 'index.html', 'app.css', 'app.js', 'icons.js', 'sources.js', 'data-pl.js', 'data-en.js',
   'manifest.webmanifest', 'icon-192.png', 'icon-512.png', 'apple-touch-icon.png'];
 
